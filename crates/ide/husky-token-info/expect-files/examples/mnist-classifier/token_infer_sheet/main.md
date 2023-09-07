@@ -101,7 +101,7 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 2,
+                use_expr_idx: 3,
                 rule_idx: OnceUseRuleIdx(
                     0,
                 ),
@@ -115,7 +115,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 1,
+                use_expr_idx: 2,
                 rule_idx: OnceUseRuleIdx(
                     8,
                 ),
@@ -137,7 +137,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier`,
                                 ),
-                                ast_idx: 16,
+                                ast_idx: 17,
                                 ident_token: IdentToken {
                                     ident: `major`,
                                     token_idx: TokenIdx(
@@ -153,7 +153,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 5,
+                use_expr_idx: 6,
                 rule_idx: OnceUseRuleIdx(
                     1,
                 ),
@@ -167,7 +167,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 4,
+                use_expr_idx: 5,
                 rule_idx: OnceUseRuleIdx(
                     9,
                 ),
@@ -189,7 +189,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier`,
                                 ),
-                                ast_idx: 15,
+                                ast_idx: 16,
                                 ident_token: IdentToken {
                                     ident: `digits`,
                                     token_idx: TokenIdx(
@@ -205,7 +205,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 8,
+                use_expr_idx: 9,
                 rule_idx: OnceUseRuleIdx(
                     2,
                 ),
@@ -219,7 +219,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 7,
+                use_expr_idx: 8,
                 rule_idx: OnceUseRuleIdx(
                     10,
                 ),
@@ -241,7 +241,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier`,
                                 ),
-                                ast_idx: 14,
+                                ast_idx: 15,
                                 ident_token: IdentToken {
                                     ident: `fermi`,
                                     token_idx: TokenIdx(
@@ -258,7 +258,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 11,
+                use_expr_idx: 12,
                 rule_idx: OnceUseRuleIdx(
                     3,
                 ),
@@ -272,7 +272,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 10,
+                use_expr_idx: 11,
                 rule_idx: OnceUseRuleIdx(
                     11,
                 ),
@@ -294,7 +294,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier`,
                                 ),
-                                ast_idx: 11,
+                                ast_idx: 12,
                                 ident_token: IdentToken {
                                     ident: `raw_contour`,
                                     token_idx: TokenIdx(
@@ -310,7 +310,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 14,
+                use_expr_idx: 15,
                 rule_idx: OnceUseRuleIdx(
                     4,
                 ),
@@ -324,7 +324,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 13,
+                use_expr_idx: 14,
                 rule_idx: OnceUseRuleIdx(
                     12,
                 ),
@@ -346,7 +346,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier`,
                                 ),
-                                ast_idx: 13,
+                                ast_idx: 14,
                                 ident_token: IdentToken {
                                     ident: `line_segment_sketch`,
                                     token_idx: TokenIdx(
@@ -362,7 +362,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 17,
+                use_expr_idx: 18,
                 rule_idx: OnceUseRuleIdx(
                     5,
                 ),
@@ -376,7 +376,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 16,
+                use_expr_idx: 17,
                 rule_idx: OnceUseRuleIdx(
                     13,
                 ),
@@ -398,7 +398,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier`,
                                 ),
-                                ast_idx: 10,
+                                ast_idx: 11,
                                 ident_token: IdentToken {
                                     ident: `connected_component`,
                                     token_idx: TokenIdx(
@@ -414,7 +414,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 19,
+                use_expr_idx: 20,
                 rule_idx: OnceUseRuleIdx(
                     6,
                 ),
@@ -432,7 +432,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 21,
+                use_expr_idx: 22,
                 rule_idx: OnceUseRuleIdx(
                     7,
                 ),

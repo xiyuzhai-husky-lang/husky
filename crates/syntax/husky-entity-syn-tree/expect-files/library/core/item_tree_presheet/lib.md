@@ -15,7 +15,7 @@ Ok(
                                 },
                             },
                             visibility: Scope::Pub,
-                            ast_idx: 0,
+                            ast_idx: 1,
                             ident_token: IdentToken {
                                 ident: `array`,
                                 token_idx: TokenIdx(
@@ -49,7 +49,7 @@ Ok(
                                 },
                             },
                             visibility: Scope::Pub,
-                            ast_idx: 1,
+                            ast_idx: 2,
                             ident_token: IdentToken {
                                 ident: `basic`,
                                 token_idx: TokenIdx(
@@ -83,7 +83,7 @@ Ok(
                                 },
                             },
                             visibility: Scope::Pub,
-                            ast_idx: 2,
+                            ast_idx: 3,
                             ident_token: IdentToken {
                                 ident: `clone`,
                                 token_idx: TokenIdx(
@@ -117,7 +117,7 @@ Ok(
                                 },
                             },
                             visibility: Scope::Pub,
-                            ast_idx: 3,
+                            ast_idx: 4,
                             ident_token: IdentToken {
                                 ident: `cmp`,
                                 token_idx: TokenIdx(
@@ -151,7 +151,7 @@ Ok(
                                 },
                             },
                             visibility: Scope::Pub,
-                            ast_idx: 4,
+                            ast_idx: 5,
                             ident_token: IdentToken {
                                 ident: `default`,
                                 token_idx: TokenIdx(
@@ -185,7 +185,7 @@ Ok(
                                 },
                             },
                             visibility: Scope::Pub,
-                            ast_idx: 5,
+                            ast_idx: 6,
                             ident_token: IdentToken {
                                 ident: `fmt`,
                                 token_idx: TokenIdx(
@@ -219,7 +219,7 @@ Ok(
                                 },
                             },
                             visibility: Scope::Pub,
-                            ast_idx: 6,
+                            ast_idx: 7,
                             ident_token: IdentToken {
                                 ident: `logic`,
                                 token_idx: TokenIdx(
@@ -253,7 +253,7 @@ Ok(
                                 },
                             },
                             visibility: Scope::Pub,
-                            ast_idx: 7,
+                            ast_idx: 8,
                             ident_token: IdentToken {
                                 ident: `marker`,
                                 token_idx: TokenIdx(
@@ -287,7 +287,7 @@ Ok(
                                 },
                             },
                             visibility: Scope::Pub,
-                            ast_idx: 8,
+                            ast_idx: 9,
                             ident_token: IdentToken {
                                 ident: `mem`,
                                 token_idx: TokenIdx(
@@ -321,7 +321,7 @@ Ok(
                                 },
                             },
                             visibility: Scope::Pub,
-                            ast_idx: 9,
+                            ast_idx: 10,
                             ident_token: IdentToken {
                                 ident: `num`,
                                 token_idx: TokenIdx(
@@ -355,7 +355,7 @@ Ok(
                                 },
                             },
                             visibility: Scope::Pub,
-                            ast_idx: 10,
+                            ast_idx: 11,
                             ident_token: IdentToken {
                                 ident: `ops`,
                                 token_idx: TokenIdx(
@@ -389,7 +389,7 @@ Ok(
                                 },
                             },
                             visibility: Scope::Pub,
-                            ast_idx: 11,
+                            ast_idx: 12,
                             ident_token: IdentToken {
                                 ident: `option`,
                                 token_idx: TokenIdx(
@@ -423,7 +423,7 @@ Ok(
                                 },
                             },
                             visibility: Scope::Pub,
-                            ast_idx: 12,
+                            ast_idx: 13,
                             ident_token: IdentToken {
                                 ident: `prelude`,
                                 token_idx: TokenIdx(
@@ -457,7 +457,7 @@ Ok(
                                 },
                             },
                             visibility: Scope::Pub,
-                            ast_idx: 13,
+                            ast_idx: 14,
                             ident_token: IdentToken {
                                 ident: `raw_bits`,
                                 token_idx: TokenIdx(
@@ -491,7 +491,7 @@ Ok(
                                 },
                             },
                             visibility: Scope::Pub,
-                            ast_idx: 14,
+                            ast_idx: 15,
                             ident_token: IdentToken {
                                 ident: `result`,
                                 token_idx: TokenIdx(
@@ -525,7 +525,7 @@ Ok(
                                 },
                             },
                             visibility: Scope::Pub,
-                            ast_idx: 15,
+                            ast_idx: 16,
                             ident_token: IdentToken {
                                 ident: `vec`,
                                 token_idx: TokenIdx(
@@ -559,7 +559,7 @@ Ok(
                                 },
                             },
                             visibility: Scope::Pub,
-                            ast_idx: 16,
+                            ast_idx: 17,
                             ident_token: IdentToken {
                                 ident: `slice`,
                                 token_idx: TokenIdx(
@@ -593,7 +593,7 @@ Ok(
                                 },
                             },
                             visibility: Scope::Pub,
-                            ast_idx: 17,
+                            ast_idx: 18,
                             ident_token: IdentToken {
                                 ident: `str`,
                                 token_idx: TokenIdx(
@@ -627,7 +627,7 @@ Ok(
                                 },
                             },
                             visibility: Scope::Pub,
-                            ast_idx: 18,
+                            ast_idx: 19,
                             ident_token: IdentToken {
                                 ident: `visual`,
                                 token_idx: TokenIdx(
@@ -654,8 +654,8 @@ Ok(
         use_one_trackers: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 19,
-                    use_expr_idx: 2,
+                    ast_idx: 20,
+                    use_expr_idx: 3,
                     visibility: Scope::PubUnder(
                         `core`,
                     ),
@@ -668,7 +668,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            1..2,
+                            2..3,
                         ),
                     },
                     parent: None,
@@ -707,7 +707,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 0,
+                                child: 1,
                             },
                         ),
                     },
@@ -730,7 +730,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 1,
+                                child: 2,
                             },
                         ),
                     },

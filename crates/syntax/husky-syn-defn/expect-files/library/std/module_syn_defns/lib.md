@@ -6,7 +6,7 @@ Ok(
                     path: SubmodulePath(
                         `std::prelude`,
                     ),
-                    ast_idx: 0,
+                    ast_idx: 1,
                 },
             },
         ),
@@ -16,7 +16,7 @@ Ok(
                     path: SubmodulePath(
                         `std::logic`,
                     ),
-                    ast_idx: 1,
+                    ast_idx: 2,
                 },
             },
         ),
@@ -26,7 +26,7 @@ Ok(
                     path: SubmodulePath(
                         `std::ops`,
                     ),
-                    ast_idx: 2,
+                    ast_idx: 3,
                 },
             },
         ),

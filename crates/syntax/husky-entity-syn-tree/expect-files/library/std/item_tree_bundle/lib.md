@@ -19,7 +19,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `std`,
                                     ),
-                                    ast_idx: 0,
+                                    ast_idx: 1,
                                     ident_token: IdentToken {
                                         ident: `prelude`,
                                         token_idx: TokenIdx(
@@ -57,7 +57,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `std`,
                                     ),
-                                    ast_idx: 1,
+                                    ast_idx: 2,
                                     ident_token: IdentToken {
                                         ident: `logic`,
                                         token_idx: TokenIdx(
@@ -95,7 +95,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `std`,
                                     ),
-                                    ast_idx: 2,
+                                    ast_idx: 3,
                                     ident_token: IdentToken {
                                         ident: `ops`,
                                         token_idx: TokenIdx(
@@ -144,7 +144,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `std`,
                                     ),
-                                    ast_idx: 0,
+                                    ast_idx: 1,
                                     ident_token: IdentToken {
                                         ident: `prelude`,
                                         token_idx: TokenIdx(
@@ -175,7 +175,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `std`,
                                     ),
-                                    ast_idx: 1,
+                                    ast_idx: 2,
                                     ident_token: IdentToken {
                                         ident: `logic`,
                                         token_idx: TokenIdx(
@@ -206,7 +206,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `std`,
                                     ),
-                                    ast_idx: 2,
+                                    ast_idx: 3,
                                     ident_token: IdentToken {
                                         ident: `ops`,
                                         token_idx: TokenIdx(
@@ -270,7 +270,7 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 3,
+                                            ast_idx: 4,
                                             ident_token: IdentToken {
                                                 ident: `Prop`,
                                                 token_idx: TokenIdx(
@@ -293,8 +293,8 @@ Ok(
                                         ),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 0,
-                                    use_expr_idx: 0,
+                                    ast_idx: 1,
+                                    use_expr_idx: 1,
                                 },
                             ),
                         },
@@ -317,7 +317,7 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 4,
+                                            ast_idx: 5,
                                             ident_token: IdentToken {
                                                 ident: `LogicAnd`,
                                                 token_idx: TokenIdx(
@@ -340,8 +340,8 @@ Ok(
                                         ),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 0,
-                                    use_expr_idx: 0,
+                                    ast_idx: 1,
+                                    use_expr_idx: 1,
                                 },
                             ),
                         },
@@ -364,7 +364,7 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 5,
+                                            ast_idx: 6,
                                             ident_token: IdentToken {
                                                 ident: `LogicOr`,
                                                 token_idx: TokenIdx(
@@ -380,7 +380,7 @@ Ok(
                                                 variants: Some(
                                                     TypeVariants {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            0..2,
+                                                            1..3,
                                                         ),
                                                     },
                                                 ),
@@ -393,8 +393,8 @@ Ok(
                                         ),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 0,
-                                    use_expr_idx: 0,
+                                    ast_idx: 1,
+                                    use_expr_idx: 1,
                                 },
                             ),
                         },
@@ -404,8 +404,8 @@ Ok(
                 once_use_rules: OnceUseRules(
                     [
                         OnceUseRule {
-                            ast_idx: 0,
-                            use_expr_idx: 2,
+                            ast_idx: 1,
+                            use_expr_idx: 3,
                             visibility: Scope::Pub,
                             variant: OnceUseRuleVariant::Parent {
                                 parent_name_token: PathNameToken::Ident(
@@ -417,7 +417,7 @@ Ok(
                                     },
                                 ),
                                 children: ArenaIdxRange(
-                                    1..2,
+                                    2..3,
                                 ),
                             },
                             parent: None,
@@ -432,8 +432,8 @@ Ok(
                             },
                         },
                         OnceUseRule {
-                            ast_idx: 0,
-                            use_expr_idx: 1,
+                            ast_idx: 1,
+                            use_expr_idx: 2,
                             visibility: Scope::Pub,
                             variant: OnceUseRuleVariant::Parent {
                                 parent_name_token: PathNameToken::Ident(
@@ -445,7 +445,7 @@ Ok(
                                     },
                                 ),
                                 children: ArenaIdxRange(
-                                    0..1,
+                                    1..2,
                                 ),
                             },
                             parent: Some(
@@ -470,8 +470,8 @@ Ok(
                         UseAllModuleSymbolsRule {
                             parent_module_path: `core::logic`,
                             is_same_crate: false,
-                            ast_idx: 0,
-                            use_expr_idx: 0,
+                            ast_idx: 1,
+                            use_expr_idx: 1,
                             visibility: Scope::Pub,
                             progress: Ok(
                                 58,
@@ -499,7 +499,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `std::ops`,
                                     ),
-                                    ast_idx: 3,
+                                    ast_idx: 4,
                                     ident_token: IdentToken {
                                         ident: `Add`,
                                         token_idx: TokenIdx(
@@ -515,7 +515,7 @@ Ok(
                                         items: Some(
                                             TraitItems {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    0..2,
+                                                    1..3,
                                                 ),
                                             },
                                         ),
@@ -562,7 +562,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `std::ops`,
                                     ),
-                                    ast_idx: 3,
+                                    ast_idx: 4,
                                     ident_token: IdentToken {
                                         ident: `Add`,
                                         token_idx: TokenIdx(
@@ -578,7 +578,7 @@ Ok(
                                         items: Some(
                                             TraitItems {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    0..2,
+                                                    1..3,
                                                 ),
                                             },
                                         ),

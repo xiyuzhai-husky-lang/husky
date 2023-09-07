@@ -274,7 +274,7 @@ pub struct LocalSymbolIdx(usize);
 
 impl From<InheritedSynSymbolIdx> for LocalSymbolIdx {
     fn from(value: InheritedSynSymbolIdx) -> Self {
-        Self(value.raw())
+        Self(value.index())
     }
 }
 
@@ -283,7 +283,7 @@ impl LocalSymbolIdx {
         current_symbol_idx: CurrentSynSymbolIdx,
         symbol_region: &SynSymbolRegion,
     ) -> Self {
-        Self(symbol_region.inherited_symbol_arena.len() + current_symbol_idx.raw())
+        Self(symbol_region.inherited_symbol_arena.len() + current_symbol_idx.index())
     }
 }
 

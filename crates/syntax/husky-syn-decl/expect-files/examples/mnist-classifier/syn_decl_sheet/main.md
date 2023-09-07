@@ -13,7 +13,7 @@ Ok(
                         path: SubmodulePath(
                             `mnist_classifier::connected_component`,
                         ),
-                        ast_idx: 10,
+                        ast_idx: 11,
                     },
                 ),
             ),
@@ -28,7 +28,7 @@ Ok(
                         path: SubmodulePath(
                             `mnist_classifier::raw_contour`,
                         ),
-                        ast_idx: 11,
+                        ast_idx: 12,
                     },
                 ),
             ),
@@ -43,7 +43,7 @@ Ok(
                         path: SubmodulePath(
                             `mnist_classifier::geom2d`,
                         ),
-                        ast_idx: 12,
+                        ast_idx: 13,
                     },
                 ),
             ),
@@ -58,7 +58,7 @@ Ok(
                         path: SubmodulePath(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 13,
+                        ast_idx: 14,
                     },
                 ),
             ),
@@ -73,7 +73,7 @@ Ok(
                         path: SubmodulePath(
                             `mnist_classifier::fermi`,
                         ),
-                        ast_idx: 14,
+                        ast_idx: 15,
                     },
                 ),
             ),
@@ -88,7 +88,7 @@ Ok(
                         path: SubmodulePath(
                             `mnist_classifier::digits`,
                         ),
-                        ast_idx: 15,
+                        ast_idx: 16,
                     },
                 ),
             ),
@@ -103,7 +103,7 @@ Ok(
                         path: SubmodulePath(
                             `mnist_classifier::major`,
                         ),
-                        ast_idx: 16,
+                        ast_idx: 17,
                     },
                 ),
             ),
@@ -120,7 +120,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::main`, `Val`),
                                 return_ty: Some(
                                     ReturnTypeBeforeEqObelisk {
-                                        expr: 2,
+                                        expr: 3,
                                     },
                                 ),
                                 expr: None,
@@ -142,7 +142,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 0,
+                                                    item_path_expr: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -152,7 +152,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    item_path_expr: 2,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -162,8 +162,8 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::ExplicitApplication {
-                                                    function_expr_idx: 0,
-                                                    argument_expr_idx: 1,
+                                                    function_expr_idx: 1,
+                                                    argument_expr_idx: 2,
                                                 },
                                             ],
                                         },
@@ -234,7 +234,7 @@ Ok(
                                         roots: [
                                             SynExprRoot {
                                                 kind: ReturnType,
-                                                expr_idx: 2,
+                                                expr_idx: 3,
                                             },
                                         ],
                                     },

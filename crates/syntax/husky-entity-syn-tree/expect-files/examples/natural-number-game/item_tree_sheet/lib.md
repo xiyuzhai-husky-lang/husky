@@ -17,7 +17,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `natural_number_game`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 6,
                             ident_token: IdentToken {
                                 ident: `Nat`,
                                 token_idx: TokenIdx(
@@ -33,7 +33,7 @@ Ok(
                                 variants: Some(
                                     TypeVariants {
                                         ast_idx_range: ArenaIdxRange(
-                                            0..2,
+                                            1..3,
                                         ),
                                     },
                                 ),
@@ -69,7 +69,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `natural_number_game`,
                             ),
-                            ast_idx: 9,
+                            ast_idx: 10,
                             ident_token: IdentToken {
                                 ident: `OddNat`,
                                 token_idx: TokenIdx(
@@ -115,7 +115,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `natural_number_game`,
                             ),
-                            ast_idx: 10,
+                            ast_idx: 11,
                             ident_token: IdentToken {
                                 ident: `EvenNat`,
                                 token_idx: TokenIdx(
@@ -172,7 +172,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `natural_number_game`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 6,
                             ident_token: IdentToken {
                                 ident: `Nat`,
                                 token_idx: TokenIdx(
@@ -188,7 +188,7 @@ Ok(
                                 variants: Some(
                                     TypeVariants {
                                         ast_idx_range: ArenaIdxRange(
-                                            0..2,
+                                            1..3,
                                         ),
                                     },
                                 ),
@@ -217,7 +217,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `natural_number_game`,
                             ),
-                            ast_idx: 9,
+                            ast_idx: 10,
                             ident_token: IdentToken {
                                 ident: `OddNat`,
                                 token_idx: TokenIdx(
@@ -256,7 +256,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `natural_number_game`,
                             ),
-                            ast_idx: 10,
+                            ast_idx: 11,
                             ident_token: IdentToken {
                                 ident: `EvenNat`,
                                 token_idx: TokenIdx(
@@ -296,16 +296,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 6,
+                        ast_idx: 7,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 10,
                             ),
                         },
-                        ty_expr: 0,
+                        ty_expr: 1,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                2..5,
+                                3..6,
                             ),
                         },
                     },

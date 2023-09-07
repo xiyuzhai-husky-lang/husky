@@ -23,7 +23,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 10,
+                        ast_idx: 11,
                     },
                 ),
             ),
@@ -48,7 +48,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 11,
+                        ast_idx: 12,
                     },
                 ),
             ),
@@ -73,7 +73,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 12,
+                        ast_idx: 13,
                     },
                 ),
             ),
@@ -98,7 +98,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 13,
+                        ast_idx: 14,
                     },
                 ),
             ),
@@ -123,7 +123,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 14,
+                        ast_idx: 15,
                     },
                 ),
             ),
@@ -148,7 +148,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 15,
+                        ast_idx: 16,
                     },
                 ),
             ),
@@ -173,7 +173,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 16,
+                        ast_idx: 17,
                     },
                 ),
             ),
@@ -198,7 +198,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 25,
+                                ast_idx: 26,
                                 colon_token: Ok(
                                     Some(
                                         ColonToken(
@@ -211,7 +211,7 @@ Ok(
                                 return_ty: Ok(
                                     Some(
                                         ReturnTypeBeforeEqObelisk {
-                                            expr: 2,
+                                            expr: 3,
                                         },
                                     ),
                                 ),
@@ -241,7 +241,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 0,
+                                                    item_path_expr: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -251,7 +251,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    item_path_expr: 2,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -261,8 +261,8 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::ExplicitApplication {
-                                                    function_expr_idx: 0,
-                                                    argument_expr_idx: 1,
+                                                    function_expr_idx: 1,
+                                                    argument_expr_idx: 2,
                                                 },
                                             ],
                                         },
@@ -333,7 +333,7 @@ Ok(
                                         roots: [
                                             SynExprRoot {
                                                 kind: ReturnType,
-                                                expr_idx: 2,
+                                                expr_idx: 3,
                                             },
                                         ],
                                     },

@@ -12,7 +12,7 @@ Ok(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::visual::Visualize`),
-                            ast_idx: 3,
+                            ast_idx: 4,
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -165,7 +165,7 @@ Ok(
                             },
                             template_parameters: [],
                             trai_expr: TraitObelisk {
-                                expr: 0,
+                                expr: 1,
                             },
                             self_ty_decl: DeriveAny {
                                 at_token: AtToken(
@@ -204,7 +204,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             SynExpr::PrincipalEntityPath {
-                                                item_path_expr: 0,
+                                                item_path_expr: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Trait(
@@ -267,7 +267,7 @@ Ok(
                                     roots: [
                                         SynExprRoot {
                                             kind: Trait,
-                                            expr_idx: 0,
+                                            expr_idx: 1,
                                         },
                                     ],
                                 },
@@ -310,7 +310,7 @@ Ok(
                                 parenate_parameters: [],
                                 return_ty: Some(
                                     ReturnTypeBeforeColonObelisk {
-                                        expr: 0,
+                                        expr: 1,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -336,7 +336,7 @@ Ok(
                                                     expr_arena: Arena {
                                                         data: [
                                                             SynExpr::PrincipalEntityPath {
-                                                                item_path_expr: 0,
+                                                                item_path_expr: 1,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
                                                                         MajorItemPath::Trait(
@@ -399,7 +399,7 @@ Ok(
                                                     roots: [
                                                         SynExprRoot {
                                                             kind: Trait,
-                                                            expr_idx: 0,
+                                                            expr_idx: 1,
                                                         },
                                                     ],
                                                 },
@@ -429,7 +429,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 0,
+                                                    item_path_expr: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -492,7 +492,7 @@ Ok(
                                         roots: [
                                             SynExprRoot {
                                                 kind: ReturnType,
-                                                expr_idx: 0,
+                                                expr_idx: 1,
                                             },
                                         ],
                                     },

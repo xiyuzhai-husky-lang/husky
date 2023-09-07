@@ -608,11 +608,11 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..20,
+            1..21,
         ),
         siblings: [
             ArenaIdxRange(
-                0..20,
+                1..21,
             ),
         ],
     },

@@ -39,15 +39,15 @@ Ok(
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                2..5,
+                                3..6,
                             ),
                         },
                     ),
                 },
                 Ast::IfElseStmts {
-                    if_branch: 5,
+                    if_branch: 6,
                     elif_branches: ArenaIdxRange(
-                        6..6,
+                        7..7,
                     ),
                     else_branch: None,
                 },
@@ -76,7 +76,7 @@ Ok(
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                9..10,
+                                10..11,
                             ),
                         },
                     ),
@@ -94,7 +94,7 @@ Ok(
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                11..12,
+                                12..13,
                             ),
                         },
                     ),
@@ -112,7 +112,7 @@ Ok(
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                7..8,
+                                8..9,
                             ),
                         },
                     ),
@@ -130,18 +130,18 @@ Ok(
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                8..9,
+                                9..10,
                             ),
                         },
                     ),
                 },
                 Ast::IfElseStmts {
-                    if_branch: 10,
+                    if_branch: 11,
                     elif_branches: ArenaIdxRange(
-                        11..11,
+                        12..12,
                     ),
                     else_branch: Some(
-                        12,
+                        13,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -169,7 +169,7 @@ Ok(
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                13..18,
+                                14..19,
                             ),
                         },
                     ),
@@ -240,7 +240,7 @@ Ok(
                         body: Some(
                             FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
-                                    0..2,
+                                    1..3,
                                 ),
                             },
                         ),
@@ -288,7 +288,7 @@ Ok(
                         body: Some(
                             FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
-                                    6..7,
+                                    7..8,
                                 ),
                             },
                         ),
@@ -336,7 +336,7 @@ Ok(
                         body: Some(
                             FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
-                                    18..24,
+                                    19..25,
                                 ),
                             },
                         ),
@@ -390,7 +390,7 @@ Ok(
                         body: Some(
                             FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
-                                    24..25,
+                                    25..26,
                                 ),
                             },
                         ),
@@ -444,7 +444,7 @@ Ok(
                         body: Some(
                             FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
-                                    25..26,
+                                    26..27,
                                 ),
                             },
                         ),
@@ -453,50 +453,41 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            26..33,
+            27..34,
         ),
         siblings: [
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..2,
+                1..3,
             ),
             ArenaIdxRange(
-                2..2,
+                3..3,
             ),
             ArenaIdxRange(
-                2..2,
+                3..3,
             ),
             ArenaIdxRange(
-                2..2,
+                3..3,
             ),
             ArenaIdxRange(
-                2..5,
-            ),
-            ArenaIdxRange(
-                6..7,
-            ),
-            ArenaIdxRange(
-                7..7,
-            ),
-            ArenaIdxRange(
-                7..7,
-            ),
-            ArenaIdxRange(
-                7..7,
-            ),
-            ArenaIdxRange(
-                7..7,
-            ),
-            ArenaIdxRange(
-                7..7,
+                3..6,
             ),
             ArenaIdxRange(
                 7..8,
+            ),
+            ArenaIdxRange(
+                8..8,
+            ),
+            ArenaIdxRange(
+                8..8,
+            ),
+            ArenaIdxRange(
+                8..8,
             ),
             ArenaIdxRange(
                 8..8,
@@ -511,31 +502,34 @@ Ok(
                 9..9,
             ),
             ArenaIdxRange(
+                9..9,
+            ),
+            ArenaIdxRange(
                 9..10,
             ),
             ArenaIdxRange(
-                11..11,
+                10..10,
             ),
             ArenaIdxRange(
-                11..12,
+                10..11,
             ),
             ArenaIdxRange(
-                13..18,
+                12..12,
             ),
             ArenaIdxRange(
-                18..18,
+                12..13,
             ),
             ArenaIdxRange(
-                18..18,
+                14..19,
             ),
             ArenaIdxRange(
-                18..24,
+                19..19,
             ),
             ArenaIdxRange(
-                24..24,
+                19..19,
             ),
             ArenaIdxRange(
-                24..25,
+                19..25,
             ),
             ArenaIdxRange(
                 25..25,
@@ -544,7 +538,13 @@ Ok(
                 25..26,
             ),
             ArenaIdxRange(
-                26..33,
+                26..26,
+            ),
+            ArenaIdxRange(
+                26..27,
+            ),
+            ArenaIdxRange(
+                27..34,
             ),
         ],
     },

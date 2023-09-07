@@ -119,7 +119,7 @@ Ok(
                         items: Some(
                             TraitItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    0..2,
+                                    1..3,
                                 ),
                             },
                         ),
@@ -128,20 +128,20 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            2..4,
+            3..5,
         ),
         siblings: [
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..2,
+                1..3,
             ),
             ArenaIdxRange(
-                2..4,
+                3..5,
             ),
         ],
     },

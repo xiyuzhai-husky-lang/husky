@@ -258,11 +258,11 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..11,
+            1..12,
         ),
         siblings: [
             ArenaIdxRange(
-                0..11,
+                1..12,
             ),
         ],
     },

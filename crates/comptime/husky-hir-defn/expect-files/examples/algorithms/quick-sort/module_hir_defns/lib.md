@@ -22,7 +22,7 @@
                         },
                     },
                     body: Some(
-                        11,
+                        12,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
@@ -37,7 +37,7 @@
                                     ),
                                 },
                                 MethodCall {
-                                    self_argument: 0,
+                                    self_argument: 1,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -96,11 +96,11 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 5,
+                                    lopd: 6,
                                     opr: Closed(
                                         Sub,
                                     ),
-                                    ropd: 6,
+                                    ropd: 7,
                                 },
                                 PrincipalEntityPath(
                                     MajorItem(
@@ -114,28 +114,28 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 7,
+                                    lopd: 8,
                                     opr: As,
-                                    ropd: 8,
+                                    ropd: 9,
                                 },
                                 FnCall {
-                                    function: 2,
+                                    function: 3,
                                     generic_arguments: None,
                                     item_groups: [
-                                        Regular(
-                                            3,
-                                        ),
                                         Regular(
                                             4,
                                         ),
                                         Regular(
-                                            9,
+                                            5,
+                                        ),
+                                        Regular(
+                                            10,
                                         ),
                                     ],
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..2,
+                                        1..3,
                                     ),
                                 },
                             ],
@@ -144,13 +144,13 @@
                             data: [
                                 Let {
                                     pattern: HirEagerLetVariablesPattern {
-                                        pattern_expr_idx: 0,
+                                        pattern_expr_idx: 1,
                                         ty: None,
                                     },
-                                    initial_value: 1,
+                                    initial_value: 2,
                                 },
                                 Eval {
-                                    expr_idx: 10,
+                                    expr_idx: 11,
                                 },
                             ],
                         },
@@ -195,7 +195,7 @@
                         },
                     },
                     body: Some(
-                        22,
+                        23,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
@@ -219,11 +219,11 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 0,
+                                    lopd: 1,
                                     opr: Comparison(
                                         Less,
                                     ),
-                                    ropd: 1,
+                                    ropd: 2,
                                 },
                                 PrincipalEntityPath(
                                     MajorItem(
@@ -264,17 +264,17 @@
                                     ),
                                 },
                                 FnCall {
-                                    function: 3,
+                                    function: 4,
                                     generic_arguments: None,
                                     item_groups: [
-                                        Regular(
-                                            4,
-                                        ),
                                         Regular(
                                             5,
                                         ),
                                         Regular(
                                             6,
+                                        ),
+                                        Regular(
+                                            7,
                                         ),
                                     ],
                                 },
@@ -326,24 +326,24 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 11,
+                                    lopd: 12,
                                     opr: Closed(
                                         Sub,
                                     ),
-                                    ropd: 12,
+                                    ropd: 13,
                                 },
                                 FnCall {
-                                    function: 8,
+                                    function: 9,
                                     generic_arguments: None,
                                     item_groups: [
-                                        Regular(
-                                            9,
-                                        ),
                                         Regular(
                                             10,
                                         ),
                                         Regular(
-                                            13,
+                                            11,
+                                        ),
+                                        Regular(
+                                            14,
                                         ),
                                     ],
                                 },
@@ -386,11 +386,11 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 17,
+                                    lopd: 18,
                                     opr: Closed(
                                         Add,
                                     ),
-                                    ropd: 18,
+                                    ropd: 19,
                                 },
                                 InheritedSymbol {
                                     ident: Ident(
@@ -402,23 +402,23 @@
                                     ),
                                 },
                                 FnCall {
-                                    function: 15,
+                                    function: 16,
                                     generic_arguments: None,
                                     item_groups: [
                                         Regular(
-                                            16,
-                                        ),
-                                        Regular(
-                                            19,
+                                            17,
                                         ),
                                         Regular(
                                             20,
+                                        ),
+                                        Regular(
+                                            21,
                                         ),
                                     ],
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        3..4,
+                                        4..5,
                                     ),
                                 },
                             ],
@@ -427,22 +427,22 @@
                             data: [
                                 Let {
                                     pattern: HirEagerLetVariablesPattern {
-                                        pattern_expr_idx: 0,
+                                        pattern_expr_idx: 1,
                                         ty: None,
                                     },
-                                    initial_value: 7,
+                                    initial_value: 8,
                                 },
                                 Eval {
-                                    expr_idx: 14,
+                                    expr_idx: 15,
                                 },
                                 Eval {
-                                    expr_idx: 21,
+                                    expr_idx: 22,
                                 },
                                 IfElse {
                                     if_branch: HirEagerIfBranch {
-                                        condition: 2,
+                                        condition: 3,
                                         stmts: ArenaIdxRange(
-                                            0..3,
+                                            1..4,
                                         ),
                                     },
                                     elif_branches: [],
@@ -491,7 +491,7 @@
                         },
                     },
                     body: Some(
-                        62,
+                        63,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
@@ -517,9 +517,9 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 0,
+                                    lopd: 1,
                                     opr: As,
-                                    ropd: 1,
+                                    ropd: 2,
                                 },
                                 InheritedSymbol {
                                     ident: Ident(
@@ -540,11 +540,11 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 3,
+                                    lopd: 4,
                                     opr: Closed(
                                         Sub,
                                     ),
-                                    ropd: 4,
+                                    ropd: 5,
                                 },
                                 InheritedSymbol {
                                     ident: Ident(
@@ -579,11 +579,11 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 8,
+                                    lopd: 9,
                                     opr: AssignClosed(
                                         Add,
                                     ),
-                                    ropd: 9,
+                                    ropd: 10,
                                 },
                                 InheritedSymbol {
                                     ident: Ident(
@@ -615,14 +615,14 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 12,
+                                    lopd: 13,
                                     opr: As,
-                                    ropd: 13,
+                                    ropd: 14,
                                 },
                                 Index {
-                                    owner: 11,
+                                    owner: 12,
                                     items: [
-                                        14,
+                                        15,
                                     ],
                                 },
                                 InheritedSymbol {
@@ -644,17 +644,17 @@
                                     ),
                                 },
                                 Index {
-                                    owner: 16,
+                                    owner: 17,
                                     items: [
-                                        17,
+                                        18,
                                     ],
                                 },
                                 Binary {
-                                    lopd: 15,
+                                    lopd: 16,
                                     opr: Comparison(
                                         Less,
                                     ),
-                                    ropd: 18,
+                                    ropd: 19,
                                 },
                                 CurrentSymbol {
                                     ident: Ident(
@@ -675,11 +675,11 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 20,
+                                    lopd: 21,
                                     opr: AssignClosed(
                                         Add,
                                     ),
-                                    ropd: 21,
+                                    ropd: 22,
                                 },
                                 CurrentSymbol {
                                     ident: Ident(
@@ -700,11 +700,11 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 23,
+                                    lopd: 24,
                                     opr: AssignClosed(
                                         Sub,
                                     ),
-                                    ropd: 24,
+                                    ropd: 25,
                                 },
                                 CurrentSymbol {
                                     ident: Ident(
@@ -725,11 +725,11 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 26,
+                                    lopd: 27,
                                     opr: Comparison(
                                         Geq,
                                     ),
-                                    ropd: 27,
+                                    ropd: 28,
                                 },
                                 InheritedSymbol {
                                     ident: Ident(
@@ -761,14 +761,14 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 30,
+                                    lopd: 31,
                                     opr: As,
-                                    ropd: 31,
+                                    ropd: 32,
                                 },
                                 Index {
-                                    owner: 29,
+                                    owner: 30,
                                     items: [
-                                        32,
+                                        33,
                                     ],
                                 },
                                 InheritedSymbol {
@@ -790,24 +790,24 @@
                                     ),
                                 },
                                 Index {
-                                    owner: 34,
+                                    owner: 35,
                                     items: [
-                                        35,
+                                        36,
                                     ],
                                 },
                                 Binary {
-                                    lopd: 33,
+                                    lopd: 34,
                                     opr: Comparison(
                                         Greater,
                                     ),
-                                    ropd: 36,
+                                    ropd: 37,
                                 },
                                 Binary {
-                                    lopd: 28,
+                                    lopd: 29,
                                     opr: ShortCircuitLogic(
                                         And,
                                     ),
-                                    ropd: 37,
+                                    ropd: 38,
                                 },
                                 CurrentSymbol {
                                     ident: Ident(
@@ -828,11 +828,11 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 39,
+                                    lopd: 40,
                                     opr: AssignClosed(
                                         Sub,
                                     ),
-                                    ropd: 40,
+                                    ropd: 41,
                                 },
                                 CurrentSymbol {
                                     ident: Ident(
@@ -853,11 +853,11 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 42,
+                                    lopd: 43,
                                     opr: Comparison(
                                         Geq,
                                     ),
-                                    ropd: 43,
+                                    ropd: 44,
                                 },
                                 InheritedSymbol {
                                     ident: Ident(
@@ -889,9 +889,9 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 46,
+                                    lopd: 47,
                                     opr: As,
-                                    ropd: 47,
+                                    ropd: 48,
                                 },
                                 CurrentSymbol {
                                     ident: Ident(
@@ -914,12 +914,12 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 49,
+                                    lopd: 50,
                                     opr: As,
-                                    ropd: 50,
+                                    ropd: 51,
                                 },
                                 MethodCall {
-                                    self_argument: 45,
+                                    self_argument: 46,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -930,10 +930,10 @@
                                     generic_arguments: None,
                                     item_groups: [
                                         Regular(
-                                            48,
+                                            49,
                                         ),
                                         Regular(
-                                            51,
+                                            52,
                                         ),
                                     ],
                                 },
@@ -967,9 +967,9 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 54,
+                                    lopd: 55,
                                     opr: As,
-                                    ropd: 55,
+                                    ropd: 56,
                                 },
                                 CurrentSymbol {
                                     ident: Ident(
@@ -992,12 +992,12 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 57,
+                                    lopd: 58,
                                     opr: As,
-                                    ropd: 58,
+                                    ropd: 59,
                                 },
                                 MethodCall {
-                                    self_argument: 53,
+                                    self_argument: 54,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1008,10 +1008,10 @@
                                     generic_arguments: None,
                                     item_groups: [
                                         Regular(
-                                            56,
+                                            57,
                                         ),
                                         Regular(
-                                            59,
+                                            60,
                                         ),
                                     ],
                                 },
@@ -1026,7 +1026,7 @@
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        9..15,
+                                        10..16,
                                     ),
                                 },
                             ],
@@ -1034,62 +1034,55 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 22,
+                                    expr_idx: 23,
                                 },
                                 Eval {
-                                    expr_idx: 41,
+                                    expr_idx: 42,
                                 },
                                 Break,
                                 Eval {
-                                    expr_idx: 52,
+                                    expr_idx: 53,
                                 },
                                 Eval {
-                                    expr_idx: 10,
+                                    expr_idx: 11,
                                 },
                                 While {
-                                    condition: 19,
-                                    stmts: ArenaIdxRange(
-                                        0..1,
-                                    ),
-                                },
-                                Eval {
-                                    expr_idx: 25,
-                                },
-                                While {
-                                    condition: 38,
+                                    condition: 20,
                                     stmts: ArenaIdxRange(
                                         1..2,
                                     ),
                                 },
+                                Eval {
+                                    expr_idx: 26,
+                                },
+                                While {
+                                    condition: 39,
+                                    stmts: ArenaIdxRange(
+                                        2..3,
+                                    ),
+                                },
                                 IfElse {
                                     if_branch: HirEagerIfBranch {
-                                        condition: 44,
+                                        condition: 45,
                                         stmts: ArenaIdxRange(
-                                            2..3,
+                                            3..4,
                                         ),
                                     },
                                     elif_branches: [],
                                     else_branch: Some(
                                         HirEagerElseBranch {
                                             stmts: ArenaIdxRange(
-                                                3..4,
+                                                4..5,
                                             ),
                                         },
                                     ),
                                 },
                                 Let {
                                     pattern: HirEagerLetVariablesPattern {
-                                        pattern_expr_idx: 0,
-                                        ty: None,
-                                    },
-                                    initial_value: 2,
-                                },
-                                Let {
-                                    pattern: HirEagerLetVariablesPattern {
                                         pattern_expr_idx: 1,
                                         ty: None,
                                     },
-                                    initial_value: 5,
+                                    initial_value: 3,
                                 },
                                 Let {
                                     pattern: HirEagerLetVariablesPattern {
@@ -1098,17 +1091,24 @@
                                     },
                                     initial_value: 6,
                                 },
+                                Let {
+                                    pattern: HirEagerLetVariablesPattern {
+                                        pattern_expr_idx: 3,
+                                        ty: None,
+                                    },
+                                    initial_value: 7,
+                                },
                                 While {
-                                    condition: 7,
+                                    condition: 8,
                                     stmts: ArenaIdxRange(
-                                        4..9,
+                                        5..10,
                                     ),
                                 },
                                 Eval {
-                                    expr_idx: 60,
+                                    expr_idx: 61,
                                 },
                                 Eval {
-                                    expr_idx: 61,
+                                    expr_idx: 62,
                                 },
                             ],
                         },
@@ -1160,7 +1160,7 @@
                         },
                     },
                     body: Some(
-                        12,
+                        13,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
@@ -1187,7 +1187,7 @@
                                 ),
                                 Prefix {
                                     opr: Minus,
-                                    opd: 3,
+                                    opd: 4,
                                 },
                                 Literal(
                                     I32(
@@ -1221,21 +1221,21 @@
                                 ),
                                 List {
                                     items: [
-                                        0,
                                         1,
                                         2,
-                                        4,
+                                        3,
                                         5,
                                         6,
                                         7,
                                         8,
                                         9,
                                         10,
+                                        11,
                                     ],
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -1244,7 +1244,7 @@
                             data: [
                                 Let {
                                     pattern: HirEagerLetVariablesPattern {
-                                        pattern_expr_idx: 0,
+                                        pattern_expr_idx: 1,
                                         ty: Some(
                                             PathLeading(
                                                 HirTypePathLeading(
@@ -1255,7 +1255,7 @@
                                             ),
                                         ),
                                     },
-                                    initial_value: 11,
+                                    initial_value: 12,
                                 },
                             ],
                         },
@@ -1289,7 +1289,7 @@
                         },
                     },
                     body: Some(
-                        7,
+                        8,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
@@ -1350,17 +1350,17 @@
                                 ),
                                 List {
                                     items: [
-                                        0,
                                         1,
                                         2,
                                         3,
                                         4,
                                         5,
+                                        6,
                                     ],
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -1369,10 +1369,10 @@
                             data: [
                                 Let {
                                     pattern: HirEagerLetVariablesPattern {
-                                        pattern_expr_idx: 0,
+                                        pattern_expr_idx: 1,
                                         ty: None,
                                     },
-                                    initial_value: 6,
+                                    initial_value: 7,
                                 },
                             ],
                         },

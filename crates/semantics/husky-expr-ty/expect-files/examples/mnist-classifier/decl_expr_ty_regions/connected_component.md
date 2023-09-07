@@ -34,26 +34,6 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    0,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        SynExprDisambiguation::TypePath(
-                            OntologyConstructor,
-                        ),
-                        Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`Type`),
-                                ),
-                            },
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
                     1,
                 ),
             },
@@ -95,6 +75,26 @@
                 ),
                 expectation_rule_idx: Some(
                     3,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        SynExprDisambiguation::TypePath(
+                            OntologyConstructor,
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Type`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    4,
                 ),
             },
         ],
@@ -154,38 +154,7 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
-                        ExpectationEntry {
-                            expectation: Expectation::EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 0,
-                                src: ExpectationSource {
-                                    expr_idx: 0,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::EqsSort(
-                                            TermUniverse(
-                                                1,
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                        },
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -216,7 +185,7 @@
                                 ),
                             },
                         },
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -247,7 +216,7 @@
                                 ),
                             },
                         },
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -259,6 +228,37 @@
                                 idx: 3,
                                 src: ExpectationSource {
                                     expr_idx: 3,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::EqsSort(
+                                            TermUniverse(
+                                                1,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        FluffyTermExpectationEntry {
+                            expectation: Expectation::EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 4,
+                                src: ExpectationSource {
+                                    expr_idx: 4,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -321,7 +321,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    1,
+                    2,
                 ),
             },
             ExprTypeInfo {
@@ -341,7 +341,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    2,
+                    3,
                 ),
             },
             ExprTypeInfo {
@@ -361,25 +361,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    0,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        SynExprDisambiguation::Trivial,
-                        Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`Type`),
-                                ),
-                            },
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    3,
+                    1,
                 ),
             },
             ExprTypeInfo {
@@ -398,6 +380,24 @@
                 ),
                 expectation_rule_idx: Some(
                     4,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        SynExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Type`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    5,
                 ),
             },
         ],
@@ -433,16 +433,16 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsFunctionType(
                                 ExpectEqsFunctionType {
                                     final_destination: FinalDestination::Sort,
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 0,
+                                idx: 1,
                                 src: ExpectationSource {
-                                    expr_idx: 2,
+                                    expr_idx: 3,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -484,42 +484,10 @@
                                 ),
                             },
                         },
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::CurryDestination(
                                 ExpectCurryDestination {
                                     curry_destination: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 1,
-                                src: ExpectationSource {
-                                    expr_idx: 0,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Intact,
-                            },
-                        },
-                        ExpectationEntry {
-                            expectation: Expectation::EqsExactly(
-                                ExpectSubtype {
-                                    expected: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
                                             Category(
@@ -545,6 +513,38 @@
                                         EtherealTerm(`Type`),
                                     ),
                                 },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        FluffyTermExpectationEntry {
+                            expectation: Expectation::EqsExactly(
+                                ExpectSubtype {
+                                    expected: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 3,
+                                src: ExpectationSource {
+                                    expr_idx: 2,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::Subtype(
@@ -554,7 +554,7 @@
                                 ),
                             },
                         },
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::CurryDestination(
                                 ExpectCurryDestination {
                                     curry_destination: FluffyTerm {
@@ -572,9 +572,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 3,
+                                idx: 4,
                                 src: ExpectationSource {
-                                    expr_idx: 3,
+                                    expr_idx: 4,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -586,7 +586,7 @@
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -595,9 +595,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 4,
+                                idx: 5,
                                 src: ExpectationSource {
-                                    expr_idx: 4,
+                                    expr_idx: 5,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -662,7 +662,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    0,
+                    1,
                 ),
             },
             ExprTypeInfo {
@@ -682,7 +682,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    1,
+                    2,
                 ),
             },
             ExprTypeInfo {
@@ -702,7 +702,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    2,
+                    3,
                 ),
             },
             ExprTypeInfo {
@@ -720,7 +720,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    3,
+                    4,
                 ),
             },
         ],
@@ -756,7 +756,7 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::CurryDestination(
                                 ExpectCurryDestination {
                                     curry_destination: FluffyTerm {
@@ -774,9 +774,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 0,
+                                idx: 1,
                                 src: ExpectationSource {
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -788,7 +788,7 @@
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -797,9 +797,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 1,
+                                idx: 2,
                                 src: ExpectationSource {
-                                    expr_idx: 1,
+                                    expr_idx: 2,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -819,7 +819,7 @@
                                 ),
                             },
                         },
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsExactly(
                                 ExpectSubtype {
                                     expected: FluffyTerm {
@@ -837,9 +837,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 2,
+                                idx: 3,
                                 src: ExpectationSource {
-                                    expr_idx: 2,
+                                    expr_idx: 3,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -857,7 +857,7 @@
                                 ),
                             },
                         },
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -866,9 +866,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 3,
+                                idx: 4,
                                 src: ExpectationSource {
-                                    expr_idx: 3,
+                                    expr_idx: 4,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -931,7 +931,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    0,
+                    1,
                 ),
             },
         ],
@@ -967,7 +967,7 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -976,9 +976,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 0,
+                                idx: 1,
                                 src: ExpectationSource {
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -1044,26 +1044,6 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    0,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        SynExprDisambiguation::TypePath(
-                            OntologyConstructor,
-                        ),
-                        Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`Type`),
-                                ),
-                            },
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
                     1,
                 ),
             },
@@ -1085,6 +1065,26 @@
                 ),
                 expectation_rule_idx: Some(
                     2,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        SynExprDisambiguation::TypePath(
+                            OntologyConstructor,
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Type`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    3,
                 ),
             },
         ],
@@ -1128,38 +1128,7 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
-                        ExpectationEntry {
-                            expectation: Expectation::EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 0,
-                                src: ExpectationSource {
-                                    expr_idx: 0,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::EqsSort(
-                                            TermUniverse(
-                                                1,
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                        },
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -1190,7 +1159,7 @@
                                 ),
                             },
                         },
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -1202,6 +1171,37 @@
                                 idx: 2,
                                 src: ExpectationSource {
                                     expr_idx: 2,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::EqsSort(
+                                            TermUniverse(
+                                                1,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        FluffyTermExpectationEntry {
+                            expectation: Expectation::EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 3,
+                                src: ExpectationSource {
+                                    expr_idx: 3,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -1266,7 +1266,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    0,
+                    1,
                 ),
             },
             ExprTypeInfo {
@@ -1286,7 +1286,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    1,
+                    2,
                 ),
             },
             ExprTypeInfo {
@@ -1306,7 +1306,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    2,
+                    3,
                 ),
             },
             ExprTypeInfo {
@@ -1324,7 +1324,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    3,
+                    4,
                 ),
             },
         ],
@@ -1360,7 +1360,7 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -1369,9 +1369,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 0,
+                                idx: 1,
                                 src: ExpectationSource {
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -1391,16 +1391,16 @@
                                 ),
                             },
                         },
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsFunctionType(
                                 ExpectEqsFunctionType {
                                     final_destination: FinalDestination::Sort,
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 1,
+                                idx: 2,
                                 src: ExpectationSource {
-                                    expr_idx: 1,
+                                    expr_idx: 2,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -1442,7 +1442,7 @@
                                 ),
                             },
                         },
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::CurryDestination(
                                 ExpectCurryDestination {
                                     curry_destination: FluffyTerm {
@@ -1460,9 +1460,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 2,
+                                idx: 3,
                                 src: ExpectationSource {
-                                    expr_idx: 2,
+                                    expr_idx: 3,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -1474,7 +1474,7 @@
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -1483,9 +1483,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 3,
+                                idx: 4,
                                 src: ExpectationSource {
-                                    expr_idx: 3,
+                                    expr_idx: 4,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -1552,7 +1552,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    0,
+                    1,
                 ),
             },
             ExprTypeInfo {
@@ -1572,7 +1572,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    1,
+                    2,
                 ),
             },
         ],
@@ -1599,14 +1599,14 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
-                                idx: 0,
+                                idx: 1,
                                 src: ExpectationSource {
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -1618,7 +1618,7 @@
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -1627,9 +1627,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 1,
+                                idx: 2,
                                 src: ExpectationSource {
-                                    expr_idx: 1,
+                                    expr_idx: 2,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -1705,7 +1705,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    0,
+                    1,
                 ),
             },
         ],
@@ -1732,7 +1732,7 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -1741,9 +1741,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 0,
+                                idx: 1,
                                 src: ExpectationSource {
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -1809,7 +1809,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    0,
+                    1,
                 ),
             },
         ],
@@ -1836,7 +1836,7 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -1845,9 +1845,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 0,
+                                idx: 1,
                                 src: ExpectationSource {
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -1920,7 +1920,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    0,
+                    1,
                 ),
             },
             ExprTypeInfo {
@@ -1940,7 +1940,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    1,
+                    2,
                 ),
             },
             ExprTypeInfo {
@@ -1958,7 +1958,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    2,
+                    3,
                 ),
             },
         ],
@@ -1985,16 +1985,16 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsFunctionType(
                                 ExpectEqsFunctionType {
                                     final_destination: FinalDestination::Sort,
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 0,
+                                idx: 1,
                                 src: ExpectationSource {
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -2036,7 +2036,7 @@
                                 ),
                             },
                         },
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::CurryDestination(
                                 ExpectCurryDestination {
                                     curry_destination: FluffyTerm {
@@ -2054,9 +2054,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 1,
+                                idx: 2,
                                 src: ExpectationSource {
-                                    expr_idx: 1,
+                                    expr_idx: 2,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -2068,7 +2068,7 @@
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -2077,9 +2077,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 2,
+                                idx: 3,
                                 src: ExpectationSource {
-                                    expr_idx: 2,
+                                    expr_idx: 3,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -2152,7 +2152,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    0,
+                    1,
                 ),
             },
         ],
@@ -2179,7 +2179,7 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -2188,9 +2188,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 0,
+                                idx: 1,
                                 src: ExpectationSource {
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -2263,7 +2263,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    0,
+                    1,
                 ),
             },
         ],
@@ -2290,7 +2290,7 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -2299,9 +2299,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 0,
+                                idx: 1,
                                 src: ExpectationSource {
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -2374,7 +2374,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    0,
+                    1,
                 ),
             },
         ],
@@ -2401,7 +2401,7 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -2410,9 +2410,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 0,
+                                idx: 1,
                                 src: ExpectationSource {
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -2485,7 +2485,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    0,
+                    1,
                 ),
             },
         ],
@@ -2512,7 +2512,7 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -2521,9 +2521,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 0,
+                                idx: 1,
                                 src: ExpectationSource {
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -2596,7 +2596,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    0,
+                    1,
                 ),
             },
         ],
@@ -2623,7 +2623,7 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -2632,9 +2632,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 0,
+                                idx: 1,
                                 src: ExpectationSource {
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -2707,7 +2707,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    0,
+                    1,
                 ),
             },
         ],
@@ -2734,7 +2734,7 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -2743,9 +2743,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 0,
+                                idx: 1,
                                 src: ExpectationSource {
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -2818,7 +2818,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    0,
+                    1,
                 ),
             },
         ],
@@ -2845,7 +2845,7 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -2854,9 +2854,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 0,
+                                idx: 1,
                                 src: ExpectationSource {
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -2931,7 +2931,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    0,
+                    1,
                 ),
             },
             ExprTypeInfo {
@@ -2951,7 +2951,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    1,
+                    2,
                 ),
             },
         ],
@@ -2987,7 +2987,7 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -2996,9 +2996,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 0,
+                                idx: 1,
                                 src: ExpectationSource {
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -3018,7 +3018,7 @@
                                 ),
                             },
                         },
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -3027,9 +3027,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 1,
+                                idx: 2,
                                 src: ExpectationSource {
-                                    expr_idx: 1,
+                                    expr_idx: 2,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -3104,7 +3104,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    0,
+                    1,
                 ),
             },
             ExprTypeInfo {
@@ -3124,7 +3124,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    1,
+                    2,
                 ),
             },
         ],
@@ -3160,7 +3160,7 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -3169,9 +3169,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 0,
+                                idx: 1,
                                 src: ExpectationSource {
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -3191,7 +3191,7 @@
                                 ),
                             },
                         },
-                        ExpectationEntry {
+                        FluffyTermExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -3200,9 +3200,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 1,
+                                idx: 2,
                                 src: ExpectationSource {
-                                    expr_idx: 1,
+                                    expr_idx: 2,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {

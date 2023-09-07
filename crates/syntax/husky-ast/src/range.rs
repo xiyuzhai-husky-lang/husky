@@ -36,7 +36,7 @@ impl std::ops::Index<AstIdx> for AstTokenIdxRangeSheet {
     type Output = TokenIdxRange;
 
     fn index(&self, index: AstIdx) -> &Self::Output {
-        &self.ast_token_idx_ranges[index.raw()]
+        &self.ast_token_idx_ranges[index.index()]
     }
 }
 
@@ -93,15 +93,15 @@ impl<'a> AstTokenIdxRangeCalculator<'a> {
                 elif_branches: elif_stmts,
                 else_branch: else_stmt,
             } => {
-                let if_stmt_token_idx_range = self.ast_ranges[if_stmt.raw()].token_idx_range();
+                let if_stmt_token_idx_range = self.ast_ranges[if_stmt.index()].token_idx_range();
                 let start = if_stmt_token_idx_range.start();
                 let end = match else_stmt {
-                    Some(else_stmt) => self.ast_ranges[else_stmt.raw()].end(),
+                    Some(else_stmt) => self.ast_ranges[else_stmt.index()].end(),
                     None => {
                         if let Some(last) = elif_stmts.last() {
-                            self.ast_ranges[last.raw()].end()
+                            self.ast_ranges[last.index()].end()
                         } else {
-                            self.ast_ranges[if_stmt.raw()].end()
+                            self.ast_ranges[if_stmt.index()].end()
                         }
                     }
                 };
@@ -113,11 +113,11 @@ impl<'a> AstTokenIdxRangeCalculator<'a> {
                 ..
             } => {
                 let pattern_stmt_token_idx_range =
-                    self.ast_ranges[pattern_stmt.raw()].token_idx_range();
+                    self.ast_ranges[pattern_stmt.index()].token_idx_range();
                 let start = pattern_stmt_token_idx_range.start();
                 let end = {
                     if let Some(last) = case_stmts.last() {
-                        self.ast_ranges[last.raw()].end()
+                        self.ast_ranges[last.index()].end()
                     } else {
                         pattern_stmt_token_idx_range.end()
                     }
@@ -139,7 +139,7 @@ impl<'a> AstTokenIdxRangeCalculator<'a> {
         let ast_idx_range: Option<AstIdxRange> = ast_idx_range.into();
         let end = match ast_idx_range {
             Some(ast_idx_range) => match ast_idx_range.last() {
-                Some(last) => self.ast_ranges[last.raw()].end(),
+                Some(last) => self.ast_ranges[last.index()].end(),
                 None => token_group_token_idx_range.end(),
             },
             None => token_group_token_idx_range.end(),

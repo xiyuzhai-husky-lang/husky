@@ -6,11 +6,11 @@ Ok(
                     path: TraitPath(`core::ops::Add`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::Add`),
-                        ast_idx: 32,
+                        ast_idx: 33,
                         template_parameters: [
                             TemplateParameterObelisk {
                                 annotated_variance_token: None,
-                                symbol: 0,
+                                symbol: 1,
                                 variant: TemplateParameterDeclPatternVariant::Type {
                                     ident_token: IdentToken {
                                         ident: `Rhs`,
@@ -97,7 +97,7 @@ Ok(
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                0..1,
+                                                1..2,
                                             ),
                                         ),
                                     ],
@@ -115,11 +115,11 @@ Ok(
                     path: TraitPath(`core::ops::AddAssign`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::AddAssign`),
-                        ast_idx: 34,
+                        ast_idx: 35,
                         template_parameters: [
                             TemplateParameterObelisk {
                                 annotated_variance_token: None,
-                                symbol: 0,
+                                symbol: 1,
                                 variant: TemplateParameterDeclPatternVariant::Type {
                                     ident_token: IdentToken {
                                         ident: `Rhs`,
@@ -206,7 +206,7 @@ Ok(
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                0..1,
+                                                1..2,
                                             ),
                                         ),
                                     ],
@@ -224,11 +224,11 @@ Ok(
                     path: TraitPath(`core::ops::BitAnd`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::BitAnd`),
-                        ast_idx: 36,
+                        ast_idx: 37,
                         template_parameters: [
                             TemplateParameterObelisk {
                                 annotated_variance_token: None,
-                                symbol: 0,
+                                symbol: 1,
                                 variant: TemplateParameterDeclPatternVariant::Type {
                                     ident_token: IdentToken {
                                         ident: `Rhs`,
@@ -315,7 +315,7 @@ Ok(
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                0..1,
+                                                1..2,
                                             ),
                                         ),
                                     ],
@@ -333,11 +333,11 @@ Ok(
                     path: TraitPath(`core::ops::BitAndAssign`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::BitAndAssign`),
-                        ast_idx: 38,
+                        ast_idx: 39,
                         template_parameters: [
                             TemplateParameterObelisk {
                                 annotated_variance_token: None,
-                                symbol: 0,
+                                symbol: 1,
                                 variant: TemplateParameterDeclPatternVariant::Type {
                                     ident_token: IdentToken {
                                         ident: `Rhs`,
@@ -424,7 +424,7 @@ Ok(
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                0..1,
+                                                1..2,
                                             ),
                                         ),
                                     ],
@@ -442,11 +442,11 @@ Ok(
                     path: TraitPath(`core::ops::BitOr`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::BitOr`),
-                        ast_idx: 40,
+                        ast_idx: 41,
                         template_parameters: [
                             TemplateParameterObelisk {
                                 annotated_variance_token: None,
-                                symbol: 0,
+                                symbol: 1,
                                 variant: TemplateParameterDeclPatternVariant::Type {
                                     ident_token: IdentToken {
                                         ident: `Rhs`,
@@ -533,7 +533,7 @@ Ok(
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                0..1,
+                                                1..2,
                                             ),
                                         ),
                                     ],
@@ -551,11 +551,11 @@ Ok(
                     path: TraitPath(`core::ops::BitOrAssign`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::BitOrAssign`),
-                        ast_idx: 42,
+                        ast_idx: 43,
                         template_parameters: [
                             TemplateParameterObelisk {
                                 annotated_variance_token: None,
-                                symbol: 0,
+                                symbol: 1,
                                 variant: TemplateParameterDeclPatternVariant::Type {
                                     ident_token: IdentToken {
                                         ident: `Rhs`,
@@ -642,7 +642,7 @@ Ok(
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                0..1,
+                                                1..2,
                                             ),
                                         ),
                                     ],
@@ -660,11 +660,11 @@ Ok(
                     path: TraitPath(`core::ops::BitXor`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::BitXor`),
-                        ast_idx: 44,
+                        ast_idx: 45,
                         template_parameters: [
                             TemplateParameterObelisk {
                                 annotated_variance_token: None,
-                                symbol: 0,
+                                symbol: 1,
                                 variant: TemplateParameterDeclPatternVariant::Type {
                                     ident_token: IdentToken {
                                         ident: `Rhs`,
@@ -751,7 +751,7 @@ Ok(
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                0..1,
+                                                1..2,
                                             ),
                                         ),
                                     ],
@@ -769,11 +769,11 @@ Ok(
                     path: TraitPath(`core::ops::BitXorAssign`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::BitXorAssign`),
-                        ast_idx: 46,
+                        ast_idx: 47,
                         template_parameters: [
                             TemplateParameterObelisk {
                                 annotated_variance_token: None,
-                                symbol: 0,
+                                symbol: 1,
                                 variant: TemplateParameterDeclPatternVariant::Type {
                                     ident_token: IdentToken {
                                         ident: `Rhs`,
@@ -860,7 +860,7 @@ Ok(
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                0..1,
+                                                1..2,
                                             ),
                                         ),
                                     ],
@@ -878,11 +878,11 @@ Ok(
                     path: TraitPath(`core::ops::Div`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::Div`),
-                        ast_idx: 48,
+                        ast_idx: 49,
                         template_parameters: [
                             TemplateParameterObelisk {
                                 annotated_variance_token: None,
-                                symbol: 0,
+                                symbol: 1,
                                 variant: TemplateParameterDeclPatternVariant::Type {
                                     ident_token: IdentToken {
                                         ident: `Rhs`,
@@ -969,7 +969,7 @@ Ok(
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                0..1,
+                                                1..2,
                                             ),
                                         ),
                                     ],
@@ -987,11 +987,11 @@ Ok(
                     path: TraitPath(`core::ops::DivAssign`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::DivAssign`),
-                        ast_idx: 50,
+                        ast_idx: 51,
                         template_parameters: [
                             TemplateParameterObelisk {
                                 annotated_variance_token: None,
-                                symbol: 0,
+                                symbol: 1,
                                 variant: TemplateParameterDeclPatternVariant::Type {
                                     ident_token: IdentToken {
                                         ident: `Rhs`,
@@ -1078,7 +1078,7 @@ Ok(
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                0..1,
+                                                1..2,
                                             ),
                                         ),
                                     ],
@@ -1096,7 +1096,7 @@ Ok(
                     path: TraitPath(`core::ops::IntIndex`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::IntIndex`),
-                        ast_idx: 51,
+                        ast_idx: 52,
                         template_parameters: [],
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
@@ -1162,11 +1162,11 @@ Ok(
                     path: TraitPath(`core::ops::Mul`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::Mul`),
-                        ast_idx: 53,
+                        ast_idx: 54,
                         template_parameters: [
                             TemplateParameterObelisk {
                                 annotated_variance_token: None,
-                                symbol: 0,
+                                symbol: 1,
                                 variant: TemplateParameterDeclPatternVariant::Type {
                                     ident_token: IdentToken {
                                         ident: `Rhs`,
@@ -1253,7 +1253,7 @@ Ok(
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                0..1,
+                                                1..2,
                                             ),
                                         ),
                                     ],
@@ -1271,11 +1271,11 @@ Ok(
                     path: TraitPath(`core::ops::MulAssign`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::MulAssign`),
-                        ast_idx: 55,
+                        ast_idx: 56,
                         template_parameters: [
                             TemplateParameterObelisk {
                                 annotated_variance_token: None,
-                                symbol: 0,
+                                symbol: 1,
                                 variant: TemplateParameterDeclPatternVariant::Type {
                                     ident_token: IdentToken {
                                         ident: `Rhs`,
@@ -1362,7 +1362,7 @@ Ok(
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                0..1,
+                                                1..2,
                                             ),
                                         ),
                                     ],
@@ -1380,7 +1380,7 @@ Ok(
                     path: TraitPath(`core::ops::Neg`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::Neg`),
-                        ast_idx: 57,
+                        ast_idx: 58,
                         template_parameters: [],
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
@@ -1446,7 +1446,7 @@ Ok(
                     path: TraitPath(`core::ops::Not`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::Not`),
-                        ast_idx: 59,
+                        ast_idx: 60,
                         template_parameters: [],
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
@@ -1512,11 +1512,11 @@ Ok(
                     path: TraitPath(`core::ops::Sub`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::Sub`),
-                        ast_idx: 61,
+                        ast_idx: 62,
                         template_parameters: [
                             TemplateParameterObelisk {
                                 annotated_variance_token: None,
-                                symbol: 0,
+                                symbol: 1,
                                 variant: TemplateParameterDeclPatternVariant::Type {
                                     ident_token: IdentToken {
                                         ident: `Rhs`,
@@ -1603,7 +1603,7 @@ Ok(
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                0..1,
+                                                1..2,
                                             ),
                                         ),
                                     ],
@@ -1621,11 +1621,11 @@ Ok(
                     path: TraitPath(`core::ops::Unveil`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::Unveil`),
-                        ast_idx: 62,
+                        ast_idx: 63,
                         template_parameters: [
                             TemplateParameterObelisk {
                                 annotated_variance_token: None,
-                                symbol: 0,
+                                symbol: 1,
                                 variant: TemplateParameterDeclPatternVariant::Type {
                                     ident_token: IdentToken {
                                         ident: `T`,
@@ -1712,7 +1712,7 @@ Ok(
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                0..1,
+                                                1..2,
                                             ),
                                         ),
                                     ],
@@ -1734,7 +1734,7 @@ Ok(
                             template_parameters: [
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
-                                    symbol: 0,
+                                    symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `R`,
@@ -1747,7 +1747,7 @@ Ok(
                                 },
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
-                                    symbol: 1,
+                                    symbol: 2,
                                     variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `C`,
@@ -1855,13 +1855,13 @@ Ok(
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    1..2,
+                                                    2..3,
                                                 ),
                                             ),
                                         ],

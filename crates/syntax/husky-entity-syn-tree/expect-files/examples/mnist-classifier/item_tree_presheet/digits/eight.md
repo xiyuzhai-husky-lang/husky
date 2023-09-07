@@ -17,7 +17,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
-                            ast_idx: 18,
+                            ast_idx: 19,
                             ident_token: IdentToken {
                                 ident: `upper_mouth_match`,
                                 token_idx: TokenIdx(
@@ -33,7 +33,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            0..1,
+                                            1..2,
                                         ),
                                     },
                                 ),
@@ -69,7 +69,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            ast_idx: 19,
+                            ast_idx: 20,
                             ident_token: IdentToken {
                                 ident: `is_eight`,
                                 token_idx: TokenIdx(
@@ -85,7 +85,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            6..13,
+                                            7..14,
                                         ),
                                     },
                                 ),
@@ -121,7 +121,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
-                            ast_idx: 20,
+                            ast_idx: 21,
                             ident_token: IdentToken {
                                 ident: `big_mouth`,
                                 token_idx: TokenIdx(
@@ -137,7 +137,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            15..17,
+                                            16..18,
                                         ),
                                     },
                                 ),
@@ -164,8 +164,8 @@ Ok(
         use_one_trackers: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 17,
-                    use_expr_idx: 1,
+                    ast_idx: 18,
+                    use_expr_idx: 2,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
@@ -178,7 +178,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            0..1,
+                            1..2,
                         ),
                     },
                     parent: None,
@@ -216,7 +216,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 0,
+                                child: 1,
                             },
                         ),
                     },

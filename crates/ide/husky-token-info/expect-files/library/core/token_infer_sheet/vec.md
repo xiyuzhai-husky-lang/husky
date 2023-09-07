@@ -3,7 +3,7 @@ Ok(
         token_infos: [
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 1,
+                use_expr_idx: 2,
                 rule_idx: OnceUseRuleIdx(
                     0,
                 ),
@@ -67,7 +67,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
-                current_symbol_idx: 0,
+                current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentToken {
@@ -85,7 +85,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
-                current_symbol_idx: 0,
+                current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentToken {
@@ -107,7 +107,7 @@ Ok(
                 ),
             ),
             TokenInfo::CurrentSymbol {
-                current_symbol_idx: 0,
+                current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentToken {
@@ -192,15 +192,15 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
-                current_symbol_idx: 0,
+                current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
-                    pattern_symbol_idx: 0,
+                    pattern_symbol_idx: 1,
                 },
                 syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
-                inherited_symbol_idx: 0,
+                inherited_symbol_idx: 1,
                 inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                     InheritedTemplateParameterSynSymbol::Type {
                         ident: `E`,
@@ -248,7 +248,7 @@ Ok(
                 ),
             ),
             TokenInfo::InheritedSymbol {
-                inherited_symbol_idx: 0,
+                inherited_symbol_idx: 1,
                 inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                     InheritedTemplateParameterSynSymbol::Type {
                         ident: `E`,
@@ -295,7 +295,7 @@ Ok(
                 ),
             ),
             TokenInfo::InheritedSymbol {
-                inherited_symbol_idx: 0,
+                inherited_symbol_idx: 1,
                 inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                     InheritedTemplateParameterSynSymbol::Type {
                         ident: `E`,
@@ -345,7 +345,7 @@ Ok(
                 ),
             ),
             TokenInfo::InheritedSymbol {
-                inherited_symbol_idx: 0,
+                inherited_symbol_idx: 1,
                 inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                     InheritedTemplateParameterSynSymbol::Type {
                         ident: `E`,
@@ -390,7 +390,7 @@ Ok(
             TokenInfo::BoxPrefix,
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
-                inherited_symbol_idx: 0,
+                inherited_symbol_idx: 1,
                 inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                     InheritedTemplateParameterSynSymbol::Type {
                         ident: `E`,
@@ -431,9 +431,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
-                current_symbol_idx: 0,
+                current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
-                    pattern_symbol_idx: 0,
+                    pattern_symbol_idx: 1,
                 },
                 syn_expr_region: ExprRegionLeash(_),
             },
@@ -447,9 +447,9 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
-                current_symbol_idx: 1,
+                current_symbol_idx: 2,
                 current_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
-                    pattern_symbol_idx: 1,
+                    pattern_symbol_idx: 2,
                 },
                 syn_expr_region: ExprRegionLeash(_),
             },
@@ -472,7 +472,7 @@ Ok(
                 ),
             ),
             TokenInfo::InheritedSymbol {
-                inherited_symbol_idx: 0,
+                inherited_symbol_idx: 1,
                 inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                     InheritedTemplateParameterSynSymbol::Type {
                         ident: `E`,
@@ -514,9 +514,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
-                current_symbol_idx: 0,
+                current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
-                    pattern_symbol_idx: 0,
+                    pattern_symbol_idx: 1,
                 },
                 syn_expr_region: ExprRegionLeash(_),
             },
@@ -524,7 +524,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
-                inherited_symbol_idx: 0,
+                inherited_symbol_idx: 1,
                 inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                     InheritedTemplateParameterSynSymbol::Type {
                         ident: `E`,
@@ -546,7 +546,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
-                inherited_symbol_idx: 0,
+                inherited_symbol_idx: 1,
                 inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                     InheritedTemplateParameterSynSymbol::Type {
                         ident: `E`,

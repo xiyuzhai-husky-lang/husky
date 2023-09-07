@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 120,
+                            ast_idx: 121,
                             ident_token: IdentToken {
                                 ident: `ConnectedComponentDistribution`,
                                 token_idx: TokenIdx(
@@ -57,7 +57,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 121,
+                            ast_idx: 122,
                             ident_token: IdentToken {
                                 ident: `EffHoles`,
                                 token_idx: TokenIdx(
@@ -101,7 +101,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            ast_idx: 122,
+                            ast_idx: 123,
                             ident_token: IdentToken {
                                 ident: `hole_tmpl`,
                                 token_idx: TokenIdx(
@@ -117,7 +117,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            0..3,
+                                            1..4,
                                         ),
                                     },
                                 ),
@@ -151,7 +151,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 123,
+                            ast_idx: 124,
                             ident_token: IdentToken {
                                 ident: `ConnectedComponent`,
                                 token_idx: TokenIdx(
@@ -195,7 +195,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            ast_idx: 126,
+                            ast_idx: 127,
                             ident_token: IdentToken {
                                 ident: `horizontal_extend`,
                                 token_idx: TokenIdx(
@@ -211,7 +211,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            81..85,
+                                            82..86,
                                         ),
                                     },
                                 ),
@@ -245,7 +245,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 127,
+                            ast_idx: 128,
                             ident_token: IdentToken {
                                 ident: `find_connected_components`,
                                 token_idx: TokenIdx(
@@ -261,7 +261,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            114..118,
+                                            115..119,
                                         ),
                                     },
                                 ),
@@ -286,8 +286,8 @@ Ok(
         use_one_trackers: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 118,
-                    use_expr_idx: 2,
+                    ast_idx: 119,
+                    use_expr_idx: 3,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::connected_component`,
                     ),
@@ -300,15 +300,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            1..2,
+                            2..3,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 119,
-                    use_expr_idx: 4,
+                    ast_idx: 120,
+                    use_expr_idx: 5,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::connected_component`,
                     ),
@@ -321,7 +321,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            3..4,
+                            4..5,
                         ),
                     },
                     parent: None,
@@ -360,7 +360,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 0,
+                                child: 1,
                             },
                         ),
                     },
@@ -383,7 +383,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 1,
+                                child: 2,
                             },
                         ),
                     },
@@ -413,7 +413,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 3,
+                                child: 4,
                             },
                         ),
                     },

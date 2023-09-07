@@ -27,7 +27,7 @@ impl std::ops::Index<PrincipalEntityPathExprIdx> for ExprRangeRegion {
     type Output = TokenIdxRange;
 
     fn index(&self, index: PrincipalEntityPathExprIdx) -> &Self::Output {
-        &self.item_path_expr_ranges[index.raw()]
+        &self.item_path_expr_ranges[index.index()]
     }
 }
 
@@ -35,7 +35,7 @@ impl std::ops::Index<SynPatternExprIdx> for ExprRangeRegion {
     type Output = TokenIdxRange;
 
     fn index(&self, index: SynPatternExprIdx) -> &Self::Output {
-        &self.pattern_expr_ranges[index.raw()]
+        &self.pattern_expr_ranges[index.index()]
     }
 }
 
@@ -43,7 +43,7 @@ impl std::ops::Index<SynExprIdx> for ExprRangeRegion {
     type Output = TokenIdxRange;
 
     fn index(&self, index: SynExprIdx) -> &Self::Output {
-        &self.expr_ranges[index.raw()]
+        &self.expr_ranges[index.index()]
     }
 }
 
@@ -60,7 +60,7 @@ impl<'a> std::ops::Index<PrincipalEntityPathExprIdx> for SynExprRangeCalculator<
     type Output = TokenIdxRange;
 
     fn index(&self, index: PrincipalEntityPathExprIdx) -> &Self::Output {
-        &self.item_path_expr_ranges[index.raw()]
+        &self.item_path_expr_ranges[index.index()]
     }
 }
 
@@ -68,7 +68,7 @@ impl<'a> std::ops::Index<&PrincipalEntityPathExprIdx> for SynExprRangeCalculator
     type Output = TokenIdxRange;
 
     fn index(&self, index: &PrincipalEntityPathExprIdx) -> &Self::Output {
-        &self.item_path_expr_ranges[index.raw()]
+        &self.item_path_expr_ranges[index.index()]
     }
 }
 
@@ -76,7 +76,7 @@ impl<'a> std::ops::Index<SynPatternExprIdx> for SynExprRangeCalculator<'a> {
     type Output = TokenIdxRange;
 
     fn index(&self, index: SynPatternExprIdx) -> &Self::Output {
-        &self.pattern_expr_ranges[index.raw()]
+        &self.pattern_expr_ranges[index.index()]
     }
 }
 
@@ -84,7 +84,7 @@ impl<'a> std::ops::Index<SynExprIdx> for SynExprRangeCalculator<'a> {
     type Output = TokenIdxRange;
 
     fn index(&self, index: SynExprIdx) -> &Self::Output {
-        &self.expr_ranges[index.raw()]
+        &self.expr_ranges[index.index()]
     }
 }
 
@@ -92,7 +92,7 @@ impl<'a> std::ops::Index<&SynExprIdx> for SynExprRangeCalculator<'a> {
     type Output = TokenIdxRange;
 
     fn index(&self, index: &SynExprIdx) -> &Self::Output {
-        &self.expr_ranges[index.raw()]
+        &self.expr_ranges[index.index()]
     }
 }
 

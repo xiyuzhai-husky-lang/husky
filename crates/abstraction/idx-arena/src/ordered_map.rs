@@ -36,7 +36,7 @@ impl<T, V> ArenaOrderedMap<T, V> {
 
     #[inline(always)]
     pub fn insert_next(&mut self, idx: ArenaIdx<T>, v: V) {
-        debug_assert_eq!(self.data.len(), idx.raw);
+        debug_assert_eq!(self.data.len(), idx.index());
         self.data.push(v)
     }
 
@@ -50,7 +50,7 @@ impl<T, V> std::ops::Index<ArenaIdx<T>> for ArenaOrderedMap<T, V> {
     type Output = V;
 
     fn index(&self, index: ArenaIdx<T>) -> &Self::Output {
-        &self.data[index.raw]
+        &self.data[index.index()]
     }
 }
 

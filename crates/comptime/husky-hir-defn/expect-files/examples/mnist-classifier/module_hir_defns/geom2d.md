@@ -378,7 +378,7 @@
                         },
                     },
                     body: Some(
-                        12,
+                        13,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
@@ -409,11 +409,11 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 1,
+                                    lopd: 2,
                                     opr: Closed(
                                         Sub,
                                     ),
-                                    ropd: 2,
+                                    ropd: 3,
                                 },
                                 PrincipalEntityPath(
                                     MajorItem(
@@ -427,9 +427,9 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 3,
+                                    lopd: 4,
                                     opr: As,
-                                    ropd: 4,
+                                    ropd: 5,
                                 },
                                 Literal(
                                     I32(
@@ -446,11 +446,11 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 6,
+                                    lopd: 7,
                                     opr: Closed(
                                         Sub,
                                     ),
-                                    ropd: 7,
+                                    ropd: 8,
                                 },
                                 PrincipalEntityPath(
                                     MajorItem(
@@ -464,25 +464,25 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 8,
+                                    lopd: 9,
                                     opr: As,
-                                    ropd: 9,
+                                    ropd: 10,
                                 },
                                 FnCall {
-                                    function: 0,
+                                    function: 1,
                                     generic_arguments: None,
                                     item_groups: [
                                         Regular(
-                                            5,
+                                            6,
                                         ),
                                         Regular(
-                                            10,
+                                            11,
                                         ),
                                     ],
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -490,7 +490,7 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 11,
+                                    expr_idx: 12,
                                 },
                             ],
                         },
@@ -557,7 +557,7 @@
                         ),
                     },
                     body: Some(
-                        6,
+                        7,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
@@ -575,7 +575,7 @@
                                 ),
                                 SelfValue,
                                 Field {
-                                    owner: 1,
+                                    owner: 2,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -586,7 +586,7 @@
                                 },
                                 SelfValue,
                                 Field {
-                                    owner: 3,
+                                    owner: 4,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -596,20 +596,20 @@
                                     ),
                                 },
                                 FnCall {
-                                    function: 0,
+                                    function: 1,
                                     generic_arguments: None,
                                     item_groups: [
                                         Regular(
-                                            2,
+                                            3,
                                         ),
                                         Regular(
-                                            4,
+                                            5,
                                         ),
                                     ],
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -617,7 +617,7 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 5,
+                                    expr_idx: 6,
                                 },
                             ],
                         },
@@ -695,7 +695,7 @@
                         ),
                     },
                     body: Some(
-                        12,
+                        13,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
@@ -721,7 +721,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 1,
+                                    owner: 2,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -732,7 +732,7 @@
                                 },
                                 SelfValue,
                                 Field {
-                                    owner: 3,
+                                    owner: 4,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -742,11 +742,11 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 2,
+                                    lopd: 3,
                                     opr: Closed(
                                         Sub,
                                     ),
-                                    ropd: 4,
+                                    ropd: 5,
                                 },
                                 InheritedSymbol {
                                     ident: Ident(
@@ -758,7 +758,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 6,
+                                    owner: 7,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -769,7 +769,7 @@
                                 },
                                 SelfValue,
                                 Field {
-                                    owner: 8,
+                                    owner: 9,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -779,27 +779,27 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 7,
+                                    lopd: 8,
                                     opr: Closed(
                                         Sub,
                                     ),
-                                    ropd: 9,
+                                    ropd: 10,
                                 },
                                 FnCall {
-                                    function: 0,
+                                    function: 1,
                                     generic_arguments: None,
                                     item_groups: [
                                         Regular(
-                                            5,
+                                            6,
                                         ),
                                         Regular(
-                                            10,
+                                            11,
                                         ),
                                     ],
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -807,7 +807,7 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 11,
+                                    expr_idx: 12,
                                 },
                             ],
                         },
@@ -874,14 +874,14 @@
                         ),
                     },
                     body: Some(
-                        12,
+                        13,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
                             data: [
                                 SelfValue,
                                 Field {
-                                    owner: 0,
+                                    owner: 1,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -892,7 +892,7 @@
                                 },
                                 SelfValue,
                                 Field {
-                                    owner: 2,
+                                    owner: 3,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -902,15 +902,15 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 1,
+                                    lopd: 2,
                                     opr: Closed(
                                         Mul,
                                     ),
-                                    ropd: 3,
+                                    ropd: 4,
                                 },
                                 SelfValue,
                                 Field {
-                                    owner: 5,
+                                    owner: 6,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -921,7 +921,7 @@
                                 },
                                 SelfValue,
                                 Field {
-                                    owner: 7,
+                                    owner: 8,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -931,21 +931,21 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 6,
+                                    lopd: 7,
                                     opr: Closed(
                                         Mul,
-                                    ),
-                                    ropd: 8,
-                                },
-                                Binary {
-                                    lopd: 4,
-                                    opr: Closed(
-                                        Add,
                                     ),
                                     ropd: 9,
                                 },
+                                Binary {
+                                    lopd: 5,
+                                    opr: Closed(
+                                        Add,
+                                    ),
+                                    ropd: 10,
+                                },
                                 MethodCall {
-                                    self_argument: 10,
+                                    self_argument: 11,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -958,7 +958,7 @@
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -966,7 +966,7 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 11,
+                                    expr_idx: 12,
                                 },
                             ],
                         },
@@ -1044,7 +1044,7 @@
                         ),
                     },
                     body: Some(
-                        4,
+                        5,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
@@ -1060,7 +1060,7 @@
                                     ),
                                 },
                                 MethodCall {
-                                    self_argument: 0,
+                                    self_argument: 1,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1071,12 +1071,12 @@
                                     generic_arguments: None,
                                     item_groups: [
                                         Regular(
-                                            1,
+                                            2,
                                         ),
                                     ],
                                 },
                                 MethodCall {
-                                    self_argument: 2,
+                                    self_argument: 3,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1089,7 +1089,7 @@
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -1097,7 +1097,7 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 3,
+                                    expr_idx: 4,
                                 },
                             ],
                         },
@@ -1185,7 +1185,7 @@
                         ),
                     },
                     body: Some(
-                        6,
+                        7,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
@@ -1203,7 +1203,7 @@
                                 ),
                                 SelfValue,
                                 Field {
-                                    owner: 1,
+                                    owner: 2,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1214,7 +1214,7 @@
                                 },
                                 SelfValue,
                                 Field {
-                                    owner: 3,
+                                    owner: 4,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1224,20 +1224,20 @@
                                     ),
                                 },
                                 FnCall {
-                                    function: 0,
+                                    function: 1,
                                     generic_arguments: None,
                                     item_groups: [
                                         Regular(
-                                            2,
+                                            3,
                                         ),
                                         Regular(
-                                            4,
+                                            5,
                                         ),
                                     ],
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -1245,7 +1245,7 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 5,
+                                    expr_idx: 6,
                                 },
                             ],
                         },
@@ -1323,7 +1323,7 @@
                         ),
                     },
                     body: Some(
-                        12,
+                        13,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
@@ -1349,7 +1349,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 1,
+                                    owner: 2,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1360,7 +1360,7 @@
                                 },
                                 SelfValue,
                                 Field {
-                                    owner: 3,
+                                    owner: 4,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1370,11 +1370,11 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 2,
+                                    lopd: 3,
                                     opr: Closed(
                                         Sub,
                                     ),
-                                    ropd: 4,
+                                    ropd: 5,
                                 },
                                 InheritedSymbol {
                                     ident: Ident(
@@ -1386,7 +1386,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 6,
+                                    owner: 7,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1397,7 +1397,7 @@
                                 },
                                 SelfValue,
                                 Field {
-                                    owner: 8,
+                                    owner: 9,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1407,27 +1407,27 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 7,
+                                    lopd: 8,
                                     opr: Closed(
                                         Sub,
                                     ),
-                                    ropd: 9,
+                                    ropd: 10,
                                 },
                                 FnCall {
-                                    function: 0,
+                                    function: 1,
                                     generic_arguments: None,
                                     item_groups: [
                                         Regular(
-                                            5,
+                                            6,
                                         ),
                                         Regular(
-                                            10,
+                                            11,
                                         ),
                                     ],
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -1435,7 +1435,7 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 11,
+                                    expr_idx: 12,
                                 },
                             ],
                         },
@@ -1502,14 +1502,14 @@
                         ),
                     },
                     body: Some(
-                        12,
+                        13,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
                             data: [
                                 SelfValue,
                                 Field {
-                                    owner: 0,
+                                    owner: 1,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1520,7 +1520,7 @@
                                 },
                                 SelfValue,
                                 Field {
-                                    owner: 2,
+                                    owner: 3,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1530,15 +1530,15 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 1,
+                                    lopd: 2,
                                     opr: Closed(
                                         Mul,
                                     ),
-                                    ropd: 3,
+                                    ropd: 4,
                                 },
                                 SelfValue,
                                 Field {
-                                    owner: 5,
+                                    owner: 6,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1549,7 +1549,7 @@
                                 },
                                 SelfValue,
                                 Field {
-                                    owner: 7,
+                                    owner: 8,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1559,21 +1559,21 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 6,
+                                    lopd: 7,
                                     opr: Closed(
                                         Mul,
-                                    ),
-                                    ropd: 8,
-                                },
-                                Binary {
-                                    lopd: 4,
-                                    opr: Closed(
-                                        Add,
                                     ),
                                     ropd: 9,
                                 },
+                                Binary {
+                                    lopd: 5,
+                                    opr: Closed(
+                                        Add,
+                                    ),
+                                    ropd: 10,
+                                },
                                 MethodCall {
-                                    self_argument: 10,
+                                    self_argument: 11,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1586,7 +1586,7 @@
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -1594,7 +1594,7 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 11,
+                                    expr_idx: 12,
                                 },
                             ],
                         },
@@ -1672,14 +1672,14 @@
                         ),
                     },
                     body: Some(
-                        11,
+                        12,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
                             data: [
                                 SelfValue,
                                 Field {
-                                    owner: 0,
+                                    owner: 1,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1698,7 +1698,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 2,
+                                    owner: 3,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1708,15 +1708,15 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 1,
+                                    lopd: 2,
                                     opr: Closed(
                                         Mul,
                                     ),
-                                    ropd: 3,
+                                    ropd: 4,
                                 },
                                 SelfValue,
                                 Field {
-                                    owner: 5,
+                                    owner: 6,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1735,7 +1735,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 7,
+                                    owner: 8,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1745,22 +1745,22 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 6,
+                                    lopd: 7,
                                     opr: Closed(
                                         Mul,
                                     ),
-                                    ropd: 8,
+                                    ropd: 9,
                                 },
                                 Binary {
-                                    lopd: 4,
+                                    lopd: 5,
                                     opr: Closed(
                                         Add,
                                     ),
-                                    ropd: 9,
+                                    ropd: 10,
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -1768,7 +1768,7 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 10,
+                                    expr_idx: 11,
                                 },
                             ],
                         },
@@ -1846,14 +1846,14 @@
                         ),
                     },
                     body: Some(
-                        11,
+                        12,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
                             data: [
                                 SelfValue,
                                 Field {
-                                    owner: 0,
+                                    owner: 1,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1872,7 +1872,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 2,
+                                    owner: 3,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1882,15 +1882,15 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 1,
+                                    lopd: 2,
                                     opr: Closed(
                                         Mul,
                                     ),
-                                    ropd: 3,
+                                    ropd: 4,
                                 },
                                 SelfValue,
                                 Field {
-                                    owner: 5,
+                                    owner: 6,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1909,7 +1909,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 7,
+                                    owner: 8,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1919,22 +1919,22 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 6,
+                                    lopd: 7,
                                     opr: Closed(
                                         Mul,
                                     ),
-                                    ropd: 8,
+                                    ropd: 9,
                                 },
                                 Binary {
-                                    lopd: 4,
+                                    lopd: 5,
                                     opr: Closed(
                                         Sub,
                                     ),
-                                    ropd: 9,
+                                    ropd: 10,
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -1942,7 +1942,7 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 10,
+                                    expr_idx: 11,
                                 },
                             ],
                         },
@@ -2020,14 +2020,14 @@
                         ),
                     },
                     body: Some(
-                        28,
+                        29,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
                             data: [
                                 SelfValue,
                                 Field {
-                                    owner: 0,
+                                    owner: 1,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -2038,7 +2038,7 @@
                                 },
                                 SelfValue,
                                 MethodCall {
-                                    self_argument: 2,
+                                    self_argument: 3,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -2050,11 +2050,11 @@
                                     item_groups: [],
                                 },
                                 Binary {
-                                    lopd: 1,
+                                    lopd: 2,
                                     opr: Closed(
                                         Div,
                                     ),
-                                    ropd: 3,
+                                    ropd: 4,
                                 },
                                 Literal(
                                     F32(
@@ -2064,7 +2064,7 @@
                                     ),
                                 ),
                                 MethodCall {
-                                    self_argument: 4,
+                                    self_argument: 5,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -2075,7 +2075,7 @@
                                     generic_arguments: None,
                                     item_groups: [
                                         Regular(
-                                            5,
+                                            6,
                                         ),
                                     ],
                                 },
@@ -2096,11 +2096,11 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 7,
+                                    lopd: 8,
                                     opr: Closed(
                                         Add,
                                     ),
-                                    ropd: 8,
+                                    ropd: 9,
                                 },
                                 Literal(
                                     F32(
@@ -2110,11 +2110,11 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 9,
+                                    lopd: 10,
                                     opr: Comparison(
                                         Less,
                                     ),
-                                    ropd: 10,
+                                    ropd: 11,
                                 },
                                 InheritedSymbol {
                                     ident: Ident(
@@ -2141,11 +2141,11 @@
                                 ),
                                 Prefix {
                                     opr: Minus,
-                                    opd: 14,
+                                    opd: 15,
                                 },
                                 SelfValue,
                                 Field {
-                                    owner: 16,
+                                    owner: 17,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -2155,7 +2155,7 @@
                                     ),
                                 },
                                 MethodCall {
-                                    self_argument: 17,
+                                    self_argument: 18,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -2178,9 +2178,9 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 18,
+                                    lopd: 19,
                                     opr: As,
-                                    ropd: 19,
+                                    ropd: 20,
                                 },
                                 CurrentSymbol {
                                     ident: Ident(
@@ -2192,7 +2192,7 @@
                                     ),
                                 },
                                 MethodCall {
-                                    self_argument: 21,
+                                    self_argument: 22,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -2204,11 +2204,11 @@
                                     item_groups: [],
                                 },
                                 Binary {
-                                    lopd: 20,
+                                    lopd: 21,
                                     opr: Closed(
                                         Mul,
                                     ),
-                                    ropd: 22,
+                                    ropd: 23,
                                 },
                                 Literal(
                                     F32(
@@ -2218,11 +2218,11 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 23,
+                                    lopd: 24,
                                     opr: Closed(
                                         Mul,
                                     ),
-                                    ropd: 24,
+                                    ropd: 25,
                                 },
                                 Literal(
                                     F32(
@@ -2232,15 +2232,15 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 25,
+                                    lopd: 26,
                                     opr: Closed(
                                         Div,
                                     ),
-                                    ropd: 26,
+                                    ropd: 27,
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        4..6,
+                                        5..7,
                                     ),
                                 },
                             ],
@@ -2248,49 +2248,49 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 13,
+                                    expr_idx: 14,
                                 },
                                 Eval {
-                                    expr_idx: 15,
+                                    expr_idx: 16,
                                 },
                                 IfElse {
                                     if_branch: HirEagerIfBranch {
-                                        condition: 12,
+                                        condition: 13,
                                         stmts: ArenaIdxRange(
-                                            0..1,
+                                            1..2,
                                         ),
                                     },
                                     elif_branches: [],
                                     else_branch: Some(
                                         HirEagerElseBranch {
                                             stmts: ArenaIdxRange(
-                                                1..2,
+                                                2..3,
                                             ),
                                         },
                                     ),
                                 },
                                 Eval {
-                                    expr_idx: 27,
+                                    expr_idx: 28,
                                 },
                                 Let {
                                     pattern: HirEagerLetVariablesPattern {
-                                        pattern_expr_idx: 0,
+                                        pattern_expr_idx: 1,
                                         ty: None,
                                     },
-                                    initial_value: 6,
+                                    initial_value: 7,
                                 },
                                 IfElse {
                                     if_branch: HirEagerIfBranch {
-                                        condition: 11,
+                                        condition: 12,
                                         stmts: ArenaIdxRange(
-                                            2..3,
+                                            3..4,
                                         ),
                                     },
                                     elif_branches: [],
                                     else_branch: Some(
                                         HirEagerElseBranch {
                                             stmts: ArenaIdxRange(
-                                                3..4,
+                                                4..5,
                                             ),
                                         },
                                     ),
@@ -2381,7 +2381,7 @@
                         ),
                     },
                     body: Some(
-                        4,
+                        5,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
@@ -2397,7 +2397,7 @@
                                     ),
                                 },
                                 MethodCall {
-                                    self_argument: 0,
+                                    self_argument: 1,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -2408,12 +2408,12 @@
                                     generic_arguments: None,
                                     item_groups: [
                                         Regular(
-                                            1,
+                                            2,
                                         ),
                                     ],
                                 },
                                 MethodCall {
-                                    self_argument: 2,
+                                    self_argument: 3,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -2426,7 +2426,7 @@
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -2434,7 +2434,7 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 3,
+                                    expr_idx: 4,
                                 },
                             ],
                         },
@@ -2522,14 +2522,14 @@
                         ),
                     },
                     body: Some(
-                        41,
+                        42,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
                             data: [
                                 SelfValue,
                                 MethodCall {
-                                    self_argument: 0,
+                                    self_argument: 1,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -2557,11 +2557,11 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 2,
+                                    lopd: 3,
                                     opr: Comparison(
                                         Greater,
                                     ),
-                                    ropd: 3,
+                                    ropd: 4,
                                 },
                                 InheritedSymbol {
                                     ident: Ident(
@@ -2573,7 +2573,7 @@
                                     ),
                                 },
                                 MethodCall {
-                                    self_argument: 5,
+                                    self_argument: 6,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -2601,11 +2601,11 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 7,
+                                    lopd: 8,
                                     opr: Comparison(
                                         Greater,
                                     ),
-                                    ropd: 8,
+                                    ropd: 9,
                                 },
                                 SelfValue,
                                 InheritedSymbol {
@@ -2618,7 +2618,7 @@
                                     ),
                                 },
                                 MethodCall {
-                                    self_argument: 10,
+                                    self_argument: 11,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -2629,7 +2629,7 @@
                                     generic_arguments: None,
                                     item_groups: [
                                         Regular(
-                                            11,
+                                            12,
                                         ),
                                     ],
                                 },
@@ -2652,18 +2652,18 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 13,
+                                    lopd: 14,
                                     opr: Closed(
                                         Mul,
                                     ),
-                                    ropd: 14,
+                                    ropd: 15,
                                 },
                                 Binary {
-                                    lopd: 12,
+                                    lopd: 13,
                                     opr: Closed(
                                         Div,
                                     ),
-                                    ropd: 15,
+                                    ropd: 16,
                                 },
                                 Literal(
                                     F32(
@@ -2673,7 +2673,7 @@
                                     ),
                                 ),
                                 MethodCall {
-                                    self_argument: 16,
+                                    self_argument: 17,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -2684,7 +2684,7 @@
                                     generic_arguments: None,
                                     item_groups: [
                                         Regular(
-                                            17,
+                                            18,
                                         ),
                                     ],
                                 },
@@ -2705,11 +2705,11 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 19,
+                                    lopd: 20,
                                     opr: Closed(
                                         Add,
                                     ),
-                                    ropd: 20,
+                                    ropd: 21,
                                 },
                                 Literal(
                                     F32(
@@ -2719,11 +2719,11 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 21,
+                                    lopd: 22,
                                     opr: Comparison(
                                         Less,
                                     ),
-                                    ropd: 22,
+                                    ropd: 23,
                                 },
                                 InheritedSymbol {
                                     ident: Ident(
@@ -2750,7 +2750,7 @@
                                 ),
                                 Prefix {
                                     opr: Minus,
-                                    opd: 26,
+                                    opd: 27,
                                 },
                                 SelfValue,
                                 InheritedSymbol {
@@ -2763,7 +2763,7 @@
                                     ),
                                 },
                                 MethodCall {
-                                    self_argument: 28,
+                                    self_argument: 29,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -2774,7 +2774,7 @@
                                     generic_arguments: None,
                                     item_groups: [
                                         Regular(
-                                            29,
+                                            30,
                                         ),
                                     ],
                                 },
@@ -2790,9 +2790,9 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 30,
+                                    lopd: 31,
                                     opr: As,
-                                    ropd: 31,
+                                    ropd: 32,
                                 },
                                 CurrentSymbol {
                                     ident: Ident(
@@ -2804,7 +2804,7 @@
                                     ),
                                 },
                                 MethodCall {
-                                    self_argument: 33,
+                                    self_argument: 34,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -2816,11 +2816,11 @@
                                     item_groups: [],
                                 },
                                 Binary {
-                                    lopd: 32,
+                                    lopd: 33,
                                     opr: Closed(
                                         Mul,
                                     ),
-                                    ropd: 34,
+                                    ropd: 35,
                                 },
                                 CurrentSymbol {
                                     ident: Ident(
@@ -2839,11 +2839,11 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 36,
+                                    lopd: 37,
                                     opr: Closed(
                                         Mul,
                                     ),
-                                    ropd: 37,
+                                    ropd: 38,
                                 },
                                 Literal(
                                     F32(
@@ -2853,15 +2853,15 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 38,
+                                    lopd: 39,
                                     opr: Closed(
                                         Div,
                                     ),
-                                    ropd: 39,
+                                    ropd: 40,
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        5..11,
+                                        6..12,
                                     ),
                                 },
                             ],
@@ -2869,76 +2869,76 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 25,
+                                    expr_idx: 26,
                                 },
                                 Eval {
-                                    expr_idx: 27,
+                                    expr_idx: 28,
                                 },
                                 IfElse {
                                     if_branch: HirEagerIfBranch {
-                                        condition: 24,
+                                        condition: 25,
                                         stmts: ArenaIdxRange(
-                                            0..1,
+                                            1..2,
                                         ),
                                     },
                                     elif_branches: [],
                                     else_branch: Some(
                                         HirEagerElseBranch {
                                             stmts: ArenaIdxRange(
-                                                1..2,
+                                                2..3,
                                             ),
                                         },
                                     ),
                                 },
                                 Let {
                                     pattern: HirEagerLetVariablesPattern {
-                                        pattern_expr_idx: 3,
+                                        pattern_expr_idx: 4,
                                         ty: None,
                                     },
-                                    initial_value: 35,
+                                    initial_value: 36,
                                 },
                                 Eval {
-                                    expr_idx: 40,
-                                },
-                                Let {
-                                    pattern: HirEagerLetVariablesPattern {
-                                        pattern_expr_idx: 0,
-                                        ty: None,
-                                    },
-                                    initial_value: 1,
-                                },
-                                Assert {
-                                    condition: 4,
+                                    expr_idx: 41,
                                 },
                                 Let {
                                     pattern: HirEagerLetVariablesPattern {
                                         pattern_expr_idx: 1,
                                         ty: None,
                                     },
-                                    initial_value: 6,
+                                    initial_value: 2,
                                 },
                                 Assert {
-                                    condition: 9,
+                                    condition: 5,
                                 },
                                 Let {
                                     pattern: HirEagerLetVariablesPattern {
                                         pattern_expr_idx: 2,
                                         ty: None,
                                     },
-                                    initial_value: 18,
+                                    initial_value: 7,
+                                },
+                                Assert {
+                                    condition: 10,
+                                },
+                                Let {
+                                    pattern: HirEagerLetVariablesPattern {
+                                        pattern_expr_idx: 3,
+                                        ty: None,
+                                    },
+                                    initial_value: 19,
                                 },
                                 IfElse {
                                     if_branch: HirEagerIfBranch {
-                                        condition: 23,
+                                        condition: 24,
                                         stmts: ArenaIdxRange(
-                                            2..3,
+                                            3..4,
                                         ),
                                     },
                                     elif_branches: [],
                                     else_branch: Some(
                                         HirEagerElseBranch {
                                             stmts: ArenaIdxRange(
-                                                3..5,
+                                                4..6,
                                             ),
                                         },
                                     ),
@@ -3077,14 +3077,14 @@
                         ),
                     },
                     body: Some(
-                        28,
+                        29,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
                             data: [
                                 SelfValue,
                                 Field {
-                                    owner: 0,
+                                    owner: 1,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3095,7 +3095,7 @@
                                 },
                                 SelfValue,
                                 Field {
-                                    owner: 2,
+                                    owner: 3,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3105,15 +3105,15 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 1,
+                                    lopd: 2,
                                     opr: Comparison(
                                         Greater,
                                     ),
-                                    ropd: 3,
+                                    ropd: 4,
                                 },
                                 SelfValue,
                                 Field {
-                                    owner: 5,
+                                    owner: 6,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3124,7 +3124,7 @@
                                 },
                                 SelfValue,
                                 Field {
-                                    owner: 7,
+                                    owner: 8,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3134,11 +3134,11 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 6,
+                                    lopd: 7,
                                     opr: Closed(
                                         Sub,
                                     ),
-                                    ropd: 8,
+                                    ropd: 9,
                                 },
                                 InheritedSymbol {
                                     ident: Ident(
@@ -3150,7 +3150,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 10,
+                                    owner: 11,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3161,7 +3161,7 @@
                                 },
                                 SelfValue,
                                 Field {
-                                    owner: 12,
+                                    owner: 13,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3171,11 +3171,11 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 11,
+                                    lopd: 12,
                                     opr: Closed(
                                         Sub,
                                     ),
-                                    ropd: 13,
+                                    ropd: 14,
                                 },
                                 CurrentSymbol {
                                     ident: Ident(
@@ -3187,11 +3187,11 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 14,
+                                    lopd: 15,
                                     opr: Closed(
                                         Div,
                                     ),
-                                    ropd: 15,
+                                    ropd: 16,
                                 },
                                 InheritedSymbol {
                                     ident: Ident(
@@ -3203,7 +3203,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 17,
+                                    owner: 18,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3214,7 +3214,7 @@
                                 },
                                 SelfValue,
                                 Field {
-                                    owner: 19,
+                                    owner: 20,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3224,11 +3224,11 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 18,
+                                    lopd: 19,
                                     opr: Closed(
                                         Sub,
                                     ),
-                                    ropd: 20,
+                                    ropd: 21,
                                 },
                                 CurrentSymbol {
                                     ident: Ident(
@@ -3240,11 +3240,11 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 21,
+                                    lopd: 22,
                                     opr: Closed(
                                         Div,
                                     ),
-                                    ropd: 22,
+                                    ropd: 23,
                                 },
                                 PrincipalEntityPath(
                                     MajorItem(
@@ -3276,20 +3276,20 @@
                                     ),
                                 },
                                 FnCall {
-                                    function: 24,
+                                    function: 25,
                                     generic_arguments: None,
                                     item_groups: [
                                         Regular(
-                                            25,
+                                            26,
                                         ),
                                         Regular(
-                                            26,
+                                            27,
                                         ),
                                     ],
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..5,
+                                        1..6,
                                     ),
                                 },
                             ],
@@ -3297,31 +3297,31 @@
                         stmt_arena: Arena {
                             data: [
                                 Assert {
-                                    condition: 4,
-                                },
-                                Let {
-                                    pattern: HirEagerLetVariablesPattern {
-                                        pattern_expr_idx: 0,
-                                        ty: None,
-                                    },
-                                    initial_value: 9,
+                                    condition: 5,
                                 },
                                 Let {
                                     pattern: HirEagerLetVariablesPattern {
                                         pattern_expr_idx: 1,
                                         ty: None,
                                     },
-                                    initial_value: 16,
+                                    initial_value: 10,
                                 },
                                 Let {
                                     pattern: HirEagerLetVariablesPattern {
                                         pattern_expr_idx: 2,
                                         ty: None,
                                     },
-                                    initial_value: 23,
+                                    initial_value: 17,
+                                },
+                                Let {
+                                    pattern: HirEagerLetVariablesPattern {
+                                        pattern_expr_idx: 3,
+                                        ty: None,
+                                    },
+                                    initial_value: 24,
                                 },
                                 Eval {
-                                    expr_idx: 27,
+                                    expr_idx: 28,
                                 },
                             ],
                         },
@@ -3427,14 +3427,14 @@
                         ),
                     },
                     body: Some(
-                        11,
+                        12,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
                             data: [
                                 SelfValue,
                                 Field {
-                                    owner: 0,
+                                    owner: 1,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3445,7 +3445,7 @@
                                 },
                                 SelfValue,
                                 Field {
-                                    owner: 2,
+                                    owner: 3,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3455,11 +3455,11 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 1,
+                                    lopd: 2,
                                     opr: Closed(
                                         Sub,
                                     ),
-                                    ropd: 3,
+                                    ropd: 4,
                                 },
                                 InheritedSymbol {
                                     ident: Ident(
@@ -3472,7 +3472,7 @@
                                 },
                                 SelfValue,
                                 Field {
-                                    owner: 6,
+                                    owner: 7,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3482,11 +3482,11 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 5,
+                                    lopd: 6,
                                     opr: Closed(
                                         Sub,
                                     ),
-                                    ropd: 7,
+                                    ropd: 8,
                                 },
                                 CurrentSymbol {
                                     ident: Ident(
@@ -3498,15 +3498,15 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 8,
+                                    lopd: 9,
                                     opr: Closed(
                                         Div,
                                     ),
-                                    ropd: 9,
+                                    ropd: 10,
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..2,
+                                        1..3,
                                     ),
                                 },
                             ],
@@ -3515,13 +3515,13 @@
                             data: [
                                 Let {
                                     pattern: HirEagerLetVariablesPattern {
-                                        pattern_expr_idx: 0,
+                                        pattern_expr_idx: 1,
                                         ty: None,
                                     },
-                                    initial_value: 4,
+                                    initial_value: 5,
                                 },
                                 Eval {
-                                    expr_idx: 10,
+                                    expr_idx: 11,
                                 },
                             ],
                         },
@@ -3630,7 +3630,7 @@
                         ),
                     },
                     body: Some(
-                        12,
+                        13,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
@@ -3648,7 +3648,7 @@
                                 ),
                                 SelfValue,
                                 Field {
-                                    owner: 1,
+                                    owner: 2,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3667,7 +3667,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 3,
+                                    owner: 4,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3677,7 +3677,7 @@
                                     ),
                                 },
                                 MethodCall {
-                                    self_argument: 2,
+                                    self_argument: 3,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3685,74 +3685,74 @@
                                             },
                                         ),
                                     ),
-                                    generic_arguments: None,
-                                    item_groups: [
-                                        Regular(
-                                            4,
-                                        ),
-                                    ],
-                                },
-                                SelfValue,
-                                Field {
-                                    owner: 6,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 369,
-                                            },
-                                        ),
-                                    ),
-                                },
-                                InheritedSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 59,
-                                            },
-                                        ),
-                                    ),
-                                },
-                                Field {
-                                    owner: 8,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 369,
-                                            },
-                                        ),
-                                    ),
-                                },
-                                MethodCall {
-                                    self_argument: 7,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 364,
-                                            },
-                                        ),
-                                    ),
-                                    generic_arguments: None,
-                                    item_groups: [
-                                        Regular(
-                                            9,
-                                        ),
-                                    ],
-                                },
-                                FnCall {
-                                    function: 0,
                                     generic_arguments: None,
                                     item_groups: [
                                         Regular(
                                             5,
                                         ),
+                                    ],
+                                },
+                                SelfValue,
+                                Field {
+                                    owner: 7,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 369,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                InheritedSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 59,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                Field {
+                                    owner: 9,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 369,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                MethodCall {
+                                    self_argument: 8,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 364,
+                                            },
+                                        ),
+                                    ),
+                                    generic_arguments: None,
+                                    item_groups: [
                                         Regular(
                                             10,
                                         ),
                                     ],
                                 },
+                                FnCall {
+                                    function: 1,
+                                    generic_arguments: None,
+                                    item_groups: [
+                                        Regular(
+                                            6,
+                                        ),
+                                        Regular(
+                                            11,
+                                        ),
+                                    ],
+                                },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -3760,7 +3760,7 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 11,
+                                    expr_idx: 12,
                                 },
                             ],
                         },
@@ -3838,7 +3838,7 @@
                         ),
                     },
                     body: Some(
-                        12,
+                        13,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
@@ -3856,7 +3856,7 @@
                                 ),
                                 SelfValue,
                                 Field {
-                                    owner: 1,
+                                    owner: 2,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3875,7 +3875,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 3,
+                                    owner: 4,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3885,7 +3885,7 @@
                                     ),
                                 },
                                 MethodCall {
-                                    self_argument: 2,
+                                    self_argument: 3,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3896,13 +3896,13 @@
                                     generic_arguments: None,
                                     item_groups: [
                                         Regular(
-                                            4,
+                                            5,
                                         ),
                                     ],
                                 },
                                 SelfValue,
                                 Field {
-                                    owner: 6,
+                                    owner: 7,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3921,7 +3921,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 8,
+                                    owner: 9,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3931,7 +3931,7 @@
                                     ),
                                 },
                                 MethodCall {
-                                    self_argument: 7,
+                                    self_argument: 8,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3942,25 +3942,25 @@
                                     generic_arguments: None,
                                     item_groups: [
                                         Regular(
-                                            9,
+                                            10,
                                         ),
                                     ],
                                 },
                                 FnCall {
-                                    function: 0,
+                                    function: 1,
                                     generic_arguments: None,
                                     item_groups: [
                                         Regular(
-                                            5,
+                                            6,
                                         ),
                                         Regular(
-                                            10,
+                                            11,
                                         ),
                                     ],
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -3968,7 +3968,7 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 11,
+                                    expr_idx: 12,
                                 },
                             ],
                         },
@@ -4035,14 +4035,14 @@
                         ),
                     },
                     body: Some(
-                        3,
+                        4,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
                             data: [
                                 SelfValue,
                                 Field {
-                                    owner: 0,
+                                    owner: 1,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -4052,7 +4052,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 1,
+                                    owner: 2,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -4063,7 +4063,7 @@
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -4071,7 +4071,7 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 2,
+                                    expr_idx: 3,
                                 },
                             ],
                         },
@@ -4138,14 +4138,14 @@
                         ),
                     },
                     body: Some(
-                        3,
+                        4,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
                             data: [
                                 SelfValue,
                                 Field {
-                                    owner: 0,
+                                    owner: 1,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -4155,7 +4155,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 1,
+                                    owner: 2,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -4166,7 +4166,7 @@
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -4174,7 +4174,7 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 2,
+                                    expr_idx: 3,
                                 },
                             ],
                         },
@@ -4241,14 +4241,14 @@
                         ),
                     },
                     body: Some(
-                        3,
+                        4,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
                             data: [
                                 SelfValue,
                                 Field {
-                                    owner: 0,
+                                    owner: 1,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -4258,7 +4258,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 1,
+                                    owner: 2,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -4269,7 +4269,7 @@
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -4277,7 +4277,7 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 2,
+                                    expr_idx: 3,
                                 },
                             ],
                         },
@@ -4344,14 +4344,14 @@
                         ),
                     },
                     body: Some(
-                        3,
+                        4,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
                             data: [
                                 SelfValue,
                                 Field {
-                                    owner: 0,
+                                    owner: 1,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -4361,7 +4361,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 1,
+                                    owner: 2,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -4372,7 +4372,7 @@
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -4380,7 +4380,7 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 2,
+                                    expr_idx: 3,
                                 },
                             ],
                         },
@@ -4468,14 +4468,14 @@
                         ),
                     },
                     body: Some(
-                        3,
+                        4,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
                             data: [
                                 SelfValue,
                                 Field {
-                                    owner: 0,
+                                    owner: 1,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -4485,7 +4485,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 1,
+                                    owner: 2,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -4496,7 +4496,7 @@
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -4504,7 +4504,7 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 2,
+                                    expr_idx: 3,
                                 },
                             ],
                         },
@@ -4571,14 +4571,14 @@
                         ),
                     },
                     body: Some(
-                        3,
+                        4,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
                             data: [
                                 SelfValue,
                                 Field {
-                                    owner: 0,
+                                    owner: 1,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -4588,7 +4588,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 1,
+                                    owner: 2,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -4599,7 +4599,7 @@
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -4607,7 +4607,7 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 2,
+                                    expr_idx: 3,
                                 },
                             ],
                         },
@@ -4674,14 +4674,14 @@
                         ),
                     },
                     body: Some(
-                        3,
+                        4,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
                             data: [
                                 SelfValue,
                                 Field {
-                                    owner: 0,
+                                    owner: 1,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -4691,7 +4691,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 1,
+                                    owner: 2,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -4702,7 +4702,7 @@
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -4710,7 +4710,7 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 2,
+                                    expr_idx: 3,
                                 },
                             ],
                         },
@@ -4777,14 +4777,14 @@
                         ),
                     },
                     body: Some(
-                        3,
+                        4,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
                             data: [
                                 SelfValue,
                                 Field {
-                                    owner: 0,
+                                    owner: 1,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -4794,7 +4794,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 1,
+                                    owner: 2,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -4805,7 +4805,7 @@
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -4813,7 +4813,7 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 2,
+                                    expr_idx: 3,
                                 },
                             ],
                         },

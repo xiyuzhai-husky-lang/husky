@@ -7,8 +7,8 @@ Ok(
         use_one_trackers: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 0,
-                    use_expr_idx: 2,
+                    ast_idx: 1,
+                    use_expr_idx: 3,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
@@ -19,15 +19,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            1..2,
+                            2..3,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 1,
-                    use_expr_idx: 5,
+                    ast_idx: 2,
+                    use_expr_idx: 6,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
@@ -38,15 +38,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            4..5,
+                            5..6,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 2,
-                    use_expr_idx: 8,
+                    ast_idx: 3,
+                    use_expr_idx: 9,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
@@ -57,15 +57,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            7..8,
+                            8..9,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 3,
-                    use_expr_idx: 11,
+                    ast_idx: 4,
+                    use_expr_idx: 12,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
@@ -76,15 +76,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            10..11,
+                            11..12,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 4,
-                    use_expr_idx: 14,
+                    ast_idx: 5,
+                    use_expr_idx: 15,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
@@ -95,15 +95,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            13..14,
+                            14..15,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 5,
-                    use_expr_idx: 17,
+                    ast_idx: 6,
+                    use_expr_idx: 18,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
@@ -114,15 +114,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            16..17,
+                            17..18,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 6,
-                    use_expr_idx: 20,
+                    ast_idx: 7,
+                    use_expr_idx: 21,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
@@ -133,15 +133,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            19..20,
+                            20..21,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 7,
-                    use_expr_idx: 23,
+                    ast_idx: 8,
+                    use_expr_idx: 24,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
@@ -152,15 +152,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            22..23,
+                            23..24,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 8,
-                    use_expr_idx: 26,
+                    ast_idx: 9,
+                    use_expr_idx: 27,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
@@ -171,15 +171,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            25..26,
+                            26..27,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 9,
-                    use_expr_idx: 29,
+                    ast_idx: 10,
+                    use_expr_idx: 30,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
@@ -190,15 +190,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            28..29,
+                            29..30,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 10,
-                    use_expr_idx: 32,
+                    ast_idx: 11,
+                    use_expr_idx: 33,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
@@ -209,7 +209,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            31..32,
+                            32..33,
                         ),
                     },
                     parent: None,
@@ -248,7 +248,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 0,
+                                child: 1,
                             },
                         ),
                     },
@@ -271,7 +271,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 1,
+                                child: 2,
                             },
                         ),
                     },
@@ -302,7 +302,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 3,
+                                child: 4,
                             },
                         ),
                     },
@@ -325,7 +325,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 4,
+                                child: 5,
                             },
                         ),
                     },
@@ -356,7 +356,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 6,
+                                child: 7,
                             },
                         ),
                     },
@@ -379,7 +379,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 7,
+                                child: 8,
                             },
                         ),
                     },
@@ -410,7 +410,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 9,
+                                child: 10,
                             },
                         ),
                     },
@@ -433,7 +433,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 10,
+                                child: 11,
                             },
                         ),
                     },
@@ -464,7 +464,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 12,
+                                child: 13,
                             },
                         ),
                     },
@@ -487,7 +487,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 13,
+                                child: 14,
                             },
                         ),
                     },
@@ -518,7 +518,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 15,
+                                child: 16,
                             },
                         ),
                     },
@@ -541,7 +541,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 16,
+                                child: 17,
                             },
                         ),
                     },
@@ -572,7 +572,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 18,
+                                child: 19,
                             },
                         ),
                     },
@@ -595,7 +595,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 19,
+                                child: 20,
                             },
                         ),
                     },
@@ -626,7 +626,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 21,
+                                child: 22,
                             },
                         ),
                     },
@@ -649,7 +649,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 22,
+                                child: 23,
                             },
                         ),
                     },
@@ -680,7 +680,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 24,
+                                child: 25,
                             },
                         ),
                     },
@@ -703,7 +703,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 25,
+                                child: 26,
                             },
                         ),
                     },
@@ -734,7 +734,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 27,
+                                child: 28,
                             },
                         ),
                     },
@@ -757,7 +757,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 28,
+                                child: 29,
                             },
                         ),
                     },
@@ -788,7 +788,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 30,
+                                child: 31,
                             },
                         ),
                     },
@@ -811,7 +811,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 31,
+                                child: 32,
                             },
                         ),
                     },

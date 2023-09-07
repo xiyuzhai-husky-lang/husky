@@ -23,7 +23,7 @@ impl<V> SymbolMap<V> {
                     let base = parent.inherited_symbol_map.len();
                     for (parent_idx, v) in parent.current_symbol_map.key_value_iter() {
                         unsafe {
-                            let idx = ArenaIdx::from_raw(base + parent_idx.raw());
+                            let idx = ArenaIdx::from_raw(base + parent_idx.index());
                             inherited_symbol_map.insert_new(idx, v.clone())
                         }
                     }

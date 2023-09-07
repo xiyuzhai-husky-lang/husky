@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 19,
+                            ast_idx: 20,
                             ident_token: IdentToken {
                                 ident: `connected_components`,
                                 token_idx: TokenIdx(
@@ -31,7 +31,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            0..1,
+                                            1..2,
                                         ),
                                     },
                                 ),
@@ -63,7 +63,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 20,
+                            ast_idx: 21,
                             ident_token: IdentToken {
                                 ident: `major_connected_component`,
                                 token_idx: TokenIdx(
@@ -79,7 +79,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            6..10,
+                                            7..11,
                                         ),
                                     },
                                 ),
@@ -111,7 +111,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 21,
+                            ast_idx: 22,
                             ident_token: IdentToken {
                                 ident: `ignored_connected_components_row_span_sum_sum`,
                                 token_idx: TokenIdx(
@@ -127,7 +127,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            11..14,
+                                            12..15,
                                         ),
                                     },
                                 ),
@@ -159,7 +159,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 22,
+                            ast_idx: 23,
                             ident_token: IdentToken {
                                 ident: `major_raw_contours`,
                                 token_idx: TokenIdx(
@@ -175,7 +175,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            14..15,
+                                            15..16,
                                         ),
                                     },
                                 ),
@@ -207,7 +207,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 23,
+                            ast_idx: 24,
                             ident_token: IdentToken {
                                 ident: `major_raw_contour`,
                                 token_idx: TokenIdx(
@@ -223,7 +223,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            15..16,
+                                            16..17,
                                         ),
                                     },
                                 ),
@@ -255,7 +255,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 24,
+                            ast_idx: 25,
                             ident_token: IdentToken {
                                 ident: `major_line_segment_sketch`,
                                 token_idx: TokenIdx(
@@ -271,7 +271,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            16..17,
+                                            17..18,
                                         ),
                                     },
                                 ),
@@ -303,7 +303,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 25,
+                            ast_idx: 26,
                             ident_token: IdentToken {
                                 ident: `major_concave_components`,
                                 token_idx: TokenIdx(
@@ -319,7 +319,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            17..18,
+                                            18..19,
                                         ),
                                     },
                                 ),
@@ -344,8 +344,8 @@ Ok(
         use_one_trackers: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 18,
-                    use_expr_idx: 1,
+                    ast_idx: 19,
+                    use_expr_idx: 2,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::major`,
                     ),
@@ -358,7 +358,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            0..1,
+                            1..2,
                         ),
                     },
                     parent: None,
@@ -396,7 +396,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 0,
+                                child: 1,
                             },
                         ),
                     },

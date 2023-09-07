@@ -12,7 +12,7 @@ Ok(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::fmt::Debug`),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {

@@ -23,7 +23,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 4,
+                                ast_idx: 5,
                                 template_parameter_decl_list: Ok(
                                     Some(
                                         Generics {
@@ -35,7 +35,7 @@ Ok(
                                             template_parameters: [
                                                 TemplateParameterObelisk {
                                                     annotated_variance_token: None,
-                                                    symbol: 0,
+                                                    symbol: 1,
                                                     variant: TemplateParameterDeclPatternVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `T`,
@@ -134,7 +134,7 @@ Ok(
                                                 (
                                                     TemplateTypeParameter,
                                                     ArenaIdxRange(
-                                                        0..1,
+                                                        1..2,
                                                     ),
                                                 ),
                                             ],

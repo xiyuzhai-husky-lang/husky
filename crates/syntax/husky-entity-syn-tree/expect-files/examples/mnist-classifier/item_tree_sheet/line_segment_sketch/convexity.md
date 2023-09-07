@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 22,
+                            ast_idx: 23,
                             ident_token: IdentToken {
                                 ident: `is_convex`,
                                 token_idx: TokenIdx(
@@ -31,7 +31,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            14..19,
+                                            15..20,
                                         ),
                                     },
                                 ),
@@ -72,7 +72,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 22,
+                            ast_idx: 23,
                             ident_token: IdentToken {
                                 ident: `is_convex`,
                                 token_idx: TokenIdx(
@@ -88,7 +88,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            14..19,
+                                            15..20,
                                         ),
                                     },
                                 ),
@@ -119,7 +119,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 159,
+                                    ast_idx: 160,
                                     ident_token: IdentToken {
                                         ident: `concave_component`,
                                         token_idx: TokenIdx(
@@ -134,8 +134,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 19,
-                            use_expr_idx: 0,
+                            ast_idx: 20,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -162,7 +162,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 160,
+                                    ast_idx: 161,
                                     ident_token: IdentToken {
                                         ident: `convex_component`,
                                         token_idx: TokenIdx(
@@ -177,8 +177,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 19,
-                            use_expr_idx: 0,
+                            ast_idx: 20,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -205,7 +205,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 161,
+                                    ast_idx: 162,
                                     ident_token: IdentToken {
                                         ident: `convexity`,
                                         token_idx: TokenIdx(
@@ -220,8 +220,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 19,
-                            use_expr_idx: 0,
+                            ast_idx: 20,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -248,7 +248,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 162,
+                                    ast_idx: 163,
                                     ident_token: IdentToken {
                                         ident: `line_segment`,
                                         token_idx: TokenIdx(
@@ -263,8 +263,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 19,
-                            use_expr_idx: 0,
+                            ast_idx: 20,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -289,7 +289,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 169,
+                                    ast_idx: 170,
                                     ident_token: IdentToken {
                                         ident: `LineSegmentStroke`,
                                         token_idx: TokenIdx(
@@ -314,8 +314,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 19,
-                            use_expr_idx: 0,
+                            ast_idx: 20,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -340,7 +340,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 172,
+                                    ast_idx: 173,
                                     ident_token: IdentToken {
                                         ident: `LineSegmentSketch`,
                                         token_idx: TokenIdx(
@@ -365,8 +365,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 19,
-                            use_expr_idx: 0,
+                            ast_idx: 20,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -393,7 +393,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 175,
+                                    ast_idx: 176,
                                     ident_token: IdentToken {
                                         ident: `go_right`,
                                         token_idx: TokenIdx(
@@ -409,7 +409,7 @@ Ok(
                                         body: Some(
                                             FugitiveBody {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    26..32,
+                                                    27..33,
                                                 ),
                                             },
                                         ),
@@ -424,8 +424,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 19,
-                            use_expr_idx: 0,
+                            ast_idx: 20,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -452,7 +452,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 176,
+                                    ast_idx: 177,
                                     ident_token: IdentToken {
                                         ident: `go_left`,
                                         token_idx: TokenIdx(
@@ -468,7 +468,7 @@ Ok(
                                         body: Some(
                                             FugitiveBody {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    32..38,
+                                                    33..39,
                                                 ),
                                             },
                                         ),
@@ -483,8 +483,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 19,
-                            use_expr_idx: 0,
+                            ast_idx: 20,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -511,7 +511,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 177,
+                                    ast_idx: 178,
                                     ident_token: IdentToken {
                                         ident: `extend_end`,
                                         token_idx: TokenIdx(
@@ -527,7 +527,7 @@ Ok(
                                         body: Some(
                                             FugitiveBody {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    60..72,
+                                                    61..73,
                                                 ),
                                             },
                                         ),
@@ -542,8 +542,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 19,
-                            use_expr_idx: 0,
+                            ast_idx: 20,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -570,7 +570,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 178,
+                                    ast_idx: 179,
                                     ident_token: IdentToken {
                                         ident: `extend_start`,
                                         token_idx: TokenIdx(
@@ -586,7 +586,7 @@ Ok(
                                         body: Some(
                                             FugitiveBody {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    105..115,
+                                                    106..116,
                                                 ),
                                             },
                                         ),
@@ -601,8 +601,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 19,
-                            use_expr_idx: 0,
+                            ast_idx: 20,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -629,7 +629,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 179,
+                                    ast_idx: 180,
                                     ident_token: IdentToken {
                                         ident: `find_line_segments`,
                                         token_idx: TokenIdx(
@@ -645,7 +645,7 @@ Ok(
                                         body: Some(
                                             FugitiveBody {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    149..159,
+                                                    150..160,
                                                 ),
                                             },
                                         ),
@@ -660,8 +660,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 19,
-                            use_expr_idx: 0,
+                            ast_idx: 20,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -688,7 +688,7 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 74,
+                                            ast_idx: 75,
                                             ident_token: IdentToken {
                                                 ident: `ConcaveComponent`,
                                                 token_idx: TokenIdx(
@@ -711,8 +711,8 @@ Ok(
                                         ),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 163,
-                                    use_expr_idx: 0,
+                                    ast_idx: 164,
+                                    use_expr_idx: 1,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -723,8 +723,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 19,
-                            use_expr_idx: 0,
+                            ast_idx: 20,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -751,7 +751,7 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 77,
+                                            ast_idx: 78,
                                             ident_token: IdentToken {
                                                 ident: `find_concave_components`,
                                                 token_idx: TokenIdx(
@@ -767,7 +767,7 @@ Ok(
                                                 body: Some(
                                                     FugitiveBody {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            61..69,
+                                                            62..70,
                                                         ),
                                                     },
                                                 ),
@@ -780,8 +780,8 @@ Ok(
                                         ),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 163,
-                                    use_expr_idx: 0,
+                                    ast_idx: 164,
+                                    use_expr_idx: 1,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -792,8 +792,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 19,
-                            use_expr_idx: 0,
+                            ast_idx: 20,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -820,7 +820,7 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 16,
+                                            ast_idx: 17,
                                             ident_token: IdentToken {
                                                 ident: `LineSegment`,
                                                 token_idx: TokenIdx(
@@ -843,8 +843,8 @@ Ok(
                                         ),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 165,
-                                    use_expr_idx: 4,
+                                    ast_idx: 166,
+                                    use_expr_idx: 5,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -855,8 +855,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 19,
-                            use_expr_idx: 0,
+                            ast_idx: 20,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -883,7 +883,7 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 16,
+                                            ast_idx: 17,
                                             ident_token: IdentToken {
                                                 ident: `LineSegment`,
                                                 token_idx: TokenIdx(
@@ -908,8 +908,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 168,
-                                    use_expr_idx: 12,
+                                    ast_idx: 169,
+                                    use_expr_idx: 13,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -920,8 +920,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 19,
-                            use_expr_idx: 0,
+                            ast_idx: 20,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -948,7 +948,7 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 203,
+                                            ast_idx: 204,
                                             ident_token: IdentToken {
                                                 ident: `RawContour`,
                                                 token_idx: TokenIdx(
@@ -973,8 +973,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 167,
-                                    use_expr_idx: 9,
+                                    ast_idx: 168,
+                                    use_expr_idx: 10,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -985,8 +985,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 19,
-                            use_expr_idx: 0,
+                            ast_idx: 20,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1013,7 +1013,7 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 79,
+                                            ast_idx: 80,
                                             ident_token: IdentToken {
                                                 ident: `Point2d`,
                                                 token_idx: TokenIdx(
@@ -1038,8 +1038,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 166,
-                                    use_expr_idx: 6,
+                                    ast_idx: 167,
+                                    use_expr_idx: 7,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -1050,8 +1050,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 19,
-                            use_expr_idx: 0,
+                            ast_idx: 20,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1078,7 +1078,7 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 81,
+                                            ast_idx: 82,
                                             ident_token: IdentToken {
                                                 ident: `RelativePoint2d`,
                                                 token_idx: TokenIdx(
@@ -1103,8 +1103,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 166,
-                                    use_expr_idx: 6,
+                                    ast_idx: 167,
+                                    use_expr_idx: 7,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -1115,8 +1115,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 19,
-                            use_expr_idx: 0,
+                            ast_idx: 20,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1143,7 +1143,7 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 82,
+                                            ast_idx: 83,
                                             ident_token: IdentToken {
                                                 ident: `Vector2d`,
                                                 token_idx: TokenIdx(
@@ -1168,8 +1168,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 166,
-                                    use_expr_idx: 6,
+                                    ast_idx: 167,
+                                    use_expr_idx: 7,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -1180,8 +1180,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 19,
-                            use_expr_idx: 0,
+                            ast_idx: 20,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1208,7 +1208,7 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 84,
+                                            ast_idx: 85,
                                             ident_token: IdentToken {
                                                 ident: `ClosedRange`,
                                                 token_idx: TokenIdx(
@@ -1233,8 +1233,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 166,
-                                    use_expr_idx: 6,
+                                    ast_idx: 167,
+                                    use_expr_idx: 7,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -1245,8 +1245,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 19,
-                            use_expr_idx: 0,
+                            ast_idx: 20,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1273,7 +1273,7 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 86,
+                                            ast_idx: 87,
                                             ident_token: IdentToken {
                                                 ident: `BoundingBox`,
                                                 token_idx: TokenIdx(
@@ -1298,8 +1298,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 166,
-                                    use_expr_idx: 6,
+                                    ast_idx: 167,
+                                    use_expr_idx: 7,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -1310,8 +1310,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 19,
-                            use_expr_idx: 0,
+                            ast_idx: 20,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1338,7 +1338,7 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 88,
+                                            ast_idx: 89,
                                             ident_token: IdentToken {
                                                 ident: `RelativeBoundingBox`,
                                                 token_idx: TokenIdx(
@@ -1363,8 +1363,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 166,
-                                    use_expr_idx: 6,
+                                    ast_idx: 167,
+                                    use_expr_idx: 7,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -1375,8 +1375,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 19,
-                            use_expr_idx: 0,
+                            ast_idx: 20,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1401,7 +1401,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 203,
+                                    ast_idx: 204,
                                     ident_token: IdentToken {
                                         ident: `RawContour`,
                                         token_idx: TokenIdx(
@@ -1426,8 +1426,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 20,
-                            use_expr_idx: 3,
+                            ast_idx: 21,
+                            use_expr_idx: 4,
                         },
                     ),
                 },
@@ -1452,7 +1452,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 215,
+                                    ast_idx: 216,
                                     ident_token: IdentToken {
                                         ident: `find_raw_contours`,
                                         token_idx: TokenIdx(
@@ -1468,7 +1468,7 @@ Ok(
                                         body: Some(
                                             FugitiveBody {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    194..199,
+                                                    195..200,
                                                 ),
                                             },
                                         ),
@@ -1483,8 +1483,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 20,
-                            use_expr_idx: 3,
+                            ast_idx: 21,
+                            use_expr_idx: 4,
                         },
                     ),
                 },
@@ -1509,7 +1509,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 79,
+                                    ast_idx: 80,
                                     ident_token: IdentToken {
                                         ident: `Point2d`,
                                         token_idx: TokenIdx(
@@ -1534,8 +1534,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 21,
-                            use_expr_idx: 6,
+                            ast_idx: 22,
+                            use_expr_idx: 7,
                         },
                     ),
                 },
@@ -1560,7 +1560,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 81,
+                                    ast_idx: 82,
                                     ident_token: IdentToken {
                                         ident: `RelativePoint2d`,
                                         token_idx: TokenIdx(
@@ -1585,8 +1585,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 21,
-                            use_expr_idx: 6,
+                            ast_idx: 22,
+                            use_expr_idx: 7,
                         },
                     ),
                 },
@@ -1611,7 +1611,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 82,
+                                    ast_idx: 83,
                                     ident_token: IdentToken {
                                         ident: `Vector2d`,
                                         token_idx: TokenIdx(
@@ -1636,8 +1636,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 21,
-                            use_expr_idx: 6,
+                            ast_idx: 22,
+                            use_expr_idx: 7,
                         },
                     ),
                 },
@@ -1662,7 +1662,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 84,
+                                    ast_idx: 85,
                                     ident_token: IdentToken {
                                         ident: `ClosedRange`,
                                         token_idx: TokenIdx(
@@ -1687,8 +1687,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 21,
-                            use_expr_idx: 6,
+                            ast_idx: 22,
+                            use_expr_idx: 7,
                         },
                     ),
                 },
@@ -1713,7 +1713,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 86,
+                                    ast_idx: 87,
                                     ident_token: IdentToken {
                                         ident: `BoundingBox`,
                                         token_idx: TokenIdx(
@@ -1738,8 +1738,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 21,
-                            use_expr_idx: 6,
+                            ast_idx: 22,
+                            use_expr_idx: 7,
                         },
                     ),
                 },
@@ -1764,7 +1764,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 88,
+                                    ast_idx: 89,
                                     ident_token: IdentToken {
                                         ident: `RelativeBoundingBox`,
                                         token_idx: TokenIdx(
@@ -1789,8 +1789,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            ast_idx: 21,
-                            use_expr_idx: 6,
+                            ast_idx: 22,
+                            use_expr_idx: 7,
                         },
                     ),
                 },
@@ -1800,8 +1800,8 @@ Ok(
         once_use_rules: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 19,
-                    use_expr_idx: 2,
+                    ast_idx: 20,
+                    use_expr_idx: 3,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
@@ -1814,34 +1814,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            1..2,
-                        ),
-                    },
-                    parent: None,
-                    state: OnceUseRuleState::Resolved {
-                        original_symbol: Some(
-                            EntitySymbol::CrateRoot {
-                                root_module_path: `mnist_classifier`,
-                            },
-                        ),
-                    },
-                },
-                OnceUseRule {
-                    ast_idx: 20,
-                    use_expr_idx: 5,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::line_segment_sketch::convexity`,
-                    ),
-                    variant: OnceUseRuleVariant::Parent {
-                        parent_name_token: PathNameToken::CrateRoot(
-                            CrateToken {
-                                token_idx: TokenIdx(
-                                    8,
-                                ),
-                            },
-                        ),
-                        children: ArenaIdxRange(
-                            4..5,
+                            2..3,
                         ),
                     },
                     parent: None,
@@ -1855,7 +1828,7 @@ Ok(
                 },
                 OnceUseRule {
                     ast_idx: 21,
-                    use_expr_idx: 8,
+                    use_expr_idx: 6,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
@@ -1863,12 +1836,12 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    14,
+                                    8,
                                 ),
                             },
                         ),
                         children: ArenaIdxRange(
-                            7..8,
+                            5..6,
                         ),
                     },
                     parent: None,
@@ -1881,8 +1854,35 @@ Ok(
                     },
                 },
                 OnceUseRule {
-                    ast_idx: 19,
-                    use_expr_idx: 1,
+                    ast_idx: 22,
+                    use_expr_idx: 9,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::line_segment_sketch::convexity`,
+                    ),
+                    variant: OnceUseRuleVariant::Parent {
+                        parent_name_token: PathNameToken::CrateRoot(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    14,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            8..9,
+                        ),
+                    },
+                    parent: None,
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::CrateRoot {
+                                root_module_path: `mnist_classifier`,
+                            },
+                        ),
+                    },
+                },
+                OnceUseRule {
+                    ast_idx: 20,
+                    use_expr_idx: 2,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
@@ -1896,7 +1896,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            0..1,
+                            1..2,
                         ),
                     },
                     parent: Some(
@@ -1922,7 +1922,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier`,
                                     ),
-                                    ast_idx: 13,
+                                    ast_idx: 14,
                                     ident_token: IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -1935,8 +1935,8 @@ Ok(
                     },
                 },
                 OnceUseRule {
-                    ast_idx: 20,
-                    use_expr_idx: 4,
+                    ast_idx: 21,
+                    use_expr_idx: 5,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
@@ -1950,7 +1950,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            3..4,
+                            4..5,
                         ),
                     },
                     parent: Some(
@@ -1976,7 +1976,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier`,
                                     ),
-                                    ast_idx: 11,
+                                    ast_idx: 12,
                                     ident_token: IdentToken {
                                         ident: `raw_contour`,
                                         token_idx: TokenIdx(
@@ -1989,8 +1989,8 @@ Ok(
                     },
                 },
                 OnceUseRule {
-                    ast_idx: 21,
-                    use_expr_idx: 7,
+                    ast_idx: 22,
+                    use_expr_idx: 8,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
@@ -2004,7 +2004,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            6..7,
+                            7..8,
                         ),
                     },
                     parent: Some(
@@ -2030,7 +2030,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier`,
                                     ),
-                                    ast_idx: 12,
+                                    ast_idx: 13,
                                     ident_token: IdentToken {
                                         ident: `geom2d`,
                                         token_idx: TokenIdx(
@@ -2049,8 +2049,8 @@ Ok(
                 UseAllModuleSymbolsRule {
                     parent_module_path: `mnist_classifier::line_segment_sketch`,
                     is_same_crate: true,
-                    ast_idx: 19,
-                    use_expr_idx: 0,
+                    ast_idx: 20,
+                    use_expr_idx: 1,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
@@ -2061,8 +2061,8 @@ Ok(
                 UseAllModuleSymbolsRule {
                     parent_module_path: `mnist_classifier::raw_contour`,
                     is_same_crate: true,
-                    ast_idx: 20,
-                    use_expr_idx: 3,
+                    ast_idx: 21,
+                    use_expr_idx: 4,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
@@ -2073,8 +2073,8 @@ Ok(
                 UseAllModuleSymbolsRule {
                     parent_module_path: `mnist_classifier::geom2d`,
                     is_same_crate: true,
-                    ast_idx: 21,
-                    use_expr_idx: 6,
+                    ast_idx: 22,
+                    use_expr_idx: 7,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),

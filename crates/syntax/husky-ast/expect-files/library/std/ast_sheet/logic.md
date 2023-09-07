@@ -28,11 +28,11 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..1,
+            1..2,
         ),
         siblings: [
             ArenaIdxRange(
-                0..1,
+                1..2,
             ),
         ],
     },

@@ -17,7 +17,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 5,
+                            ast_idx: 6,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
@@ -97,7 +97,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 9,
+                            ast_idx: 10,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
@@ -177,7 +177,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 10,
+                            ast_idx: 11,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
@@ -250,7 +250,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    ast_idx: 6,
+                    ast_idx: 7,
                     impl_block: TypeImplBlockSynNode {
                         syn_node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
@@ -259,16 +259,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 6,
+                        ast_idx: 7,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 10,
                             ),
                         },
-                        ty_expr: 0,
+                        ty_expr: 1,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                2..5,
+                                3..6,
                             ),
                         },
                     },
@@ -281,7 +281,7 @@ Ok(
                         None,
                     ),
                     self_ty_expr: SelfTypeObelisk {
-                        expr: 0,
+                        expr: 1,
                     },
                     eol_colon: Ok(
                         EolToken::Colon(
@@ -311,7 +311,7 @@ Ok(
                             expr_arena: Arena {
                                 data: [
                                     SynExpr::PrincipalEntityPath {
-                                        item_path_expr: 0,
+                                        item_path_expr: 1,
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -374,7 +374,7 @@ Ok(
                             roots: [
                                 SynExprRoot {
                                     kind: SelfType,
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                 },
                             ],
                         },

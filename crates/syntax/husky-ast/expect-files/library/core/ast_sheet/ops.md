@@ -1123,7 +1123,7 @@ Ok(
                         items: Some(
                             TraitItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    0..2,
+                                    1..3,
                                 ),
                             },
                         ),
@@ -1174,7 +1174,7 @@ Ok(
                         items: Some(
                             TraitItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    2..4,
+                                    3..5,
                                 ),
                             },
                         ),
@@ -1225,7 +1225,7 @@ Ok(
                         items: Some(
                             TraitItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    4..6,
+                                    5..7,
                                 ),
                             },
                         ),
@@ -1276,7 +1276,7 @@ Ok(
                         items: Some(
                             TraitItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    6..7,
+                                    7..8,
                                 ),
                             },
                         ),
@@ -1327,7 +1327,7 @@ Ok(
                         items: Some(
                             TraitItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    7..9,
+                                    8..10,
                                 ),
                             },
                         ),
@@ -1378,7 +1378,7 @@ Ok(
                         items: Some(
                             TraitItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    9..10,
+                                    10..11,
                                 ),
                             },
                         ),
@@ -1429,7 +1429,7 @@ Ok(
                         items: Some(
                             TraitItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    10..12,
+                                    11..13,
                                 ),
                             },
                         ),
@@ -1480,7 +1480,7 @@ Ok(
                         items: Some(
                             TraitItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    12..13,
+                                    13..14,
                                 ),
                             },
                         ),
@@ -1531,7 +1531,7 @@ Ok(
                         items: Some(
                             TraitItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    13..15,
+                                    14..16,
                                 ),
                             },
                         ),
@@ -1582,7 +1582,7 @@ Ok(
                         items: Some(
                             TraitItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    15..16,
+                                    16..17,
                                 ),
                             },
                         ),
@@ -1628,7 +1628,7 @@ Ok(
                         items: Some(
                             TraitItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    16..17,
+                                    17..18,
                                 ),
                             },
                         ),
@@ -1679,7 +1679,7 @@ Ok(
                         items: Some(
                             TraitItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    17..19,
+                                    18..20,
                                 ),
                             },
                         ),
@@ -1730,7 +1730,7 @@ Ok(
                         items: Some(
                             TraitItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    19..20,
+                                    20..21,
                                 ),
                             },
                         ),
@@ -1781,7 +1781,7 @@ Ok(
                         items: Some(
                             TraitItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    20..22,
+                                    21..23,
                                 ),
                             },
                         ),
@@ -1832,7 +1832,7 @@ Ok(
                         items: Some(
                             TraitItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    22..24,
+                                    23..25,
                                 ),
                             },
                         ),
@@ -1883,7 +1883,7 @@ Ok(
                         items: Some(
                             TraitItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    24..26,
+                                    25..27,
                                 ),
                             },
                         ),
@@ -1929,7 +1929,7 @@ Ok(
                         items: Some(
                             TraitItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    26..28,
+                                    27..29,
                                 ),
                             },
                         ),
@@ -1977,7 +1977,7 @@ Ok(
                         variants: Some(
                             TypeVariants {
                                 ast_idx_range: ArenaIdxRange(
-                                    28..30,
+                                    29..31,
                                 ),
                             },
                         ),
@@ -1986,86 +1986,80 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            30..64,
+            31..65,
         ),
         siblings: [
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..2,
+                1..3,
             ),
             ArenaIdxRange(
-                2..2,
+                3..3,
             ),
             ArenaIdxRange(
-                2..2,
+                3..3,
             ),
             ArenaIdxRange(
-                2..4,
+                3..5,
             ),
             ArenaIdxRange(
-                4..4,
+                5..5,
             ),
             ArenaIdxRange(
-                4..4,
+                5..5,
             ),
             ArenaIdxRange(
-                4..6,
-            ),
-            ArenaIdxRange(
-                6..6,
-            ),
-            ArenaIdxRange(
-                6..7,
+                5..7,
             ),
             ArenaIdxRange(
                 7..7,
             ),
             ArenaIdxRange(
-                7..7,
+                7..8,
             ),
             ArenaIdxRange(
-                7..9,
+                8..8,
             ),
             ArenaIdxRange(
-                9..9,
+                8..8,
             ),
             ArenaIdxRange(
-                9..10,
-            ),
-            ArenaIdxRange(
-                10..10,
+                8..10,
             ),
             ArenaIdxRange(
                 10..10,
             ),
             ArenaIdxRange(
-                10..12,
+                10..11,
             ),
             ArenaIdxRange(
-                12..12,
+                11..11,
             ),
             ArenaIdxRange(
-                12..13,
+                11..11,
+            ),
+            ArenaIdxRange(
+                11..13,
             ),
             ArenaIdxRange(
                 13..13,
             ),
             ArenaIdxRange(
-                13..13,
+                13..14,
             ),
             ArenaIdxRange(
-                13..15,
+                14..14,
             ),
             ArenaIdxRange(
-                15..15,
+                14..14,
             ),
             ArenaIdxRange(
-                15..16,
+                14..16,
             ),
             ArenaIdxRange(
                 16..16,
@@ -2077,55 +2071,61 @@ Ok(
                 17..17,
             ),
             ArenaIdxRange(
-                17..17,
+                17..18,
             ),
             ArenaIdxRange(
-                17..19,
+                18..18,
             ),
             ArenaIdxRange(
-                19..19,
+                18..18,
             ),
             ArenaIdxRange(
-                19..20,
-            ),
-            ArenaIdxRange(
-                20..20,
+                18..20,
             ),
             ArenaIdxRange(
                 20..20,
             ),
             ArenaIdxRange(
-                20..22,
+                20..21,
             ),
             ArenaIdxRange(
-                22..22,
+                21..21,
             ),
             ArenaIdxRange(
-                22..22,
+                21..21,
             ),
             ArenaIdxRange(
-                22..24,
+                21..23,
             ),
             ArenaIdxRange(
-                24..24,
+                23..23,
             ),
             ArenaIdxRange(
-                24..24,
+                23..23,
             ),
             ArenaIdxRange(
-                24..26,
+                23..25,
             ),
             ArenaIdxRange(
-                26..26,
+                25..25,
             ),
             ArenaIdxRange(
-                26..26,
+                25..25,
             ),
             ArenaIdxRange(
-                26..28,
+                25..27,
             ),
             ArenaIdxRange(
-                30..64,
+                27..27,
+            ),
+            ArenaIdxRange(
+                27..27,
+            ),
+            ArenaIdxRange(
+                27..29,
+            ),
+            ArenaIdxRange(
+                31..65,
             ),
         ],
     },

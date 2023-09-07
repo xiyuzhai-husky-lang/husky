@@ -11,7 +11,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    ast_idx: 10,
+                    ast_idx: 11,
                 },
             },
         ),
@@ -26,7 +26,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    ast_idx: 11,
+                    ast_idx: 12,
                 },
             },
         ),
@@ -41,7 +41,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    ast_idx: 12,
+                    ast_idx: 13,
                 },
             },
         ),
@@ -56,7 +56,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    ast_idx: 13,
+                    ast_idx: 14,
                 },
             },
         ),
@@ -71,7 +71,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    ast_idx: 14,
+                    ast_idx: 15,
                 },
             },
         ),
@@ -86,7 +86,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    ast_idx: 15,
+                    ast_idx: 16,
                 },
             },
         ),
@@ -101,7 +101,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    ast_idx: 16,
+                    ast_idx: 17,
                 },
             },
         ),
@@ -122,7 +122,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 25,
+                            ast_idx: 26,
                             colon_token: Ok(
                                 Some(
                                     ColonToken(
@@ -135,7 +135,7 @@ Ok(
                             return_ty: Ok(
                                 Some(
                                     ReturnTypeBeforeEqObelisk {
-                                        expr: 2,
+                                        expr: 3,
                                     },
                                 ),
                             ),
@@ -165,7 +165,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             SynExpr::PrincipalEntityPath {
-                                                item_path_expr: 0,
+                                                item_path_expr: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -175,7 +175,7 @@ Ok(
                                                 ),
                                             },
                                             SynExpr::PrincipalEntityPath {
-                                                item_path_expr: 1,
+                                                item_path_expr: 2,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -185,8 +185,8 @@ Ok(
                                                 ),
                                             },
                                             SynExpr::ExplicitApplication {
-                                                function_expr_idx: 0,
-                                                argument_expr_idx: 1,
+                                                function_expr_idx: 1,
+                                                argument_expr_idx: 2,
                                             },
                                         ],
                                     },
@@ -257,14 +257,14 @@ Ok(
                                     roots: [
                                         SynExprRoot {
                                             kind: ReturnType,
-                                            expr_idx: 2,
+                                            expr_idx: 3,
                                         },
                                     ],
                                 },
                             },
                         },
                         body: Some(
-                            21,
+                            22,
                         ),
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
@@ -287,7 +287,7 @@ Ok(
                                             expr_arena: Arena {
                                                 data: [
                                                     SynExpr::PrincipalEntityPath {
-                                                        item_path_expr: 0,
+                                                        item_path_expr: 1,
                                                         opt_path: Some(
                                                             PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Type(
@@ -297,7 +297,7 @@ Ok(
                                                         ),
                                                     },
                                                     SynExpr::PrincipalEntityPath {
-                                                        item_path_expr: 1,
+                                                        item_path_expr: 2,
                                                         opt_path: Some(
                                                             PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Type(
@@ -307,8 +307,8 @@ Ok(
                                                         ),
                                                     },
                                                     SynExpr::ExplicitApplication {
-                                                        function_expr_idx: 0,
-                                                        argument_expr_idx: 1,
+                                                        function_expr_idx: 1,
+                                                        argument_expr_idx: 2,
                                                     },
                                                 ],
                                             },
@@ -379,7 +379,7 @@ Ok(
                                             roots: [
                                                 SynExprRoot {
                                                     kind: ReturnType,
-                                                    expr_idx: 2,
+                                                    expr_idx: 3,
                                                 },
                                             ],
                                         },
@@ -400,7 +400,7 @@ Ok(
                                 expr_arena: Arena {
                                     data: [
                                         SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 0,
+                                            item_path_expr: 1,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Fugitive(
@@ -410,14 +410,14 @@ Ok(
                                             ),
                                         },
                                         SynExpr::Suffix {
-                                            opd: 0,
+                                            opd: 1,
                                             opr: UnveilOrComposeWithOption,
                                             opr_token_idx: TokenIdx(
                                                 67,
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 1,
+                                            item_path_expr: 2,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Fugitive(
@@ -427,14 +427,14 @@ Ok(
                                             ),
                                         },
                                         SynExpr::Suffix {
-                                            opd: 2,
+                                            opd: 3,
                                             opr: UnveilOrComposeWithOption,
                                             opr_token_idx: TokenIdx(
                                                 69,
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 2,
+                                            item_path_expr: 3,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Fugitive(
@@ -444,14 +444,14 @@ Ok(
                                             ),
                                         },
                                         SynExpr::Suffix {
-                                            opd: 4,
+                                            opd: 5,
                                             opr: UnveilOrComposeWithOption,
                                             opr_token_idx: TokenIdx(
                                                 71,
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 3,
+                                            item_path_expr: 4,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Fugitive(
@@ -461,14 +461,14 @@ Ok(
                                             ),
                                         },
                                         SynExpr::Suffix {
-                                            opd: 6,
+                                            opd: 7,
                                             opr: UnveilOrComposeWithOption,
                                             opr_token_idx: TokenIdx(
                                                 73,
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 4,
+                                            item_path_expr: 5,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Fugitive(
@@ -478,14 +478,14 @@ Ok(
                                             ),
                                         },
                                         SynExpr::Suffix {
-                                            opd: 8,
+                                            opd: 9,
                                             opr: UnveilOrComposeWithOption,
                                             opr_token_idx: TokenIdx(
                                                 75,
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 5,
+                                            item_path_expr: 6,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Fugitive(
@@ -495,14 +495,14 @@ Ok(
                                             ),
                                         },
                                         SynExpr::Suffix {
-                                            opd: 10,
+                                            opd: 11,
                                             opr: UnveilOrComposeWithOption,
                                             opr_token_idx: TokenIdx(
                                                 77,
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 6,
+                                            item_path_expr: 7,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Fugitive(
@@ -512,14 +512,14 @@ Ok(
                                             ),
                                         },
                                         SynExpr::Suffix {
-                                            opd: 12,
+                                            opd: 13,
                                             opr: UnveilOrComposeWithOption,
                                             opr_token_idx: TokenIdx(
                                                 79,
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 7,
+                                            item_path_expr: 8,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Fugitive(
@@ -529,14 +529,14 @@ Ok(
                                             ),
                                         },
                                         SynExpr::Suffix {
-                                            opd: 14,
+                                            opd: 15,
                                             opr: UnveilOrComposeWithOption,
                                             opr_token_idx: TokenIdx(
                                                 81,
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 8,
+                                            item_path_expr: 9,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Fugitive(
@@ -546,14 +546,14 @@ Ok(
                                             ),
                                         },
                                         SynExpr::Suffix {
-                                            opd: 16,
+                                            opd: 17,
                                             opr: UnveilOrComposeWithOption,
                                             opr_token_idx: TokenIdx(
                                                 83,
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 10,
+                                            item_path_expr: 11,
                                             opt_path: Some(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath {
@@ -564,7 +564,7 @@ Ok(
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 12,
+                                            item_path_expr: 13,
                                             opt_path: Some(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath {
@@ -575,14 +575,14 @@ Ok(
                                             ),
                                         },
                                         SynExpr::FunctionApplicationOrCall {
-                                            function: 18,
+                                            function: 19,
                                             generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 87,
                                             ),
                                             items: [
                                                 SynCommaListItem {
-                                                    expr_idx: 19,
+                                                    expr_idx: 20,
                                                     comma_token_idx: None,
                                                 },
                                             ],
@@ -592,7 +592,7 @@ Ok(
                                         },
                                         SynExpr::Block {
                                             stmts: ArenaIdxRange(
-                                                0..10,
+                                                1..11,
                                             ),
                                         },
                                     ],
@@ -750,7 +750,7 @@ Ok(
                                             ),
                                         },
                                         PrincipalEntityPathExpr::Subitem {
-                                            parent: 9,
+                                            parent: 10,
                                             scope_resolution_token: ScopeResolutionToken(
                                                 TokenIdx(
                                                     85,
@@ -789,7 +789,7 @@ Ok(
                                             ),
                                         },
                                         PrincipalEntityPathExpr::Subitem {
-                                            parent: 11,
+                                            parent: 12,
                                             scope_resolution_token: ScopeResolutionToken(
                                                 TokenIdx(
                                                     89,
@@ -817,61 +817,61 @@ Ok(
                                 stmt_arena: Arena {
                                     data: [
                                         SynStmt::Eval {
-                                            expr_idx: 1,
+                                            expr_idx: 2,
                                             eol_semicolon: Ok(
                                                 None,
                                             ),
                                         },
                                         SynStmt::Eval {
-                                            expr_idx: 3,
+                                            expr_idx: 4,
                                             eol_semicolon: Ok(
                                                 None,
                                             ),
                                         },
                                         SynStmt::Eval {
-                                            expr_idx: 5,
+                                            expr_idx: 6,
                                             eol_semicolon: Ok(
                                                 None,
                                             ),
                                         },
                                         SynStmt::Eval {
-                                            expr_idx: 7,
+                                            expr_idx: 8,
                                             eol_semicolon: Ok(
                                                 None,
                                             ),
                                         },
                                         SynStmt::Eval {
-                                            expr_idx: 9,
+                                            expr_idx: 10,
                                             eol_semicolon: Ok(
                                                 None,
                                             ),
                                         },
                                         SynStmt::Eval {
-                                            expr_idx: 11,
+                                            expr_idx: 12,
                                             eol_semicolon: Ok(
                                                 None,
                                             ),
                                         },
                                         SynStmt::Eval {
-                                            expr_idx: 13,
+                                            expr_idx: 14,
                                             eol_semicolon: Ok(
                                                 None,
                                             ),
                                         },
                                         SynStmt::Eval {
-                                            expr_idx: 15,
+                                            expr_idx: 16,
                                             eol_semicolon: Ok(
                                                 None,
                                             ),
                                         },
                                         SynStmt::Eval {
-                                            expr_idx: 17,
+                                            expr_idx: 18,
                                             eol_semicolon: Ok(
                                                 None,
                                             ),
                                         },
                                         SynStmt::Eval {
-                                            expr_idx: 20,
+                                            expr_idx: 21,
                                             eol_semicolon: Ok(
                                                 None,
                                             ),
@@ -908,47 +908,47 @@ Ok(
                                 roots: [
                                     SynExprRoot {
                                         kind: EvalExpr,
-                                        expr_idx: 1,
+                                        expr_idx: 2,
                                     },
                                     SynExprRoot {
                                         kind: EvalExpr,
-                                        expr_idx: 3,
+                                        expr_idx: 4,
                                     },
                                     SynExprRoot {
                                         kind: EvalExpr,
-                                        expr_idx: 5,
+                                        expr_idx: 6,
                                     },
                                     SynExprRoot {
                                         kind: EvalExpr,
-                                        expr_idx: 7,
+                                        expr_idx: 8,
                                     },
                                     SynExprRoot {
                                         kind: EvalExpr,
-                                        expr_idx: 9,
+                                        expr_idx: 10,
                                     },
                                     SynExprRoot {
                                         kind: EvalExpr,
-                                        expr_idx: 11,
+                                        expr_idx: 12,
                                     },
                                     SynExprRoot {
                                         kind: EvalExpr,
-                                        expr_idx: 13,
+                                        expr_idx: 14,
                                     },
                                     SynExprRoot {
                                         kind: EvalExpr,
-                                        expr_idx: 15,
+                                        expr_idx: 16,
                                     },
                                     SynExprRoot {
                                         kind: EvalExpr,
-                                        expr_idx: 17,
+                                        expr_idx: 18,
                                     },
                                     SynExprRoot {
                                         kind: EvalExpr,
-                                        expr_idx: 20,
+                                        expr_idx: 21,
                                     },
                                     SynExprRoot {
                                         kind: BlockExpr,
-                                        expr_idx: 21,
+                                        expr_idx: 22,
                                     },
                                 ],
                             },

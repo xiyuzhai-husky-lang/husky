@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 79,
+                            ast_idx: 80,
                             ident_token: IdentToken {
                                 ident: `Point2d`,
                                 token_idx: TokenIdx(
@@ -57,7 +57,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 81,
+                            ast_idx: 82,
                             ident_token: IdentToken {
                                 ident: `RelativePoint2d`,
                                 token_idx: TokenIdx(
@@ -99,7 +99,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 82,
+                            ast_idx: 83,
                             ident_token: IdentToken {
                                 ident: `Vector2d`,
                                 token_idx: TokenIdx(
@@ -141,7 +141,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 84,
+                            ast_idx: 85,
                             ident_token: IdentToken {
                                 ident: `ClosedRange`,
                                 token_idx: TokenIdx(
@@ -183,7 +183,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 86,
+                            ast_idx: 87,
                             ident_token: IdentToken {
                                 ident: `BoundingBox`,
                                 token_idx: TokenIdx(
@@ -225,7 +225,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 88,
+                            ast_idx: 89,
                             ident_token: IdentToken {
                                 ident: `RelativeBoundingBox`,
                                 token_idx: TokenIdx(

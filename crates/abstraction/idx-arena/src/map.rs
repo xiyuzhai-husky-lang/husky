@@ -77,11 +77,11 @@ impl<T, V> ArenaMap<T, V> {
     }
 
     pub fn has(&self, idx: ArenaIdx<T>) -> bool {
-        self.data[idx.raw].is_some()
+        self.data[idx.index()].is_some()
     }
 
     pub fn get(&self, idx: ArenaIdx<T>) -> Option<&V> {
-        match self.data[idx.raw] {
+        match self.data[idx.index()] {
             Some(ref v) => Some(v),
             None => None,
         }
@@ -111,8 +111,8 @@ impl<T, V> ArenaMap<T, V> {
 
     #[track_caller]
     pub fn insert_new(&mut self, idx: ArenaIdx<T>, v: V) {
-        should!(self.data[idx.raw].is_none());
-        self.data[idx.raw] = Some(v)
+        should!(self.data[idx.index()].is_none());
+        self.data[idx.index()] = Some(v)
     }
 }
 

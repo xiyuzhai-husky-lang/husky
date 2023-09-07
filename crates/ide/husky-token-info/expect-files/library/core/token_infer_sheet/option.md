@@ -3,7 +3,7 @@ Ok(
         token_infos: [
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 1,
+                use_expr_idx: 2,
                 rule_idx: OnceUseRuleIdx(
                     0,
                 ),
@@ -20,7 +20,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 3,
+                use_expr_idx: 4,
                 rule_idx: OnceUseRuleIdx(
                     1,
                 ),
@@ -40,7 +40,7 @@ Ok(
                                     },
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 4,
+                                ast_idx: 5,
                                 ident_token: IdentToken {
                                     ident: `Option`,
                                     token_idx: TokenIdx(
@@ -56,7 +56,7 @@ Ok(
                                     variants: Some(
                                         TypeVariants {
                                             ast_idx_range: ArenaIdxRange(
-                                                0..2,
+                                                1..3,
                                             ),
                                         },
                                     ),
@@ -90,7 +90,7 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
-                current_symbol_idx: 0,
+                current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentToken {

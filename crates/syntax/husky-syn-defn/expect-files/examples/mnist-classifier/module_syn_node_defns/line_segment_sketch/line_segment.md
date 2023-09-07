@@ -17,7 +17,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 16,
+                            ast_idx: 17,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
@@ -53,9 +53,9 @@ Ok(
                                                     12,
                                                 ),
                                             ),
-                                            ty_expr_idx: 0,
+                                            ty_expr_idx: 1,
                                             initialization: None,
-                                            variable: 0,
+                                            variable: 1,
                                         },
                                         PropsFieldDeclPattern {
                                             decorators: [],
@@ -77,9 +77,9 @@ Ok(
                                                     16,
                                                 ),
                                             ),
-                                            ty_expr_idx: 1,
+                                            ty_expr_idx: 2,
                                             initialization: None,
-                                            variable: 1,
+                                            variable: 2,
                                         },
                                     ],
                                     separators: [
@@ -124,7 +124,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             SynExpr::PrincipalEntityPath {
-                                                item_path_expr: 0,
+                                                item_path_expr: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -134,7 +134,7 @@ Ok(
                                                 ),
                                             },
                                             SynExpr::PrincipalEntityPath {
-                                                item_path_expr: 1,
+                                                item_path_expr: 2,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -253,10 +253,10 @@ Ok(
                                                             11,
                                                         ),
                                                     },
-                                                    ty_expr_idx: 0,
+                                                    ty_expr_idx: 1,
                                                 },
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                             (
@@ -273,10 +273,10 @@ Ok(
                                                             15,
                                                         ),
                                                     },
-                                                    ty_expr_idx: 1,
+                                                    ty_expr_idx: 2,
                                                 },
                                                 ArenaIdxRange(
-                                                    1..2,
+                                                    2..3,
                                                 ),
                                             ),
                                         ],
@@ -297,7 +297,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            expr_idx: 0,
+                                            expr_idx: 1,
                                         },
                                         SynExprRoot {
                                             kind: PropsStructFieldType {
@@ -314,7 +314,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            expr_idx: 1,
+                                            expr_idx: 2,
                                         },
                                     ],
                                 },
@@ -334,7 +334,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    ast_idx: 17,
+                    ast_idx: 18,
                     impl_block: TypeImplBlockSynNode {
                         syn_node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
@@ -343,16 +343,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 17,
+                        ast_idx: 18,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 20,
                             ),
                         },
-                        ty_expr: 22,
+                        ty_expr: 23,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                13..15,
+                                14..16,
                             ),
                         },
                     },
@@ -365,7 +365,7 @@ Ok(
                         None,
                     ),
                     self_ty_expr: SelfTypeObelisk {
-                        expr: 0,
+                        expr: 1,
                     },
                     eol_colon: Ok(
                         EolToken::Colon(
@@ -395,7 +395,7 @@ Ok(
                             expr_arena: Arena {
                                 data: [
                                     SynExpr::PrincipalEntityPath {
-                                        item_path_expr: 0,
+                                        item_path_expr: 1,
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -458,7 +458,7 @@ Ok(
                             roots: [
                                 SynExprRoot {
                                     kind: SelfType,
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                 },
                             ],
                         },
@@ -514,7 +514,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 13,
+                                ast_idx: 14,
                                 ident: `displacement`,
                                 item_kind: MethodFn,
                                 visibility: Scope::PubUnder(
@@ -522,7 +522,7 @@ Ok(
                                 ),
                                 is_generic: false,
                             },
-                            ast_idx: 13,
+                            ast_idx: 14,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
@@ -556,7 +556,7 @@ Ok(
                             return_ty: Ok(
                                 Some(
                                     ReturnTypeBeforeColonObelisk {
-                                        expr: 0,
+                                        expr: 1,
                                     },
                                 ),
                             ),
@@ -591,7 +591,7 @@ Ok(
                                                 expr_arena: Arena {
                                                     data: [
                                                         SynExpr::PrincipalEntityPath {
-                                                            item_path_expr: 0,
+                                                            item_path_expr: 1,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
@@ -654,7 +654,7 @@ Ok(
                                                 roots: [
                                                     SynExprRoot {
                                                         kind: SelfType,
-                                                        expr_idx: 0,
+                                                        expr_idx: 1,
                                                     },
                                                 ],
                                             },
@@ -683,7 +683,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             SynExpr::PrincipalEntityPath {
-                                                item_path_expr: 0,
+                                                item_path_expr: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -746,14 +746,14 @@ Ok(
                                     roots: [
                                         SynExprRoot {
                                             kind: ReturnType,
-                                            expr_idx: 0,
+                                            expr_idx: 1,
                                         },
                                     ],
                                 },
                             },
                         },
                         body: Some(
-                            5,
+                            6,
                         ),
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
@@ -780,7 +780,7 @@ Ok(
                                                         expr_arena: Arena {
                                                             data: [
                                                                 SynExpr::PrincipalEntityPath {
-                                                                    item_path_expr: 0,
+                                                                    item_path_expr: 1,
                                                                     opt_path: Some(
                                                                         PrincipalEntityPath::MajorItem(
                                                                             MajorItemPath::Type(
@@ -843,7 +843,7 @@ Ok(
                                                         roots: [
                                                             SynExprRoot {
                                                                 kind: SelfType,
-                                                                expr_idx: 0,
+                                                                expr_idx: 1,
                                                             },
                                                         ],
                                                     },
@@ -872,7 +872,7 @@ Ok(
                                             expr_arena: Arena {
                                                 data: [
                                                     SynExpr::PrincipalEntityPath {
-                                                        item_path_expr: 0,
+                                                        item_path_expr: 1,
                                                         opt_path: Some(
                                                             PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Type(
@@ -935,7 +935,7 @@ Ok(
                                             roots: [
                                                 SynExprRoot {
                                                     kind: ReturnType,
-                                                    expr_idx: 0,
+                                                    expr_idx: 1,
                                                 },
                                             ],
                                         },
@@ -969,7 +969,7 @@ Ok(
                                             ),
                                         ),
                                         SynExpr::Field {
-                                            owner: 0,
+                                            owner: 1,
                                             dot_token_idx: TokenIdx(
                                                 31,
                                             ),
@@ -986,7 +986,7 @@ Ok(
                                             ),
                                         ),
                                         SynExpr::Field {
-                                            owner: 2,
+                                            owner: 3,
                                             dot_token_idx: TokenIdx(
                                                 37,
                                             ),
@@ -998,7 +998,7 @@ Ok(
                                             },
                                         },
                                         SynExpr::MethodApplicationOrCall {
-                                            self_argument: 1,
+                                            self_argument: 2,
                                             dot_token_idx: TokenIdx(
                                                 33,
                                             ),
@@ -1014,7 +1014,7 @@ Ok(
                                             ),
                                             items: [
                                                 SynCommaListItem {
-                                                    expr_idx: 3,
+                                                    expr_idx: 4,
                                                     comma_token_idx: None,
                                                 },
                                             ],
@@ -1024,7 +1024,7 @@ Ok(
                                         },
                                         SynExpr::Block {
                                             stmts: ArenaIdxRange(
-                                                0..1,
+                                                1..2,
                                             ),
                                         },
                                     ],
@@ -1035,7 +1035,7 @@ Ok(
                                 stmt_arena: Arena {
                                     data: [
                                         SynStmt::Eval {
-                                            expr_idx: 4,
+                                            expr_idx: 5,
                                             eol_semicolon: Ok(
                                                 None,
                                             ),
@@ -1072,11 +1072,11 @@ Ok(
                                 roots: [
                                     SynExprRoot {
                                         kind: EvalExpr,
-                                        expr_idx: 4,
+                                        expr_idx: 5,
                                     },
                                     SynExprRoot {
                                         kind: BlockExpr,
-                                        expr_idx: 5,
+                                        expr_idx: 6,
                                     },
                                 ],
                             },
@@ -1133,7 +1133,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 14,
+                                ast_idx: 15,
                                 ident: `dist_to_point`,
                                 item_kind: MethodFn,
                                 visibility: Scope::PubUnder(
@@ -1141,7 +1141,7 @@ Ok(
                                 ),
                                 is_generic: false,
                             },
-                            ast_idx: 14,
+                            ast_idx: 15,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
@@ -1156,16 +1156,16 @@ Ok(
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
                                         SpecificParameterObelisk::Regular {
-                                            pattern: 0,
+                                            pattern: 1,
                                             variables: ArenaIdxRange(
-                                                0..1,
+                                                1..2,
                                             ),
                                             colon: ColonToken(
                                                 TokenIdx(
                                                     44,
                                                 ),
                                             ),
-                                            ty: 0,
+                                            ty: 1,
                                         },
                                     ],
                                     commas: [],
@@ -1188,7 +1188,7 @@ Ok(
                             return_ty: Ok(
                                 Some(
                                     ReturnTypeBeforeColonObelisk {
-                                        expr: 1,
+                                        expr: 2,
                                     },
                                 ),
                             ),
@@ -1223,7 +1223,7 @@ Ok(
                                                 expr_arena: Arena {
                                                     data: [
                                                         SynExpr::PrincipalEntityPath {
-                                                            item_path_expr: 0,
+                                                            item_path_expr: 1,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
@@ -1286,7 +1286,7 @@ Ok(
                                                 roots: [
                                                     SynExprRoot {
                                                         kind: SelfType,
-                                                        expr_idx: 0,
+                                                        expr_idx: 1,
                                                     },
                                                 ],
                                             },
@@ -1315,7 +1315,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             SynExpr::PrincipalEntityPath {
-                                                item_path_expr: 0,
+                                                item_path_expr: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -1325,7 +1325,7 @@ Ok(
                                                 ),
                                             },
                                             SynExpr::PrincipalEntityPath {
-                                                item_path_expr: 1,
+                                                item_path_expr: 2,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -1398,7 +1398,7 @@ Ok(
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 SynPatternSymbol::Atom(
-                                                    0,
+                                                    1,
                                                 ),
                                             ],
                                         },
@@ -1406,7 +1406,7 @@ Ok(
                                             [
                                                 (
                                                     `pt`,
-                                                    0,
+                                                    1,
                                                 ),
                                             ],
                                         ],
@@ -1430,7 +1430,7 @@ Ok(
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                         ident: `pt`,
-                                                        pattern_symbol_idx: 0,
+                                                        pattern_symbol_idx: 1,
                                                     },
                                                 },
                                             ],
@@ -1440,11 +1440,11 @@ Ok(
                                         pattern_ty_constraints: [
                                             (
                                                 ExplicitRegularParameter {
-                                                    pattern_expr_idx: 0,
-                                                    ty_expr_idx: 0,
+                                                    pattern_expr_idx: 1,
+                                                    ty_expr_idx: 1,
                                                 },
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],
@@ -1452,18 +1452,18 @@ Ok(
                                     roots: [
                                         SynExprRoot {
                                             kind: ExplicitParameterType,
-                                            expr_idx: 0,
+                                            expr_idx: 1,
                                         },
                                         SynExprRoot {
                                             kind: ReturnType,
-                                            expr_idx: 1,
+                                            expr_idx: 2,
                                         },
                                     ],
                                 },
                             },
                         },
                         body: Some(
-                            31,
+                            32,
                         ),
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
@@ -1490,7 +1490,7 @@ Ok(
                                                         expr_arena: Arena {
                                                             data: [
                                                                 SynExpr::PrincipalEntityPath {
-                                                                    item_path_expr: 0,
+                                                                    item_path_expr: 1,
                                                                     opt_path: Some(
                                                                         PrincipalEntityPath::MajorItem(
                                                                             MajorItemPath::Type(
@@ -1553,7 +1553,7 @@ Ok(
                                                         roots: [
                                                             SynExprRoot {
                                                                 kind: SelfType,
-                                                                expr_idx: 0,
+                                                                expr_idx: 1,
                                                             },
                                                         ],
                                                     },
@@ -1582,7 +1582,7 @@ Ok(
                                             expr_arena: Arena {
                                                 data: [
                                                     SynExpr::PrincipalEntityPath {
-                                                        item_path_expr: 0,
+                                                        item_path_expr: 1,
                                                         opt_path: Some(
                                                             PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Type(
@@ -1592,7 +1592,7 @@ Ok(
                                                         ),
                                                     },
                                                     SynExpr::PrincipalEntityPath {
-                                                        item_path_expr: 1,
+                                                        item_path_expr: 2,
                                                         opt_path: Some(
                                                             PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Type(
@@ -1665,7 +1665,7 @@ Ok(
                                                 pattern_symbol_arena: Arena {
                                                     data: [
                                                         SynPatternSymbol::Atom(
-                                                            0,
+                                                            1,
                                                         ),
                                                     ],
                                                 },
@@ -1673,7 +1673,7 @@ Ok(
                                                     [
                                                         (
                                                             `pt`,
-                                                            0,
+                                                            1,
                                                         ),
                                                     ],
                                                 ],
@@ -1697,7 +1697,7 @@ Ok(
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                                 ident: `pt`,
-                                                                pattern_symbol_idx: 0,
+                                                                pattern_symbol_idx: 1,
                                                             },
                                                         },
                                                     ],
@@ -1707,11 +1707,11 @@ Ok(
                                                 pattern_ty_constraints: [
                                                     (
                                                         ExplicitRegularParameter {
-                                                            pattern_expr_idx: 0,
-                                                            ty_expr_idx: 0,
+                                                            pattern_expr_idx: 1,
+                                                            ty_expr_idx: 1,
                                                         },
                                                         ArenaIdxRange(
-                                                            0..1,
+                                                            1..2,
                                                         ),
                                                     ),
                                                 ],
@@ -1719,11 +1719,11 @@ Ok(
                                             roots: [
                                                 SynExprRoot {
                                                     kind: ExplicitParameterType,
-                                                    expr_idx: 0,
+                                                    expr_idx: 1,
                                                 },
                                                 SynExprRoot {
                                                     kind: ReturnType,
-                                                    expr_idx: 1,
+                                                    expr_idx: 2,
                                                 },
                                             ],
                                         },
@@ -1757,7 +1757,7 @@ Ok(
                                             ),
                                         ),
                                         SynExpr::MethodApplicationOrCall {
-                                            self_argument: 0,
+                                            self_argument: 1,
                                             dot_token_idx: TokenIdx(
                                                 54,
                                             ),
@@ -1782,7 +1782,7 @@ Ok(
                                             ),
                                         ),
                                         SynExpr::Field {
-                                            owner: 2,
+                                            owner: 3,
                                             dot_token_idx: TokenIdx(
                                                 62,
                                             ),
@@ -1798,13 +1798,13 @@ Ok(
                                             token_idx: TokenIdx(
                                                 67,
                                             ),
-                                            inherited_symbol_idx: 0,
+                                            inherited_symbol_idx: 1,
                                             inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `pt`,
                                             },
                                         },
                                         SynExpr::MethodApplicationOrCall {
-                                            self_argument: 3,
+                                            self_argument: 4,
                                             dot_token_idx: TokenIdx(
                                                 64,
                                             ),
@@ -1820,7 +1820,7 @@ Ok(
                                             ),
                                             items: [
                                                 SynCommaListItem {
-                                                    expr_idx: 4,
+                                                    expr_idx: 5,
                                                     comma_token_idx: None,
                                                 },
                                             ],
@@ -1833,9 +1833,9 @@ Ok(
                                             token_idx: TokenIdx(
                                                 70,
                                             ),
-                                            current_symbol_idx: 0,
+                                            current_symbol_idx: 1,
                                             current_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 0,
+                                                pattern_symbol_idx: 1,
                                             },
                                         },
                                         SynExpr::CurrentSymbol {
@@ -1843,13 +1843,13 @@ Ok(
                                             token_idx: TokenIdx(
                                                 74,
                                             ),
-                                            current_symbol_idx: 1,
+                                            current_symbol_idx: 2,
                                             current_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 1,
+                                                pattern_symbol_idx: 2,
                                             },
                                         },
                                         SynExpr::MethodApplicationOrCall {
-                                            self_argument: 6,
+                                            self_argument: 7,
                                             dot_token_idx: TokenIdx(
                                                 71,
                                             ),
@@ -1865,7 +1865,7 @@ Ok(
                                             ),
                                             items: [
                                                 SynCommaListItem {
-                                                    expr_idx: 7,
+                                                    expr_idx: 8,
                                                     comma_token_idx: None,
                                                 },
                                             ],
@@ -1888,27 +1888,27 @@ Ok(
                                             ),
                                         ),
                                         SynExpr::Binary {
-                                            lopd: 8,
+                                            lopd: 9,
                                             opr: Comparison(
                                                 Less,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 76,
                                             ),
-                                            ropd: 9,
+                                            ropd: 10,
                                         },
                                         SynExpr::CurrentSymbol {
                                             ident: `ap`,
                                             token_idx: TokenIdx(
                                                 79,
                                             ),
-                                            current_symbol_idx: 1,
+                                            current_symbol_idx: 2,
                                             current_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 1,
+                                                pattern_symbol_idx: 2,
                                             },
                                         },
                                         SynExpr::MethodApplicationOrCall {
-                                            self_argument: 11,
+                                            self_argument: 12,
                                             dot_token_idx: TokenIdx(
                                                 80,
                                             ),
@@ -1933,7 +1933,7 @@ Ok(
                                             ),
                                         ),
                                         SynExpr::Field {
-                                            owner: 13,
+                                            owner: 14,
                                             dot_token_idx: TokenIdx(
                                                 90,
                                             ),
@@ -1949,13 +1949,13 @@ Ok(
                                             token_idx: TokenIdx(
                                                 95,
                                             ),
-                                            inherited_symbol_idx: 0,
+                                            inherited_symbol_idx: 1,
                                             inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `pt`,
                                             },
                                         },
                                         SynExpr::MethodApplicationOrCall {
-                                            self_argument: 14,
+                                            self_argument: 15,
                                             dot_token_idx: TokenIdx(
                                                 92,
                                             ),
@@ -1971,7 +1971,7 @@ Ok(
                                             ),
                                             items: [
                                                 SynCommaListItem {
-                                                    expr_idx: 15,
+                                                    expr_idx: 16,
                                                     comma_token_idx: None,
                                                 },
                                             ],
@@ -1984,9 +1984,9 @@ Ok(
                                             token_idx: TokenIdx(
                                                 98,
                                             ),
-                                            current_symbol_idx: 0,
+                                            current_symbol_idx: 1,
                                             current_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 0,
+                                                pattern_symbol_idx: 1,
                                             },
                                         },
                                         SynExpr::CurrentSymbol {
@@ -1994,13 +1994,13 @@ Ok(
                                             token_idx: TokenIdx(
                                                 102,
                                             ),
-                                            current_symbol_idx: 2,
+                                            current_symbol_idx: 3,
                                             current_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 2,
+                                                pattern_symbol_idx: 3,
                                             },
                                         },
                                         SynExpr::MethodApplicationOrCall {
-                                            self_argument: 17,
+                                            self_argument: 18,
                                             dot_token_idx: TokenIdx(
                                                 99,
                                             ),
@@ -2016,7 +2016,7 @@ Ok(
                                             ),
                                             items: [
                                                 SynCommaListItem {
-                                                    expr_idx: 18,
+                                                    expr_idx: 19,
                                                     comma_token_idx: None,
                                                 },
                                             ],
@@ -2039,27 +2039,27 @@ Ok(
                                             ),
                                         ),
                                         SynExpr::Binary {
-                                            lopd: 19,
+                                            lopd: 20,
                                             opr: Comparison(
                                                 Greater,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 104,
                                             ),
-                                            ropd: 20,
+                                            ropd: 21,
                                         },
                                         SynExpr::CurrentSymbol {
                                             ident: `bp`,
                                             token_idx: TokenIdx(
                                                 107,
                                             ),
-                                            current_symbol_idx: 2,
+                                            current_symbol_idx: 3,
                                             current_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 2,
+                                                pattern_symbol_idx: 3,
                                             },
                                         },
                                         SynExpr::MethodApplicationOrCall {
-                                            self_argument: 22,
+                                            self_argument: 23,
                                             dot_token_idx: TokenIdx(
                                                 108,
                                             ),
@@ -2083,9 +2083,9 @@ Ok(
                                             token_idx: TokenIdx(
                                                 114,
                                             ),
-                                            current_symbol_idx: 0,
+                                            current_symbol_idx: 1,
                                             current_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 0,
+                                                pattern_symbol_idx: 1,
                                             },
                                         },
                                         SynExpr::CurrentSymbol {
@@ -2093,13 +2093,13 @@ Ok(
                                             token_idx: TokenIdx(
                                                 118,
                                             ),
-                                            current_symbol_idx: 1,
+                                            current_symbol_idx: 2,
                                             current_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 1,
+                                                pattern_symbol_idx: 2,
                                             },
                                         },
                                         SynExpr::MethodApplicationOrCall {
-                                            self_argument: 24,
+                                            self_argument: 25,
                                             dot_token_idx: TokenIdx(
                                                 115,
                                             ),
@@ -2115,7 +2115,7 @@ Ok(
                                             ),
                                             items: [
                                                 SynCommaListItem {
-                                                    expr_idx: 25,
+                                                    expr_idx: 26,
                                                     comma_token_idx: None,
                                                 },
                                             ],
@@ -2128,13 +2128,13 @@ Ok(
                                             token_idx: TokenIdx(
                                                 125,
                                             ),
-                                            current_symbol_idx: 0,
+                                            current_symbol_idx: 1,
                                             current_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 0,
+                                                pattern_symbol_idx: 1,
                                             },
                                         },
                                         SynExpr::MethodApplicationOrCall {
-                                            self_argument: 26,
+                                            self_argument: 27,
                                             dot_token_idx: TokenIdx(
                                                 120,
                                             ),
@@ -2154,7 +2154,7 @@ Ok(
                                             ),
                                         },
                                         SynExpr::MethodApplicationOrCall {
-                                            self_argument: 27,
+                                            self_argument: 28,
                                             dot_token_idx: TokenIdx(
                                                 126,
                                             ),
@@ -2174,18 +2174,18 @@ Ok(
                                             ),
                                         },
                                         SynExpr::Binary {
-                                            lopd: 28,
+                                            lopd: 29,
                                             opr: Closed(
                                                 Div,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 124,
                                             ),
-                                            ropd: 29,
+                                            ropd: 30,
                                         },
                                         SynExpr::Block {
                                             stmts: ArenaIdxRange(
-                                                5..8,
+                                                6..9,
                                             ),
                                         },
                                     ],
@@ -2196,19 +2196,19 @@ Ok(
                                 stmt_arena: Arena {
                                     data: [
                                         SynStmt::Eval {
-                                            expr_idx: 12,
+                                            expr_idx: 13,
                                             eol_semicolon: Ok(
                                                 None,
                                             ),
                                         },
                                         SynStmt::Eval {
-                                            expr_idx: 23,
+                                            expr_idx: 24,
                                             eol_semicolon: Ok(
                                                 None,
                                             ),
                                         },
                                         SynStmt::Eval {
-                                            expr_idx: 30,
+                                            expr_idx: 31,
                                             eol_semicolon: Ok(
                                                 None,
                                             ),
@@ -2221,9 +2221,9 @@ Ok(
                                             },
                                             let_variables_pattern: Ok(
                                                 LetVariableObelisk {
-                                                    pattern_expr_idx: 2,
+                                                    pattern_expr_idx: 3,
                                                     variables: ArenaIdxRange(
-                                                        2..3,
+                                                        3..4,
                                                     ),
                                                     colon_token: Ok(
                                                         None,
@@ -2238,7 +2238,7 @@ Ok(
                                                     ),
                                                 ),
                                             ),
-                                            initial_value: 16,
+                                            initial_value: 17,
                                         },
                                         SynStmt::IfElse {
                                             if_branch: SynIfBranch {
@@ -2248,7 +2248,7 @@ Ok(
                                                     ),
                                                 },
                                                 condition: Ok(
-                                                    21,
+                                                    22,
                                                 ),
                                                 eol_colon: Ok(
                                                     Colon(
@@ -2261,7 +2261,7 @@ Ok(
                                                 ),
                                                 stmts: Ok(
                                                     ArenaIdxRange(
-                                                        1..2,
+                                                        2..3,
                                                     ),
                                                 ),
                                             },
@@ -2284,7 +2284,7 @@ Ok(
                                                     ),
                                                     stmts: Ok(
                                                         ArenaIdxRange(
-                                                            2..3,
+                                                            3..4,
                                                         ),
                                                     ),
                                                 },
@@ -2294,33 +2294,6 @@ Ok(
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     50,
-                                                ),
-                                            },
-                                            let_variables_pattern: Ok(
-                                                LetVariableObelisk {
-                                                    pattern_expr_idx: 0,
-                                                    variables: ArenaIdxRange(
-                                                        0..1,
-                                                    ),
-                                                    colon_token: Ok(
-                                                        None,
-                                                    ),
-                                                    ty: None,
-                                                },
-                                            ),
-                                            assign_token: Ok(
-                                                EqToken(
-                                                    TokenIdx(
-                                                        52,
-                                                    ),
-                                                ),
-                                            ),
-                                            initial_value: 1,
-                                        },
-                                        SynStmt::Let {
-                                            let_token: LetToken {
-                                                token_idx: TokenIdx(
-                                                    58,
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
@@ -2338,11 +2311,38 @@ Ok(
                                             assign_token: Ok(
                                                 EqToken(
                                                     TokenIdx(
+                                                        52,
+                                                    ),
+                                                ),
+                                            ),
+                                            initial_value: 2,
+                                        },
+                                        SynStmt::Let {
+                                            let_token: LetToken {
+                                                token_idx: TokenIdx(
+                                                    58,
+                                                ),
+                                            },
+                                            let_variables_pattern: Ok(
+                                                LetVariableObelisk {
+                                                    pattern_expr_idx: 2,
+                                                    variables: ArenaIdxRange(
+                                                        2..3,
+                                                    ),
+                                                    colon_token: Ok(
+                                                        None,
+                                                    ),
+                                                    ty: None,
+                                                },
+                                            ),
+                                            assign_token: Ok(
+                                                EqToken(
+                                                    TokenIdx(
                                                         60,
                                                     ),
                                                 ),
                                             ),
-                                            initial_value: 5,
+                                            initial_value: 6,
                                         },
                                         SynStmt::IfElse {
                                             if_branch: SynIfBranch {
@@ -2352,7 +2352,7 @@ Ok(
                                                     ),
                                                 },
                                                 condition: Ok(
-                                                    10,
+                                                    11,
                                                 ),
                                                 eol_colon: Ok(
                                                     Colon(
@@ -2365,7 +2365,7 @@ Ok(
                                                 ),
                                                 stmts: Ok(
                                                     ArenaIdxRange(
-                                                        0..1,
+                                                        1..2,
                                                     ),
                                                 ),
                                             },
@@ -2388,7 +2388,7 @@ Ok(
                                                     ),
                                                     stmts: Ok(
                                                         ArenaIdxRange(
-                                                            3..5,
+                                                            4..6,
                                                         ),
                                                     ),
                                                 },
@@ -2443,13 +2443,13 @@ Ok(
                                     pattern_symbol_arena: Arena {
                                         data: [
                                             SynPatternSymbol::Atom(
-                                                0,
-                                            ),
-                                            SynPatternSymbol::Atom(
                                                 1,
                                             ),
                                             SynPatternSymbol::Atom(
                                                 2,
+                                            ),
+                                            SynPatternSymbol::Atom(
+                                                3,
                                             ),
                                         ],
                                     },
@@ -2457,19 +2457,19 @@ Ok(
                                         [
                                             (
                                                 `ab`,
-                                                0,
-                                            ),
-                                        ],
-                                        [
-                                            (
-                                                `ap`,
                                                 1,
                                             ),
                                         ],
                                         [
                                             (
-                                                `bp`,
+                                                `ap`,
                                                 2,
+                                            ),
+                                        ],
+                                        [
+                                            (
+                                                `bp`,
+                                                3,
                                             ),
                                         ],
                                     ],
@@ -2486,7 +2486,7 @@ Ok(
                                         data: [
                                             InheritedSynSymbol {
                                                 parent_symbol_idx: Current(
-                                                    0,
+                                                    1,
                                                 ),
                                                 modifier: None,
                                                 kind: InheritedSynSymbolKind::ParenateParameter {
@@ -2511,7 +2511,7 @@ Ok(
                                                 ),
                                                 variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `ab`,
-                                                    pattern_symbol_idx: 0,
+                                                    pattern_symbol_idx: 1,
                                                 },
                                             },
                                             CurrentSynSymbol {
@@ -2528,7 +2528,7 @@ Ok(
                                                 ),
                                                 variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `ap`,
-                                                    pattern_symbol_idx: 1,
+                                                    pattern_symbol_idx: 2,
                                                 },
                                             },
                                             CurrentSynSymbol {
@@ -2545,7 +2545,7 @@ Ok(
                                                 ),
                                                 variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `bp`,
-                                                    pattern_symbol_idx: 2,
+                                                    pattern_symbol_idx: 3,
                                                 },
                                             },
                                         ],
@@ -2557,31 +2557,31 @@ Ok(
                                 roots: [
                                     SynExprRoot {
                                         kind: LetStmtInitialValue,
-                                        expr_idx: 1,
+                                        expr_idx: 2,
                                     },
                                     SynExprRoot {
                                         kind: LetStmtInitialValue,
-                                        expr_idx: 5,
+                                        expr_idx: 6,
                                     },
                                     SynExprRoot {
                                         kind: EvalExpr,
-                                        expr_idx: 12,
+                                        expr_idx: 13,
                                     },
                                     SynExprRoot {
                                         kind: LetStmtInitialValue,
-                                        expr_idx: 16,
+                                        expr_idx: 17,
                                     },
                                     SynExprRoot {
                                         kind: EvalExpr,
-                                        expr_idx: 23,
+                                        expr_idx: 24,
                                     },
                                     SynExprRoot {
                                         kind: EvalExpr,
-                                        expr_idx: 30,
+                                        expr_idx: 31,
                                     },
                                     SynExprRoot {
                                         kind: BlockExpr,
-                                        expr_idx: 31,
+                                        expr_idx: 32,
                                     },
                                 ],
                             },

@@ -17,7 +17,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `std::ops`,
                             ),
-                            ast_idx: 3,
+                            ast_idx: 4,
                             ident_token: IdentToken {
                                 ident: `Add`,
                                 token_idx: TokenIdx(
@@ -33,7 +33,7 @@ Ok(
                                 items: Some(
                                     TraitItems {
                                         ast_idx_range: ArenaIdxRange(
-                                            0..2,
+                                            1..3,
                                         ),
                                     },
                                 ),
@@ -80,7 +80,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `std::ops`,
                             ),
-                            ast_idx: 3,
+                            ast_idx: 4,
                             ident_token: IdentToken {
                                 ident: `Add`,
                                 token_idx: TokenIdx(
@@ -96,7 +96,7 @@ Ok(
                                 items: Some(
                                     TraitItems {
                                         ast_idx_range: ArenaIdxRange(
-                                            0..2,
+                                            1..3,
                                         ),
                                     },
                                 ),

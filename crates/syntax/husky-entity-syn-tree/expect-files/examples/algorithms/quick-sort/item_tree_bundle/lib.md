@@ -17,7 +17,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 26,
+                                    ast_idx: 27,
                                     ident_token: IdentToken {
                                         ident: `quick_sort`,
                                         token_idx: TokenIdx(
@@ -33,7 +33,7 @@ Ok(
                                         body: Some(
                                             FugitiveBody {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    0..2,
+                                                    1..3,
                                                 ),
                                             },
                                         ),
@@ -67,7 +67,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `quick_sort`,
                                     ),
-                                    ast_idx: 27,
+                                    ast_idx: 28,
                                     ident_token: IdentToken {
                                         ident: `quick_sort_aux`,
                                         token_idx: TokenIdx(
@@ -83,7 +83,7 @@ Ok(
                                         body: Some(
                                             FugitiveBody {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    6..7,
+                                                    7..8,
                                                 ),
                                             },
                                         ),
@@ -119,7 +119,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `quick_sort`,
                                     ),
-                                    ast_idx: 28,
+                                    ast_idx: 29,
                                     ident_token: IdentToken {
                                         ident: `partition`,
                                         token_idx: TokenIdx(
@@ -135,7 +135,7 @@ Ok(
                                         body: Some(
                                             FugitiveBody {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    18..24,
+                                                    19..25,
                                                 ),
                                             },
                                         ),
@@ -171,7 +171,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `quick_sort`,
                                     ),
-                                    ast_idx: 30,
+                                    ast_idx: 31,
                                     ident_token: IdentToken {
                                         ident: `quick_sort_works_for_integers`,
                                         token_idx: TokenIdx(
@@ -187,7 +187,7 @@ Ok(
                                         body: Some(
                                             FugitiveBody {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    24..25,
+                                                    25..26,
                                                 ),
                                             },
                                         ),
@@ -223,7 +223,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `quick_sort`,
                                     ),
-                                    ast_idx: 32,
+                                    ast_idx: 33,
                                     ident_token: IdentToken {
                                         ident: `quick_sort_works_for_strs`,
                                         token_idx: TokenIdx(
@@ -239,7 +239,7 @@ Ok(
                                         body: Some(
                                             FugitiveBody {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    25..26,
+                                                    26..27,
                                                 ),
                                             },
                                         ),
@@ -282,7 +282,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 26,
+                                    ast_idx: 27,
                                     ident_token: IdentToken {
                                         ident: `quick_sort`,
                                         token_idx: TokenIdx(
@@ -298,7 +298,7 @@ Ok(
                                         body: Some(
                                             FugitiveBody {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    0..2,
+                                                    1..3,
                                                 ),
                                             },
                                         ),
@@ -327,7 +327,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `quick_sort`,
                                     ),
-                                    ast_idx: 27,
+                                    ast_idx: 28,
                                     ident_token: IdentToken {
                                         ident: `quick_sort_aux`,
                                         token_idx: TokenIdx(
@@ -343,7 +343,7 @@ Ok(
                                         body: Some(
                                             FugitiveBody {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    6..7,
+                                                    7..8,
                                                 ),
                                             },
                                         ),
@@ -372,7 +372,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `quick_sort`,
                                     ),
-                                    ast_idx: 28,
+                                    ast_idx: 29,
                                     ident_token: IdentToken {
                                         ident: `partition`,
                                         token_idx: TokenIdx(
@@ -388,7 +388,7 @@ Ok(
                                         body: Some(
                                             FugitiveBody {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    18..24,
+                                                    19..25,
                                                 ),
                                             },
                                         ),
@@ -417,7 +417,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `quick_sort`,
                                     ),
-                                    ast_idx: 30,
+                                    ast_idx: 31,
                                     ident_token: IdentToken {
                                         ident: `quick_sort_works_for_integers`,
                                         token_idx: TokenIdx(
@@ -433,7 +433,7 @@ Ok(
                                         body: Some(
                                             FugitiveBody {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    24..25,
+                                                    25..26,
                                                 ),
                                             },
                                         ),
@@ -462,7 +462,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `quick_sort`,
                                     ),
-                                    ast_idx: 32,
+                                    ast_idx: 33,
                                     ident_token: IdentToken {
                                         ident: `quick_sort_works_for_strs`,
                                         token_idx: TokenIdx(
@@ -478,7 +478,7 @@ Ok(
                                         body: Some(
                                             FugitiveBody {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    25..26,
+                                                    26..27,
                                                 ),
                                             },
                                         ),

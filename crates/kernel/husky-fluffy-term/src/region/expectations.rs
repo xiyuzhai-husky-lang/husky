@@ -1,17 +1,17 @@
 use super::*;
-use idx_arena::{Arena, ArenaIdx, OptionArenaIdx};
+use idx_arena::{Arena, ArenaIdx};
 
 #[derive(Default, Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = FluffyTermDb)]
 pub struct Expectations {
-    arena: Arena<ExpectationEntry>,
+    arena: Arena<FluffyTermExpectationEntry>,
     first_unresolved_expectation: usize,
 }
 
-impl std::ops::Index<ExpectationIdx> for Expectations {
-    type Output = ExpectationEntry;
+impl std::ops::Index<FluffyTermExpectationIdx> for Expectations {
+    type Output = FluffyTermExpectationEntry;
 
-    fn index(&self, index: ExpectationIdx) -> &Self::Output {
+    fn index(&self, index: FluffyTermExpectationIdx) -> &Self::Output {
         &self.arena[index]
     }
 }
@@ -19,7 +19,7 @@ impl std::ops::Index<ExpectationIdx> for Expectations {
 impl Expectations {
     pub(crate) fn unresolved_expectation_iter_mut(
         &mut self,
-    ) -> impl Iterator<Item = &mut ExpectationEntry> {
+    ) -> impl Iterator<Item = &mut FluffyTermExpectationEntry> {
         self.arena
             .iter_mut_with_start(self.first_unresolved_expectation)
             .filter(|entry| match entry.meta.resolve_progress() {
@@ -28,11 +28,14 @@ impl Expectations {
             })
     }
 
-    pub fn iter(&self) -> impl Iterator<Item = &ExpectationEntry> {
+    pub fn iter(&self) -> impl Iterator<Item = &FluffyTermExpectationEntry> {
         self.arena.iter()
     }
 
-    pub(super) fn alloc_expectation(&mut self, entry: ExpectationEntry) -> ExpectationIdx {
+    pub(super) fn alloc_expectation(
+        &mut self,
+        entry: FluffyTermExpectationEntry,
+    ) -> FluffyTermExpectationIdx {
         self.arena.alloc_one(entry)
     }
 }
@@ -51,7 +54,7 @@ impl ExpectationSource {
         }
     }
 
-    pub(crate) fn child_src(self, idx: ExpectationIdx) -> Self {
+    pub(crate) fn child_src(self, idx: FluffyTermExpectationIdx) -> Self {
         Self {
             expr_idx: self.expr_idx,
             kind: ExpectationSourceKind::Expectation(idx),
@@ -62,7 +65,7 @@ impl ExpectationSource {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum ExpectationSourceKind {
     Expr,
-    Expectation(ExpectationIdx),
+    Expectation(FluffyTermExpectationIdx),
 }
 
 impl ExpectationSource {
@@ -73,7 +76,7 @@ impl ExpectationSource {
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = FluffyTermDb)]
-pub struct ExpectationEntry {
+pub struct FluffyTermExpectationEntry {
     expectation: Expectation,
     meta: ExpectationState,
 }
@@ -81,13 +84,13 @@ pub struct ExpectationEntry {
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = FluffyTermDb)]
 pub struct ExpectationState {
-    idx: ExpectationIdx,
+    idx: FluffyTermExpectationIdx,
     src: ExpectationSource,
     expectee: FluffyTerm,
     resolve_progress: ExpectationProgress,
 }
 
-impl ExpectationEntry {
+impl FluffyTermExpectationEntry {
     pub(crate) fn resolve(
         &mut self,
         db: &dyn FluffyTermDb,
@@ -134,7 +137,7 @@ impl ExpectationState {
         &self.resolve_progress
     }
 
-    pub(crate) fn idx(&self) -> ExpectationIdx {
+    pub(crate) fn idx(&self) -> FluffyTermExpectationIdx {
         self.idx
     }
 
@@ -204,18 +207,19 @@ impl FluffyTermRegion {
         src: ExpectationSource,
         expectee: FluffyTerm,
         expectation: impl Into<Expectation>,
-    ) -> OptionFluffyTermExpectationIdx {
+    ) -> Option<FluffyTermExpectationIdx> {
         let idx = unsafe { self.expectations.arena.next_idx() };
-        self.expectations
-            .alloc_expectation(ExpectationEntry {
-                expectation: expectation.into(),
-                meta: ExpectationState {
-                    idx,
-                    src,
-                    expectee: expectee.into(),
-                    resolve_progress: ExpectationProgress::Intact,
-                },
-            })
-            .into()
+        Some(
+            self.expectations
+                .alloc_expectation(FluffyTermExpectationEntry {
+                    expectation: expectation.into(),
+                    meta: ExpectationState {
+                        idx,
+                        src,
+                        expectee: expectee.into(),
+                        resolve_progress: ExpectationProgress::Intact,
+                    },
+                }),
+        )
     }
 }

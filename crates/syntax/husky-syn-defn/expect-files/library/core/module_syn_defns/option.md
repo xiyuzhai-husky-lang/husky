@@ -10,7 +10,7 @@ Ok(
                             template_parameters: [
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
-                                    symbol: 0,
+                                    symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `T`,
@@ -97,7 +97,7 @@ Ok(
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],

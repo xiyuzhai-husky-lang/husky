@@ -7,8 +7,8 @@ Ok(
         use_one_trackers: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 0,
-                    use_expr_idx: 2,
+                    ast_idx: 1,
+                    use_expr_idx: 3,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
@@ -20,7 +20,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            1..2,
+                            2..3,
                         ),
                     },
                     parent: None,
@@ -59,7 +59,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 0,
+                                child: 1,
                             },
                         ),
                     },
@@ -83,7 +83,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 1,
+                                child: 2,
                             },
                         ),
                     },

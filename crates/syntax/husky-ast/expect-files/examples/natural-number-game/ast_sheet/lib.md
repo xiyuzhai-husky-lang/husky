@@ -120,7 +120,7 @@ Ok(
                         variants: Some(
                             TypeVariants {
                                 ast_idx_range: ArenaIdxRange(
-                                    0..2,
+                                    1..3,
                                 ),
                             },
                         ),
@@ -134,7 +134,7 @@ Ok(
                         Type(
                             TypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    2..5,
+                                    3..6,
                                 ),
                             },
                         ),
@@ -250,14 +250,14 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            5..11,
+            6..12,
         ),
         siblings: [
             ArenaIdxRange(
-                2..5,
+                3..6,
             ),
             ArenaIdxRange(
-                5..11,
+                6..12,
             ),
         ],
     },

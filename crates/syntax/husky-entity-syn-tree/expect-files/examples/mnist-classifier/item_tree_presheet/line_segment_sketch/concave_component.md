@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 74,
+                            ast_idx: 75,
                             ident_token: IdentToken {
                                 ident: `ConcaveComponent`,
                                 token_idx: TokenIdx(
@@ -57,7 +57,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 77,
+                            ast_idx: 78,
                             ident_token: IdentToken {
                                 ident: `find_concave_components`,
                                 token_idx: TokenIdx(
@@ -73,7 +73,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            61..69,
+                                            62..70,
                                         ),
                                     },
                                 ),
@@ -98,8 +98,8 @@ Ok(
         use_one_trackers: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 69,
-                    use_expr_idx: 2,
+                    ast_idx: 70,
+                    use_expr_idx: 3,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
@@ -112,15 +112,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            1..2,
+                            2..3,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 70,
-                    use_expr_idx: 6,
+                    ast_idx: 71,
+                    use_expr_idx: 7,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
@@ -133,15 +133,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            5..6,
+                            6..7,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 71,
-                    use_expr_idx: 10,
+                    ast_idx: 72,
+                    use_expr_idx: 11,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
@@ -154,15 +154,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            9..10,
+                            10..11,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 72,
-                    use_expr_idx: 13,
+                    ast_idx: 73,
+                    use_expr_idx: 14,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
@@ -175,15 +175,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            12..13,
+                            13..14,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 73,
-                    use_expr_idx: 15,
+                    ast_idx: 74,
+                    use_expr_idx: 16,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
@@ -196,7 +196,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            14..15,
+                            15..16,
                         ),
                     },
                     parent: None,
@@ -235,7 +235,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 0,
+                                child: 1,
                             },
                         ),
                     },
@@ -258,7 +258,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 1,
+                                child: 2,
                             },
                         ),
                     },
@@ -289,7 +289,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 3,
+                                child: 4,
                             },
                         ),
                     },
@@ -313,7 +313,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 4,
+                                child: 5,
                             },
                         ),
                     },
@@ -336,7 +336,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 5,
+                                child: 6,
                             },
                         ),
                     },
@@ -367,7 +367,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 7,
+                                child: 8,
                             },
                         ),
                     },
@@ -391,7 +391,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 8,
+                                child: 9,
                             },
                         ),
                     },
@@ -414,7 +414,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 9,
+                                child: 10,
                             },
                         ),
                     },
@@ -445,7 +445,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 11,
+                                child: 12,
                             },
                         ),
                     },
@@ -468,7 +468,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 12,
+                                child: 13,
                             },
                         ),
                     },
@@ -498,7 +498,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 14,
+                                child: 15,
                             },
                         ),
                     },

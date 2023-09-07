@@ -17,7 +17,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 38,
+                            ast_idx: 39,
                             ident_token: IdentToken {
                                 ident: `left_components`,
                                 token_idx: TokenIdx(
@@ -33,7 +33,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            0..1,
+                                            1..2,
                                         ),
                                     },
                                 ),
@@ -69,7 +69,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 39,
+                            ast_idx: 40,
                             ident_token: IdentToken {
                                 ident: `left_coordinate_max`,
                                 token_idx: TokenIdx(
@@ -85,7 +85,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            1..2,
+                                            2..3,
                                         ),
                                     },
                                 ),
@@ -121,7 +121,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 40,
+                            ast_idx: 41,
                             ident_token: IdentToken {
                                 ident: `components_max_downwards`,
                                 token_idx: TokenIdx(
@@ -137,7 +137,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            2..3,
+                                            3..4,
                                         ),
                                     },
                                 ),
@@ -173,7 +173,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 41,
+                            ast_idx: 42,
                             ident_token: IdentToken {
                                 ident: `components_max_heights`,
                                 token_idx: TokenIdx(
@@ -189,7 +189,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            3..4,
+                                            4..5,
                                         ),
                                     },
                                 ),
@@ -225,7 +225,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 42,
+                            ast_idx: 43,
                             ident_token: IdentToken {
                                 ident: `is_four`,
                                 token_idx: TokenIdx(
@@ -241,7 +241,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            19..30,
+                                            20..31,
                                         ),
                                     },
                                 ),
@@ -277,7 +277,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 43,
+                            ast_idx: 44,
                             ident_token: IdentToken {
                                 ident: `displacement_downwards`,
                                 token_idx: TokenIdx(
@@ -293,7 +293,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            30..33,
+                                            31..34,
                                         ),
                                     },
                                 ),
@@ -329,7 +329,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 44,
+                            ast_idx: 45,
                             ident_token: IdentToken {
                                 ident: `cc_box_heights`,
                                 token_idx: TokenIdx(
@@ -345,7 +345,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            33..37,
+                                            34..38,
                                         ),
                                     },
                                 ),
@@ -392,7 +392,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 38,
+                            ast_idx: 39,
                             ident_token: IdentToken {
                                 ident: `left_components`,
                                 token_idx: TokenIdx(
@@ -408,7 +408,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            0..1,
+                                            1..2,
                                         ),
                                     },
                                 ),
@@ -437,7 +437,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 39,
+                            ast_idx: 40,
                             ident_token: IdentToken {
                                 ident: `left_coordinate_max`,
                                 token_idx: TokenIdx(
@@ -453,7 +453,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            1..2,
+                                            2..3,
                                         ),
                                     },
                                 ),
@@ -482,7 +482,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 40,
+                            ast_idx: 41,
                             ident_token: IdentToken {
                                 ident: `components_max_downwards`,
                                 token_idx: TokenIdx(
@@ -498,7 +498,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            2..3,
+                                            3..4,
                                         ),
                                     },
                                 ),
@@ -527,7 +527,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 41,
+                            ast_idx: 42,
                             ident_token: IdentToken {
                                 ident: `components_max_heights`,
                                 token_idx: TokenIdx(
@@ -543,7 +543,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            3..4,
+                                            4..5,
                                         ),
                                     },
                                 ),
@@ -572,7 +572,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 42,
+                            ast_idx: 43,
                             ident_token: IdentToken {
                                 ident: `is_four`,
                                 token_idx: TokenIdx(
@@ -588,7 +588,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            19..30,
+                                            20..31,
                                         ),
                                     },
                                 ),
@@ -617,7 +617,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 43,
+                            ast_idx: 44,
                             ident_token: IdentToken {
                                 ident: `displacement_downwards`,
                                 token_idx: TokenIdx(
@@ -633,7 +633,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            30..33,
+                                            31..34,
                                         ),
                                     },
                                 ),
@@ -662,7 +662,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 44,
+                            ast_idx: 45,
                             ident_token: IdentToken {
                                 ident: `cc_box_heights`,
                                 token_idx: TokenIdx(
@@ -678,7 +678,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            33..37,
+                                            34..38,
                                         ),
                                     },
                                 ),
@@ -709,7 +709,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 0,
+                                    ast_idx: 1,
                                     ident_token: IdentToken {
                                         ident: `zero`,
                                         token_idx: TokenIdx(
@@ -724,8 +724,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -752,7 +752,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 1,
+                                    ast_idx: 2,
                                     ident_token: IdentToken {
                                         ident: `one`,
                                         token_idx: TokenIdx(
@@ -767,8 +767,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -795,7 +795,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 2,
+                                    ast_idx: 3,
                                     ident_token: IdentToken {
                                         ident: `six`,
                                         token_idx: TokenIdx(
@@ -810,8 +810,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -838,7 +838,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 3,
+                                    ast_idx: 4,
                                     ident_token: IdentToken {
                                         ident: `three`,
                                         token_idx: TokenIdx(
@@ -853,8 +853,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -881,7 +881,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 4,
+                                    ast_idx: 5,
                                     ident_token: IdentToken {
                                         ident: `four`,
                                         token_idx: TokenIdx(
@@ -896,8 +896,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -924,7 +924,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 5,
+                                    ast_idx: 6,
                                     ident_token: IdentToken {
                                         ident: `five`,
                                         token_idx: TokenIdx(
@@ -939,8 +939,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -967,7 +967,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 6,
+                                    ast_idx: 7,
                                     ident_token: IdentToken {
                                         ident: `seven`,
                                         token_idx: TokenIdx(
@@ -982,8 +982,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1010,7 +1010,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 7,
+                                    ast_idx: 8,
                                     ident_token: IdentToken {
                                         ident: `eight`,
                                         token_idx: TokenIdx(
@@ -1025,8 +1025,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1053,7 +1053,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 8,
+                                    ast_idx: 9,
                                     ident_token: IdentToken {
                                         ident: `nine`,
                                         token_idx: TokenIdx(
@@ -1068,8 +1068,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1096,7 +1096,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 9,
+                                    ast_idx: 10,
                                     ident_token: IdentToken {
                                         ident: `two`,
                                         token_idx: TokenIdx(
@@ -1111,8 +1111,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1139,7 +1139,7 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 63,
+                                            ast_idx: 64,
                                             ident_token: IdentToken {
                                                 ident: `is_one`,
                                                 token_idx: TokenIdx(
@@ -1155,7 +1155,7 @@ Ok(
                                                 body: Some(
                                                     FugitiveBody {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            48..51,
+                                                            49..52,
                                                         ),
                                                     },
                                                 ),
@@ -1168,8 +1168,8 @@ Ok(
                                         ),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 10,
-                                    use_expr_idx: 0,
+                                    ast_idx: 11,
+                                    use_expr_idx: 1,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -1180,8 +1180,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1210,7 +1210,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 10,
+                                            ast_idx: 11,
                                             ident_token: IdentToken {
                                                 ident: `connected_component`,
                                                 token_idx: TokenIdx(
@@ -1225,8 +1225,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::Module(
@@ -1235,8 +1235,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1265,7 +1265,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 11,
+                                            ast_idx: 12,
                                             ident_token: IdentToken {
                                                 ident: `raw_contour`,
                                                 token_idx: TokenIdx(
@@ -1280,8 +1280,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::Module(
@@ -1290,8 +1290,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1320,7 +1320,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 12,
+                                            ast_idx: 13,
                                             ident_token: IdentToken {
                                                 ident: `geom2d`,
                                                 token_idx: TokenIdx(
@@ -1335,8 +1335,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::Module(
@@ -1345,8 +1345,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1375,7 +1375,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 13,
+                                            ast_idx: 14,
                                             ident_token: IdentToken {
                                                 ident: `line_segment_sketch`,
                                                 token_idx: TokenIdx(
@@ -1390,8 +1390,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::Module(
@@ -1400,8 +1400,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1430,7 +1430,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 14,
+                                            ast_idx: 15,
                                             ident_token: IdentToken {
                                                 ident: `fermi`,
                                                 token_idx: TokenIdx(
@@ -1445,8 +1445,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::Module(
@@ -1455,8 +1455,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1485,7 +1485,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 15,
+                                            ast_idx: 16,
                                             ident_token: IdentToken {
                                                 ident: `digits`,
                                                 token_idx: TokenIdx(
@@ -1500,8 +1500,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::Module(
@@ -1510,8 +1510,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1540,7 +1540,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 16,
+                                            ast_idx: 17,
                                             ident_token: IdentToken {
                                                 ident: `major`,
                                                 token_idx: TokenIdx(
@@ -1555,8 +1555,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::Module(
@@ -1565,8 +1565,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1595,7 +1595,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 25,
+                                            ast_idx: 26,
                                             ident_token: IdentToken {
                                                 ident: `main`,
                                                 token_idx: TokenIdx(
@@ -1611,7 +1611,7 @@ Ok(
                                                 body: Some(
                                                     FugitiveBody {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            0..10,
+                                                            1..11,
                                                         ),
                                                     },
                                                 ),
@@ -1626,8 +1626,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -1638,8 +1638,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1668,7 +1668,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 10,
+                                                    ast_idx: 11,
                                                     ident_token: IdentToken {
                                                         ident: `Class`,
                                                         token_idx: TokenIdx(
@@ -1684,7 +1684,7 @@ Ok(
                                                         variants: Some(
                                                             TypeVariants {
                                                                 ast_idx_range: ArenaIdxRange(
-                                                                    0..2,
+                                                                    1..3,
                                                                 ),
                                                             },
                                                         ),
@@ -1699,8 +1699,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 23,
-                                            use_expr_idx: 18,
+                                            ast_idx: 24,
+                                            use_expr_idx: 19,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -1711,8 +1711,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -1723,8 +1723,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1753,7 +1753,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 12,
+                                                    ast_idx: 13,
                                                     ident_token: IdentToken {
                                                         ident: `OneVsAll`,
                                                         token_idx: TokenIdx(
@@ -1769,7 +1769,7 @@ Ok(
                                                         variants: Some(
                                                             TypeVariants {
                                                                 ast_idx_range: ArenaIdxRange(
-                                                                    2..4,
+                                                                    3..5,
                                                                 ),
                                                             },
                                                         ),
@@ -1784,8 +1784,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 23,
-                                            use_expr_idx: 18,
+                                            ast_idx: 24,
+                                            use_expr_idx: 19,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -1796,8 +1796,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -1808,8 +1808,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1838,7 +1838,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 15,
+                                                    ast_idx: 16,
                                                     ident_token: IdentToken {
                                                         ident: `OneVsAllResult`,
                                                         token_idx: TokenIdx(
@@ -1854,7 +1854,7 @@ Ok(
                                                         variants: Some(
                                                             TypeVariants {
                                                                 ast_idx_range: ArenaIdxRange(
-                                                                    5..8,
+                                                                    6..9,
                                                                 ),
                                                             },
                                                         ),
@@ -1869,8 +1869,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 23,
-                                            use_expr_idx: 18,
+                                            ast_idx: 24,
+                                            use_expr_idx: 19,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -1881,8 +1881,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -1893,8 +1893,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1923,7 +1923,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 17,
+                                                    ast_idx: 18,
                                                     ident_token: IdentToken {
                                                         ident: `narrow_down`,
                                                         token_idx: TokenIdx(
@@ -1948,8 +1948,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 23,
-                                            use_expr_idx: 18,
+                                            ast_idx: 24,
+                                            use_expr_idx: 19,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -1960,8 +1960,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -1972,8 +1972,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -2002,7 +2002,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 16,
+                                                    ast_idx: 17,
                                                     ident_token: IdentToken {
                                                         ident: `MnistLabel`,
                                                         token_idx: TokenIdx(
@@ -2018,7 +2018,7 @@ Ok(
                                                         variants: Some(
                                                             TypeVariants {
                                                                 ast_idx_range: ArenaIdxRange(
-                                                                    0..10,
+                                                                    1..11,
                                                                 ),
                                                             },
                                                         ),
@@ -2033,8 +2033,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 24,
-                                            use_expr_idx: 20,
+                                            ast_idx: 25,
+                                            use_expr_idx: 21,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -2045,8 +2045,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -2057,8 +2057,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -2087,7 +2087,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 18,
+                                                    ast_idx: 19,
                                                     ident_token: IdentToken {
                                                         ident: `BinaryImage28`,
                                                         token_idx: TokenIdx(
@@ -2112,8 +2112,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 24,
-                                            use_expr_idx: 20,
+                                            ast_idx: 25,
+                                            use_expr_idx: 21,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -2124,8 +2124,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -2136,8 +2136,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -2166,7 +2166,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 22,
+                                                    ast_idx: 23,
                                                     ident_token: IdentToken {
                                                         ident: `BinaryGrid28`,
                                                         token_idx: TokenIdx(
@@ -2191,8 +2191,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 24,
-                                            use_expr_idx: 20,
+                                            ast_idx: 25,
+                                            use_expr_idx: 21,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -2203,8 +2203,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -2215,8 +2215,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -2245,7 +2245,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 26,
+                                                    ast_idx: 27,
                                                     ident_token: IdentToken {
                                                         ident: `input`,
                                                         token_idx: TokenIdx(
@@ -2270,8 +2270,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 24,
-                                            use_expr_idx: 20,
+                                            ast_idx: 25,
+                                            use_expr_idx: 21,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -2282,8 +2282,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -2294,8 +2294,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -2324,7 +2324,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
                                             ),
-                                            ast_idx: 52,
+                                            ast_idx: 53,
                                             ident_token: IdentToken {
                                                 ident: `is_six`,
                                                 token_idx: TokenIdx(
@@ -2340,7 +2340,7 @@ Ok(
                                                 body: Some(
                                                     FugitiveBody {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            26..38,
+                                                            27..39,
                                                         ),
                                                     },
                                                 ),
@@ -2353,8 +2353,8 @@ Ok(
                                         ),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 11,
-                                    use_expr_idx: 2,
+                                    ast_idx: 12,
+                                    use_expr_idx: 3,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -2365,8 +2365,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -2395,7 +2395,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
                                             ),
-                                            ast_idx: 28,
+                                            ast_idx: 29,
                                             ident_token: IdentToken {
                                                 ident: `is_zero`,
                                                 token_idx: TokenIdx(
@@ -2411,7 +2411,7 @@ Ok(
                                                 body: Some(
                                                     FugitiveBody {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            11..25,
+                                                            12..26,
                                                         ),
                                                     },
                                                 ),
@@ -2424,8 +2424,8 @@ Ok(
                                         ),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 12,
-                                    use_expr_idx: 5,
+                                    ast_idx: 13,
+                                    use_expr_idx: 6,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -2436,8 +2436,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -2466,7 +2466,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
                                             ),
-                                            ast_idx: 54,
+                                            ast_idx: 55,
                                             ident_token: IdentToken {
                                                 ident: `is_two`,
                                                 token_idx: TokenIdx(
@@ -2482,7 +2482,7 @@ Ok(
                                                 body: Some(
                                                     FugitiveBody {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            31..49,
+                                                            32..50,
                                                         ),
                                                     },
                                                 ),
@@ -2495,8 +2495,8 @@ Ok(
                                         ),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 13,
-                                    use_expr_idx: 8,
+                                    ast_idx: 14,
+                                    use_expr_idx: 9,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -2507,8 +2507,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -2537,7 +2537,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
                                             ),
-                                            ast_idx: 29,
+                                            ast_idx: 30,
                                             ident_token: IdentToken {
                                                 ident: `is_three`,
                                                 token_idx: TokenIdx(
@@ -2553,7 +2553,7 @@ Ok(
                                                 body: Some(
                                                     FugitiveBody {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            1..18,
+                                                            2..19,
                                                         ),
                                                     },
                                                 ),
@@ -2566,8 +2566,8 @@ Ok(
                                         ),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 14,
-                                    use_expr_idx: 11,
+                                    ast_idx: 15,
+                                    use_expr_idx: 12,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -2578,8 +2578,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -2608,7 +2608,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
                                             ),
-                                            ast_idx: 2,
+                                            ast_idx: 3,
                                             ident_token: IdentToken {
                                                 ident: `is_five`,
                                                 token_idx: TokenIdx(
@@ -2624,7 +2624,7 @@ Ok(
                                                 body: Some(
                                                     FugitiveBody {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            0..1,
+                                                            1..2,
                                                         ),
                                                     },
                                                 ),
@@ -2637,8 +2637,8 @@ Ok(
                                         ),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 15,
-                                    use_expr_idx: 14,
+                                    ast_idx: 16,
+                                    use_expr_idx: 15,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -2649,8 +2649,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -2679,7 +2679,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
                                             ),
-                                            ast_idx: 44,
+                                            ast_idx: 45,
                                             ident_token: IdentToken {
                                                 ident: `is_seven`,
                                                 token_idx: TokenIdx(
@@ -2695,7 +2695,7 @@ Ok(
                                                 body: Some(
                                                     FugitiveBody {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            28..38,
+                                                            29..39,
                                                         ),
                                                     },
                                                 ),
@@ -2708,8 +2708,8 @@ Ok(
                                         ),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 16,
-                                    use_expr_idx: 17,
+                                    ast_idx: 17,
+                                    use_expr_idx: 18,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -2720,8 +2720,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -2750,7 +2750,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
                                             ),
-                                            ast_idx: 19,
+                                            ast_idx: 20,
                                             ident_token: IdentToken {
                                                 ident: `is_eight`,
                                                 token_idx: TokenIdx(
@@ -2766,7 +2766,7 @@ Ok(
                                                 body: Some(
                                                     FugitiveBody {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            6..13,
+                                                            7..14,
                                                         ),
                                                     },
                                                 ),
@@ -2779,8 +2779,8 @@ Ok(
                                         ),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 17,
-                                    use_expr_idx: 20,
+                                    ast_idx: 18,
+                                    use_expr_idx: 21,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -2791,8 +2791,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -2821,7 +2821,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
                                             ),
-                                            ast_idx: 38,
+                                            ast_idx: 39,
                                             ident_token: IdentToken {
                                                 ident: `is_nine`,
                                                 token_idx: TokenIdx(
@@ -2837,7 +2837,7 @@ Ok(
                                                 body: Some(
                                                     FugitiveBody {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            17..28,
+                                                            18..29,
                                                         ),
                                                     },
                                                 ),
@@ -2850,8 +2850,8 @@ Ok(
                                         ),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 18,
-                                    use_expr_idx: 23,
+                                    ast_idx: 19,
+                                    use_expr_idx: 24,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -2862,8 +2862,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -2892,7 +2892,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 19,
+                                                    ast_idx: 20,
                                                     ident_token: IdentToken {
                                                         ident: `connected_components`,
                                                         token_idx: TokenIdx(
@@ -2908,7 +2908,7 @@ Ok(
                                                         body: Some(
                                                             FugitiveBody {
                                                                 ast_idx_range: ArenaIdxRange(
-                                                                    0..1,
+                                                                    1..2,
                                                                 ),
                                                             },
                                                         ),
@@ -2923,8 +2923,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 17,
-                                            use_expr_idx: 0,
+                                            ast_idx: 18,
+                                            use_expr_idx: 1,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -2935,8 +2935,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -2947,8 +2947,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -2977,7 +2977,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 20,
+                                                    ast_idx: 21,
                                                     ident_token: IdentToken {
                                                         ident: `major_connected_component`,
                                                         token_idx: TokenIdx(
@@ -2993,7 +2993,7 @@ Ok(
                                                         body: Some(
                                                             FugitiveBody {
                                                                 ast_idx_range: ArenaIdxRange(
-                                                                    6..10,
+                                                                    7..11,
                                                                 ),
                                                             },
                                                         ),
@@ -3008,8 +3008,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 17,
-                                            use_expr_idx: 0,
+                                            ast_idx: 18,
+                                            use_expr_idx: 1,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -3020,8 +3020,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -3032,8 +3032,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -3062,7 +3062,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 21,
+                                                    ast_idx: 22,
                                                     ident_token: IdentToken {
                                                         ident: `ignored_connected_components_row_span_sum_sum`,
                                                         token_idx: TokenIdx(
@@ -3078,7 +3078,7 @@ Ok(
                                                         body: Some(
                                                             FugitiveBody {
                                                                 ast_idx_range: ArenaIdxRange(
-                                                                    11..14,
+                                                                    12..15,
                                                                 ),
                                                             },
                                                         ),
@@ -3093,8 +3093,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 17,
-                                            use_expr_idx: 0,
+                                            ast_idx: 18,
+                                            use_expr_idx: 1,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -3105,8 +3105,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -3117,8 +3117,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -3147,7 +3147,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 22,
+                                                    ast_idx: 23,
                                                     ident_token: IdentToken {
                                                         ident: `major_raw_contours`,
                                                         token_idx: TokenIdx(
@@ -3163,7 +3163,7 @@ Ok(
                                                         body: Some(
                                                             FugitiveBody {
                                                                 ast_idx_range: ArenaIdxRange(
-                                                                    14..15,
+                                                                    15..16,
                                                                 ),
                                                             },
                                                         ),
@@ -3178,8 +3178,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 17,
-                                            use_expr_idx: 0,
+                                            ast_idx: 18,
+                                            use_expr_idx: 1,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -3190,8 +3190,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -3202,8 +3202,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -3232,7 +3232,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 23,
+                                                    ast_idx: 24,
                                                     ident_token: IdentToken {
                                                         ident: `major_raw_contour`,
                                                         token_idx: TokenIdx(
@@ -3248,7 +3248,7 @@ Ok(
                                                         body: Some(
                                                             FugitiveBody {
                                                                 ast_idx_range: ArenaIdxRange(
-                                                                    15..16,
+                                                                    16..17,
                                                                 ),
                                                             },
                                                         ),
@@ -3263,8 +3263,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 17,
-                                            use_expr_idx: 0,
+                                            ast_idx: 18,
+                                            use_expr_idx: 1,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -3275,8 +3275,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -3287,8 +3287,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -3317,7 +3317,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 24,
+                                                    ast_idx: 25,
                                                     ident_token: IdentToken {
                                                         ident: `major_line_segment_sketch`,
                                                         token_idx: TokenIdx(
@@ -3333,7 +3333,7 @@ Ok(
                                                         body: Some(
                                                             FugitiveBody {
                                                                 ast_idx_range: ArenaIdxRange(
-                                                                    16..17,
+                                                                    17..18,
                                                                 ),
                                                             },
                                                         ),
@@ -3348,8 +3348,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 17,
-                                            use_expr_idx: 0,
+                                            ast_idx: 18,
+                                            use_expr_idx: 1,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -3360,8 +3360,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -3372,8 +3372,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -3402,7 +3402,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 25,
+                                                    ast_idx: 26,
                                                     ident_token: IdentToken {
                                                         ident: `major_concave_components`,
                                                         token_idx: TokenIdx(
@@ -3418,7 +3418,7 @@ Ok(
                                                         body: Some(
                                                             FugitiveBody {
                                                                 ast_idx_range: ArenaIdxRange(
-                                                                    17..18,
+                                                                    18..19,
                                                                 ),
                                                             },
                                                         ),
@@ -3433,8 +3433,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 17,
-                                            use_expr_idx: 0,
+                                            ast_idx: 18,
+                                            use_expr_idx: 1,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -3445,8 +3445,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -3457,8 +3457,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -3489,7 +3489,7 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 63,
+                                                            ast_idx: 64,
                                                             ident_token: IdentToken {
                                                                 ident: `is_one`,
                                                                 token_idx: TokenIdx(
@@ -3505,7 +3505,7 @@ Ok(
                                                                 body: Some(
                                                                     FugitiveBody {
                                                                         ast_idx_range: ArenaIdxRange(
-                                                                            48..51,
+                                                                            49..52,
                                                                         ),
                                                                     },
                                                                 ),
@@ -3518,8 +3518,8 @@ Ok(
                                                         ),
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 10,
-                                                    use_expr_idx: 0,
+                                                    ast_idx: 11,
+                                                    use_expr_idx: 1,
                                                 },
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
@@ -3530,8 +3530,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 18,
-                                            use_expr_idx: 3,
+                                            ast_idx: 19,
+                                            use_expr_idx: 4,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -3542,8 +3542,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -3554,8 +3554,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -3584,7 +3584,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 22,
+                                                    ast_idx: 23,
                                                     ident_token: IdentToken {
                                                         ident: `FermiMatchResult`,
                                                         token_idx: TokenIdx(
@@ -3609,8 +3609,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 19,
-                                            use_expr_idx: 6,
+                                            ast_idx: 20,
+                                            use_expr_idx: 7,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -3621,8 +3621,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -3633,8 +3633,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -3663,7 +3663,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 24,
+                                                    ast_idx: 25,
                                                     ident_token: IdentToken {
                                                         ident: `fermi_match`,
                                                         token_idx: TokenIdx(
@@ -3679,7 +3679,7 @@ Ok(
                                                         body: Some(
                                                             FugitiveBody {
                                                                 ast_idx_range: ArenaIdxRange(
-                                                                    17..21,
+                                                                    18..22,
                                                                 ),
                                                             },
                                                         ),
@@ -3694,8 +3694,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 19,
-                                            use_expr_idx: 6,
+                                            ast_idx: 20,
+                                            use_expr_idx: 7,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -3706,8 +3706,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -3718,8 +3718,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -3748,7 +3748,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 203,
+                                                    ast_idx: 204,
                                                     ident_token: IdentToken {
                                                         ident: `RawContour`,
                                                         token_idx: TokenIdx(
@@ -3773,8 +3773,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 20,
-                                            use_expr_idx: 9,
+                                            ast_idx: 21,
+                                            use_expr_idx: 10,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -3785,8 +3785,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -3797,8 +3797,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -3827,7 +3827,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 215,
+                                                    ast_idx: 216,
                                                     ident_token: IdentToken {
                                                         ident: `find_raw_contours`,
                                                         token_idx: TokenIdx(
@@ -3843,7 +3843,7 @@ Ok(
                                                         body: Some(
                                                             FugitiveBody {
                                                                 ast_idx_range: ArenaIdxRange(
-                                                                    194..199,
+                                                                    195..200,
                                                                 ),
                                                             },
                                                         ),
@@ -3858,8 +3858,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 20,
-                                            use_expr_idx: 9,
+                                            ast_idx: 21,
+                                            use_expr_idx: 10,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -3870,8 +3870,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -3882,8 +3882,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -3912,7 +3912,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 169,
+                                                    ast_idx: 170,
                                                     ident_token: IdentToken {
                                                         ident: `LineSegmentStroke`,
                                                         token_idx: TokenIdx(
@@ -3937,8 +3937,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 21,
-                                            use_expr_idx: 12,
+                                            ast_idx: 22,
+                                            use_expr_idx: 13,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -3949,8 +3949,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -3961,8 +3961,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -3991,7 +3991,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 172,
+                                                    ast_idx: 173,
                                                     ident_token: IdentToken {
                                                         ident: `LineSegmentSketch`,
                                                         token_idx: TokenIdx(
@@ -4016,8 +4016,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 21,
-                                            use_expr_idx: 12,
+                                            ast_idx: 22,
+                                            use_expr_idx: 13,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -4028,8 +4028,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -4040,8 +4040,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -4072,7 +4072,7 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 74,
+                                                            ast_idx: 75,
                                                             ident_token: IdentToken {
                                                                 ident: `ConcaveComponent`,
                                                                 token_idx: TokenIdx(
@@ -4095,8 +4095,8 @@ Ok(
                                                         ),
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 163,
-                                                    use_expr_idx: 0,
+                                                    ast_idx: 164,
+                                                    use_expr_idx: 1,
                                                 },
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
@@ -4107,8 +4107,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 21,
-                                            use_expr_idx: 12,
+                                            ast_idx: 22,
+                                            use_expr_idx: 13,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -4119,8 +4119,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -4131,8 +4131,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -4163,7 +4163,7 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 77,
+                                                            ast_idx: 78,
                                                             ident_token: IdentToken {
                                                                 ident: `find_concave_components`,
                                                                 token_idx: TokenIdx(
@@ -4179,7 +4179,7 @@ Ok(
                                                                 body: Some(
                                                                     FugitiveBody {
                                                                         ast_idx_range: ArenaIdxRange(
-                                                                            61..69,
+                                                                            62..70,
                                                                         ),
                                                                     },
                                                                 ),
@@ -4192,8 +4192,8 @@ Ok(
                                                         ),
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 163,
-                                                    use_expr_idx: 0,
+                                                    ast_idx: 164,
+                                                    use_expr_idx: 1,
                                                 },
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
@@ -4204,8 +4204,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 21,
-                                            use_expr_idx: 12,
+                                            ast_idx: 22,
+                                            use_expr_idx: 13,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -4216,8 +4216,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -4228,8 +4228,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -4260,7 +4260,7 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 16,
+                                                            ast_idx: 17,
                                                             ident_token: IdentToken {
                                                                 ident: `LineSegment`,
                                                                 token_idx: TokenIdx(
@@ -4283,8 +4283,8 @@ Ok(
                                                         ),
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 165,
-                                                    use_expr_idx: 4,
+                                                    ast_idx: 166,
+                                                    use_expr_idx: 5,
                                                 },
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
@@ -4295,8 +4295,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 21,
-                                            use_expr_idx: 12,
+                                            ast_idx: 22,
+                                            use_expr_idx: 13,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -4307,8 +4307,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -4319,8 +4319,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -4349,7 +4349,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 120,
+                                                    ast_idx: 121,
                                                     ident_token: IdentToken {
                                                         ident: `ConnectedComponentDistribution`,
                                                         token_idx: TokenIdx(
@@ -4374,8 +4374,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 22,
-                                            use_expr_idx: 15,
+                                            ast_idx: 23,
+                                            use_expr_idx: 16,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -4386,8 +4386,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -4398,8 +4398,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -4428,7 +4428,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 121,
+                                                    ast_idx: 122,
                                                     ident_token: IdentToken {
                                                         ident: `EffHoles`,
                                                         token_idx: TokenIdx(
@@ -4453,8 +4453,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 22,
-                                            use_expr_idx: 15,
+                                            ast_idx: 23,
+                                            use_expr_idx: 16,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -4465,8 +4465,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -4477,8 +4477,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -4507,7 +4507,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 123,
+                                                    ast_idx: 124,
                                                     ident_token: IdentToken {
                                                         ident: `ConnectedComponent`,
                                                         token_idx: TokenIdx(
@@ -4532,8 +4532,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 22,
-                                            use_expr_idx: 15,
+                                            ast_idx: 23,
+                                            use_expr_idx: 16,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -4544,8 +4544,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -4556,8 +4556,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -4586,7 +4586,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 127,
+                                                    ast_idx: 128,
                                                     ident_token: IdentToken {
                                                         ident: `find_connected_components`,
                                                         token_idx: TokenIdx(
@@ -4602,7 +4602,7 @@ Ok(
                                                         body: Some(
                                                             FugitiveBody {
                                                                 ast_idx_range: ArenaIdxRange(
-                                                                    114..118,
+                                                                    115..119,
                                                                 ),
                                                             },
                                                         ),
@@ -4617,8 +4617,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 22,
-                                            use_expr_idx: 15,
+                                            ast_idx: 23,
+                                            use_expr_idx: 16,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -4629,8 +4629,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -4641,8 +4641,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -4675,7 +4675,7 @@ Ok(
                                                             visibility: Scope::PubUnder(
                                                                 `mnist_classifier::digits`,
                                                             ),
-                                                            ast_idx: 52,
+                                                            ast_idx: 53,
                                                             ident_token: IdentToken {
                                                                 ident: `is_six`,
                                                                 token_idx: TokenIdx(
@@ -4691,7 +4691,7 @@ Ok(
                                                                 body: Some(
                                                                     FugitiveBody {
                                                                         ast_idx_range: ArenaIdxRange(
-                                                                            26..38,
+                                                                            27..39,
                                                                         ),
                                                                     },
                                                                 ),
@@ -4704,8 +4704,8 @@ Ok(
                                                         ),
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 11,
-                                                    use_expr_idx: 2,
+                                                    ast_idx: 12,
+                                                    use_expr_idx: 3,
                                                 },
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
@@ -4716,8 +4716,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 18,
-                                            use_expr_idx: 3,
+                                            ast_idx: 19,
+                                            use_expr_idx: 4,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -4728,8 +4728,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -4740,8 +4740,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -4774,7 +4774,7 @@ Ok(
                                                             visibility: Scope::PubUnder(
                                                                 `mnist_classifier::digits`,
                                                             ),
-                                                            ast_idx: 28,
+                                                            ast_idx: 29,
                                                             ident_token: IdentToken {
                                                                 ident: `is_zero`,
                                                                 token_idx: TokenIdx(
@@ -4790,7 +4790,7 @@ Ok(
                                                                 body: Some(
                                                                     FugitiveBody {
                                                                         ast_idx_range: ArenaIdxRange(
-                                                                            11..25,
+                                                                            12..26,
                                                                         ),
                                                                     },
                                                                 ),
@@ -4803,8 +4803,8 @@ Ok(
                                                         ),
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 12,
-                                                    use_expr_idx: 5,
+                                                    ast_idx: 13,
+                                                    use_expr_idx: 6,
                                                 },
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
@@ -4815,8 +4815,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 18,
-                                            use_expr_idx: 3,
+                                            ast_idx: 19,
+                                            use_expr_idx: 4,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -4827,8 +4827,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -4839,8 +4839,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -4873,7 +4873,7 @@ Ok(
                                                             visibility: Scope::PubUnder(
                                                                 `mnist_classifier::digits`,
                                                             ),
-                                                            ast_idx: 54,
+                                                            ast_idx: 55,
                                                             ident_token: IdentToken {
                                                                 ident: `is_two`,
                                                                 token_idx: TokenIdx(
@@ -4889,7 +4889,7 @@ Ok(
                                                                 body: Some(
                                                                     FugitiveBody {
                                                                         ast_idx_range: ArenaIdxRange(
-                                                                            31..49,
+                                                                            32..50,
                                                                         ),
                                                                     },
                                                                 ),
@@ -4902,8 +4902,8 @@ Ok(
                                                         ),
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 13,
-                                                    use_expr_idx: 8,
+                                                    ast_idx: 14,
+                                                    use_expr_idx: 9,
                                                 },
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
@@ -4914,8 +4914,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 18,
-                                            use_expr_idx: 3,
+                                            ast_idx: 19,
+                                            use_expr_idx: 4,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -4926,8 +4926,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -4938,8 +4938,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -4972,7 +4972,7 @@ Ok(
                                                             visibility: Scope::PubUnder(
                                                                 `mnist_classifier::digits`,
                                                             ),
-                                                            ast_idx: 29,
+                                                            ast_idx: 30,
                                                             ident_token: IdentToken {
                                                                 ident: `is_three`,
                                                                 token_idx: TokenIdx(
@@ -4988,7 +4988,7 @@ Ok(
                                                                 body: Some(
                                                                     FugitiveBody {
                                                                         ast_idx_range: ArenaIdxRange(
-                                                                            1..18,
+                                                                            2..19,
                                                                         ),
                                                                     },
                                                                 ),
@@ -5001,8 +5001,8 @@ Ok(
                                                         ),
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 14,
-                                                    use_expr_idx: 11,
+                                                    ast_idx: 15,
+                                                    use_expr_idx: 12,
                                                 },
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
@@ -5013,8 +5013,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 18,
-                                            use_expr_idx: 3,
+                                            ast_idx: 19,
+                                            use_expr_idx: 4,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -5025,8 +5025,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -5037,8 +5037,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -5071,7 +5071,7 @@ Ok(
                                                             visibility: Scope::PubUnder(
                                                                 `mnist_classifier::digits`,
                                                             ),
-                                                            ast_idx: 2,
+                                                            ast_idx: 3,
                                                             ident_token: IdentToken {
                                                                 ident: `is_five`,
                                                                 token_idx: TokenIdx(
@@ -5087,7 +5087,7 @@ Ok(
                                                                 body: Some(
                                                                     FugitiveBody {
                                                                         ast_idx_range: ArenaIdxRange(
-                                                                            0..1,
+                                                                            1..2,
                                                                         ),
                                                                     },
                                                                 ),
@@ -5100,8 +5100,8 @@ Ok(
                                                         ),
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 15,
-                                                    use_expr_idx: 14,
+                                                    ast_idx: 16,
+                                                    use_expr_idx: 15,
                                                 },
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
@@ -5112,8 +5112,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 18,
-                                            use_expr_idx: 3,
+                                            ast_idx: 19,
+                                            use_expr_idx: 4,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -5124,8 +5124,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -5136,8 +5136,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -5170,7 +5170,7 @@ Ok(
                                                             visibility: Scope::PubUnder(
                                                                 `mnist_classifier::digits`,
                                                             ),
-                                                            ast_idx: 44,
+                                                            ast_idx: 45,
                                                             ident_token: IdentToken {
                                                                 ident: `is_seven`,
                                                                 token_idx: TokenIdx(
@@ -5186,7 +5186,7 @@ Ok(
                                                                 body: Some(
                                                                     FugitiveBody {
                                                                         ast_idx_range: ArenaIdxRange(
-                                                                            28..38,
+                                                                            29..39,
                                                                         ),
                                                                     },
                                                                 ),
@@ -5199,8 +5199,8 @@ Ok(
                                                         ),
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 16,
-                                                    use_expr_idx: 17,
+                                                    ast_idx: 17,
+                                                    use_expr_idx: 18,
                                                 },
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
@@ -5211,8 +5211,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 18,
-                                            use_expr_idx: 3,
+                                            ast_idx: 19,
+                                            use_expr_idx: 4,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -5223,8 +5223,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -5235,8 +5235,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -5269,7 +5269,7 @@ Ok(
                                                             visibility: Scope::PubUnder(
                                                                 `mnist_classifier::digits`,
                                                             ),
-                                                            ast_idx: 19,
+                                                            ast_idx: 20,
                                                             ident_token: IdentToken {
                                                                 ident: `is_eight`,
                                                                 token_idx: TokenIdx(
@@ -5285,7 +5285,7 @@ Ok(
                                                                 body: Some(
                                                                     FugitiveBody {
                                                                         ast_idx_range: ArenaIdxRange(
-                                                                            6..13,
+                                                                            7..14,
                                                                         ),
                                                                     },
                                                                 ),
@@ -5298,8 +5298,8 @@ Ok(
                                                         ),
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 17,
-                                                    use_expr_idx: 20,
+                                                    ast_idx: 18,
+                                                    use_expr_idx: 21,
                                                 },
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
@@ -5310,8 +5310,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 18,
-                                            use_expr_idx: 3,
+                                            ast_idx: 19,
+                                            use_expr_idx: 4,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -5322,8 +5322,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -5334,8 +5334,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -5368,7 +5368,7 @@ Ok(
                                                             visibility: Scope::PubUnder(
                                                                 `mnist_classifier::digits`,
                                                             ),
-                                                            ast_idx: 38,
+                                                            ast_idx: 39,
                                                             ident_token: IdentToken {
                                                                 ident: `is_nine`,
                                                                 token_idx: TokenIdx(
@@ -5384,7 +5384,7 @@ Ok(
                                                                 body: Some(
                                                                     FugitiveBody {
                                                                         ast_idx_range: ArenaIdxRange(
-                                                                            17..28,
+                                                                            18..29,
                                                                         ),
                                                                     },
                                                                 ),
@@ -5397,8 +5397,8 @@ Ok(
                                                         ),
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 18,
-                                                    use_expr_idx: 23,
+                                                    ast_idx: 19,
+                                                    use_expr_idx: 24,
                                                 },
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
@@ -5409,8 +5409,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 18,
-                                            use_expr_idx: 3,
+                                            ast_idx: 19,
+                                            use_expr_idx: 4,
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
@@ -5421,8 +5421,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 26,
+                                    ast_idx: 20,
+                                    use_expr_idx: 27,
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
@@ -5433,8 +5433,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            ast_idx: 37,
-                            use_expr_idx: 0,
+                            ast_idx: 38,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -5444,8 +5444,8 @@ Ok(
         once_use_rules: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 37,
-                    use_expr_idx: 1,
+                    ast_idx: 38,
+                    use_expr_idx: 2,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits::four`,
                     ),
@@ -5458,7 +5458,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            0..1,
+                            1..2,
                         ),
                     },
                     parent: None,
@@ -5478,8 +5478,8 @@ Ok(
                 UseAllModuleSymbolsRule {
                     parent_module_path: `mnist_classifier::digits`,
                     is_same_crate: true,
-                    ast_idx: 37,
-                    use_expr_idx: 0,
+                    ast_idx: 38,
+                    use_expr_idx: 1,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits::four`,
                     ),

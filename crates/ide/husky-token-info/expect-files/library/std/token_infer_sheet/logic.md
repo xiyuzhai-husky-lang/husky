@@ -4,7 +4,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 2,
+                use_expr_idx: 3,
                 rule_idx: OnceUseRuleIdx(
                     0,
                 ),
@@ -20,7 +20,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 1,
+                use_expr_idx: 2,
                 rule_idx: OnceUseRuleIdx(
                     1,
                 ),

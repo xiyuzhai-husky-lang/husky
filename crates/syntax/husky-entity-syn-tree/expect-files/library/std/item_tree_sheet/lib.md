@@ -17,7 +17,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `std`,
                             ),
-                            ast_idx: 0,
+                            ast_idx: 1,
                             ident_token: IdentToken {
                                 ident: `prelude`,
                                 token_idx: TokenIdx(
@@ -55,7 +55,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `std`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             ident_token: IdentToken {
                                 ident: `logic`,
                                 token_idx: TokenIdx(
@@ -93,7 +93,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `std`,
                             ),
-                            ast_idx: 2,
+                            ast_idx: 3,
                             ident_token: IdentToken {
                                 ident: `ops`,
                                 token_idx: TokenIdx(
@@ -142,7 +142,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `std`,
                             ),
-                            ast_idx: 0,
+                            ast_idx: 1,
                             ident_token: IdentToken {
                                 ident: `prelude`,
                                 token_idx: TokenIdx(
@@ -173,7 +173,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `std`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             ident_token: IdentToken {
                                 ident: `logic`,
                                 token_idx: TokenIdx(
@@ -204,7 +204,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `std`,
                             ),
-                            ast_idx: 2,
+                            ast_idx: 3,
                             ident_token: IdentToken {
                                 ident: `ops`,
                                 token_idx: TokenIdx(

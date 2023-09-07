@@ -7,8 +7,8 @@ Ok(
         use_one_trackers: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 0,
-                    use_expr_idx: 1,
+                    ast_idx: 1,
+                    use_expr_idx: 2,
                     visibility: Scope::PubUnder(
                         `core::default`,
                     ),
@@ -21,7 +21,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            0..1,
+                            1..2,
                         ),
                     },
                     parent: None,
@@ -59,7 +59,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 0,
+                                child: 1,
                             },
                         ),
                     },

@@ -17,7 +17,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 159,
+                            ast_idx: 160,
                             ident_token: IdentToken {
                                 ident: `concave_component`,
                                 token_idx: TokenIdx(
@@ -55,7 +55,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 160,
+                            ast_idx: 161,
                             ident_token: IdentToken {
                                 ident: `convex_component`,
                                 token_idx: TokenIdx(
@@ -93,7 +93,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 161,
+                            ast_idx: 162,
                             ident_token: IdentToken {
                                 ident: `convexity`,
                                 token_idx: TokenIdx(
@@ -131,7 +131,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 162,
+                            ast_idx: 163,
                             ident_token: IdentToken {
                                 ident: `line_segment`,
                                 token_idx: TokenIdx(
@@ -167,7 +167,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 169,
+                            ast_idx: 170,
                             ident_token: IdentToken {
                                 ident: `LineSegmentStroke`,
                                 token_idx: TokenIdx(
@@ -209,7 +209,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 172,
+                            ast_idx: 173,
                             ident_token: IdentToken {
                                 ident: `LineSegmentSketch`,
                                 token_idx: TokenIdx(
@@ -253,7 +253,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 175,
+                            ast_idx: 176,
                             ident_token: IdentToken {
                                 ident: `go_right`,
                                 token_idx: TokenIdx(
@@ -269,7 +269,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            26..32,
+                                            27..33,
                                         ),
                                     },
                                 ),
@@ -305,7 +305,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 176,
+                            ast_idx: 177,
                             ident_token: IdentToken {
                                 ident: `go_left`,
                                 token_idx: TokenIdx(
@@ -321,7 +321,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            32..38,
+                                            33..39,
                                         ),
                                     },
                                 ),
@@ -357,7 +357,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 177,
+                            ast_idx: 178,
                             ident_token: IdentToken {
                                 ident: `extend_end`,
                                 token_idx: TokenIdx(
@@ -373,7 +373,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            60..72,
+                                            61..73,
                                         ),
                                     },
                                 ),
@@ -409,7 +409,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 178,
+                            ast_idx: 179,
                             ident_token: IdentToken {
                                 ident: `extend_start`,
                                 token_idx: TokenIdx(
@@ -425,7 +425,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            105..115,
+                                            106..116,
                                         ),
                                     },
                                 ),
@@ -461,7 +461,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 179,
+                            ast_idx: 180,
                             ident_token: IdentToken {
                                 ident: `find_line_segments`,
                                 token_idx: TokenIdx(
@@ -477,7 +477,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            149..159,
+                                            150..160,
                                         ),
                                     },
                                 ),
@@ -524,7 +524,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 159,
+                            ast_idx: 160,
                             ident_token: IdentToken {
                                 ident: `concave_component`,
                                 token_idx: TokenIdx(
@@ -555,7 +555,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 160,
+                            ast_idx: 161,
                             ident_token: IdentToken {
                                 ident: `convex_component`,
                                 token_idx: TokenIdx(
@@ -586,7 +586,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 161,
+                            ast_idx: 162,
                             ident_token: IdentToken {
                                 ident: `convexity`,
                                 token_idx: TokenIdx(
@@ -617,7 +617,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 162,
+                            ast_idx: 163,
                             ident_token: IdentToken {
                                 ident: `line_segment`,
                                 token_idx: TokenIdx(
@@ -644,7 +644,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 169,
+                            ast_idx: 170,
                             ident_token: IdentToken {
                                 ident: `LineSegmentStroke`,
                                 token_idx: TokenIdx(
@@ -679,7 +679,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 172,
+                            ast_idx: 173,
                             ident_token: IdentToken {
                                 ident: `LineSegmentSketch`,
                                 token_idx: TokenIdx(
@@ -718,7 +718,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 175,
+                            ast_idx: 176,
                             ident_token: IdentToken {
                                 ident: `go_right`,
                                 token_idx: TokenIdx(
@@ -734,7 +734,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            26..32,
+                                            27..33,
                                         ),
                                     },
                                 ),
@@ -763,7 +763,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 176,
+                            ast_idx: 177,
                             ident_token: IdentToken {
                                 ident: `go_left`,
                                 token_idx: TokenIdx(
@@ -779,7 +779,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            32..38,
+                                            33..39,
                                         ),
                                     },
                                 ),
@@ -808,7 +808,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 177,
+                            ast_idx: 178,
                             ident_token: IdentToken {
                                 ident: `extend_end`,
                                 token_idx: TokenIdx(
@@ -824,7 +824,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            60..72,
+                                            61..73,
                                         ),
                                     },
                                 ),
@@ -853,7 +853,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 178,
+                            ast_idx: 179,
                             ident_token: IdentToken {
                                 ident: `extend_start`,
                                 token_idx: TokenIdx(
@@ -869,7 +869,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            105..115,
+                                            106..116,
                                         ),
                                     },
                                 ),
@@ -898,7 +898,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 179,
+                            ast_idx: 180,
                             ident_token: IdentToken {
                                 ident: `find_line_segments`,
                                 token_idx: TokenIdx(
@@ -914,7 +914,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            149..159,
+                                            150..160,
                                         ),
                                     },
                                 ),
@@ -941,7 +941,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 74,
+                                    ast_idx: 75,
                                     ident_token: IdentToken {
                                         ident: `ConcaveComponent`,
                                         token_idx: TokenIdx(
@@ -964,8 +964,8 @@ Ok(
                                 ),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 163,
-                            use_expr_idx: 0,
+                            ast_idx: 164,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -988,7 +988,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 77,
+                                    ast_idx: 78,
                                     ident_token: IdentToken {
                                         ident: `find_concave_components`,
                                         token_idx: TokenIdx(
@@ -1004,7 +1004,7 @@ Ok(
                                         body: Some(
                                             FugitiveBody {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    61..69,
+                                                    62..70,
                                                 ),
                                             },
                                         ),
@@ -1017,8 +1017,8 @@ Ok(
                                 ),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 163,
-                            use_expr_idx: 0,
+                            ast_idx: 164,
+                            use_expr_idx: 1,
                         },
                     ),
                 },
@@ -1041,7 +1041,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 16,
+                                    ast_idx: 17,
                                     ident_token: IdentToken {
                                         ident: `LineSegment`,
                                         token_idx: TokenIdx(
@@ -1064,8 +1064,8 @@ Ok(
                                 ),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 165,
-                            use_expr_idx: 4,
+                            ast_idx: 166,
+                            use_expr_idx: 5,
                         },
                     ),
                 },
@@ -1090,7 +1090,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 16,
+                                    ast_idx: 17,
                                     ident_token: IdentToken {
                                         ident: `LineSegment`,
                                         token_idx: TokenIdx(
@@ -1115,8 +1115,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 168,
-                            use_expr_idx: 12,
+                            ast_idx: 169,
+                            use_expr_idx: 13,
                         },
                     ),
                 },
@@ -1141,7 +1141,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 203,
+                                    ast_idx: 204,
                                     ident_token: IdentToken {
                                         ident: `RawContour`,
                                         token_idx: TokenIdx(
@@ -1166,8 +1166,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 167,
-                            use_expr_idx: 9,
+                            ast_idx: 168,
+                            use_expr_idx: 10,
                         },
                     ),
                 },
@@ -1192,7 +1192,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 79,
+                                    ast_idx: 80,
                                     ident_token: IdentToken {
                                         ident: `Point2d`,
                                         token_idx: TokenIdx(
@@ -1217,8 +1217,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 166,
-                            use_expr_idx: 6,
+                            ast_idx: 167,
+                            use_expr_idx: 7,
                         },
                     ),
                 },
@@ -1243,7 +1243,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 81,
+                                    ast_idx: 82,
                                     ident_token: IdentToken {
                                         ident: `RelativePoint2d`,
                                         token_idx: TokenIdx(
@@ -1268,8 +1268,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 166,
-                            use_expr_idx: 6,
+                            ast_idx: 167,
+                            use_expr_idx: 7,
                         },
                     ),
                 },
@@ -1294,7 +1294,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 82,
+                                    ast_idx: 83,
                                     ident_token: IdentToken {
                                         ident: `Vector2d`,
                                         token_idx: TokenIdx(
@@ -1319,8 +1319,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 166,
-                            use_expr_idx: 6,
+                            ast_idx: 167,
+                            use_expr_idx: 7,
                         },
                     ),
                 },
@@ -1345,7 +1345,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 84,
+                                    ast_idx: 85,
                                     ident_token: IdentToken {
                                         ident: `ClosedRange`,
                                         token_idx: TokenIdx(
@@ -1370,8 +1370,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 166,
-                            use_expr_idx: 6,
+                            ast_idx: 167,
+                            use_expr_idx: 7,
                         },
                     ),
                 },
@@ -1396,7 +1396,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 86,
+                                    ast_idx: 87,
                                     ident_token: IdentToken {
                                         ident: `BoundingBox`,
                                         token_idx: TokenIdx(
@@ -1421,8 +1421,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 166,
-                            use_expr_idx: 6,
+                            ast_idx: 167,
+                            use_expr_idx: 7,
                         },
                     ),
                 },
@@ -1447,7 +1447,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 88,
+                                    ast_idx: 89,
                                     ident_token: IdentToken {
                                         ident: `RelativeBoundingBox`,
                                         token_idx: TokenIdx(
@@ -1472,8 +1472,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 166,
-                            use_expr_idx: 6,
+                            ast_idx: 167,
+                            use_expr_idx: 7,
                         },
                     ),
                 },
@@ -1505,24 +1505,24 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 170,
+                        ast_idx: 171,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 81,
                             ),
                         },
-                        trai_expr: 11,
+                        trai_expr: 12,
                         for_token: TokenIdx(
                             83,
                         ),
                         ty_sketch_expr: Path(
-                            12,
+                            13,
                         ),
                         items: Some(
                             TraitForType(
                                 TraitForTypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        1..2,
+                                        2..3,
                                     ),
                                 },
                             ),
@@ -1549,16 +1549,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 171,
+                        ast_idx: 172,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 110,
                             ),
                         },
-                        ty_expr: 13,
+                        ty_expr: 14,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                5..7,
+                                6..8,
                             ),
                         },
                     },
@@ -1589,24 +1589,24 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 173,
+                        ast_idx: 174,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 185,
                             ),
                         },
-                        trai_expr: 14,
+                        trai_expr: 15,
                         for_token: TokenIdx(
                             187,
                         ),
                         ty_sketch_expr: Path(
-                            15,
+                            16,
                         ),
                         items: Some(
                             TraitForType(
                                 TraitForTypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        8..9,
+                                        9..10,
                                     ),
                                 },
                             ),
@@ -1633,16 +1633,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 174,
+                        ast_idx: 175,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 204,
                             ),
                         },
-                        ty_expr: 16,
+                        ty_expr: 17,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                23..26,
+                                24..27,
                             ),
                         },
                     },
@@ -1652,8 +1652,8 @@ Ok(
         once_use_rules: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 163,
-                    use_expr_idx: 1,
+                    ast_idx: 164,
+                    use_expr_idx: 2,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
@@ -1665,7 +1665,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            0..1,
+                            1..2,
                         ),
                     },
                     parent: None,
@@ -1687,7 +1687,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 159,
+                                    ast_idx: 160,
                                     ident_token: IdentToken {
                                         ident: `concave_component`,
                                         token_idx: TokenIdx(
@@ -1700,8 +1700,8 @@ Ok(
                     },
                 },
                 OnceUseRule {
-                    ast_idx: 164,
-                    use_expr_idx: 3,
+                    ast_idx: 165,
+                    use_expr_idx: 4,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
@@ -1713,7 +1713,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            2..3,
+                            3..4,
                         ),
                     },
                     parent: None,
@@ -1735,7 +1735,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 160,
+                                    ast_idx: 161,
                                     ident_token: IdentToken {
                                         ident: `convex_component`,
                                         token_idx: TokenIdx(
@@ -1748,8 +1748,8 @@ Ok(
                     },
                 },
                 OnceUseRule {
-                    ast_idx: 165,
-                    use_expr_idx: 5,
+                    ast_idx: 166,
+                    use_expr_idx: 6,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
@@ -1761,7 +1761,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            4..5,
+                            5..6,
                         ),
                     },
                     parent: None,
@@ -1783,7 +1783,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 162,
+                                    ast_idx: 163,
                                     ident_token: IdentToken {
                                         ident: `line_segment`,
                                         token_idx: TokenIdx(
@@ -1796,8 +1796,8 @@ Ok(
                     },
                 },
                 OnceUseRule {
-                    ast_idx: 166,
-                    use_expr_idx: 8,
+                    ast_idx: 167,
+                    use_expr_idx: 9,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
@@ -1810,34 +1810,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            7..8,
-                        ),
-                    },
-                    parent: None,
-                    state: OnceUseRuleState::Resolved {
-                        original_symbol: Some(
-                            EntitySymbol::CrateRoot {
-                                root_module_path: `mnist_classifier`,
-                            },
-                        ),
-                    },
-                },
-                OnceUseRule {
-                    ast_idx: 167,
-                    use_expr_idx: 11,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::line_segment_sketch`,
-                    ),
-                    variant: OnceUseRuleVariant::Parent {
-                        parent_name_token: PathNameToken::CrateRoot(
-                            CrateToken {
-                                token_idx: TokenIdx(
-                                    31,
-                                ),
-                            },
-                        ),
-                        children: ArenaIdxRange(
-                            10..11,
+                            8..9,
                         ),
                     },
                     parent: None,
@@ -1851,7 +1824,34 @@ Ok(
                 },
                 OnceUseRule {
                     ast_idx: 168,
-                    use_expr_idx: 13,
+                    use_expr_idx: 12,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
+                    variant: OnceUseRuleVariant::Parent {
+                        parent_name_token: PathNameToken::CrateRoot(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    31,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            11..12,
+                        ),
+                    },
+                    parent: None,
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::CrateRoot {
+                                root_module_path: `mnist_classifier`,
+                            },
+                        ),
+                    },
+                },
+                OnceUseRule {
+                    ast_idx: 169,
+                    use_expr_idx: 14,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
@@ -1865,7 +1865,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            12..13,
+                            13..14,
                         ),
                     },
                     parent: None,
@@ -1887,7 +1887,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 162,
+                                    ast_idx: 163,
                                     ident_token: IdentToken {
                                         ident: `line_segment`,
                                         token_idx: TokenIdx(
@@ -1900,8 +1900,8 @@ Ok(
                     },
                 },
                 OnceUseRule {
-                    ast_idx: 166,
-                    use_expr_idx: 7,
+                    ast_idx: 167,
+                    use_expr_idx: 8,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
@@ -1915,7 +1915,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            6..7,
+                            7..8,
                         ),
                     },
                     parent: Some(
@@ -1941,7 +1941,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier`,
                                     ),
-                                    ast_idx: 12,
+                                    ast_idx: 13,
                                     ident_token: IdentToken {
                                         ident: `geom2d`,
                                         token_idx: TokenIdx(
@@ -1954,8 +1954,8 @@ Ok(
                     },
                 },
                 OnceUseRule {
-                    ast_idx: 167,
-                    use_expr_idx: 10,
+                    ast_idx: 168,
+                    use_expr_idx: 11,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
@@ -1969,7 +1969,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            9..10,
+                            10..11,
                         ),
                     },
                     parent: Some(
@@ -1995,7 +1995,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier`,
                                     ),
-                                    ast_idx: 11,
+                                    ast_idx: 12,
                                     ident_token: IdentToken {
                                         ident: `raw_contour`,
                                         token_idx: TokenIdx(
@@ -2008,8 +2008,8 @@ Ok(
                     },
                 },
                 OnceUseRule {
-                    ast_idx: 167,
-                    use_expr_idx: 9,
+                    ast_idx: 168,
+                    use_expr_idx: 10,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
@@ -2042,7 +2042,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 203,
+                                    ast_idx: 204,
                                     ident_token: IdentToken {
                                         ident: `RawContour`,
                                         token_idx: TokenIdx(
@@ -2069,8 +2069,8 @@ Ok(
                 UseAllModuleSymbolsRule {
                     parent_module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                     is_same_crate: true,
-                    ast_idx: 163,
-                    use_expr_idx: 0,
+                    ast_idx: 164,
+                    use_expr_idx: 1,
                     visibility: Scope::Pub,
                     progress: Ok(
                         77,
@@ -2079,8 +2079,8 @@ Ok(
                 UseAllModuleSymbolsRule {
                     parent_module_path: `mnist_classifier::line_segment_sketch::convex_component`,
                     is_same_crate: true,
-                    ast_idx: 164,
-                    use_expr_idx: 2,
+                    ast_idx: 165,
+                    use_expr_idx: 3,
                     visibility: Scope::Pub,
                     progress: Ok(
                         23,
@@ -2089,8 +2089,8 @@ Ok(
                 UseAllModuleSymbolsRule {
                     parent_module_path: `mnist_classifier::line_segment_sketch::line_segment`,
                     is_same_crate: true,
-                    ast_idx: 165,
-                    use_expr_idx: 4,
+                    ast_idx: 166,
+                    use_expr_idx: 5,
                     visibility: Scope::Pub,
                     progress: Ok(
                         7,
@@ -2099,8 +2099,8 @@ Ok(
                 UseAllModuleSymbolsRule {
                     parent_module_path: `mnist_classifier::line_segment_sketch::line_segment`,
                     is_same_crate: true,
-                    ast_idx: 168,
-                    use_expr_idx: 12,
+                    ast_idx: 169,
+                    use_expr_idx: 13,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
@@ -2111,8 +2111,8 @@ Ok(
                 UseAllModuleSymbolsRule {
                     parent_module_path: `mnist_classifier::geom2d`,
                     is_same_crate: true,
-                    ast_idx: 166,
-                    use_expr_idx: 6,
+                    ast_idx: 167,
+                    use_expr_idx: 7,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),

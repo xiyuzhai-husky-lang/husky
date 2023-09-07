@@ -16,7 +16,7 @@
                     },
                     body: Some(
                         Eager(
-                            3,
+                            4,
                         ),
                     ),
                     hir_expr_region: Eager(
@@ -47,7 +47,7 @@
                     },
                     body: Some(
                         Eager(
-                            20,
+                            21,
                         ),
                     ),
                     hir_expr_region: Eager(
@@ -78,7 +78,7 @@
                     },
                     body: Some(
                         Eager(
-                            13,
+                            14,
                         ),
                     ),
                     hir_expr_region: Eager(
@@ -109,7 +109,7 @@
                     },
                     body: Some(
                         Eager(
-                            2,
+                            3,
                         ),
                     ),
                     hir_expr_region: Eager(
@@ -140,7 +140,7 @@
                     },
                     body: Some(
                         Eager(
-                            4,
+                            5,
                         ),
                     ),
                     hir_expr_region: Eager(
@@ -171,7 +171,7 @@
                     },
                     body: Some(
                         Eager(
-                            2,
+                            3,
                         ),
                     ),
                     hir_expr_region: Eager(
@@ -202,7 +202,7 @@
                     },
                     body: Some(
                         Eager(
-                            2,
+                            3,
                         ),
                     ),
                     hir_expr_region: Eager(

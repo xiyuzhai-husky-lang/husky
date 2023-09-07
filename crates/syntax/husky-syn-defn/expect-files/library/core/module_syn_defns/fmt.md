@@ -6,7 +6,7 @@ Ok(
                     path: TraitPath(`core::fmt::Debug`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::fmt::Debug`),
-                        ast_idx: 1,
+                        ast_idx: 2,
                         template_parameters: [],
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {

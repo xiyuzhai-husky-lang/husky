@@ -17,7 +17,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 159,
+                            ast_idx: 160,
                             ident_token: IdentToken {
                                 ident: `concave_component`,
                                 token_idx: TokenIdx(
@@ -55,7 +55,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 160,
+                            ast_idx: 161,
                             ident_token: IdentToken {
                                 ident: `convex_component`,
                                 token_idx: TokenIdx(
@@ -93,7 +93,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 161,
+                            ast_idx: 162,
                             ident_token: IdentToken {
                                 ident: `convexity`,
                                 token_idx: TokenIdx(
@@ -131,7 +131,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 162,
+                            ast_idx: 163,
                             ident_token: IdentToken {
                                 ident: `line_segment`,
                                 token_idx: TokenIdx(
@@ -167,7 +167,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 169,
+                            ast_idx: 170,
                             ident_token: IdentToken {
                                 ident: `LineSegmentStroke`,
                                 token_idx: TokenIdx(
@@ -209,7 +209,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 172,
+                            ast_idx: 173,
                             ident_token: IdentToken {
                                 ident: `LineSegmentSketch`,
                                 token_idx: TokenIdx(
@@ -253,7 +253,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 175,
+                            ast_idx: 176,
                             ident_token: IdentToken {
                                 ident: `go_right`,
                                 token_idx: TokenIdx(
@@ -269,7 +269,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            26..32,
+                                            27..33,
                                         ),
                                     },
                                 ),
@@ -305,7 +305,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 176,
+                            ast_idx: 177,
                             ident_token: IdentToken {
                                 ident: `go_left`,
                                 token_idx: TokenIdx(
@@ -321,7 +321,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            32..38,
+                                            33..39,
                                         ),
                                     },
                                 ),
@@ -357,7 +357,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 177,
+                            ast_idx: 178,
                             ident_token: IdentToken {
                                 ident: `extend_end`,
                                 token_idx: TokenIdx(
@@ -373,7 +373,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            60..72,
+                                            61..73,
                                         ),
                                     },
                                 ),
@@ -409,7 +409,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 178,
+                            ast_idx: 179,
                             ident_token: IdentToken {
                                 ident: `extend_start`,
                                 token_idx: TokenIdx(
@@ -425,7 +425,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            105..115,
+                                            106..116,
                                         ),
                                     },
                                 ),
@@ -461,7 +461,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 179,
+                            ast_idx: 180,
                             ident_token: IdentToken {
                                 ident: `find_line_segments`,
                                 token_idx: TokenIdx(
@@ -477,7 +477,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            149..159,
+                                            150..160,
                                         ),
                                     },
                                 ),
@@ -504,8 +504,8 @@ Ok(
         use_one_trackers: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 163,
-                    use_expr_idx: 1,
+                    ast_idx: 164,
+                    use_expr_idx: 2,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
@@ -517,15 +517,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            0..1,
+                            1..2,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 164,
-                    use_expr_idx: 3,
+                    ast_idx: 165,
+                    use_expr_idx: 4,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
@@ -537,15 +537,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            2..3,
+                            3..4,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 165,
-                    use_expr_idx: 5,
+                    ast_idx: 166,
+                    use_expr_idx: 6,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
@@ -557,15 +557,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            4..5,
+                            5..6,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 166,
-                    use_expr_idx: 8,
+                    ast_idx: 167,
+                    use_expr_idx: 9,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
@@ -578,15 +578,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            7..8,
+                            8..9,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 167,
-                    use_expr_idx: 11,
+                    ast_idx: 168,
+                    use_expr_idx: 12,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
@@ -599,15 +599,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            10..11,
+                            11..12,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 168,
-                    use_expr_idx: 13,
+                    ast_idx: 169,
+                    use_expr_idx: 14,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
@@ -621,7 +621,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            12..13,
+                            13..14,
                         ),
                     },
                     parent: None,
@@ -660,7 +660,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 0,
+                                child: 1,
                             },
                         ),
                     },
@@ -691,7 +691,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 2,
+                                child: 3,
                             },
                         ),
                     },
@@ -722,7 +722,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 4,
+                                child: 5,
                             },
                         ),
                     },
@@ -753,7 +753,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 6,
+                                child: 7,
                             },
                         ),
                     },
@@ -776,7 +776,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 7,
+                                child: 8,
                             },
                         ),
                     },
@@ -808,7 +808,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 9,
+                                child: 10,
                             },
                         ),
                     },
@@ -831,7 +831,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 10,
+                                child: 11,
                             },
                         ),
                     },
@@ -862,7 +862,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 12,
+                                child: 13,
                             },
                         ),
                     },

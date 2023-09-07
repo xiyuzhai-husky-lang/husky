@@ -17,7 +17,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            ast_idx: 0,
+                            ast_idx: 1,
                             ident_token: IdentToken {
                                 ident: `zero`,
                                 token_idx: TokenIdx(
@@ -55,7 +55,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             ident_token: IdentToken {
                                 ident: `one`,
                                 token_idx: TokenIdx(
@@ -93,7 +93,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            ast_idx: 2,
+                            ast_idx: 3,
                             ident_token: IdentToken {
                                 ident: `six`,
                                 token_idx: TokenIdx(
@@ -131,7 +131,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            ast_idx: 3,
+                            ast_idx: 4,
                             ident_token: IdentToken {
                                 ident: `three`,
                                 token_idx: TokenIdx(
@@ -169,7 +169,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            ast_idx: 4,
+                            ast_idx: 5,
                             ident_token: IdentToken {
                                 ident: `four`,
                                 token_idx: TokenIdx(
@@ -207,7 +207,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 6,
                             ident_token: IdentToken {
                                 ident: `five`,
                                 token_idx: TokenIdx(
@@ -245,7 +245,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             ident_token: IdentToken {
                                 ident: `seven`,
                                 token_idx: TokenIdx(
@@ -283,7 +283,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            ast_idx: 7,
+                            ast_idx: 8,
                             ident_token: IdentToken {
                                 ident: `eight`,
                                 token_idx: TokenIdx(
@@ -321,7 +321,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            ast_idx: 8,
+                            ast_idx: 9,
                             ident_token: IdentToken {
                                 ident: `nine`,
                                 token_idx: TokenIdx(
@@ -359,7 +359,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            ast_idx: 9,
+                            ast_idx: 10,
                             ident_token: IdentToken {
                                 ident: `two`,
                                 token_idx: TokenIdx(
@@ -388,8 +388,8 @@ Ok(
         use_one_trackers: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 10,
-                    use_expr_idx: 1,
+                    ast_idx: 11,
+                    use_expr_idx: 2,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
@@ -401,15 +401,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            0..1,
+                            1..2,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 11,
-                    use_expr_idx: 4,
+                    ast_idx: 12,
+                    use_expr_idx: 5,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
@@ -420,15 +420,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            3..4,
+                            4..5,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 12,
-                    use_expr_idx: 7,
+                    ast_idx: 13,
+                    use_expr_idx: 8,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
@@ -439,15 +439,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            6..7,
+                            7..8,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 13,
-                    use_expr_idx: 10,
+                    ast_idx: 14,
+                    use_expr_idx: 11,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
@@ -458,15 +458,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            9..10,
+                            10..11,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 14,
-                    use_expr_idx: 13,
+                    ast_idx: 15,
+                    use_expr_idx: 14,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
@@ -477,15 +477,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            12..13,
+                            13..14,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 15,
-                    use_expr_idx: 16,
+                    ast_idx: 16,
+                    use_expr_idx: 17,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
@@ -496,15 +496,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            15..16,
+                            16..17,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 16,
-                    use_expr_idx: 19,
+                    ast_idx: 17,
+                    use_expr_idx: 20,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
@@ -515,15 +515,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            18..19,
+                            19..20,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 17,
-                    use_expr_idx: 22,
+                    ast_idx: 18,
+                    use_expr_idx: 23,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
@@ -534,15 +534,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            21..22,
+                            22..23,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 18,
-                    use_expr_idx: 25,
+                    ast_idx: 19,
+                    use_expr_idx: 26,
                     visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
@@ -553,15 +553,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            24..25,
+                            25..26,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 19,
-                    use_expr_idx: 27,
+                    ast_idx: 20,
+                    use_expr_idx: 28,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
@@ -574,7 +574,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            26..27,
+                            27..28,
                         ),
                     },
                     parent: None,
@@ -614,7 +614,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 0,
+                                child: 1,
                             },
                         ),
                     },
@@ -646,7 +646,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 2,
+                                child: 3,
                             },
                         ),
                     },
@@ -669,7 +669,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 3,
+                                child: 4,
                             },
                         ),
                     },
@@ -701,7 +701,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 5,
+                                child: 6,
                             },
                         ),
                     },
@@ -724,7 +724,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 6,
+                                child: 7,
                             },
                         ),
                     },
@@ -756,7 +756,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 8,
+                                child: 9,
                             },
                         ),
                     },
@@ -779,7 +779,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 9,
+                                child: 10,
                             },
                         ),
                     },
@@ -811,7 +811,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 11,
+                                child: 12,
                             },
                         ),
                     },
@@ -834,7 +834,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 12,
+                                child: 13,
                             },
                         ),
                     },
@@ -866,7 +866,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 14,
+                                child: 15,
                             },
                         ),
                     },
@@ -889,7 +889,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 15,
+                                child: 16,
                             },
                         ),
                     },
@@ -921,7 +921,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 17,
+                                child: 18,
                             },
                         ),
                     },
@@ -944,7 +944,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 18,
+                                child: 19,
                             },
                         ),
                     },
@@ -976,7 +976,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 20,
+                                child: 21,
                             },
                         ),
                     },
@@ -999,7 +999,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 21,
+                                child: 22,
                             },
                         ),
                     },
@@ -1031,7 +1031,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 23,
+                                child: 24,
                             },
                         ),
                     },
@@ -1054,7 +1054,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 24,
+                                child: 25,
                             },
                         ),
                     },
@@ -1084,7 +1084,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 26,
+                                child: 27,
                             },
                         ),
                     },

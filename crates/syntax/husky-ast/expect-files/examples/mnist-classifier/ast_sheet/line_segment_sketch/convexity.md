@@ -45,7 +45,7 @@ Ok(
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                0..2,
+                                1..3,
                             ),
                         },
                     ),
@@ -69,7 +69,7 @@ Ok(
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                2..4,
+                                3..5,
                             ),
                         },
                     ),
@@ -87,7 +87,7 @@ Ok(
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                4..11,
+                                5..12,
                             ),
                         },
                     ),
@@ -105,7 +105,7 @@ Ok(
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                12..13,
+                                13..14,
                             ),
                         },
                     ),
@@ -135,12 +135,12 @@ Ok(
                     body: None,
                 },
                 Ast::IfElseStmts {
-                    if_branch: 11,
+                    if_branch: 12,
                     elif_branches: ArenaIdxRange(
-                        12..12,
+                        13..13,
                     ),
                     else_branch: Some(
-                        13,
+                        14,
                     ),
                 },
                 Ast::Use {
@@ -233,7 +233,7 @@ Ok(
                         body: Some(
                             FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
-                                    14..19,
+                                    15..20,
                                 ),
                             },
                         ),
@@ -242,68 +242,68 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            19..23,
+            20..24,
         ),
         siblings: [
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..2,
+                1..3,
             ),
             ArenaIdxRange(
-                2..2,
+                3..3,
             ),
             ArenaIdxRange(
-                2..2,
+                3..3,
             ),
             ArenaIdxRange(
-                2..2,
+                3..3,
             ),
             ArenaIdxRange(
-                2..2,
+                3..3,
             ),
             ArenaIdxRange(
-                2..4,
+                3..5,
             ),
             ArenaIdxRange(
-                4..4,
+                5..5,
             ),
             ArenaIdxRange(
-                4..11,
+                5..12,
             ),
             ArenaIdxRange(
-                12..12,
+                13..13,
             ),
             ArenaIdxRange(
-                12..13,
+                13..14,
             ),
             ArenaIdxRange(
-                14..19,
+                15..20,
             ),
             ArenaIdxRange(
-                19..23,
+                20..24,
             ),
         ],
     },

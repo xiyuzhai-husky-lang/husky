@@ -17,7 +17,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 16,
+                                    ast_idx: 17,
                                     ident_token: IdentToken {
                                         ident: `MnistLabel`,
                                         token_idx: TokenIdx(
@@ -33,7 +33,7 @@ Ok(
                                         variants: Some(
                                             TypeVariants {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    0..10,
+                                                    1..11,
                                                 ),
                                             },
                                         ),
@@ -65,7 +65,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 18,
+                                    ast_idx: 19,
                                     ident_token: IdentToken {
                                         ident: `BinaryImage28`,
                                         token_idx: TokenIdx(
@@ -107,7 +107,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 22,
+                                    ast_idx: 23,
                                     ident_token: IdentToken {
                                         ident: `BinaryGrid28`,
                                         token_idx: TokenIdx(
@@ -149,7 +149,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 26,
+                                    ast_idx: 27,
                                     ident_token: IdentToken {
                                         ident: `input`,
                                         token_idx: TokenIdx(
@@ -200,7 +200,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 16,
+                                    ast_idx: 17,
                                     ident_token: IdentToken {
                                         ident: `MnistLabel`,
                                         token_idx: TokenIdx(
@@ -216,7 +216,7 @@ Ok(
                                         variants: Some(
                                             TypeVariants {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    0..10,
+                                                    1..11,
                                                 ),
                                             },
                                         ),
@@ -241,7 +241,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 18,
+                                    ast_idx: 19,
                                     ident_token: IdentToken {
                                         ident: `BinaryImage28`,
                                         token_idx: TokenIdx(
@@ -276,7 +276,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 22,
+                                    ast_idx: 23,
                                     ident_token: IdentToken {
                                         ident: `BinaryGrid28`,
                                         token_idx: TokenIdx(
@@ -311,7 +311,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 26,
+                                    ast_idx: 27,
                                     ident_token: IdentToken {
                                         ident: `input`,
                                         token_idx: TokenIdx(
@@ -357,24 +357,24 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 19,
+                                ast_idx: 20,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
                                         40,
                                     ),
                                 },
-                                trai_expr: 0,
+                                trai_expr: 1,
                                 for_token: TokenIdx(
                                     42,
                                 ),
                                 ty_sketch_expr: Path(
-                                    1,
+                                    2,
                                 ),
                                 items: Some(
                                     TraitForType(
                                         TraitForTypeItems {
                                             ast_idx_range: ArenaIdxRange(
-                                                10..11,
+                                                11..12,
                                             ),
                                         },
                                     ),
@@ -401,16 +401,16 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 20,
+                                ast_idx: 21,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
                                         52,
                                     ),
                                 },
-                                ty_expr: 2,
+                                ty_expr: 3,
                                 items: TypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        11..12,
+                                        12..13,
                                     ),
                                 },
                             },
@@ -441,24 +441,24 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 21,
+                                ast_idx: 22,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
                                         64,
                                     ),
                                 },
-                                trai_expr: 5,
+                                trai_expr: 6,
                                 for_token: TokenIdx(
                                     70,
                                 ),
                                 ty_sketch_expr: Path(
-                                    6,
+                                    7,
                                 ),
                                 items: Some(
                                     TraitForType(
                                         TraitForTypeItems {
                                             ast_idx_range: ArenaIdxRange(
-                                                12..13,
+                                                13..14,
                                             ),
                                         },
                                     ),
@@ -491,24 +491,24 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 23,
+                                ast_idx: 24,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
                                         86,
                                     ),
                                 },
-                                trai_expr: 7,
+                                trai_expr: 8,
                                 for_token: TokenIdx(
                                     88,
                                 ),
                                 ty_sketch_expr: Path(
-                                    8,
+                                    9,
                                 ),
                                 items: Some(
                                     TraitForType(
                                         TraitForTypeItems {
                                             ast_idx_range: ArenaIdxRange(
-                                                13..14,
+                                                14..15,
                                             ),
                                         },
                                     ),
@@ -535,16 +535,16 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 24,
+                                ast_idx: 25,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
                                         98,
                                     ),
                                 },
-                                ty_expr: 9,
+                                ty_expr: 10,
                                 items: TypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        14..15,
+                                        15..16,
                                     ),
                                 },
                             },
@@ -575,24 +575,24 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 25,
+                                ast_idx: 26,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
                                         110,
                                     ),
                                 },
-                                trai_expr: 12,
+                                trai_expr: 13,
                                 for_token: TokenIdx(
                                     116,
                                 ),
                                 ty_sketch_expr: Path(
-                                    13,
+                                    14,
                                 ),
                                 items: Some(
                                     TraitForType(
                                         TraitForTypeItems {
                                             ast_idx_range: ArenaIdxRange(
-                                                15..16,
+                                                16..17,
                                             ),
                                         },
                                     ),
@@ -686,7 +686,7 @@ Ok(
                             68,
                         ),
                     ),
-                    subexpr: 3,
+                    subexpr: 4,
                 },
                 MajorItemPathExpr::Subitem {
                     name_token: PathNameToken::Ident(
@@ -702,7 +702,7 @@ Ok(
                             66,
                         ),
                     ),
-                    subexpr: 4,
+                    subexpr: 5,
                 },
                 MajorItemPathExpr::Root {
                     name_token: PathNameToken::Ident(
@@ -793,7 +793,7 @@ Ok(
                             114,
                         ),
                     ),
-                    subexpr: 10,
+                    subexpr: 11,
                 },
                 MajorItemPathExpr::Subitem {
                     name_token: PathNameToken::Ident(
@@ -809,7 +809,7 @@ Ok(
                             112,
                         ),
                     ),
-                    subexpr: 11,
+                    subexpr: 12,
                 },
                 MajorItemPathExpr::Root {
                     name_token: PathNameToken::Ident(

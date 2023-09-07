@@ -16,7 +16,7 @@
                     },
                     body: Some(
                         Eager(
-                            5,
+                            6,
                         ),
                     ),
                     hir_expr_region: Eager(
@@ -42,7 +42,7 @@
                         },
                     },
                     body: Some(
-                        12,
+                        13,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
@@ -57,7 +57,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 0,
+                                    owner: 1,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -74,11 +74,11 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 1,
+                                    lopd: 2,
                                     opr: Closed(
                                         Add,
                                     ),
-                                    ropd: 2,
+                                    ropd: 3,
                                 },
                                 Literal(
                                     F32(
@@ -89,14 +89,14 @@
                                 ),
                                 Prefix {
                                     opr: Minus,
-                                    opd: 4,
+                                    opd: 5,
                                 },
                                 Binary {
-                                    lopd: 3,
+                                    lopd: 4,
                                     opr: Comparison(
                                         Less,
                                     ),
-                                    ropd: 5,
+                                    ropd: 6,
                                 },
                                 InheritedSymbol {
                                     ident: Ident(
@@ -108,7 +108,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 7,
+                                    owner: 8,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -119,7 +119,7 @@
                                 },
                                 Prefix {
                                     opr: Minus,
-                                    opd: 8,
+                                    opd: 9,
                                 },
                                 Literal(
                                     F32(
@@ -129,15 +129,15 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 9,
+                                    lopd: 10,
                                     opr: Closed(
                                         Add,
                                     ),
-                                    ropd: 10,
+                                    ropd: 11,
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..2,
+                                        1..3,
                                     ),
                                 },
                             ],
@@ -145,10 +145,10 @@
                         stmt_arena: Arena {
                             data: [
                                 Require {
-                                    condition: 6,
+                                    condition: 7,
                                 },
                                 Eval {
-                                    expr_idx: 11,
+                                    expr_idx: 12,
                                 },
                             ],
                         },
@@ -177,7 +177,7 @@
                     },
                     body: Some(
                         Lazy(
-                            85,
+                            86,
                         ),
                     ),
                     hir_expr_region: Lazy(

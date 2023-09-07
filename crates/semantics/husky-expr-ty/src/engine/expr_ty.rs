@@ -57,7 +57,7 @@ impl<'a> ExprTypeEngine<'a> {
         let expectation_idx = self.infer_new_expr_ty_aux(expr_idx, expr_ty_expectation);
         self.fluffy_term_region
             .resolve_as_much_as_possible(self.db());
-        let outcome = match expectation_idx.into_option() {
+        let outcome = match expectation_idx {
             Some(expectation_idx) => self.fluffy_term_region[expectation_idx]
                 .resolve_progress()
                 .outcome::<E>()
@@ -72,7 +72,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: SynExprIdx,
         expr_ty_expectation: E,
-    ) -> OptionFluffyTermExpectationIdx {
+    ) -> Option<FluffyTermExpectationIdx> {
         let ty_result = self.calc_expr_ty(expr_idx, &expr_ty_expectation);
         let expectation_idx = match ty_result {
             Ok((_, Ok(ty))) => self.fluffy_term_region.add_expectation(

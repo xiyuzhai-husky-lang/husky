@@ -144,7 +144,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 1,
+                use_expr_idx: 2,
                 rule_idx: OnceUseRuleIdx(
                     0,
                 ),
@@ -166,7 +166,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 ident_token: IdentToken {
                                     ident: `one`,
                                     token_idx: TokenIdx(
@@ -180,7 +180,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 0,
+                use_expr_idx: 1,
                 rule_idx: OnceUseRuleIdx(
                     10,
                 ),
@@ -200,7 +200,7 @@ Ok(
                                     },
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 63,
+                                ast_idx: 64,
                                 ident_token: IdentToken {
                                     ident: `is_one`,
                                     token_idx: TokenIdx(
@@ -216,7 +216,7 @@ Ok(
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
-                                                48..51,
+                                                49..52,
                                             ),
                                         },
                                     ),
@@ -229,7 +229,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 4,
+                use_expr_idx: 5,
                 rule_idx: OnceUseRuleIdx(
                     1,
                 ),
@@ -243,7 +243,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 3,
+                use_expr_idx: 4,
                 rule_idx: OnceUseRuleIdx(
                     11,
                 ),
@@ -265,7 +265,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 2,
+                                ast_idx: 3,
                                 ident_token: IdentToken {
                                     ident: `six`,
                                     token_idx: TokenIdx(
@@ -279,7 +279,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 2,
+                use_expr_idx: 3,
                 rule_idx: OnceUseRuleIdx(
                     19,
                 ),
@@ -301,7 +301,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 52,
+                                ast_idx: 53,
                                 ident_token: IdentToken {
                                     ident: `is_six`,
                                     token_idx: TokenIdx(
@@ -317,7 +317,7 @@ Ok(
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
-                                                26..38,
+                                                27..39,
                                             ),
                                         },
                                     ),
@@ -330,7 +330,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 7,
+                use_expr_idx: 8,
                 rule_idx: OnceUseRuleIdx(
                     2,
                 ),
@@ -344,7 +344,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 6,
+                use_expr_idx: 7,
                 rule_idx: OnceUseRuleIdx(
                     12,
                 ),
@@ -366,7 +366,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 0,
+                                ast_idx: 1,
                                 ident_token: IdentToken {
                                     ident: `zero`,
                                     token_idx: TokenIdx(
@@ -380,7 +380,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 5,
+                use_expr_idx: 6,
                 rule_idx: OnceUseRuleIdx(
                     20,
                 ),
@@ -402,7 +402,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 28,
+                                ast_idx: 29,
                                 ident_token: IdentToken {
                                     ident: `is_zero`,
                                     token_idx: TokenIdx(
@@ -418,7 +418,7 @@ Ok(
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
-                                                11..25,
+                                                12..26,
                                             ),
                                         },
                                     ),
@@ -431,7 +431,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 10,
+                use_expr_idx: 11,
                 rule_idx: OnceUseRuleIdx(
                     3,
                 ),
@@ -445,7 +445,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 9,
+                use_expr_idx: 10,
                 rule_idx: OnceUseRuleIdx(
                     13,
                 ),
@@ -467,7 +467,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 9,
+                                ast_idx: 10,
                                 ident_token: IdentToken {
                                     ident: `two`,
                                     token_idx: TokenIdx(
@@ -481,7 +481,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 8,
+                use_expr_idx: 9,
                 rule_idx: OnceUseRuleIdx(
                     21,
                 ),
@@ -503,7 +503,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 54,
+                                ast_idx: 55,
                                 ident_token: IdentToken {
                                     ident: `is_two`,
                                     token_idx: TokenIdx(
@@ -519,7 +519,7 @@ Ok(
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
-                                                31..49,
+                                                32..50,
                                             ),
                                         },
                                     ),
@@ -532,7 +532,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 13,
+                use_expr_idx: 14,
                 rule_idx: OnceUseRuleIdx(
                     4,
                 ),
@@ -546,7 +546,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 12,
+                use_expr_idx: 13,
                 rule_idx: OnceUseRuleIdx(
                     14,
                 ),
@@ -568,7 +568,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 3,
+                                ast_idx: 4,
                                 ident_token: IdentToken {
                                     ident: `three`,
                                     token_idx: TokenIdx(
@@ -582,7 +582,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 11,
+                use_expr_idx: 12,
                 rule_idx: OnceUseRuleIdx(
                     22,
                 ),
@@ -604,7 +604,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 29,
+                                ast_idx: 30,
                                 ident_token: IdentToken {
                                     ident: `is_three`,
                                     token_idx: TokenIdx(
@@ -620,7 +620,7 @@ Ok(
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
-                                                1..18,
+                                                2..19,
                                             ),
                                         },
                                     ),
@@ -633,7 +633,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 16,
+                use_expr_idx: 17,
                 rule_idx: OnceUseRuleIdx(
                     5,
                 ),
@@ -647,7 +647,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 15,
+                use_expr_idx: 16,
                 rule_idx: OnceUseRuleIdx(
                     15,
                 ),
@@ -669,7 +669,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 5,
+                                ast_idx: 6,
                                 ident_token: IdentToken {
                                     ident: `five`,
                                     token_idx: TokenIdx(
@@ -683,7 +683,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 14,
+                use_expr_idx: 15,
                 rule_idx: OnceUseRuleIdx(
                     23,
                 ),
@@ -705,7 +705,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 2,
+                                ast_idx: 3,
                                 ident_token: IdentToken {
                                     ident: `is_five`,
                                     token_idx: TokenIdx(
@@ -721,7 +721,7 @@ Ok(
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
-                                                0..1,
+                                                1..2,
                                             ),
                                         },
                                     ),
@@ -734,7 +734,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 19,
+                use_expr_idx: 20,
                 rule_idx: OnceUseRuleIdx(
                     6,
                 ),
@@ -748,7 +748,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 18,
+                use_expr_idx: 19,
                 rule_idx: OnceUseRuleIdx(
                     16,
                 ),
@@ -770,7 +770,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 7,
                                 ident_token: IdentToken {
                                     ident: `seven`,
                                     token_idx: TokenIdx(
@@ -784,7 +784,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 17,
+                use_expr_idx: 18,
                 rule_idx: OnceUseRuleIdx(
                     24,
                 ),
@@ -806,7 +806,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 44,
+                                ast_idx: 45,
                                 ident_token: IdentToken {
                                     ident: `is_seven`,
                                     token_idx: TokenIdx(
@@ -822,7 +822,7 @@ Ok(
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
-                                                28..38,
+                                                29..39,
                                             ),
                                         },
                                     ),
@@ -835,7 +835,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 22,
+                use_expr_idx: 23,
                 rule_idx: OnceUseRuleIdx(
                     7,
                 ),
@@ -849,7 +849,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 21,
+                use_expr_idx: 22,
                 rule_idx: OnceUseRuleIdx(
                     17,
                 ),
@@ -871,7 +871,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 7,
+                                ast_idx: 8,
                                 ident_token: IdentToken {
                                     ident: `eight`,
                                     token_idx: TokenIdx(
@@ -885,7 +885,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 20,
+                use_expr_idx: 21,
                 rule_idx: OnceUseRuleIdx(
                     25,
                 ),
@@ -907,7 +907,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 19,
+                                ast_idx: 20,
                                 ident_token: IdentToken {
                                     ident: `is_eight`,
                                     token_idx: TokenIdx(
@@ -923,7 +923,7 @@ Ok(
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
-                                                6..13,
+                                                7..14,
                                             ),
                                         },
                                     ),
@@ -936,7 +936,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 25,
+                use_expr_idx: 26,
                 rule_idx: OnceUseRuleIdx(
                     8,
                 ),
@@ -950,7 +950,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 24,
+                use_expr_idx: 25,
                 rule_idx: OnceUseRuleIdx(
                     18,
                 ),
@@ -972,7 +972,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 8,
+                                ast_idx: 9,
                                 ident_token: IdentToken {
                                     ident: `nine`,
                                     token_idx: TokenIdx(
@@ -986,7 +986,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 23,
+                use_expr_idx: 24,
                 rule_idx: OnceUseRuleIdx(
                     26,
                 ),
@@ -1008,7 +1008,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 38,
+                                ast_idx: 39,
                                 ident_token: IdentToken {
                                     ident: `is_nine`,
                                     token_idx: TokenIdx(
@@ -1024,7 +1024,7 @@ Ok(
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
-                                                17..28,
+                                                18..29,
                                             ),
                                         },
                                     ),
@@ -1036,7 +1036,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 27,
+                use_expr_idx: 28,
                 rule_idx: OnceUseRuleIdx(
                     9,
                 ),

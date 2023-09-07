@@ -17,7 +17,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 10,
+                                    ast_idx: 11,
                                     ident_token: IdentToken {
                                         ident: `Class`,
                                         token_idx: TokenIdx(
@@ -33,7 +33,7 @@ Ok(
                                         variants: Some(
                                             TypeVariants {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    0..2,
+                                                    1..3,
                                                 ),
                                             },
                                         ),
@@ -65,7 +65,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 12,
+                                    ast_idx: 13,
                                     ident_token: IdentToken {
                                         ident: `OneVsAll`,
                                         token_idx: TokenIdx(
@@ -81,7 +81,7 @@ Ok(
                                         variants: Some(
                                             TypeVariants {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    2..4,
+                                                    3..5,
                                                 ),
                                             },
                                         ),
@@ -113,7 +113,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 15,
+                                    ast_idx: 16,
                                     ident_token: IdentToken {
                                         ident: `OneVsAllResult`,
                                         token_idx: TokenIdx(
@@ -129,7 +129,7 @@ Ok(
                                         variants: Some(
                                             TypeVariants {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    5..8,
+                                                    6..9,
                                                 ),
                                             },
                                         ),
@@ -161,7 +161,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 17,
+                                    ast_idx: 18,
                                     ident_token: IdentToken {
                                         ident: `narrow_down`,
                                         token_idx: TokenIdx(
@@ -212,7 +212,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 10,
+                                    ast_idx: 11,
                                     ident_token: IdentToken {
                                         ident: `Class`,
                                         token_idx: TokenIdx(
@@ -228,7 +228,7 @@ Ok(
                                         variants: Some(
                                             TypeVariants {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    0..2,
+                                                    1..3,
                                                 ),
                                             },
                                         ),
@@ -253,7 +253,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 12,
+                                    ast_idx: 13,
                                     ident_token: IdentToken {
                                         ident: `OneVsAll`,
                                         token_idx: TokenIdx(
@@ -269,7 +269,7 @@ Ok(
                                         variants: Some(
                                             TypeVariants {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    2..4,
+                                                    3..5,
                                                 ),
                                             },
                                         ),
@@ -294,7 +294,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 15,
+                                    ast_idx: 16,
                                     ident_token: IdentToken {
                                         ident: `OneVsAllResult`,
                                         token_idx: TokenIdx(
@@ -310,7 +310,7 @@ Ok(
                                         variants: Some(
                                             TypeVariants {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    5..8,
+                                                    6..9,
                                                 ),
                                             },
                                         ),
@@ -335,7 +335,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 17,
+                                    ast_idx: 18,
                                     ident_token: IdentToken {
                                         ident: `narrow_down`,
                                         token_idx: TokenIdx(
@@ -381,24 +381,24 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 13,
+                                ast_idx: 14,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
                                         47,
                                     ),
                                 },
-                                trai_expr: 2,
+                                trai_expr: 3,
                                 for_token: TokenIdx(
                                     64,
                                 ),
                                 ty_sketch_expr: Path(
-                                    3,
+                                    4,
                                 ),
                                 items: Some(
                                     TraitForType(
                                         TraitForTypeItems {
                                             ast_idx_range: ArenaIdxRange(
-                                                4..5,
+                                                5..6,
                                             ),
                                         },
                                     ),
@@ -431,24 +431,24 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 16,
+                                ast_idx: 17,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
                                         99,
                                     ),
                                 },
-                                trai_expr: 6,
+                                trai_expr: 7,
                                 for_token: TokenIdx(
                                     116,
                                 ),
                                 ty_sketch_expr: Path(
-                                    7,
+                                    8,
                                 ),
                                 items: Some(
                                     TraitForType(
                                         TraitForTypeItems {
                                             ast_idx_range: ArenaIdxRange(
-                                                8..9,
+                                                9..10,
                                             ),
                                         },
                                     ),
@@ -497,7 +497,7 @@ Ok(
                             59,
                         ),
                     ),
-                    subexpr: 0,
+                    subexpr: 1,
                 },
                 MajorItemPathExpr::Subitem {
                     name_token: PathNameToken::Ident(
@@ -513,7 +513,7 @@ Ok(
                             57,
                         ),
                     ),
-                    subexpr: 1,
+                    subexpr: 2,
                 },
                 MajorItemPathExpr::Root {
                     name_token: PathNameToken::Ident(
@@ -559,7 +559,7 @@ Ok(
                             111,
                         ),
                     ),
-                    subexpr: 4,
+                    subexpr: 5,
                 },
                 MajorItemPathExpr::Subitem {
                     name_token: PathNameToken::Ident(
@@ -575,7 +575,7 @@ Ok(
                             109,
                         ),
                     ),
-                    subexpr: 5,
+                    subexpr: 6,
                 },
                 MajorItemPathExpr::Root {
                     name_token: PathNameToken::Ident(

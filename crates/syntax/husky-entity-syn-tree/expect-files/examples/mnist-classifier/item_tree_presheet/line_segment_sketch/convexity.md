@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 22,
+                            ast_idx: 23,
                             ident_token: IdentToken {
                                 ident: `is_convex`,
                                 token_idx: TokenIdx(
@@ -31,7 +31,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            14..19,
+                                            15..20,
                                         ),
                                     },
                                 ),
@@ -56,8 +56,8 @@ Ok(
         use_one_trackers: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 19,
-                    use_expr_idx: 2,
+                    ast_idx: 20,
+                    use_expr_idx: 3,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
@@ -70,15 +70,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            1..2,
+                            2..3,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 20,
-                    use_expr_idx: 5,
+                    ast_idx: 21,
+                    use_expr_idx: 6,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
@@ -91,15 +91,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            4..5,
+                            5..6,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 21,
-                    use_expr_idx: 8,
+                    ast_idx: 22,
+                    use_expr_idx: 9,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
@@ -112,7 +112,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            7..8,
+                            8..9,
                         ),
                     },
                     parent: None,
@@ -151,7 +151,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 0,
+                                child: 1,
                             },
                         ),
                     },
@@ -174,7 +174,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 1,
+                                child: 2,
                             },
                         ),
                     },
@@ -205,7 +205,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 3,
+                                child: 4,
                             },
                         ),
                     },
@@ -228,7 +228,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 4,
+                                child: 5,
                             },
                         ),
                     },
@@ -259,7 +259,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 6,
+                                child: 7,
                             },
                         ),
                     },
@@ -282,7 +282,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 7,
+                                child: 8,
                             },
                         ),
                     },
