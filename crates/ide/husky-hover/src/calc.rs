@@ -1,7 +1,7 @@
 use husky_entity_syn_tree::EntitySynTreeResult;
 use husky_text::TextRange;
 
-use husky_token::{RangedTokenSheet, Token, TokenGroupIdx, TokenSheetData};
+use husky_token::{Keyword, RangedTokenSheet, Token, TokenGroupIdx, TokenSheetData};
 use husky_token_info::TokenInfo;
 
 use crate::*;
@@ -72,10 +72,9 @@ impl<'a> HoverResultCalculator<'a> {
         }
     }
 
-    fn gen_keyword_content(&self, kw: husky_token::Keyword) -> &'static str {
+    fn gen_keyword_content(&self, kw: Keyword) -> &'static str {
         match kw {
-            husky_token::Keyword::Config(_keyword) => "This is a config keyword.",
-            husky_token::Keyword::Fugitive(_keyword) => "This is a paradigm",
+            Keyword::Fugitive(_keyword) => "This is a paradigm",
             _ => "Other",
         }
     }

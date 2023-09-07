@@ -37,8 +37,8 @@ pub struct DeclTokraRegionData<'a> {
 impl<'a> std::ops::Index<RegionalTokenIdx> for DeclTokraRegionData<'a> {
     type Output = Token;
 
-    fn index(&self, index: RegionalTokenIdx) -> &Self::Output {
-        &self.tokens[index.0.get() as usize - 1]
+    fn index(&self, idx: RegionalTokenIdx) -> &Self::Output {
+        &self.tokens[idx.index()]
     }
 }
 
@@ -47,4 +47,15 @@ pub(super) fn decl_tokra_region(
     db: &dyn EntitySynTreeDb,
 ) -> DeclTokraRegion {
     todo!()
+}
+
+pub enum DeclAst {
+    Identifiable,
+    TypeVariant,
+    ImplBlock,
+}
+
+pub struct DeclTokraRegionSourceMap {
+    token_region_base: TokenRegionBase,
+    ast_idx: AstIdx,
 }

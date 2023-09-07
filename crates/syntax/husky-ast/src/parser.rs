@@ -126,10 +126,6 @@ impl<'a> AstParser<'a> {
                     VisibilityExpr::new_protected(self.module_path),
                     None,
                 ),
-                Keyword::Config(_) => Ast::Config {
-                    token_group_idx,
-                    body: self.try_parse_expected(OriginalAstError::ExpectedFormBodyForConfig)?,
-                },
                 Keyword::Mod | Keyword::Fugitive(_) | Keyword::Trait | Keyword::TypeEntity(_) => {
                     self.parse_defn::<C>(
                         token_group_idx,

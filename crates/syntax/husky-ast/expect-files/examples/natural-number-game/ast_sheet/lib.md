@@ -78,7 +78,7 @@ Ok(
                         OriginalAstError::UnexpectedStmtInsideImplBlock,
                     ),
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
@@ -163,7 +163,7 @@ Ok(
                         OriginalAstError::ExcessiveIndent,
                     ),
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         9,
                     ),
@@ -205,7 +205,7 @@ Ok(
                         variants: None,
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         10,
                     ),

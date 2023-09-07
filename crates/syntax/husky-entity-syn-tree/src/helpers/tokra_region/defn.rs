@@ -23,21 +23,30 @@ pub struct DefnTokraRegionData<'a> {
 impl<'a> std::ops::Index<RegionalTokenIdx> for DefnTokraRegionData<'a> {
     type Output = Token;
 
-    fn index(&self, index: RegionalTokenIdx) -> &Self::Output {
-        &self.tokens[index.0.get() as usize - 1]
+    fn index(&self, idx: RegionalTokenIdx) -> &Self::Output {
+        &self.tokens[idx.index()]
     }
 }
 
 pub(super) fn defn_token_region(
     syn_node_path: ItemSynNodePath,
     db: &dyn EntitySynTreeDb,
-) -> DefnTokraRegion {
+) -> Option<DefnTokraRegion> {
     match syn_node_path {
-        ItemSynNodePath::Submodule(_) => todo!(),
+        ItemSynNodePath::Submodule(_) => None,
         ItemSynNodePath::MajorItem(_) => todo!(),
         ItemSynNodePath::TypeVariant(_) => todo!(),
         ItemSynNodePath::ImplBlock(_) => todo!(),
         ItemSynNodePath::AssociatedItem(_) => todo!(),
         ItemSynNodePath::Decr(_) => todo!(),
     }
+}
+
+pub enum DefnAst {}
+
+pub type DefnAstArena = Arena<DefnAst>;
+pub type DefnAstArenaIdx = ArenaIdx<DefnAst>;
+
+pub struct DefnTokraRegionSourceMap {
+    token_region_base: TokenRegionBase,
 }

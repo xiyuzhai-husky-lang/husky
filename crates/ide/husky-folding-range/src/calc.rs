@@ -40,7 +40,7 @@ impl<'a> FoldingRangeCalculator<'a> {
             | Ast::IfElseStmts { .. }
             | Ast::MatchStmts { .. }
             | Ast::TypeVariant { .. } => None,
-            Ast::Defn { block, .. } => block
+            Ast::Identifiable { block, .. } => block
                 .children()?
                 .last()
                 .map(|_| (self.ast_range_sheet[ast_idx], FoldingRangeKind::Region)),
@@ -50,10 +50,6 @@ impl<'a> FoldingRangeCalculator<'a> {
                 .last()
                 .map(|_| (self.ast_range_sheet[ast_idx], FoldingRangeKind::Region)),
             Ast::BasicStmtOrBranch { body, .. } => (*body)?
-                .ast_idx_range()
-                .last()
-                .map(|_| (self.ast_range_sheet[ast_idx], FoldingRangeKind::Region)),
-            Ast::Config { body, .. } => body
                 .ast_idx_range()
                 .last()
                 .map(|_| (self.ast_range_sheet[ast_idx], FoldingRangeKind::Region)),

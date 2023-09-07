@@ -13,7 +13,7 @@ pub struct SnippetTokraRegionData<'a> {
 impl<'a> std::ops::Index<RegionalTokenIdx> for SnippetTokraRegionData<'a> {
     type Output = Token;
 
-    fn index(&self, index: RegionalTokenIdx) -> &Self::Output {
-        &self.tokens[index.0.get() as usize - 1]
+    fn index(&self, idx: RegionalTokenIdx) -> &Self::Output {
+        &self.tokens[idx.index()]
     }
 }

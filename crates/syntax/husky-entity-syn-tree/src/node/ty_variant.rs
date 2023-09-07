@@ -94,7 +94,7 @@ pub(crate) fn ty_variant_syn_nodes(
         _ => return vec![],
     }
     let mut registry = ItemSynNodePathRegistry::default();
-    let Ast::Defn {
+    let Ast::Identifiable {
         block: DefnBlock::Type { variants, .. },
         ..
     } = ast_sheet[ty_node_path.node(db).ast_idx(db)]

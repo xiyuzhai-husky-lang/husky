@@ -1,5 +1,4 @@
 mod ambiguous;
-mod config;
 mod connection;
 mod end;
 mod form;
@@ -9,7 +8,6 @@ mod stmt;
 mod ty;
 
 pub use self::ambiguous::*;
-pub use self::config::*;
 pub use self::connection::*;
 pub use self::end::*;
 pub use self::form::*;
@@ -29,7 +27,6 @@ use std::ops::Deref;
 #[salsa::debug_with_db(db = TokenDb)]
 #[enum_class::from_variants]
 pub enum Keyword {
-    Config(ConfigKeyword),
     Fugitive(FugitiveKeyword),
     TypeEntity(TypeEntityKeyword),
     Stmt(StmtKeyword),
@@ -58,7 +55,6 @@ impl std::fmt::Display for Keyword {
 impl Keyword {
     pub const fn code(&self) -> &'static str {
         match self {
-            Keyword::Config(keyword) => keyword.code(),
             Keyword::Fugitive(keyword) => keyword.code(),
             Keyword::TypeEntity(keyword) => keyword.code(),
             Keyword::Stmt(keyword) => keyword.code(),
@@ -85,11 +81,5 @@ impl Deref for Keyword {
 
     fn deref(&self) -> &Self::Target {
         self.code()
-    }
-}
-
-impl From<ConfigKeyword> for Token {
-    fn from(val: ConfigKeyword) -> Self {
-        Token::Keyword(val.into())
     }
 }

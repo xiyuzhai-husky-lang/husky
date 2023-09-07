@@ -105,12 +105,6 @@ impl From<ModifierKeyword> for Pretoken {
     }
 }
 
-impl From<ConfigKeyword> for Pretoken {
-    fn from(kw: ConfigKeyword) -> Self {
-        Pretoken::Certain(kw.into())
-    }
-}
-
 impl From<WordOpr> for Pretoken {
     fn from(kw: WordOpr) -> Self {
         Pretoken::Certain(kw.into())

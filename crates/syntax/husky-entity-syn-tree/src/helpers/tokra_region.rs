@@ -1,14 +1,15 @@
+mod common;
 mod decl;
 mod defn;
 mod snippet;
 
+pub use self::common::*;
 pub use self::decl::*;
 pub use self::defn::*;
 pub use self::snippet::*;
 
 use crate::*;
 use husky_token::{Token, TokenIdx, TokenSheet};
-use std::num::NonZeroU32;
 
 #[enum_class::from_variants]
 pub enum TokraRegionData<'a> {
@@ -16,11 +17,6 @@ pub enum TokraRegionData<'a> {
     Decl(DeclTokraRegionData<'a>),
     Defn(DefnTokraRegionData<'a>),
 }
-
-// base 1
-pub struct RegionalTokenIdx(NonZeroU32);
-
-pub struct RegionalAstIdx(NonZeroU32);
 
 impl<'a> std::ops::Index<RegionalTokenIdx> for TokraRegionData<'a> {
     type Output = Token;
@@ -34,12 +30,12 @@ impl<'a> std::ops::Index<RegionalTokenIdx> for TokraRegionData<'a> {
     }
 }
 
-pub fn token_region_data(path: RegionPath, db: &dyn EntitySynTreeDb) -> TokraRegionData {
-    match path {
+pub fn token_region_data(path: RegionPath, db: &dyn EntitySynTreeDb) -> Option<TokraRegionData> {
+    Some(match path {
         RegionPath::Snippet(_) => todo!(),
         RegionPath::Decl(syn_node_path) => decl_tokra_region(syn_node_path, db).data(db).into(),
-        RegionPath::Defn(syn_node_path) => defn_token_region(syn_node_path, db).data(db).into(),
-    }
+        RegionPath::Defn(syn_node_path) => defn_token_region(syn_node_path, db)?.data(db).into(),
+    })
 }
 
 pub struct TokraBase {
