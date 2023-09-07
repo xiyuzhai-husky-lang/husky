@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_syn_tree::{EntitySynTreeBundleResult, HasItemPaths};
+use husky_entity_syn_tree::{EntitySynTreeBundleResult, HasAssociatedItemPaths};
 use smallvec::SmallVec;
 use vec_like::{SmallVecPairMap, VecMapGetEntry};
 
@@ -261,7 +261,7 @@ fn trai_for_ty_impl_block_with_ty_instantiated_item_ethereal_signature_template(
     let item_path = template_partially_instantiated
         .template(db)
         .path(db)
-        .item_paths(db)
+        .associated_item_paths(db)
         .get_entry(ident)
         .ok_or(EtherealSignatureError::NoSuchItemInTraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated {template_partially_instantiated, ident})?
         .1;

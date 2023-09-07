@@ -31,7 +31,7 @@ Ok(
                                 ),
                             ),
                             fields: Ok(
-                                SeparatedSmallList {
+                                PunctuatedSmallList {
                                     elements: [
                                         PropsFieldDeclPattern {
                                             decorators: [],
@@ -94,7 +94,7 @@ Ok(
                                             ),
                                         ),
                                     ],
-                                    phantom: PhantomData<husky_syn_decl::error::NodeDeclError>,
+                                    phantom: PhantomData<husky_syn_decl::error::SynNodeDeclError>,
                                 },
                             ),
                             rcurl: Ok(
@@ -6036,7 +6036,7 @@ Ok(
                                 ),
                             ),
                             fields: Ok(
-                                SeparatedSmallList {
+                                PunctuatedSmallList {
                                     elements: [
                                         PropsFieldDeclPattern {
                                             decorators: [],
@@ -6099,7 +6099,7 @@ Ok(
                                             ),
                                         ),
                                     ],
-                                    phantom: PhantomData<husky_syn_decl::error::NodeDeclError>,
+                                    phantom: PhantomData<husky_syn_decl::error::SynNodeDeclError>,
                                 },
                             ),
                             rcurl: Ok(

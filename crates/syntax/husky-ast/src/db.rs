@@ -5,7 +5,9 @@ use husky_token::TokenDb;
 use husky_vfs::*;
 
 pub trait AstDb: DbWithJar<AstJar> + TokenDb + EntityPathDb {
+    #[deprecated(note = "use HasAstSheet trait instead")]
     fn ast_sheet(&self, module_path: ModulePath) -> VfsResult<&AstSheet>;
+    #[deprecated(note = "use HasAstSheet trait instead")]
     fn ast_token_idx_range_sheet(
         &self,
         module_path: ModulePath,

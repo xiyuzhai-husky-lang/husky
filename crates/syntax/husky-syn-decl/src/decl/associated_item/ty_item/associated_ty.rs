@@ -22,4 +22,4 @@ pub struct TypeAssociatedTypeSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl<'a> DeclParser<'a> {}
+impl<'a> DeclParserFactory<'a> {}

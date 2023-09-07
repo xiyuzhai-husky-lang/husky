@@ -141,6 +141,17 @@ Ok(
                 ),
             ),
         ),
+        SynNodeDefn::Decr(
+            DecrSynNodeDefn {
+                syn_node_decl: Derive(
+                    DeriveDecrSynNodeDecl(
+                        Id {
+                            value: 19,
+                        },
+                    ),
+                ),
+            },
+        ),
         SynNodeDefn::MajorItem(
             MajorItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Enum(
@@ -362,6 +373,17 @@ Ok(
                 ),
             ),
         ),
+        SynNodeDefn::Decr(
+            DecrSynNodeDefn {
+                syn_node_decl: Derive(
+                    DeriveDecrSynNodeDecl(
+                        Id {
+                            value: 20,
+                        },
+                    ),
+                ),
+            },
+        ),
         SynNodeDefn::MajorItem(
             MajorItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Enum(
@@ -582,6 +604,17 @@ Ok(
                     },
                 ),
             ),
+        ),
+        SynNodeDefn::Decr(
+            DecrSynNodeDefn {
+                syn_node_decl: Derive(
+                    DeriveDecrSynNodeDecl(
+                        Id {
+                            value: 21,
+                        },
+                    ),
+                ),
+            },
         ),
         SynNodeDefn::MajorItem(
             MajorItemSynNodeDefn::Fugitive(

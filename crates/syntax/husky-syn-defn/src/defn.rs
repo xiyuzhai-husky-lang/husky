@@ -1,10 +1,12 @@
 mod associated_item;
+mod decr;
 mod impl_block;
 mod major_item;
 mod submodule;
 mod ty_variant;
 
 pub use self::associated_item::*;
+pub use self::decr::*;
 pub use self::impl_block::*;
 pub use self::major_item::*;
 pub use self::submodule::*;
@@ -24,6 +26,7 @@ pub enum SynNodeDefn {
     TypeVariant(TypeVariantSynNodeDefn),
     ImplBlock(ImplBlockSynNodeDecl),
     AssociatedItem(AssociatedItemSynNodeDefn),
+    Decr(DecrSynNodeDefn),
 }
 
 impl SynNodeDefn {
@@ -34,6 +37,7 @@ impl SynNodeDefn {
             SynNodeDefn::TypeVariant(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
             SynNodeDefn::ImplBlock(syn_node_decl) => syn_node_decl.into(),
             SynNodeDefn::AssociatedItem(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
+            SynNodeDefn::Decr(syn_node_defn) => syn_node_defn.syn_node_decl().into(),
         }
     }
 
@@ -48,6 +52,7 @@ impl SynNodeDefn {
             SynNodeDefn::AssociatedItem(defn) => defn.syn_expr_region(db),
             SynNodeDefn::TypeVariant(_defn) => None,
             SynNodeDefn::ImplBlock(_) => None,
+            SynNodeDefn::Decr(_) => None,
         }
     }
 }
@@ -68,7 +73,7 @@ impl HasSynNodeDefn for ItemSynNodePath {
             ItemSynNodePath::TypeVariant(path) => path.syn_node_defn(db).into(),
             ItemSynNodePath::ImplBlock(path) => path.syn_node_defn(db).into(),
             ItemSynNodePath::AssociatedItem(path) => path.syn_node_defn(db).into(),
-            ItemSynNodePath::Decr(_) => todo!(),
+            ItemSynNodePath::Decr(path) => path.syn_node_defn(db).into(),
         }
     }
 }

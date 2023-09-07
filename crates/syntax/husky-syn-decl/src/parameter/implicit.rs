@@ -9,7 +9,7 @@ pub struct Generics {
     langle: LaOrLtToken,
     template_parameters: ImplicitParameterDeclPatterns,
     commas: CommaTokens,
-    decl_list_result: Result<(), NodeDeclError>,
+    decl_list_result: Result<(), SynNodeDeclError>,
     rangle: RaOrGtToken,
 }
 
@@ -28,18 +28,18 @@ impl Generics {
 }
 
 impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for Generics {
-    type Error = NodeDeclError;
+    type Error = SynNodeDeclError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> NodeDeclResult<Option<Self>> {
+    ) -> SynNodeDeclResult<Option<Self>> {
         let Some(langle) = ctx.try_parse_option::<LaOrLtToken>()? else {
             return Ok(None);
         };
         let (template_parameters, commas, decl_list_result) = parse_separated_small2_list_expected(
             ctx,
             1,
-            OriginalNodeDeclError::ExpectedImplicitParameterDecl,
+            OriginalSynNodeDeclError::ExpectedImplicitParameterDecl,
         );
         Ok(Some(Self {
             langle,
@@ -47,7 +47,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for Generics {
             commas,
             decl_list_result,
             rangle: ctx.try_parse_expected(|token_stream_state| {
-                OriginalNodeDeclError::ExpectedRightAngleBracketForImplicitParameterDeclList {
+                OriginalSynNodeDeclError::ExpectedRightAngleBracketForImplicitParameterDeclList {
                     langle_token_idx: langle.token_idx(),
                     token_stream_state,
                 }

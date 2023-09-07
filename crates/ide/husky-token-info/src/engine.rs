@@ -106,6 +106,8 @@ impl<'a> InferEngine<'a> {
                 TokenInfo::EntityNode(syn_node_decl.syn_node_path(self.db), item_kind),
             ),
             Ast::ImplBlock { .. } => (),
+            // ad hoc
+            Ast::Decr { .. } => (),
             _ => unreachable!(),
         }
         match syn_node_defn {
@@ -114,6 +116,7 @@ impl<'a> InferEngine<'a> {
             SynNodeDefn::TypeVariant(_) => todo!(),
             SynNodeDefn::ImplBlock(_) => (),
             SynNodeDefn::Submodule(_) => (),
+            SynNodeDefn::Decr(_) => (),
         }
     }
 

@@ -6,7 +6,7 @@ pub struct TraitSynNodeDecl {
     pub syn_node_path: TraitSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -34,11 +34,11 @@ pub(crate) fn trai_syn_node_decl(
     db: &dyn SynDeclDb,
     syn_node_path: TraitSynNodePath,
 ) -> TraitSynNodeDecl {
-    let parser = DeclParser::new(db, syn_node_path.module_path(db));
+    let parser = DeclParserFactory::new(db, syn_node_path.module_path(db));
     parser.parse_trai_syn_node_decl(syn_node_path)
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> DeclParserFactory<'a> {
     fn parse_trai_syn_node_decl(&self, syn_node_path: TraitSynNodePath) -> TraitSynNodeDecl {
         let db = self.db();
         let node = syn_node_path.node(db);

@@ -10,19 +10,19 @@ use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynDeclDb)]
-pub enum NodeDeclError {
+pub enum SynNodeDeclError {
     #[error("{0}")]
-    Original(#[from] OriginalNodeDeclError),
+    Original(#[from] OriginalSynNodeDeclError),
     #[error("{0}")]
-    Derived(#[from] DerivedNodeDeclError),
+    Derived(#[from] DerivedSynNodeDeclError),
 }
 
-pub type NodeDeclResult<T> = Result<T, NodeDeclError>;
-pub type SynNodeDeclErrorRefs<'a> = smallvec::SmallVec<[&'a NodeDeclError; 4]>;
+pub type SynNodeDeclResult<T> = Result<T, SynNodeDeclError>;
+pub type SynNodeDeclErrorRefs<'a> = smallvec::SmallVec<[&'a SynNodeDeclError; 4]>;
 
-impl From<TokenError> for NodeDeclError {
+impl From<TokenError> for SynNodeDeclError {
     fn from(error: TokenError) -> Self {
-        NodeDeclError::Derived(error.into())
+        SynNodeDeclError::Derived(error.into())
     }
 }
 
@@ -32,18 +32,18 @@ impl From<ExprError> for DeclError {
     }
 }
 
-impl From<ExprError> for NodeDeclError {
+impl From<ExprError> for SynNodeDeclError {
     fn from(error: ExprError) -> Self {
         match error {
-            ExprError::Original(error) => NodeDeclError::Original(error.into()),
-            ExprError::Derived(error) => NodeDeclError::Derived(error.into()),
+            ExprError::Original(error) => SynNodeDeclError::Original(error.into()),
+            ExprError::Derived(error) => SynNodeDeclError::Derived(error.into()),
         }
     }
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynDeclDb)]
-pub enum OriginalNodeDeclError {
+pub enum OriginalSynNodeDeclError {
     #[error("derived {0}")]
     Expr(#[from] OriginalExprError),
     #[error("expect output type")]
@@ -75,15 +75,19 @@ pub enum OriginalNodeDeclError {
     ExpectedLeftCurlyBraceOrLeftParenthesisOrSemicolonForStruct(TokenStreamState),
     #[error("expected `=` for associated type")]
     ExpectedEqForAssociatedType(TokenStreamState),
+    #[error("expected `(` for derive")]
+    ExpectLeftBracketInDerive(TokenStreamState),
+    #[error("expected `)` for derive")]
+    ExpectRightBracketInDerive(TokenStreamState),
 }
 
-impl IntoError for OriginalNodeDeclError {
-    type Error = NodeDeclError;
+impl IntoError for OriginalSynNodeDeclError {
+    type Error = SynNodeDeclError;
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynDeclDb)]
-pub enum DerivedNodeDeclError {
+pub enum DerivedSynNodeDeclError {
     #[error("{0}")]
     ExprError(#[from] DerivedExprError),
     #[error("{0}")]
@@ -103,8 +107,8 @@ pub enum DeclError {
 
 pub type DeclResult<T> = Result<T, DeclError>;
 
-impl From<&NodeDeclError> for DeclError {
-    fn from(value: &NodeDeclError) -> Self {
+impl From<&SynNodeDeclError> for DeclError {
+    fn from(value: &SynNodeDeclError) -> Self {
         todo!();
         DeclError::NodeDecl
     }

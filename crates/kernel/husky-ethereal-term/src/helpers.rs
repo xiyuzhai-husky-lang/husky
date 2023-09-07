@@ -26,14 +26,14 @@ impl EtherealTerm {
         Some(db.ethereal_term_menu(self.toolchain(db)?))
     }
 
-    pub(crate) fn leading_ty_path(self, db: &dyn EtherealTermDb) -> Option<TypePath> {
+    pub fn leading_ty_path(self, db: &dyn EtherealTermDb) -> Option<TypePath> {
         match self.application_expansion(db).function() {
             TermFunctionReduced::TypeOntology(path) => Some(path),
             _ => None,
         }
     }
 
-    pub(crate) fn leading_trai_path(self, db: &dyn EtherealTermDb) -> Option<TraitPath> {
+    pub fn leading_trai_path(self, db: &dyn EtherealTermDb) -> Option<TraitPath> {
         match self.application_expansion(db).function() {
             TermFunctionReduced::Trait(path) => Some(path),
             _ => None,

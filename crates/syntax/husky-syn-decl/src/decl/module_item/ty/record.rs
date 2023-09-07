@@ -6,7 +6,7 @@ pub struct RecordTypeSynNodeDecl {
     pub syn_node_path: TypeSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
     pub syn_expr_region: SynExprRegion,
 }
 

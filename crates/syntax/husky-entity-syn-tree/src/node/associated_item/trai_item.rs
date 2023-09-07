@@ -16,7 +16,7 @@ impl From<TraitItemSynNodePath> for ItemSynNodePath {
 impl TraitItemSynNodePath {
     fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut ItemNodeRegistry,
+        registry: &mut ItemSynNodePathRegistry,
         parent_trai_syn_node_path: TraitSynNodePath,
         path: TraitItemPath,
     ) -> Self {
@@ -71,7 +71,7 @@ impl TraitItemSynNode {
     #[inline(always)]
     fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut ItemNodeRegistry,
+        registry: &mut ItemSynNodePathRegistry,
         trai_syn_node_path: TraitSynNodePath,
         ast_idx: AstIdx,
         ident: Ident,
@@ -118,7 +118,7 @@ pub(crate) fn trai_item_syn_nodes(
     let Some(items) = items else {
         return Default::default();
     };
-    let mut registry = ItemNodeRegistry::default();
+    let mut registry = ItemSynNodePathRegistry::default();
     items
         .ast_idx_range()
         .into_iter()

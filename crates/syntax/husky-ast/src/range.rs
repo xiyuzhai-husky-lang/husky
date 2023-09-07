@@ -48,7 +48,7 @@ struct AstTokenIdxRangeCalculator<'a> {
 
 impl<'a> AstTokenIdxRangeCalculator<'a> {
     fn calc_all(mut self) -> Vec<TokenIdxRange> {
-        for ast in self.ast_sheet.ast_arena.data() {
+        for ast in self.ast_sheet.data() {
             self.ast_ranges.push(self.calc_ast(ast))
         }
         self.ast_ranges
@@ -89,10 +89,6 @@ impl<'a> AstTokenIdxRangeCalculator<'a> {
                 ..
             } => self.calc_ast_group(*token_group_idx, body.map(|body| body.ast_idx_range())),
             Ast::Config {
-                token_group_idx,
-                body,
-            } => self.calc_ast_group(*token_group_idx, body.ast_idx_range()),
-            Ast::Main {
                 token_group_idx,
                 body,
             } => self.calc_ast_group(*token_group_idx, body.ast_idx_range()),

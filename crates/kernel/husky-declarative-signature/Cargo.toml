@@ -23,7 +23,6 @@ husky-token = { path = "../../lex/husky-token" }
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
-husky-syn-decr = { path = "../../syntax/husky-syn-decr" }
 husky-opr = { path = "../../kernel/husky-opr" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }

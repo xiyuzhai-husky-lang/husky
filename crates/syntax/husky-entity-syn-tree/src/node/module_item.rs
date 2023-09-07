@@ -21,7 +21,7 @@ pub enum MajorItemSynNodePath {
 impl MajorItemSynNodePath {
     pub(super) fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut ItemNodeRegistry,
+        registry: &mut ItemSynNodePathRegistry,
         path: MajorItemPath,
     ) -> Self {
         match path {
@@ -64,6 +64,15 @@ impl MajorItemSynNodePath {
     pub fn node(self, db: &dyn EntitySynTreeDb) -> MajorItemSynNode {
         todo!()
     }
+
+    pub fn decrs(self, db: &dyn EntitySynTreeDb) -> &[(DecrSynNodePath, DecrSynNode)] {
+        // ad hoc
+        match self {
+            MajorItemSynNodePath::Trait(_) => &[],
+            MajorItemSynNodePath::Type(syn_node_path) => syn_node_path.decrs(db),
+            MajorItemSynNodePath::Fugitive(_) => &[],
+        }
+    }
 }
 
 impl HasSynNodePath for MajorItemPath {
@@ -92,7 +101,7 @@ pub struct MajorItemSynNode {
 impl MajorItemSynNode {
     pub(super) fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut ItemNodeRegistry,
+        registry: &mut ItemSynNodePathRegistry,
         module_item_path: MajorItemPath,
         visibility: Scope,
         ast_idx: AstIdx,

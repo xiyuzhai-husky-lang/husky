@@ -69,5 +69,7 @@ pub struct EtherealSignatureJar(
     trai_for_ty_impl_block_with_ty_instantiated_item_ethereal_signature_template,
     // decr
     signature::ty_path_derive_decr_ethereal_signature_templates_map,
-    DeriveDecrEtherealSignatureTemplate
+    decr_ethereal_signature_template,
+    DeriveDecrEtherealSignatureTemplate,
+    DeriveDecrShardEtherealSignatureTemplate
 );

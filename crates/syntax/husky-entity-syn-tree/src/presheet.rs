@@ -132,7 +132,7 @@ struct EntityTreePresheetBuilder<'a> {
     item_node_table: MajorEntityNodeTable,
     use_expr_arena: UseExprArena,
     item_use_trackers: OnceUseRules,
-    registry: ItemNodeRegistry,
+    registry: ItemSynNodePathRegistry,
 }
 
 impl<'a> EntityTreePresheetBuilder<'a> {
@@ -216,7 +216,6 @@ impl<'a> EntityTreePresheetBuilder<'a> {
             | Ast::MatchStmts { .. }
             | Ast::TypeVariant { .. }
             | Ast::ImplBlock { .. }
-            | Ast::Main { .. }
             | Ast::Config { .. } => (),
         }
     }

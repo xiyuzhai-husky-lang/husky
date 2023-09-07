@@ -52,8 +52,14 @@ pub(crate) fn fugitive_syn_declarative_signature_template(
 ) -> DeclarativeSignatureResult<FugitiveDeclarativeSignatureTemplate> {
     let decl = path.syn_decl(db)?;
     match decl {
-        FugitiveSynDecl::Fn(decl) => decl.declarative_signature_template(db).map(Into::into),
-        FugitiveSynDecl::Val(decl) => decl.declarative_signature_template(db).map(Into::into),
-        FugitiveSynDecl::Gn(decl) => decl.declarative_signature_template(db).map(Into::into),
+        FugitiveSynDecl::Fn(decl) => {
+            FnFugitiveDeclarativeSignatureTemplate::from_decl(db, decl).map(Into::into)
+        }
+        FugitiveSynDecl::Val(decl) => {
+            ValFugitiveDeclarativeSignatureTemplate::from_decl(db, decl).map(Into::into)
+        }
+        FugitiveSynDecl::Gn(decl) => {
+            GnFugitiveDeclarativeSignatureTemplate::from_decl(db, decl).map(Into::into)
+        }
     }
 }

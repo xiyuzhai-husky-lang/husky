@@ -9,9 +9,9 @@ pub struct TraitForTypeAssociatedTypeSynNodeDecl {
     pub syn_node: TraitForTypeItemSynNode,
     pub ast_idx: AstIdx,
     #[return_ref]
-    pub generics: NodeDeclResult<Option<Generics>>,
+    pub generics: SynNodeDeclResult<Option<Generics>>,
     #[return_ref]
-    pub eq_token: NodeDeclResult<EqToken>,
+    pub eq_token: SynNodeDeclResult<EqToken>,
     // todo: change this to NodeDeclResult??
     pub ty_term_expr_idx: SynExprIdx,
     pub syn_expr_region: SynExprRegion,
@@ -29,7 +29,7 @@ impl TraitForTypeAssociatedTypeSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> DeclParserFactory<'a> {
     pub(super) fn parse_trai_for_ty_associated_ty_node_decl(
         &self,
         syn_node_path: TraitForTypeItemSynNodePath,
@@ -47,7 +47,8 @@ impl<'a> DeclParser<'a> {
             AllowSelfValue::False,
         );
         let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
-        let eq_token = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEqForAssociatedType);
+        let eq_token =
+            ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectedEqForAssociatedType);
         let ty_term_expr_idx = ctx.parse_expr_expected2(
             None,
             ExprRootKind::AssociatedTypeTerm,

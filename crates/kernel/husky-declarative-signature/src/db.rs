@@ -1,17 +1,16 @@
-use husky_syn_decr::DecrDb;
 use husky_syn_expr::SynExprRegion;
 
 use crate::*;
 
 pub trait DeclarativeSignatureDb:
-    salsa::DbWithJar<DeclarativeSignatureJar> + DecrDb + DeclarativeTermDb
+    salsa::DbWithJar<DeclarativeSignatureJar> + SynDeclDb + DeclarativeTermDb
 {
     fn declarative_term_region(&self, syn_expr_region: SynExprRegion) -> &DeclarativeTermRegion;
 }
 
 impl<Db> DeclarativeSignatureDb for Db
 where
-    Db: salsa::DbWithJar<DeclarativeSignatureJar> + DecrDb + DeclarativeTermDb,
+    Db: salsa::DbWithJar<DeclarativeSignatureJar> + SynDeclDb + DeclarativeTermDb,
 {
     fn declarative_term_region(&self, syn_expr_region: SynExprRegion) -> &DeclarativeTermRegion {
         declarative_term_region(self, syn_expr_region)
@@ -41,13 +40,9 @@ pub struct DeclarativeSignatureJar(
     // fugitive_signature,
     fugitive_syn_declarative_signature_template,
     ValFugitiveDeclarativeSignatureTemplate,
-    val_declarative_signature_template,
     FnFugitiveDeclarativeSignatureTemplate,
-    fn_declarative_signature_template,
     GnFugitiveDeclarativeSignatureTemplate,
-    gn_declarative_signature,
     TypeAliasFugitiveDeclarativeSignatureTemplate,
-    type_alias_declarative_signature,
     // impl block
     // impl_block_signature_from_decl,
     TypeImplBlockDeclarativeSignatureTemplate,
@@ -63,40 +58,26 @@ pub struct DeclarativeSignatureJar(
     // associated_item_syn_declarative_signature_from_decl,
     // type item
     ty_item_syn_declarative_signature_template,
-    ty_associated_fn_declarative_signature_template,
     TypeAssociatedFnDeclarativeSignatureTemplate,
-    ty_method_fn_declarative_signature_template,
     TypeMethodFnDeclarativeSignatureTemplate,
     TypeMethodFunctionDeclarativeSignatureTemplate,
-    ty_method_function_declarative_signature_template,
     TypeAssociatedTypeDeclarativeSignatureTemplate,
-    ty_associated_ty_declarative_signature_template,
     TypeAssociatedValDeclarativeSignatureTemplate,
-    ty_associated_val_declarative_signature_template,
     TypeMemoizedFieldDeclarativeSignatureTemplate,
-    ty_memoized_field_declarative_signature_template,
     // trait item
     trai_item_syn_declarative_signature_template,
     TraitAssociatedFnDeclarativeSignatureTemplate,
-    trai_associated_form_fn_declarative_signature_template,
     TraitMethodFnDeclarativeSignatureTemplate,
-    trai_method_fn_declarative_signature_template,
     TraitAssociatedTypeDeclarativeSignatureTemplate,
-    trai_associated_ty_declarative_signature_template,
     TraitAssociatedValDeclarativeSignatureTemplate,
-    trai_associated_val_declarative_signature_template,
     // type as trait item
     trai_for_ty_item_syn_declarative_signature_from_decl,
     TraitForTypeAssociatedFnDeclarativeSignatureTemplate,
-    trai_for_ty_associated_fn_declarative_signature_template,
     TraitForTypeMethodFnDeclarativeSignatureTemplate,
-    trai_for_ty_method_fn_declarative_signature_template,
     TraitForTypeAssociatedTypeDeclarativeSignatureTemplate,
-    trai_for_ty_associated_ty_declarative_signature_template,
     TraitForTypeAssociatedValDeclarativeSignatureTemplate,
-    trai_for_ty_associated_val_declarative_signature_template,
     // decr
+    decr_declarative_signature_template,
     DeriveDecrDeclarativeSignatureTemplate,
-    // derive_decr_declarative_signature_template,
-    ty_path_derive_decr_declarative_signature_templates_map,
+    DeriveDecrShardDeclarativeSignatureTemplate,
 );

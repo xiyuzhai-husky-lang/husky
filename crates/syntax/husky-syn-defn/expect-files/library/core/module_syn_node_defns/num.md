@@ -80,6 +80,17 @@ Ok(
                 ),
             ),
         ),
+        SynNodeDefn::Decr(
+            DecrSynNodeDefn {
+                syn_node_decl: Derive(
+                    DeriveDecrSynNodeDecl(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                ),
+            },
+        ),
         SynNodeDefn::MajorItem(
             MajorItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
@@ -159,6 +170,17 @@ Ok(
                     },
                 ),
             ),
+        ),
+        SynNodeDefn::Decr(
+            DecrSynNodeDefn {
+                syn_node_decl: Derive(
+                    DeriveDecrSynNodeDecl(
+                        Id {
+                            value: 2,
+                        },
+                    ),
+                ),
+            },
         ),
         SynNodeDefn::MajorItem(
             MajorItemSynNodeDefn::Type(
@@ -240,6 +262,17 @@ Ok(
                 ),
             ),
         ),
+        SynNodeDefn::Decr(
+            DecrSynNodeDefn {
+                syn_node_decl: Derive(
+                    DeriveDecrSynNodeDecl(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                ),
+            },
+        ),
         SynNodeDefn::MajorItem(
             MajorItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
@@ -319,6 +352,17 @@ Ok(
                     },
                 ),
             ),
+        ),
+        SynNodeDefn::Decr(
+            DecrSynNodeDefn {
+                syn_node_decl: Derive(
+                    DeriveDecrSynNodeDecl(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                ),
+            },
         ),
         SynNodeDefn::MajorItem(
             MajorItemSynNodeDefn::Type(
@@ -400,6 +444,17 @@ Ok(
                 ),
             ),
         ),
+        SynNodeDefn::Decr(
+            DecrSynNodeDefn {
+                syn_node_decl: Derive(
+                    DeriveDecrSynNodeDecl(
+                        Id {
+                            value: 5,
+                        },
+                    ),
+                ),
+            },
+        ),
         SynNodeDefn::MajorItem(
             MajorItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
@@ -479,6 +534,17 @@ Ok(
                     },
                 ),
             ),
+        ),
+        SynNodeDefn::Decr(
+            DecrSynNodeDefn {
+                syn_node_decl: Derive(
+                    DeriveDecrSynNodeDecl(
+                        Id {
+                            value: 6,
+                        },
+                    ),
+                ),
+            },
         ),
         SynNodeDefn::MajorItem(
             MajorItemSynNodeDefn::Type(
@@ -560,6 +626,17 @@ Ok(
                 ),
             ),
         ),
+        SynNodeDefn::Decr(
+            DecrSynNodeDefn {
+                syn_node_decl: Derive(
+                    DeriveDecrSynNodeDecl(
+                        Id {
+                            value: 7,
+                        },
+                    ),
+                ),
+            },
+        ),
         SynNodeDefn::MajorItem(
             MajorItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
@@ -639,6 +716,17 @@ Ok(
                     },
                 ),
             ),
+        ),
+        SynNodeDefn::Decr(
+            DecrSynNodeDefn {
+                syn_node_decl: Derive(
+                    DeriveDecrSynNodeDecl(
+                        Id {
+                            value: 8,
+                        },
+                    ),
+                ),
+            },
         ),
         SynNodeDefn::MajorItem(
             MajorItemSynNodeDefn::Type(
@@ -720,6 +808,17 @@ Ok(
                 ),
             ),
         ),
+        SynNodeDefn::Decr(
+            DecrSynNodeDefn {
+                syn_node_decl: Derive(
+                    DeriveDecrSynNodeDecl(
+                        Id {
+                            value: 9,
+                        },
+                    ),
+                ),
+            },
+        ),
         SynNodeDefn::MajorItem(
             MajorItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
@@ -799,6 +898,17 @@ Ok(
                     },
                 ),
             ),
+        ),
+        SynNodeDefn::Decr(
+            DecrSynNodeDefn {
+                syn_node_decl: Derive(
+                    DeriveDecrSynNodeDecl(
+                        Id {
+                            value: 10,
+                        },
+                    ),
+                ),
+            },
         ),
         SynNodeDefn::MajorItem(
             MajorItemSynNodeDefn::Type(
@@ -880,6 +990,17 @@ Ok(
                 ),
             ),
         ),
+        SynNodeDefn::Decr(
+            DecrSynNodeDefn {
+                syn_node_decl: Derive(
+                    DeriveDecrSynNodeDecl(
+                        Id {
+                            value: 11,
+                        },
+                    ),
+                ),
+            },
+        ),
         SynNodeDefn::MajorItem(
             MajorItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
@@ -959,6 +1080,17 @@ Ok(
                     },
                 ),
             ),
+        ),
+        SynNodeDefn::Decr(
+            DecrSynNodeDefn {
+                syn_node_decl: Derive(
+                    DeriveDecrSynNodeDecl(
+                        Id {
+                            value: 12,
+                        },
+                    ),
+                ),
+            },
         ),
         SynNodeDefn::MajorItem(
             MajorItemSynNodeDefn::Type(
@@ -1040,6 +1172,17 @@ Ok(
                 ),
             ),
         ),
+        SynNodeDefn::Decr(
+            DecrSynNodeDefn {
+                syn_node_decl: Derive(
+                    DeriveDecrSynNodeDecl(
+                        Id {
+                            value: 13,
+                        },
+                    ),
+                ),
+            },
+        ),
         SynNodeDefn::MajorItem(
             MajorItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
@@ -1119,6 +1262,17 @@ Ok(
                     },
                 ),
             ),
+        ),
+        SynNodeDefn::Decr(
+            DecrSynNodeDefn {
+                syn_node_decl: Derive(
+                    DeriveDecrSynNodeDecl(
+                        Id {
+                            value: 14,
+                        },
+                    ),
+                ),
+            },
         ),
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(

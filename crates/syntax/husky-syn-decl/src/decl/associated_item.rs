@@ -138,7 +138,7 @@ impl HasSynDecl for AssociatedItemPath {
 //     parser.parse_associated_item_syn_decl(node)
 // }
 
-impl<'a> DeclParser<'a> {
+impl<'a> DeclParserFactory<'a> {
     // fn parse_associated_item_syn_decl(
     //     &self,
     //     node: AssociatedItemNode,

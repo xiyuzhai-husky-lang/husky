@@ -6,7 +6,7 @@ pub struct ExternTypeSynNodeDecl {
     pub syn_node_path: TypeSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -29,7 +29,7 @@ impl ExternTypeSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> DeclParserFactory<'a> {
     // get declaration from tokens
     pub(super) fn parse_extern_ty_node_decl(
         &self,

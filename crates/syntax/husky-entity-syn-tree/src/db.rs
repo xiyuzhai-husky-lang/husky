@@ -93,6 +93,8 @@ pub struct EntitySynTreeJar(
     trai_item_paths,
     TypeSynNodePath,
     ty_node,
+    ty_decrs,
+    ty_decr_paths,
     FugitiveSynNodePath,
     fugitive_syn_node,
     // ty variant
@@ -132,6 +134,8 @@ pub struct EntitySynTreeJar(
     IllFormedImplBlockSynNode,
     ill_formed_impl_block_syn_node,
     // decr
+    decr_node,
+    DecrSynNodePath,
     DecrSynNode,
     // other
     item_tree_presheet,

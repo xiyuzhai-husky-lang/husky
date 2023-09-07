@@ -12,7 +12,6 @@ use husky_entity_syn_tree::{EntitySynTreeDb, EntitySynTreeJar};
 use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;
 use husky_syn_decl::SynDeclJar;
-use husky_syn_decr::SynDecrJar;
 use husky_syn_expr::SynExprJar;
 use husky_term_prelude::TermPreludeJar;
 use husky_token::TokenJar;
@@ -34,7 +33,6 @@ use husky_toml_token::TomlTokenJar;
     ManifestJar,
     SynExprJar,
     SynDeclJar,
-    SynDecrJar,
     TermPreludeJar,
     DeclarativeTermJar,
     DeclarativeSignatureJar,

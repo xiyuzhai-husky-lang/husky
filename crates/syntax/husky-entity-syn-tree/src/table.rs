@@ -203,7 +203,7 @@ impl MajorEntityNodeTable {
     pub(crate) fn try_add_new_node(
         &mut self,
         db: &dyn EntitySynTreeDb,
-        registry: &mut ItemNodeRegistry,
+        registry: &mut ItemSynNodePathRegistry,
         visibility: Scope,
         ast_idx: AstIdx,
         ident_token: IdentToken,
@@ -259,7 +259,7 @@ impl EntitySymbolEntry {
 impl EntityNodeEntry {
     fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut ItemNodeRegistry,
+        registry: &mut ItemSynNodePathRegistry,
         visibility: Scope,
         ast_idx: AstIdx,
         ident_token: IdentToken,

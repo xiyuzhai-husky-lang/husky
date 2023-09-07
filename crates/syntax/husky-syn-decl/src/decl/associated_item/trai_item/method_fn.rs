@@ -7,15 +7,15 @@ pub struct TraitMethodFnSynNodeDecl {
     pub node: TraitItemSynNode,
     pub ast_idx: AstIdx,
     #[return_ref]
-    pub template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
+    pub template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
     #[return_ref]
-    pub parenate_parameter_decl_list: NodeDeclResult<RitchieParameters<true>>,
+    pub parenate_parameter_decl_list: SynNodeDeclResult<RitchieParameters<true>>,
     #[return_ref]
     pub curry_token: TokenResult<Option<CurryToken>>,
     #[return_ref]
-    pub return_ty: NodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
+    pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
     #[return_ref]
-    pub eol_colon: NodeDeclResult<EolToken>,
+    pub eol_colon: SynNodeDeclResult<EolToken>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -44,7 +44,7 @@ impl TraitMethodFnSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> DeclParserFactory<'a> {
     pub(super) fn parse_trai_method_fn_node_decl(
         &self,
         syn_node_path: TraitItemSynNodePath,
@@ -66,15 +66,15 @@ impl<'a> DeclParser<'a> {
         let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
         let template_parameter_decl_list = ctx.try_parse_option();
         let parenate_parameter_decl_list =
-            ctx.try_parse_expected(OriginalNodeDeclError::ExpectedParameterDeclList);
+            ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectedParameterDeclList);
         let curry_token = ctx.try_parse_option();
         let return_ty = if let Ok(Some(_)) = curry_token {
-            ctx.try_parse_expected(OriginalNodeDeclError::ExpectedOutputType)
+            ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectedOutputType)
                 .map(Some)
         } else {
             Ok(None)
         };
-        let eol_colon = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEolColon);
+        let eol_colon = ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
         TraitMethodFnSynNodeDecl::new(
             db,
             syn_node_path,
@@ -90,7 +90,7 @@ impl<'a> DeclParser<'a> {
     }
 }
 
-impl<'a> DeclParser<'a> {}
+impl<'a> DeclParserFactory<'a> {}
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TraitMethodFnSynDecl {

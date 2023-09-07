@@ -11,6 +11,7 @@ lsp-types.workspace = true
 either.workspace = true
 ordered-float.workspace = true
 thiserror.workspace = true
+smallvec.workspace = true
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
 # abstraction

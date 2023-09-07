@@ -7,7 +7,7 @@ pub struct UnitStructTypeSynNodeDecl {
     pub ast_idx: AstIdx,
     pub syn_expr_region: SynExprRegion,
     #[return_ref]
-    template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
 }
 
 impl UnitStructTypeSynNodeDecl {

@@ -44,7 +44,7 @@ impl TraitForTypeImplBlockSynNodePath {
         self.path.ty_sketch(db)
     }
 
-    pub fn items(
+    pub fn associated_items(
         self,
         db: &dyn EntitySynTreeDb,
     ) -> &[(Ident, TraitForTypeItemSynNodePath, TraitForTypeItemSynNode)] {
@@ -55,7 +55,7 @@ impl TraitForTypeImplBlockSynNodePath {
         self,
         db: &'a dyn EntitySynTreeDb,
     ) -> impl Iterator<Item = TraitForTypeItemSynNodePath> + 'a {
-        self.items(db)
+        self.associated_items(db)
             .iter()
             .copied()
             .map(|(_, syn_node_path, _)| syn_node_path)
@@ -161,10 +161,13 @@ pub(crate) fn trai_for_ty_impl_block_syn_node(
     item_tree_sheet.trai_for_ty_impl_block_syn_node(db, syn_node_path)
 }
 
-impl HasItemPaths for TraitForTypeImplBlockPath {
-    type ItemPath = TraitForTypeItemPath;
+impl HasAssociatedItemPaths for TraitForTypeImplBlockPath {
+    type AssociatedItemPath = TraitForTypeItemPath;
 
-    fn item_paths(self, db: &dyn EntitySynTreeDb) -> &[(Ident, Self::ItemPath)] {
+    fn associated_item_paths(
+        self,
+        db: &dyn EntitySynTreeDb,
+    ) -> &[(Ident, Self::AssociatedItemPath)] {
         trai_for_ty_impl_block_item_paths(db, self)
     }
 }
@@ -175,7 +178,7 @@ fn trai_for_ty_impl_block_item_paths(
     path: TraitForTypeImplBlockPath,
 ) -> SmallVecPairMap<Ident, TraitForTypeItemPath, 2> {
     path.syn_node_path(db)
-        .items(db)
+        .associated_items(db)
         .iter()
         .filter_map(|(ident, syn_node_path, _)| Some((*ident, syn_node_path.path(db)?)))
         .collect()

@@ -3,8 +3,7 @@ use husky_declarative_signature::DeclarativeSignatureError;
 use husky_declarative_ty::DeclarativeTypeError;
 use husky_entity_path::{EntityPathError, ItemPath};
 use husky_entity_syn_tree::{EntitySynTreeError, EntityTreeBundleError};
-use husky_syn_decl::NodeDeclError;
-use husky_syn_decr::DecrError;
+use husky_syn_decl::SynNodeDeclError;
 use maybe_result::MaybeResult;
 use std::sync::Arc;
 use thiserror::Error;
@@ -80,20 +79,14 @@ impl From<&EntityTreeBundleError> for EtherealTermError {
     }
 }
 
-impl From<&NodeDeclError> for EtherealTermError {
-    fn from(value: &NodeDeclError) -> Self {
+impl From<&SynNodeDeclError> for EtherealTermError {
+    fn from(value: &SynNodeDeclError) -> Self {
         todo!()
     }
 }
 
 impl From<EntityTreeBundleError> for EtherealTermError {
     fn from(value: EntityTreeBundleError) -> Self {
-        todo!()
-    }
-}
-
-impl From<&DecrError> for EtherealTermError {
-    fn from(value: &DecrError) -> Self {
         todo!()
     }
 }
