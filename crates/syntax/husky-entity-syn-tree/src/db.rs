@@ -156,4 +156,7 @@ pub struct EntitySynTreeJar(
     crate::helpers::module_specific_trait_items_table,
     crate::helpers::trai_side_derive_any_trai_for_ty_impl_block_paths_map,
     crate::helpers::trai_side_path_leading_trai_for_ty_impl_block_paths_map,
+    crate::helpers::token_region::SnippetTokenRegion,
+    crate::helpers::token_region::DeclTokenRegion,
+    crate::helpers::token_region::DefnTokenRegion,
 );

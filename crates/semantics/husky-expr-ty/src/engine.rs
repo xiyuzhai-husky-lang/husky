@@ -96,7 +96,6 @@ impl<'a> ExprTypeEngine<'a> {
             .flatten();
         let self_value_ty = match expr_region_data.path() {
             RegionPath::Snippet(_) => None,
-            RegionPath::Decr(_) => None,
             RegionPath::Decl(node_path) | RegionPath::Defn(node_path) => {
                 let Some(item_path) = node_path.path(db) else {
                     unreachable!("node_path = {:?}", node_path.debug(db))

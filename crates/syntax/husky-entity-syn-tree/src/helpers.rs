@@ -1,5 +1,5 @@
 pub mod paths;
-mod token_region;
+pub mod token_region;
 mod trai_available;
 mod trai_impl;
 mod trai_in_use;

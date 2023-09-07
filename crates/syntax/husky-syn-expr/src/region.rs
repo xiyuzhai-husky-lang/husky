@@ -142,8 +142,9 @@ impl SynExprRegion {
         // ad hoc
         match self.data(db).path {
             RegionPath::Snippet(module_path) => module_path.toolchain(db),
-            RegionPath::Decr(id) => id.toolchain(db),
-            RegionPath::Decl(id) | RegionPath::Defn(id) => id.toolchain(db),
+            RegionPath::Decl(syn_node_path) | RegionPath::Defn(syn_node_path) => {
+                syn_node_path.toolchain(db)
+            }
         }
     }
 }
