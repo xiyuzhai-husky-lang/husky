@@ -2,7 +2,7 @@ Ok(
     [
         (
             TokenIdx(
-                0,
+                1,
             ),
             Some(
                 HoverResult {
@@ -32,7 +32,7 @@ Ok(
         ),
         (
             TokenIdx(
-                31,
+                32,
             ),
             Some(
                 HoverResult {
@@ -62,7 +62,7 @@ Ok(
         ),
         (
             TokenIdx(
-                62,
+                63,
             ),
             Some(
                 HoverResult {
@@ -92,7 +92,7 @@ Ok(
         ),
         (
             TokenIdx(
-                93,
+                94,
             ),
             Some(
                 HoverResult {
@@ -122,7 +122,7 @@ Ok(
         ),
         (
             TokenIdx(
-                124,
+                125,
             ),
             Some(
                 HoverResult {
@@ -152,7 +152,7 @@ Ok(
         ),
         (
             TokenIdx(
-                155,
+                156,
             ),
             Some(
                 HoverResult {
@@ -182,7 +182,7 @@ Ok(
         ),
         (
             TokenIdx(
-                186,
+                187,
             ),
             Some(
                 HoverResult {
@@ -212,7 +212,7 @@ Ok(
         ),
         (
             TokenIdx(
-                217,
+                218,
             ),
             Some(
                 HoverResult {
@@ -242,7 +242,7 @@ Ok(
         ),
         (
             TokenIdx(
-                248,
+                249,
             ),
             Some(
                 HoverResult {
@@ -272,7 +272,7 @@ Ok(
         ),
         (
             TokenIdx(
-                279,
+                280,
             ),
             Some(
                 HoverResult {
@@ -302,7 +302,7 @@ Ok(
         ),
         (
             TokenIdx(
-                310,
+                311,
             ),
             Some(
                 HoverResult {
@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 310;\n\ntoken_line_group_idx = 30\n\ntoken = Token::Ident(\n    `long_vertical_dp`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 8,\n    current_symbol_kind: CurrentSynSymbolKind::LetVariable {\n        pattern_symbol_idx: 8,\n    },\n    syn_expr_region: ExprRegionLeash(_),\n};\n\nCurrentSynSymbol {\n    modifier: None,\n    access_start: TokenIdx(\n        303,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                364,\n            ),\n        ),\n    ),\n    variant: CurrentSynSymbolVariant::LetVariable {\n        ident: `long_vertical_dp`,\n        pattern_symbol_idx: 8,\n    },\n}\n",
+                                value: "\ntoken_idx = 310;\n\ntoken_line_group_idx = 30\n\ntoken = Token::Ident(\n    `long_vertical_dp`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 8,\n    current_symbol_kind: CurrentSynSymbolKind::LetVariable {\n        pattern_symbol_idx: 8,\n    },\n    syn_expr_region: ExprRegionLeash(_),\n};\n\nCurrentSynSymbol {\n    modifier: None,\n    access_start: TokenIdx(\n        304,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                365,\n            ),\n        ),\n    ),\n    variant: CurrentSynSymbolVariant::LetVariable {\n        ident: `long_vertical_dp`,\n        pattern_symbol_idx: 8,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -332,7 +332,7 @@ Ok(
         ),
         (
             TokenIdx(
-                341,
+                342,
             ),
             Some(
                 HoverResult {
@@ -362,7 +362,7 @@ Ok(
         ),
         (
             TokenIdx(
-                372,
+                373,
             ),
             Some(
                 HoverResult {
@@ -392,7 +392,7 @@ Ok(
         ),
         (
             TokenIdx(
-                403,
+                404,
             ),
             Some(
                 HoverResult {
@@ -422,7 +422,7 @@ Ok(
         ),
         (
             TokenIdx(
-                434,
+                435,
             ),
             Some(
                 HoverResult {
@@ -452,7 +452,7 @@ Ok(
         ),
         (
             TokenIdx(
-                465,
+                466,
             ),
             Some(
                 HoverResult {
@@ -482,7 +482,7 @@ Ok(
         ),
         (
             TokenIdx(
-                496,
+                497,
             ),
             Some(
                 HoverResult {
@@ -512,7 +512,7 @@ Ok(
         ),
         (
             TokenIdx(
-                527,
+                528,
             ),
             Some(
                 HoverResult {
@@ -542,7 +542,7 @@ Ok(
         ),
         (
             TokenIdx(
-                558,
+                559,
             ),
             Some(
                 HoverResult {
@@ -572,7 +572,7 @@ Ok(
         ),
         (
             TokenIdx(
-                589,
+                590,
             ),
             Some(
                 HoverResult {
@@ -602,7 +602,7 @@ Ok(
         ),
         (
             TokenIdx(
-                620,
+                621,
             ),
             Some(
                 HoverResult {

@@ -24,13 +24,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `clone`,
                         token_idx: TokenIdx(
-                            9,
+                            10,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            10,
+                            11,
                         ),
                         drained: false,
                     },
@@ -60,13 +60,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `clone`,
                         token_idx: TokenIdx(
-                            23,
+                            24,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            24,
+                            25,
                         ),
                         drained: false,
                     },
@@ -99,7 +99,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    4,
+                                    5,
                                 ),
                             },
                         },
@@ -111,13 +111,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Clone`,
                         token_idx: TokenIdx(
-                            6,
+                            7,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            7,
+                            8,
                         ),
                         drained: false,
                     },

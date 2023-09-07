@@ -21,7 +21,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Nat`,
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                             block: Type {
@@ -73,7 +73,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `OddNat`,
                                 token_idx: TokenIdx(
-                                    83,
+                                    84,
                                 ),
                             },
                             block: Type {
@@ -119,7 +119,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `EvenNat`,
                                 token_idx: TokenIdx(
-                                    112,
+                                    113,
                                 ),
                             },
                             block: Type {

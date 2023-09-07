@@ -73,7 +73,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `E`,
                             token_idx: TokenIdx(
-                                18,
+                                19,
                             ),
                         },
                     },
@@ -91,7 +91,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `E`,
                             token_idx: TokenIdx(
-                                23,
+                                24,
                             ),
                         },
                     },
@@ -113,7 +113,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `E`,
                             token_idx: TokenIdx(
-                                23,
+                                24,
                             ),
                         },
                     },

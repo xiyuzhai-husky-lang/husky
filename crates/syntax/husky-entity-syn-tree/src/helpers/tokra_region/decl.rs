@@ -2,14 +2,14 @@ use super::*;
 use husky_token::TokenGroupIdx;
 
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub struct DeclTokenRegion {
+pub struct DeclTokraRegion {
     #[id]
     syn_node_path: ItemSynNodePath,
     #[return_ref]
     tokens: Vec<Token>,
 }
 
-impl DeclTokenRegion {
+impl DeclTokraRegion {
     pub fn from_singe_token_group(
         syn_node_path: ItemSynNodePath,
         token_group_idx: TokenGroupIdx,
@@ -20,21 +20,21 @@ impl DeclTokenRegion {
             .token_sheet_data(module_path)
             .expect("todo: modules should be guaranteed to be valid");
         let tokens = token_sheet[token_group_idx].to_vec();
-        DeclTokenRegion::new_inner(db, syn_node_path, tokens)
+        DeclTokraRegion::new_inner(db, syn_node_path, tokens)
     }
 
-    pub fn data<'a>(self, db: &'a dyn EntitySynTreeDb) -> DeclTokenRegionData<'a> {
-        DeclTokenRegionData {
+    pub fn data<'a>(self, db: &'a dyn EntitySynTreeDb) -> DeclTokraRegionData<'a> {
+        DeclTokraRegionData {
             tokens: self.tokens(db),
         }
     }
 }
 
-pub struct DeclTokenRegionData<'a> {
+pub struct DeclTokraRegionData<'a> {
     tokens: &'a [Token],
 }
 
-impl<'a> std::ops::Index<RegionalTokenIdx> for DeclTokenRegionData<'a> {
+impl<'a> std::ops::Index<RegionalTokenIdx> for DeclTokraRegionData<'a> {
     type Output = Token;
 
     fn index(&self, index: RegionalTokenIdx) -> &Self::Output {
@@ -42,9 +42,9 @@ impl<'a> std::ops::Index<RegionalTokenIdx> for DeclTokenRegionData<'a> {
     }
 }
 
-pub(super) fn decl_token_region(
+pub(super) fn decl_tokra_region(
     syn_node_path: ItemSynNodePath,
     db: &dyn EntitySynTreeDb,
-) -> DeclTokenRegion {
+) -> DeclTokraRegion {
     todo!()
 }

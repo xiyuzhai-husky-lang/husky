@@ -1,18 +1,18 @@
 [
   {
     "input": "def",
-    "output": "TokenSheetData {\n    tokens: [\n        Token::Keyword(\n            Keyword::Fugitive(\n                Def,\n            ),\n        ),\n    ],\n    group_starts: [\n        0,\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        Token::Keyword(\n            Keyword::Fugitive(\n                Def,\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupBase(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "func",
-    "output": "TokenSheetData {\n    tokens: [\n        Token::Ident(\n            `func`,\n        ),\n    ],\n    group_starts: [\n        0,\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        Token::Ident(\n            `func`,\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupBase(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "proc",
-    "output": "TokenSheetData {\n    tokens: [\n        Token::Ident(\n            `proc`,\n        ),\n    ],\n    group_starts: [\n        0,\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        Token::Ident(\n            `proc`,\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupBase(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "trait",
-    "output": "TokenSheetData {\n    tokens: [\n        Token::Keyword(\n            Keyword::Trait,\n        ),\n    ],\n    group_starts: [\n        0,\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        Token::Keyword(\n            Keyword::Trait,\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupBase(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   }
 ]

@@ -27,7 +27,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    4,
+                                    5,
                                 ),
                             },
                         },
@@ -41,13 +41,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Ref`,
                         token_idx: TokenIdx(
-                            6,
+                            7,
                         ),
                     },
                     is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            7,
+                            8,
                         ),
                         drained: false,
                     },
@@ -69,7 +69,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    15,
+                                    16,
                                 ),
                             },
                         },
@@ -83,13 +83,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `RefMut`,
                         token_idx: TokenIdx(
-                            17,
+                            18,
                         ),
                     },
                     is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            18,
+                            19,
                         ),
                         drained: false,
                     },
@@ -111,7 +111,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    26,
+                                    27,
                                 ),
                             },
                         },
@@ -125,13 +125,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Leash`,
                         token_idx: TokenIdx(
-                            28,
+                            29,
                         ),
                     },
                     is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            29,
+                            30,
                         ),
                         drained: false,
                     },

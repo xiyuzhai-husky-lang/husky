@@ -2,7 +2,7 @@ Ok(
     [
         (
             TokenIdx(
-                0,
+                1,
             ),
             Some(
                 HoverResult {
@@ -32,7 +32,7 @@ Ok(
         ),
         (
             TokenIdx(
-                1,
+                2,
             ),
             Some(
                 HoverResult {
@@ -62,7 +62,7 @@ Ok(
         ),
         (
             TokenIdx(
-                2,
+                3,
             ),
             Some(
                 HoverResult {
@@ -92,7 +92,7 @@ Ok(
         ),
         (
             TokenIdx(
-                3,
+                4,
             ),
             Some(
                 HoverResult {
@@ -122,7 +122,7 @@ Ok(
         ),
         (
             TokenIdx(
-                4,
+                5,
             ),
             Some(
                 HoverResult {
@@ -152,7 +152,7 @@ Ok(
         ),
         (
             TokenIdx(
-                5,
+                6,
             ),
             Some(
                 HoverResult {
@@ -182,7 +182,7 @@ Ok(
         ),
         (
             TokenIdx(
-                6,
+                7,
             ),
             Some(
                 HoverResult {

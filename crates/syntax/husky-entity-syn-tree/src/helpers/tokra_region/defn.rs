@@ -1,26 +1,26 @@
 use super::*;
 
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
-pub struct DefnTokenRegion {
+pub struct DefnTokraRegion {
     #[id]
     syn_node_path: ItemSynNodePath,
     #[return_ref]
     tokens: Vec<Token>,
 }
 
-impl DefnTokenRegion {
-    pub fn data<'a>(self, db: &'a dyn EntitySynTreeDb) -> DefnTokenRegionData<'a> {
-        DefnTokenRegionData {
+impl DefnTokraRegion {
+    pub fn data<'a>(self, db: &'a dyn EntitySynTreeDb) -> DefnTokraRegionData<'a> {
+        DefnTokraRegionData {
             tokens: self.tokens(db),
         }
     }
 }
 
-pub struct DefnTokenRegionData<'a> {
+pub struct DefnTokraRegionData<'a> {
     tokens: &'a [Token],
 }
 
-impl<'a> std::ops::Index<RegionalTokenIdx> for DefnTokenRegionData<'a> {
+impl<'a> std::ops::Index<RegionalTokenIdx> for DefnTokraRegionData<'a> {
     type Output = Token;
 
     fn index(&self, index: RegionalTokenIdx) -> &Self::Output {
@@ -31,7 +31,7 @@ impl<'a> std::ops::Index<RegionalTokenIdx> for DefnTokenRegionData<'a> {
 pub(super) fn defn_token_region(
     syn_node_path: ItemSynNodePath,
     db: &dyn EntitySynTreeDb,
-) -> DefnTokenRegion {
+) -> DefnTokraRegion {
     match syn_node_path {
         ItemSynNodePath::Submodule(_) => todo!(),
         ItemSynNodePath::MajorItem(_) => todo!(),

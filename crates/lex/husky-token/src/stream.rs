@@ -3,9 +3,9 @@ use husky_opr::Bracket;
 
 #[derive(Debug, Clone)]
 pub struct TokenStream<'a> {
-    base: usize,
+    base: TokenGroupBase,
     tokens: &'a [Token],
-    next_relative: usize,
+    next_relative: TokenGroupRelativeTokenIndex,
 }
 
 impl TokenSheetData {
@@ -15,9 +15,9 @@ impl TokenSheetData {
         state: impl Into<Option<TokenStreamState>>,
     ) -> TokenStream<'a> {
         let state: Option<TokenStreamState> = state.into();
-        let base = self.group_start(token_group_idx);
+        let base = self.token_group_base(token_group_idx);
         let next_relative = state
-            .map(|state| state.next_token_idx.raw() - base)
+            .map(|state| TokenGroupRelativeTokenIndex::new(base, state.next_token_idx))
             .unwrap_or_default();
         let tokens = &self[token_group_idx];
         assert!(tokens.len() > 0);
@@ -33,10 +33,10 @@ impl<'a> Iterator for TokenStream<'a> {
     type Item = &'a Token;
 
     fn next(&mut self) -> Option<&'a Token> {
-        if self.next_relative < self.tokens.len() {
+        if self.next_relative.index() < self.tokens.len() {
             let next = self.next_relative;
             self.next_relative += 1;
-            Some(&self.tokens[next])
+            Some(&self.tokens[next.index()])
         } else {
             None
         }
@@ -45,11 +45,11 @@ impl<'a> Iterator for TokenStream<'a> {
 
 impl<'a> TokenStream<'a> {
     pub fn is_empty(&self) -> bool {
-        self.next_relative >= self.tokens.len()
+        self.next_relative.index() >= self.tokens.len()
     }
 
     pub fn token_position(&self) -> usize {
-        self.next_relative
+        self.next_relative.index()
     }
 
     pub fn try_get_one_token_with_indexed<S>(
@@ -80,44 +80,44 @@ impl<'a> TokenStream<'a> {
     }
 
     pub fn go_back(&mut self) {
-        assert!(self.next_relative > 0);
+        assert!(self.next_relative.index() > 0);
         self.next_relative -= 1;
     }
 
     pub fn rollback(&mut self, state: TokenIdx) {
-        self.next_relative = state.raw() - self.base;
+        self.next_relative = TokenGroupRelativeTokenIndex::new(self.base, state);
     }
 
     pub fn next_index(&self) -> TokenIdx {
-        TokenIdx(self.base + self.next_relative)
+        self.next_relative.token_idx(self.base)
     }
 
     pub fn next_indexed(&mut self) -> Option<(TokenIdx, Token)> {
-        if self.next_relative < self.tokens.len() {
+        if self.next_relative.index() < self.tokens.len() {
             let next = self.next_relative;
             self.next_relative += 1;
-            Some((TokenIdx(self.base + next), self.tokens[next]))
+            Some((next.token_idx(self.base), self.tokens[next.index()]))
         } else {
             None
         }
     }
 
     pub fn step_back(&mut self) {
-        assert!(self.next_relative > 0);
+        assert!(self.next_relative.index() > 0);
         self.next_relative -= 1
     }
 
     pub fn peek(&self) -> Option<&'a Token> {
-        if self.next_relative < self.tokens.len() {
-            Some(&self.tokens[self.next_relative])
+        if self.next_relative.index() < self.tokens.len() {
+            Some(&self.tokens[self.next_relative.index()])
         } else {
             None
         }
     }
 
     pub fn peek_next_bra(&mut self) -> Option<Bracket> {
-        if self.next_relative < self.tokens.len() {
-            match self.tokens[self.next_relative] {
+        if self.next_relative.index() < self.tokens.len() {
+            match self.tokens[self.next_relative.index()] {
                 Token::Punctuation(punct) => todo!(),
                 //  punct.opt_bra(),
                 _ => None,
@@ -142,7 +142,7 @@ impl<'a> TokenStream<'a> {
     }
 
     pub fn rollback_raw(&mut self, token_idx: TokenIdx) {
-        self.next_relative = token_idx.raw() - self.base
+        self.next_relative = TokenGroupRelativeTokenIndex::new(self.base, token_idx)
     }
 }
 
@@ -166,8 +166,8 @@ impl<'a> parsec::HasStreamState for TokenStream<'a> {
 
     fn save_state(&self) -> Self::State {
         TokenStreamState {
-            next_token_idx: TokenIdx(self.base + self.next_relative),
-            drained: self.next_relative >= self.tokens.len(),
+            next_token_idx: self.next_relative.token_idx(self.base),
+            drained: self.next_relative.index() >= self.tokens.len(),
         }
     }
 

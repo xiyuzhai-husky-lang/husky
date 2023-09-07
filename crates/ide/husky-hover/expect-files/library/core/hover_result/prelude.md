@@ -2,7 +2,7 @@ Ok(
     [
         (
             TokenIdx(
-                0,
+                1,
             ),
             Some(
                 HoverResult {
@@ -32,7 +32,7 @@ Ok(
         ),
         (
             TokenIdx(
-                3,
+                4,
             ),
             Some(
                 HoverResult {
@@ -62,7 +62,7 @@ Ok(
         ),
         (
             TokenIdx(
-                6,
+                7,
             ),
             Some(
                 HoverResult {
@@ -92,7 +92,7 @@ Ok(
         ),
         (
             TokenIdx(
-                9,
+                10,
             ),
             Some(
                 HoverResult {
@@ -122,7 +122,7 @@ Ok(
         ),
         (
             TokenIdx(
-                12,
+                13,
             ),
             Some(
                 HoverResult {
@@ -152,7 +152,7 @@ Ok(
         ),
         (
             TokenIdx(
-                15,
+                16,
             ),
             Some(
                 HoverResult {
@@ -182,7 +182,7 @@ Ok(
         ),
         (
             TokenIdx(
-                18,
+                19,
             ),
             Some(
                 HoverResult {
@@ -190,7 +190,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 18;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `raw_bits`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 7,\n    rule_idx: OnceUseRuleIdx(\n        13,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: SubmodulePath(\n                    `core::raw_bits`,\n                ),\n                node: SubmoduleSynNode {\n                    syn_node_path: SubmoduleSynNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: SubmodulePath(\n                                `core::raw_bits`,\n                            ),\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::Pub,\n                    ast_idx: 13,\n                    ident_token: IdentToken {\n                        ident: `raw_bits`,\n                        token_idx: TokenIdx(\n                            41,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 18;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `raw_bits`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 7,\n    rule_idx: OnceUseRuleIdx(\n        13,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: SubmodulePath(\n                    `core::raw_bits`,\n                ),\n                node: SubmoduleSynNode {\n                    syn_node_path: SubmoduleSynNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: SubmodulePath(\n                                `core::raw_bits`,\n                            ),\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::Pub,\n                    ast_idx: 13,\n                    ident_token: IdentToken {\n                        ident: `raw_bits`,\n                        token_idx: TokenIdx(\n                            42,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -212,7 +212,7 @@ Ok(
         ),
         (
             TokenIdx(
-                21,
+                22,
             ),
             Some(
                 HoverResult {
@@ -242,7 +242,7 @@ Ok(
         ),
         (
             TokenIdx(
-                24,
+                25,
             ),
             Some(
                 HoverResult {
@@ -272,7 +272,7 @@ Ok(
         ),
         (
             TokenIdx(
-                27,
+                28,
             ),
             Some(
                 HoverResult {
@@ -302,7 +302,7 @@ Ok(
         ),
         (
             TokenIdx(
-                30,
+                31,
             ),
             Some(
                 HoverResult {
@@ -332,7 +332,7 @@ Ok(
         ),
         (
             TokenIdx(
-                33,
+                34,
             ),
             Some(
                 HoverResult {
@@ -362,7 +362,7 @@ Ok(
         ),
         (
             TokenIdx(
-                36,
+                37,
             ),
             Some(
                 HoverResult {
@@ -392,7 +392,7 @@ Ok(
         ),
         (
             TokenIdx(
-                39,
+                40,
             ),
             Some(
                 HoverResult {
@@ -400,7 +400,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 39;\n\ntoken_line_group_idx = 5\n\ntoken = Token::Ident(\n    `marker`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 16,\n    rule_idx: OnceUseRuleIdx(\n        16,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: SubmodulePath(\n                    `core::marker`,\n                ),\n                node: SubmoduleSynNode {\n                    syn_node_path: SubmoduleSynNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: SubmodulePath(\n                                `core::marker`,\n                            ),\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::Pub,\n                    ast_idx: 7,\n                    ident_token: IdentToken {\n                        ident: `marker`,\n                        token_idx: TokenIdx(\n                            23,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 39;\n\ntoken_line_group_idx = 5\n\ntoken = Token::Ident(\n    `marker`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 16,\n    rule_idx: OnceUseRuleIdx(\n        16,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: SubmodulePath(\n                    `core::marker`,\n                ),\n                node: SubmoduleSynNode {\n                    syn_node_path: SubmoduleSynNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: SubmodulePath(\n                                `core::marker`,\n                            ),\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::Pub,\n                    ast_idx: 7,\n                    ident_token: IdentToken {\n                        ident: `marker`,\n                        token_idx: TokenIdx(\n                            24,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -422,7 +422,7 @@ Ok(
         ),
         (
             TokenIdx(
-                42,
+                43,
             ),
             Some(
                 HoverResult {
@@ -452,7 +452,7 @@ Ok(
         ),
         (
             TokenIdx(
-                45,
+                46,
             ),
             Some(
                 HoverResult {
@@ -482,7 +482,7 @@ Ok(
         ),
         (
             TokenIdx(
-                48,
+                49,
             ),
             Some(
                 HoverResult {
@@ -512,7 +512,7 @@ Ok(
         ),
         (
             TokenIdx(
-                51,
+                52,
             ),
             Some(
                 HoverResult {
@@ -542,7 +542,7 @@ Ok(
         ),
         (
             TokenIdx(
-                54,
+                55,
             ),
             Some(
                 HoverResult {
@@ -572,7 +572,7 @@ Ok(
         ),
         (
             TokenIdx(
-                57,
+                58,
             ),
             Some(
                 HoverResult {
@@ -602,7 +602,7 @@ Ok(
         ),
         (
             TokenIdx(
-                60,
+                61,
             ),
             Some(
                 HoverResult {
@@ -610,7 +610,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 60;\n\ntoken_line_group_idx = 8\n\ntoken = Token::Ident(\n    `cmp`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 25,\n    rule_idx: OnceUseRuleIdx(\n        19,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: SubmodulePath(\n                    `core::cmp`,\n                ),\n                node: SubmoduleSynNode {\n                    syn_node_path: SubmoduleSynNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: SubmodulePath(\n                                `core::cmp`,\n                            ),\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::Pub,\n                    ast_idx: 3,\n                    ident_token: IdentToken {\n                        ident: `cmp`,\n                        token_idx: TokenIdx(\n                            11,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 60;\n\ntoken_line_group_idx = 8\n\ntoken = Token::Ident(\n    `cmp`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 25,\n    rule_idx: OnceUseRuleIdx(\n        19,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: SubmodulePath(\n                    `core::cmp`,\n                ),\n                node: SubmoduleSynNode {\n                    syn_node_path: SubmoduleSynNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: SubmodulePath(\n                                `core::cmp`,\n                            ),\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::Pub,\n                    ast_idx: 3,\n                    ident_token: IdentToken {\n                        ident: `cmp`,\n                        token_idx: TokenIdx(\n                            12,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -632,7 +632,7 @@ Ok(
         ),
         (
             TokenIdx(
-                63,
+                64,
             ),
             Some(
                 HoverResult {
@@ -662,7 +662,7 @@ Ok(
         ),
         (
             TokenIdx(
-                66,
+                67,
             ),
             Some(
                 HoverResult {
@@ -692,7 +692,7 @@ Ok(
         ),
         (
             TokenIdx(
-                69,
+                70,
             ),
             Some(
                 HoverResult {
@@ -722,7 +722,7 @@ Ok(
         ),
         (
             TokenIdx(
-                72,
+                73,
             ),
             Some(
                 HoverResult {
@@ -752,7 +752,7 @@ Ok(
         ),
         (
             TokenIdx(
-                75,
+                76,
             ),
             Some(
                 HoverResult {

@@ -133,7 +133,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Class`,
                                                         token_idx: TokenIdx(
-                                                            67,
+                                                            68,
                                                         ),
                                                     },
                                                 ),
@@ -148,7 +148,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `MnistLabel`,
                                                         token_idx: TokenIdx(
-                                                            68,
+                                                            69,
                                                         ),
                                                     },
                                                 ),
@@ -255,7 +255,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `Class`,
                                                                 token_idx: TokenIdx(
-                                                                    67,
+                                                                    68,
                                                                 ),
                                                             },
                                                         ),
@@ -270,7 +270,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `MnistLabel`,
                                                                 token_idx: TokenIdx(
-                                                                    68,
+                                                                    69,
                                                                 ),
                                                             },
                                                         ),
@@ -349,7 +349,7 @@ Ok(
                                             opd: 0,
                                             opr: UnveilOrComposeWithOption,
                                             opr_token_idx: TokenIdx(
-                                                71,
+                                                72,
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
@@ -366,7 +366,7 @@ Ok(
                                             opd: 2,
                                             opr: UnveilOrComposeWithOption,
                                             opr_token_idx: TokenIdx(
-                                                73,
+                                                74,
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
@@ -383,7 +383,7 @@ Ok(
                                             opd: 4,
                                             opr: UnveilOrComposeWithOption,
                                             opr_token_idx: TokenIdx(
-                                                75,
+                                                76,
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
@@ -400,7 +400,7 @@ Ok(
                                             opd: 6,
                                             opr: UnveilOrComposeWithOption,
                                             opr_token_idx: TokenIdx(
-                                                77,
+                                                78,
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
@@ -417,7 +417,7 @@ Ok(
                                             opd: 8,
                                             opr: UnveilOrComposeWithOption,
                                             opr_token_idx: TokenIdx(
-                                                79,
+                                                80,
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
@@ -434,7 +434,7 @@ Ok(
                                             opd: 10,
                                             opr: UnveilOrComposeWithOption,
                                             opr_token_idx: TokenIdx(
-                                                81,
+                                                82,
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
@@ -451,7 +451,7 @@ Ok(
                                             opd: 12,
                                             opr: UnveilOrComposeWithOption,
                                             opr_token_idx: TokenIdx(
-                                                83,
+                                                84,
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
@@ -468,7 +468,7 @@ Ok(
                                             opd: 14,
                                             opr: UnveilOrComposeWithOption,
                                             opr_token_idx: TokenIdx(
-                                                85,
+                                                86,
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
@@ -485,7 +485,7 @@ Ok(
                                             opd: 16,
                                             opr: UnveilOrComposeWithOption,
                                             opr_token_idx: TokenIdx(
-                                                87,
+                                                88,
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
@@ -514,7 +514,7 @@ Ok(
                                             function: 18,
                                             generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
-                                                91,
+                                                92,
                                             ),
                                             items: [
                                                 SynCommaListItem {
@@ -523,7 +523,7 @@ Ok(
                                                 },
                                             ],
                                             rpar_token_idx: TokenIdx(
-                                                95,
+                                                96,
                                             ),
                                         },
                                         SynExpr::Block {
@@ -540,7 +540,7 @@ Ok(
                                                 IdentToken {
                                                     ident: `is_one`,
                                                     token_idx: TokenIdx(
-                                                        70,
+                                                        71,
                                                     ),
                                                 },
                                             ),
@@ -555,7 +555,7 @@ Ok(
                                                 IdentToken {
                                                     ident: `is_six`,
                                                     token_idx: TokenIdx(
-                                                        72,
+                                                        73,
                                                     ),
                                                 },
                                             ),
@@ -570,7 +570,7 @@ Ok(
                                                 IdentToken {
                                                     ident: `is_zero`,
                                                     token_idx: TokenIdx(
-                                                        74,
+                                                        75,
                                                     ),
                                                 },
                                             ),
@@ -585,7 +585,7 @@ Ok(
                                                 IdentToken {
                                                     ident: `is_seven`,
                                                     token_idx: TokenIdx(
-                                                        76,
+                                                        77,
                                                     ),
                                                 },
                                             ),
@@ -600,7 +600,7 @@ Ok(
                                                 IdentToken {
                                                     ident: `is_eight`,
                                                     token_idx: TokenIdx(
-                                                        78,
+                                                        79,
                                                     ),
                                                 },
                                             ),
@@ -615,7 +615,7 @@ Ok(
                                                 IdentToken {
                                                     ident: `is_three`,
                                                     token_idx: TokenIdx(
-                                                        80,
+                                                        81,
                                                     ),
                                                 },
                                             ),
@@ -630,7 +630,7 @@ Ok(
                                                 IdentToken {
                                                     ident: `is_nine`,
                                                     token_idx: TokenIdx(
-                                                        82,
+                                                        83,
                                                     ),
                                                 },
                                             ),
@@ -645,7 +645,7 @@ Ok(
                                                 IdentToken {
                                                     ident: `is_five`,
                                                     token_idx: TokenIdx(
-                                                        84,
+                                                        85,
                                                     ),
                                                 },
                                             ),
@@ -660,7 +660,7 @@ Ok(
                                                 IdentToken {
                                                     ident: `is_two`,
                                                     token_idx: TokenIdx(
-                                                        86,
+                                                        87,
                                                     ),
                                                 },
                                             ),
@@ -675,7 +675,7 @@ Ok(
                                                 IdentToken {
                                                     ident: `Class`,
                                                     token_idx: TokenIdx(
-                                                        88,
+                                                        89,
                                                     ),
                                                 },
                                             ),
@@ -689,14 +689,14 @@ Ok(
                                             parent: 9,
                                             scope_resolution_token: ScopeResolutionToken(
                                                 TokenIdx(
-                                                    89,
+                                                    90,
                                                 ),
                                             ),
                                             ident_token: Ok(
                                                 IdentToken {
                                                     ident: `Known`,
                                                     token_idx: TokenIdx(
-                                                        90,
+                                                        91,
                                                     ),
                                                 },
                                             ),
@@ -714,7 +714,7 @@ Ok(
                                                 IdentToken {
                                                     ident: `MnistLabel`,
                                                     token_idx: TokenIdx(
-                                                        92,
+                                                        93,
                                                     ),
                                                 },
                                             ),
@@ -728,14 +728,14 @@ Ok(
                                             parent: 11,
                                             scope_resolution_token: ScopeResolutionToken(
                                                 TokenIdx(
-                                                    93,
+                                                    94,
                                                 ),
                                             ),
                                             ident_token: Ok(
                                                 IdentToken {
                                                     ident: `Four`,
                                                     token_idx: TokenIdx(
-                                                        94,
+                                                        95,
                                                     ),
                                                 },
                                             ),

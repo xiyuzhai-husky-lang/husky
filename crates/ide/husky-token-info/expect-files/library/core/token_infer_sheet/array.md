@@ -46,7 +46,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `L`,
                             token_idx: TokenIdx(
-                                9,
+                                10,
                             ),
                         },
                     },
@@ -70,7 +70,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `E`,
                             token_idx: TokenIdx(
-                                14,
+                                15,
                             ),
                         },
                     },

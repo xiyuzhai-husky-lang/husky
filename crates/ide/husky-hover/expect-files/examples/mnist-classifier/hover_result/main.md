@@ -2,7 +2,7 @@ Ok(
     [
         (
             TokenIdx(
-                0,
+                1,
             ),
             Some(
                 HoverResult {
@@ -32,7 +32,7 @@ Ok(
         ),
         (
             TokenIdx(
-                4,
+                5,
             ),
             Some(
                 HoverResult {
@@ -62,7 +62,7 @@ Ok(
         ),
         (
             TokenIdx(
-                8,
+                9,
             ),
             Some(
                 HoverResult {
@@ -92,7 +92,7 @@ Ok(
         ),
         (
             TokenIdx(
-                12,
+                13,
             ),
             Some(
                 HoverResult {
@@ -122,7 +122,7 @@ Ok(
         ),
         (
             TokenIdx(
-                16,
+                17,
             ),
             Some(
                 HoverResult {
@@ -152,7 +152,7 @@ Ok(
         ),
         (
             TokenIdx(
-                20,
+                21,
             ),
             Some(
                 HoverResult {
@@ -182,7 +182,7 @@ Ok(
         ),
         (
             TokenIdx(
-                24,
+                25,
             ),
             Some(
                 HoverResult {
@@ -212,7 +212,7 @@ Ok(
         ),
         (
             TokenIdx(
-                28,
+                29,
             ),
             Some(
                 HoverResult {
@@ -242,7 +242,7 @@ Ok(
         ),
         (
             TokenIdx(
-                32,
+                33,
             ),
             Some(
                 HoverResult {
@@ -272,7 +272,7 @@ Ok(
         ),
         (
             TokenIdx(
-                36,
+                37,
             ),
             Some(
                 HoverResult {
@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 36;\n\ntoken_line_group_idx = 10\n\ntoken = Token::Ident(\n    `raw_contour`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 10,\n    rule_idx: OnceUseRuleIdx(\n        11,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: SubmodulePath(\n                    `mnist_classifier::raw_contour`,\n                ),\n                node: SubmoduleSynNode {\n                    syn_node_path: SubmoduleSynNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: SubmodulePath(\n                                `mnist_classifier::raw_contour`,\n                            ),\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier`,\n                    ),\n                    ast_idx: 12,\n                    ident_token: IdentToken {\n                        ident: `raw_contour`,\n                        token_idx: TokenIdx(\n                            3,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 36;\n\ntoken_line_group_idx = 10\n\ntoken = Token::Ident(\n    `raw_contour`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 10,\n    rule_idx: OnceUseRuleIdx(\n        11,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: SubmodulePath(\n                    `mnist_classifier::raw_contour`,\n                ),\n                node: SubmoduleSynNode {\n                    syn_node_path: SubmoduleSynNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: SubmodulePath(\n                                `mnist_classifier::raw_contour`,\n                            ),\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier`,\n                    ),\n                    ast_idx: 12,\n                    ident_token: IdentToken {\n                        ident: `raw_contour`,\n                        token_idx: TokenIdx(\n                            4,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -302,7 +302,7 @@ Ok(
         ),
         (
             TokenIdx(
-                40,
+                41,
             ),
             Some(
                 HoverResult {
@@ -332,7 +332,7 @@ Ok(
         ),
         (
             TokenIdx(
-                44,
+                45,
             ),
             Some(
                 HoverResult {
@@ -362,7 +362,7 @@ Ok(
         ),
         (
             TokenIdx(
-                48,
+                49,
             ),
             Some(
                 HoverResult {
@@ -370,7 +370,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 48;\n\ntoken_line_group_idx = 12\n\ntoken = Token::Ident(\n    `connected_component`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 16,\n    rule_idx: OnceUseRuleIdx(\n        13,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: SubmodulePath(\n                    `mnist_classifier::connected_component`,\n                ),\n                node: SubmoduleSynNode {\n                    syn_node_path: SubmoduleSynNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: SubmodulePath(\n                                `mnist_classifier::connected_component`,\n                            ),\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier`,\n                    ),\n                    ast_idx: 11,\n                    ident_token: IdentToken {\n                        ident: `connected_component`,\n                        token_idx: TokenIdx(\n                            1,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 48;\n\ntoken_line_group_idx = 12\n\ntoken = Token::Ident(\n    `connected_component`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 16,\n    rule_idx: OnceUseRuleIdx(\n        13,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: SubmodulePath(\n                    `mnist_classifier::connected_component`,\n                ),\n                node: SubmoduleSynNode {\n                    syn_node_path: SubmoduleSynNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: SubmodulePath(\n                                `mnist_classifier::connected_component`,\n                            ),\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier`,\n                    ),\n                    ast_idx: 11,\n                    ident_token: IdentToken {\n                        ident: `connected_component`,\n                        token_idx: TokenIdx(\n                            2,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -392,7 +392,7 @@ Ok(
         ),
         (
             TokenIdx(
-                52,
+                53,
             ),
             Some(
                 HoverResult {
@@ -422,7 +422,7 @@ Ok(
         ),
         (
             TokenIdx(
-                56,
+                57,
             ),
             Some(
                 HoverResult {
@@ -452,7 +452,7 @@ Ok(
         ),
         (
             TokenIdx(
-                60,
+                61,
             ),
             Some(
                 HoverResult {
@@ -482,7 +482,7 @@ Ok(
         ),
         (
             TokenIdx(
-                64,
+                65,
             ),
             Some(
                 HoverResult {
@@ -512,7 +512,7 @@ Ok(
         ),
         (
             TokenIdx(
-                68,
+                69,
             ),
             Some(
                 HoverResult {
@@ -542,7 +542,7 @@ Ok(
         ),
         (
             TokenIdx(
-                72,
+                73,
             ),
             Some(
                 HoverResult {
@@ -572,7 +572,7 @@ Ok(
         ),
         (
             TokenIdx(
-                76,
+                77,
             ),
             Some(
                 HoverResult {
@@ -602,7 +602,7 @@ Ok(
         ),
         (
             TokenIdx(
-                80,
+                81,
             ),
             Some(
                 HoverResult {
@@ -632,7 +632,7 @@ Ok(
         ),
         (
             TokenIdx(
-                84,
+                85,
             ),
             Some(
                 HoverResult {
@@ -662,7 +662,7 @@ Ok(
         ),
         (
             TokenIdx(
-                88,
+                89,
             ),
             Some(
                 HoverResult {
@@ -692,7 +692,7 @@ Ok(
         ),
         (
             TokenIdx(
-                92,
+                93,
             ),
             Some(
                 HoverResult {

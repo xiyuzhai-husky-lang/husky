@@ -24,13 +24,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Output`,
                         token_idx: TokenIdx(
-                            13,
+                            14,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            14,
+                            15,
                         ),
                         drained: false,
                     },
@@ -60,13 +60,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `add`,
                         token_idx: TokenIdx(
-                            16,
+                            17,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            17,
+                            18,
                         ),
                         drained: false,
                     },
@@ -100,13 +100,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Add`,
                         token_idx: TokenIdx(
-                            7,
+                            8,
                         ),
                     },
                     is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            8,
+                            9,
                         ),
                         drained: false,
                     },

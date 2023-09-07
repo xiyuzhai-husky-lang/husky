@@ -43,7 +43,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `geom2d`,
                                     token_idx: TokenIdx(
-                                        5,
+                                        6,
                                     ),
                                 },
                             },
@@ -95,7 +95,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `connected_component`,
                                     token_idx: TokenIdx(
-                                        1,
+                                        2,
                                     ),
                                 },
                             },
@@ -147,7 +147,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `line_segment_sketch`,
                                     token_idx: TokenIdx(
-                                        7,
+                                        8,
                                     ),
                                 },
                             },
@@ -200,7 +200,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `cc`,
                         token_idx: TokenIdx(
-                            26,
+                            27,
                         ),
                     },
                 },
@@ -222,7 +222,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `points`,
                         token_idx: TokenIdx(
-                            31,
+                            32,
                         ),
                     },
                 },
@@ -2191,7 +2191,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `prev1`,
                         token_idx: TokenIdx(
-                            878,
+                            879,
                         ),
                     },
                 },
@@ -2212,7 +2212,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `prev2`,
                         token_idx: TokenIdx(
-                            882,
+                            883,
                         ),
                     },
                 },

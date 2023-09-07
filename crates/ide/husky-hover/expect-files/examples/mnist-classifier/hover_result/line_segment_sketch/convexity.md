@@ -2,7 +2,7 @@ Ok(
     [
         (
             TokenIdx(
-                0,
+                1,
             ),
             Some(
                 HoverResult {
@@ -32,7 +32,7 @@ Ok(
         ),
         (
             TokenIdx(
-                11,
+                12,
             ),
             Some(
                 HoverResult {
@@ -62,7 +62,7 @@ Ok(
         ),
         (
             TokenIdx(
-                22,
+                23,
             ),
             Some(
                 HoverResult {
@@ -70,7 +70,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 22;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Ident(\n    `line_segment_sketch`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {\n        pattern_symbol_idx: 0,\n    },\n    syn_expr_region: ExprRegionLeash(_),\n};\n\nCurrentSynSymbol {\n    modifier: None,\n    access_start: TokenIdx(\n        23,\n    ),\n    access_end: None,\n    variant: CurrentSynSymbolVariant::ParenateRegularParameter {\n        ident: `line_segment_sketch`,\n        pattern_symbol_idx: 0,\n    },\n}\n",
+                                value: "\ntoken_idx = 22;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Ident(\n    `line_segment_sketch`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {\n        pattern_symbol_idx: 0,\n    },\n    syn_expr_region: ExprRegionLeash(_),\n};\n\nCurrentSynSymbol {\n    modifier: None,\n    access_start: TokenIdx(\n        24,\n    ),\n    access_end: None,\n    variant: CurrentSynSymbolVariant::ParenateRegularParameter {\n        ident: `line_segment_sketch`,\n        pattern_symbol_idx: 0,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -92,7 +92,7 @@ Ok(
         ),
         (
             TokenIdx(
-                33,
+                34,
             ),
             Some(
                 HoverResult {
@@ -122,7 +122,7 @@ Ok(
         ),
         (
             TokenIdx(
-                44,
+                45,
             ),
             Some(
                 HoverResult {
@@ -130,7 +130,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 44;\n\ntoken_line_group_idx = 5\n\ntoken = Token::Ident(\n    `current_displacement`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 1,\n    current_symbol_kind: CurrentSynSymbolKind::LetVariable {\n        pattern_symbol_idx: 1,\n    },\n    syn_expr_region: ExprRegionLeash(_),\n};\n\nCurrentSynSymbol {\n    modifier: None,\n    access_start: TokenIdx(\n        45,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                233,\n            ),\n        ),\n    ),\n    variant: CurrentSynSymbolVariant::LetVariable {\n        ident: `current_displacement`,\n        pattern_symbol_idx: 1,\n    },\n}\n",
+                                value: "\ntoken_idx = 44;\n\ntoken_line_group_idx = 5\n\ntoken = Token::Ident(\n    `current_displacement`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 1,\n    current_symbol_kind: CurrentSynSymbolKind::LetVariable {\n        pattern_symbol_idx: 1,\n    },\n    syn_expr_region: ExprRegionLeash(_),\n};\n\nCurrentSynSymbol {\n    modifier: None,\n    access_start: TokenIdx(\n        46,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                234,\n            ),\n        ),\n    ),\n    variant: CurrentSynSymbolVariant::LetVariable {\n        ident: `current_displacement`,\n        pattern_symbol_idx: 1,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -152,7 +152,7 @@ Ok(
         ),
         (
             TokenIdx(
-                55,
+                56,
             ),
             Some(
                 HoverResult {
@@ -182,7 +182,7 @@ Ok(
         ),
         (
             TokenIdx(
-                66,
+                67,
             ),
             Some(
                 HoverResult {
@@ -212,7 +212,7 @@ Ok(
         ),
         (
             TokenIdx(
-                77,
+                78,
             ),
             Some(
                 HoverResult {
@@ -242,7 +242,7 @@ Ok(
         ),
         (
             TokenIdx(
-                88,
+                89,
             ),
             Some(
                 HoverResult {
@@ -272,7 +272,7 @@ Ok(
         ),
         (
             TokenIdx(
-                99,
+                100,
             ),
             Some(
                 HoverResult {
@@ -302,7 +302,7 @@ Ok(
         ),
         (
             TokenIdx(
-                110,
+                111,
             ),
             Some(
                 HoverResult {
@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 110;\n\ntoken_line_group_idx = 10\n\ntoken = Token::Ident(\n    `L`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: CurrentSynSymbolKind::LetVariable {\n        pattern_symbol_idx: 0,\n    },\n    syn_expr_region: ExprRegionLeash(_),\n};\n\nCurrentSynSymbol {\n    modifier: None,\n    access_start: TokenIdx(\n        35,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                233,\n            ),\n        ),\n    ),\n    variant: CurrentSynSymbolVariant::LetVariable {\n        ident: `L`,\n        pattern_symbol_idx: 0,\n    },\n}\n",
+                                value: "\ntoken_idx = 110;\n\ntoken_line_group_idx = 10\n\ntoken = Token::Ident(\n    `L`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: CurrentSynSymbolKind::LetVariable {\n        pattern_symbol_idx: 0,\n    },\n    syn_expr_region: ExprRegionLeash(_),\n};\n\nCurrentSynSymbol {\n    modifier: None,\n    access_start: TokenIdx(\n        36,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                234,\n            ),\n        ),\n    ),\n    variant: CurrentSynSymbolVariant::LetVariable {\n        ident: `L`,\n        pattern_symbol_idx: 0,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -332,7 +332,7 @@ Ok(
         ),
         (
             TokenIdx(
-                121,
+                122,
             ),
             Some(
                 HoverResult {
@@ -340,7 +340,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 121;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Ident(\n    `i1`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 6,\n    current_symbol_kind: CurrentSynSymbolKind::FrameVariable(\n        40,\n    ),\n    syn_expr_region: ExprRegionLeash(_),\n};\n\nCurrentSynSymbol {\n    modifier: None,\n    access_start: TokenIdx(\n        129,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                159,\n            ),\n        ),\n    ),\n    variant: CurrentSynSymbolVariant::FrameVariable {\n        ident: `i1`,\n        expr_idx: 40,\n    },\n}\n",
+                                value: "\ntoken_idx = 121;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Ident(\n    `i1`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 6,\n    current_symbol_kind: CurrentSynSymbolKind::FrameVariable(\n        40,\n    ),\n    syn_expr_region: ExprRegionLeash(_),\n};\n\nCurrentSynSymbol {\n    modifier: None,\n    access_start: TokenIdx(\n        130,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                160,\n            ),\n        ),\n    ),\n    variant: CurrentSynSymbolVariant::FrameVariable {\n        ident: `i1`,\n        expr_idx: 40,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -362,7 +362,7 @@ Ok(
         ),
         (
             TokenIdx(
-                132,
+                133,
             ),
             Some(
                 HoverResult {
@@ -392,7 +392,7 @@ Ok(
         ),
         (
             TokenIdx(
-                143,
+                144,
             ),
             Some(
                 HoverResult {
@@ -422,7 +422,7 @@ Ok(
         ),
         (
             TokenIdx(
-                154,
+                155,
             ),
             Some(
                 HoverResult {
@@ -452,7 +452,7 @@ Ok(
         ),
         (
             TokenIdx(
-                165,
+                166,
             ),
             Some(
                 HoverResult {
@@ -482,7 +482,7 @@ Ok(
         ),
         (
             TokenIdx(
-                176,
+                177,
             ),
             Some(
                 HoverResult {
@@ -512,7 +512,7 @@ Ok(
         ),
         (
             TokenIdx(
-                187,
+                188,
             ),
             Some(
                 HoverResult {
@@ -520,7 +520,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 187;\n\ntoken_line_group_idx = 16\n\ntoken = Token::Ident(\n    `current_interval`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 9,\n    current_symbol_kind: CurrentSynSymbolKind::LetVariable {\n        pattern_symbol_idx: 8,\n    },\n    syn_expr_region: ExprRegionLeash(_),\n};\n\nCurrentSynSymbol {\n    modifier: None,\n    access_start: TokenIdx(\n        167,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                227,\n            ),\n        ),\n    ),\n    variant: CurrentSynSymbolVariant::LetVariable {\n        ident: `current_interval`,\n        pattern_symbol_idx: 8,\n    },\n}\n",
+                                value: "\ntoken_idx = 187;\n\ntoken_line_group_idx = 16\n\ntoken = Token::Ident(\n    `current_interval`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 9,\n    current_symbol_kind: CurrentSynSymbolKind::LetVariable {\n        pattern_symbol_idx: 8,\n    },\n    syn_expr_region: ExprRegionLeash(_),\n};\n\nCurrentSynSymbol {\n    modifier: None,\n    access_start: TokenIdx(\n        168,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                228,\n            ),\n        ),\n    ),\n    variant: CurrentSynSymbolVariant::LetVariable {\n        ident: `current_interval`,\n        pattern_symbol_idx: 8,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -542,7 +542,7 @@ Ok(
         ),
         (
             TokenIdx(
-                198,
+                199,
             ),
             Some(
                 HoverResult {
@@ -572,7 +572,7 @@ Ok(
         ),
         (
             TokenIdx(
-                209,
+                210,
             ),
             Some(
                 HoverResult {
@@ -602,7 +602,7 @@ Ok(
         ),
         (
             TokenIdx(
-                220,
+                221,
             ),
             Some(
                 HoverResult {
@@ -610,7 +610,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 220;\n\ntoken_line_group_idx = 18\n\ntoken = Token::Ident(\n    `displacement`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 11,\n    current_symbol_kind: CurrentSynSymbolKind::LetVariable {\n        pattern_symbol_idx: 9,\n    },\n    syn_expr_region: ExprRegionLeash(_),\n};\n\nCurrentSynSymbol {\n    modifier: None,\n    access_start: TokenIdx(\n        195,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                223,\n            ),\n        ),\n    ),\n    variant: CurrentSynSymbolVariant::LetVariable {\n        ident: `displacement`,\n        pattern_symbol_idx: 9,\n    },\n}\n",
+                                value: "\ntoken_idx = 220;\n\ntoken_line_group_idx = 18\n\ntoken = Token::Ident(\n    `displacement`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 11,\n    current_symbol_kind: CurrentSynSymbolKind::LetVariable {\n        pattern_symbol_idx: 9,\n    },\n    syn_expr_region: ExprRegionLeash(_),\n};\n\nCurrentSynSymbol {\n    modifier: None,\n    access_start: TokenIdx(\n        196,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                224,\n            ),\n        ),\n    ),\n    variant: CurrentSynSymbolVariant::LetVariable {\n        ident: `displacement`,\n        pattern_symbol_idx: 9,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -632,7 +632,7 @@ Ok(
         ),
         (
             TokenIdx(
-                231,
+                232,
             ),
             Some(
                 HoverResult {

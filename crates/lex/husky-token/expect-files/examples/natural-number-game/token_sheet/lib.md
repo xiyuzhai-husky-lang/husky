@@ -635,18 +635,62 @@ Ok(
                 ),
             ),
         ],
-        group_starts: [
-            0,
-            2,
-            4,
-            9,
-            12,
-            18,
-            24,
-            43,
-            81,
-            82,
-            111,
+        token_group_bases: [
+            TokenGroupBase(
+                TokenIdx(
+                    1,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    3,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    5,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    10,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    13,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    19,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    25,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    44,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    82,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    83,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    112,
+                ),
+            ),
         ],
         indents: [
             0,

@@ -38,11 +38,11 @@ Ok(
                                             data: [
                                                 SynExpr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        8,
+                                                        9,
                                                     ),
                                                     items: [],
                                                     rbox_token_idx: TokenIdx(
-                                                        9,
+                                                        10,
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
@@ -68,7 +68,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `ConnectedComponent`,
                                                             token_idx: TokenIdx(
-                                                                10,
+                                                                11,
                                                             ),
                                                         },
                                                     ),
@@ -170,7 +170,7 @@ Ok(
                                                 SynExpr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        20,
+                                                        21,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -183,7 +183,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `ConnectedComponent`,
                                                             token_idx: TokenIdx(
-                                                                21,
+                                                                22,
                                                             ),
                                                         },
                                                     ),
@@ -291,7 +291,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `f32`,
                                                             token_idx: TokenIdx(
-                                                                71,
+                                                                72,
                                                             ),
                                                         },
                                                     ),
@@ -382,17 +382,17 @@ Ok(
                                             data: [
                                                 SynExpr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        106,
+                                                        107,
                                                     ),
                                                     items: [],
                                                     rbox_token_idx: TokenIdx(
-                                                        107,
+                                                        108,
                                                     ),
                                                 },
                                                 SynExpr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        105,
+                                                        106,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -419,7 +419,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `RawContour`,
                                                             token_idx: TokenIdx(
-                                                                108,
+                                                                109,
                                                             ),
                                                         },
                                                     ),
@@ -521,7 +521,7 @@ Ok(
                                                 SynExpr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        117,
+                                                        118,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -534,7 +534,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `RawContour`,
                                                             token_idx: TokenIdx(
-                                                                118,
+                                                                119,
                                                             ),
                                                         },
                                                     ),
@@ -636,7 +636,7 @@ Ok(
                                                 SynExpr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        130,
+                                                        131,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -649,7 +649,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `LineSegmentSketch`,
                                                             token_idx: TokenIdx(
-                                                                131,
+                                                                132,
                                                             ),
                                                         },
                                                     ),
@@ -740,17 +740,17 @@ Ok(
                                             data: [
                                                 SynExpr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        141,
+                                                        142,
                                                     ),
                                                     items: [],
                                                     rbox_token_idx: TokenIdx(
-                                                        142,
+                                                        143,
                                                     ),
                                                 },
                                                 SynExpr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        140,
+                                                        141,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -777,7 +777,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `ConcaveComponent`,
                                                             token_idx: TokenIdx(
-                                                                143,
+                                                                144,
                                                             ),
                                                         },
                                                     ),

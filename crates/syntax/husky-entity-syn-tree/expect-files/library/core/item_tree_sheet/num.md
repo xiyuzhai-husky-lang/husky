@@ -19,7 +19,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `i8`,
                                 token_idx: TokenIdx(
-                                    32,
+                                    33,
                                 ),
                             },
                             block: Type {
@@ -61,7 +61,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `i16`,
                                 token_idx: TokenIdx(
-                                    95,
+                                    96,
                                 ),
                             },
                             block: Type {
@@ -103,7 +103,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `i32`,
                                 token_idx: TokenIdx(
-                                    158,
+                                    159,
                                 ),
                             },
                             block: Type {
@@ -145,7 +145,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `i64`,
                                 token_idx: TokenIdx(
-                                    231,
+                                    232,
                                 ),
                             },
                             block: Type {
@@ -187,7 +187,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `i128`,
                                 token_idx: TokenIdx(
-                                    283,
+                                    284,
                                 ),
                             },
                             block: Type {
@@ -229,7 +229,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `isize`,
                                 token_idx: TokenIdx(
-                                    335,
+                                    336,
                                 ),
                             },
                             block: Type {
@@ -271,7 +271,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `u8`,
                                 token_idx: TokenIdx(
-                                    387,
+                                    388,
                                 ),
                             },
                             block: Type {
@@ -313,7 +313,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `u16`,
                                 token_idx: TokenIdx(
-                                    439,
+                                    440,
                                 ),
                             },
                             block: Type {
@@ -355,7 +355,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `u32`,
                                 token_idx: TokenIdx(
-                                    491,
+                                    492,
                                 ),
                             },
                             block: Type {
@@ -397,7 +397,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `u64`,
                                 token_idx: TokenIdx(
-                                    543,
+                                    544,
                                 ),
                             },
                             block: Type {
@@ -439,7 +439,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `u128`,
                                 token_idx: TokenIdx(
-                                    595,
+                                    596,
                                 ),
                             },
                             block: Type {
@@ -481,7 +481,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `usize`,
                                 token_idx: TokenIdx(
-                                    647,
+                                    648,
                                 ),
                             },
                             block: Type {
@@ -523,7 +523,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `f32`,
                                 token_idx: TokenIdx(
-                                    699,
+                                    700,
                                 ),
                             },
                             block: Type {
@@ -565,7 +565,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `f64`,
                                 token_idx: TokenIdx(
-                                    812,
+                                    813,
                                 ),
                             },
                             block: Type {
@@ -616,7 +616,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `i8`,
                                 token_idx: TokenIdx(
-                                    32,
+                                    33,
                                 ),
                             },
                             block: Type {
@@ -651,7 +651,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `i16`,
                                 token_idx: TokenIdx(
-                                    95,
+                                    96,
                                 ),
                             },
                             block: Type {
@@ -686,7 +686,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `i32`,
                                 token_idx: TokenIdx(
-                                    158,
+                                    159,
                                 ),
                             },
                             block: Type {
@@ -721,7 +721,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `i64`,
                                 token_idx: TokenIdx(
-                                    231,
+                                    232,
                                 ),
                             },
                             block: Type {
@@ -756,7 +756,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `i128`,
                                 token_idx: TokenIdx(
-                                    283,
+                                    284,
                                 ),
                             },
                             block: Type {
@@ -791,7 +791,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `isize`,
                                 token_idx: TokenIdx(
-                                    335,
+                                    336,
                                 ),
                             },
                             block: Type {
@@ -826,7 +826,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `u8`,
                                 token_idx: TokenIdx(
-                                    387,
+                                    388,
                                 ),
                             },
                             block: Type {
@@ -861,7 +861,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `u16`,
                                 token_idx: TokenIdx(
-                                    439,
+                                    440,
                                 ),
                             },
                             block: Type {
@@ -896,7 +896,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `u32`,
                                 token_idx: TokenIdx(
-                                    491,
+                                    492,
                                 ),
                             },
                             block: Type {
@@ -931,7 +931,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `u64`,
                                 token_idx: TokenIdx(
-                                    543,
+                                    544,
                                 ),
                             },
                             block: Type {
@@ -966,7 +966,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `u128`,
                                 token_idx: TokenIdx(
-                                    595,
+                                    596,
                                 ),
                             },
                             block: Type {
@@ -1001,7 +1001,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `usize`,
                                 token_idx: TokenIdx(
-                                    647,
+                                    648,
                                 ),
                             },
                             block: Type {
@@ -1036,7 +1036,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `f32`,
                                 token_idx: TokenIdx(
-                                    699,
+                                    700,
                                 ),
                             },
                             block: Type {
@@ -1071,7 +1071,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `f64`,
                                 token_idx: TokenIdx(
-                                    812,
+                                    813,
                                 ),
                             },
                             block: Type {
@@ -1110,7 +1110,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `array`,
                                         token_idx: TokenIdx(
-                                            2,
+                                            3,
                                         ),
                                     },
                                 },
@@ -1151,7 +1151,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `basic`,
                                         token_idx: TokenIdx(
-                                            5,
+                                            6,
                                         ),
                                     },
                                 },
@@ -1192,7 +1192,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `clone`,
                                         token_idx: TokenIdx(
-                                            8,
+                                            9,
                                         ),
                                     },
                                 },
@@ -1233,7 +1233,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `cmp`,
                                         token_idx: TokenIdx(
-                                            11,
+                                            12,
                                         ),
                                     },
                                 },
@@ -1274,7 +1274,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `default`,
                                         token_idx: TokenIdx(
-                                            14,
+                                            15,
                                         ),
                                     },
                                 },
@@ -1315,7 +1315,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `fmt`,
                                         token_idx: TokenIdx(
-                                            17,
+                                            18,
                                         ),
                                     },
                                 },
@@ -1356,7 +1356,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `logic`,
                                         token_idx: TokenIdx(
-                                            20,
+                                            21,
                                         ),
                                     },
                                 },
@@ -1397,7 +1397,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `marker`,
                                         token_idx: TokenIdx(
-                                            23,
+                                            24,
                                         ),
                                     },
                                 },
@@ -1438,7 +1438,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `mem`,
                                         token_idx: TokenIdx(
-                                            26,
+                                            27,
                                         ),
                                     },
                                 },
@@ -1479,7 +1479,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `num`,
                                         token_idx: TokenIdx(
-                                            29,
+                                            30,
                                         ),
                                     },
                                 },
@@ -1520,7 +1520,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `ops`,
                                         token_idx: TokenIdx(
-                                            32,
+                                            33,
                                         ),
                                     },
                                 },
@@ -1561,7 +1561,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `option`,
                                         token_idx: TokenIdx(
-                                            35,
+                                            36,
                                         ),
                                     },
                                 },
@@ -1602,7 +1602,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `prelude`,
                                         token_idx: TokenIdx(
-                                            38,
+                                            39,
                                         ),
                                     },
                                 },
@@ -1643,7 +1643,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `raw_bits`,
                                         token_idx: TokenIdx(
-                                            41,
+                                            42,
                                         ),
                                     },
                                 },
@@ -1684,7 +1684,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `result`,
                                         token_idx: TokenIdx(
-                                            44,
+                                            45,
                                         ),
                                     },
                                 },
@@ -1725,7 +1725,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `vec`,
                                         token_idx: TokenIdx(
-                                            47,
+                                            48,
                                         ),
                                     },
                                 },
@@ -1766,7 +1766,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `slice`,
                                         token_idx: TokenIdx(
-                                            50,
+                                            51,
                                         ),
                                     },
                                 },
@@ -1807,7 +1807,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `str`,
                                         token_idx: TokenIdx(
-                                            53,
+                                            54,
                                         ),
                                     },
                                 },
@@ -1848,7 +1848,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `visual`,
                                         token_idx: TokenIdx(
-                                            56,
+                                            57,
                                         ),
                                     },
                                 },
@@ -1889,7 +1889,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `Add`,
                                         token_idx: TokenIdx(
-                                            13,
+                                            14,
                                         ),
                                     },
                                     block: Trait {
@@ -1950,7 +1950,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `bool`,
                                                         token_idx: TokenIdx(
-                                                            6,
+                                                            7,
                                                         ),
                                                     },
                                                     block: Type {
@@ -2027,7 +2027,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `never`,
                                                         token_idx: TokenIdx(
-                                                            10,
+                                                            11,
                                                         ),
                                                     },
                                                     block: Type {
@@ -2104,7 +2104,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `unit`,
                                                         token_idx: TokenIdx(
-                                                            14,
+                                                            15,
                                                         ),
                                                     },
                                                     block: Type {
@@ -2181,7 +2181,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Trait`,
                                                         token_idx: TokenIdx(
-                                                            18,
+                                                            19,
                                                         ),
                                                     },
                                                     block: Type {
@@ -2258,7 +2258,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Module`,
                                                         token_idx: TokenIdx(
-                                                            22,
+                                                            23,
                                                         ),
                                                     },
                                                     block: Type {
@@ -2335,7 +2335,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `i8`,
                                                         token_idx: TokenIdx(
-                                                            32,
+                                                            33,
                                                         ),
                                                     },
                                                     block: Type {
@@ -2412,7 +2412,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `i16`,
                                                         token_idx: TokenIdx(
-                                                            95,
+                                                            96,
                                                         ),
                                                     },
                                                     block: Type {
@@ -2489,7 +2489,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `i32`,
                                                         token_idx: TokenIdx(
-                                                            158,
+                                                            159,
                                                         ),
                                                     },
                                                     block: Type {
@@ -2566,7 +2566,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `i64`,
                                                         token_idx: TokenIdx(
-                                                            231,
+                                                            232,
                                                         ),
                                                     },
                                                     block: Type {
@@ -2643,7 +2643,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `i128`,
                                                         token_idx: TokenIdx(
-                                                            283,
+                                                            284,
                                                         ),
                                                     },
                                                     block: Type {
@@ -2720,7 +2720,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `isize`,
                                                         token_idx: TokenIdx(
-                                                            335,
+                                                            336,
                                                         ),
                                                     },
                                                     block: Type {
@@ -2797,7 +2797,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `u8`,
                                                         token_idx: TokenIdx(
-                                                            387,
+                                                            388,
                                                         ),
                                                     },
                                                     block: Type {
@@ -2874,7 +2874,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `u16`,
                                                         token_idx: TokenIdx(
-                                                            439,
+                                                            440,
                                                         ),
                                                     },
                                                     block: Type {
@@ -2951,7 +2951,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `u32`,
                                                         token_idx: TokenIdx(
-                                                            491,
+                                                            492,
                                                         ),
                                                     },
                                                     block: Type {
@@ -3028,7 +3028,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `u64`,
                                                         token_idx: TokenIdx(
-                                                            543,
+                                                            544,
                                                         ),
                                                     },
                                                     block: Type {
@@ -3105,7 +3105,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `u128`,
                                                         token_idx: TokenIdx(
-                                                            595,
+                                                            596,
                                                         ),
                                                     },
                                                     block: Type {
@@ -3182,7 +3182,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `usize`,
                                                         token_idx: TokenIdx(
-                                                            647,
+                                                            648,
                                                         ),
                                                     },
                                                     block: Type {
@@ -3259,7 +3259,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `f32`,
                                                         token_idx: TokenIdx(
-                                                            699,
+                                                            700,
                                                         ),
                                                     },
                                                     block: Type {
@@ -3336,7 +3336,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `f64`,
                                                         token_idx: TokenIdx(
-                                                            812,
+                                                            813,
                                                         ),
                                                     },
                                                     block: Type {
@@ -3413,7 +3413,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `r32`,
                                                         token_idx: TokenIdx(
-                                                            26,
+                                                            27,
                                                         ),
                                                     },
                                                     block: Type {
@@ -3490,7 +3490,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Debug`,
                                                         token_idx: TokenIdx(
-                                                            6,
+                                                            7,
                                                         ),
                                                     },
                                                     block: Trait {
@@ -3567,7 +3567,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Visualize`,
                                                         token_idx: TokenIdx(
-                                                            6,
+                                                            7,
                                                         ),
                                                     },
                                                     block: Trait {
@@ -3650,7 +3650,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Html`,
                                                         token_idx: TokenIdx(
-                                                            17,
+                                                            18,
                                                         ),
                                                     },
                                                     block: Type {
@@ -3727,7 +3727,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Copy`,
                                                         token_idx: TokenIdx(
-                                                            6,
+                                                            7,
                                                         ),
                                                     },
                                                     block: Trait {
@@ -3804,7 +3804,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Sized`,
                                                         token_idx: TokenIdx(
-                                                            10,
+                                                            11,
                                                         ),
                                                     },
                                                     block: Trait {
@@ -3881,7 +3881,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Clone`,
                                                         token_idx: TokenIdx(
-                                                            6,
+                                                            7,
                                                         ),
                                                     },
                                                     block: Trait {
@@ -3964,7 +3964,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Option`,
                                                         token_idx: TokenIdx(
-                                                            11,
+                                                            12,
                                                         ),
                                                     },
                                                     block: Type {
@@ -4183,7 +4183,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `PartialEq`,
                                                         token_idx: TokenIdx(
-                                                            6,
+                                                            7,
                                                         ),
                                                     },
                                                     block: Trait {
@@ -4260,7 +4260,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Eq`,
                                                         token_idx: TokenIdx(
-                                                            10,
+                                                            11,
                                                         ),
                                                     },
                                                     block: Trait {
@@ -4337,7 +4337,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `PartialOrd`,
                                                         token_idx: TokenIdx(
-                                                            14,
+                                                            15,
                                                         ),
                                                     },
                                                     block: Trait {
@@ -4414,7 +4414,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Ord`,
                                                         token_idx: TokenIdx(
-                                                            18,
+                                                            19,
                                                         ),
                                                     },
                                                     block: Trait {
@@ -4491,7 +4491,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Slice`,
                                                         token_idx: TokenIdx(
-                                                            6,
+                                                            7,
                                                         ),
                                                     },
                                                     block: Type {
@@ -4568,7 +4568,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `CyclicSlice`,
                                                         token_idx: TokenIdx(
-                                                            53,
+                                                            54,
                                                         ),
                                                     },
                                                     block: Type {
@@ -4645,7 +4645,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Vec`,
                                                         token_idx: TokenIdx(
-                                                            15,
+                                                            16,
                                                         ),
                                                     },
                                                     block: Type {
@@ -4718,7 +4718,7 @@ Ok(
                         ast_idx: 45,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                34,
+                                35,
                             ),
                         },
                         ty_expr: 3,
@@ -4758,12 +4758,12 @@ Ok(
                         ast_idx: 46,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                56,
+                                57,
                             ),
                         },
                         trai_expr: 4,
                         for_token: TokenIdx(
-                            59,
+                            60,
                         ),
                         ty_sketch_expr: Path(
                             5,
@@ -4802,7 +4802,7 @@ Ok(
                         ast_idx: 50,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                97,
+                                98,
                             ),
                         },
                         ty_expr: 6,
@@ -4842,12 +4842,12 @@ Ok(
                         ast_idx: 51,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                119,
+                                120,
                             ),
                         },
                         trai_expr: 7,
                         for_token: TokenIdx(
-                            122,
+                            123,
                         ),
                         ty_sketch_expr: Path(
                             8,
@@ -4886,7 +4886,7 @@ Ok(
                         ast_idx: 55,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                160,
+                                161,
                             ),
                         },
                         ty_expr: 9,
@@ -4926,12 +4926,12 @@ Ok(
                         ast_idx: 56,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                193,
+                                194,
                             ),
                         },
                         trai_expr: 10,
                         for_token: TokenIdx(
-                            196,
+                            197,
                         ),
                         ty_sketch_expr: Path(
                             11,
@@ -4970,7 +4970,7 @@ Ok(
                         ast_idx: 60,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                233,
+                                234,
                             ),
                         },
                         ty_expr: 12,
@@ -5010,12 +5010,12 @@ Ok(
                         ast_idx: 61,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                244,
+                                245,
                             ),
                         },
                         trai_expr: 13,
                         for_token: TokenIdx(
-                            247,
+                            248,
                         ),
                         ty_sketch_expr: Path(
                             14,
@@ -5054,7 +5054,7 @@ Ok(
                         ast_idx: 65,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                285,
+                                286,
                             ),
                         },
                         ty_expr: 15,
@@ -5094,12 +5094,12 @@ Ok(
                         ast_idx: 66,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                296,
+                                297,
                             ),
                         },
                         trai_expr: 16,
                         for_token: TokenIdx(
-                            299,
+                            300,
                         ),
                         ty_sketch_expr: Path(
                             17,
@@ -5138,7 +5138,7 @@ Ok(
                         ast_idx: 70,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                337,
+                                338,
                             ),
                         },
                         ty_expr: 18,
@@ -5178,12 +5178,12 @@ Ok(
                         ast_idx: 71,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                348,
+                                349,
                             ),
                         },
                         trai_expr: 19,
                         for_token: TokenIdx(
-                            351,
+                            352,
                         ),
                         ty_sketch_expr: Path(
                             20,
@@ -5222,7 +5222,7 @@ Ok(
                         ast_idx: 75,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                389,
+                                390,
                             ),
                         },
                         ty_expr: 21,
@@ -5262,12 +5262,12 @@ Ok(
                         ast_idx: 76,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                400,
+                                401,
                             ),
                         },
                         trai_expr: 22,
                         for_token: TokenIdx(
-                            403,
+                            404,
                         ),
                         ty_sketch_expr: Path(
                             23,
@@ -5306,7 +5306,7 @@ Ok(
                         ast_idx: 80,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                441,
+                                442,
                             ),
                         },
                         ty_expr: 24,
@@ -5346,12 +5346,12 @@ Ok(
                         ast_idx: 81,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                452,
+                                453,
                             ),
                         },
                         trai_expr: 25,
                         for_token: TokenIdx(
-                            455,
+                            456,
                         ),
                         ty_sketch_expr: Path(
                             26,
@@ -5390,7 +5390,7 @@ Ok(
                         ast_idx: 85,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                493,
+                                494,
                             ),
                         },
                         ty_expr: 27,
@@ -5430,12 +5430,12 @@ Ok(
                         ast_idx: 86,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                504,
+                                505,
                             ),
                         },
                         trai_expr: 28,
                         for_token: TokenIdx(
-                            507,
+                            508,
                         ),
                         ty_sketch_expr: Path(
                             29,
@@ -5474,7 +5474,7 @@ Ok(
                         ast_idx: 90,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                545,
+                                546,
                             ),
                         },
                         ty_expr: 30,
@@ -5514,12 +5514,12 @@ Ok(
                         ast_idx: 91,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                556,
+                                557,
                             ),
                         },
                         trai_expr: 31,
                         for_token: TokenIdx(
-                            559,
+                            560,
                         ),
                         ty_sketch_expr: Path(
                             32,
@@ -5558,7 +5558,7 @@ Ok(
                         ast_idx: 95,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                597,
+                                598,
                             ),
                         },
                         ty_expr: 33,
@@ -5598,12 +5598,12 @@ Ok(
                         ast_idx: 96,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                608,
+                                609,
                             ),
                         },
                         trai_expr: 34,
                         for_token: TokenIdx(
-                            611,
+                            612,
                         ),
                         ty_sketch_expr: Path(
                             35,
@@ -5642,7 +5642,7 @@ Ok(
                         ast_idx: 100,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                649,
+                                650,
                             ),
                         },
                         ty_expr: 36,
@@ -5682,12 +5682,12 @@ Ok(
                         ast_idx: 101,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                660,
+                                661,
                             ),
                         },
                         trai_expr: 37,
                         for_token: TokenIdx(
-                            663,
+                            664,
                         ),
                         ty_sketch_expr: Path(
                             38,
@@ -5726,7 +5726,7 @@ Ok(
                         ast_idx: 105,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                701,
+                                702,
                             ),
                         },
                         ty_expr: 39,
@@ -5766,12 +5766,12 @@ Ok(
                         ast_idx: 106,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                774,
+                                775,
                             ),
                         },
                         trai_expr: 40,
                         for_token: TokenIdx(
-                            777,
+                            778,
                         ),
                         ty_sketch_expr: Path(
                             41,
@@ -5810,7 +5810,7 @@ Ok(
                         ast_idx: 110,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                814,
+                                815,
                             ),
                         },
                         ty_expr: 42,
@@ -5850,12 +5850,12 @@ Ok(
                         ast_idx: 111,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                833,
+                                834,
                             ),
                         },
                         trai_expr: 43,
                         for_token: TokenIdx(
-                            836,
+                            837,
                         ),
                         ty_sketch_expr: Path(
                             44,
@@ -5885,7 +5885,7 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
@@ -5912,7 +5912,7 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    5,
+                                    6,
                                 ),
                             },
                         ),
@@ -5940,7 +5940,7 @@ Ok(
                             IdentToken {
                                 ident: `ops`,
                                 token_idx: TokenIdx(
-                                    7,
+                                    8,
                                 ),
                             },
                         ),
@@ -5973,7 +5973,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `ops`,
                                         token_idx: TokenIdx(
-                                            32,
+                                            33,
                                         ),
                                     },
                                 },
@@ -5991,7 +5991,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Add`,
                             token_idx: TokenIdx(
-                                9,
+                                10,
                             ),
                         },
                     },
@@ -6020,7 +6020,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `Add`,
                                         token_idx: TokenIdx(
-                                            13,
+                                            14,
                                         ),
                                     },
                                     block: Trait {

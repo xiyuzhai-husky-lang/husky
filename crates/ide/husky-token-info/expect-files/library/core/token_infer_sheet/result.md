@@ -44,7 +44,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `Result`,
                                     token_idx: TokenIdx(
-                                        11,
+                                        12,
                                     ),
                                 },
                                 block: Type {
@@ -96,7 +96,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `T`,
                             token_idx: TokenIdx(
-                                13,
+                                14,
                             ),
                         },
                     },
@@ -111,7 +111,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `E`,
                             token_idx: TokenIdx(
-                                15,
+                                16,
                             ),
                         },
                     },
@@ -138,7 +138,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `T1`,
                             token_idx: TokenIdx(
-                                29,
+                                30,
                             ),
                         },
                     },
@@ -153,7 +153,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `T2`,
                             token_idx: TokenIdx(
-                                31,
+                                32,
                             ),
                         },
                     },
@@ -168,7 +168,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `E1`,
                             token_idx: TokenIdx(
-                                33,
+                                34,
                             ),
                         },
                     },
@@ -183,7 +183,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `E2`,
                             token_idx: TokenIdx(
-                                35,
+                                36,
                             ),
                         },
                     },
@@ -224,7 +224,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `T2`,
                             token_idx: TokenIdx(
-                                31,
+                                32,
                             ),
                         },
                     },
@@ -238,7 +238,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `E2`,
                             token_idx: TokenIdx(
-                                35,
+                                36,
                             ),
                         },
                     },
@@ -260,7 +260,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `T1`,
                             token_idx: TokenIdx(
-                                29,
+                                30,
                             ),
                         },
                     },
@@ -274,7 +274,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `E1`,
                             token_idx: TokenIdx(
-                                33,
+                                34,
                             ),
                         },
                     },

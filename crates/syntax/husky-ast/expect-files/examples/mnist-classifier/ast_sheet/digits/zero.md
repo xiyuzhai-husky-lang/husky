@@ -198,13 +198,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `open_one_match`,
                         token_idx: TokenIdx(
-                            5,
+                            6,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            6,
+                            7,
                         ),
                         drained: false,
                     },
@@ -246,13 +246,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `almost_closed`,
                         token_idx: TokenIdx(
-                            18,
+                            19,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            19,
+                            20,
                         ),
                         drained: false,
                     },
@@ -286,24 +286,24 @@ Ok(
                         variant: PubUnder {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    44,
+                                    45,
                                 ),
                             },
                             lpar: LparToken(
                                 TokenIdx(
-                                    45,
+                                    46,
                                 ),
                             ),
                             visibility: Super(
                                 SuperToken {
                                     token_idx: TokenIdx(
-                                        46,
+                                        47,
                                     ),
                                 },
                             ),
                             rpar: RparToken(
                                 TokenIdx(
-                                    47,
+                                    48,
                                 ),
                             ),
                         },
@@ -317,13 +317,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_zero`,
                         token_idx: TokenIdx(
-                            49,
+                            50,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            50,
+                            51,
                         ),
                         drained: false,
                     },

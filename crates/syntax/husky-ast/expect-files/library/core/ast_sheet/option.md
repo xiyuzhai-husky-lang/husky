@@ -12,18 +12,18 @@ Ok(
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            15,
+                            16,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `Some`,
                         token_idx: TokenIdx(
-                            16,
+                            17,
                         ),
                     },
                     state_after: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            17,
+                            18,
                         ),
                         drained: false,
                     },
@@ -38,18 +38,18 @@ Ok(
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            20,
+                            21,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `None`,
                         token_idx: TokenIdx(
-                            21,
+                            22,
                         ),
                     },
                     state_after: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            22,
+                            23,
                         ),
                         drained: true,
                     },
@@ -79,7 +79,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    4,
+                                    5,
                                 ),
                             },
                         },
@@ -87,7 +87,7 @@ Ok(
                     state_after_visibility_expr: Some(
                         TokenStreamState {
                             next_token_idx: TokenIdx(
-                                5,
+                                6,
                             ),
                             drained: false,
                         },
@@ -102,7 +102,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    9,
+                                    10,
                                 ),
                             },
                         },
@@ -116,13 +116,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Option`,
                         token_idx: TokenIdx(
-                            11,
+                            12,
                         ),
                     },
                     is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            12,
+                            13,
                         ),
                         drained: false,
                     },

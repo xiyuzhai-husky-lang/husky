@@ -2,7 +2,7 @@ Ok(
     [
         (
             TokenIdx(
-                0,
+                1,
             ),
             Some(
                 HoverResult {
@@ -32,7 +32,7 @@ Ok(
         ),
         (
             TokenIdx(
-                1,
+                2,
             ),
             Some(
                 HoverResult {
@@ -62,7 +62,7 @@ Ok(
         ),
         (
             TokenIdx(
-                2,
+                3,
             ),
             Some(
                 HoverResult {
@@ -92,7 +92,7 @@ Ok(
         ),
         (
             TokenIdx(
-                3,
+                4,
             ),
             Some(
                 HoverResult {
@@ -122,7 +122,7 @@ Ok(
         ),
         (
             TokenIdx(
-                4,
+                5,
             ),
             Some(
                 HoverResult {
@@ -152,7 +152,7 @@ Ok(
         ),
         (
             TokenIdx(
-                5,
+                6,
             ),
             Some(
                 HoverResult {
@@ -182,7 +182,7 @@ Ok(
         ),
         (
             TokenIdx(
-                6,
+                7,
             ),
             Some(
                 HoverResult {
@@ -212,7 +212,7 @@ Ok(
         ),
         (
             TokenIdx(
-                7,
+                8,
             ),
             Some(
                 HoverResult {
@@ -242,7 +242,7 @@ Ok(
         ),
         (
             TokenIdx(
-                8,
+                9,
             ),
             Some(
                 HoverResult {
@@ -272,7 +272,7 @@ Ok(
         ),
         (
             TokenIdx(
-                9,
+                10,
             ),
             Some(
                 HoverResult {
@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 9;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Ident(\n    `L`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {\n        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {\n            ident_token: IdentToken {\n                ident: `L`,\n                token_idx: TokenIdx(\n                    9,\n                ),\n            },\n        },\n    },\n    syn_expr_region: ExprRegionLeash(_),\n};\n\nCurrentSynSymbol {\n    modifier: Const,\n    access_start: TokenIdx(\n        12,\n    ),\n    access_end: None,\n    variant: CurrentSynSymbolVariant::TemplateParameter {\n        syn_attrs: TemplateParameterSynAttrs {\n            syn_attrs: [],\n        },\n        annotated_variance_token: None,\n        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {\n            ident_token: IdentToken {\n                ident: `L`,\n                token_idx: TokenIdx(\n                    9,\n                ),\n            },\n            ty_expr_idx: 0,\n        },\n    },\n}\n",
+                                value: "\ntoken_idx = 9;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Ident(\n    `L`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {\n        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {\n            ident_token: IdentToken {\n                ident: `L`,\n                token_idx: TokenIdx(\n                    10,\n                ),\n            },\n        },\n    },\n    syn_expr_region: ExprRegionLeash(_),\n};\n\nCurrentSynSymbol {\n    modifier: Const,\n    access_start: TokenIdx(\n        13,\n    ),\n    access_end: None,\n    variant: CurrentSynSymbolVariant::TemplateParameter {\n        syn_attrs: TemplateParameterSynAttrs {\n            syn_attrs: [],\n        },\n        annotated_variance_token: None,\n        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {\n            ident_token: IdentToken {\n                ident: `L`,\n                token_idx: TokenIdx(\n                    10,\n                ),\n            },\n            ty_expr_idx: 0,\n        },\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -302,7 +302,7 @@ Ok(
         ),
         (
             TokenIdx(
-                10,
+                11,
             ),
             Some(
                 HoverResult {
@@ -332,7 +332,7 @@ Ok(
         ),
         (
             TokenIdx(
-                11,
+                12,
             ),
             Some(
                 HoverResult {
@@ -362,7 +362,7 @@ Ok(
         ),
         (
             TokenIdx(
-                12,
+                13,
             ),
             Some(
                 HoverResult {
@@ -392,7 +392,7 @@ Ok(
         ),
         (
             TokenIdx(
-                13,
+                14,
             ),
             Some(
                 HoverResult {
@@ -422,7 +422,7 @@ Ok(
         ),
         (
             TokenIdx(
-                14,
+                15,
             ),
             Some(
                 HoverResult {
@@ -430,7 +430,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 14;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Ident(\n    `E`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 1,\n    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {\n        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {\n            ident_token: IdentToken {\n                ident: `E`,\n                token_idx: TokenIdx(\n                    14,\n                ),\n            },\n        },\n    },\n    syn_expr_region: ExprRegionLeash(_),\n};\n\nCurrentSynSymbol {\n    modifier: Const,\n    access_start: TokenIdx(\n        15,\n    ),\n    access_end: None,\n    variant: CurrentSynSymbolVariant::TemplateParameter {\n        syn_attrs: TemplateParameterSynAttrs {\n            syn_attrs: [],\n        },\n        annotated_variance_token: Some(\n            VarianceToken::Covariant(\n                CovariantToken {\n                    token_idx: TokenIdx(\n                        13,\n                    ),\n                },\n            ),\n        ),\n        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {\n            ident_token: IdentToken {\n                ident: `E`,\n                token_idx: TokenIdx(\n                    14,\n                ),\n            },\n        },\n    },\n}\n",
+                                value: "\ntoken_idx = 14;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Ident(\n    `E`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 1,\n    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {\n        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {\n            ident_token: IdentToken {\n                ident: `E`,\n                token_idx: TokenIdx(\n                    15,\n                ),\n            },\n        },\n    },\n    syn_expr_region: ExprRegionLeash(_),\n};\n\nCurrentSynSymbol {\n    modifier: Const,\n    access_start: TokenIdx(\n        16,\n    ),\n    access_end: None,\n    variant: CurrentSynSymbolVariant::TemplateParameter {\n        syn_attrs: TemplateParameterSynAttrs {\n            syn_attrs: [],\n        },\n        annotated_variance_token: Some(\n            VarianceToken::Covariant(\n                CovariantToken {\n                    token_idx: TokenIdx(\n                        14,\n                    ),\n                },\n            ),\n        ),\n        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {\n            ident_token: IdentToken {\n                ident: `E`,\n                token_idx: TokenIdx(\n                    15,\n                ),\n            },\n        },\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -452,7 +452,7 @@ Ok(
         ),
         (
             TokenIdx(
-                15,
+                16,
             ),
             Some(
                 HoverResult {
@@ -482,7 +482,7 @@ Ok(
         ),
         (
             TokenIdx(
-                16,
+                17,
             ),
             Some(
                 HoverResult {

@@ -133,11 +133,27 @@ Ok(
                 ),
             ),
         ],
-        group_starts: [
-            0,
-            6,
-            12,
-            15,
+        token_group_bases: [
+            TokenGroupBase(
+                TokenIdx(
+                    1,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    7,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    13,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    16,
+                ),
+            ),
         ],
         indents: [
             0,

@@ -100,12 +100,32 @@ Ok(
                 `None`,
             ),
         ],
-        group_starts: [
-            0,
-            4,
-            9,
-            15,
-            20,
+        token_group_bases: [
+            TokenGroupBase(
+                TokenIdx(
+                    1,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    5,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    10,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    16,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    21,
+                ),
+            ),
         ],
         indents: [
             0,

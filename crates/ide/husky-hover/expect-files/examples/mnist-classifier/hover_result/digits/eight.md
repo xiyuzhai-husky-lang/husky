@@ -2,7 +2,7 @@ Ok(
     [
         (
             TokenIdx(
-                0,
+                1,
             ),
             Some(
                 HoverResult {
@@ -32,7 +32,7 @@ Ok(
         ),
         (
             TokenIdx(
-                7,
+                8,
             ),
             Some(
                 HoverResult {
@@ -62,7 +62,7 @@ Ok(
         ),
         (
             TokenIdx(
-                14,
+                15,
             ),
             Some(
                 HoverResult {
@@ -92,7 +92,7 @@ Ok(
         ),
         (
             TokenIdx(
-                21,
+                22,
             ),
             Some(
                 HoverResult {
@@ -122,7 +122,7 @@ Ok(
         ),
         (
             TokenIdx(
-                28,
+                29,
             ),
             Some(
                 HoverResult {
@@ -152,7 +152,7 @@ Ok(
         ),
         (
             TokenIdx(
-                35,
+                36,
             ),
             Some(
                 HoverResult {
@@ -182,7 +182,7 @@ Ok(
         ),
         (
             TokenIdx(
-                42,
+                43,
             ),
             Some(
                 HoverResult {
@@ -212,7 +212,7 @@ Ok(
         ),
         (
             TokenIdx(
-                49,
+                50,
             ),
             Some(
                 HoverResult {
@@ -242,7 +242,7 @@ Ok(
         ),
         (
             TokenIdx(
-                56,
+                57,
             ),
             Some(
                 HoverResult {
@@ -272,7 +272,7 @@ Ok(
         ),
         (
             TokenIdx(
-                63,
+                64,
             ),
             Some(
                 HoverResult {
@@ -302,7 +302,7 @@ Ok(
         ),
         (
             TokenIdx(
-                70,
+                71,
             ),
             Some(
                 HoverResult {
@@ -332,7 +332,7 @@ Ok(
         ),
         (
             TokenIdx(
-                77,
+                78,
             ),
             Some(
                 HoverResult {
@@ -362,7 +362,7 @@ Ok(
         ),
         (
             TokenIdx(
-                84,
+                85,
             ),
             Some(
                 HoverResult {
@@ -392,7 +392,7 @@ Ok(
         ),
         (
             TokenIdx(
-                91,
+                92,
             ),
             Some(
                 HoverResult {
@@ -422,7 +422,7 @@ Ok(
         ),
         (
             TokenIdx(
-                98,
+                99,
             ),
             Some(
                 HoverResult {
@@ -452,7 +452,7 @@ Ok(
         ),
         (
             TokenIdx(
-                105,
+                106,
             ),
             Some(
                 HoverResult {
@@ -482,7 +482,7 @@ Ok(
         ),
         (
             TokenIdx(
-                112,
+                113,
             ),
             Some(
                 HoverResult {
@@ -512,7 +512,7 @@ Ok(
         ),
         (
             TokenIdx(
-                119,
+                120,
             ),
             Some(
                 HoverResult {
@@ -542,7 +542,7 @@ Ok(
         ),
         (
             TokenIdx(
-                126,
+                127,
             ),
             Some(
                 HoverResult {
@@ -572,7 +572,7 @@ Ok(
         ),
         (
             TokenIdx(
-                133,
+                134,
             ),
             Some(
                 HoverResult {
@@ -602,7 +602,7 @@ Ok(
         ),
         (
             TokenIdx(
-                140,
+                141,
             ),
             Some(
                 HoverResult {

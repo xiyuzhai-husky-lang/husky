@@ -185,12 +185,32 @@ Ok(
                 ),
             ),
         ],
-        group_starts: [
-            0,
-            4,
-            15,
-            26,
-            34,
+        token_group_bases: [
+            TokenGroupBase(
+                TokenIdx(
+                    1,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    5,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    16,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    27,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    35,
+                ),
+            ),
         ],
         indents: [
             0,

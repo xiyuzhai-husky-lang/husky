@@ -203,13 +203,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `three_fermi_match`,
                         token_idx: TokenIdx(
-                            5,
+                            6,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            6,
+                            7,
                         ),
                         drained: false,
                     },
@@ -243,24 +243,24 @@ Ok(
                         variant: PubUnder {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    21,
+                                    22,
                                 ),
                             },
                             lpar: LparToken(
                                 TokenIdx(
-                                    22,
+                                    23,
                                 ),
                             ),
                             visibility: Super(
                                 SuperToken {
                                     token_idx: TokenIdx(
-                                        23,
+                                        24,
                                     ),
                                 },
                             ),
                             rpar: RparToken(
                                 TokenIdx(
-                                    24,
+                                    25,
                                 ),
                             ),
                         },
@@ -274,13 +274,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_three`,
                         token_idx: TokenIdx(
-                            26,
+                            27,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            27,
+                            28,
                         ),
                         drained: false,
                     },
@@ -322,13 +322,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `uparc`,
                         token_idx: TokenIdx(
-                            164,
+                            165,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            165,
+                            166,
                         ),
                         drained: false,
                     },
@@ -370,13 +370,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `downarc`,
                         token_idx: TokenIdx(
-                            201,
+                            202,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            202,
+                            203,
                         ),
                         drained: false,
                     },
@@ -418,13 +418,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `back`,
                         token_idx: TokenIdx(
-                            238,
+                            239,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            239,
+                            240,
                         ),
                         drained: false,
                     },

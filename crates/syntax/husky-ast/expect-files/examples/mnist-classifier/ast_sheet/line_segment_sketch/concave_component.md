@@ -30,13 +30,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `visualize`,
                         token_idx: TokenIdx(
-                            54,
+                            55,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            55,
+                            56,
                         ),
                         drained: false,
                     },
@@ -331,13 +331,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `norm`,
                         token_idx: TokenIdx(
-                            71,
+                            72,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            72,
+                            73,
                         ),
                         drained: false,
                     },
@@ -373,13 +373,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `rel_norm`,
                         token_idx: TokenIdx(
-                            79,
+                            80,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            80,
+                            81,
                         ),
                         drained: false,
                     },
@@ -415,13 +415,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `hausdorff_norm`,
                         token_idx: TokenIdx(
-                            97,
+                            98,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            98,
+                            99,
                         ),
                         drained: false,
                     },
@@ -457,13 +457,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `angle_change`,
                         token_idx: TokenIdx(
-                            189,
+                            190,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            190,
+                            191,
                         ),
                         drained: false,
                     },
@@ -499,13 +499,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `bounding_box`,
                         token_idx: TokenIdx(
-                            266,
+                            267,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            267,
+                            268,
                         ),
                         drained: false,
                     },
@@ -541,13 +541,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `relative_bounding_box`,
                         token_idx: TokenIdx(
-                            400,
+                            401,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            401,
+                            402,
                         ),
                         drained: false,
                     },
@@ -583,13 +583,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `line_segment`,
                         token_idx: TokenIdx(
-                            417,
+                            418,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            418,
+                            419,
                         ),
                         drained: false,
                     },
@@ -625,13 +625,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `start`,
                         token_idx: TokenIdx(
-                            456,
+                            457,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            457,
+                            458,
                         ),
                         drained: false,
                     },
@@ -667,13 +667,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `end`,
                         token_idx: TokenIdx(
-                            477,
+                            478,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            478,
+                            479,
                         ),
                         drained: false,
                     },
@@ -709,13 +709,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `displacement`,
                         token_idx: TokenIdx(
-                            498,
+                            499,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            499,
+                            500,
                         ),
                         drained: false,
                     },
@@ -751,13 +751,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `start_tangent`,
                         token_idx: TokenIdx(
-                            514,
+                            515,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            515,
+                            516,
                         ),
                         drained: false,
                     },
@@ -793,13 +793,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `end_tangent`,
                         token_idx: TokenIdx(
-                            533,
+                            534,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            534,
+                            535,
                         ),
                         drained: false,
                     },
@@ -1023,7 +1023,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    32,
+                                    33,
                                 ),
                             },
                         },
@@ -1037,13 +1037,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `ConcaveComponent`,
                         token_idx: TokenIdx(
-                            34,
+                            35,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            35,
+                            36,
                         ),
                         drained: false,
                     },
@@ -1093,7 +1093,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    551,
+                                    552,
                                 ),
                             },
                         },
@@ -1107,13 +1107,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `find_concave_components`,
                         token_idx: TokenIdx(
-                            553,
+                            554,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            554,
+                            555,
                         ),
                         drained: false,
                     },

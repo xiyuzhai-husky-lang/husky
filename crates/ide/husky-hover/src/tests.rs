@@ -72,7 +72,7 @@ fn hover_result_works() {
             for token_idx in ranged_token_sheet.token_index_iter() {
                 // only push some of them, but all of them have to be computed
                 let hover_result = calc_hover_result(db, module_path, token_idx)?;
-                if token_idx.raw() % step == 0 {
+                if token_idx.index() % step == 0 {
                     hover_results.push((token_idx, hover_result))
                 }
             }

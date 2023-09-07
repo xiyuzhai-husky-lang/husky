@@ -19,7 +19,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `LineSegment`,
                                 token_idx: TokenIdx(
-                                    8,
+                                    9,
                                 ),
                             },
                             block: Type {
@@ -70,7 +70,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `LineSegment`,
                                 token_idx: TokenIdx(
-                                    8,
+                                    9,
                                 ),
                             },
                             block: Type {
@@ -109,7 +109,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `Point2d`,
                                         token_idx: TokenIdx(
-                                            11,
+                                            12,
                                         ),
                                     },
                                     block: Type {
@@ -160,7 +160,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `RelativePoint2d`,
                                         token_idx: TokenIdx(
-                                            153,
+                                            154,
                                         ),
                                     },
                                     block: Type {
@@ -211,7 +211,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `Vector2d`,
                                         token_idx: TokenIdx(
-                                            166,
+                                            167,
                                         ),
                                     },
                                     block: Type {
@@ -262,7 +262,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `ClosedRange`,
                                         token_idx: TokenIdx(
-                                            495,
+                                            496,
                                         ),
                                     },
                                     block: Type {
@@ -313,7 +313,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `BoundingBox`,
                                         token_idx: TokenIdx(
-                                            603,
+                                            604,
                                         ),
                                     },
                                     block: Type {
@@ -364,7 +364,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `RelativeBoundingBox`,
                                         token_idx: TokenIdx(
-                                            739,
+                                            740,
                                         ),
                                     },
                                     block: Type {
@@ -415,7 +415,7 @@ Ok(
                         ast_idx: 17,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                19,
+                                20,
                             ),
                         },
                         ty_expr: 22,
@@ -440,7 +440,7 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
@@ -468,7 +468,7 @@ Ok(
                             IdentToken {
                                 ident: `geom2d`,
                                 token_idx: TokenIdx(
-                                    3,
+                                    4,
                                 ),
                             },
                         ),
@@ -503,7 +503,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `geom2d`,
                                         token_idx: TokenIdx(
-                                            5,
+                                            6,
                                         ),
                                     },
                                 },

@@ -21,12 +21,12 @@ Ok(
                                         ident_token: IdentToken {
                                             ident: `line_segment_sketch`,
                                             token_idx: TokenIdx(
-                                                36,
+                                                37,
                                             ),
                                         },
                                         colon: ColonToken(
                                             TokenIdx(
-                                                37,
+                                                38,
                                             ),
                                         ),
                                         ty_expr_idx: 1,
@@ -39,12 +39,12 @@ Ok(
                                         ident_token: IdentToken {
                                             ident: `strokes`,
                                             token_idx: TokenIdx(
-                                                41,
+                                                42,
                                             ),
                                         },
                                         colon: ColonToken(
                                             TokenIdx(
-                                                42,
+                                                43,
                                             ),
                                         ),
                                         ty_expr_idx: 5,
@@ -82,7 +82,7 @@ Ok(
                                                 SynExpr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        38,
+                                                        39,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -99,7 +99,7 @@ Ok(
                                                 SynExpr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        43,
+                                                        44,
                                                     ),
                                                     opd: 2,
                                                 },
@@ -126,7 +126,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `LineSegmentSketch`,
                                                             token_idx: TokenIdx(
-                                                                39,
+                                                                40,
                                                             ),
                                                         },
                                                     ),
@@ -141,7 +141,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `CyclicSlice`,
                                                             token_idx: TokenIdx(
-                                                                44,
+                                                                45,
                                                             ),
                                                         },
                                                     ),
@@ -156,7 +156,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `LineSegmentStroke`,
                                                             token_idx: TokenIdx(
-                                                                45,
+                                                                46,
                                                             ),
                                                         },
                                                     ),
@@ -196,14 +196,14 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            40,
+                                                            41,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::FieldVariable {
                                                             ident_token: IdentToken {
                                                                 ident: `line_segment_sketch`,
                                                                 token_idx: TokenIdx(
-                                                                    36,
+                                                                    37,
                                                                 ),
                                                             },
                                                         },
@@ -211,14 +211,14 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            46,
+                                                            47,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::FieldVariable {
                                                             ident_token: IdentToken {
                                                                 ident: `strokes`,
                                                                 token_idx: TokenIdx(
-                                                                    41,
+                                                                    42,
                                                                 ),
                                                             },
                                                         },
@@ -239,7 +239,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             token_idx: TokenIdx(
-                                                                36,
+                                                                37,
                                                             ),
                                                         },
                                                         ty_expr_idx: 1,
@@ -259,7 +259,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             token_idx: TokenIdx(
-                                                                41,
+                                                                42,
                                                             ),
                                                         },
                                                         ty_expr_idx: 5,
@@ -282,7 +282,7 @@ Ok(
                                                             ),
                                                         ),
                                                         token_idx: TokenIdx(
-                                                            36,
+                                                            37,
                                                         ),
                                                     },
                                                 },
@@ -299,7 +299,7 @@ Ok(
                                                             ),
                                                         ),
                                                         token_idx: TokenIdx(
-                                                            41,
+                                                            42,
                                                         ),
                                                     },
                                                 },
@@ -333,7 +333,7 @@ Ok(
                                         ),
                                         colon: ColonToken(
                                             TokenIdx(
-                                                556,
+                                                557,
                                             ),
                                         ),
                                         ty: 1,
@@ -374,17 +374,17 @@ Ok(
                                                 SynExpr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        557,
+                                                        558,
                                                     ),
                                                     opd: 0,
                                                 },
                                                 SynExpr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        561,
+                                                        562,
                                                     ),
                                                     items: [],
                                                     rbox_token_idx: TokenIdx(
-                                                        562,
+                                                        563,
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
@@ -410,7 +410,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `LineSegmentSketch`,
                                                             token_idx: TokenIdx(
-                                                                558,
+                                                                559,
                                                             ),
                                                         },
                                                     ),
@@ -425,7 +425,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `ConcaveComponent`,
                                                             token_idx: TokenIdx(
-                                                                563,
+                                                                564,
                                                             ),
                                                         },
                                                     ),
@@ -448,7 +448,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `line_segment_sketch`,
                                                             token_idx: TokenIdx(
-                                                                555,
+                                                                556,
                                                             ),
                                                         },
                                                     },
@@ -492,7 +492,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            556,
+                                                            557,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -616,7 +616,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Visualize`,
                                                         token_idx: TokenIdx(
-                                                            49,
+                                                            50,
                                                         ),
                                                     },
                                                 ),
@@ -631,7 +631,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `ConcaveComponent`,
                                                         token_idx: TokenIdx(
-                                                            51,
+                                                            52,
                                                         ),
                                                     },
                                                 ),
@@ -783,7 +783,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `Visualize`,
                                                                         token_idx: TokenIdx(
-                                                                            49,
+                                                                            50,
                                                                         ),
                                                                     },
                                                                 ),
@@ -798,7 +798,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `ConcaveComponent`,
                                                                         token_idx: TokenIdx(
-                                                                            51,
+                                                                            52,
                                                                         ),
                                                                     },
                                                                 ),
@@ -897,7 +897,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Html`,
                                                             token_idx: TokenIdx(
-                                                                58,
+                                                                59,
                                                             ),
                                                         },
                                                     ),
@@ -1011,7 +1011,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `ConcaveComponent`,
                                                         token_idx: TokenIdx(
-                                                            68,
+                                                            69,
                                                         ),
                                                     },
                                                 ),
@@ -1138,7 +1138,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `ConcaveComponent`,
                                                                         token_idx: TokenIdx(
-                                                                            68,
+                                                                            69,
                                                                         ),
                                                                     },
                                                                 ),
@@ -1230,7 +1230,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `f32`,
                                                             token_idx: TokenIdx(
-                                                                73,
+                                                                74,
                                                             ),
                                                         },
                                                     ),
@@ -1358,7 +1358,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `ConcaveComponent`,
                                                                         token_idx: TokenIdx(
-                                                                            68,
+                                                                            69,
                                                                         ),
                                                                     },
                                                                 ),
@@ -1450,7 +1450,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `f32`,
                                                             token_idx: TokenIdx(
-                                                                81,
+                                                                82,
                                                             ),
                                                         },
                                                     ),
@@ -1578,7 +1578,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `ConcaveComponent`,
                                                                         token_idx: TokenIdx(
-                                                                            68,
+                                                                            69,
                                                                         ),
                                                                     },
                                                                 ),
@@ -1670,7 +1670,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `f32`,
                                                             token_idx: TokenIdx(
-                                                                99,
+                                                                100,
                                                             ),
                                                         },
                                                     ),
@@ -1798,7 +1798,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `ConcaveComponent`,
                                                                         token_idx: TokenIdx(
-                                                                            68,
+                                                                            69,
                                                                         ),
                                                                     },
                                                                 ),
@@ -1890,7 +1890,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `f32`,
                                                             token_idx: TokenIdx(
-                                                                191,
+                                                                192,
                                                             ),
                                                         },
                                                     ),
@@ -2018,7 +2018,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `ConcaveComponent`,
                                                                         token_idx: TokenIdx(
-                                                                            68,
+                                                                            69,
                                                                         ),
                                                                     },
                                                                 ),
@@ -2110,7 +2110,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `BoundingBox`,
                                                             token_idx: TokenIdx(
-                                                                268,
+                                                                269,
                                                             ),
                                                         },
                                                     ),
@@ -2238,7 +2238,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `ConcaveComponent`,
                                                                         token_idx: TokenIdx(
-                                                                            68,
+                                                                            69,
                                                                         ),
                                                                     },
                                                                 ),
@@ -2330,7 +2330,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `RelativeBoundingBox`,
                                                             token_idx: TokenIdx(
-                                                                402,
+                                                                403,
                                                             ),
                                                         },
                                                     ),
@@ -2460,7 +2460,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `ConcaveComponent`,
                                                                         token_idx: TokenIdx(
-                                                                            68,
+                                                                            69,
                                                                         ),
                                                                     },
                                                                 ),
@@ -2552,7 +2552,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `LineSegment`,
                                                             token_idx: TokenIdx(
-                                                                421,
+                                                                422,
                                                             ),
                                                         },
                                                     ),
@@ -2682,7 +2682,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `ConcaveComponent`,
                                                                         token_idx: TokenIdx(
-                                                                            68,
+                                                                            69,
                                                                         ),
                                                                     },
                                                                 ),
@@ -2774,7 +2774,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Point2d`,
                                                             token_idx: TokenIdx(
-                                                                460,
+                                                                461,
                                                             ),
                                                         },
                                                     ),
@@ -2904,7 +2904,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `ConcaveComponent`,
                                                                         token_idx: TokenIdx(
-                                                                            68,
+                                                                            69,
                                                                         ),
                                                                     },
                                                                 ),
@@ -2996,7 +2996,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Point2d`,
                                                             token_idx: TokenIdx(
-                                                                481,
+                                                                482,
                                                             ),
                                                         },
                                                     ),
@@ -3126,7 +3126,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `ConcaveComponent`,
                                                                         token_idx: TokenIdx(
-                                                                            68,
+                                                                            69,
                                                                         ),
                                                                     },
                                                                 ),
@@ -3218,7 +3218,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Vector2d`,
                                                             token_idx: TokenIdx(
-                                                                502,
+                                                                503,
                                                             ),
                                                         },
                                                     ),
@@ -3348,7 +3348,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `ConcaveComponent`,
                                                                         token_idx: TokenIdx(
-                                                                            68,
+                                                                            69,
                                                                         ),
                                                                     },
                                                                 ),
@@ -3440,7 +3440,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Vector2d`,
                                                             token_idx: TokenIdx(
-                                                                518,
+                                                                519,
                                                             ),
                                                         },
                                                     ),
@@ -3570,7 +3570,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `ConcaveComponent`,
                                                                         token_idx: TokenIdx(
-                                                                            68,
+                                                                            69,
                                                                         ),
                                                                     },
                                                                 ),
@@ -3662,7 +3662,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Vector2d`,
                                                             token_idx: TokenIdx(
-                                                                537,
+                                                                538,
                                                             ),
                                                         },
                                                     ),

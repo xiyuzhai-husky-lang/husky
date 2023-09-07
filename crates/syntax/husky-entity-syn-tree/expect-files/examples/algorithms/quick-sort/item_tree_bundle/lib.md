@@ -21,7 +21,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `quick_sort`,
                                         token_idx: TokenIdx(
-                                            2,
+                                            3,
                                         ),
                                     },
                                     block: Fugitive {
@@ -71,7 +71,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `quick_sort_aux`,
                                         token_idx: TokenIdx(
-                                            41,
+                                            42,
                                         ),
                                     },
                                     block: Fugitive {
@@ -123,7 +123,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `partition`,
                                         token_idx: TokenIdx(
-                                            102,
+                                            103,
                                         ),
                                     },
                                     block: Fugitive {
@@ -175,7 +175,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `quick_sort_works_for_integers`,
                                         token_idx: TokenIdx(
-                                            227,
+                                            228,
                                         ),
                                     },
                                     block: Fugitive {
@@ -227,7 +227,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `quick_sort_works_for_strs`,
                                         token_idx: TokenIdx(
-                                            264,
+                                            265,
                                         ),
                                     },
                                     block: Fugitive {
@@ -286,7 +286,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `quick_sort`,
                                         token_idx: TokenIdx(
-                                            2,
+                                            3,
                                         ),
                                     },
                                     block: Fugitive {
@@ -331,7 +331,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `quick_sort_aux`,
                                         token_idx: TokenIdx(
-                                            41,
+                                            42,
                                         ),
                                     },
                                     block: Fugitive {
@@ -376,7 +376,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `partition`,
                                         token_idx: TokenIdx(
-                                            102,
+                                            103,
                                         ),
                                     },
                                     block: Fugitive {
@@ -421,7 +421,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `quick_sort_works_for_integers`,
                                         token_idx: TokenIdx(
-                                            227,
+                                            228,
                                         ),
                                     },
                                     block: Fugitive {
@@ -466,7 +466,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `quick_sort_works_for_strs`,
                                         token_idx: TokenIdx(
-                                            264,
+                                            265,
                                         ),
                                     },
                                     block: Fugitive {

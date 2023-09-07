@@ -19,7 +19,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `ConnectedComponentDistribution`,
                                 token_idx: TokenIdx(
-                                    12,
+                                    13,
                                 ),
                             },
                             block: Type {
@@ -61,7 +61,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `EffHoles`,
                                 token_idx: TokenIdx(
-                                    33,
+                                    34,
                                 ),
                             },
                             block: Type {
@@ -105,7 +105,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `hole_tmpl`,
                                 token_idx: TokenIdx(
-                                    45,
+                                    46,
                                 ),
                             },
                             block: Fugitive {
@@ -155,7 +155,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `ConnectedComponent`,
                                 token_idx: TokenIdx(
-                                    71,
+                                    72,
                                 ),
                             },
                             block: Type {
@@ -199,7 +199,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `horizontal_extend`,
                                 token_idx: TokenIdx(
-                                    570,
+                                    571,
                                 ),
                             },
                             block: Fugitive {
@@ -249,7 +249,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `find_connected_components`,
                                 token_idx: TokenIdx(
-                                    656,
+                                    657,
                                 ),
                             },
                             block: Fugitive {
@@ -306,7 +306,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `ConnectedComponentDistribution`,
                                 token_idx: TokenIdx(
-                                    12,
+                                    13,
                                 ),
                             },
                             block: Type {
@@ -341,7 +341,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `EffHoles`,
                                 token_idx: TokenIdx(
-                                    33,
+                                    34,
                                 ),
                             },
                             block: Type {
@@ -380,7 +380,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `hole_tmpl`,
                                 token_idx: TokenIdx(
-                                    45,
+                                    46,
                                 ),
                             },
                             block: Fugitive {
@@ -421,7 +421,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `ConnectedComponent`,
                                 token_idx: TokenIdx(
-                                    71,
+                                    72,
                                 ),
                             },
                             block: Type {
@@ -460,7 +460,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `horizontal_extend`,
                                 token_idx: TokenIdx(
-                                    570,
+                                    571,
                                 ),
                             },
                             block: Fugitive {
@@ -501,7 +501,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `find_connected_components`,
                                 token_idx: TokenIdx(
-                                    656,
+                                    657,
                                 ),
                             },
                             block: Fugitive {
@@ -548,7 +548,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `connected_component`,
                                         token_idx: TokenIdx(
-                                            1,
+                                            2,
                                         ),
                                     },
                                 },
@@ -591,7 +591,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `raw_contour`,
                                         token_idx: TokenIdx(
-                                            3,
+                                            4,
                                         ),
                                     },
                                 },
@@ -634,7 +634,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `geom2d`,
                                         token_idx: TokenIdx(
-                                            5,
+                                            6,
                                         ),
                                     },
                                 },
@@ -677,7 +677,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
-                                            7,
+                                            8,
                                         ),
                                     },
                                 },
@@ -720,7 +720,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `fermi`,
                                         token_idx: TokenIdx(
-                                            9,
+                                            10,
                                         ),
                                     },
                                 },
@@ -763,7 +763,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `digits`,
                                         token_idx: TokenIdx(
-                                            11,
+                                            12,
                                         ),
                                     },
                                 },
@@ -806,7 +806,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `major`,
                                         token_idx: TokenIdx(
-                                            13,
+                                            14,
                                         ),
                                     },
                                 },
@@ -849,7 +849,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `main`,
                                         token_idx: TokenIdx(
-                                            65,
+                                            66,
                                         ),
                                     },
                                     block: Fugitive {
@@ -908,7 +908,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `Class`,
                                                 token_idx: TokenIdx(
-                                                    11,
+                                                    12,
                                                 ),
                                             },
                                             block: Type {
@@ -979,7 +979,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `OneVsAll`,
                                                 token_idx: TokenIdx(
-                                                    33,
+                                                    34,
                                                 ),
                                             },
                                             block: Type {
@@ -1050,7 +1050,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `OneVsAllResult`,
                                                 token_idx: TokenIdx(
-                                                    83,
+                                                    84,
                                                 ),
                                             },
                                             block: Type {
@@ -1121,7 +1121,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `narrow_down`,
                                                 token_idx: TokenIdx(
-                                                    127,
+                                                    128,
                                                 ),
                                             },
                                             block: Fugitive {
@@ -1186,7 +1186,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `MnistLabel`,
                                                 token_idx: TokenIdx(
-                                                    2,
+                                                    3,
                                                 ),
                                             },
                                             block: Type {
@@ -1257,7 +1257,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `BinaryImage28`,
                                                 token_idx: TokenIdx(
-                                                    32,
+                                                    33,
                                                 ),
                                             },
                                             block: Type {
@@ -1322,7 +1322,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `BinaryGrid28`,
                                                 token_idx: TokenIdx(
-                                                    78,
+                                                    79,
                                                 ),
                                             },
                                             block: Type {
@@ -1387,7 +1387,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `input`,
                                                 token_idx: TokenIdx(
-                                                    124,
+                                                    125,
                                                 ),
                                             },
                                             block: Fugitive {
@@ -1450,7 +1450,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `RawContour`,
                                         token_idx: TokenIdx(
-                                            24,
+                                            25,
                                         ),
                                     },
                                     block: Type {
@@ -1501,7 +1501,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `find_raw_contours`,
                                         token_idx: TokenIdx(
-                                            954,
+                                            955,
                                         ),
                                     },
                                     block: Fugitive {
@@ -1560,7 +1560,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `connected_components`,
                                                 token_idx: TokenIdx(
-                                                    6,
+                                                    7,
                                                 ),
                                             },
                                             block: Fugitive {
@@ -1631,7 +1631,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `major_connected_component`,
                                                 token_idx: TokenIdx(
-                                                    18,
+                                                    19,
                                                 ),
                                             },
                                             block: Fugitive {
@@ -1702,7 +1702,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `ignored_connected_components_row_span_sum_sum`,
                                                 token_idx: TokenIdx(
-                                                    69,
+                                                    70,
                                                 ),
                                             },
                                             block: Fugitive {
@@ -1773,7 +1773,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `major_raw_contours`,
                                                 token_idx: TokenIdx(
-                                                    103,
+                                                    104,
                                                 ),
                                             },
                                             block: Fugitive {
@@ -1844,7 +1844,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `major_raw_contour`,
                                                 token_idx: TokenIdx(
-                                                    115,
+                                                    116,
                                                 ),
                                             },
                                             block: Fugitive {
@@ -1915,7 +1915,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `major_line_segment_sketch`,
                                                 token_idx: TokenIdx(
-                                                    128,
+                                                    129,
                                                 ),
                                             },
                                             block: Fugitive {
@@ -1986,7 +1986,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `major_concave_components`,
                                                 token_idx: TokenIdx(
-                                                    138,
+                                                    139,
                                                 ),
                                             },
                                             block: Fugitive {
@@ -2059,7 +2059,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `is_one`,
                                                         token_idx: TokenIdx(
-                                                            23,
+                                                            24,
                                                         ),
                                                     },
                                                     block: Fugitive {
@@ -2140,7 +2140,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `FermiMatchResult`,
                                                 token_idx: TokenIdx(
-                                                    6,
+                                                    7,
                                                 ),
                                             },
                                             block: Type {
@@ -2205,7 +2205,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `fermi_match`,
                                                 token_idx: TokenIdx(
-                                                    153,
+                                                    154,
                                                 ),
                                             },
                                             block: Fugitive {
@@ -2276,7 +2276,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `RawContour`,
                                                 token_idx: TokenIdx(
-                                                    24,
+                                                    25,
                                                 ),
                                             },
                                             block: Type {
@@ -2341,7 +2341,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `find_raw_contours`,
                                                 token_idx: TokenIdx(
-                                                    954,
+                                                    955,
                                                 ),
                                             },
                                             block: Fugitive {
@@ -2412,7 +2412,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `LineSegmentStroke`,
                                                 token_idx: TokenIdx(
-                                                    41,
+                                                    42,
                                                 ),
                                             },
                                             block: Type {
@@ -2477,7 +2477,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `LineSegmentSketch`,
                                                 token_idx: TokenIdx(
-                                                    170,
+                                                    171,
                                                 ),
                                             },
                                             block: Type {
@@ -2544,7 +2544,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `ConcaveComponent`,
                                                         token_idx: TokenIdx(
-                                                            34,
+                                                            35,
                                                         ),
                                                     },
                                                     block: Type {
@@ -2621,7 +2621,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `find_concave_components`,
                                                         token_idx: TokenIdx(
-                                                            553,
+                                                            554,
                                                         ),
                                                     },
                                                     block: Fugitive {
@@ -2704,7 +2704,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `LineSegment`,
                                                         token_idx: TokenIdx(
-                                                            8,
+                                                            9,
                                                         ),
                                                     },
                                                     block: Type {
@@ -2779,7 +2779,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `ConnectedComponentDistribution`,
                                                 token_idx: TokenIdx(
-                                                    12,
+                                                    13,
                                                 ),
                                             },
                                             block: Type {
@@ -2844,7 +2844,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `EffHoles`,
                                                 token_idx: TokenIdx(
-                                                    33,
+                                                    34,
                                                 ),
                                             },
                                             block: Type {
@@ -2909,7 +2909,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `ConnectedComponent`,
                                                 token_idx: TokenIdx(
-                                                    71,
+                                                    72,
                                                 ),
                                             },
                                             block: Type {
@@ -2974,7 +2974,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `find_connected_components`,
                                                 token_idx: TokenIdx(
-                                                    656,
+                                                    657,
                                                 ),
                                             },
                                             block: Fugitive {
@@ -3049,7 +3049,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `is_six`,
                                                         token_idx: TokenIdx(
-                                                            37,
+                                                            38,
                                                         ),
                                                     },
                                                     block: Fugitive {
@@ -3134,7 +3134,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `is_zero`,
                                                         token_idx: TokenIdx(
-                                                            49,
+                                                            50,
                                                         ),
                                                     },
                                                     block: Fugitive {
@@ -3219,7 +3219,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `is_two`,
                                                         token_idx: TokenIdx(
-                                                            113,
+                                                            114,
                                                         ),
                                                     },
                                                     block: Fugitive {
@@ -3304,7 +3304,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `is_three`,
                                                         token_idx: TokenIdx(
-                                                            26,
+                                                            27,
                                                         ),
                                                     },
                                                     block: Fugitive {
@@ -3389,7 +3389,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `is_five`,
                                                         token_idx: TokenIdx(
-                                                            9,
+                                                            10,
                                                         ),
                                                     },
                                                     block: Fugitive {
@@ -3474,7 +3474,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `is_seven`,
                                                         token_idx: TokenIdx(
-                                                            164,
+                                                            165,
                                                         ),
                                                     },
                                                     block: Fugitive {
@@ -3559,7 +3559,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `is_eight`,
                                                         token_idx: TokenIdx(
-                                                            22,
+                                                            23,
                                                         ),
                                                     },
                                                     block: Fugitive {
@@ -3644,7 +3644,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `is_nine`,
                                                         token_idx: TokenIdx(
-                                                            35,
+                                                            36,
                                                         ),
                                                     },
                                                     block: Fugitive {
@@ -3729,12 +3729,12 @@ Ok(
                         ast_idx: 124,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                77,
+                                78,
                             ),
                         },
                         trai_expr: 0,
                         for_token: TokenIdx(
-                            79,
+                            80,
                         ),
                         ty_sketch_expr: Path(
                             1,
@@ -3773,7 +3773,7 @@ Ok(
                         ast_idx: 125,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                96,
+                                97,
                             ),
                         },
                         ty_expr: 2,
@@ -3798,7 +3798,7 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
@@ -3825,7 +3825,7 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    7,
+                                    8,
                                 ),
                             },
                         ),
@@ -3853,7 +3853,7 @@ Ok(
                             IdentToken {
                                 ident: `raw_contour`,
                                 token_idx: TokenIdx(
-                                    3,
+                                    4,
                                 ),
                             },
                         ),
@@ -3888,7 +3888,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `raw_contour`,
                                         token_idx: TokenIdx(
-                                            3,
+                                            4,
                                         ),
                                     },
                                 },

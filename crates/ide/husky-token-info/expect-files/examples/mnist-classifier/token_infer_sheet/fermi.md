@@ -44,7 +44,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `matches`,
                         token_idx: TokenIdx(
-                            8,
+                            9,
                         ),
                     },
                 },
@@ -69,7 +69,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `others`,
                         token_idx: TokenIdx(
-                            16,
+                            17,
                         ),
                     },
                 },

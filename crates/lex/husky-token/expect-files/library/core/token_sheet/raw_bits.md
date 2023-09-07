@@ -360,17 +360,57 @@ Ok(
                 ),
             ),
         ],
-        group_starts: [
-            0,
-            4,
-            11,
-            24,
-            28,
-            31,
-            42,
-            50,
-            58,
-            66,
+        token_group_bases: [
+            TokenGroupBase(
+                TokenIdx(
+                    1,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    5,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    12,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    25,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    29,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    32,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    43,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    51,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    59,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    67,
+                ),
+            ),
         ],
         indents: [
             0,

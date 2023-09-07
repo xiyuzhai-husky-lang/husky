@@ -19,7 +19,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `MnistLabel`,
                                 token_idx: TokenIdx(
-                                    2,
+                                    3,
                                 ),
                             },
                             block: Type {
@@ -67,7 +67,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `BinaryImage28`,
                                 token_idx: TokenIdx(
-                                    32,
+                                    33,
                                 ),
                             },
                             block: Type {
@@ -109,7 +109,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `BinaryGrid28`,
                                 token_idx: TokenIdx(
-                                    78,
+                                    79,
                                 ),
                             },
                             block: Type {
@@ -151,7 +151,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `input`,
                                 token_idx: TokenIdx(
-                                    124,
+                                    125,
                                 ),
                             },
                             block: Fugitive {

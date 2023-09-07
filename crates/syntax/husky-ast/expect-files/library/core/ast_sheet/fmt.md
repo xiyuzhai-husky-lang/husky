@@ -27,7 +27,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    4,
+                                    5,
                                 ),
                             },
                         },
@@ -39,13 +39,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Debug`,
                         token_idx: TokenIdx(
-                            6,
+                            7,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            7,
+                            8,
                         ),
                         drained: false,
                     },

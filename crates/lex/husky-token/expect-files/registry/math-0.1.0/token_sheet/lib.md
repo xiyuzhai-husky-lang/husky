@@ -32,12 +32,32 @@ Ok(
                 `probability`,
             ),
         ],
-        group_starts: [
-            0,
-            2,
-            4,
-            6,
-            8,
+        token_group_bases: [
+            TokenGroupBase(
+                TokenIdx(
+                    1,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    3,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    5,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    7,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    9,
+                ),
+            ),
         ],
         indents: [
             0,

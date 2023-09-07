@@ -92,7 +92,7 @@ Ok(
                     ast_idx: 4,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            15,
+                            16,
                         ),
                     },
                     template_parameter_decl_list: Ok(
@@ -103,23 +103,23 @@ Ok(
                     },
                     for_token: ConnectionForToken {
                         token_idx: TokenIdx(
-                            17,
+                            18,
                         ),
                     },
                     self_ty_decl: DeriveAny {
                         at_token: AtToken(
                             TokenIdx(
-                                18,
+                                19,
                             ),
                         ),
                         derive_token: DeriveToken {
                             token_idx: TokenIdx(
-                                19,
+                                20,
                             ),
                         },
                         underscore_token: UnderscoreToken {
                             token_idx: TokenIdx(
-                                20,
+                                21,
                             ),
                         },
                     },
@@ -127,7 +127,7 @@ Ok(
                         EolToken::Colon(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    21,
+                                    22,
                                 ),
                             },
                         ),
@@ -170,7 +170,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Clone`,
                                                 token_idx: TokenIdx(
-                                                    16,
+                                                    17,
                                                 ),
                                             },
                                         ),
@@ -290,7 +290,7 @@ Ok(
                                 RitchieParameters {
                                     lpar: LparToken(
                                         TokenIdx(
-                                            24,
+                                            25,
                                         ),
                                     ),
                                     self_value_parameter: None,
@@ -299,7 +299,7 @@ Ok(
                                     commas: [],
                                     rpar: RparToken(
                                         TokenIdx(
-                                            25,
+                                            26,
                                         ),
                                     ),
                                 },
@@ -308,7 +308,7 @@ Ok(
                                 Some(
                                     CurryToken(
                                         TokenIdx(
-                                            26,
+                                            27,
                                         ),
                                     ),
                                 ),
@@ -324,7 +324,7 @@ Ok(
                                 EolToken::Semicolon(
                                     EolSemicolonToken {
                                         token_idx: TokenIdx(
-                                            28,
+                                            29,
                                         ),
                                     },
                                 ),
@@ -370,7 +370,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Clone`,
                                                                     token_idx: TokenIdx(
-                                                                        16,
+                                                                        17,
                                                                     ),
                                                                 },
                                                             ),
@@ -446,7 +446,7 @@ Ok(
                                         data: [
                                             SynExpr::SelfType(
                                                 TokenIdx(
-                                                    27,
+                                                    28,
                                                 ),
                                             ),
                                         ],
@@ -538,7 +538,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Clone`,
                                                                             token_idx: TokenIdx(
-                                                                                16,
+                                                                                17,
                                                                             ),
                                                                         },
                                                                     ),
@@ -614,7 +614,7 @@ Ok(
                                                 data: [
                                                     SynExpr::SelfType(
                                                         TokenIdx(
-                                                            27,
+                                                            28,
                                                         ),
                                                     ),
                                                 ],

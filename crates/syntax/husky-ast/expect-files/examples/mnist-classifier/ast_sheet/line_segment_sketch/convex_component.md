@@ -30,13 +30,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `visualize`,
                         token_idx: TokenIdx(
-                            27,
+                            28,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            28,
+                            29,
                         ),
                         drained: false,
                     },
@@ -89,13 +89,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `ConvexComponent`,
                         token_idx: TokenIdx(
-                            7,
+                            8,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            8,
+                            9,
                         ),
                         drained: false,
                     },

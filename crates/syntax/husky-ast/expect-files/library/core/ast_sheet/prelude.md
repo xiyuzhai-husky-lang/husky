@@ -11,7 +11,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    0,
+                                    1,
                                 ),
                             },
                         },
@@ -19,7 +19,7 @@ Ok(
                     state_after_visibility_expr: Some(
                         TokenStreamState {
                             next_token_idx: TokenIdx(
-                                1,
+                                2,
                             ),
                             drained: false,
                         },
@@ -34,7 +34,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    7,
+                                    8,
                                 ),
                             },
                         },
@@ -42,7 +42,7 @@ Ok(
                     state_after_visibility_expr: Some(
                         TokenStreamState {
                             next_token_idx: TokenIdx(
-                                8,
+                                9,
                             ),
                             drained: false,
                         },
@@ -57,7 +57,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    14,
+                                    15,
                                 ),
                             },
                         },
@@ -65,7 +65,7 @@ Ok(
                     state_after_visibility_expr: Some(
                         TokenStreamState {
                             next_token_idx: TokenIdx(
-                                15,
+                                16,
                             ),
                             drained: false,
                         },
@@ -80,7 +80,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    21,
+                                    22,
                                 ),
                             },
                         },
@@ -88,7 +88,7 @@ Ok(
                     state_after_visibility_expr: Some(
                         TokenStreamState {
                             next_token_idx: TokenIdx(
-                                22,
+                                23,
                             ),
                             drained: false,
                         },
@@ -103,7 +103,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    28,
+                                    29,
                                 ),
                             },
                         },
@@ -111,7 +111,7 @@ Ok(
                     state_after_visibility_expr: Some(
                         TokenStreamState {
                             next_token_idx: TokenIdx(
-                                29,
+                                30,
                             ),
                             drained: false,
                         },
@@ -126,7 +126,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    35,
+                                    36,
                                 ),
                             },
                         },
@@ -134,7 +134,7 @@ Ok(
                     state_after_visibility_expr: Some(
                         TokenStreamState {
                             next_token_idx: TokenIdx(
-                                36,
+                                37,
                             ),
                             drained: false,
                         },
@@ -149,7 +149,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    42,
+                                    43,
                                 ),
                             },
                         },
@@ -157,7 +157,7 @@ Ok(
                     state_after_visibility_expr: Some(
                         TokenStreamState {
                             next_token_idx: TokenIdx(
-                                43,
+                                44,
                             ),
                             drained: false,
                         },
@@ -172,7 +172,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    49,
+                                    50,
                                 ),
                             },
                         },
@@ -180,7 +180,7 @@ Ok(
                     state_after_visibility_expr: Some(
                         TokenStreamState {
                             next_token_idx: TokenIdx(
-                                50,
+                                51,
                             ),
                             drained: false,
                         },
@@ -195,7 +195,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    56,
+                                    57,
                                 ),
                             },
                         },
@@ -203,7 +203,7 @@ Ok(
                     state_after_visibility_expr: Some(
                         TokenStreamState {
                             next_token_idx: TokenIdx(
-                                57,
+                                58,
                             ),
                             drained: false,
                         },
@@ -218,7 +218,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    63,
+                                    64,
                                 ),
                             },
                         },
@@ -226,7 +226,7 @@ Ok(
                     state_after_visibility_expr: Some(
                         TokenStreamState {
                             next_token_idx: TokenIdx(
-                                64,
+                                65,
                             ),
                             drained: false,
                         },
@@ -241,7 +241,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    70,
+                                    71,
                                 ),
                             },
                         },
@@ -249,7 +249,7 @@ Ok(
                     state_after_visibility_expr: Some(
                         TokenStreamState {
                             next_token_idx: TokenIdx(
-                                71,
+                                72,
                             ),
                             drained: false,
                         },

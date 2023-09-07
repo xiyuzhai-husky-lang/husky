@@ -21,7 +21,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `simple_seven_match`,
                                 token_idx: TokenIdx(
-                                    5,
+                                    6,
                                 ),
                             },
                             block: Fugitive {
@@ -73,7 +73,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `simple_leftdown_pattern`,
                                 token_idx: TokenIdx(
-                                    18,
+                                    19,
                                 ),
                             },
                             block: Fugitive {
@@ -125,7 +125,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `special_seven_match`,
                                 token_idx: TokenIdx(
-                                    48,
+                                    49,
                                 ),
                             },
                             block: Fugitive {
@@ -177,7 +177,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `leftupcc_pattern`,
                                 token_idx: TokenIdx(
-                                    63,
+                                    64,
                                 ),
                             },
                             block: Fugitive {
@@ -229,7 +229,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `leftdowncc_pattern`,
                                 token_idx: TokenIdx(
-                                    106,
+                                    107,
                                 ),
                             },
                             block: Fugitive {
@@ -281,7 +281,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_seven`,
                                 token_idx: TokenIdx(
-                                    164,
+                                    165,
                                 ),
                             },
                             block: Fugitive {
@@ -329,7 +329,7 @@ Ok(
                         parent_name_token: PathNameToken::Super(
                             SuperToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
@@ -350,7 +350,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            3,
+                            4,
                         ),
                     ),
                 },
@@ -359,14 +359,14 @@ Ok(
                         parent_name_token: PathNameToken::Super(
                             SuperToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    2,
+                                    3,
                                 ),
                             ),
                         ),

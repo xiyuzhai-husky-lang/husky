@@ -21,7 +21,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `algebra`,
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         },
@@ -59,7 +59,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `algebraic_geometry`,
                                 token_idx: TokenIdx(
-                                    3,
+                                    4,
                                 ),
                             },
                         },
@@ -97,7 +97,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `algebraic_topology`,
                                 token_idx: TokenIdx(
-                                    5,
+                                    6,
                                 ),
                             },
                         },
@@ -135,7 +135,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `category_theory`,
                                 token_idx: TokenIdx(
-                                    7,
+                                    8,
                                 ),
                             },
                         },
@@ -173,7 +173,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `probability`,
                                 token_idx: TokenIdx(
-                                    9,
+                                    10,
                                 ),
                             },
                         },

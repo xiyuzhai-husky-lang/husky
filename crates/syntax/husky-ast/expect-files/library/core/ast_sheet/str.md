@@ -27,7 +27,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    4,
+                                    5,
                                 ),
                             },
                         },
@@ -41,13 +41,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `str`,
                         token_idx: TokenIdx(
-                            6,
+                            7,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            7,
+                            8,
                         ),
                         drained: false,
                     },
@@ -69,7 +69,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    8,
+                                    9,
                                 ),
                             },
                         },
@@ -83,13 +83,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `StringLiteral`,
                         token_idx: TokenIdx(
-                            10,
+                            11,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            11,
+                            12,
                         ),
                         drained: false,
                     },

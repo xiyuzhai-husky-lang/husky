@@ -21,7 +21,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `open_one_match`,
                                 token_idx: TokenIdx(
-                                    5,
+                                    6,
                                 ),
                             },
                             block: Fugitive {
@@ -73,7 +73,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `almost_closed`,
                                 token_idx: TokenIdx(
-                                    18,
+                                    19,
                                 ),
                             },
                             block: Fugitive {
@@ -125,7 +125,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_zero`,
                                 token_idx: TokenIdx(
-                                    49,
+                                    50,
                                 ),
                             },
                             block: Fugitive {
@@ -173,7 +173,7 @@ Ok(
                         parent_name_token: PathNameToken::Super(
                             SuperToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
@@ -194,7 +194,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            3,
+                            4,
                         ),
                     ),
                 },
@@ -203,14 +203,14 @@ Ok(
                         parent_name_token: PathNameToken::Super(
                             SuperToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    2,
+                                    3,
                                 ),
                             ),
                         ),

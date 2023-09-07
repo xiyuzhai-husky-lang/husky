@@ -111,7 +111,7 @@ Ok(
                                             data: [
                                                 SynExpr::Literal(
                                                     TokenIdx(
-                                                        35,
+                                                        36,
                                                     ),
                                                     Literal::Integer(
                                                         UnspecifiedRegular(
@@ -121,7 +121,7 @@ Ok(
                                                 ),
                                                 SynExpr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        34,
+                                                        35,
                                                     ),
                                                     items: [
                                                         SynCommaListItem {
@@ -130,7 +130,7 @@ Ok(
                                                         },
                                                     ],
                                                     rbox_token_idx: TokenIdx(
-                                                        36,
+                                                        37,
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
@@ -156,7 +156,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `r32`,
                                                             token_idx: TokenIdx(
-                                                                37,
+                                                                38,
                                                             ),
                                                         },
                                                     ),
@@ -249,7 +249,7 @@ Ok(
                                             data: [
                                                 SynExpr::Literal(
                                                     TokenIdx(
-                                                        81,
+                                                        82,
                                                     ),
                                                     Literal::Integer(
                                                         UnspecifiedRegular(
@@ -259,7 +259,7 @@ Ok(
                                                 ),
                                                 SynExpr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        80,
+                                                        81,
                                                     ),
                                                     items: [
                                                         SynCommaListItem {
@@ -268,7 +268,7 @@ Ok(
                                                         },
                                                     ],
                                                     rbox_token_idx: TokenIdx(
-                                                        82,
+                                                        83,
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
@@ -294,7 +294,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `r32`,
                                                             token_idx: TokenIdx(
-                                                                83,
+                                                                84,
                                                             ),
                                                         },
                                                     ),
@@ -402,7 +402,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `BinaryImage28`,
                                                             token_idx: TokenIdx(
-                                                                126,
+                                                                127,
                                                             ),
                                                         },
                                                     ),
@@ -540,7 +540,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Visualize`,
                                                         token_idx: TokenIdx(
-                                                            40,
+                                                            41,
                                                         ),
                                                     },
                                                 ),
@@ -555,7 +555,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `BinaryImage28`,
                                                         token_idx: TokenIdx(
-                                                            42,
+                                                            43,
                                                         ),
                                                     },
                                                 ),
@@ -707,7 +707,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `Visualize`,
                                                                         token_idx: TokenIdx(
-                                                                            40,
+                                                                            41,
                                                                         ),
                                                                     },
                                                                 ),
@@ -722,7 +722,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `BinaryImage28`,
                                                                         token_idx: TokenIdx(
-                                                                            42,
+                                                                            43,
                                                                         ),
                                                                     },
                                                                 ),
@@ -821,7 +821,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Html`,
                                                             token_idx: TokenIdx(
-                                                                49,
+                                                                50,
                                                             ),
                                                         },
                                                     ),
@@ -935,7 +935,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `BinaryImage28`,
                                                         token_idx: TokenIdx(
-                                                            52,
+                                                            53,
                                                         ),
                                                     },
                                                 ),
@@ -1063,7 +1063,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `BinaryImage28`,
                                                                         token_idx: TokenIdx(
-                                                                            52,
+                                                                            53,
                                                                         ),
                                                                     },
                                                                 ),
@@ -1138,7 +1138,7 @@ Ok(
                                             data: [
                                                 SynExpr::SelfType(
                                                     TokenIdx(
-                                                        61,
+                                                        62,
                                                     ),
                                                 ),
                                             ],
@@ -1272,7 +1272,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `core`,
                                                         token_idx: TokenIdx(
-                                                            64,
+                                                            65,
                                                         ),
                                                     },
                                                 ),
@@ -1284,14 +1284,14 @@ Ok(
                                                 parent: 0,
                                                 scope_resolution_token: ScopeResolutionToken(
                                                     TokenIdx(
-                                                        65,
+                                                        66,
                                                     ),
                                                 ),
                                                 ident_token: Ok(
                                                     IdentToken {
                                                         ident: `ops`,
                                                         token_idx: TokenIdx(
-                                                            66,
+                                                            67,
                                                         ),
                                                     },
                                                 ),
@@ -1305,14 +1305,14 @@ Ok(
                                                 parent: 1,
                                                 scope_resolution_token: ScopeResolutionToken(
                                                     TokenIdx(
-                                                        67,
+                                                        68,
                                                     ),
                                                 ),
                                                 ident_token: Ok(
                                                     IdentToken {
                                                         ident: `IntIndex`,
                                                         token_idx: TokenIdx(
-                                                            68,
+                                                            69,
                                                         ),
                                                     },
                                                 ),
@@ -1329,7 +1329,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `BinaryImage28`,
                                                         token_idx: TokenIdx(
-                                                            70,
+                                                            71,
                                                         ),
                                                     },
                                                 ),
@@ -1475,7 +1475,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `core`,
                                                                         token_idx: TokenIdx(
-                                                                            64,
+                                                                            65,
                                                                         ),
                                                                     },
                                                                 ),
@@ -1487,14 +1487,14 @@ Ok(
                                                                 parent: 0,
                                                                 scope_resolution_token: ScopeResolutionToken(
                                                                     TokenIdx(
-                                                                        65,
+                                                                        66,
                                                                     ),
                                                                 ),
                                                                 ident_token: Ok(
                                                                     IdentToken {
                                                                         ident: `ops`,
                                                                         token_idx: TokenIdx(
-                                                                            66,
+                                                                            67,
                                                                         ),
                                                                     },
                                                                 ),
@@ -1508,14 +1508,14 @@ Ok(
                                                                 parent: 1,
                                                                 scope_resolution_token: ScopeResolutionToken(
                                                                     TokenIdx(
-                                                                        67,
+                                                                        68,
                                                                     ),
                                                                 ),
                                                                 ident_token: Ok(
                                                                     IdentToken {
                                                                         ident: `IntIndex`,
                                                                         token_idx: TokenIdx(
-                                                                            68,
+                                                                            69,
                                                                         ),
                                                                     },
                                                                 ),
@@ -1532,7 +1532,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `BinaryImage28`,
                                                                         token_idx: TokenIdx(
-                                                                            70,
+                                                                            71,
                                                                         ),
                                                                     },
                                                                 ),
@@ -1631,7 +1631,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `r32`,
                                                             token_idx: TokenIdx(
-                                                                75,
+                                                                76,
                                                             ),
                                                         },
                                                     ),
@@ -1769,7 +1769,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Visualize`,
                                                         token_idx: TokenIdx(
-                                                            86,
+                                                            87,
                                                         ),
                                                     },
                                                 ),
@@ -1784,7 +1784,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `BinaryGrid28`,
                                                         token_idx: TokenIdx(
-                                                            88,
+                                                            89,
                                                         ),
                                                     },
                                                 ),
@@ -1936,7 +1936,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `Visualize`,
                                                                         token_idx: TokenIdx(
-                                                                            86,
+                                                                            87,
                                                                         ),
                                                                     },
                                                                 ),
@@ -1951,7 +1951,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `BinaryGrid28`,
                                                                         token_idx: TokenIdx(
-                                                                            88,
+                                                                            89,
                                                                         ),
                                                                     },
                                                                 ),
@@ -2050,7 +2050,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Html`,
                                                             token_idx: TokenIdx(
-                                                                95,
+                                                                96,
                                                             ),
                                                         },
                                                     ),
@@ -2164,7 +2164,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `BinaryGrid28`,
                                                         token_idx: TokenIdx(
-                                                            98,
+                                                            99,
                                                         ),
                                                     },
                                                 ),
@@ -2292,7 +2292,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `BinaryGrid28`,
                                                                         token_idx: TokenIdx(
-                                                                            98,
+                                                                            99,
                                                                         ),
                                                                     },
                                                                 ),
@@ -2367,7 +2367,7 @@ Ok(
                                             data: [
                                                 SynExpr::SelfType(
                                                     TokenIdx(
-                                                        107,
+                                                        108,
                                                     ),
                                                 ),
                                             ],
@@ -2501,7 +2501,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `core`,
                                                         token_idx: TokenIdx(
-                                                            110,
+                                                            111,
                                                         ),
                                                     },
                                                 ),
@@ -2513,14 +2513,14 @@ Ok(
                                                 parent: 0,
                                                 scope_resolution_token: ScopeResolutionToken(
                                                     TokenIdx(
-                                                        111,
+                                                        112,
                                                     ),
                                                 ),
                                                 ident_token: Ok(
                                                     IdentToken {
                                                         ident: `ops`,
                                                         token_idx: TokenIdx(
-                                                            112,
+                                                            113,
                                                         ),
                                                     },
                                                 ),
@@ -2534,14 +2534,14 @@ Ok(
                                                 parent: 1,
                                                 scope_resolution_token: ScopeResolutionToken(
                                                     TokenIdx(
-                                                        113,
+                                                        114,
                                                     ),
                                                 ),
                                                 ident_token: Ok(
                                                     IdentToken {
                                                         ident: `IntIndex`,
                                                         token_idx: TokenIdx(
-                                                            114,
+                                                            115,
                                                         ),
                                                     },
                                                 ),
@@ -2558,7 +2558,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `BinaryGrid28`,
                                                         token_idx: TokenIdx(
-                                                            116,
+                                                            117,
                                                         ),
                                                     },
                                                 ),
@@ -2704,7 +2704,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `core`,
                                                                         token_idx: TokenIdx(
-                                                                            110,
+                                                                            111,
                                                                         ),
                                                                     },
                                                                 ),
@@ -2716,14 +2716,14 @@ Ok(
                                                                 parent: 0,
                                                                 scope_resolution_token: ScopeResolutionToken(
                                                                     TokenIdx(
-                                                                        111,
+                                                                        112,
                                                                     ),
                                                                 ),
                                                                 ident_token: Ok(
                                                                     IdentToken {
                                                                         ident: `ops`,
                                                                         token_idx: TokenIdx(
-                                                                            112,
+                                                                            113,
                                                                         ),
                                                                     },
                                                                 ),
@@ -2737,14 +2737,14 @@ Ok(
                                                                 parent: 1,
                                                                 scope_resolution_token: ScopeResolutionToken(
                                                                     TokenIdx(
-                                                                        113,
+                                                                        114,
                                                                     ),
                                                                 ),
                                                                 ident_token: Ok(
                                                                     IdentToken {
                                                                         ident: `IntIndex`,
                                                                         token_idx: TokenIdx(
-                                                                            114,
+                                                                            115,
                                                                         ),
                                                                     },
                                                                 ),
@@ -2761,7 +2761,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `BinaryGrid28`,
                                                                         token_idx: TokenIdx(
-                                                                            116,
+                                                                            117,
                                                                         ),
                                                                     },
                                                                 ),
@@ -2860,7 +2860,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `r32`,
                                                             token_idx: TokenIdx(
-                                                                121,
+                                                                122,
                                                             ),
                                                         },
                                                     ),

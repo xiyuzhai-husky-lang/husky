@@ -36,9 +36,17 @@ Ok(
                 ),
             ),
         ],
-        group_starts: [
-            0,
-            4,
+        token_group_bases: [
+            TokenGroupBase(
+                TokenIdx(
+                    1,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    5,
+                ),
+            ),
         ],
         indents: [
             0,

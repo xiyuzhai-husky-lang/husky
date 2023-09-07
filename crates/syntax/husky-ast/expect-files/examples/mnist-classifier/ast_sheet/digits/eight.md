@@ -164,13 +164,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `upper_mouth_match`,
                         token_idx: TokenIdx(
-                            5,
+                            6,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            6,
+                            7,
                         ),
                         drained: false,
                     },
@@ -204,24 +204,24 @@ Ok(
                         variant: PubUnder {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    17,
+                                    18,
                                 ),
                             },
                             lpar: LparToken(
                                 TokenIdx(
-                                    18,
+                                    19,
                                 ),
                             ),
                             visibility: Super(
                                 SuperToken {
                                     token_idx: TokenIdx(
-                                        19,
+                                        20,
                                     ),
                                 },
                             ),
                             rpar: RparToken(
                                 TokenIdx(
-                                    20,
+                                    21,
                                 ),
                             ),
                         },
@@ -235,13 +235,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_eight`,
                         token_idx: TokenIdx(
-                            22,
+                            23,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            23,
+                            24,
                         ),
                         drained: false,
                     },
@@ -283,13 +283,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `big_mouth`,
                         token_idx: TokenIdx(
-                            88,
+                            89,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            89,
+                            90,
                         ),
                         drained: false,
                     },

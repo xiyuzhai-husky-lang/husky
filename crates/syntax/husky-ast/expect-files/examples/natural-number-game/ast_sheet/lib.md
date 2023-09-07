@@ -12,18 +12,18 @@ Ok(
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            2,
+                            3,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `Zero`,
                         token_idx: TokenIdx(
-                            3,
+                            4,
                         ),
                     },
                     state_after: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            4,
+                            5,
                         ),
                         drained: true,
                     },
@@ -38,18 +38,18 @@ Ok(
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            4,
+                            5,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `Succ`,
                         token_idx: TokenIdx(
-                            5,
+                            6,
                         ),
                     },
                     state_after: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            6,
+                            7,
                         ),
                         drained: false,
                     },
@@ -101,13 +101,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Nat`,
                         token_idx: TokenIdx(
-                            1,
+                            2,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            2,
+                            3,
                         ),
                         drained: true,
                     },
@@ -148,7 +148,7 @@ Ok(
                         OriginalAstError::ExpectedIdent(
                             TokenStreamState {
                                 next_token_idx: TokenIdx(
-                                    44,
+                                    45,
                                 ),
                                 drained: false,
                             },
@@ -186,13 +186,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `OddNat`,
                         token_idx: TokenIdx(
-                            83,
+                            84,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            84,
+                            85,
                         ),
                         drained: false,
                     },
@@ -228,13 +228,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `EvenNat`,
                         token_idx: TokenIdx(
-                            112,
+                            113,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            113,
+                            114,
                         ),
                         drained: false,
                     },

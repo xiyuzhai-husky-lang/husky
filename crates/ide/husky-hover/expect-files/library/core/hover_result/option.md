@@ -2,7 +2,7 @@ Ok(
     [
         (
             TokenIdx(
-                0,
+                1,
             ),
             Some(
                 HoverResult {
@@ -32,7 +32,7 @@ Ok(
         ),
         (
             TokenIdx(
-                1,
+                2,
             ),
             Some(
                 HoverResult {
@@ -62,7 +62,7 @@ Ok(
         ),
         (
             TokenIdx(
-                2,
+                3,
             ),
             Some(
                 HoverResult {
@@ -92,7 +92,7 @@ Ok(
         ),
         (
             TokenIdx(
-                3,
+                4,
             ),
             Some(
                 HoverResult {
@@ -122,7 +122,7 @@ Ok(
         ),
         (
             TokenIdx(
-                4,
+                5,
             ),
             Some(
                 HoverResult {
@@ -152,7 +152,7 @@ Ok(
         ),
         (
             TokenIdx(
-                5,
+                6,
             ),
             Some(
                 HoverResult {
@@ -182,7 +182,7 @@ Ok(
         ),
         (
             TokenIdx(
-                6,
+                7,
             ),
             Some(
                 HoverResult {
@@ -190,7 +190,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 6;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Ident(\n    `Option`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 3,\n    rule_idx: OnceUseRuleIdx(\n        1,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::MajorItem {\n                module_item_path: MajorItemPath::Type(\n                    TypePath(`core::option::Option`, `Enum`),\n                ),\n                node: MajorItemSynNode {\n                    syn_node_path: MajorItemSynNodePath::Type(\n                        TypeSynNodePath {\n                            maybe_ambiguous_path: MaybeAmbiguousPath {\n                                path: TypePath(`core::option::Option`, `Enum`),\n                                disambiguator: 0,\n                            },\n                        },\n                    ),\n                    visibility: Scope::Pub,\n                    ast_idx: 4,\n                    ident_token: IdentToken {\n                        ident: `Option`,\n                        token_idx: TokenIdx(\n                            11,\n                        ),\n                    },\n                    block: Type {\n                        path: TypePath(\n                            Id {\n                                value: 28,\n                            },\n                        ),\n                        variants: Some(\n                            TypeVariants {\n                                ast_idx_range: ArenaIdxRange(\n                                    0..2,\n                                ),\n                            },\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 6;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Ident(\n    `Option`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 3,\n    rule_idx: OnceUseRuleIdx(\n        1,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::MajorItem {\n                module_item_path: MajorItemPath::Type(\n                    TypePath(`core::option::Option`, `Enum`),\n                ),\n                node: MajorItemSynNode {\n                    syn_node_path: MajorItemSynNodePath::Type(\n                        TypeSynNodePath {\n                            maybe_ambiguous_path: MaybeAmbiguousPath {\n                                path: TypePath(`core::option::Option`, `Enum`),\n                                disambiguator: 0,\n                            },\n                        },\n                    ),\n                    visibility: Scope::Pub,\n                    ast_idx: 4,\n                    ident_token: IdentToken {\n                        ident: `Option`,\n                        token_idx: TokenIdx(\n                            12,\n                        ),\n                    },\n                    block: Type {\n                        path: TypePath(\n                            Id {\n                                value: 28,\n                            },\n                        ),\n                        variants: Some(\n                            TypeVariants {\n                                ast_idx_range: ArenaIdxRange(\n                                    0..2,\n                                ),\n                            },\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -212,7 +212,7 @@ Ok(
         ),
         (
             TokenIdx(
-                7,
+                8,
             ),
             Some(
                 HoverResult {
@@ -242,7 +242,7 @@ Ok(
         ),
         (
             TokenIdx(
-                8,
+                9,
             ),
             Some(
                 HoverResult {
@@ -272,7 +272,7 @@ Ok(
         ),
         (
             TokenIdx(
-                9,
+                10,
             ),
             Some(
                 HoverResult {
@@ -302,7 +302,7 @@ Ok(
         ),
         (
             TokenIdx(
-                10,
+                11,
             ),
             Some(
                 HoverResult {
@@ -332,7 +332,7 @@ Ok(
         ),
         (
             TokenIdx(
-                11,
+                12,
             ),
             Some(
                 HoverResult {
@@ -362,7 +362,7 @@ Ok(
         ),
         (
             TokenIdx(
-                12,
+                13,
             ),
             Some(
                 HoverResult {
@@ -392,7 +392,7 @@ Ok(
         ),
         (
             TokenIdx(
-                13,
+                14,
             ),
             Some(
                 HoverResult {
@@ -400,7 +400,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 13;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `T`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {\n        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {\n            ident_token: IdentToken {\n                ident: `T`,\n                token_idx: TokenIdx(\n                    13,\n                ),\n            },\n        },\n    },\n    syn_expr_region: ExprRegionLeash(_),\n};\n\nCurrentSynSymbol {\n    modifier: Const,\n    access_start: TokenIdx(\n        14,\n    ),\n    access_end: None,\n    variant: CurrentSynSymbolVariant::TemplateParameter {\n        syn_attrs: TemplateParameterSynAttrs {\n            syn_attrs: [],\n        },\n        annotated_variance_token: None,\n        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {\n            ident_token: IdentToken {\n                ident: `T`,\n                token_idx: TokenIdx(\n                    13,\n                ),\n            },\n        },\n    },\n}\n",
+                                value: "\ntoken_idx = 13;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `T`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {\n        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {\n            ident_token: IdentToken {\n                ident: `T`,\n                token_idx: TokenIdx(\n                    14,\n                ),\n            },\n        },\n    },\n    syn_expr_region: ExprRegionLeash(_),\n};\n\nCurrentSynSymbol {\n    modifier: Const,\n    access_start: TokenIdx(\n        15,\n    ),\n    access_end: None,\n    variant: CurrentSynSymbolVariant::TemplateParameter {\n        syn_attrs: TemplateParameterSynAttrs {\n            syn_attrs: [],\n        },\n        annotated_variance_token: None,\n        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {\n            ident_token: IdentToken {\n                ident: `T`,\n                token_idx: TokenIdx(\n                    14,\n                ),\n            },\n        },\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -422,7 +422,7 @@ Ok(
         ),
         (
             TokenIdx(
-                14,
+                15,
             ),
             Some(
                 HoverResult {
@@ -452,7 +452,7 @@ Ok(
         ),
         (
             TokenIdx(
-                15,
+                16,
             ),
             Some(
                 HoverResult {
@@ -482,7 +482,7 @@ Ok(
         ),
         (
             TokenIdx(
-                16,
+                17,
             ),
             Some(
                 HoverResult {
@@ -512,7 +512,7 @@ Ok(
         ),
         (
             TokenIdx(
-                17,
+                18,
             ),
             Some(
                 HoverResult {
@@ -542,7 +542,7 @@ Ok(
         ),
         (
             TokenIdx(
-                18,
+                19,
             ),
             Some(
                 HoverResult {
@@ -572,7 +572,7 @@ Ok(
         ),
         (
             TokenIdx(
-                19,
+                20,
             ),
             Some(
                 HoverResult {
@@ -602,7 +602,7 @@ Ok(
         ),
         (
             TokenIdx(
-                20,
+                21,
             ),
             Some(
                 HoverResult {
@@ -632,7 +632,7 @@ Ok(
         ),
         (
             TokenIdx(
-                21,
+                22,
             ),
             Some(
                 HoverResult {

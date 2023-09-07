@@ -20,13 +20,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `algebra`,
                         token_idx: TokenIdx(
-                            1,
+                            2,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            2,
+                            3,
                         ),
                         drained: true,
                     },
@@ -58,13 +58,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `algebraic_geometry`,
                         token_idx: TokenIdx(
-                            3,
+                            4,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            4,
+                            5,
                         ),
                         drained: true,
                     },
@@ -96,13 +96,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `algebraic_topology`,
                         token_idx: TokenIdx(
-                            5,
+                            6,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            6,
+                            7,
                         ),
                         drained: true,
                     },
@@ -134,13 +134,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `category_theory`,
                         token_idx: TokenIdx(
-                            7,
+                            8,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            8,
+                            9,
                         ),
                         drained: true,
                     },
@@ -172,13 +172,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `probability`,
                         token_idx: TokenIdx(
-                            9,
+                            10,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            10,
+                            11,
                         ),
                         drained: true,
                     },

@@ -66,7 +66,7 @@ fn parse_expr_works() {
                     data: [
                         Literal(
                             TokenIdx(
-                                0,
+                                1,
                             ),
                             Integer(
                                 UnspecifiedRegular(
@@ -140,7 +140,7 @@ fn parse_expr_works() {
                     data: [
                         Literal(
                             TokenIdx(
-                                1,
+                                2,
                             ),
                             Integer(
                                 UnspecifiedRegular(
@@ -151,7 +151,7 @@ fn parse_expr_works() {
                         Prefix {
                             opr: Minus,
                             opr_token_idx: TokenIdx(
-                                0,
+                                1,
                             ),
                             opd: 0,
                         },
@@ -221,7 +221,7 @@ fn parse_expr_works() {
                     data: [
                         Literal(
                             TokenIdx(
-                                0,
+                                1,
                             ),
                             Integer(
                                 I32(
@@ -295,7 +295,7 @@ fn parse_expr_works() {
                     data: [
                         Literal(
                             TokenIdx(
-                                0,
+                                1,
                             ),
                             Integer(
                                 I64(
@@ -440,7 +440,7 @@ fn parse_expr_works() {
                     data: [
                         Literal(
                             TokenIdx(
-                                0,
+                                1,
                             ),
                             Integer(
                                 UnspecifiedRegular(
@@ -450,7 +450,7 @@ fn parse_expr_works() {
                         ),
                         Literal(
                             TokenIdx(
-                                2,
+                                3,
                             ),
                             Integer(
                                 UnspecifiedRegular(
@@ -464,7 +464,7 @@ fn parse_expr_works() {
                                 Add,
                             ),
                             opr_token_idx: TokenIdx(
-                                1,
+                                2,
                             ),
                             ropd: 1,
                         },
@@ -534,18 +534,18 @@ fn parse_expr_works() {
                     data: [
                         List {
                             lbox_token_idx: TokenIdx(
-                                0,
+                                1,
                             ),
                             items: [],
                             rbox_token_idx: TokenIdx(
-                                1,
+                                2,
                             ),
                         },
                         Err(
                             Original(
                                 UnrecognizedIdent {
                                     token_idx: TokenIdx(
-                                        2,
+                                        3,
                                     ),
                                     ident: Ident(
                                         Coword(
@@ -627,7 +627,7 @@ fn parse_expr_works() {
                     data: [
                         Literal(
                             TokenIdx(
-                                1,
+                                2,
                             ),
                             Integer(
                                 UnspecifiedRegular(
@@ -637,7 +637,7 @@ fn parse_expr_works() {
                         ),
                         List {
                             lbox_token_idx: TokenIdx(
-                                0,
+                                1,
                             ),
                             items: [
                                 SynCommaListItem {
@@ -646,14 +646,14 @@ fn parse_expr_works() {
                                 },
                             ],
                             rbox_token_idx: TokenIdx(
-                                2,
+                                3,
                             ),
                         },
                         Err(
                             Original(
                                 UnrecognizedIdent {
                                     token_idx: TokenIdx(
-                                        3,
+                                        4,
                                     ),
                                     ident: Ident(
                                         Coword(
@@ -737,7 +737,7 @@ fn parse_expr_works() {
                             Original(
                                 UnrecognizedIdent {
                                     token_idx: TokenIdx(
-                                        1,
+                                        2,
                                     ),
                                     ident: Ident(
                                         Coword(
@@ -753,7 +753,7 @@ fn parse_expr_works() {
                             Original(
                                 UnrecognizedIdent {
                                     token_idx: TokenIdx(
-                                        3,
+                                        4,
                                     ),
                                     ident: Ident(
                                         Coword(
@@ -767,14 +767,14 @@ fn parse_expr_works() {
                         ),
                         NewTuple {
                             lpar_token_idx: TokenIdx(
-                                0,
+                                1,
                             ),
                             items: [
                                 SynCommaListItem {
                                     expr_idx: 0,
                                     comma_token_idx: Some(
                                         TokenIdx(
-                                            2,
+                                            3,
                                         ),
                                     ),
                                 },
@@ -784,7 +784,7 @@ fn parse_expr_works() {
                                 },
                             ],
                             rpar_token_idx: TokenIdx(
-                                4,
+                                5,
                             ),
                         },
                     ],
@@ -913,7 +913,7 @@ fn parse_expr_works() {
                             Original(
                                 UnrecognizedIdent {
                                     token_idx: TokenIdx(
-                                        0,
+                                        1,
                                     ),
                                     ident: Ident(
                                         Coword(
@@ -928,7 +928,7 @@ fn parse_expr_works() {
                         Field {
                             owner: 0,
                             dot_token_idx: TokenIdx(
-                                1,
+                                2,
                             ),
                             ident_token: IdentToken {
                                 ident: Ident(
@@ -939,7 +939,7 @@ fn parse_expr_works() {
                                     ),
                                 ),
                                 token_idx: TokenIdx(
-                                    2,
+                                    3,
                                 ),
                             },
                         },
@@ -1011,7 +1011,7 @@ fn parse_expr_works() {
                             Original(
                                 UnrecognizedIdent {
                                     token_idx: TokenIdx(
-                                        0,
+                                        1,
                                     ),
                                     ident: Ident(
                                         Coword(
@@ -1026,7 +1026,7 @@ fn parse_expr_works() {
                         MethodApplicationOrCall {
                             self_argument: 0,
                             dot_token_idx: TokenIdx(
-                                1,
+                                2,
                             ),
                             ident_token: IdentToken {
                                 ident: Ident(
@@ -1037,16 +1037,16 @@ fn parse_expr_works() {
                                     ),
                                 ),
                                 token_idx: TokenIdx(
-                                    2,
+                                    3,
                                 ),
                             },
                             generic_arguments: None,
                             lpar_token_idx: TokenIdx(
-                                3,
+                                4,
                             ),
                             items: [],
                             rpar_token_idx: TokenIdx(
-                                4,
+                                5,
                             ),
                         },
                     ],
@@ -1120,7 +1120,7 @@ fn parse_application_expr_works() {
                     data: [
                         Literal(
                             TokenIdx(
-                                0,
+                                1,
                             ),
                             Integer(
                                 UnspecifiedRegular(
@@ -1130,7 +1130,7 @@ fn parse_application_expr_works() {
                         ),
                         Literal(
                             TokenIdx(
-                                1,
+                                2,
                             ),
                             Integer(
                                 UnspecifiedRegular(
@@ -1144,7 +1144,7 @@ fn parse_application_expr_works() {
                         },
                         Literal(
                             TokenIdx(
-                                2,
+                                3,
                             ),
                             Integer(
                                 UnspecifiedRegular(

@@ -19,7 +19,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Add`,
                                 token_idx: TokenIdx(
-                                    13,
+                                    14,
                                 ),
                             },
                             block: Trait {
@@ -67,7 +67,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `AddAssign`,
                                 token_idx: TokenIdx(
-                                    42,
+                                    43,
                                 ),
                             },
                             block: Trait {
@@ -115,7 +115,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `BitAnd`,
                                 token_idx: TokenIdx(
-                                    71,
+                                    72,
                                 ),
                             },
                             block: Trait {
@@ -163,7 +163,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `BitAndAssign`,
                                 token_idx: TokenIdx(
-                                    100,
+                                    101,
                                 ),
                             },
                             block: Trait {
@@ -211,7 +211,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `BitOr`,
                                 token_idx: TokenIdx(
-                                    125,
+                                    126,
                                 ),
                             },
                             block: Trait {
@@ -259,7 +259,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `BitOrAssign`,
                                 token_idx: TokenIdx(
-                                    154,
+                                    155,
                                 ),
                             },
                             block: Trait {
@@ -307,7 +307,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `BitXor`,
                                 token_idx: TokenIdx(
-                                    179,
+                                    180,
                                 ),
                             },
                             block: Trait {
@@ -355,7 +355,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `BitXorAssign`,
                                 token_idx: TokenIdx(
-                                    208,
+                                    209,
                                 ),
                             },
                             block: Trait {
@@ -403,7 +403,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Div`,
                                 token_idx: TokenIdx(
-                                    233,
+                                    234,
                                 ),
                             },
                             block: Trait {
@@ -451,7 +451,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `DivAssign`,
                                 token_idx: TokenIdx(
-                                    262,
+                                    263,
                                 ),
                             },
                             block: Trait {
@@ -499,7 +499,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `IntIndex`,
                                 token_idx: TokenIdx(
-                                    280,
+                                    281,
                                 ),
                             },
                             block: Trait {
@@ -547,7 +547,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Mul`,
                                 token_idx: TokenIdx(
-                                    294,
+                                    295,
                                 ),
                             },
                             block: Trait {
@@ -595,7 +595,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `MulAssign`,
                                 token_idx: TokenIdx(
-                                    323,
+                                    324,
                                 ),
                             },
                             block: Trait {
@@ -643,7 +643,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Neg`,
                                 token_idx: TokenIdx(
-                                    348,
+                                    349,
                                 ),
                             },
                             block: Trait {
@@ -691,7 +691,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Not`,
                                 token_idx: TokenIdx(
-                                    372,
+                                    373,
                                 ),
                             },
                             block: Trait {
@@ -739,7 +739,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Sub`,
                                 token_idx: TokenIdx(
-                                    396,
+                                    397,
                                 ),
                             },
                             block: Trait {
@@ -787,7 +787,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Unveil`,
                                 token_idx: TokenIdx(
-                                    418,
+                                    419,
                                 ),
                             },
                             block: Trait {
@@ -835,7 +835,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `ControlFlow`,
                                 token_idx: TokenIdx(
-                                    447,
+                                    448,
                                 ),
                             },
                             block: Type {
@@ -881,7 +881,7 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
@@ -902,7 +902,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            3,
+                            4,
                         ),
                     ),
                 },
@@ -911,14 +911,14 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    2,
+                                    3,
                                 ),
                             ),
                         ),

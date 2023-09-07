@@ -11,7 +11,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    0,
+                                    1,
                                 ),
                             },
                         },
@@ -19,7 +19,7 @@ Ok(
                     state_after_visibility_expr: Some(
                         TokenStreamState {
                             next_token_idx: TokenIdx(
-                                1,
+                                2,
                             ),
                             drained: false,
                         },

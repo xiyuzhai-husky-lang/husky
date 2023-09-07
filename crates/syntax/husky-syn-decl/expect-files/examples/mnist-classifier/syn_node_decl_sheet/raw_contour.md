@@ -31,7 +31,7 @@ Ok(
                                     PropsStructLeftCurlyBrace(
                                         LcurlToken(
                                             TokenIdx(
-                                                25,
+                                                26,
                                             ),
                                         ),
                                     ),
@@ -51,12 +51,12 @@ Ok(
                                                         ),
                                                     ),
                                                     token_idx: TokenIdx(
-                                                        26,
+                                                        27,
                                                     ),
                                                 },
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        27,
+                                                        28,
                                                     ),
                                                 ),
                                                 ty_expr_idx: 1,
@@ -75,12 +75,12 @@ Ok(
                                                         ),
                                                     ),
                                                     token_idx: TokenIdx(
-                                                        31,
+                                                        32,
                                                     ),
                                                 },
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        32,
+                                                        33,
                                                     ),
                                                 ),
                                                 ty_expr_idx: 4,
@@ -91,12 +91,12 @@ Ok(
                                         separators: [
                                             CommaToken(
                                                 TokenIdx(
-                                                    30,
+                                                    31,
                                                 ),
                                             ),
                                             CommaToken(
                                                 TokenIdx(
-                                                    36,
+                                                    37,
                                                 ),
                                             ),
                                         ],
@@ -107,7 +107,7 @@ Ok(
                                     PropsStructRcurlToken(
                                         RcurlToken(
                                             TokenIdx(
-                                                37,
+                                                38,
                                             ),
                                         ),
                                     ),
@@ -142,17 +142,17 @@ Ok(
                                                 SynExpr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        28,
+                                                        29,
                                                     ),
                                                     opd: 0,
                                                 },
                                                 SynExpr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        33,
+                                                        34,
                                                     ),
                                                     items: [],
                                                     rbox_token_idx: TokenIdx(
-                                                        34,
+                                                        35,
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
@@ -178,7 +178,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `ConnectedComponent`,
                                                             token_idx: TokenIdx(
-                                                                29,
+                                                                30,
                                                             ),
                                                         },
                                                     ),
@@ -193,7 +193,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Point2d`,
                                                             token_idx: TokenIdx(
-                                                                35,
+                                                                36,
                                                             ),
                                                         },
                                                     ),
@@ -233,14 +233,14 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            30,
+                                                            31,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::FieldVariable {
                                                             ident_token: IdentToken {
                                                                 ident: `cc`,
                                                                 token_idx: TokenIdx(
-                                                                    26,
+                                                                    27,
                                                                 ),
                                                             },
                                                         },
@@ -248,14 +248,14 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            36,
+                                                            37,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::FieldVariable {
                                                             ident_token: IdentToken {
                                                                 ident: `points`,
                                                                 token_idx: TokenIdx(
-                                                                    31,
+                                                                    32,
                                                                 ),
                                                             },
                                                         },
@@ -276,7 +276,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             token_idx: TokenIdx(
-                                                                26,
+                                                                27,
                                                             ),
                                                         },
                                                         ty_expr_idx: 1,
@@ -296,7 +296,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             token_idx: TokenIdx(
-                                                                31,
+                                                                32,
                                                             ),
                                                         },
                                                         ty_expr_idx: 4,
@@ -319,7 +319,7 @@ Ok(
                                                             ),
                                                         ),
                                                         token_idx: TokenIdx(
-                                                            26,
+                                                            27,
                                                         ),
                                                     },
                                                 },
@@ -336,7 +336,7 @@ Ok(
                                                             ),
                                                         ),
                                                         token_idx: TokenIdx(
-                                                            31,
+                                                            32,
                                                         ),
                                                     },
                                                 },
@@ -463,7 +463,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                412,
+                                                413,
                                             ),
                                         ),
                                         self_value_parameter: None,
@@ -476,7 +476,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        414,
+                                                        415,
                                                     ),
                                                 ),
                                                 ty: 0,
@@ -488,7 +488,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        418,
+                                                        419,
                                                     ),
                                                 ),
                                                 ty: 1,
@@ -497,13 +497,13 @@ Ok(
                                         commas: [
                                             CommaToken(
                                                 TokenIdx(
-                                                    416,
+                                                    417,
                                                 ),
                                             ),
                                         ],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                420,
+                                                421,
                                             ),
                                         ),
                                     },
@@ -512,7 +512,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                421,
+                                                422,
                                             ),
                                         ),
                                     ),
@@ -528,7 +528,7 @@ Ok(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                423,
+                                                424,
                                             ),
                                         },
                                     ),
@@ -589,7 +589,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `r32`,
                                                             token_idx: TokenIdx(
-                                                                415,
+                                                                416,
                                                             ),
                                                         },
                                                     ),
@@ -604,7 +604,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i32`,
                                                             token_idx: TokenIdx(
-                                                                419,
+                                                                420,
                                                             ),
                                                         },
                                                     ),
@@ -619,7 +619,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `r32`,
                                                             token_idx: TokenIdx(
-                                                                422,
+                                                                423,
                                                             ),
                                                         },
                                                     ),
@@ -642,7 +642,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `row`,
                                                             token_idx: TokenIdx(
-                                                                413,
+                                                                414,
                                                             ),
                                                         },
                                                     },
@@ -651,7 +651,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `j`,
                                                             token_idx: TokenIdx(
-                                                                417,
+                                                                418,
                                                             ),
                                                         },
                                                     },
@@ -707,7 +707,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            414,
+                                                            415,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -718,7 +718,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            418,
+                                                            419,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -801,7 +801,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                437,
+                                                438,
                                             ),
                                         ),
                                         self_value_parameter: None,
@@ -814,7 +814,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        439,
+                                                        440,
                                                     ),
                                                 ),
                                                 ty: 0,
@@ -826,7 +826,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        443,
+                                                        444,
                                                     ),
                                                 ),
                                                 ty: 1,
@@ -835,13 +835,13 @@ Ok(
                                         commas: [
                                             CommaToken(
                                                 TokenIdx(
-                                                    441,
+                                                    442,
                                                 ),
                                             ),
                                         ],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                445,
+                                                446,
                                             ),
                                         ),
                                     },
@@ -850,7 +850,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                446,
+                                                447,
                                             ),
                                         ),
                                     ),
@@ -866,7 +866,7 @@ Ok(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                448,
+                                                449,
                                             ),
                                         },
                                     ),
@@ -927,7 +927,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `r32`,
                                                             token_idx: TokenIdx(
-                                                                440,
+                                                                441,
                                                             ),
                                                         },
                                                     ),
@@ -942,7 +942,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i32`,
                                                             token_idx: TokenIdx(
-                                                                444,
+                                                                445,
                                                             ),
                                                         },
                                                     ),
@@ -957,7 +957,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `r32`,
                                                             token_idx: TokenIdx(
-                                                                447,
+                                                                448,
                                                             ),
                                                         },
                                                     ),
@@ -980,7 +980,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `row`,
                                                             token_idx: TokenIdx(
-                                                                438,
+                                                                439,
                                                             ),
                                                         },
                                                     },
@@ -989,7 +989,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `j`,
                                                             token_idx: TokenIdx(
-                                                                442,
+                                                                443,
                                                             ),
                                                         },
                                                     },
@@ -1045,7 +1045,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            439,
+                                                            440,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -1056,7 +1056,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            443,
+                                                            444,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -1139,7 +1139,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                458,
+                                                459,
                                             ),
                                         ),
                                         self_value_parameter: None,
@@ -1152,7 +1152,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        460,
+                                                        461,
                                                     ),
                                                 ),
                                                 ty: 0,
@@ -1164,7 +1164,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        464,
+                                                        465,
                                                     ),
                                                 ),
                                                 ty: 1,
@@ -1173,13 +1173,13 @@ Ok(
                                         commas: [
                                             CommaToken(
                                                 TokenIdx(
-                                                    462,
+                                                    463,
                                                 ),
                                             ),
                                         ],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                466,
+                                                467,
                                             ),
                                         ),
                                     },
@@ -1188,7 +1188,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                467,
+                                                468,
                                             ),
                                         ),
                                     ),
@@ -1204,7 +1204,7 @@ Ok(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                469,
+                                                470,
                                             ),
                                         },
                                     ),
@@ -1265,7 +1265,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `r32`,
                                                             token_idx: TokenIdx(
-                                                                461,
+                                                                462,
                                                             ),
                                                         },
                                                     ),
@@ -1280,7 +1280,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i32`,
                                                             token_idx: TokenIdx(
-                                                                465,
+                                                                466,
                                                             ),
                                                         },
                                                     ),
@@ -1295,7 +1295,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `r32`,
                                                             token_idx: TokenIdx(
-                                                                468,
+                                                                469,
                                                             ),
                                                         },
                                                     ),
@@ -1318,7 +1318,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `row`,
                                                             token_idx: TokenIdx(
-                                                                459,
+                                                                460,
                                                             ),
                                                         },
                                                     },
@@ -1327,7 +1327,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `j`,
                                                             token_idx: TokenIdx(
-                                                                463,
+                                                                464,
                                                             ),
                                                         },
                                                     },
@@ -1383,7 +1383,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            460,
+                                                            461,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -1394,7 +1394,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            464,
+                                                            465,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -1477,7 +1477,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                483,
+                                                484,
                                             ),
                                         ),
                                         self_value_parameter: None,
@@ -1490,7 +1490,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        485,
+                                                        486,
                                                     ),
                                                 ),
                                                 ty: 0,
@@ -1502,7 +1502,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        489,
+                                                        490,
                                                     ),
                                                 ),
                                                 ty: 1,
@@ -1514,7 +1514,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        493,
+                                                        494,
                                                     ),
                                                 ),
                                                 ty: 2,
@@ -1523,23 +1523,23 @@ Ok(
                                         commas: [
                                             CommaToken(
                                                 TokenIdx(
-                                                    487,
+                                                    488,
                                                 ),
                                             ),
                                             CommaToken(
                                                 TokenIdx(
-                                                    491,
+                                                    492,
                                                 ),
                                             ),
                                             CommaToken(
                                                 TokenIdx(
-                                                    495,
+                                                    496,
                                                 ),
                                             ),
                                         ],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                496,
+                                                497,
                                             ),
                                         ),
                                     },
@@ -1548,7 +1548,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                497,
+                                                498,
                                             ),
                                         ),
                                     ),
@@ -1564,7 +1564,7 @@ Ok(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                499,
+                                                500,
                                             ),
                                         },
                                     ),
@@ -1635,7 +1635,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `r32`,
                                                             token_idx: TokenIdx(
-                                                                486,
+                                                                487,
                                                             ),
                                                         },
                                                     ),
@@ -1650,7 +1650,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `r32`,
                                                             token_idx: TokenIdx(
-                                                                490,
+                                                                491,
                                                             ),
                                                         },
                                                     ),
@@ -1665,7 +1665,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i32`,
                                                             token_idx: TokenIdx(
-                                                                494,
+                                                                495,
                                                             ),
                                                         },
                                                     ),
@@ -1680,7 +1680,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Direction`,
                                                             token_idx: TokenIdx(
-                                                                498,
+                                                                499,
                                                             ),
                                                         },
                                                     ),
@@ -1703,7 +1703,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `row_above`,
                                                             token_idx: TokenIdx(
-                                                                484,
+                                                                485,
                                                             ),
                                                         },
                                                     },
@@ -1712,7 +1712,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `row_below`,
                                                             token_idx: TokenIdx(
-                                                                488,
+                                                                489,
                                                             ),
                                                         },
                                                     },
@@ -1721,7 +1721,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `j`,
                                                             token_idx: TokenIdx(
-                                                                492,
+                                                                493,
                                                             ),
                                                         },
                                                     },
@@ -1789,7 +1789,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            485,
+                                                            486,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -1800,7 +1800,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            489,
+                                                            490,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -1811,7 +1811,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            493,
+                                                            494,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -1907,7 +1907,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                614,
+                                                615,
                                             ),
                                         ),
                                         self_value_parameter: None,
@@ -1920,7 +1920,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        616,
+                                                        617,
                                                     ),
                                                 ),
                                                 ty: 0,
@@ -1932,7 +1932,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        620,
+                                                        621,
                                                     ),
                                                 ),
                                                 ty: 1,
@@ -1941,13 +1941,13 @@ Ok(
                                         commas: [
                                             CommaToken(
                                                 TokenIdx(
-                                                    618,
+                                                    619,
                                                 ),
                                             ),
                                         ],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                622,
+                                                623,
                                             ),
                                         ),
                                     },
@@ -1956,7 +1956,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                623,
+                                                624,
                                             ),
                                         ),
                                     ),
@@ -1972,7 +1972,7 @@ Ok(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                625,
+                                                626,
                                             ),
                                         },
                                     ),
@@ -2033,7 +2033,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Direction`,
                                                             token_idx: TokenIdx(
-                                                                617,
+                                                                618,
                                                             ),
                                                         },
                                                     ),
@@ -2048,7 +2048,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Direction`,
                                                             token_idx: TokenIdx(
-                                                                621,
+                                                                622,
                                                             ),
                                                         },
                                                     ),
@@ -2063,7 +2063,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i32`,
                                                             token_idx: TokenIdx(
-                                                                624,
+                                                                625,
                                                             ),
                                                         },
                                                     ),
@@ -2086,7 +2086,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `inward`,
                                                             token_idx: TokenIdx(
-                                                                615,
+                                                                616,
                                                             ),
                                                         },
                                                     },
@@ -2095,7 +2095,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `outward`,
                                                             token_idx: TokenIdx(
-                                                                619,
+                                                                620,
                                                             ),
                                                         },
                                                     },
@@ -2151,7 +2151,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            616,
+                                                            617,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -2162,7 +2162,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            620,
+                                                            621,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -2245,7 +2245,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                675,
+                                                676,
                                             ),
                                         ),
                                         self_value_parameter: None,
@@ -2258,7 +2258,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        677,
+                                                        678,
                                                     ),
                                                 ),
                                                 ty: 0,
@@ -2270,7 +2270,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        681,
+                                                        682,
                                                     ),
                                                 ),
                                                 ty: 1,
@@ -2282,7 +2282,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        685,
+                                                        686,
                                                     ),
                                                 ),
                                                 ty: 2,
@@ -2294,7 +2294,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        689,
+                                                        690,
                                                     ),
                                                 ),
                                                 ty: 3,
@@ -2303,28 +2303,28 @@ Ok(
                                         commas: [
                                             CommaToken(
                                                 TokenIdx(
-                                                    679,
+                                                    680,
                                                 ),
                                             ),
                                             CommaToken(
                                                 TokenIdx(
-                                                    683,
+                                                    684,
                                                 ),
                                             ),
                                             CommaToken(
                                                 TokenIdx(
-                                                    687,
+                                                    688,
                                                 ),
                                             ),
                                             CommaToken(
                                                 TokenIdx(
-                                                    691,
+                                                    692,
                                                 ),
                                             ),
                                         ],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                692,
+                                                693,
                                             ),
                                         ),
                                     },
@@ -2333,7 +2333,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                693,
+                                                694,
                                             ),
                                         ),
                                     ),
@@ -2349,7 +2349,7 @@ Ok(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                695,
+                                                696,
                                             ),
                                         },
                                     ),
@@ -2430,7 +2430,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `r32`,
                                                             token_idx: TokenIdx(
-                                                                678,
+                                                                679,
                                                             ),
                                                         },
                                                     ),
@@ -2445,7 +2445,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `r32`,
                                                             token_idx: TokenIdx(
-                                                                682,
+                                                                683,
                                                             ),
                                                         },
                                                     ),
@@ -2460,7 +2460,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i32`,
                                                             token_idx: TokenIdx(
-                                                                686,
+                                                                687,
                                                             ),
                                                         },
                                                     ),
@@ -2475,7 +2475,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Direction`,
                                                             token_idx: TokenIdx(
-                                                                690,
+                                                                691,
                                                             ),
                                                         },
                                                     ),
@@ -2490,7 +2490,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Direction`,
                                                             token_idx: TokenIdx(
-                                                                694,
+                                                                695,
                                                             ),
                                                         },
                                                     ),
@@ -2513,7 +2513,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `row_above`,
                                                             token_idx: TokenIdx(
-                                                                676,
+                                                                677,
                                                             ),
                                                         },
                                                     },
@@ -2522,7 +2522,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `row_below`,
                                                             token_idx: TokenIdx(
-                                                                680,
+                                                                681,
                                                             ),
                                                         },
                                                     },
@@ -2531,7 +2531,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `j`,
                                                             token_idx: TokenIdx(
-                                                                684,
+                                                                685,
                                                             ),
                                                         },
                                                     },
@@ -2540,7 +2540,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `inward_direction`,
                                                             token_idx: TokenIdx(
-                                                                688,
+                                                                689,
                                                             ),
                                                         },
                                                     },
@@ -2620,7 +2620,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            677,
+                                                            678,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -2631,7 +2631,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            681,
+                                                            682,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -2642,7 +2642,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            685,
+                                                            686,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -2653,7 +2653,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            689,
+                                                            690,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -2762,7 +2762,7 @@ Ok(
                                     PropsStructLeftCurlyBrace(
                                         LcurlToken(
                                             TokenIdx(
-                                                877,
+                                                878,
                                             ),
                                         ),
                                     ),
@@ -2782,12 +2782,12 @@ Ok(
                                                         ),
                                                     ),
                                                     token_idx: TokenIdx(
-                                                        878,
+                                                        879,
                                                     ),
                                                 },
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        879,
+                                                        880,
                                                     ),
                                                 ),
                                                 ty_expr_idx: 0,
@@ -2806,12 +2806,12 @@ Ok(
                                                         ),
                                                     ),
                                                     token_idx: TokenIdx(
-                                                        882,
+                                                        883,
                                                     ),
                                                 },
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        883,
+                                                        884,
                                                     ),
                                                 ),
                                                 ty_expr_idx: 1,
@@ -2822,12 +2822,12 @@ Ok(
                                         separators: [
                                             CommaToken(
                                                 TokenIdx(
-                                                    881,
+                                                    882,
                                                 ),
                                             ),
                                             CommaToken(
                                                 TokenIdx(
-                                                    885,
+                                                    886,
                                                 ),
                                             ),
                                         ],
@@ -2838,7 +2838,7 @@ Ok(
                                     PropsStructRcurlToken(
                                         RcurlToken(
                                             TokenIdx(
-                                                886,
+                                                887,
                                             ),
                                         ),
                                     ),
@@ -2889,7 +2889,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i32`,
                                                             token_idx: TokenIdx(
-                                                                880,
+                                                                881,
                                                             ),
                                                         },
                                                     ),
@@ -2904,7 +2904,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i32`,
                                                             token_idx: TokenIdx(
-                                                                884,
+                                                                885,
                                                             ),
                                                         },
                                                     ),
@@ -2944,14 +2944,14 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            881,
+                                                            882,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::FieldVariable {
                                                             ident_token: IdentToken {
                                                                 ident: `prev1`,
                                                                 token_idx: TokenIdx(
-                                                                    878,
+                                                                    879,
                                                                 ),
                                                             },
                                                         },
@@ -2959,14 +2959,14 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            885,
+                                                            886,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::FieldVariable {
                                                             ident_token: IdentToken {
                                                                 ident: `prev2`,
                                                                 token_idx: TokenIdx(
-                                                                    882,
+                                                                    883,
                                                                 ),
                                                             },
                                                         },
@@ -2987,7 +2987,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             token_idx: TokenIdx(
-                                                                878,
+                                                                879,
                                                             ),
                                                         },
                                                         ty_expr_idx: 0,
@@ -3007,7 +3007,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             token_idx: TokenIdx(
-                                                                882,
+                                                                883,
                                                             ),
                                                         },
                                                         ty_expr_idx: 1,
@@ -3030,7 +3030,7 @@ Ok(
                                                             ),
                                                         ),
                                                         token_idx: TokenIdx(
-                                                            878,
+                                                            879,
                                                         ),
                                                     },
                                                 },
@@ -3047,7 +3047,7 @@ Ok(
                                                             ),
                                                         ),
                                                         token_idx: TokenIdx(
-                                                            882,
+                                                            883,
                                                         ),
                                                     },
                                                 },
@@ -3090,7 +3090,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                889,
+                                                890,
                                             ),
                                         ),
                                         self_value_parameter: None,
@@ -3103,7 +3103,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        891,
+                                                        892,
                                                     ),
                                                 ),
                                                 ty: 2,
@@ -3112,7 +3112,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                895,
+                                                896,
                                             ),
                                         ),
                                     },
@@ -3121,7 +3121,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                896,
+                                                897,
                                             ),
                                         ),
                                     ),
@@ -3137,7 +3137,7 @@ Ok(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                898,
+                                                899,
                                             ),
                                         },
                                     ),
@@ -3161,11 +3161,11 @@ Ok(
                                             data: [
                                                 SynExpr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        892,
+                                                        893,
                                                     ),
                                                     items: [],
                                                     rbox_token_idx: TokenIdx(
-                                                        893,
+                                                        894,
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
@@ -3201,7 +3201,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Point2d`,
                                                             token_idx: TokenIdx(
-                                                                894,
+                                                                895,
                                                             ),
                                                         },
                                                     ),
@@ -3216,7 +3216,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Point2d`,
                                                             token_idx: TokenIdx(
-                                                                897,
+                                                                898,
                                                             ),
                                                         },
                                                     ),
@@ -3239,7 +3239,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `points`,
                                                             token_idx: TokenIdx(
-                                                                890,
+                                                                891,
                                                             ),
                                                         },
                                                     },
@@ -3283,7 +3283,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            891,
+                                                            892,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -3353,7 +3353,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                955,
+                                                956,
                                             ),
                                         ),
                                         self_value_parameter: None,
@@ -3366,7 +3366,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        957,
+                                                        958,
                                                     ),
                                                 ),
                                                 ty: 1,
@@ -3375,7 +3375,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                960,
+                                                961,
                                             ),
                                         ),
                                     },
@@ -3384,7 +3384,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                961,
+                                                962,
                                             ),
                                         ),
                                     ),
@@ -3400,7 +3400,7 @@ Ok(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                965,
+                                                966,
                                             ),
                                         },
                                     ),
@@ -3435,17 +3435,17 @@ Ok(
                                                 SynExpr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        958,
+                                                        959,
                                                     ),
                                                     opd: 0,
                                                 },
                                                 SynExpr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        962,
+                                                        963,
                                                     ),
                                                     items: [],
                                                     rbox_token_idx: TokenIdx(
-                                                        963,
+                                                        964,
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
@@ -3471,7 +3471,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `ConnectedComponent`,
                                                             token_idx: TokenIdx(
-                                                                959,
+                                                                960,
                                                             ),
                                                         },
                                                     ),
@@ -3486,7 +3486,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `RawContour`,
                                                             token_idx: TokenIdx(
-                                                                964,
+                                                                965,
                                                             ),
                                                         },
                                                     ),
@@ -3509,7 +3509,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `cc`,
                                                             token_idx: TokenIdx(
-                                                                956,
+                                                                957,
                                                             ),
                                                         },
                                                     },
@@ -3553,7 +3553,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            957,
+                                                            958,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -3625,7 +3625,7 @@ Ok(
                             ast_idx: 204,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    38,
+                                    39,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -3636,7 +3636,7 @@ Ok(
                             },
                             for_token: ConnectionForToken {
                                 token_idx: TokenIdx(
-                                    40,
+                                    41,
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
@@ -3648,7 +3648,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            42,
+                                            43,
                                         ),
                                     },
                                 ),
@@ -3703,7 +3703,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Visualize`,
                                                         token_idx: TokenIdx(
-                                                            39,
+                                                            40,
                                                         ),
                                                     },
                                                 ),
@@ -3718,7 +3718,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `RawContour`,
                                                         token_idx: TokenIdx(
-                                                            41,
+                                                            42,
                                                         ),
                                                     },
                                                 ),
@@ -3853,7 +3853,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                45,
+                                                46,
                                             ),
                                         ),
                                         self_value_parameter: None,
@@ -3862,7 +3862,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                46,
+                                                47,
                                             ),
                                         ),
                                     },
@@ -3871,7 +3871,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                47,
+                                                48,
                                             ),
                                         ),
                                     ),
@@ -3887,7 +3887,7 @@ Ok(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                49,
+                                                50,
                                             ),
                                         },
                                     ),
@@ -3945,7 +3945,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `Visualize`,
                                                                         token_idx: TokenIdx(
-                                                                            39,
+                                                                            40,
                                                                         ),
                                                                     },
                                                                 ),
@@ -3960,7 +3960,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `RawContour`,
                                                                         token_idx: TokenIdx(
-                                                                            41,
+                                                                            42,
                                                                         ),
                                                                     },
                                                                 ),
@@ -4059,7 +4059,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Html`,
                                                             token_idx: TokenIdx(
-                                                                48,
+                                                                49,
                                                             ),
                                                         },
                                                     ),
@@ -4148,7 +4148,7 @@ Ok(
                                 ast_idx: 205,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        60,
+                                        61,
                                     ),
                                 },
                                 ty_expr: 5,
@@ -4160,7 +4160,7 @@ Ok(
                             },
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    60,
+                                    61,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -4173,7 +4173,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            62,
+                                            63,
                                         ),
                                     },
                                 ),
@@ -4215,7 +4215,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `RawContour`,
                                                         token_idx: TokenIdx(
-                                                            61,
+                                                            62,
                                                         ),
                                                     },
                                                 ),
@@ -4311,7 +4311,7 @@ Ok(
                                     Some(
                                         ColonToken(
                                             TokenIdx(
-                                                65,
+                                                66,
                                             ),
                                         ),
                                     ),
@@ -4326,7 +4326,7 @@ Ok(
                                 eq_token: Ok(
                                     EqToken(
                                         TokenIdx(
-                                            67,
+                                            68,
                                         ),
                                     ),
                                 ),
@@ -4371,7 +4371,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `RawContour`,
                                                                         token_idx: TokenIdx(
-                                                                            61,
+                                                                            62,
                                                                         ),
                                                                     },
                                                                 ),
@@ -4463,7 +4463,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `LineSegmentSketch`,
                                                             token_idx: TokenIdx(
-                                                                66,
+                                                                67,
                                                             ),
                                                         },
                                                     ),
@@ -4560,7 +4560,7 @@ Ok(
                                     Some(
                                         ColonToken(
                                             TokenIdx(
-                                                78,
+                                                79,
                                             ),
                                         ),
                                     ),
@@ -4575,7 +4575,7 @@ Ok(
                                 eq_token: Ok(
                                     EqToken(
                                         TokenIdx(
-                                            80,
+                                            81,
                                         ),
                                     ),
                                 ),
@@ -4620,7 +4620,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `RawContour`,
                                                                         token_idx: TokenIdx(
-                                                                            61,
+                                                                            62,
                                                                         ),
                                                                     },
                                                                 ),
@@ -4712,7 +4712,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `BoundingBox`,
                                                             token_idx: TokenIdx(
-                                                                79,
+                                                                80,
                                                             ),
                                                         },
                                                     ),
@@ -4809,7 +4809,7 @@ Ok(
                                     Some(
                                         ColonToken(
                                             TokenIdx(
-                                                198,
+                                                199,
                                             ),
                                         ),
                                     ),
@@ -4824,7 +4824,7 @@ Ok(
                                 eq_token: Ok(
                                     EqToken(
                                         TokenIdx(
-                                            200,
+                                            201,
                                         ),
                                     ),
                                 ),
@@ -4869,7 +4869,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `RawContour`,
                                                                         token_idx: TokenIdx(
-                                                                            61,
+                                                                            62,
                                                                         ),
                                                                     },
                                                                 ),
@@ -4961,7 +4961,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `RelativeBoundingBox`,
                                                             token_idx: TokenIdx(
-                                                                199,
+                                                                200,
                                                             ),
                                                         },
                                                     ),
@@ -5058,7 +5058,7 @@ Ok(
                                     Some(
                                         ColonToken(
                                             TokenIdx(
-                                                220,
+                                                221,
                                             ),
                                         ),
                                     ),
@@ -5073,7 +5073,7 @@ Ok(
                                 eq_token: Ok(
                                     EqToken(
                                         TokenIdx(
-                                            222,
+                                            223,
                                         ),
                                     ),
                                 ),
@@ -5118,7 +5118,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `RawContour`,
                                                                         token_idx: TokenIdx(
-                                                                            61,
+                                                                            62,
                                                                         ),
                                                                     },
                                                                 ),
@@ -5210,7 +5210,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `f32`,
                                                             token_idx: TokenIdx(
-                                                                221,
+                                                                222,
                                                             ),
                                                         },
                                                     ),
@@ -5331,7 +5331,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                350,
+                                                351,
                                             ),
                                         ),
                                         self_value_parameter: None,
@@ -5344,7 +5344,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        352,
+                                                        353,
                                                     ),
                                                 ),
                                                 ty: 0,
@@ -5356,7 +5356,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        356,
+                                                        357,
                                                     ),
                                                 ),
                                                 ty: 1,
@@ -5365,13 +5365,13 @@ Ok(
                                         commas: [
                                             CommaToken(
                                                 TokenIdx(
-                                                    354,
+                                                    355,
                                                 ),
                                             ),
                                         ],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                358,
+                                                359,
                                             ),
                                         ),
                                     },
@@ -5380,7 +5380,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                359,
+                                                360,
                                             ),
                                         ),
                                     ),
@@ -5396,7 +5396,7 @@ Ok(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                361,
+                                                362,
                                             ),
                                         },
                                     ),
@@ -5441,7 +5441,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `RawContour`,
                                                                         token_idx: TokenIdx(
-                                                                            61,
+                                                                            62,
                                                                         ),
                                                                     },
                                                                 ),
@@ -5553,7 +5553,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i32`,
                                                             token_idx: TokenIdx(
-                                                                353,
+                                                                354,
                                                             ),
                                                         },
                                                     ),
@@ -5568,7 +5568,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i32`,
                                                             token_idx: TokenIdx(
-                                                                357,
+                                                                358,
                                                             ),
                                                         },
                                                     ),
@@ -5583,7 +5583,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Vector2d`,
                                                             token_idx: TokenIdx(
-                                                                360,
+                                                                361,
                                                             ),
                                                         },
                                                     ),
@@ -5606,7 +5606,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `start`,
                                                             token_idx: TokenIdx(
-                                                                351,
+                                                                352,
                                                             ),
                                                         },
                                                     },
@@ -5615,7 +5615,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `end`,
                                                             token_idx: TokenIdx(
-                                                                355,
+                                                                356,
                                                             ),
                                                         },
                                                     },
@@ -5671,7 +5671,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            352,
+                                                            353,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -5682,7 +5682,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            356,
+                                                            357,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {

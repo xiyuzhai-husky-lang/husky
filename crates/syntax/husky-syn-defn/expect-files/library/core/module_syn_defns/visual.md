@@ -149,17 +149,17 @@ Ok(
                     self_ty_decl: DeriveAny {
                         at_token: AtToken(
                             TokenIdx(
-                                22,
+                                23,
                             ),
                         ),
                         derive_token: DeriveToken {
                             token_idx: TokenIdx(
-                                23,
+                                24,
                             ),
                         },
                         underscore_token: UnderscoreToken {
                             token_idx: TokenIdx(
-                                24,
+                                25,
                             ),
                         },
                     },
@@ -201,7 +201,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Visualize`,
                                                 token_idx: TokenIdx(
-                                                    20,
+                                                    21,
                                                 ),
                                             },
                                         ),
@@ -328,7 +328,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Visualize`,
                                                                     token_idx: TokenIdx(
-                                                                        20,
+                                                                        21,
                                                                     ),
                                                                 },
                                                             ),
@@ -421,7 +421,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Html`,
                                                         token_idx: TokenIdx(
-                                                            31,
+                                                            32,
                                                         ),
                                                     },
                                                 ),
@@ -517,7 +517,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Visualize`,
                                                                             token_idx: TokenIdx(
-                                                                                20,
+                                                                                21,
                                                                             ),
                                                                         },
                                                                     ),
@@ -610,7 +610,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `Html`,
                                                                 token_idx: TokenIdx(
-                                                                    31,
+                                                                    32,
                                                                 ),
                                                             },
                                                         ),

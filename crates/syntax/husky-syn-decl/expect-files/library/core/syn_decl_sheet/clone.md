@@ -99,17 +99,17 @@ Ok(
                             self_ty_decl: DeriveAny {
                                 at_token: AtToken(
                                     TokenIdx(
-                                        18,
+                                        19,
                                     ),
                                 ),
                                 derive_token: DeriveToken {
                                     token_idx: TokenIdx(
-                                        19,
+                                        20,
                                     ),
                                 },
                                 underscore_token: UnderscoreToken {
                                     token_idx: TokenIdx(
-                                        20,
+                                        21,
                                     ),
                                 },
                             },
@@ -151,7 +151,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Clone`,
                                                         token_idx: TokenIdx(
-                                                            16,
+                                                            17,
                                                         ),
                                                     },
                                                 ),
@@ -283,7 +283,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `Clone`,
                                                                         token_idx: TokenIdx(
-                                                                            16,
+                                                                            17,
                                                                         ),
                                                                     },
                                                                 ),
@@ -359,7 +359,7 @@ Ok(
                                             data: [
                                                 SynExpr::SelfType(
                                                     TokenIdx(
-                                                        27,
+                                                        28,
                                                     ),
                                                 ),
                                             ],

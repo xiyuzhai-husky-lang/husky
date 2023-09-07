@@ -297,16 +297,52 @@ Ok(
                 Keyword::Todo,
             ),
         ],
-        group_starts: [
-            0,
-            4,
-            9,
-            17,
-            22,
-            27,
-            50,
-            54,
-            68,
+        token_group_bases: [
+            TokenGroupBase(
+                TokenIdx(
+                    1,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    5,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    10,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    18,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    23,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    28,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    51,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    55,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    69,
+                ),
+            ),
         ],
         indents: [
             0,

@@ -638,19 +638,67 @@ Ok(
                 ),
             ),
         ],
-        group_starts: [
-            0,
-            4,
-            13,
-            21,
-            28,
-            36,
-            49,
-            58,
-            67,
-            79,
-            92,
-            112,
+        token_group_bases: [
+            TokenGroupBase(
+                TokenIdx(
+                    1,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    5,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    14,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    22,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    29,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    37,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    50,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    59,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    68,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    80,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    93,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    113,
+                ),
+            ),
         ],
         indents: [
             0,

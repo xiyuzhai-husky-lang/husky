@@ -19,7 +19,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `PartialEq`,
                                 token_idx: TokenIdx(
-                                    6,
+                                    7,
                                 ),
                             },
                             block: Trait {
@@ -61,7 +61,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Eq`,
                                 token_idx: TokenIdx(
-                                    10,
+                                    11,
                                 ),
                             },
                             block: Trait {
@@ -103,7 +103,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `PartialOrd`,
                                 token_idx: TokenIdx(
-                                    14,
+                                    15,
                                 ),
                             },
                             block: Trait {
@@ -145,7 +145,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Ord`,
                                 token_idx: TokenIdx(
-                                    18,
+                                    19,
                                 ),
                             },
                             block: Trait {
@@ -185,7 +185,7 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
@@ -206,7 +206,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            3,
+                            4,
                         ),
                     ),
                 },
@@ -215,14 +215,14 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    2,
+                                    3,
                                 ),
                             ),
                         ),
