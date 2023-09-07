@@ -102,7 +102,7 @@ impl<'a> DeclParserFactory<'a> {
         let node = syn_node_path.node(db);
         let ast_idx = node.ast_idx(db);
         match self.ast_sheet()[ast_idx] {
-            Ast::Defn {
+            Ast::Identifiable {
                 token_group_idx,
                 item_kind:
                     EntityKind::AssociatedItem {

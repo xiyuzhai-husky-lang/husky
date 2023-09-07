@@ -25,7 +25,7 @@ impl GnSynNodeDefn {
         );
         let ast_idx = syn_node_decl.ast_idx(db);
         let body = match parser.ast_sheet()[ast_idx] {
-            Ast::Defn {
+            Ast::Identifiable {
                 block: DefnBlock::Fugitive { body, .. },
                 ..
             } => body.map(|body| parser.parse_block_expr(body)),

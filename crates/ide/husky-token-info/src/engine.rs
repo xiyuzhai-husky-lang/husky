@@ -97,7 +97,7 @@ impl<'a> InferEngine<'a> {
         }
         let ast_idx = syn_node_defn.ast_idx(self.db);
         match self.ast_sheet[ast_idx] {
-            Ast::Defn {
+            Ast::Identifiable {
                 ident_token,
                 item_kind,
                 ..

@@ -18,7 +18,7 @@ Ok(
                     },
                     state_after_visibility_expr: None,
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),

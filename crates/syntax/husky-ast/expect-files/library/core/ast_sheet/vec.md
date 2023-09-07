@@ -2,7 +2,7 @@ Ok(
     AstSheet {
         ast_arena: Arena {
             data: [
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
@@ -38,7 +38,7 @@ Ok(
                         body: None,
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
@@ -74,7 +74,7 @@ Ok(
                         body: None,
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
@@ -110,7 +110,7 @@ Ok(
                         body: None,
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
@@ -146,7 +146,7 @@ Ok(
                         body: None,
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
@@ -182,7 +182,7 @@ Ok(
                         body: None,
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         9,
                     ),
@@ -218,7 +218,7 @@ Ok(
                         body: None,
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         10,
                     ),
@@ -254,7 +254,7 @@ Ok(
                         body: None,
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         11,
                     ),
@@ -312,7 +312,7 @@ Ok(
                     ),
                     ident: `derive`,
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),

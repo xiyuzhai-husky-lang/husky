@@ -92,7 +92,7 @@ Ok(
                     ),
                     body: None,
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
@@ -134,7 +134,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
@@ -176,7 +176,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         13,
                     ),
@@ -276,7 +276,7 @@ Ok(
                     },
                     state_after_visibility_expr: None,
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
@@ -332,7 +332,7 @@ Ok(
                         ),
                     ),
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         18,
                     ),

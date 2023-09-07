@@ -110,7 +110,7 @@ Ok(
                         9,
                     ),
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
@@ -152,7 +152,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
@@ -210,7 +210,7 @@ Ok(
                     },
                     state_after_visibility_expr: None,
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),

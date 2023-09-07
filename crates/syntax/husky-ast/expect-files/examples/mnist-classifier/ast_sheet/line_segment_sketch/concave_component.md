@@ -8,7 +8,7 @@ Ok(
                     ),
                     body: None,
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
@@ -309,7 +309,7 @@ Ok(
                     ),
                     body: None,
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         10,
                     ),
@@ -351,7 +351,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         12,
                     ),
@@ -393,7 +393,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         14,
                     ),
@@ -435,7 +435,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         25,
                     ),
@@ -477,7 +477,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         33,
                     ),
@@ -519,7 +519,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         46,
                     ),
@@ -561,7 +561,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         48,
                     ),
@@ -603,7 +603,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         50,
                     ),
@@ -645,7 +645,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         52,
                     ),
@@ -687,7 +687,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         54,
                     ),
@@ -729,7 +729,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         56,
                     ),
@@ -771,7 +771,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         58,
                     ),
@@ -1014,7 +1014,7 @@ Ok(
                     },
                     state_after_visibility_expr: None,
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
@@ -1084,7 +1084,7 @@ Ok(
                         ),
                     ),
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         60,
                     ),

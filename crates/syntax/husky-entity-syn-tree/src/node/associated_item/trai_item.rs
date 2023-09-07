@@ -125,7 +125,7 @@ pub(crate) fn trai_item_syn_nodes(
         .filter_map(|ast_idx| {
             let ast = &ast_sheet[ast_idx];
             match ast {
-                Ast::Defn {
+                Ast::Identifiable {
                     visibility_expr,
                     item_kind,
                     ident_token,

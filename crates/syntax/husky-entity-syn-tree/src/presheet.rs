@@ -188,7 +188,7 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                     self.item_use_trackers.push(new_rule)
                 }
             }
-            Ast::Defn {
+            Ast::Identifiable {
                 visibility_expr,
                 ident_token,
                 block,
@@ -215,8 +215,7 @@ impl<'a> EntityTreePresheetBuilder<'a> {
             | Ast::IfElseStmts { .. }
             | Ast::MatchStmts { .. }
             | Ast::TypeVariant { .. }
-            | Ast::ImplBlock { .. }
-            | Ast::Config { .. } => (),
+            | Ast::ImplBlock { .. } => (),
         }
     }
 }

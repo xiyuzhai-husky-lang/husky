@@ -23,7 +23,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 11,
+                        ast_idx: 10,
                     },
                 ),
             ),
@@ -48,7 +48,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 12,
+                        ast_idx: 11,
                     },
                 ),
             ),
@@ -73,7 +73,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 13,
+                        ast_idx: 12,
                     },
                 ),
             ),
@@ -98,7 +98,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 14,
+                        ast_idx: 13,
                     },
                 ),
             ),
@@ -123,7 +123,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 15,
+                        ast_idx: 14,
                     },
                 ),
             ),
@@ -148,7 +148,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 16,
+                        ast_idx: 15,
                     },
                 ),
             ),
@@ -173,7 +173,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 17,
+                        ast_idx: 16,
                     },
                 ),
             ),
@@ -198,12 +198,12 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 27,
+                                ast_idx: 25,
                                 colon_token: Ok(
                                     Some(
                                         ColonToken(
                                             TokenIdx(
-                                                67,
+                                                62,
                                             ),
                                         ),
                                     ),
@@ -218,7 +218,7 @@ Ok(
                                 eq_token: Ok(
                                     EqToken(
                                         TokenIdx(
-                                            70,
+                                            65,
                                         ),
                                     ),
                                 ),
@@ -273,7 +273,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Class`,
                                                             token_idx: TokenIdx(
-                                                                68,
+                                                                63,
                                                             ),
                                                         },
                                                     ),
@@ -288,7 +288,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `MnistLabel`,
                                                             token_idx: TokenIdx(
-                                                                69,
+                                                                64,
                                                             ),
                                                         },
                                                     ),

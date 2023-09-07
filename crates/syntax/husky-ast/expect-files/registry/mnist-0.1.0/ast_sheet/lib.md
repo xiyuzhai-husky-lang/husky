@@ -262,7 +262,7 @@ Ok(
                         drained: true,
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         14,
                     ),
@@ -298,7 +298,7 @@ Ok(
                         body: None,
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         16,
                     ),
@@ -334,7 +334,7 @@ Ok(
                         body: None,
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         18,
                     ),
@@ -370,7 +370,7 @@ Ok(
                         body: None,
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         21,
                     ),
@@ -406,7 +406,7 @@ Ok(
                         body: None,
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         23,
                     ),
@@ -442,7 +442,7 @@ Ok(
                         body: None,
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         25,
                     ),
@@ -478,7 +478,7 @@ Ok(
                         body: None,
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
@@ -532,7 +532,7 @@ Ok(
                     ),
                     ident: `derive`,
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         12,
                     ),
@@ -616,7 +616,7 @@ Ok(
                         ),
                     ),
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         19,
                     ),
@@ -700,7 +700,7 @@ Ok(
                         ),
                     ),
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         26,
                     ),

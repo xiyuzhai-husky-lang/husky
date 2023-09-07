@@ -93,7 +93,7 @@ Ok(
                         },
                     ),
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),

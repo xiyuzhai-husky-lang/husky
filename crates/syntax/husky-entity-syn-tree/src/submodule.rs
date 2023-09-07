@@ -13,7 +13,7 @@ pub(crate) fn submodules(
     Ok(ast_sheet
         .top_level_asts_iter()
         .filter_map(|ast| match ast {
-            Ast::Defn { block, .. } => match block {
+            Ast::Identifiable { block, .. } => match block {
                 DefnBlock::Submodule { path, .. } => Some(*path),
                 _ => None,
             },

@@ -92,7 +92,7 @@ impl<'a> AstParser<'a> {
             EntityKind::ImplBlock => todo!(),
             EntityKind::Decr => todo!(),
         };
-        Ok(Ast::Defn {
+        Ok(Ast::Identifiable {
             visibility_expr,
             ident_token,
             is_generic,

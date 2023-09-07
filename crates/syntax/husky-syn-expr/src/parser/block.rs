@@ -123,10 +123,9 @@ impl<'a> BlockExprParser<'a> {
             | Ast::Use { .. }
             | Ast::Sorc { .. }
             | Ast::Decr { .. }
-            | Ast::Defn { .. }
+            | Ast::Identifiable { .. }
             | Ast::TypeVariant { .. }
-            | Ast::ImplBlock { .. }
-            | Ast::Config { .. } => None,
+            | Ast::ImplBlock { .. } => None,
         }
     }
 

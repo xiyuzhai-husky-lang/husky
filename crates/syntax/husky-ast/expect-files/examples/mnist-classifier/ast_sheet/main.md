@@ -10,6 +10,12 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
+                        17,
+                    ),
+                    body: None,
+                },
+                Ast::BasicStmtOrBranch {
+                    token_group_idx: TokenGroupIdx(
                         18,
                     ),
                     body: None,
@@ -56,19 +62,7 @@ Ok(
                     ),
                     body: None,
                 },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        26,
-                    ),
-                    body: None,
-                },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        27,
-                    ),
-                    body: None,
-                },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
@@ -106,7 +100,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
@@ -144,7 +138,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
@@ -182,7 +176,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
@@ -220,7 +214,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
@@ -258,7 +252,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
@@ -296,7 +290,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Defn {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
@@ -462,19 +456,9 @@ Ok(
                     },
                     state_after_visibility_expr: None,
                 },
-                Ast::Config {
+                Ast::Identifiable {
                     token_group_idx: TokenGroupIdx(
                         15,
-                    ),
-                    body: FugitiveBody {
-                        ast_idx_range: ArenaIdxRange(
-                            0..1,
-                        ),
-                    },
-                },
-                Ast::Defn {
-                    token_group_idx: TokenGroupIdx(
-                        17,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -495,13 +479,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `main`,
                         token_idx: TokenIdx(
-                            66,
+                            61,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            67,
+                            62,
                         ),
                         drained: false,
                     },
@@ -514,7 +498,7 @@ Ok(
                         body: Some(
                             FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
-                                    1..11,
+                                    0..10,
                                 ),
                             },
                         ),
@@ -523,50 +507,44 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            11..28,
+            10..26,
         ),
         siblings: [
             ArenaIdxRange(
                 0..0,
             ),
             ArenaIdxRange(
-                0..1,
+                0..0,
             ),
             ArenaIdxRange(
-                1..1,
+                0..0,
             ),
             ArenaIdxRange(
-                1..1,
+                0..0,
             ),
             ArenaIdxRange(
-                1..1,
+                0..0,
             ),
             ArenaIdxRange(
-                1..1,
+                0..0,
             ),
             ArenaIdxRange(
-                1..1,
+                0..0,
             ),
             ArenaIdxRange(
-                1..1,
+                0..0,
             ),
             ArenaIdxRange(
-                1..1,
+                0..0,
             ),
             ArenaIdxRange(
-                1..1,
+                0..0,
             ),
             ArenaIdxRange(
-                1..1,
+                0..10,
             ),
             ArenaIdxRange(
-                1..1,
-            ),
-            ArenaIdxRange(
-                1..11,
-            ),
-            ArenaIdxRange(
-                11..28,
+                10..26,
             ),
         ],
     },

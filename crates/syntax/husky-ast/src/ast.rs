@@ -36,7 +36,7 @@ pub enum Ast {
         pattern_stmt: AstIdx,
         case_stmts: AstIdxRange,
     },
-    Defn {
+    Identifiable {
         token_group_idx: TokenGroupIdx,
         visibility_expr: VisibilityExpr,
         item_kind: EntityKind,
@@ -55,10 +55,6 @@ pub enum Ast {
     ImplBlock {
         token_group_idx: TokenGroupIdx,
         items: Option<ImplBlockItems>,
-    },
-    Config {
-        token_group_idx: TokenGroupIdx,
-        body: FugitiveBody,
     },
 }
 

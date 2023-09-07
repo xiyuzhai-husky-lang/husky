@@ -822,7 +822,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 11,
+                                            ast_idx: 10,
                                             ident_token: IdentToken {
                                                 ident: `connected_component`,
                                                 token_idx: TokenIdx(
@@ -877,7 +877,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 12,
+                                            ast_idx: 11,
                                             ident_token: IdentToken {
                                                 ident: `raw_contour`,
                                                 token_idx: TokenIdx(
@@ -932,7 +932,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 13,
+                                            ast_idx: 12,
                                             ident_token: IdentToken {
                                                 ident: `geom2d`,
                                                 token_idx: TokenIdx(
@@ -987,7 +987,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 14,
+                                            ast_idx: 13,
                                             ident_token: IdentToken {
                                                 ident: `line_segment_sketch`,
                                                 token_idx: TokenIdx(
@@ -1042,7 +1042,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 15,
+                                            ast_idx: 14,
                                             ident_token: IdentToken {
                                                 ident: `fermi`,
                                                 token_idx: TokenIdx(
@@ -1097,7 +1097,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 16,
+                                            ast_idx: 15,
                                             ident_token: IdentToken {
                                                 ident: `digits`,
                                                 token_idx: TokenIdx(
@@ -1152,7 +1152,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 17,
+                                            ast_idx: 16,
                                             ident_token: IdentToken {
                                                 ident: `major`,
                                                 token_idx: TokenIdx(
@@ -1207,11 +1207,11 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 27,
+                                            ast_idx: 25,
                                             ident_token: IdentToken {
                                                 ident: `main`,
                                                 token_idx: TokenIdx(
-                                                    66,
+                                                    61,
                                                 ),
                                             },
                                             block: Fugitive {
@@ -1223,7 +1223,7 @@ Ok(
                                                 body: Some(
                                                     FugitiveBody {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            1..11,
+                                                            0..10,
                                                         ),
                                                     },
                                                 ),
@@ -1311,7 +1311,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 24,
+                                            ast_idx: 23,
                                             use_expr_idx: 18,
                                         },
                                     ),
@@ -1396,7 +1396,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 24,
+                                            ast_idx: 23,
                                             use_expr_idx: 18,
                                         },
                                     ),
@@ -1481,7 +1481,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 24,
+                                            ast_idx: 23,
                                             use_expr_idx: 18,
                                         },
                                     ),
@@ -1560,7 +1560,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 24,
+                                            ast_idx: 23,
                                             use_expr_idx: 18,
                                         },
                                     ),
@@ -1645,7 +1645,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 25,
+                                            ast_idx: 24,
                                             use_expr_idx: 20,
                                         },
                                     ),
@@ -1724,7 +1724,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 25,
+                                            ast_idx: 24,
                                             use_expr_idx: 20,
                                         },
                                     ),
@@ -1803,7 +1803,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 25,
+                                            ast_idx: 24,
                                             use_expr_idx: 20,
                                         },
                                     ),
@@ -1882,7 +1882,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 25,
+                                            ast_idx: 24,
                                             use_expr_idx: 20,
                                         },
                                     ),
@@ -2535,7 +2535,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 18,
+                                            ast_idx: 17,
                                             use_expr_idx: 0,
                                         },
                                     ),
@@ -2620,7 +2620,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 18,
+                                            ast_idx: 17,
                                             use_expr_idx: 0,
                                         },
                                     ),
@@ -2705,7 +2705,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 18,
+                                            ast_idx: 17,
                                             use_expr_idx: 0,
                                         },
                                     ),
@@ -2790,7 +2790,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 18,
+                                            ast_idx: 17,
                                             use_expr_idx: 0,
                                         },
                                     ),
@@ -2875,7 +2875,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 18,
+                                            ast_idx: 17,
                                             use_expr_idx: 0,
                                         },
                                     ),
@@ -2960,7 +2960,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 18,
+                                            ast_idx: 17,
                                             use_expr_idx: 0,
                                         },
                                     ),
@@ -3045,7 +3045,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 18,
+                                            ast_idx: 17,
                                             use_expr_idx: 0,
                                         },
                                     ),
@@ -3142,7 +3142,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 19,
+                                            ast_idx: 18,
                                             use_expr_idx: 3,
                                         },
                                     ),
@@ -3221,7 +3221,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 20,
+                                            ast_idx: 19,
                                             use_expr_idx: 6,
                                         },
                                     ),
@@ -3306,7 +3306,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 20,
+                                            ast_idx: 19,
                                             use_expr_idx: 6,
                                         },
                                     ),
@@ -3385,7 +3385,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 21,
+                                            ast_idx: 20,
                                             use_expr_idx: 9,
                                         },
                                     ),
@@ -3470,7 +3470,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 21,
+                                            ast_idx: 20,
                                             use_expr_idx: 9,
                                         },
                                     ),
@@ -3549,7 +3549,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 22,
+                                            ast_idx: 21,
                                             use_expr_idx: 12,
                                         },
                                     ),
@@ -3628,7 +3628,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 22,
+                                            ast_idx: 21,
                                             use_expr_idx: 12,
                                         },
                                     ),
@@ -3719,7 +3719,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 22,
+                                            ast_idx: 21,
                                             use_expr_idx: 12,
                                         },
                                     ),
@@ -3816,7 +3816,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 22,
+                                            ast_idx: 21,
                                             use_expr_idx: 12,
                                         },
                                     ),
@@ -3907,7 +3907,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 22,
+                                            ast_idx: 21,
                                             use_expr_idx: 12,
                                         },
                                     ),
@@ -3986,7 +3986,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 23,
+                                            ast_idx: 22,
                                             use_expr_idx: 15,
                                         },
                                     ),
@@ -4065,7 +4065,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 23,
+                                            ast_idx: 22,
                                             use_expr_idx: 15,
                                         },
                                     ),
@@ -4144,7 +4144,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 23,
+                                            ast_idx: 22,
                                             use_expr_idx: 15,
                                         },
                                     ),
@@ -4229,7 +4229,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 23,
+                                            ast_idx: 22,
                                             use_expr_idx: 15,
                                         },
                                     ),
@@ -4328,7 +4328,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 19,
+                                            ast_idx: 18,
                                             use_expr_idx: 3,
                                         },
                                     ),
@@ -4427,7 +4427,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 19,
+                                            ast_idx: 18,
                                             use_expr_idx: 3,
                                         },
                                     ),
@@ -4526,7 +4526,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 19,
+                                            ast_idx: 18,
                                             use_expr_idx: 3,
                                         },
                                     ),
@@ -4625,7 +4625,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 19,
+                                            ast_idx: 18,
                                             use_expr_idx: 3,
                                         },
                                     ),
@@ -4724,7 +4724,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 19,
+                                            ast_idx: 18,
                                             use_expr_idx: 3,
                                         },
                                     ),
@@ -4823,7 +4823,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 19,
+                                            ast_idx: 18,
                                             use_expr_idx: 3,
                                         },
                                     ),
@@ -4922,7 +4922,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 19,
+                                            ast_idx: 18,
                                             use_expr_idx: 3,
                                         },
                                     ),
@@ -5021,7 +5021,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 19,
+                                            ast_idx: 18,
                                             use_expr_idx: 3,
                                         },
                                     ),

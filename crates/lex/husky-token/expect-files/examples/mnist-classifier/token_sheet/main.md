@@ -265,33 +265,6 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Config(
-                    Task,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
-                ),
-            ),
-            Token::Ident(
-                `new_binary_dataset`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Bra(
-                        Par,
-                    ),
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Ket(
-                        Par,
-                    ),
-                ),
-            ),
-            Token::Keyword(
                 Keyword::Fugitive(
                     Val,
                 ),
@@ -511,62 +484,52 @@ Ok(
             ),
             TokenGroupBase(
                 TokenIdx(
-                    62,
+                    66,
                 ),
             ),
             TokenGroupBase(
                 TokenIdx(
-                    65,
+                    68,
                 ),
             ),
             TokenGroupBase(
                 TokenIdx(
-                    71,
+                    70,
                 ),
             ),
             TokenGroupBase(
                 TokenIdx(
-                    73,
+                    72,
                 ),
             ),
             TokenGroupBase(
                 TokenIdx(
-                    75,
+                    74,
                 ),
             ),
             TokenGroupBase(
                 TokenIdx(
-                    77,
+                    76,
                 ),
             ),
             TokenGroupBase(
                 TokenIdx(
-                    79,
+                    78,
                 ),
             ),
             TokenGroupBase(
                 TokenIdx(
-                    81,
+                    80,
                 ),
             ),
             TokenGroupBase(
                 TokenIdx(
-                    83,
+                    82,
                 ),
             ),
             TokenGroupBase(
                 TokenIdx(
-                    85,
-                ),
-            ),
-            TokenGroupBase(
-                TokenIdx(
-                    87,
-                ),
-            ),
-            TokenGroupBase(
-                TokenIdx(
-                    89,
+                    84,
                 ),
             ),
         ],
@@ -586,8 +549,6 @@ Ok(
             0,
             0,
             0,
-            0,
-            4,
             0,
             4,
             4,
