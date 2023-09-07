@@ -18,11 +18,11 @@ pub struct RitchieParameters<const ALLOW_SELF_PARAMETER: bool> {
 impl<'a, 'b, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<ExprParseContext<'a, 'b>>
     for RitchieParameters<ALLOW_SELF_PARAMETER>
 {
-    type Error = NodeDeclError;
+    type Error = SynNodeDeclError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> Result<Option<Self>, NodeDeclError> {
+    ) -> Result<Option<Self>, SynNodeDeclError> {
         let Some(lpar) = ctx.try_parse_option::<LparToken>()? else {
             return Ok(None);
         };
@@ -38,8 +38,9 @@ impl<'a, 'b, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<ExprPars
             } else {
                 Default::default()
             };
-        let rpar =
-            ctx.try_parse_expected(OriginalNodeDeclError::ExpectedRightParenthesisInParameterList)?;
+        let rpar = ctx.try_parse_expected(
+            OriginalSynNodeDeclError::ExpectedRightParenthesisInParameterList,
+        )?;
         Ok(Some(Self {
             lpar,
             self_value_parameter,

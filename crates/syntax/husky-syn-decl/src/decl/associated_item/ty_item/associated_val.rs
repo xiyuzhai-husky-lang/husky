@@ -16,7 +16,7 @@ impl TypeAssociatedValSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a> {}
+impl<'a> DeclParserFactory<'a> {}
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TypeAssociatedValSynDecl {

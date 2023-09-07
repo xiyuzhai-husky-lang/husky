@@ -53,7 +53,7 @@ impl<'a> FoldingRangeCalculator<'a> {
                 .ast_idx_range()
                 .last()
                 .map(|_| (self.ast_range_sheet[ast_idx], FoldingRangeKind::Region)),
-            Ast::Main { body, .. } | Ast::Config { body, .. } => body
+            Ast::Config { body, .. } => body
                 .ast_idx_range()
                 .last()
                 .map(|_| (self.ast_range_sheet[ast_idx], FoldingRangeKind::Region)),

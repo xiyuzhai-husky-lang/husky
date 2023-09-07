@@ -107,11 +107,11 @@ pub(crate) fn ty_item_syn_node_decl(
     syn_node_path: TypeItemSynNodePath,
 ) -> TypeItemSynNodeDecl {
     let module_path = syn_node_path.module_path(db);
-    let ctx = DeclParser::new(db, module_path);
+    let ctx = DeclParserFactory::new(db, module_path);
     ctx.parse_ty_item_syn_node_decl(syn_node_path)
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> DeclParserFactory<'a> {
     fn parse_ty_item_syn_node_decl(
         &self,
         syn_node_path: TypeItemSynNodePath,
@@ -182,6 +182,7 @@ impl<'a> DeclParser<'a> {
 pub enum TypeItemSynDecl {
     AssociatedFn(TypeAssociatedFnSynDecl),
     MethodFn(TypeMethodFnSynDecl),
+    // MethodFunction(TypeMethodFunctionSynDecl),
     AssociatedType(TypeAssociatedTypeSynDecl),
     AssociatedVal(TypeAssociatedValSynDecl),
     MemoizedField(TypeMemoizedFieldSynDecl),
@@ -198,6 +199,7 @@ impl TypeItemSynDecl {
         match self {
             TypeItemSynDecl::AssociatedFn(decl) => decl.path(db),
             TypeItemSynDecl::MethodFn(decl) => decl.path(db),
+            // TypeItemSynDecl::MethodFunction(decl) => decl.path(db),
             TypeItemSynDecl::AssociatedType(_) => todo!(),
             TypeItemSynDecl::AssociatedVal(_) => todo!(),
             TypeItemSynDecl::MemoizedField(decl) => decl.path(db),
@@ -208,6 +210,7 @@ impl TypeItemSynDecl {
         match self {
             TypeItemSynDecl::AssociatedFn(_) => todo!(),
             TypeItemSynDecl::MethodFn(_) => todo!(),
+            // TypeItemSynDecl::MethodFunction(decl) => todo!(),
             TypeItemSynDecl::AssociatedType(_) => todo!(),
             TypeItemSynDecl::AssociatedVal(_) => todo!(),
             TypeItemSynDecl::MemoizedField(_) => todo!(),
@@ -218,6 +221,7 @@ impl TypeItemSynDecl {
         match self {
             TypeItemSynDecl::AssociatedFn(decl) => decl.syn_expr_region(db),
             TypeItemSynDecl::MethodFn(decl) => decl.syn_expr_region(db),
+            // TypeItemSynDecl::MethodFunction(decl) => decl.syn_expr_region(db),
             TypeItemSynDecl::AssociatedType(decl) => decl.syn_expr_region(db),
             TypeItemSynDecl::AssociatedVal(decl) => decl.syn_expr_region(db),
             TypeItemSynDecl::MemoizedField(decl) => decl.syn_expr_region(db),

@@ -1,6 +1,6 @@
 use super::*;
 use husky_token::{CommaToken, LcurlToken, RcurlToken};
-use parsec::{parse_separated_list2, SeparatedSmallList, TryParseFromStream};
+use parsec::{parse_separated_list2, PunctuatedSmallList, TryParseFromStream};
 
 // todo: GADT
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
@@ -9,11 +9,13 @@ pub struct PropsTypeVariantSynNodeDecl {
     pub syn_node_path: TypeVariantSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    lcurl: NodeDeclResult<PropsTypeVariantLeftCurlyBrace>,
+    lcurl: SynNodeDeclResult<PropsTypeVariantLeftCurlyBrace>,
     #[return_ref]
-    fields: NodeDeclResult<SeparatedSmallList<PropsFieldDeclPattern, CommaToken, 4, NodeDeclError>>,
+    fields: SynNodeDeclResult<
+        PunctuatedSmallList<PropsFieldDeclPattern, CommaToken, 4, SynNodeDeclError>,
+    >,
     #[return_ref]
-    rcurl: NodeDeclResult<PropsTypeVariantRcurlToken>,
+    rcurl: SynNodeDeclResult<PropsTypeVariantRcurlToken>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -23,11 +25,11 @@ pub struct PropsTypeVariantSynNodeDecl {
 pub struct PropsTypeVariantLeftCurlyBrace(LcurlToken);
 
 impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsTypeVariantLeftCurlyBrace {
-    type Error = NodeDeclError;
+    type Error = SynNodeDeclError;
 
     fn try_parse_from_stream(sp: &mut ExprParseContext) -> Result<Self, Self::Error> {
         let lcurl = sp.try_parse_expected(
-            OriginalNodeDeclError::ExpectedLeftCurlyBraceOrLeftParenthesisOrSemicolonForStruct,
+            OriginalSynNodeDeclError::ExpectedLeftCurlyBraceOrLeftParenthesisOrSemicolonForStruct,
         )?;
         Ok(Self(lcurl))
     }
@@ -37,13 +39,13 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsTypeVariantLe
 pub struct PropsTypeVariantRcurlToken(RcurlToken);
 
 impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsTypeVariantRcurlToken {
-    type Error = NodeDeclError;
+    type Error = SynNodeDeclError;
 
     fn try_parse_from_stream(sp: &mut ExprParseContext) -> Result<Self, Self::Error> {
         // todo: enrich this
         // consider unexpected
         // maybe sp.skip_exprs_until_next_right_curly_brace
-        let rcurl = sp.try_parse_expected(OriginalNodeDeclError::ExpectedRightCurlyBrace)?;
+        let rcurl = sp.try_parse_expected(OriginalSynNodeDeclError::ExpectedRightCurlyBrace)?;
         Ok(Self(rcurl))
     }
 }

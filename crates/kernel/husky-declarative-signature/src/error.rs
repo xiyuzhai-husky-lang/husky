@@ -1,5 +1,4 @@
 use husky_entity_syn_tree::EntityTreeBundleError;
-use husky_syn_decr::DecrError;
 use husky_syn_expr::ExprError;
 use thiserror::Error;
 
@@ -33,14 +32,20 @@ impl From<&DeclarativeSignatureError> for DeclarativeSignatureError {
     }
 }
 
+impl From<DeclarativeTermError2> for DeclarativeSignatureError {
+    fn from(value: DeclarativeTermError2) -> Self {
+        todo!()
+    }
+}
+
 impl From<DeclError> for DeclarativeSignatureError {
     fn from(e: DeclError) -> Self {
         DeclarativeSignatureError::DeclError(e)
     }
 }
 
-impl From<&NodeDeclError> for DeclarativeSignatureError {
-    fn from(_: &NodeDeclError) -> Self {
+impl From<&SynNodeDeclError> for DeclarativeSignatureError {
+    fn from(_: &SynNodeDeclError) -> Self {
         DeclarativeSignatureError::NodeDeclError
     }
 }
@@ -64,12 +69,6 @@ impl From<&DeclarativeTermError2> for DeclarativeSignatureError {
 
 impl From<&EntityTreeBundleError> for DeclarativeSignatureError {
     fn from(e: &EntityTreeBundleError) -> Self {
-        todo!()
-    }
-}
-
-impl From<&DecrError> for DeclarativeSignatureError {
-    fn from(e: &DecrError) -> Self {
         todo!()
     }
 }

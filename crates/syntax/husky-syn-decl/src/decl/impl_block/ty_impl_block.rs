@@ -9,10 +9,10 @@ pub struct TypeImplBlockSynNodeDecl {
     pub impl_block: TypeImplBlockSynNode,
     pub impl_token: ImplToken,
     #[return_ref]
-    template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
     pub self_ty_expr: SelfTypeObelisk,
     #[return_ref]
-    pub eol_colon: NodeDeclResult<EolToken>,
+    pub eol_colon: SynNodeDeclResult<EolToken>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -41,11 +41,11 @@ pub(crate) fn ty_impl_block_syn_node_decl(
     db: &dyn SynDeclDb,
     syn_node_path: TypeImplBlockSynNodePath,
 ) -> TypeImplBlockSynNodeDecl {
-    let parser = DeclParser::new(db, syn_node_path.module_path(db));
+    let parser = DeclParserFactory::new(db, syn_node_path.module_path(db));
     parser.parse_ty_impl_block_syn_node_decl(syn_node_path)
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> DeclParserFactory<'a> {
     fn parse_ty_impl_block_syn_node_decl(
         &self,
         syn_node_path: TypeImplBlockSynNodePath,
@@ -82,7 +82,7 @@ impl<'a> DeclParser<'a> {
         let impl_token = ctx.try_parse_option().unwrap().unwrap();
         let template_parameter_decl_list = ctx.try_parse_option();
         let ty = ctx.try_parse_option().unwrap().unwrap();
-        let eol_colon = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEolColon);
+        let eol_colon = ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
         TypeImplBlockSynNodeDecl::new(
             db,
             syn_node_path,

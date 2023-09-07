@@ -1,6 +1,6 @@
 use super::*;
 use husky_token::{CommaToken, LcurlToken, RcurlToken};
-use parsec::{parse_separated_list2, SeparatedSmallList, TryParseFromStream};
+use parsec::{parse_separated_list2, PunctuatedSmallList, TryParseFromStream};
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct PropsStructTypeSynNodeDecl {
@@ -8,13 +8,15 @@ pub struct PropsStructTypeSynNodeDecl {
     pub syn_node_path: TypeSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
     #[return_ref]
-    lcurl: NodeDeclResult<PropsStructLeftCurlyBrace>,
+    lcurl: SynNodeDeclResult<PropsStructLeftCurlyBrace>,
     #[return_ref]
-    fields: NodeDeclResult<SeparatedSmallList<PropsFieldDeclPattern, CommaToken, 4, NodeDeclError>>,
+    fields: SynNodeDeclResult<
+        PunctuatedSmallList<PropsFieldDeclPattern, CommaToken, 4, SynNodeDeclError>,
+    >,
     #[return_ref]
-    rcurl: NodeDeclResult<PropsStructRcurlToken>,
+    rcurl: SynNodeDeclResult<PropsStructRcurlToken>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -38,11 +40,11 @@ impl PropsStructTypeSynNodeDecl {
 pub struct PropsStructLeftCurlyBrace(LcurlToken);
 
 impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsStructLeftCurlyBrace {
-    type Error = NodeDeclError;
+    type Error = SynNodeDeclError;
 
     fn try_parse_from_stream(sp: &mut ExprParseContext) -> Result<Self, Self::Error> {
         let lcurl = sp.try_parse_expected(
-            OriginalNodeDeclError::ExpectedLeftCurlyBraceOrLeftParenthesisOrSemicolonForStruct,
+            OriginalSynNodeDeclError::ExpectedLeftCurlyBraceOrLeftParenthesisOrSemicolonForStruct,
         )?;
         Ok(Self(lcurl))
     }
@@ -52,13 +54,13 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsStructLeftCur
 pub struct PropsStructRcurlToken(RcurlToken);
 
 impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsStructRcurlToken {
-    type Error = NodeDeclError;
+    type Error = SynNodeDeclError;
 
     fn try_parse_from_stream(sp: &mut ExprParseContext) -> Result<Self, Self::Error> {
         // todo: enrich this
         // consider unexpected
         // maybe sp.skip_exprs_until_next_right_curly_brace
-        let rcurl = sp.try_parse_expected(OriginalNodeDeclError::ExpectedRightCurlyBrace)?;
+        let rcurl = sp.try_parse_expected(OriginalSynNodeDeclError::ExpectedRightCurlyBrace)?;
         Ok(Self(rcurl))
     }
 }

@@ -7,14 +7,14 @@ pub struct GnSynNodeDecl {
     pub ast_idx: AstIdx,
     pub syn_expr_region: SynExprRegion,
     #[return_ref]
-    template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
     #[return_ref]
-    parenate_parameter_decl_list: NodeDeclResult<RitchieParameters<false>>,
+    parenate_parameter_decl_list: SynNodeDeclResult<RitchieParameters<false>>,
     pub curry_token: TokenResult<Option<CurryToken>>,
     #[return_ref]
-    pub return_ty: NodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
+    pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
     #[return_ref]
-    pub eol_colon: NodeDeclResult<EolToken>,
+    pub eol_colon: SynNodeDeclResult<EolToken>,
 }
 
 impl GnSynNodeDecl {
@@ -36,7 +36,7 @@ impl GnSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> DeclParserFactory<'a> {
     pub(super) fn parse_gn_node_decl(
         &self,
         syn_node_path: FugitiveSynNodePath,
@@ -53,16 +53,16 @@ impl<'a> DeclParser<'a> {
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let template_parameter_decl_list = ctx.try_parse_option();
         let parameter_decl_list =
-            ctx.try_parse_expected(OriginalNodeDeclError::ExpectedParameterDeclList);
+            ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectedParameterDeclList);
 
         let curry_token = ctx.try_parse_option();
         let return_ty = if let Ok(Some(_)) = curry_token {
-            ctx.try_parse_expected(OriginalNodeDeclError::ExpectedOutputType)
+            ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectedOutputType)
                 .map(Some)
         } else {
             Ok(None)
         };
-        let eol_colon = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEolColon);
+        let eol_colon = ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
         GnSynNodeDecl::new(
             self.db(),
             syn_node_path,

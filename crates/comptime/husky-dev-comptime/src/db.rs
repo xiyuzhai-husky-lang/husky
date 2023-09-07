@@ -26,7 +26,6 @@ use std::panic::RefUnwindSafe;
     husky_entity_syn_tree::EntitySynTreeJar,
     husky_syn_expr::SynExprJar,
     husky_syn_decl::SynDeclJar,
-    husky_syn_decr::SynDecrJar,
     husky_syn_defn::SynDefnJar,
     // semantics
     husky_expr_ty::ExprTypeJar,

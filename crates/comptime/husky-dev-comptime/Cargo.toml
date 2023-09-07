@@ -38,7 +38,6 @@ husky-manifest-ast = { path = "../../syntax/husky-manifest-ast" }
 husky-corgi-config-ast = { path = "../../syntax/husky-corgi-config-ast" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
-husky-syn-decr = { path = "../../syntax/husky-syn-decr" }
 husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 # vm

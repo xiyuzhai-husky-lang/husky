@@ -8,7 +8,7 @@ pub struct SubmoduleSynNodePath {
 impl SubmoduleSynNodePath {
     pub(super) fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut ItemNodeRegistry,
+        registry: &mut ItemSynNodePathRegistry,
         path: SubmodulePath,
     ) -> Self {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
@@ -51,7 +51,7 @@ pub struct SubmoduleSynNode {
 impl SubmoduleSynNode {
     pub(super) fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut ItemNodeRegistry,
+        registry: &mut ItemSynNodePathRegistry,
         submodule_path: SubmodulePath,
         visibility: Scope,
         ast_idx: AstIdx,

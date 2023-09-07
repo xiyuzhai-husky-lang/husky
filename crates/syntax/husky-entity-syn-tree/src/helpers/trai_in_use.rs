@@ -100,7 +100,7 @@ fn trait_items_table_impl(
         else {
             continue;
         };
-        for (ident, trai_item_path) in trai_path.item_paths(db) {
+        for (ident, trai_item_path) in trai_path.associated_item_paths(db) {
             let record = TraitInUseItemRecord {
                 trai_symbol: entry.symbol(),
                 trai_path,

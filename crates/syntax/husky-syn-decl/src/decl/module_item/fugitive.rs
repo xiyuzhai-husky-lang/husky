@@ -67,11 +67,11 @@ pub(crate) fn fugitive_syn_node_decl(
     db: &dyn SynDeclDb,
     syn_node_path: FugitiveSynNodePath,
 ) -> FugitiveSynNodeDecl {
-    let parser = DeclParser::new(db, syn_node_path.module_path(db));
+    let parser = DeclParserFactory::new(db, syn_node_path.module_path(db));
     parser.parse_fugitive_syn_node_decl(syn_node_path)
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> DeclParserFactory<'a> {
     fn parse_fugitive_syn_node_decl(
         &self,
         syn_node_path: FugitiveSynNodePath,

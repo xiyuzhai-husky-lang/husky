@@ -123,15 +123,45 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::fmt::Debug`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::PartialEq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::Eq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::clone::Clone`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::marker::Copy`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -344,15 +374,45 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::fmt::Debug`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::PartialEq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::Eq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::clone::Clone`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::marker::Copy`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -565,15 +625,45 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::fmt::Debug`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::PartialEq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::Eq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::clone::Clone`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::marker::Copy`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -838,15 +928,45 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::fmt::Debug`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::PartialEq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::Eq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::clone::Clone`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::marker::Copy`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1006,15 +1126,45 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::fmt::Debug`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::PartialEq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::Eq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::clone::Clone`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::marker::Copy`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1174,15 +1324,45 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::fmt::Debug`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::PartialEq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::Eq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::clone::Clone`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::marker::Copy`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1342,15 +1522,45 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::fmt::Debug`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::PartialEq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::Eq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::clone::Clone`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::marker::Copy`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1510,15 +1720,45 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::fmt::Debug`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::PartialEq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::Eq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::clone::Clone`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::marker::Copy`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1678,15 +1918,45 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::fmt::Debug`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::PartialEq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::Eq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::clone::Clone`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::marker::Copy`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1846,15 +2116,45 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::fmt::Debug`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::PartialEq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::Eq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::clone::Clone`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::marker::Copy`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -2014,15 +2314,45 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::fmt::Debug`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::PartialEq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::Eq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::clone::Clone`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::marker::Copy`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -2182,15 +2512,45 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::fmt::Debug`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::PartialEq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::Eq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::clone::Clone`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::marker::Copy`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -2350,15 +2710,45 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::fmt::Debug`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::PartialEq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::Eq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::clone::Clone`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::marker::Copy`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -2813,15 +3203,45 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::fmt::Debug`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::PartialEq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::cmp::Eq`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::clone::Clone`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::marker::Copy`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,

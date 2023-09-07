@@ -1,6 +1,7 @@
 use super::*;
 use husky_entity_taxonomy::TypeKind;
 use husky_print_utils::p;
+use smallvec::SmallVec;
 
 #[salsa::interned(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
 pub struct TypeSynNodePath {
@@ -10,7 +11,7 @@ pub struct TypeSynNodePath {
 impl TypeSynNodePath {
     pub(super) fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut ItemNodeRegistry,
+        registry: &mut ItemSynNodePathRegistry,
         path: TypePath,
     ) -> Self {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
@@ -31,6 +32,10 @@ impl TypeSynNodePath {
     pub fn node<'a>(self, db: &'a dyn EntitySynTreeDb) -> MajorItemSynNode {
         ty_node(db, self)
     }
+
+    pub fn decrs<'a>(self, db: &'a dyn EntitySynTreeDb) -> &'a [(DecrSynNodePath, DecrSynNode)] {
+        ty_decrs(db, self)
+    }
 }
 
 impl HasSynNodePath for TypePath {
@@ -48,10 +53,7 @@ impl From<TypeSynNodePath> for ItemSynNodePath {
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
-pub(crate) fn ty_node(
-    db: &dyn EntitySynTreeDb,
-    syn_node_path: TypeSynNodePath,
-) -> MajorItemSynNode {
+fn ty_node(db: &dyn EntitySynTreeDb, syn_node_path: TypeSynNodePath) -> MajorItemSynNode {
     let module_path = syn_node_path.module_path(db);
     // it's important to use presheet instead of sheet
     // otherwise cyclic when use all type variant paths
@@ -66,4 +68,47 @@ pub(crate) fn ty_node(
         ItemSynNode::MajorItem(node) => node,
         _ => unreachable!(),
     }
+}
+
+impl HasDecrPaths for TypePath {
+    type DecrPath = DecrPath;
+
+    fn decr_paths(self, db: &dyn EntitySynTreeDb) -> &[Self::DecrPath] {
+        ty_decr_paths(db, self)
+    }
+}
+
+#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
+fn ty_decrs(
+    db: &dyn EntitySynTreeDb,
+    ty_syn_node_path: TypeSynNodePath,
+) -> SmallVec<[(DecrSynNodePath, DecrSynNode); 2]> {
+    let ast_sheet = ty_syn_node_path
+        .module_path(db)
+        .ast_sheet(db)
+        .expect("todo: module paths should be guaranteed to be valid");
+    let mut registry = ItemSynNodePathRegistry::default();
+    ast_sheet.procure_decrs(
+        ty_syn_node_path.maybe_ambiguous_path(db).path.into(),
+        ty_syn_node_path.node(db).ast_idx(db),
+        move |decr_ast_idx, _, path| {
+            DecrSynNode::new(
+                ty_syn_node_path.into(),
+                path,
+                decr_ast_idx,
+                &mut registry,
+                db,
+            )
+        },
+        db,
+    )
+}
+
+#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
+fn ty_decr_paths(db: &dyn EntitySynTreeDb, path: TypePath) -> SmallVec<[DecrPath; 2]> {
+    path.syn_node_path(db)
+        .decrs(db)
+        .iter()
+        .filter_map(|(decr_syn_node_path, _)| decr_syn_node_path.path(db))
+        .collect()
 }

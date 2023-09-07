@@ -3,10 +3,9 @@ use std::sync::Arc;
 use crate::*;
 use husky_declarative_ty::DeclarativeTypeDb;
 use husky_entity_path::EntityPathDb;
-use husky_syn_decr::DecrDb;
 use salsa::DbWithJar;
 
-pub trait EtherealTermDb: DbWithJar<EtherealTermJar> + DeclarativeTypeDb + DecrDb {
+pub trait EtherealTermDb: DbWithJar<EtherealTermJar> + DeclarativeTypeDb {
     fn ethereal_term_menu(&self, toolchain: Toolchain) -> &EtherealTermMenu;
     // fn ty_path_ty(
     //     &self,
@@ -21,7 +20,7 @@ pub trait EtherealTermDb: DbWithJar<EtherealTermJar> + DeclarativeTypeDb + DecrD
 
 impl<Db> EtherealTermDb for Db
 where
-    Db: DbWithJar<EtherealTermJar> + DeclarativeTypeDb + DecrDb,
+    Db: DbWithJar<EtherealTermJar> + DeclarativeTypeDb,
 {
     fn ethereal_term_menu(&self, toolchain: Toolchain) -> &EtherealTermMenu {
         term_menu(self, toolchain)

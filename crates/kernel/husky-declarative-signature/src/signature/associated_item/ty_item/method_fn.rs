@@ -20,60 +20,50 @@ pub struct TypeMethodFnDeclarativeSignatureTemplate {
     pub return_ty: DeclarativeTerm,
 }
 
-impl HasDeclarativeSignatureTemplate for TypeMethodFnSynDecl {
-    type DeclarativeSignatureTemplate = TypeMethodFnDeclarativeSignatureTemplate;
-
-    fn declarative_signature_template(
-        self,
+impl TypeMethodFnDeclarativeSignatureTemplate {
+    pub(super) fn from_decl(
         db: &dyn DeclarativeSignatureDb,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        ty_method_fn_declarative_signature_template(db, self)
+        decl: TypeMethodFnSynDecl,
+    ) -> DeclarativeSignatureResult<Self> {
+        let syn_expr_region = decl.syn_expr_region(db);
+        let expr_region_data = syn_expr_region.data(db);
+        let declarative_term_region = declarative_term_region(db, syn_expr_region);
+        let impl_block = decl
+            .impl_block_path(db)
+            .declarative_signature_template(db)?;
+        let self_ty = impl_block.ty(db);
+        let contract = match decl.self_value_parameter(db) {
+            Some(self_value_parameter) => {
+                Contract::new(self_value_parameter.ephem_symbol_modifier_token_group())
+            }
+            None => Contract::None,
+        };
+        let self_value_parameter = DeclarativeTermRitchieRegularParameter::new(contract, self_ty);
+        let declarative_term_menu = db
+            .declarative_term_menu(syn_expr_region.toolchain(db))
+            .unwrap();
+        let template_parameters = DeclarativeTemplateParameterTemplates::from_decl(
+            decl.template_parameters(db),
+            declarative_term_region,
+            declarative_term_menu,
+        );
+        let parenate_parameters = DeclarativeParenateParameters::from_decl(
+            decl.parenate_parameters(db),
+            expr_region_data,
+            declarative_term_region,
+        )?;
+        let return_ty = match decl.return_ty(db) {
+            Some(return_ty) => declarative_term_region.expr_term(return_ty.expr())?,
+            None => declarative_term_menu.unit(),
+        };
+        Ok(TypeMethodFnDeclarativeSignatureTemplate::new(
+            db,
+            impl_block,
+            self_ty,
+            template_parameters,
+            self_value_parameter,
+            parenate_parameters,
+            return_ty,
+        ))
     }
-}
-
-#[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub fn ty_method_fn_declarative_signature_template(
-    db: &dyn DeclarativeSignatureDb,
-    decl: TypeMethodFnSynDecl,
-) -> DeclarativeSignatureResult<TypeMethodFnDeclarativeSignatureTemplate> {
-    let syn_expr_region = decl.syn_expr_region(db);
-    let expr_region_data = syn_expr_region.data(db);
-    let declarative_term_region = declarative_term_region(db, syn_expr_region);
-    let impl_block = decl
-        .impl_block_path(db)
-        .declarative_signature_template(db)?;
-    let self_ty = impl_block.ty(db);
-    let contract = match decl.self_value_parameter(db) {
-        Some(self_value_parameter) => {
-            Contract::new(self_value_parameter.ephem_symbol_modifier_token_group())
-        }
-        None => Contract::None,
-    };
-    let self_value_parameter = DeclarativeTermRitchieRegularParameter::new(contract, self_ty);
-    let declarative_term_menu = db
-        .declarative_term_menu(syn_expr_region.toolchain(db))
-        .unwrap();
-    let template_parameters = DeclarativeTemplateParameterTemplates::from_decl(
-        decl.template_parameters(db),
-        declarative_term_region,
-        declarative_term_menu,
-    );
-    let parenate_parameters = DeclarativeParenateParameters::from_decl(
-        decl.parenate_parameters(db),
-        expr_region_data,
-        declarative_term_region,
-    )?;
-    let return_ty = match decl.return_ty(db) {
-        Some(return_ty) => declarative_term_region.expr_term(return_ty.expr())?,
-        None => declarative_term_menu.unit(),
-    };
-    Ok(TypeMethodFnDeclarativeSignatureTemplate::new(
-        db,
-        impl_block,
-        self_ty,
-        template_parameters,
-        self_value_parameter,
-        parenate_parameters,
-        return_ty,
-    ))
 }

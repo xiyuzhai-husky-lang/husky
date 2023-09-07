@@ -10,14 +10,14 @@ use husky_token::*;
 use husky_coword::Ident;
 use parsec::*;
 
-pub(crate) struct DeclParser<'a> {
+pub(crate) struct DeclParserFactory<'a> {
     db: &'a dyn SynDeclDb,
     module_symbol_context: ModuleSymbolContext<'a>,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> DeclParserFactory<'a> {
     pub(crate) fn new(db: &'a dyn SynDeclDb, path: ModulePath) -> Self {
         let Ok(module_symbol_context) = db.module_symbol_context(path) else {
             use salsa::DebugWithDb;

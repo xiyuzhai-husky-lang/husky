@@ -8,7 +8,7 @@ pub struct TypeAliasSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl<'a> DeclParser<'a> {}
+impl<'a> DeclParserFactory<'a> {}
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TypeAliasSynDecl {

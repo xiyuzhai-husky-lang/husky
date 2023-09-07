@@ -314,6 +314,17 @@ Ok(
                 ),
             ),
         ),
+        SynNodeDefn::Decr(
+            DecrSynNodeDefn {
+                syn_node_decl: Derive(
+                    DeriveDecrSynNodeDecl(
+                        Id {
+                            value: 16,
+                        },
+                    ),
+                ),
+            },
+        ),
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
                 TypeImplBlockSynNodeDecl {

@@ -46,12 +46,12 @@ impl ItemSynNodeDecl {
         match self {
             ItemSynNodeDecl::Submodule(_) => None,
             ItemSynNodeDecl::MajorItem(syn_node_decl) => syn_node_decl.syn_expr_region(db).into(),
-            ItemSynNodeDecl::ImplBlock(syn_node_decl) => syn_node_decl.syn_expr_region(db).into(),
+            ItemSynNodeDecl::ImplBlock(syn_node_decl) => Some(syn_node_decl.syn_expr_region(db)),
             ItemSynNodeDecl::AssociatedItem(syn_node_decl) => {
                 syn_node_decl.syn_expr_region(db).into()
             }
             ItemSynNodeDecl::TypeVariant(_node_decl) => todo!(),
-            ItemSynNodeDecl::Decr(_) => todo!(),
+            ItemSynNodeDecl::Decr(syn_node_decl) => Some(syn_node_decl.syn_expr_region(db)),
         }
     }
 
@@ -90,6 +90,7 @@ pub enum SynDecl {
     ImplBlock(ImplBlockSynDecl),
     AssociatedItem(AssociatedItemSynDecl),
     TypeVariant(TypeVariantSynDecl),
+    Decr(DecrSynDecl),
 }
 
 impl SynDecl {
@@ -100,6 +101,7 @@ impl SynDecl {
             SynDecl::ImplBlock(decl) => decl.template_parameters(db),
             SynDecl::AssociatedItem(decl) => decl.template_parameters(db),
             SynDecl::TypeVariant(_decl) => &[],
+            SynDecl::Decr(_) => todo!(),
         }
     }
 
@@ -110,6 +112,7 @@ impl SynDecl {
             SynDecl::ImplBlock(decl) => decl.syn_expr_region(db).into(),
             SynDecl::AssociatedItem(decl) => decl.syn_expr_region(db).into(),
             SynDecl::TypeVariant(_decl) => todo!(),
+            SynDecl::Decr(_) => todo!(),
         }
     }
 
@@ -120,6 +123,7 @@ impl SynDecl {
             SynDecl::ImplBlock(decl) => decl.path(db).into(),
             SynDecl::AssociatedItem(decl) => decl.path(db).into(),
             SynDecl::TypeVariant(decl) => decl.path(db).into(),
+            SynDecl::Decr(_) => todo!(),
         }
     }
 }

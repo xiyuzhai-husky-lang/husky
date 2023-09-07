@@ -16,7 +16,7 @@ impl From<TraitSynNodePath> for ItemSynNodePath {
 impl TraitSynNodePath {
     pub(super) fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut ItemNodeRegistry,
+        registry: &mut ItemSynNodePathRegistry,
         path: TraitPath,
     ) -> Self {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
@@ -74,10 +74,13 @@ fn trai_node(db: &dyn EntitySynTreeDb, syn_node_path: TraitSynNodePath) -> Major
     }
 }
 
-impl HasItemPaths for TraitPath {
-    type ItemPath = TraitItemPath;
+impl HasAssociatedItemPaths for TraitPath {
+    type AssociatedItemPath = TraitItemPath;
 
-    fn item_paths(self, db: &dyn EntitySynTreeDb) -> &[(Ident, Self::ItemPath)] {
+    fn associated_item_paths(
+        self,
+        db: &dyn EntitySynTreeDb,
+    ) -> &[(Ident, Self::AssociatedItemPath)] {
         trai_item_paths(db, self)
     }
 }

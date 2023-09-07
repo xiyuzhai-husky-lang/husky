@@ -60,6 +60,14 @@ impl ImplBlockSynNodePath {
     }
 }
 
+impl HasSynNodePath for ImplBlockPath {
+    type SynNodePath = ImplBlockSynNodePath;
+
+    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
+        todo!()
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 #[enum_class::from_variants]

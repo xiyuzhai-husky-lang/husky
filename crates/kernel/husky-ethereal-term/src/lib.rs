@@ -8,6 +8,7 @@ mod context;
 mod conversion;
 mod db;
 mod error;
+mod helpers;
 pub mod instantiation;
 mod menu;
 mod rewrite;
@@ -16,7 +17,6 @@ mod term;
 #[cfg(test)]
 mod tests;
 mod ty;
-mod utils;
 
 pub use self::context::*;
 pub use self::db::*;
@@ -94,9 +94,9 @@ pub struct EtherealTermJar(
     // TemplateParameters,
     // ty_path_template_parameters,
     // utils
-    utils::ethereal_term_curry_toolchain,
-    utils::ethereal_term_application_toolchain,
-    utils::ethereal_term_ritchie_toolchain,
-    utils::final_destination::ethereal_term_application_final_destination,
-    utils::final_destination::ethereal_term_curry_final_destination,
+    helpers::ethereal_term_curry_toolchain,
+    helpers::ethereal_term_application_toolchain,
+    helpers::ethereal_term_ritchie_toolchain,
+    helpers::final_destination::ethereal_term_application_final_destination,
+    helpers::final_destination::ethereal_term_curry_final_destination,
 );

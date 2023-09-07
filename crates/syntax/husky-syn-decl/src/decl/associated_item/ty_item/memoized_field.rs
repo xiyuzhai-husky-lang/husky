@@ -7,9 +7,9 @@ pub struct TypeMemoizedFieldSynNodeDecl {
     pub ast_idx: AstIdx,
     pub colon_token: TokenResult<Option<ColonToken>>,
     #[return_ref]
-    pub return_ty: NodeDeclResult<Option<ReturnTypeBeforeEqObelisk>>,
+    pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeEqObelisk>>,
     #[return_ref]
-    pub eq_token: NodeDeclResult<EqToken>,
+    pub eq_token: SynNodeDeclResult<EqToken>,
     pub expr: Option<SynExprIdx>,
     pub syn_expr_region: SynExprRegion,
 }
@@ -26,7 +26,7 @@ impl TypeMemoizedFieldSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> DeclParserFactory<'a> {
     pub(super) fn parse_ty_memo_decl(
         &self,
         ast_idx: AstIdx,
@@ -46,12 +46,12 @@ impl<'a> DeclParser<'a> {
         let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
         let colon_token = ctx.try_parse_option();
         let form_ty = if let Ok(Some(_)) = colon_token {
-            ctx.try_parse_expected(OriginalNodeDeclError::ExpectedOutputType)
+            ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectedOutputType)
                 .map(Some)
         } else {
             Ok(None)
         };
-        let eq_token = ctx.try_parse_expected(OriginalNodeDeclError::ExpectEqTokenForVariable);
+        let eq_token = ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectEqTokenForVariable);
         let expr = ctx.parse_expr_root(None, ExprRootKind::ValExpr);
         TypeMemoizedFieldSynNodeDecl::new(
             db,

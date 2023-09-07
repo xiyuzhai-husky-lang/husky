@@ -1,27 +1,30 @@
 use crate::*;
-use husky_entity_path::{DecrParent, DecrPath, DecrRegistry};
+use husky_entity_path::{DecrParentPath, DecrPath, DecrRegistry};
 
 impl AstSheet {
     // todo: needs testing
     #[inline(always)]
-    pub fn gen_decrs<'a, D, E>(
+    pub fn procure_decrs<'a, D, A: smallvec::Array<Item = D>>(
         &self,
-        target: AstIdx,
-        decr_parent: DecrParent,
-        f: impl Fn(AstIdx, TokenGroupIdx, DecrPath) -> Result<D, E>,
-        invalid_parent: impl FnOnce() -> E,
+        parent: ItemPath,
+        decr_parent_ast_idx: AstIdx,
+        mut f: impl FnMut(AstIdx, TokenGroupIdx, DecrPath) -> D,
         db: &dyn AstDb,
-    ) -> Result<Vec<D>, E> {
-        let mut registry = DecrRegistry::new(decr_parent);
-        let mut decrs: Vec<D> = vec![];
+    ) -> smallvec::SmallVec<A> {
+        let mut registry = DecrRegistry::new(parent);
+        let mut decrs: smallvec::SmallVec<A> = smallvec::smallvec![];
         for (ast_idx, token_group_idx, ident) in self
-            .siblings
+            .siblings()
             .iter()
-            .filter_map(move |siblings| siblings.contains(target).then_some(siblings.start()))
+            .filter_map(move |siblings| {
+                siblings
+                    .contains(decr_parent_ast_idx)
+                    .then_some(siblings.start())
+            })
             .map(move |siblings_start| {
-                (siblings_start..target)
+                (siblings_start..decr_parent_ast_idx)
                     .rev()
-                    .map(|ast_idx| (ast_idx, &self.ast_arena[ast_idx]))
+                    .map(|ast_idx| (ast_idx, &self[ast_idx]))
                     .take_while(|(_, ast)| match ast {
                         Ast::Sorc { .. } | Ast::Decr { .. } => true,
                         _ => false,
@@ -37,8 +40,8 @@ impl AstSheet {
             })
             .flatten()
         {
-            decrs.push(f(ast_idx, token_group_idx, registry.issue(ident, db))?)
+            decrs.push(f(ast_idx, token_group_idx, registry.issue(ident, db)))
         }
-        Ok(decrs)
+        decrs
     }
 }

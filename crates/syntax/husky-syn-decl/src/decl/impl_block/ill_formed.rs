@@ -31,11 +31,11 @@ pub(crate) fn ill_formed_impl_block_syn_node_decl(
     db: &dyn SynDeclDb,
     syn_node_path: IllFormedImplBlockSynNodePath,
 ) -> IllFormedImplBlockSynNodeDecl {
-    let parser = DeclParser::new(db, syn_node_path.module_path(db));
+    let parser = DeclParserFactory::new(db, syn_node_path.module_path(db));
     parser.parse_ill_formed_impl_block_syn_node_decl(syn_node_path)
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> DeclParserFactory<'a> {
     fn parse_ill_formed_impl_block_syn_node_decl(
         &self,
         syn_node_path: IllFormedImplBlockSynNodePath,

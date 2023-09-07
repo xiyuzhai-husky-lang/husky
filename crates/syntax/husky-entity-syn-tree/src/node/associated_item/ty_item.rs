@@ -4,11 +4,21 @@ use super::*;
 
 #[salsa::interned(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
 pub struct TypeItemSynNodePath {
+    // no need for intro
+    // ```
+    // pub impl_block_syn_node_path: TypeImplBlockSynNodePath,
+    // ```
+    // because `impl_block_syn_node_path`s are not ambiguous
     maybe_ambiguous_path: MaybeAmbiguousPath<TypeItemPath>,
 }
 
 impl TypeItemSynNodePath {
-    fn new(db: &dyn EntitySynTreeDb, registry: &mut ItemNodeRegistry, path: TypeItemPath) -> Self {
+    fn new(
+        db: &dyn EntitySynTreeDb,
+        impl_block_syn_node_path: TypeImplBlockSynNodePath,
+        registry: &mut ItemSynNodePathRegistry,
+        path: TypeItemPath,
+    ) -> Self {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
     }
 
@@ -65,7 +75,7 @@ impl TypeItemSynNode {
     #[inline(always)]
     fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut ItemNodeRegistry,
+        registry: &mut ItemSynNodePathRegistry,
         impl_block_syn_node_path: TypeImplBlockSynNodePath,
         ast_idx: AstIdx,
         ident: Ident,
@@ -74,7 +84,7 @@ impl TypeItemSynNode {
         is_generic: bool,
     ) -> (TypeItemSynNodePath, Self) {
         let path = TypeItemPath::new(db, impl_block_syn_node_path.path(), ident, item_kind);
-        let syn_node_path = TypeItemSynNodePath::new(db, registry, path);
+        let syn_node_path = TypeItemSynNodePath::new(db, impl_block_syn_node_path, registry, path);
         (
             syn_node_path,
             Self::new_inner(
@@ -117,7 +127,7 @@ pub(crate) fn ty_impl_block_items(
     let module_path = syn_node_path.module_path(db);
     let ast_sheet = db.ast_sheet(module_path).unwrap();
     let items = impl_block_syn_node.items(db);
-    let mut registry = ItemNodeRegistry::default();
+    let mut registry = ItemSynNodePathRegistry::default();
     items
         .ast_idx_range()
         .into_iter()

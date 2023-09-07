@@ -8,39 +8,29 @@ pub struct TypeMemoizedFieldDeclarativeSignatureTemplate {
     pub return_ty: DeclarativeTerm,
 }
 
-impl HasDeclarativeSignatureTemplate for TypeMemoizedFieldSynDecl {
-    type DeclarativeSignatureTemplate = TypeMemoizedFieldDeclarativeSignatureTemplate;
-
-    fn declarative_signature_template(
-        self,
+impl TypeMemoizedFieldDeclarativeSignatureTemplate {
+    pub(super) fn from_decl(
         db: &dyn DeclarativeSignatureDb,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        ty_memoized_field_declarative_signature_template(db, self)
+        decl: TypeMemoizedFieldSynDecl,
+    ) -> DeclarativeSignatureResult<TypeMemoizedFieldDeclarativeSignatureTemplate> {
+        let impl_block_syn_declarative_signature_template = decl
+            .impl_block_path(db)
+            .declarative_signature_template(db)?;
+        let syn_expr_region = decl.syn_expr_region(db);
+        let declarative_term_region = declarative_term_region(db, syn_expr_region);
+        let declarative_term_menu = db
+            .declarative_term_menu(syn_expr_region.toolchain(db))
+            .unwrap();
+        let return_ty = match decl.return_ty(db) {
+            Some(return_ty) => declarative_term_region.expr_term(return_ty.expr())?,
+            None => declarative_term_menu.unit(),
+        };
+        Ok(TypeMemoizedFieldDeclarativeSignatureTemplate::new(
+            db,
+            impl_block_syn_declarative_signature_template,
+            return_ty,
+        ))
     }
-}
-
-#[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub(crate) fn ty_memoized_field_declarative_signature_template(
-    db: &dyn DeclarativeSignatureDb,
-    decl: TypeMemoizedFieldSynDecl,
-) -> DeclarativeSignatureResult<TypeMemoizedFieldDeclarativeSignatureTemplate> {
-    let impl_block_syn_declarative_signature_template = decl
-        .impl_block_path(db)
-        .declarative_signature_template(db)?;
-    let syn_expr_region = decl.syn_expr_region(db);
-    let declarative_term_region = declarative_term_region(db, syn_expr_region);
-    let declarative_term_menu = db
-        .declarative_term_menu(syn_expr_region.toolchain(db))
-        .unwrap();
-    let return_ty = match decl.return_ty(db) {
-        Some(return_ty) => declarative_term_region.expr_term(return_ty.expr())?,
-        None => declarative_term_menu.unit(),
-    };
-    Ok(TypeMemoizedFieldDeclarativeSignatureTemplate::new(
-        db,
-        impl_block_syn_declarative_signature_template,
-        return_ty,
-    ))
 }
 
 // pub trait HasTypeMemoizedFieldDeclarativeSignatureTemplates: Copy {

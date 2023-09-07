@@ -117,7 +117,7 @@ Ok(
                                     ),
                                 ),
                                 field_comma_list: Ok(
-                                    SeparatedSmallList {
+                                    PunctuatedSmallList {
                                         elements: [
                                             TupleFieldObelisk {
                                                 decorators: [],
@@ -126,7 +126,7 @@ Ok(
                                             },
                                         ],
                                         separators: [],
-                                        phantom: PhantomData<husky_syn_decl::error::NodeDeclError>,
+                                        phantom: PhantomData<husky_syn_decl::error::SynNodeDeclError>,
                                     },
                                 ),
                                 rpar: Ok(
@@ -288,7 +288,7 @@ Ok(
                                     ),
                                 ),
                                 field_comma_list: Ok(
-                                    SeparatedSmallList {
+                                    PunctuatedSmallList {
                                         elements: [
                                             TupleFieldObelisk {
                                                 decorators: [],
@@ -297,7 +297,7 @@ Ok(
                                             },
                                         ],
                                         separators: [],
-                                        phantom: PhantomData<husky_syn_decl::error::NodeDeclError>,
+                                        phantom: PhantomData<husky_syn_decl::error::SynNodeDeclError>,
                                     },
                                 ),
                                 rpar: Ok(
@@ -467,8 +467,8 @@ Ok(
                                     ),
                                 ),
                                 eq_token: Err(
-                                    NodeDeclError::Original(
-                                        OriginalNodeDeclError::ExpectEqTokenForVariable(
+                                    SynNodeDeclError::Original(
+                                        OriginalSynNodeDeclError::ExpectEqTokenForVariable(
                                             TokenStreamState {
                                                 next_token_idx: TokenIdx(
                                                     127,

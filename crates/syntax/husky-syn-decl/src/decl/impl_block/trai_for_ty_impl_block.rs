@@ -9,12 +9,12 @@ pub struct TraitForTypeImplBlockSynNodeDecl {
     pub ast_idx: AstIdx,
     pub impl_token: ImplToken,
     #[return_ref]
-    template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
     pub trai_expr: TraitObelisk,
     pub for_token: ConnectionForToken,
     pub self_ty_decl: SelfTypeDecl,
     #[return_ref]
-    pub eol_colon: NodeDeclResult<EolToken>,
+    pub eol_colon: SynNodeDeclResult<EolToken>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -53,11 +53,11 @@ pub(crate) fn trai_for_ty_impl_block_syn_node_decl(
     db: &dyn SynDeclDb,
     syn_node_path: TraitForTypeImplBlockSynNodePath,
 ) -> TraitForTypeImplBlockSynNodeDecl {
-    let parser = DeclParser::new(db, syn_node_path.module_path(db));
+    let parser = DeclParserFactory::new(db, syn_node_path.module_path(db));
     parser.parse_trai_for_ty_impl_block_syn_node_decl(syn_node_path)
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> DeclParserFactory<'a> {
     fn parse_trai_for_ty_impl_block_syn_node_decl(
         &self,
         syn_node_path: TraitForTypeImplBlockSynNodePath,
@@ -123,7 +123,7 @@ impl<'a> DeclParser<'a> {
                 }
             }
         };
-        let eol_colon = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEolColon);
+        let eol_colon = ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
         TraitForTypeImplBlockSynNodeDecl::new(
             db,
             syn_node_path,

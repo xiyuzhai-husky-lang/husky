@@ -36,7 +36,7 @@ where
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct SeparatedSmallList<Element, Separator, const N: usize, Error>
+pub struct PunctuatedSmallList<Element, Separator, const N: usize, Error>
 where
     [Element; N]: smallvec::Array<Item = Element>,
     [Separator; N]: smallvec::Array<Item = Separator>,
@@ -46,7 +46,7 @@ where
     phantom: std::marker::PhantomData<Error>,
 }
 
-impl<Element, Separator, const N: usize, Error> SeparatedSmallList<Element, Separator, N, Error>
+impl<Element, Separator, const N: usize, Error> PunctuatedSmallList<Element, Separator, N, Error>
 where
     [Element; N]: smallvec::Array<Item = Element>,
     [Separator; N]: smallvec::Array<Item = Separator>,
@@ -61,7 +61,7 @@ where
 }
 
 impl<SP, Element, Separator, const N: usize, Error> TryParseFromStream<SP>
-    for SeparatedSmallList<Element, Separator, N, Error>
+    for PunctuatedSmallList<Element, Separator, N, Error>
 where
     [Element; N]: smallvec::Array<Item = Element>,
     [Separator; N]: smallvec::Array<Item = Separator>,

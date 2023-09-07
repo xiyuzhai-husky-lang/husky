@@ -4,22 +4,22 @@ use crate::*;
 
 #[salsa::interned(db = EntityPathDb, jar = EntityPathJar)]
 pub struct DecrPath {
-    pub parent: DecrParent,
+    pub parent: ItemPath,
+    // ad hoc
+    // todo: change it with OriginalDecrPath
     pub ident: Ident,
     pub disambiguator: u8,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
-pub enum DecrParent {
+pub enum DecrParentPath {
     Type(TypePath),
 }
 
 impl DecrPath {
     pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
-        match self.parent(db) {
-            DecrParent::Type(path) => path.module_path(db),
-        }
+        self.parent(db).module_path(db)
     }
 
     pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
@@ -29,14 +29,14 @@ impl DecrPath {
 
 #[derive(Debug)]
 pub struct DecrRegistry {
-    parent: DecrParent,
+    parent: ItemPath,
     next_decr_disambiguators: VecPairMap<Ident, u8>,
 }
 
 impl DecrRegistry {
-    pub fn new(decr_parent: DecrParent) -> Self {
+    pub fn new(parent: ItemPath) -> Self {
         Self {
-            parent: decr_parent,
+            parent,
             next_decr_disambiguators: Default::default(),
         }
     }

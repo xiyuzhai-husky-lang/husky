@@ -1,6 +1,6 @@
 use super::*;
 use husky_syn_expr::SynExprIdx;
-use parsec::{SeparatedSmallList, TryParseFromStream};
+use parsec::{PunctuatedSmallList, TryParseFromStream};
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TupleStructTypeSynNodeDecl {
@@ -8,13 +8,13 @@ pub struct TupleStructTypeSynNodeDecl {
     pub syn_node_path: TypeSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
     lpar: LparToken,
     #[return_ref]
     field_comma_list:
-        NodeDeclResult<SeparatedSmallList<TupleFieldObelisk, CommaToken, 4, NodeDeclError>>,
+        SynNodeDeclResult<PunctuatedSmallList<TupleFieldObelisk, CommaToken, 4, SynNodeDeclError>>,
     #[return_ref]
-    rpar: NodeDeclResult<TupleStructRparToken>,
+    rpar: SynNodeDeclResult<TupleStructRparToken>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -33,14 +33,14 @@ impl TupleStructTypeSynNodeDecl {
 pub struct TupleStructRparToken(RparToken);
 
 impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for TupleStructRparToken {
-    type Error = NodeDeclError;
+    type Error = SynNodeDeclError;
 
     fn try_parse_from_stream(sp: &mut ExprParseContext) -> Result<Self, Self::Error> {
         // todo: enrich this
         // consider unexpected
         // maybe sp.skip_exprs_until_next_right_parenthesis
         let rpar = sp.try_parse_expected(
-            OriginalNodeDeclError::ExpectedRightParenthesisInTupleStructFieldTypeList,
+            OriginalSynNodeDeclError::ExpectedRightParenthesisInTupleStructFieldTypeList,
         )?;
         Ok(Self(rpar))
     }

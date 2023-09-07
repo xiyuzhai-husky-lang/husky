@@ -4,6 +4,7 @@ use smallvec::*;
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct OrderedSmallVecSet<K, const N: usize>
 where
+    K: PartialEq + Eq + Ord + Copy,
     [K; N]: Array<Item = K>,
 {
     data: SmallVec<[K; N]>,
@@ -11,6 +12,7 @@ where
 
 impl<K, const N: usize> OrderedSmallVecSet<K, N>
 where
+    K: PartialEq + Eq + Ord + Copy,
     [K; N]: Array<Item = K>,
 {
     pub fn new_one_elem_set(elem: K) -> Self {
@@ -22,6 +24,7 @@ where
 
 impl<K, const N: usize> Default for OrderedSmallVecSet<K, N>
 where
+    K: PartialEq + Eq + Ord + Copy,
     [K; N]: Array<Item = K>,
 {
     fn default() -> Self {
@@ -33,7 +36,7 @@ where
 
 impl<K, const N: usize> Deref for OrderedSmallVecSet<K, N>
 where
-    K: PartialEq + Eq + Copy,
+    K: PartialEq + Eq + Ord + Copy,
     [K; N]: Array<Item = K>,
 {
     type Target = [K];
@@ -44,6 +47,7 @@ where
 }
 impl<K, const N: usize> AsRef<[K]> for OrderedSmallVecSet<K, N>
 where
+    K: PartialEq + Eq + Ord + Copy,
     [K; N]: Array<Item = K>,
 {
     fn as_ref(&self) -> &[K] {
@@ -53,17 +57,19 @@ where
 
 impl<K, const N: usize> FromIterator<K> for OrderedSmallVecSet<K, N>
 where
+    K: PartialEq + Eq + Ord + Copy,
     [K; N]: Array<Item = K>,
 {
     fn from_iter<T: IntoIterator<Item = K>>(t: T) -> Self {
-        Self {
-            data: t.into_iter().collect(),
-        }
+        let mut data: SmallVec<[K; N]> = t.into_iter().collect();
+        data.sort();
+        Self { data }
     }
 }
 
 impl<K, const N: usize, const n: usize> From<[K; n]> for OrderedSmallVecSet<K, N>
 where
+    K: PartialEq + Eq + Ord + Copy,
     [K; N]: Array<Item = K>,
 {
     fn from(value: [K; n]) -> Self {
@@ -73,6 +79,7 @@ where
 
 impl<K, const N: usize> OrderedSmallVecSet<K, N>
 where
+    K: PartialEq + Eq + Ord + Copy,
     [K; N]: Array<Item = K>,
 {
     pub fn len(&self) -> usize {
@@ -102,20 +109,12 @@ where
     where
         K: Copy + PartialEq + Eq,
     {
-        if self.has(new) {
-            Err(InsertEntryRepeatError {
-                old: self
-                    .data
-                    .iter()
-                    .position(|entry| *entry == new)
-                    .unwrap()
-                    .into(),
-                new,
-            })
-        } else {
-            todo!("maintain order")
-            // self.data.push(new);
-            // Ok(())
+        match self.data.binary_search(&new) {
+            Ok(old) => Err(InsertEntryRepeatError { old, new }),
+            Err(pos) => {
+                self.data.insert(pos, new);
+                Ok(())
+            }
         }
     }
 

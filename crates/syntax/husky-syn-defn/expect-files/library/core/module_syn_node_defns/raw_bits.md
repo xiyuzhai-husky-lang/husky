@@ -80,6 +80,17 @@ Ok(
                 ),
             ),
         ),
+        SynNodeDefn::Decr(
+            DecrSynNodeDefn {
+                syn_node_decl: Derive(
+                    DeriveDecrSynNodeDecl(
+                        Id {
+                            value: 15,
+                        },
+                    ),
+                ),
+            },
+        ),
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
                 TypeImplBlockSynNodeDecl {

@@ -6,14 +6,14 @@ pub struct TraitAssociatedFnSynNodeDecl {
     pub syn_node_path: TraitItemSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    pub template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
+    pub template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
     #[return_ref]
-    pub parenate_parameter_decl_list: NodeDeclResult<RitchieParameters<false>>,
+    pub parenate_parameter_decl_list: SynNodeDeclResult<RitchieParameters<false>>,
     pub curry_token: TokenResult<Option<CurryToken>>,
     #[return_ref]
-    pub return_ty: NodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
+    pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
     #[return_ref]
-    pub eol_colon: NodeDeclResult<EolToken>,
+    pub eol_colon: SynNodeDeclResult<EolToken>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -45,4 +45,4 @@ pub struct TraitAssociatedFnSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl<'a> DeclParser<'a> {}
+impl<'a> DeclParserFactory<'a> {}

@@ -20,7 +20,7 @@ pub(crate) fn decl_diagnostic_sheet(
     ) {
         for (_, syn_node_decl) in syn_node_decl_sheet.decls(db).iter().copied() {
             for error in syn_node_decl.node_decl_errors(db) {
-                if let NodeDeclError::Original(error) = error {
+                if let SynNodeDeclError::Original(error) = error {
                     collector.visit_atom(error)
                 }
             }
@@ -29,53 +29,55 @@ pub(crate) fn decl_diagnostic_sheet(
     DeclDiagnosticSheet::new(db, collector.finish())
 }
 
-impl Diagnose for OriginalNodeDeclError {
+impl Diagnose for OriginalSynNodeDeclError {
     type Context<'a> = SheetDiagnosticsContext<'a>;
 
     fn message(&self, ctx: &Self::Context<'_>) -> String {
         match self {
-            OriginalNodeDeclError::Expr(e) => e.message(ctx),
-            OriginalNodeDeclError::ExpectedOutputType(_) => {
+            OriginalSynNodeDeclError::Expr(e) => e.message(ctx),
+            OriginalSynNodeDeclError::ExpectedOutputType(_) => {
                 format!("Syntax Error: expect output type")
             }
-            OriginalNodeDeclError::ExpectedCurry(_) => {
+            OriginalSynNodeDeclError::ExpectedCurry(_) => {
                 format!("Syntax Error: expect `->`",)
             }
-            OriginalNodeDeclError::ExpectedEolColon(_e) => {
+            OriginalSynNodeDeclError::ExpectedEolColon(_e) => {
                 format!("Syntax Error: expect end-of-line colon",)
             }
-            OriginalNodeDeclError::ExpectedRightCurlyBrace(_) => {
+            OriginalSynNodeDeclError::ExpectedRightCurlyBrace(_) => {
                 format!("Syntax Error: expect `}}`",)
             }
-            OriginalNodeDeclError::ExpectedRightAngleBracketForImplicitParameterDeclList {
+            OriginalSynNodeDeclError::ExpectedRightAngleBracketForImplicitParameterDeclList {
                 ..
             } => {
                 format!("Syntax Error: expect `>` for implicit parameter declaration list",)
             }
-            OriginalNodeDeclError::ExpectedParameterDeclList(_) => {
+            OriginalSynNodeDeclError::ExpectedParameterDeclList(_) => {
                 format!("Syntax Error: ExpectParameterDeclList",)
             }
-            OriginalNodeDeclError::ExpectedImplicitParameterDecl(_) => {
+            OriginalSynNodeDeclError::ExpectedImplicitParameterDecl(_) => {
                 format!("Syntax Error: expect implicit parameter declaration",)
             }
-            OriginalNodeDeclError::ExpectedRightParenthesisInParameterList(_) => {
+            OriginalSynNodeDeclError::ExpectedRightParenthesisInParameterList(_) => {
                 format!("Syntax Error: expected `)` in parameter list",)
             }
-            OriginalNodeDeclError::ExpectedRightParenthesisInTupleStructFieldTypeList(_) => {
+            OriginalSynNodeDeclError::ExpectedRightParenthesisInTupleStructFieldTypeList(_) => {
                 format!("Syntax Error: expected `)` in tuple struct field type list",)
             }
-            OriginalNodeDeclError::ExpectedVariableType(_) => {
+            OriginalSynNodeDeclError::ExpectedVariableType(_) => {
                 format!("Syntax Error: ExpectVariableType",)
             }
-            OriginalNodeDeclError::ExpectEqTokenForVariable(_) => {
+            OriginalSynNodeDeclError::ExpectEqTokenForVariable(_) => {
                 format!("Syntax Error: ExpectEqTokenForVariable",)
             }
-            OriginalNodeDeclError::ExpectedLeftCurlyBraceOrLeftParenthesisOrSemicolonForStruct(
+            OriginalSynNodeDeclError::ExpectedLeftCurlyBraceOrLeftParenthesisOrSemicolonForStruct(
                 _,
             ) => {
                 format!("Syntax Error: expected `{{` `(` or `;` for struct",)
             }
-            OriginalNodeDeclError::ExpectedEqForAssociatedType(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedEqForAssociatedType(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectLeftBracketInDerive(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectRightBracketInDerive(_) => todo!(),
         }
     }
 
@@ -85,27 +87,29 @@ impl Diagnose for OriginalNodeDeclError {
 
     fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
         match self {
-            OriginalNodeDeclError::Expr(error) => error.range(ctx),
-            OriginalNodeDeclError::ExpectedOutputType(token_stream_state)
-            | OriginalNodeDeclError::ExpectedCurry(token_stream_state)
-            | OriginalNodeDeclError::ExpectedEolColon(token_stream_state)
-            | OriginalNodeDeclError::ExpectedRightCurlyBrace(token_stream_state)
-            | OriginalNodeDeclError::ExpectedRightAngleBracketForImplicitParameterDeclList {
+            OriginalSynNodeDeclError::Expr(error) => error.range(ctx),
+            OriginalSynNodeDeclError::ExpectedOutputType(token_stream_state)
+            | OriginalSynNodeDeclError::ExpectedCurry(token_stream_state)
+            | OriginalSynNodeDeclError::ExpectedEolColon(token_stream_state)
+            | OriginalSynNodeDeclError::ExpectedRightCurlyBrace(token_stream_state)
+            | OriginalSynNodeDeclError::ExpectedRightAngleBracketForImplicitParameterDeclList {
                 token_stream_state,
                 ..
             }
-            | OriginalNodeDeclError::ExpectedParameterDeclList(token_stream_state)
-            | OriginalNodeDeclError::ExpectedImplicitParameterDecl(token_stream_state)
-            | OriginalNodeDeclError::ExpectedRightParenthesisInParameterList(token_stream_state)
-            | OriginalNodeDeclError::ExpectedRightParenthesisInTupleStructFieldTypeList(
+            | OriginalSynNodeDeclError::ExpectedParameterDeclList(token_stream_state)
+            | OriginalSynNodeDeclError::ExpectedImplicitParameterDecl(token_stream_state)
+            | OriginalSynNodeDeclError::ExpectedRightParenthesisInParameterList(token_stream_state)
+            | OriginalSynNodeDeclError::ExpectedRightParenthesisInTupleStructFieldTypeList(
                 token_stream_state,
             )
-            | OriginalNodeDeclError::ExpectedVariableType(token_stream_state)
-            | OriginalNodeDeclError::ExpectEqTokenForVariable(token_stream_state)
-            | OriginalNodeDeclError::ExpectedLeftCurlyBraceOrLeftParenthesisOrSemicolonForStruct(
+            | OriginalSynNodeDeclError::ExpectedVariableType(token_stream_state)
+            | OriginalSynNodeDeclError::ExpectEqTokenForVariable(token_stream_state)
+            | OriginalSynNodeDeclError::ExpectedLeftCurlyBraceOrLeftParenthesisOrSemicolonForStruct(
                 token_stream_state,
             ) => ctx.token_stream_state_text_range(*token_stream_state),
-            OriginalNodeDeclError::ExpectedEqForAssociatedType(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedEqForAssociatedType(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectLeftBracketInDerive(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectRightBracketInDerive(_) => todo!(),
         }
     }
 }
