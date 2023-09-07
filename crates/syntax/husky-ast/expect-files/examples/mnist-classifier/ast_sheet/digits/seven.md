@@ -290,13 +290,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `simple_seven_match`,
                         token_idx: TokenIdx(
-                            5,
+                            6,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            6,
+                            7,
                         ),
                         drained: false,
                     },
@@ -338,13 +338,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `simple_leftdown_pattern`,
                         token_idx: TokenIdx(
-                            18,
+                            19,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            19,
+                            20,
                         ),
                         drained: false,
                     },
@@ -386,13 +386,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `special_seven_match`,
                         token_idx: TokenIdx(
-                            48,
+                            49,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            49,
+                            50,
                         ),
                         drained: false,
                     },
@@ -434,13 +434,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `leftupcc_pattern`,
                         token_idx: TokenIdx(
-                            63,
+                            64,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            64,
+                            65,
                         ),
                         drained: false,
                     },
@@ -482,13 +482,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `leftdowncc_pattern`,
                         token_idx: TokenIdx(
-                            106,
+                            107,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            107,
+                            108,
                         ),
                         drained: false,
                     },
@@ -522,24 +522,24 @@ Ok(
                         variant: PubUnder {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    159,
+                                    160,
                                 ),
                             },
                             lpar: LparToken(
                                 TokenIdx(
-                                    160,
+                                    161,
                                 ),
                             ),
                             visibility: Super(
                                 SuperToken {
                                     token_idx: TokenIdx(
-                                        161,
+                                        162,
                                     ),
                                 },
                             ),
                             rpar: RparToken(
                                 TokenIdx(
-                                    162,
+                                    163,
                                 ),
                             ),
                         },
@@ -553,13 +553,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_seven`,
                         token_idx: TokenIdx(
-                            164,
+                            165,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            165,
+                            166,
                         ),
                         drained: false,
                     },

@@ -141,7 +141,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `major`,
                                     token_idx: TokenIdx(
-                                        13,
+                                        14,
                                     ),
                                 },
                             },
@@ -193,7 +193,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `digits`,
                                     token_idx: TokenIdx(
-                                        11,
+                                        12,
                                     ),
                                 },
                             },
@@ -245,7 +245,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `fermi`,
                                     token_idx: TokenIdx(
-                                        9,
+                                        10,
                                     ),
                                 },
                             },
@@ -298,7 +298,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `raw_contour`,
                                     token_idx: TokenIdx(
-                                        3,
+                                        4,
                                     ),
                                 },
                             },
@@ -350,7 +350,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `line_segment_sketch`,
                                     token_idx: TokenIdx(
-                                        7,
+                                        8,
                                     ),
                                 },
                             },
@@ -402,7 +402,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `connected_component`,
                                     token_idx: TokenIdx(
-                                        1,
+                                        2,
                                     ),
                                 },
                             },

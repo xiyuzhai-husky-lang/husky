@@ -19,7 +19,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Point2d`,
                                 token_idx: TokenIdx(
-                                    11,
+                                    12,
                                 ),
                             },
                             block: Type {
@@ -61,7 +61,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `RelativePoint2d`,
                                 token_idx: TokenIdx(
-                                    153,
+                                    154,
                                 ),
                             },
                             block: Type {
@@ -103,7 +103,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Vector2d`,
                                 token_idx: TokenIdx(
-                                    166,
+                                    167,
                                 ),
                             },
                             block: Type {
@@ -145,7 +145,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `ClosedRange`,
                                 token_idx: TokenIdx(
-                                    495,
+                                    496,
                                 ),
                             },
                             block: Type {
@@ -187,7 +187,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `BoundingBox`,
                                 token_idx: TokenIdx(
-                                    603,
+                                    604,
                                 ),
                             },
                             block: Type {
@@ -229,7 +229,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `RelativeBoundingBox`,
                                 token_idx: TokenIdx(
-                                    739,
+                                    740,
                                 ),
                             },
                             block: Type {

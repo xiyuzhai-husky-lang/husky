@@ -22,7 +22,7 @@ Ok(
                                         ),
                                         colon: ColonToken(
                                             TokenIdx(
-                                                23,
+                                                24,
                                             ),
                                         ),
                                         ty: 0,
@@ -34,7 +34,7 @@ Ok(
                                         ),
                                         colon: ColonToken(
                                             TokenIdx(
-                                                27,
+                                                28,
                                             ),
                                         ),
                                         ty: 1,
@@ -101,7 +101,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `LineSegmentSketch`,
                                                             token_idx: TokenIdx(
-                                                                24,
+                                                                25,
                                                             ),
                                                         },
                                                     ),
@@ -116,7 +116,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i32`,
                                                             token_idx: TokenIdx(
-                                                                28,
+                                                                29,
                                                             ),
                                                         },
                                                     ),
@@ -131,7 +131,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `bool`,
                                                             token_idx: TokenIdx(
-                                                                31,
+                                                                32,
                                                             ),
                                                         },
                                                     ),
@@ -154,7 +154,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `line_segment_sketch`,
                                                             token_idx: TokenIdx(
-                                                                22,
+                                                                23,
                                                             ),
                                                         },
                                                     },
@@ -163,7 +163,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `index`,
                                                             token_idx: TokenIdx(
-                                                                26,
+                                                                27,
                                                             ),
                                                         },
                                                     },
@@ -219,7 +219,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            23,
+                                                            24,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -230,7 +230,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            27,
+                                                            28,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {

@@ -250,7 +250,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Nat`,
                                                 token_idx: TokenIdx(
-                                                    10,
+                                                    11,
                                                 ),
                                             },
                                         ),

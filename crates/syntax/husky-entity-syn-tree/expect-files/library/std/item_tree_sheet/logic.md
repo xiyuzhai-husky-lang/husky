@@ -29,7 +29,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `Prop`,
                                         token_idx: TokenIdx(
-                                            6,
+                                            7,
                                         ),
                                     },
                                     block: Type {
@@ -76,7 +76,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `LogicAnd`,
                                         token_idx: TokenIdx(
-                                            10,
+                                            11,
                                         ),
                                     },
                                     block: Type {
@@ -123,7 +123,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `LogicOr`,
                                         token_idx: TokenIdx(
-                                            32,
+                                            33,
                                         ),
                                     },
                                     block: Type {
@@ -167,7 +167,7 @@ Ok(
                             IdentToken {
                                 ident: `core`,
                                 token_idx: TokenIdx(
-                                    2,
+                                    3,
                                 ),
                             },
                         ),
@@ -195,7 +195,7 @@ Ok(
                             IdentToken {
                                 ident: `logic`,
                                 token_idx: TokenIdx(
-                                    4,
+                                    5,
                                 ),
                             },
                         ),

@@ -50,10 +50,22 @@ Ok(
                 ),
             ),
         ],
-        group_starts: [
-            0,
-            4,
-            8,
+        token_group_bases: [
+            TokenGroupBase(
+                TokenIdx(
+                    1,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    5,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    9,
+                ),
+            ),
         ],
         indents: [
             0,

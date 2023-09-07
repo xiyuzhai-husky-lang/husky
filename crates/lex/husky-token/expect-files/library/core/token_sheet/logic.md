@@ -230,13 +230,37 @@ Ok(
                 ),
             ),
         ],
-        group_starts: [
-            0,
-            4,
-            8,
-            30,
-            42,
-            47,
+        token_group_bases: [
+            TokenGroupBase(
+                TokenIdx(
+                    1,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    5,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    9,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    31,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    43,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    48,
+                ),
+            ),
         ],
         indents: [
             0,

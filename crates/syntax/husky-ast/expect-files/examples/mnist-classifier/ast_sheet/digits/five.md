@@ -39,24 +39,24 @@ Ok(
                         variant: PubUnder {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    4,
+                                    5,
                                 ),
                             },
                             lpar: LparToken(
                                 TokenIdx(
-                                    5,
+                                    6,
                                 ),
                             ),
                             visibility: Super(
                                 SuperToken {
                                     token_idx: TokenIdx(
-                                        6,
+                                        7,
                                     ),
                                 },
                             ),
                             rpar: RparToken(
                                 TokenIdx(
-                                    7,
+                                    8,
                                 ),
                             ),
                         },
@@ -70,13 +70,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_five`,
                         token_idx: TokenIdx(
-                            9,
+                            10,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            10,
+                            11,
                         ),
                         drained: false,
                     },

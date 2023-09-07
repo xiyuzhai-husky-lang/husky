@@ -21,7 +21,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `MnistLabel`,
                                         token_idx: TokenIdx(
-                                            2,
+                                            3,
                                         ),
                                     },
                                     block: Type {
@@ -69,7 +69,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `BinaryImage28`,
                                         token_idx: TokenIdx(
-                                            32,
+                                            33,
                                         ),
                                     },
                                     block: Type {
@@ -111,7 +111,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `BinaryGrid28`,
                                         token_idx: TokenIdx(
-                                            78,
+                                            79,
                                         ),
                                     },
                                     block: Type {
@@ -153,7 +153,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `input`,
                                         token_idx: TokenIdx(
-                                            124,
+                                            125,
                                         ),
                                     },
                                     block: Fugitive {
@@ -204,7 +204,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `MnistLabel`,
                                         token_idx: TokenIdx(
-                                            2,
+                                            3,
                                         ),
                                     },
                                     block: Type {
@@ -245,7 +245,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `BinaryImage28`,
                                         token_idx: TokenIdx(
-                                            32,
+                                            33,
                                         ),
                                     },
                                     block: Type {
@@ -280,7 +280,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `BinaryGrid28`,
                                         token_idx: TokenIdx(
-                                            78,
+                                            79,
                                         ),
                                     },
                                     block: Type {
@@ -315,7 +315,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `input`,
                                         token_idx: TokenIdx(
-                                            124,
+                                            125,
                                         ),
                                     },
                                     block: Fugitive {
@@ -360,12 +360,12 @@ Ok(
                                 ast_idx: 19,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        39,
+                                        40,
                                     ),
                                 },
                                 trai_expr: 0,
                                 for_token: TokenIdx(
-                                    41,
+                                    42,
                                 ),
                                 ty_sketch_expr: Path(
                                     1,
@@ -404,7 +404,7 @@ Ok(
                                 ast_idx: 20,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        51,
+                                        52,
                                     ),
                                 },
                                 ty_expr: 2,
@@ -444,12 +444,12 @@ Ok(
                                 ast_idx: 21,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        63,
+                                        64,
                                     ),
                                 },
                                 trai_expr: 5,
                                 for_token: TokenIdx(
-                                    69,
+                                    70,
                                 ),
                                 ty_sketch_expr: Path(
                                     6,
@@ -494,12 +494,12 @@ Ok(
                                 ast_idx: 23,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        85,
+                                        86,
                                     ),
                                 },
                                 trai_expr: 7,
                                 for_token: TokenIdx(
-                                    87,
+                                    88,
                                 ),
                                 ty_sketch_expr: Path(
                                     8,
@@ -538,7 +538,7 @@ Ok(
                                 ast_idx: 24,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        97,
+                                        98,
                                     ),
                                 },
                                 ty_expr: 9,
@@ -578,12 +578,12 @@ Ok(
                                 ast_idx: 25,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        109,
+                                        110,
                                     ),
                                 },
                                 trai_expr: 12,
                                 for_token: TokenIdx(
-                                    115,
+                                    116,
                                 ),
                                 ty_sketch_expr: Path(
                                     13,
@@ -617,7 +617,7 @@ Ok(
                         IdentToken {
                             ident: `Visualize`,
                             token_idx: TokenIdx(
-                                40,
+                                41,
                             ),
                         },
                     ),
@@ -632,7 +632,7 @@ Ok(
                         IdentToken {
                             ident: `BinaryImage28`,
                             token_idx: TokenIdx(
-                                42,
+                                43,
                             ),
                         },
                     ),
@@ -647,7 +647,7 @@ Ok(
                         IdentToken {
                             ident: `BinaryImage28`,
                             token_idx: TokenIdx(
-                                52,
+                                53,
                             ),
                         },
                     ),
@@ -662,7 +662,7 @@ Ok(
                         IdentToken {
                             ident: `IntIndex`,
                             token_idx: TokenIdx(
-                                68,
+                                69,
                             ),
                         },
                     ),
@@ -677,13 +677,13 @@ Ok(
                         IdentToken {
                             ident: `ops`,
                             token_idx: TokenIdx(
-                                66,
+                                67,
                             ),
                         },
                     ),
                     scope_resolution_token: ScopeResolutionToken(
                         TokenIdx(
-                            67,
+                            68,
                         ),
                     ),
                     subexpr: 3,
@@ -693,13 +693,13 @@ Ok(
                         IdentToken {
                             ident: `core`,
                             token_idx: TokenIdx(
-                                64,
+                                65,
                             ),
                         },
                     ),
                     scope_resolution_token: ScopeResolutionToken(
                         TokenIdx(
-                            65,
+                            66,
                         ),
                     ),
                     subexpr: 4,
@@ -709,7 +709,7 @@ Ok(
                         IdentToken {
                             ident: `BinaryImage28`,
                             token_idx: TokenIdx(
-                                70,
+                                71,
                             ),
                         },
                     ),
@@ -724,7 +724,7 @@ Ok(
                         IdentToken {
                             ident: `Visualize`,
                             token_idx: TokenIdx(
-                                86,
+                                87,
                             ),
                         },
                     ),
@@ -739,7 +739,7 @@ Ok(
                         IdentToken {
                             ident: `BinaryGrid28`,
                             token_idx: TokenIdx(
-                                88,
+                                89,
                             ),
                         },
                     ),
@@ -754,7 +754,7 @@ Ok(
                         IdentToken {
                             ident: `BinaryGrid28`,
                             token_idx: TokenIdx(
-                                98,
+                                99,
                             ),
                         },
                     ),
@@ -769,7 +769,7 @@ Ok(
                         IdentToken {
                             ident: `IntIndex`,
                             token_idx: TokenIdx(
-                                114,
+                                115,
                             ),
                         },
                     ),
@@ -784,13 +784,13 @@ Ok(
                         IdentToken {
                             ident: `ops`,
                             token_idx: TokenIdx(
-                                112,
+                                113,
                             ),
                         },
                     ),
                     scope_resolution_token: ScopeResolutionToken(
                         TokenIdx(
-                            113,
+                            114,
                         ),
                     ),
                     subexpr: 10,
@@ -800,13 +800,13 @@ Ok(
                         IdentToken {
                             ident: `core`,
                             token_idx: TokenIdx(
-                                110,
+                                111,
                             ),
                         },
                     ),
                     scope_resolution_token: ScopeResolutionToken(
                         TokenIdx(
-                            111,
+                            112,
                         ),
                     ),
                     subexpr: 11,
@@ -816,7 +816,7 @@ Ok(
                         IdentToken {
                             ident: `BinaryGrid28`,
                             token_idx: TokenIdx(
-                                116,
+                                117,
                             ),
                         },
                     ),

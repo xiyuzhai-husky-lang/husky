@@ -141,7 +141,7 @@ token_info = {:#?};
 
 {additional_debug_content}
 "#,
-            self.token_idx.raw(),
+            self.token_idx.index(),
             self.token_group_idx,
             self.token.debug(self.db),
             self.token_info.debug(self.db),

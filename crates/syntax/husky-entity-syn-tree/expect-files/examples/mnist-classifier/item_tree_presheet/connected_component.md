@@ -19,7 +19,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `ConnectedComponentDistribution`,
                                 token_idx: TokenIdx(
-                                    12,
+                                    13,
                                 ),
                             },
                             block: Type {
@@ -61,7 +61,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `EffHoles`,
                                 token_idx: TokenIdx(
-                                    33,
+                                    34,
                                 ),
                             },
                             block: Type {
@@ -105,7 +105,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `hole_tmpl`,
                                 token_idx: TokenIdx(
-                                    45,
+                                    46,
                                 ),
                             },
                             block: Fugitive {
@@ -155,7 +155,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `ConnectedComponent`,
                                 token_idx: TokenIdx(
-                                    71,
+                                    72,
                                 ),
                             },
                             block: Type {
@@ -199,7 +199,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `horizontal_extend`,
                                 token_idx: TokenIdx(
-                                    570,
+                                    571,
                                 ),
                             },
                             block: Fugitive {
@@ -249,7 +249,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `find_connected_components`,
                                 token_idx: TokenIdx(
-                                    656,
+                                    657,
                                 ),
                             },
                             block: Fugitive {
@@ -295,7 +295,7 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
@@ -316,7 +316,7 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    7,
+                                    8,
                                 ),
                             },
                         ),
@@ -337,7 +337,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            5,
+                            6,
                         ),
                     ),
                 },
@@ -347,14 +347,14 @@ Ok(
                             IdentToken {
                                 ident: `raw_contour`,
                                 token_idx: TokenIdx(
-                                    3,
+                                    4,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    4,
+                                    5,
                                 ),
                             ),
                         ),
@@ -370,14 +370,14 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    2,
+                                    3,
                                 ),
                             ),
                         ),
@@ -391,7 +391,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            9,
+                            10,
                         ),
                     ),
                 },
@@ -400,14 +400,14 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    7,
+                                    8,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    8,
+                                    9,
                                 ),
                             ),
                         ),

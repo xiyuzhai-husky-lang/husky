@@ -21,7 +21,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `Class`,
                                         token_idx: TokenIdx(
-                                            11,
+                                            12,
                                         ),
                                     },
                                     block: Type {
@@ -69,7 +69,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `OneVsAll`,
                                         token_idx: TokenIdx(
-                                            33,
+                                            34,
                                         ),
                                     },
                                     block: Type {
@@ -117,7 +117,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `OneVsAllResult`,
                                         token_idx: TokenIdx(
-                                            83,
+                                            84,
                                         ),
                                     },
                                     block: Type {
@@ -165,7 +165,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `narrow_down`,
                                         token_idx: TokenIdx(
-                                            127,
+                                            128,
                                         ),
                                     },
                                     block: Fugitive {
@@ -216,7 +216,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `Class`,
                                         token_idx: TokenIdx(
-                                            11,
+                                            12,
                                         ),
                                     },
                                     block: Type {
@@ -257,7 +257,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `OneVsAll`,
                                         token_idx: TokenIdx(
-                                            33,
+                                            34,
                                         ),
                                     },
                                     block: Type {
@@ -298,7 +298,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `OneVsAllResult`,
                                         token_idx: TokenIdx(
-                                            83,
+                                            84,
                                         ),
                                     },
                                     block: Type {
@@ -339,7 +339,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `narrow_down`,
                                         token_idx: TokenIdx(
-                                            127,
+                                            128,
                                         ),
                                     },
                                     block: Fugitive {
@@ -384,12 +384,12 @@ Ok(
                                 ast_idx: 13,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        46,
+                                        47,
                                     ),
                                 },
                                 trai_expr: 2,
                                 for_token: TokenIdx(
-                                    63,
+                                    64,
                                 ),
                                 ty_sketch_expr: Path(
                                     3,
@@ -434,12 +434,12 @@ Ok(
                                 ast_idx: 16,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        98,
+                                        99,
                                     ),
                                 },
                                 trai_expr: 6,
                                 for_token: TokenIdx(
-                                    115,
+                                    116,
                                 ),
                                 ty_sketch_expr: Path(
                                     7,
@@ -473,7 +473,7 @@ Ok(
                         IdentToken {
                             ident: `Unveil`,
                             token_idx: TokenIdx(
-                                59,
+                                60,
                             ),
                         },
                     ),
@@ -488,13 +488,13 @@ Ok(
                         IdentToken {
                             ident: `ops`,
                             token_idx: TokenIdx(
-                                57,
+                                58,
                             ),
                         },
                     ),
                     scope_resolution_token: ScopeResolutionToken(
                         TokenIdx(
-                            58,
+                            59,
                         ),
                     ),
                     subexpr: 0,
@@ -504,13 +504,13 @@ Ok(
                         IdentToken {
                             ident: `core`,
                             token_idx: TokenIdx(
-                                55,
+                                56,
                             ),
                         },
                     ),
                     scope_resolution_token: ScopeResolutionToken(
                         TokenIdx(
-                            56,
+                            57,
                         ),
                     ),
                     subexpr: 1,
@@ -520,7 +520,7 @@ Ok(
                         IdentToken {
                             ident: `Class`,
                             token_idx: TokenIdx(
-                                64,
+                                65,
                             ),
                         },
                     ),
@@ -535,7 +535,7 @@ Ok(
                         IdentToken {
                             ident: `Unveil`,
                             token_idx: TokenIdx(
-                                111,
+                                112,
                             ),
                         },
                     ),
@@ -550,13 +550,13 @@ Ok(
                         IdentToken {
                             ident: `ops`,
                             token_idx: TokenIdx(
-                                109,
+                                110,
                             ),
                         },
                     ),
                     scope_resolution_token: ScopeResolutionToken(
                         TokenIdx(
-                            110,
+                            111,
                         ),
                     ),
                     subexpr: 4,
@@ -566,13 +566,13 @@ Ok(
                         IdentToken {
                             ident: `core`,
                             token_idx: TokenIdx(
-                                107,
+                                108,
                             ),
                         },
                     ),
                     scope_resolution_token: ScopeResolutionToken(
                         TokenIdx(
-                            108,
+                            109,
                         ),
                     ),
                     subexpr: 5,
@@ -582,7 +582,7 @@ Ok(
                         IdentToken {
                             ident: `OneVsAll`,
                             token_idx: TokenIdx(
-                                116,
+                                117,
                             ),
                         },
                     ),

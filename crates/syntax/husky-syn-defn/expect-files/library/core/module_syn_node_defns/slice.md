@@ -23,7 +23,7 @@ Ok(
                                     Generics {
                                         langle: LaOrLtToken(
                                             TokenIdx(
-                                                7,
+                                                8,
                                             ),
                                         ),
                                         template_parameters: [
@@ -32,7 +32,7 @@ Ok(
                                                     VarianceToken::Covariant(
                                                         CovariantToken {
                                                             token_idx: TokenIdx(
-                                                                8,
+                                                                9,
                                                             ),
                                                         },
                                                     ),
@@ -42,7 +42,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `E`,
                                                         token_idx: TokenIdx(
-                                                            9,
+                                                            10,
                                                         ),
                                                     },
                                                     traits: None,
@@ -55,7 +55,7 @@ Ok(
                                         ),
                                         rangle: RaOrGtToken(
                                             TokenIdx(
-                                                10,
+                                                11,
                                             ),
                                         ),
                                     },
@@ -110,7 +110,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        10,
+                                                        11,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -121,7 +121,7 @@ Ok(
                                                             VarianceToken::Covariant(
                                                                 CovariantToken {
                                                                     token_idx: TokenIdx(
-                                                                        8,
+                                                                        9,
                                                                     ),
                                                                 },
                                                             ),
@@ -130,7 +130,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `E`,
                                                                 token_idx: TokenIdx(
-                                                                    9,
+                                                                    10,
                                                                 ),
                                                             },
                                                         },
@@ -180,7 +180,7 @@ Ok(
                                     Generics {
                                         langle: LaOrLtToken(
                                             TokenIdx(
-                                                54,
+                                                55,
                                             ),
                                         ),
                                         template_parameters: [
@@ -189,7 +189,7 @@ Ok(
                                                     VarianceToken::Covariant(
                                                         CovariantToken {
                                                             token_idx: TokenIdx(
-                                                                55,
+                                                                56,
                                                             ),
                                                         },
                                                     ),
@@ -199,7 +199,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `E`,
                                                         token_idx: TokenIdx(
-                                                            56,
+                                                            57,
                                                         ),
                                                     },
                                                     traits: None,
@@ -212,7 +212,7 @@ Ok(
                                         ),
                                         rangle: RaOrGtToken(
                                             TokenIdx(
-                                                57,
+                                                58,
                                             ),
                                         ),
                                     },
@@ -267,7 +267,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        57,
+                                                        58,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -278,7 +278,7 @@ Ok(
                                                             VarianceToken::Covariant(
                                                                 CovariantToken {
                                                                     token_idx: TokenIdx(
-                                                                        55,
+                                                                        56,
                                                                     ),
                                                                 },
                                                             ),
@@ -287,7 +287,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `E`,
                                                                 token_idx: TokenIdx(
-                                                                    56,
+                                                                    57,
                                                                 ),
                                                             },
                                                         },
@@ -347,7 +347,7 @@ Ok(
                         ast_idx: 10,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                12,
+                                13,
                             ),
                         },
                         ty_expr: 51,
@@ -359,7 +359,7 @@ Ok(
                     },
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            12,
+                            13,
                         ),
                     },
                     template_parameter_decl_list: Ok(
@@ -367,7 +367,7 @@ Ok(
                             Generics {
                                 langle: LaOrLtToken(
                                     TokenIdx(
-                                        13,
+                                        14,
                                     ),
                                 ),
                                 template_parameters: [
@@ -378,7 +378,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `E`,
                                                 token_idx: TokenIdx(
-                                                    14,
+                                                    15,
                                                 ),
                                             },
                                             traits: None,
@@ -391,7 +391,7 @@ Ok(
                                 ),
                                 rangle: RaOrGtToken(
                                     TokenIdx(
-                                        15,
+                                        16,
                                     ),
                                 ),
                             },
@@ -404,7 +404,7 @@ Ok(
                         EolToken::Colon(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    18,
+                                    19,
                                 ),
                             },
                         ),
@@ -440,7 +440,7 @@ Ok(
                                     SynExpr::CurrentSymbol {
                                         ident: `E`,
                                         token_idx: TokenIdx(
-                                            17,
+                                            18,
                                         ),
                                         current_symbol_idx: 0,
                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
@@ -448,7 +448,7 @@ Ok(
                                                 ident_token: IdentToken {
                                                     ident: `E`,
                                                     token_idx: TokenIdx(
-                                                        14,
+                                                        15,
                                                     ),
                                                 },
                                             },
@@ -467,7 +467,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Slice`,
                                                 token_idx: TokenIdx(
-                                                    16,
+                                                    17,
                                                 ),
                                             },
                                         ),
@@ -507,7 +507,7 @@ Ok(
                                         CurrentSynSymbol {
                                             modifier: Const,
                                             access_start: TokenIdx(
-                                                15,
+                                                16,
                                             ),
                                             access_end: None,
                                             variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -519,7 +519,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `E`,
                                                         token_idx: TokenIdx(
-                                                            14,
+                                                            15,
                                                         ),
                                                     },
                                                 },
@@ -611,7 +611,7 @@ Ok(
                                 RitchieParameters {
                                     lpar: LparToken(
                                         TokenIdx(
-                                            22,
+                                            23,
                                         ),
                                     ),
                                     self_value_parameter: None,
@@ -620,7 +620,7 @@ Ok(
                                     commas: [],
                                     rpar: RparToken(
                                         TokenIdx(
-                                            23,
+                                            24,
                                         ),
                                     ),
                                 },
@@ -629,7 +629,7 @@ Ok(
                                 Some(
                                     CurryToken(
                                         TokenIdx(
-                                            24,
+                                            25,
                                         ),
                                     ),
                                 ),
@@ -645,7 +645,7 @@ Ok(
                                 EolToken::Semicolon(
                                     EolSemicolonToken {
                                         token_idx: TokenIdx(
-                                            26,
+                                            27,
                                         ),
                                     },
                                 ),
@@ -684,7 +684,7 @@ Ok(
                                                         SynExpr::CurrentSymbol {
                                                             ident: `E`,
                                                             token_idx: TokenIdx(
-                                                                17,
+                                                                18,
                                                             ),
                                                             current_symbol_idx: 0,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
@@ -692,7 +692,7 @@ Ok(
                                                                     ident_token: IdentToken {
                                                                         ident: `E`,
                                                                         token_idx: TokenIdx(
-                                                                            14,
+                                                                            15,
                                                                         ),
                                                                     },
                                                                 },
@@ -711,7 +711,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Slice`,
                                                                     token_idx: TokenIdx(
-                                                                        16,
+                                                                        17,
                                                                     ),
                                                                 },
                                                             ),
@@ -751,7 +751,7 @@ Ok(
                                                             CurrentSynSymbol {
                                                                 modifier: Const,
                                                                 access_start: TokenIdx(
-                                                                    15,
+                                                                    16,
                                                                 ),
                                                                 access_end: None,
                                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -763,7 +763,7 @@ Ok(
                                                                         ident_token: IdentToken {
                                                                             ident: `E`,
                                                                             token_idx: TokenIdx(
-                                                                                14,
+                                                                                15,
                                                                             ),
                                                                         },
                                                                     },
@@ -832,7 +832,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `usize`,
                                                         token_idx: TokenIdx(
-                                                            25,
+                                                            26,
                                                         ),
                                                     },
                                                 ),
@@ -933,7 +933,7 @@ Ok(
                                                                 SynExpr::CurrentSymbol {
                                                                     ident: `E`,
                                                                     token_idx: TokenIdx(
-                                                                        17,
+                                                                        18,
                                                                     ),
                                                                     current_symbol_idx: 0,
                                                                     current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
@@ -941,7 +941,7 @@ Ok(
                                                                             ident_token: IdentToken {
                                                                                 ident: `E`,
                                                                                 token_idx: TokenIdx(
-                                                                                    14,
+                                                                                    15,
                                                                                 ),
                                                                             },
                                                                         },
@@ -960,7 +960,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Slice`,
                                                                             token_idx: TokenIdx(
-                                                                                16,
+                                                                                17,
                                                                             ),
                                                                         },
                                                                     ),
@@ -1000,7 +1000,7 @@ Ok(
                                                                     CurrentSynSymbol {
                                                                         modifier: Const,
                                                                         access_start: TokenIdx(
-                                                                            15,
+                                                                            16,
                                                                         ),
                                                                         access_end: None,
                                                                         variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1012,7 +1012,7 @@ Ok(
                                                                                 ident_token: IdentToken {
                                                                                     ident: `E`,
                                                                                     token_idx: TokenIdx(
-                                                                                        14,
+                                                                                        15,
                                                                                     ),
                                                                                 },
                                                                             },
@@ -1081,7 +1081,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `usize`,
                                                                 token_idx: TokenIdx(
-                                                                    25,
+                                                                    26,
                                                                 ),
                                                             },
                                                         ),
@@ -1281,7 +1281,7 @@ Ok(
                                 RitchieParameters {
                                     lpar: LparToken(
                                         TokenIdx(
-                                            30,
+                                            31,
                                         ),
                                     ),
                                     self_value_parameter: Some(
@@ -1290,20 +1290,20 @@ Ok(
                                                 AmbersandMut(
                                                     AmbersandToken(
                                                         TokenIdx(
-                                                            31,
+                                                            32,
                                                         ),
                                                     ),
                                                     None,
                                                     MutToken {
                                                         token_idx: TokenIdx(
-                                                            32,
+                                                            33,
                                                         ),
                                                     },
                                                 ),
                                             ),
                                             self_value_token: SelfValueToken {
                                                 token_idx: TokenIdx(
-                                                    33,
+                                                    34,
                                                 ),
                                             },
                                         },
@@ -1311,7 +1311,7 @@ Ok(
                                     comma_after_self_parameter: Some(
                                         CommaToken(
                                             TokenIdx(
-                                                34,
+                                                35,
                                             ),
                                         ),
                                     ),
@@ -1323,7 +1323,7 @@ Ok(
                                             ),
                                             colon: ColonToken(
                                                 TokenIdx(
-                                                    36,
+                                                    37,
                                                 ),
                                             ),
                                             ty: 0,
@@ -1335,7 +1335,7 @@ Ok(
                                             ),
                                             colon: ColonToken(
                                                 TokenIdx(
-                                                    40,
+                                                    41,
                                                 ),
                                             ),
                                             ty: 1,
@@ -1344,13 +1344,13 @@ Ok(
                                     commas: [
                                         CommaToken(
                                             TokenIdx(
-                                                38,
+                                                39,
                                             ),
                                         ),
                                     ],
                                     rpar: RparToken(
                                         TokenIdx(
-                                            42,
+                                            43,
                                         ),
                                     ),
                                 },
@@ -1365,7 +1365,7 @@ Ok(
                                 EolToken::Semicolon(
                                     EolSemicolonToken {
                                         token_idx: TokenIdx(
-                                            43,
+                                            44,
                                         ),
                                     },
                                 ),
@@ -1404,7 +1404,7 @@ Ok(
                                                         SynExpr::CurrentSymbol {
                                                             ident: `E`,
                                                             token_idx: TokenIdx(
-                                                                17,
+                                                                18,
                                                             ),
                                                             current_symbol_idx: 0,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
@@ -1412,7 +1412,7 @@ Ok(
                                                                     ident_token: IdentToken {
                                                                         ident: `E`,
                                                                         token_idx: TokenIdx(
-                                                                            14,
+                                                                            15,
                                                                         ),
                                                                     },
                                                                 },
@@ -1431,7 +1431,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Slice`,
                                                                     token_idx: TokenIdx(
-                                                                        16,
+                                                                        17,
                                                                     ),
                                                                 },
                                                             ),
@@ -1471,7 +1471,7 @@ Ok(
                                                             CurrentSynSymbol {
                                                                 modifier: Const,
                                                                 access_start: TokenIdx(
-                                                                    15,
+                                                                    16,
                                                                 ),
                                                                 access_end: None,
                                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1483,7 +1483,7 @@ Ok(
                                                                         ident_token: IdentToken {
                                                                             ident: `E`,
                                                                             token_idx: TokenIdx(
-                                                                                14,
+                                                                                15,
                                                                             ),
                                                                         },
                                                                     },
@@ -1562,7 +1562,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `usize`,
                                                         token_idx: TokenIdx(
-                                                            37,
+                                                            38,
                                                         ),
                                                     },
                                                 ),
@@ -1577,7 +1577,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `usize`,
                                                         token_idx: TokenIdx(
-                                                            41,
+                                                            42,
                                                         ),
                                                     },
                                                 ),
@@ -1600,7 +1600,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `a`,
                                                         token_idx: TokenIdx(
-                                                            35,
+                                                            36,
                                                         ),
                                                     },
                                                 },
@@ -1609,7 +1609,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `b`,
                                                         token_idx: TokenIdx(
-                                                            39,
+                                                            40,
                                                         ),
                                                     },
                                                 },
@@ -1677,7 +1677,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        36,
+                                                        37,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -1688,7 +1688,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        40,
+                                                        41,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -1772,7 +1772,7 @@ Ok(
                                                                 SynExpr::CurrentSymbol {
                                                                     ident: `E`,
                                                                     token_idx: TokenIdx(
-                                                                        17,
+                                                                        18,
                                                                     ),
                                                                     current_symbol_idx: 0,
                                                                     current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
@@ -1780,7 +1780,7 @@ Ok(
                                                                             ident_token: IdentToken {
                                                                                 ident: `E`,
                                                                                 token_idx: TokenIdx(
-                                                                                    14,
+                                                                                    15,
                                                                                 ),
                                                                             },
                                                                         },
@@ -1799,7 +1799,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Slice`,
                                                                             token_idx: TokenIdx(
-                                                                                16,
+                                                                                17,
                                                                             ),
                                                                         },
                                                                     ),
@@ -1839,7 +1839,7 @@ Ok(
                                                                     CurrentSynSymbol {
                                                                         modifier: Const,
                                                                         access_start: TokenIdx(
-                                                                            15,
+                                                                            16,
                                                                         ),
                                                                         access_end: None,
                                                                         variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1851,7 +1851,7 @@ Ok(
                                                                                 ident_token: IdentToken {
                                                                                     ident: `E`,
                                                                                     token_idx: TokenIdx(
-                                                                                        14,
+                                                                                        15,
                                                                                     ),
                                                                                 },
                                                                             },
@@ -1930,7 +1930,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `usize`,
                                                                 token_idx: TokenIdx(
-                                                                    37,
+                                                                    38,
                                                                 ),
                                                             },
                                                         ),
@@ -1945,7 +1945,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `usize`,
                                                                 token_idx: TokenIdx(
-                                                                    41,
+                                                                    42,
                                                                 ),
                                                             },
                                                         ),
@@ -1968,7 +1968,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `a`,
                                                                 token_idx: TokenIdx(
-                                                                    35,
+                                                                    36,
                                                                 ),
                                                             },
                                                         },
@@ -1977,7 +1977,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `b`,
                                                                 token_idx: TokenIdx(
-                                                                    39,
+                                                                    40,
                                                                 ),
                                                             },
                                                         },
@@ -2045,7 +2045,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                36,
+                                                                37,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -2056,7 +2056,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                40,
+                                                                41,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -2211,7 +2211,7 @@ Ok(
                     ast_idx: 13,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            59,
+                            60,
                         ),
                     },
                     template_parameter_decl_list: Ok(
@@ -2219,7 +2219,7 @@ Ok(
                             Generics {
                                 langle: LaOrLtToken(
                                     TokenIdx(
-                                        60,
+                                        61,
                                     ),
                                 ),
                                 template_parameters: [
@@ -2230,7 +2230,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `E`,
                                                 token_idx: TokenIdx(
-                                                    61,
+                                                    62,
                                                 ),
                                             },
                                             traits: None,
@@ -2243,7 +2243,7 @@ Ok(
                                 ),
                                 rangle: RaOrGtToken(
                                     TokenIdx(
-                                        62,
+                                        63,
                                     ),
                                 ),
                             },
@@ -2254,7 +2254,7 @@ Ok(
                     },
                     for_token: ConnectionForToken {
                         token_idx: TokenIdx(
-                            68,
+                            69,
                         ),
                     },
                     self_ty_decl: PathLeadingExpr(
@@ -2266,7 +2266,7 @@ Ok(
                         EolToken::Colon(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    71,
+                                    72,
                                 ),
                             },
                         ),
@@ -2315,7 +2315,7 @@ Ok(
                                     SynExpr::CurrentSymbol {
                                         ident: `E`,
                                         token_idx: TokenIdx(
-                                            70,
+                                            71,
                                         ),
                                         current_symbol_idx: 0,
                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
@@ -2323,7 +2323,7 @@ Ok(
                                                 ident_token: IdentToken {
                                                     ident: `E`,
                                                     token_idx: TokenIdx(
-                                                        61,
+                                                        62,
                                                     ),
                                                 },
                                             },
@@ -2341,7 +2341,7 @@ Ok(
                                         path_name_token: PathNameToken::CrateRoot(
                                             CrateToken {
                                                 token_idx: TokenIdx(
-                                                    63,
+                                                    64,
                                                 ),
                                             },
                                         ),
@@ -2353,14 +2353,14 @@ Ok(
                                         parent: 0,
                                         scope_resolution_token: ScopeResolutionToken(
                                             TokenIdx(
-                                                64,
+                                                65,
                                             ),
                                         ),
                                         ident_token: Ok(
                                             IdentToken {
                                                 ident: `ops`,
                                                 token_idx: TokenIdx(
-                                                    65,
+                                                    66,
                                                 ),
                                             },
                                         ),
@@ -2374,14 +2374,14 @@ Ok(
                                         parent: 1,
                                         scope_resolution_token: ScopeResolutionToken(
                                             TokenIdx(
-                                                66,
+                                                67,
                                             ),
                                         ),
                                         ident_token: Ok(
                                             IdentToken {
                                                 ident: `IntIndex`,
                                                 token_idx: TokenIdx(
-                                                    67,
+                                                    68,
                                                 ),
                                             },
                                         ),
@@ -2398,7 +2398,7 @@ Ok(
                                             IdentToken {
                                                 ident: `CyclicSlice`,
                                                 token_idx: TokenIdx(
-                                                    69,
+                                                    70,
                                                 ),
                                             },
                                         ),
@@ -2438,7 +2438,7 @@ Ok(
                                         CurrentSynSymbol {
                                             modifier: Const,
                                             access_start: TokenIdx(
-                                                62,
+                                                63,
                                             ),
                                             access_end: None,
                                             variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -2450,7 +2450,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `E`,
                                                         token_idx: TokenIdx(
-                                                            61,
+                                                            62,
                                                         ),
                                                     },
                                                 },
@@ -2556,7 +2556,7 @@ Ok(
                             eq_token: Ok(
                                 EqToken(
                                     TokenIdx(
-                                        74,
+                                        75,
                                     ),
                                 ),
                             ),
@@ -2608,7 +2608,7 @@ Ok(
                                                         SynExpr::CurrentSymbol {
                                                             ident: `E`,
                                                             token_idx: TokenIdx(
-                                                                70,
+                                                                71,
                                                             ),
                                                             current_symbol_idx: 0,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
@@ -2616,7 +2616,7 @@ Ok(
                                                                     ident_token: IdentToken {
                                                                         ident: `E`,
                                                                         token_idx: TokenIdx(
-                                                                            61,
+                                                                            62,
                                                                         ),
                                                                     },
                                                                 },
@@ -2634,7 +2634,7 @@ Ok(
                                                             path_name_token: PathNameToken::CrateRoot(
                                                                 CrateToken {
                                                                     token_idx: TokenIdx(
-                                                                        63,
+                                                                        64,
                                                                     ),
                                                                 },
                                                             ),
@@ -2646,14 +2646,14 @@ Ok(
                                                             parent: 0,
                                                             scope_resolution_token: ScopeResolutionToken(
                                                                 TokenIdx(
-                                                                    64,
+                                                                    65,
                                                                 ),
                                                             ),
                                                             ident_token: Ok(
                                                                 IdentToken {
                                                                     ident: `ops`,
                                                                     token_idx: TokenIdx(
-                                                                        65,
+                                                                        66,
                                                                     ),
                                                                 },
                                                             ),
@@ -2667,14 +2667,14 @@ Ok(
                                                             parent: 1,
                                                             scope_resolution_token: ScopeResolutionToken(
                                                                 TokenIdx(
-                                                                    66,
+                                                                    67,
                                                                 ),
                                                             ),
                                                             ident_token: Ok(
                                                                 IdentToken {
                                                                     ident: `IntIndex`,
                                                                     token_idx: TokenIdx(
-                                                                        67,
+                                                                        68,
                                                                     ),
                                                                 },
                                                             ),
@@ -2691,7 +2691,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `CyclicSlice`,
                                                                     token_idx: TokenIdx(
-                                                                        69,
+                                                                        70,
                                                                     ),
                                                                 },
                                                             ),
@@ -2731,7 +2731,7 @@ Ok(
                                                             CurrentSynSymbol {
                                                                 modifier: Const,
                                                                 access_start: TokenIdx(
-                                                                    62,
+                                                                    63,
                                                                 ),
                                                                 access_end: None,
                                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -2743,7 +2743,7 @@ Ok(
                                                                         ident_token: IdentToken {
                                                                             ident: `E`,
                                                                             token_idx: TokenIdx(
-                                                                                61,
+                                                                                62,
                                                                             ),
                                                                         },
                                                                     },
@@ -2803,7 +2803,7 @@ Ok(
                                             SynExpr::InheritedSymbol {
                                                 ident: `E`,
                                                 token_idx: TokenIdx(
-                                                    75,
+                                                    76,
                                                 ),
                                                 inherited_symbol_idx: 0,
                                                 inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
@@ -2919,7 +2919,7 @@ Ok(
                                                                 SynExpr::CurrentSymbol {
                                                                     ident: `E`,
                                                                     token_idx: TokenIdx(
-                                                                        70,
+                                                                        71,
                                                                     ),
                                                                     current_symbol_idx: 0,
                                                                     current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
@@ -2927,7 +2927,7 @@ Ok(
                                                                             ident_token: IdentToken {
                                                                                 ident: `E`,
                                                                                 token_idx: TokenIdx(
-                                                                                    61,
+                                                                                    62,
                                                                                 ),
                                                                             },
                                                                         },
@@ -2945,7 +2945,7 @@ Ok(
                                                                     path_name_token: PathNameToken::CrateRoot(
                                                                         CrateToken {
                                                                             token_idx: TokenIdx(
-                                                                                63,
+                                                                                64,
                                                                             ),
                                                                         },
                                                                     ),
@@ -2957,14 +2957,14 @@ Ok(
                                                                     parent: 0,
                                                                     scope_resolution_token: ScopeResolutionToken(
                                                                         TokenIdx(
-                                                                            64,
+                                                                            65,
                                                                         ),
                                                                     ),
                                                                     ident_token: Ok(
                                                                         IdentToken {
                                                                             ident: `ops`,
                                                                             token_idx: TokenIdx(
-                                                                                65,
+                                                                                66,
                                                                             ),
                                                                         },
                                                                     ),
@@ -2978,14 +2978,14 @@ Ok(
                                                                     parent: 1,
                                                                     scope_resolution_token: ScopeResolutionToken(
                                                                         TokenIdx(
-                                                                            66,
+                                                                            67,
                                                                         ),
                                                                     ),
                                                                     ident_token: Ok(
                                                                         IdentToken {
                                                                             ident: `IntIndex`,
                                                                             token_idx: TokenIdx(
-                                                                                67,
+                                                                                68,
                                                                             ),
                                                                         },
                                                                     ),
@@ -3002,7 +3002,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `CyclicSlice`,
                                                                             token_idx: TokenIdx(
-                                                                                69,
+                                                                                70,
                                                                             ),
                                                                         },
                                                                     ),
@@ -3042,7 +3042,7 @@ Ok(
                                                                     CurrentSynSymbol {
                                                                         modifier: Const,
                                                                         access_start: TokenIdx(
-                                                                            62,
+                                                                            63,
                                                                         ),
                                                                         access_end: None,
                                                                         variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -3054,7 +3054,7 @@ Ok(
                                                                                 ident_token: IdentToken {
                                                                                     ident: `E`,
                                                                                     token_idx: TokenIdx(
-                                                                                        61,
+                                                                                        62,
                                                                                     ),
                                                                                 },
                                                                             },
@@ -3114,7 +3114,7 @@ Ok(
                                                     SynExpr::InheritedSymbol {
                                                         ident: `E`,
                                                         token_idx: TokenIdx(
-                                                            75,
+                                                            76,
                                                         ),
                                                         inherited_symbol_idx: 0,
                                                         inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
@@ -3279,7 +3279,7 @@ Ok(
                         ast_idx: 14,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                76,
+                                77,
                             ),
                         },
                         ty_expr: 56,
@@ -3291,7 +3291,7 @@ Ok(
                     },
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            76,
+                            77,
                         ),
                     },
                     template_parameter_decl_list: Ok(
@@ -3299,7 +3299,7 @@ Ok(
                             Generics {
                                 langle: LaOrLtToken(
                                     TokenIdx(
-                                        77,
+                                        78,
                                     ),
                                 ),
                                 template_parameters: [
@@ -3310,7 +3310,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `E`,
                                                 token_idx: TokenIdx(
-                                                    78,
+                                                    79,
                                                 ),
                                             },
                                             traits: None,
@@ -3323,7 +3323,7 @@ Ok(
                                 ),
                                 rangle: RaOrGtToken(
                                     TokenIdx(
-                                        79,
+                                        80,
                                     ),
                                 ),
                             },
@@ -3336,7 +3336,7 @@ Ok(
                         EolToken::Colon(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    82,
+                                    83,
                                 ),
                             },
                         ),
@@ -3372,7 +3372,7 @@ Ok(
                                     SynExpr::CurrentSymbol {
                                         ident: `E`,
                                         token_idx: TokenIdx(
-                                            81,
+                                            82,
                                         ),
                                         current_symbol_idx: 0,
                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
@@ -3380,7 +3380,7 @@ Ok(
                                                 ident_token: IdentToken {
                                                     ident: `E`,
                                                     token_idx: TokenIdx(
-                                                        78,
+                                                        79,
                                                     ),
                                                 },
                                             },
@@ -3399,7 +3399,7 @@ Ok(
                                             IdentToken {
                                                 ident: `CyclicSlice`,
                                                 token_idx: TokenIdx(
-                                                    80,
+                                                    81,
                                                 ),
                                             },
                                         ),
@@ -3439,7 +3439,7 @@ Ok(
                                         CurrentSynSymbol {
                                             modifier: Const,
                                             access_start: TokenIdx(
-                                                79,
+                                                80,
                                             ),
                                             access_end: None,
                                             variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -3451,7 +3451,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `E`,
                                                         token_idx: TokenIdx(
-                                                            78,
+                                                            79,
                                                         ),
                                                     },
                                                 },
@@ -3543,7 +3543,7 @@ Ok(
                                 RitchieParameters {
                                     lpar: LparToken(
                                         TokenIdx(
-                                            86,
+                                            87,
                                         ),
                                     ),
                                     self_value_parameter: None,
@@ -3552,7 +3552,7 @@ Ok(
                                     commas: [],
                                     rpar: RparToken(
                                         TokenIdx(
-                                            87,
+                                            88,
                                         ),
                                     ),
                                 },
@@ -3561,7 +3561,7 @@ Ok(
                                 Some(
                                     CurryToken(
                                         TokenIdx(
-                                            88,
+                                            89,
                                         ),
                                     ),
                                 ),
@@ -3577,7 +3577,7 @@ Ok(
                                 EolToken::Semicolon(
                                     EolSemicolonToken {
                                         token_idx: TokenIdx(
-                                            90,
+                                            91,
                                         ),
                                     },
                                 ),
@@ -3616,7 +3616,7 @@ Ok(
                                                         SynExpr::CurrentSymbol {
                                                             ident: `E`,
                                                             token_idx: TokenIdx(
-                                                                81,
+                                                                82,
                                                             ),
                                                             current_symbol_idx: 0,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
@@ -3624,7 +3624,7 @@ Ok(
                                                                     ident_token: IdentToken {
                                                                         ident: `E`,
                                                                         token_idx: TokenIdx(
-                                                                            78,
+                                                                            79,
                                                                         ),
                                                                     },
                                                                 },
@@ -3643,7 +3643,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `CyclicSlice`,
                                                                     token_idx: TokenIdx(
-                                                                        80,
+                                                                        81,
                                                                     ),
                                                                 },
                                                             ),
@@ -3683,7 +3683,7 @@ Ok(
                                                             CurrentSynSymbol {
                                                                 modifier: Const,
                                                                 access_start: TokenIdx(
-                                                                    79,
+                                                                    80,
                                                                 ),
                                                                 access_end: None,
                                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -3695,7 +3695,7 @@ Ok(
                                                                         ident_token: IdentToken {
                                                                             ident: `E`,
                                                                             token_idx: TokenIdx(
-                                                                                78,
+                                                                                79,
                                                                             ),
                                                                         },
                                                                     },
@@ -3764,7 +3764,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i32`,
                                                         token_idx: TokenIdx(
-                                                            89,
+                                                            90,
                                                         ),
                                                     },
                                                 ),
@@ -3865,7 +3865,7 @@ Ok(
                                                                 SynExpr::CurrentSymbol {
                                                                     ident: `E`,
                                                                     token_idx: TokenIdx(
-                                                                        81,
+                                                                        82,
                                                                     ),
                                                                     current_symbol_idx: 0,
                                                                     current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
@@ -3873,7 +3873,7 @@ Ok(
                                                                             ident_token: IdentToken {
                                                                                 ident: `E`,
                                                                                 token_idx: TokenIdx(
-                                                                                    78,
+                                                                                    79,
                                                                                 ),
                                                                             },
                                                                         },
@@ -3892,7 +3892,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `CyclicSlice`,
                                                                             token_idx: TokenIdx(
-                                                                                80,
+                                                                                81,
                                                                             ),
                                                                         },
                                                                     ),
@@ -3932,7 +3932,7 @@ Ok(
                                                                     CurrentSynSymbol {
                                                                         modifier: Const,
                                                                         access_start: TokenIdx(
-                                                                            79,
+                                                                            80,
                                                                         ),
                                                                         access_end: None,
                                                                         variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -3944,7 +3944,7 @@ Ok(
                                                                                 ident_token: IdentToken {
                                                                                     ident: `E`,
                                                                                     token_idx: TokenIdx(
-                                                                                        78,
+                                                                                        79,
                                                                                     ),
                                                                                 },
                                                                             },
@@ -4013,7 +4013,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i32`,
                                                                 token_idx: TokenIdx(
-                                                                    89,
+                                                                    90,
                                                                 ),
                                                             },
                                                         ),
@@ -4213,7 +4213,7 @@ Ok(
                                 RitchieParameters {
                                     lpar: LparToken(
                                         TokenIdx(
-                                            94,
+                                            95,
                                         ),
                                     ),
                                     self_value_parameter: None,
@@ -4222,7 +4222,7 @@ Ok(
                                     commas: [],
                                     rpar: RparToken(
                                         TokenIdx(
-                                            95,
+                                            96,
                                         ),
                                     ),
                                 },
@@ -4231,7 +4231,7 @@ Ok(
                                 Some(
                                     CurryToken(
                                         TokenIdx(
-                                            96,
+                                            97,
                                         ),
                                     ),
                                 ),
@@ -4247,7 +4247,7 @@ Ok(
                                 EolToken::Semicolon(
                                     EolSemicolonToken {
                                         token_idx: TokenIdx(
-                                            98,
+                                            99,
                                         ),
                                     },
                                 ),
@@ -4286,7 +4286,7 @@ Ok(
                                                         SynExpr::CurrentSymbol {
                                                             ident: `E`,
                                                             token_idx: TokenIdx(
-                                                                81,
+                                                                82,
                                                             ),
                                                             current_symbol_idx: 0,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
@@ -4294,7 +4294,7 @@ Ok(
                                                                     ident_token: IdentToken {
                                                                         ident: `E`,
                                                                         token_idx: TokenIdx(
-                                                                            78,
+                                                                            79,
                                                                         ),
                                                                     },
                                                                 },
@@ -4313,7 +4313,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `CyclicSlice`,
                                                                     token_idx: TokenIdx(
-                                                                        80,
+                                                                        81,
                                                                     ),
                                                                 },
                                                             ),
@@ -4353,7 +4353,7 @@ Ok(
                                                             CurrentSynSymbol {
                                                                 modifier: Const,
                                                                 access_start: TokenIdx(
-                                                                    79,
+                                                                    80,
                                                                 ),
                                                                 access_end: None,
                                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -4365,7 +4365,7 @@ Ok(
                                                                         ident_token: IdentToken {
                                                                             ident: `E`,
                                                                             token_idx: TokenIdx(
-                                                                                78,
+                                                                                79,
                                                                             ),
                                                                         },
                                                                     },
@@ -4434,7 +4434,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i32`,
                                                         token_idx: TokenIdx(
-                                                            97,
+                                                            98,
                                                         ),
                                                     },
                                                 ),
@@ -4535,7 +4535,7 @@ Ok(
                                                                 SynExpr::CurrentSymbol {
                                                                     ident: `E`,
                                                                     token_idx: TokenIdx(
-                                                                        81,
+                                                                        82,
                                                                     ),
                                                                     current_symbol_idx: 0,
                                                                     current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
@@ -4543,7 +4543,7 @@ Ok(
                                                                             ident_token: IdentToken {
                                                                                 ident: `E`,
                                                                                 token_idx: TokenIdx(
-                                                                                    78,
+                                                                                    79,
                                                                                 ),
                                                                             },
                                                                         },
@@ -4562,7 +4562,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `CyclicSlice`,
                                                                             token_idx: TokenIdx(
-                                                                                80,
+                                                                                81,
                                                                             ),
                                                                         },
                                                                     ),
@@ -4602,7 +4602,7 @@ Ok(
                                                                     CurrentSynSymbol {
                                                                         modifier: Const,
                                                                         access_start: TokenIdx(
-                                                                            79,
+                                                                            80,
                                                                         ),
                                                                         access_end: None,
                                                                         variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -4614,7 +4614,7 @@ Ok(
                                                                                 ident_token: IdentToken {
                                                                                     ident: `E`,
                                                                                     token_idx: TokenIdx(
-                                                                                        78,
+                                                                                        79,
                                                                                     ),
                                                                                 },
                                                                             },
@@ -4683,7 +4683,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i32`,
                                                                 token_idx: TokenIdx(
-                                                                    97,
+                                                                    98,
                                                                 ),
                                                             },
                                                         ),
@@ -4883,7 +4883,7 @@ Ok(
                                 RitchieParameters {
                                     lpar: LparToken(
                                         TokenIdx(
-                                            102,
+                                            103,
                                         ),
                                     ),
                                     self_value_parameter: None,
@@ -4892,7 +4892,7 @@ Ok(
                                     commas: [],
                                     rpar: RparToken(
                                         TokenIdx(
-                                            103,
+                                            104,
                                         ),
                                     ),
                                 },
@@ -4901,7 +4901,7 @@ Ok(
                                 Some(
                                     CurryToken(
                                         TokenIdx(
-                                            104,
+                                            105,
                                         ),
                                     ),
                                 ),
@@ -4917,7 +4917,7 @@ Ok(
                                 EolToken::Semicolon(
                                     EolSemicolonToken {
                                         token_idx: TokenIdx(
-                                            106,
+                                            107,
                                         ),
                                     },
                                 ),
@@ -4956,7 +4956,7 @@ Ok(
                                                         SynExpr::CurrentSymbol {
                                                             ident: `E`,
                                                             token_idx: TokenIdx(
-                                                                81,
+                                                                82,
                                                             ),
                                                             current_symbol_idx: 0,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
@@ -4964,7 +4964,7 @@ Ok(
                                                                     ident_token: IdentToken {
                                                                         ident: `E`,
                                                                         token_idx: TokenIdx(
-                                                                            78,
+                                                                            79,
                                                                         ),
                                                                     },
                                                                 },
@@ -4983,7 +4983,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `CyclicSlice`,
                                                                     token_idx: TokenIdx(
-                                                                        80,
+                                                                        81,
                                                                     ),
                                                                 },
                                                             ),
@@ -5023,7 +5023,7 @@ Ok(
                                                             CurrentSynSymbol {
                                                                 modifier: Const,
                                                                 access_start: TokenIdx(
-                                                                    79,
+                                                                    80,
                                                                 ),
                                                                 access_end: None,
                                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -5035,7 +5035,7 @@ Ok(
                                                                         ident_token: IdentToken {
                                                                             ident: `E`,
                                                                             token_idx: TokenIdx(
-                                                                                78,
+                                                                                79,
                                                                             ),
                                                                         },
                                                                     },
@@ -5104,7 +5104,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i32`,
                                                         token_idx: TokenIdx(
-                                                            105,
+                                                            106,
                                                         ),
                                                     },
                                                 ),
@@ -5205,7 +5205,7 @@ Ok(
                                                                 SynExpr::CurrentSymbol {
                                                                     ident: `E`,
                                                                     token_idx: TokenIdx(
-                                                                        81,
+                                                                        82,
                                                                     ),
                                                                     current_symbol_idx: 0,
                                                                     current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
@@ -5213,7 +5213,7 @@ Ok(
                                                                             ident_token: IdentToken {
                                                                                 ident: `E`,
                                                                                 token_idx: TokenIdx(
-                                                                                    78,
+                                                                                    79,
                                                                                 ),
                                                                             },
                                                                         },
@@ -5232,7 +5232,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `CyclicSlice`,
                                                                             token_idx: TokenIdx(
-                                                                                80,
+                                                                                81,
                                                                             ),
                                                                         },
                                                                     ),
@@ -5272,7 +5272,7 @@ Ok(
                                                                     CurrentSynSymbol {
                                                                         modifier: Const,
                                                                         access_start: TokenIdx(
-                                                                            79,
+                                                                            80,
                                                                         ),
                                                                         access_end: None,
                                                                         variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -5284,7 +5284,7 @@ Ok(
                                                                                 ident_token: IdentToken {
                                                                                     ident: `E`,
                                                                                     token_idx: TokenIdx(
-                                                                                        78,
+                                                                                        79,
                                                                                     ),
                                                                                 },
                                                                             },
@@ -5353,7 +5353,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i32`,
                                                                 token_idx: TokenIdx(
-                                                                    105,
+                                                                    106,
                                                                 ),
                                                             },
                                                         ),
@@ -5553,7 +5553,7 @@ Ok(
                                 RitchieParameters {
                                     lpar: LparToken(
                                         TokenIdx(
-                                            110,
+                                            111,
                                         ),
                                     ),
                                     self_value_parameter: None,
@@ -5562,7 +5562,7 @@ Ok(
                                     commas: [],
                                     rpar: RparToken(
                                         TokenIdx(
-                                            111,
+                                            112,
                                         ),
                                     ),
                                 },
@@ -5571,7 +5571,7 @@ Ok(
                                 Some(
                                     CurryToken(
                                         TokenIdx(
-                                            112,
+                                            113,
                                         ),
                                     ),
                                 ),
@@ -5587,7 +5587,7 @@ Ok(
                                 EolToken::Semicolon(
                                     EolSemicolonToken {
                                         token_idx: TokenIdx(
-                                            116,
+                                            117,
                                         ),
                                     },
                                 ),
@@ -5626,7 +5626,7 @@ Ok(
                                                         SynExpr::CurrentSymbol {
                                                             ident: `E`,
                                                             token_idx: TokenIdx(
-                                                                81,
+                                                                82,
                                                             ),
                                                             current_symbol_idx: 0,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
@@ -5634,7 +5634,7 @@ Ok(
                                                                     ident_token: IdentToken {
                                                                         ident: `E`,
                                                                         token_idx: TokenIdx(
-                                                                            78,
+                                                                            79,
                                                                         ),
                                                                     },
                                                                 },
@@ -5653,7 +5653,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `CyclicSlice`,
                                                                     token_idx: TokenIdx(
-                                                                        80,
+                                                                        81,
                                                                     ),
                                                                 },
                                                             ),
@@ -5693,7 +5693,7 @@ Ok(
                                                             CurrentSynSymbol {
                                                                 modifier: Const,
                                                                 access_start: TokenIdx(
-                                                                    79,
+                                                                    80,
                                                                 ),
                                                                 access_end: None,
                                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -5705,7 +5705,7 @@ Ok(
                                                                         ident_token: IdentToken {
                                                                             ident: `E`,
                                                                             token_idx: TokenIdx(
-                                                                                78,
+                                                                                79,
                                                                             ),
                                                                         },
                                                                     },
@@ -5758,7 +5758,7 @@ Ok(
                                             SynExpr::InheritedSymbol {
                                                 ident: `E`,
                                                 token_idx: TokenIdx(
-                                                    115,
+                                                    116,
                                                 ),
                                                 inherited_symbol_idx: 0,
                                                 inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
@@ -5770,14 +5770,14 @@ Ok(
                                             SynExpr::Prefix {
                                                 opr: Tilde,
                                                 opr_token_idx: TokenIdx(
-                                                    114,
+                                                    115,
                                                 ),
                                                 opd: 0,
                                             },
                                             SynExpr::Prefix {
                                                 opr: Option,
                                                 opr_token_idx: TokenIdx(
-                                                    113,
+                                                    114,
                                                 ),
                                                 opd: 1,
                                             },
@@ -5875,7 +5875,7 @@ Ok(
                                                                 SynExpr::CurrentSymbol {
                                                                     ident: `E`,
                                                                     token_idx: TokenIdx(
-                                                                        81,
+                                                                        82,
                                                                     ),
                                                                     current_symbol_idx: 0,
                                                                     current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
@@ -5883,7 +5883,7 @@ Ok(
                                                                             ident_token: IdentToken {
                                                                                 ident: `E`,
                                                                                 token_idx: TokenIdx(
-                                                                                    78,
+                                                                                    79,
                                                                                 ),
                                                                             },
                                                                         },
@@ -5902,7 +5902,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `CyclicSlice`,
                                                                             token_idx: TokenIdx(
-                                                                                80,
+                                                                                81,
                                                                             ),
                                                                         },
                                                                     ),
@@ -5942,7 +5942,7 @@ Ok(
                                                                     CurrentSynSymbol {
                                                                         modifier: Const,
                                                                         access_start: TokenIdx(
-                                                                            79,
+                                                                            80,
                                                                         ),
                                                                         access_end: None,
                                                                         variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -5954,7 +5954,7 @@ Ok(
                                                                                 ident_token: IdentToken {
                                                                                     ident: `E`,
                                                                                     token_idx: TokenIdx(
-                                                                                        78,
+                                                                                        79,
                                                                                     ),
                                                                                 },
                                                                             },
@@ -6007,7 +6007,7 @@ Ok(
                                                     SynExpr::InheritedSymbol {
                                                         ident: `E`,
                                                         token_idx: TokenIdx(
-                                                            115,
+                                                            116,
                                                         ),
                                                         inherited_symbol_idx: 0,
                                                         inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
@@ -6019,14 +6019,14 @@ Ok(
                                                     SynExpr::Prefix {
                                                         opr: Tilde,
                                                         opr_token_idx: TokenIdx(
-                                                            114,
+                                                            115,
                                                         ),
                                                         opd: 0,
                                                     },
                                                     SynExpr::Prefix {
                                                         opr: Option,
                                                         opr_token_idx: TokenIdx(
-                                                            113,
+                                                            114,
                                                         ),
                                                         opd: 1,
                                                     },
@@ -6223,7 +6223,7 @@ Ok(
                                 RitchieParameters {
                                     lpar: LparToken(
                                         TokenIdx(
-                                            120,
+                                            121,
                                         ),
                                     ),
                                     self_value_parameter: None,
@@ -6232,7 +6232,7 @@ Ok(
                                     commas: [],
                                     rpar: RparToken(
                                         TokenIdx(
-                                            121,
+                                            122,
                                         ),
                                     ),
                                 },
@@ -6241,7 +6241,7 @@ Ok(
                                 Some(
                                     CurryToken(
                                         TokenIdx(
-                                            122,
+                                            123,
                                         ),
                                     ),
                                 ),
@@ -6257,7 +6257,7 @@ Ok(
                                 EolToken::Semicolon(
                                     EolSemicolonToken {
                                         token_idx: TokenIdx(
-                                            126,
+                                            127,
                                         ),
                                     },
                                 ),
@@ -6296,7 +6296,7 @@ Ok(
                                                         SynExpr::CurrentSymbol {
                                                             ident: `E`,
                                                             token_idx: TokenIdx(
-                                                                81,
+                                                                82,
                                                             ),
                                                             current_symbol_idx: 0,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
@@ -6304,7 +6304,7 @@ Ok(
                                                                     ident_token: IdentToken {
                                                                         ident: `E`,
                                                                         token_idx: TokenIdx(
-                                                                            78,
+                                                                            79,
                                                                         ),
                                                                     },
                                                                 },
@@ -6323,7 +6323,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `CyclicSlice`,
                                                                     token_idx: TokenIdx(
-                                                                        80,
+                                                                        81,
                                                                     ),
                                                                 },
                                                             ),
@@ -6363,7 +6363,7 @@ Ok(
                                                             CurrentSynSymbol {
                                                                 modifier: Const,
                                                                 access_start: TokenIdx(
-                                                                    79,
+                                                                    80,
                                                                 ),
                                                                 access_end: None,
                                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -6375,7 +6375,7 @@ Ok(
                                                                         ident_token: IdentToken {
                                                                             ident: `E`,
                                                                             token_idx: TokenIdx(
-                                                                                78,
+                                                                                79,
                                                                             ),
                                                                         },
                                                                     },
@@ -6428,7 +6428,7 @@ Ok(
                                             SynExpr::InheritedSymbol {
                                                 ident: `E`,
                                                 token_idx: TokenIdx(
-                                                    125,
+                                                    126,
                                                 ),
                                                 inherited_symbol_idx: 0,
                                                 inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
@@ -6440,14 +6440,14 @@ Ok(
                                             SynExpr::Prefix {
                                                 opr: Tilde,
                                                 opr_token_idx: TokenIdx(
-                                                    124,
+                                                    125,
                                                 ),
                                                 opd: 0,
                                             },
                                             SynExpr::Prefix {
                                                 opr: Option,
                                                 opr_token_idx: TokenIdx(
-                                                    123,
+                                                    124,
                                                 ),
                                                 opd: 1,
                                             },
@@ -6545,7 +6545,7 @@ Ok(
                                                                 SynExpr::CurrentSymbol {
                                                                     ident: `E`,
                                                                     token_idx: TokenIdx(
-                                                                        81,
+                                                                        82,
                                                                     ),
                                                                     current_symbol_idx: 0,
                                                                     current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
@@ -6553,7 +6553,7 @@ Ok(
                                                                             ident_token: IdentToken {
                                                                                 ident: `E`,
                                                                                 token_idx: TokenIdx(
-                                                                                    78,
+                                                                                    79,
                                                                                 ),
                                                                             },
                                                                         },
@@ -6572,7 +6572,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `CyclicSlice`,
                                                                             token_idx: TokenIdx(
-                                                                                80,
+                                                                                81,
                                                                             ),
                                                                         },
                                                                     ),
@@ -6612,7 +6612,7 @@ Ok(
                                                                     CurrentSynSymbol {
                                                                         modifier: Const,
                                                                         access_start: TokenIdx(
-                                                                            79,
+                                                                            80,
                                                                         ),
                                                                         access_end: None,
                                                                         variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -6624,7 +6624,7 @@ Ok(
                                                                                 ident_token: IdentToken {
                                                                                     ident: `E`,
                                                                                     token_idx: TokenIdx(
-                                                                                        78,
+                                                                                        79,
                                                                                     ),
                                                                                 },
                                                                             },
@@ -6677,7 +6677,7 @@ Ok(
                                                     SynExpr::InheritedSymbol {
                                                         ident: `E`,
                                                         token_idx: TokenIdx(
-                                                            125,
+                                                            126,
                                                         ),
                                                         inherited_symbol_idx: 0,
                                                         inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
@@ -6689,14 +6689,14 @@ Ok(
                                                     SynExpr::Prefix {
                                                         opr: Tilde,
                                                         opr_token_idx: TokenIdx(
-                                                            124,
+                                                            125,
                                                         ),
                                                         opd: 0,
                                                     },
                                                     SynExpr::Prefix {
                                                         opr: Option,
                                                         opr_token_idx: TokenIdx(
-                                                            123,
+                                                            124,
                                                         ),
                                                         opd: 1,
                                                     },

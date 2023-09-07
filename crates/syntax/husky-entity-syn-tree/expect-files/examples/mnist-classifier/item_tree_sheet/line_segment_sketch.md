@@ -21,7 +21,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `concave_component`,
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         },
@@ -59,7 +59,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `convex_component`,
                                 token_idx: TokenIdx(
-                                    3,
+                                    4,
                                 ),
                             },
                         },
@@ -97,7 +97,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `convexity`,
                                 token_idx: TokenIdx(
-                                    5,
+                                    6,
                                 ),
                             },
                         },
@@ -135,7 +135,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `line_segment`,
                                 token_idx: TokenIdx(
-                                    7,
+                                    8,
                                 ),
                             },
                         },
@@ -171,7 +171,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `LineSegmentStroke`,
                                 token_idx: TokenIdx(
-                                    41,
+                                    42,
                                 ),
                             },
                             block: Type {
@@ -213,7 +213,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `LineSegmentSketch`,
                                 token_idx: TokenIdx(
-                                    170,
+                                    171,
                                 ),
                             },
                             block: Type {
@@ -257,7 +257,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `go_right`,
                                 token_idx: TokenIdx(
-                                    369,
+                                    370,
                                 ),
                             },
                             block: Fugitive {
@@ -309,7 +309,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `go_left`,
                                 token_idx: TokenIdx(
-                                    466,
+                                    467,
                                 ),
                             },
                             block: Fugitive {
@@ -361,7 +361,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `extend_end`,
                                 token_idx: TokenIdx(
-                                    563,
+                                    564,
                                 ),
                             },
                             block: Fugitive {
@@ -413,7 +413,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `extend_start`,
                                 token_idx: TokenIdx(
-                                    796,
+                                    797,
                                 ),
                             },
                             block: Fugitive {
@@ -465,7 +465,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `find_line_segments`,
                                 token_idx: TokenIdx(
-                                    1062,
+                                    1063,
                                 ),
                             },
                             block: Fugitive {
@@ -528,7 +528,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `concave_component`,
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         },
@@ -559,7 +559,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `convex_component`,
                                 token_idx: TokenIdx(
-                                    3,
+                                    4,
                                 ),
                             },
                         },
@@ -590,7 +590,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `convexity`,
                                 token_idx: TokenIdx(
-                                    5,
+                                    6,
                                 ),
                             },
                         },
@@ -621,7 +621,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `line_segment`,
                                 token_idx: TokenIdx(
-                                    7,
+                                    8,
                                 ),
                             },
                         },
@@ -648,7 +648,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `LineSegmentStroke`,
                                 token_idx: TokenIdx(
-                                    41,
+                                    42,
                                 ),
                             },
                             block: Type {
@@ -683,7 +683,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `LineSegmentSketch`,
                                 token_idx: TokenIdx(
-                                    170,
+                                    171,
                                 ),
                             },
                             block: Type {
@@ -722,7 +722,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `go_right`,
                                 token_idx: TokenIdx(
-                                    369,
+                                    370,
                                 ),
                             },
                             block: Fugitive {
@@ -767,7 +767,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `go_left`,
                                 token_idx: TokenIdx(
-                                    466,
+                                    467,
                                 ),
                             },
                             block: Fugitive {
@@ -812,7 +812,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `extend_end`,
                                 token_idx: TokenIdx(
-                                    563,
+                                    564,
                                 ),
                             },
                             block: Fugitive {
@@ -857,7 +857,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `extend_start`,
                                 token_idx: TokenIdx(
-                                    796,
+                                    797,
                                 ),
                             },
                             block: Fugitive {
@@ -902,7 +902,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `find_line_segments`,
                                 token_idx: TokenIdx(
-                                    1062,
+                                    1063,
                                 ),
                             },
                             block: Fugitive {
@@ -945,7 +945,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `ConcaveComponent`,
                                         token_idx: TokenIdx(
-                                            34,
+                                            35,
                                         ),
                                     },
                                     block: Type {
@@ -992,7 +992,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `find_concave_components`,
                                         token_idx: TokenIdx(
-                                            553,
+                                            554,
                                         ),
                                     },
                                     block: Fugitive {
@@ -1045,7 +1045,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `LineSegment`,
                                         token_idx: TokenIdx(
-                                            8,
+                                            9,
                                         ),
                                     },
                                     block: Type {
@@ -1094,7 +1094,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `LineSegment`,
                                         token_idx: TokenIdx(
-                                            8,
+                                            9,
                                         ),
                                     },
                                     block: Type {
@@ -1145,7 +1145,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `RawContour`,
                                         token_idx: TokenIdx(
-                                            24,
+                                            25,
                                         ),
                                     },
                                     block: Type {
@@ -1196,7 +1196,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `Point2d`,
                                         token_idx: TokenIdx(
-                                            11,
+                                            12,
                                         ),
                                     },
                                     block: Type {
@@ -1247,7 +1247,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `RelativePoint2d`,
                                         token_idx: TokenIdx(
-                                            153,
+                                            154,
                                         ),
                                     },
                                     block: Type {
@@ -1298,7 +1298,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `Vector2d`,
                                         token_idx: TokenIdx(
-                                            166,
+                                            167,
                                         ),
                                     },
                                     block: Type {
@@ -1349,7 +1349,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `ClosedRange`,
                                         token_idx: TokenIdx(
-                                            495,
+                                            496,
                                         ),
                                     },
                                     block: Type {
@@ -1400,7 +1400,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `BoundingBox`,
                                         token_idx: TokenIdx(
-                                            603,
+                                            604,
                                         ),
                                     },
                                     block: Type {
@@ -1451,7 +1451,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `RelativeBoundingBox`,
                                         token_idx: TokenIdx(
-                                            739,
+                                            740,
                                         ),
                                     },
                                     block: Type {
@@ -1508,12 +1508,12 @@ Ok(
                         ast_idx: 170,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                80,
+                                81,
                             ),
                         },
                         trai_expr: 11,
                         for_token: TokenIdx(
-                            82,
+                            83,
                         ),
                         ty_sketch_expr: Path(
                             12,
@@ -1552,7 +1552,7 @@ Ok(
                         ast_idx: 171,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                109,
+                                110,
                             ),
                         },
                         ty_expr: 13,
@@ -1592,12 +1592,12 @@ Ok(
                         ast_idx: 173,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                184,
+                                185,
                             ),
                         },
                         trai_expr: 14,
                         for_token: TokenIdx(
-                            186,
+                            187,
                         ),
                         ty_sketch_expr: Path(
                             15,
@@ -1636,7 +1636,7 @@ Ok(
                         ast_idx: 174,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                203,
+                                204,
                             ),
                         },
                         ty_expr: 16,
@@ -1660,7 +1660,7 @@ Ok(
                             IdentToken {
                                 ident: `concave_component`,
                                 token_idx: TokenIdx(
-                                    10,
+                                    11,
                                 ),
                             },
                         ),
@@ -1691,7 +1691,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `concave_component`,
                                         token_idx: TokenIdx(
-                                            1,
+                                            2,
                                         ),
                                     },
                                 },
@@ -1708,7 +1708,7 @@ Ok(
                             IdentToken {
                                 ident: `convex_component`,
                                 token_idx: TokenIdx(
-                                    15,
+                                    16,
                                 ),
                             },
                         ),
@@ -1739,7 +1739,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `convex_component`,
                                         token_idx: TokenIdx(
-                                            3,
+                                            4,
                                         ),
                                     },
                                 },
@@ -1756,7 +1756,7 @@ Ok(
                             IdentToken {
                                 ident: `line_segment`,
                                 token_idx: TokenIdx(
-                                    20,
+                                    21,
                                 ),
                             },
                         ),
@@ -1787,7 +1787,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `line_segment`,
                                         token_idx: TokenIdx(
-                                            7,
+                                            8,
                                         ),
                                     },
                                 },
@@ -1805,7 +1805,7 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    24,
+                                    25,
                                 ),
                             },
                         ),
@@ -1832,7 +1832,7 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    30,
+                                    31,
                                 ),
                             },
                         ),
@@ -1860,7 +1860,7 @@ Ok(
                             IdentToken {
                                 ident: `line_segment`,
                                 token_idx: TokenIdx(
-                                    36,
+                                    37,
                                 ),
                             },
                         ),
@@ -1891,7 +1891,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `line_segment`,
                                         token_idx: TokenIdx(
-                                            7,
+                                            8,
                                         ),
                                     },
                                 },
@@ -1910,7 +1910,7 @@ Ok(
                             IdentToken {
                                 ident: `geom2d`,
                                 token_idx: TokenIdx(
-                                    26,
+                                    27,
                                 ),
                             },
                         ),
@@ -1945,7 +1945,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `geom2d`,
                                         token_idx: TokenIdx(
-                                            5,
+                                            6,
                                         ),
                                     },
                                 },
@@ -1964,7 +1964,7 @@ Ok(
                             IdentToken {
                                 ident: `raw_contour`,
                                 token_idx: TokenIdx(
-                                    32,
+                                    33,
                                 ),
                             },
                         ),
@@ -1999,7 +1999,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `raw_contour`,
                                         token_idx: TokenIdx(
-                                            3,
+                                            4,
                                         ),
                                     },
                                 },
@@ -2017,7 +2017,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `RawContour`,
                             token_idx: TokenIdx(
-                                34,
+                                35,
                             ),
                         },
                     },
@@ -2046,7 +2046,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `RawContour`,
                                         token_idx: TokenIdx(
-                                            24,
+                                            25,
                                         ),
                                     },
                                     block: Type {

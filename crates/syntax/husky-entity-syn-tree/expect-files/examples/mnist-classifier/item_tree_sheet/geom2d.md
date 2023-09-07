@@ -19,7 +19,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Point2d`,
                                 token_idx: TokenIdx(
-                                    11,
+                                    12,
                                 ),
                             },
                             block: Type {
@@ -61,7 +61,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `RelativePoint2d`,
                                 token_idx: TokenIdx(
-                                    153,
+                                    154,
                                 ),
                             },
                             block: Type {
@@ -103,7 +103,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Vector2d`,
                                 token_idx: TokenIdx(
-                                    166,
+                                    167,
                                 ),
                             },
                             block: Type {
@@ -145,7 +145,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `ClosedRange`,
                                 token_idx: TokenIdx(
-                                    495,
+                                    496,
                                 ),
                             },
                             block: Type {
@@ -187,7 +187,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `BoundingBox`,
                                 token_idx: TokenIdx(
-                                    603,
+                                    604,
                                 ),
                             },
                             block: Type {
@@ -229,7 +229,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `RelativeBoundingBox`,
                                 token_idx: TokenIdx(
-                                    739,
+                                    740,
                                 ),
                             },
                             block: Type {
@@ -280,7 +280,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Point2d`,
                                 token_idx: TokenIdx(
-                                    11,
+                                    12,
                                 ),
                             },
                             block: Type {
@@ -315,7 +315,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `RelativePoint2d`,
                                 token_idx: TokenIdx(
-                                    153,
+                                    154,
                                 ),
                             },
                             block: Type {
@@ -350,7 +350,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Vector2d`,
                                 token_idx: TokenIdx(
-                                    166,
+                                    167,
                                 ),
                             },
                             block: Type {
@@ -385,7 +385,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `ClosedRange`,
                                 token_idx: TokenIdx(
-                                    495,
+                                    496,
                                 ),
                             },
                             block: Type {
@@ -420,7 +420,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `BoundingBox`,
                                 token_idx: TokenIdx(
-                                    603,
+                                    604,
                                 ),
                             },
                             block: Type {
@@ -455,7 +455,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `RelativeBoundingBox`,
                                 token_idx: TokenIdx(
-                                    739,
+                                    740,
                                 ),
                             },
                             block: Type {
@@ -494,7 +494,7 @@ Ok(
                         ast_idx: 80,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                22,
+                                23,
                             ),
                         },
                         ty_expr: 6,
@@ -528,7 +528,7 @@ Ok(
                         ast_idx: 83,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                177,
+                                178,
                             ),
                         },
                         ty_expr: 7,
@@ -562,7 +562,7 @@ Ok(
                         ast_idx: 85,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                506,
+                                507,
                             ),
                         },
                         ty_expr: 8,
@@ -596,7 +596,7 @@ Ok(
                         ast_idx: 87,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                616,
+                                617,
                             ),
                         },
                         ty_expr: 9,
@@ -630,7 +630,7 @@ Ok(
                         ast_idx: 89,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                750,
+                                751,
                             ),
                         },
                         ty_expr: 10,

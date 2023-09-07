@@ -19,7 +19,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Class`,
                                 token_idx: TokenIdx(
-                                    11,
+                                    12,
                                 ),
                             },
                             block: Type {
@@ -67,7 +67,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `OneVsAll`,
                                 token_idx: TokenIdx(
-                                    33,
+                                    34,
                                 ),
                             },
                             block: Type {
@@ -115,7 +115,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `OneVsAllResult`,
                                 token_idx: TokenIdx(
-                                    83,
+                                    84,
                                 ),
                             },
                             block: Type {
@@ -163,7 +163,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `narrow_down`,
                                 token_idx: TokenIdx(
-                                    127,
+                                    128,
                                 ),
                             },
                             block: Fugitive {

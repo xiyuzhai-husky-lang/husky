@@ -195,7 +195,7 @@ Ok(
                             ast_idx: 5,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    19,
+                                    20,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -206,23 +206,23 @@ Ok(
                             },
                             for_token: ConnectionForToken {
                                 token_idx: TokenIdx(
-                                    21,
+                                    22,
                                 ),
                             },
                             self_ty_decl: DeriveAny {
                                 at_token: AtToken(
                                     TokenIdx(
-                                        22,
+                                        23,
                                     ),
                                 ),
                                 derive_token: DeriveToken {
                                     token_idx: TokenIdx(
-                                        23,
+                                        24,
                                     ),
                                 },
                                 underscore_token: UnderscoreToken {
                                     token_idx: TokenIdx(
-                                        24,
+                                        25,
                                     ),
                                 },
                             },
@@ -230,7 +230,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            25,
+                                            26,
                                         ),
                                     },
                                 ),
@@ -273,7 +273,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Visualize`,
                                                         token_idx: TokenIdx(
-                                                            20,
+                                                            21,
                                                         ),
                                                     },
                                                 ),
@@ -398,7 +398,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                28,
+                                                29,
                                             ),
                                         ),
                                         self_value_parameter: None,
@@ -407,7 +407,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                29,
+                                                30,
                                             ),
                                         ),
                                     },
@@ -416,7 +416,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                30,
+                                                31,
                                             ),
                                         ),
                                     ),
@@ -432,7 +432,7 @@ Ok(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                32,
+                                                33,
                                             ),
                                         },
                                     ),
@@ -478,7 +478,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `Visualize`,
                                                                         token_idx: TokenIdx(
-                                                                            20,
+                                                                            21,
                                                                         ),
                                                                     },
                                                                 ),
@@ -571,7 +571,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Html`,
                                                             token_idx: TokenIdx(
-                                                                31,
+                                                                32,
                                                             ),
                                                         },
                                                     ),

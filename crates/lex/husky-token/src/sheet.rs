@@ -3,172 +3,17 @@ use husky_text::TextPosition;
 use husky_vfs::VfsError;
 use salsa::DebugWithDb;
 
-/// is eof if raw is equal to the len of all tokens
-#[derive(Debug, Hash, PartialOrd, Ord, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = TokenDb)]
-pub struct TokenIdx(pub(crate) usize);
-
-impl TokenIdx {
-    pub fn raw(self) -> usize {
-        self.0
-    }
-}
-
-impl std::ops::Add<usize> for TokenIdx {
-    type Output = Self;
-
-    fn add(self, rhs: usize) -> Self::Output {
-        Self(self.0 + rhs)
-    }
-}
-
-impl std::ops::Sub<usize> for TokenIdx {
-    type Output = Self;
-
-    fn sub(self, rhs: usize) -> Self::Output {
-        Self(self.0 - rhs)
-    }
-}
-
 impl std::ops::Index<TokenIdx> for TokenSheetData {
     type Output = Token;
 
-    fn index(&self, index: TokenIdx) -> &Self::Output {
-        &self.tokens[index.0]
+    fn index(&self, idx: TokenIdx) -> &Self::Output {
+        &self.tokens[idx.index()]
     }
-}
-
-#[derive(Hash, PartialOrd, Ord, PartialEq, Eq, Clone, Copy)]
-pub struct TokenIdxRange {
-    start: TokenIdxRangeStart,
-    end: TokenIdxRangeEnd,
 }
 
 pub enum TokenIdxRangeConfig {
     IncludeBoundary,
     ExcludeBoundary,
-}
-
-impl TokenIdxRange {
-    pub fn new_single(token_idx: TokenIdx) -> Self {
-        Self {
-            start: TokenIdxRangeStart(token_idx),
-            end: TokenIdxRangeEnd(token_idx + 1),
-        }
-    }
-    pub fn new_drained(token_idx: TokenIdx) -> Self {
-        Self {
-            start: TokenIdxRangeStart(token_idx - 1),
-            end: TokenIdxRangeEnd(token_idx),
-        }
-    }
-
-    pub fn new_closed(first: TokenIdx, last: TokenIdx) -> Self {
-        Self {
-            start: TokenIdxRangeStart(first),
-            end: TokenIdxRangeEnd(last + 1),
-        }
-    }
-
-    #[inline(always)]
-    pub fn to(self, end: TokenIdxRangeEnd) -> Self {
-        Self {
-            start: self.start,
-            end,
-        }
-    }
-
-    #[inline(always)]
-    pub fn join(self, other: TokenIdxRange) -> Self {
-        self.to(other.end())
-    }
-}
-
-impl std::fmt::Debug for TokenIdxRange {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        (self.start.0 .0..self.end.0 .0).fmt(f)
-    }
-}
-
-#[derive(Debug, Hash, PartialOrd, Ord, PartialEq, Eq, Clone, Copy)]
-pub struct TokenIdxRangeStart(TokenIdx);
-
-impl TokenIdxRangeStart {
-    pub fn token_idx(self) -> TokenIdx {
-        self.0
-    }
-}
-
-#[derive(Debug, Hash, PartialOrd, Ord, PartialEq, Eq, Clone, Copy)]
-pub struct TokenIdxRangeEnd(TokenIdx);
-
-impl TokenIdxRangeEnd {
-    pub fn new_after(token_idx: TokenIdx) -> Self {
-        Self(token_idx + 1)
-    }
-
-    pub fn token_idx(self) -> TokenIdx {
-        self.0
-    }
-}
-
-pub trait HasTokenIdxRange {
-    fn token_idx_range(&self) -> TokenIdxRange;
-}
-
-impl HasTokenIdxRange for TokenIdxRange {
-    fn token_idx_range(&self) -> TokenIdxRange {
-        *self
-    }
-}
-
-impl<T> HasTokenIdxRange for [T]
-where
-    T: HasTokenIdxRange,
-{
-    fn token_idx_range(&self) -> TokenIdxRange {
-        if self.len() == 0 {
-            return TokenIdxRange {
-                start: TokenIdxRangeStart(TokenIdx(0)),
-                end: TokenIdxRangeEnd(TokenIdx(0)),
-            };
-        }
-        TokenIdxRange {
-            start: self.first().unwrap().token_idx_range().start,
-            end: self.last().unwrap().token_idx_range().end,
-        }
-    }
-}
-
-impl From<(TokenIdxRangeStart, TokenIdxRangeEnd)> for TokenIdxRange {
-    fn from((start, end): (TokenIdxRangeStart, TokenIdxRangeEnd)) -> Self {
-        Self { start, end }
-    }
-}
-
-impl TokenIdxRange {
-    #[inline(always)]
-    pub fn new(start: TokenIdx, end: TokenIdxRangeEnd) -> Self {
-        Self {
-            start: TokenIdxRangeStart(start),
-            end,
-        }
-    }
-
-    fn new_from_raw(start: usize, end: usize) -> Self {
-        Self {
-            start: TokenIdxRangeStart(TokenIdx(start)),
-            end: TokenIdxRangeEnd(TokenIdx(end)),
-        }
-    }
-
-    pub fn start(&self) -> TokenIdxRangeStart {
-        self.start
-    }
-
-    pub fn end(&self) -> TokenIdxRangeEnd {
-        self.end
-    }
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -189,7 +34,7 @@ pub struct TokenSheet {
 #[salsa::debug_with_db(db = TokenDb)]
 pub struct TokenSheetData {
     tokens: Vec<Token>,
-    group_starts: Vec<usize>,
+    token_group_bases: Vec<TokenGroupBase>,
     indents: Vec<u32>,
 }
 
@@ -253,13 +98,13 @@ impl RangedTokenSheet {
         let tokens = self.tokens(db);
         (0..tokens.len())
             .into_iter()
-            .map(|i| (TokenIdx(i), &self.token_ranges[i], &tokens[i]))
+            .map(|i| (TokenIdx::from_index(i), &self.token_ranges[i], &tokens[i]))
     }
 
     pub fn token_index_iter<'a>(&'a self) -> impl Iterator<Item = TokenIdx> + 'a {
         (0..self.token_ranges.len())
             .into_iter()
-            .map(|i| TokenIdx(i))
+            .map(|i| TokenIdx::from_index(i))
     }
 
     // todo: test this
@@ -271,12 +116,12 @@ impl RangedTokenSheet {
             Ok(i) => i,
             Err(e) => (e > 0).then(|| e - 1)?,
         };
-        (self.token_ranges[index].end > pos).then(|| TokenIdx(index))
+        (self.token_ranges[index].end > pos).then(|| TokenIdx::from_index(index))
     }
 
     pub fn tokens_text_range(&self, token_idx_range: TokenIdxRange) -> TextRange {
-        let start = token_idx_range.start.0 .0;
-        let end = token_idx_range.end.0 .0;
+        let start = token_idx_range.start().index();
+        let end = token_idx_range.end().index();
         self.token_ranges[start..end].text_range()
     }
 
@@ -321,7 +166,7 @@ impl std::fmt::Display for TokenGroupIdx {
 
 pub struct TokenGroupIter<'a> {
     tokens: &'a [Token],
-    line_group_starts: &'a [usize],
+    line_group_starts: &'a [TokenGroupBase],
     indents: &'a [u32],
     current: usize,
 }
@@ -329,7 +174,7 @@ pub struct TokenGroupIter<'a> {
 impl<'a> TokenGroupIter<'a> {
     pub(crate) fn new(
         tokens: &'a [Token],
-        line_group_starts: &'a [usize],
+        line_group_starts: &'a [TokenGroupBase],
         indents: &'a [u32],
     ) -> Self {
         Self {
@@ -357,13 +202,13 @@ impl<'a> TokenGroupIter<'a> {
         let end = self
             .line_group_starts
             .get(self.current + 1)
-            .copied()
+            .map(|end| end.index())
             .unwrap_or(self.tokens.len());
         Some((
             TokenGroupIdx(idx),
             TokenGroup {
                 base: start,
-                tokens: &self.tokens[start..end],
+                tokens: &self.tokens[start.index()..end],
                 indent: self.indents[idx],
             },
         ))
@@ -407,7 +252,7 @@ impl<'a> Iterator for TokenGroupIter<'a> {
 }
 
 pub struct TokenGroup<'a> {
-    base: usize,
+    base: TokenGroupBase,
     tokens: &'a [Token],
     indent: u32,
 }
@@ -431,14 +276,17 @@ impl<'a> TokenGroup<'a> {
 }
 
 // todo: move this to a root module called group
-pub(crate) fn produce_group_starts(tokens: &[Token], token_ranges: &[TextRange]) -> Vec<usize> {
+pub(crate) fn produce_token_group_starts(
+    tokens: &[Token],
+    token_ranges: &[TextRange],
+) -> Vec<TokenGroupBase> {
     let line_starts = produce_line_starts(token_ranges);
     let mut i = 0;
     let mut line_group_starts = vec![];
     while i < line_starts.len() {
         let line0_start = line_starts[i];
         let line0_indent = token_ranges[line0_start].start.col.0;
-        line_group_starts.push(line0_start);
+        line_group_starts.push(TokenGroupBase::from_index(line0_start));
         i = {
             let mut j = i + 1;
             while j < line_starts.len() {
@@ -513,10 +361,10 @@ fn produce_line_starts(token_ranges: &[TextRange]) -> Vec<usize> {
         .collect()
 }
 
-fn produce_indents(group_starts: &[usize], token_ranges: &[TextRange]) -> Vec<u32> {
-    group_starts
+fn produce_indents(token_group_starts: &[TokenGroupBase], token_ranges: &[TextRange]) -> Vec<u32> {
+    token_group_starts
         .iter()
-        .map(|i| token_ranges[*i].start.j())
+        .map(|i| token_ranges[i.index()].start.j())
         .collect()
 }
 
@@ -527,13 +375,13 @@ impl RangedTokenSheet {
         token_ranges: Vec<TextRange>,
         comments: Vec<Comment>,
     ) -> RangedTokenSheet {
-        let group_starts = produce_group_starts(&tokens, &token_ranges);
+        let group_starts = produce_token_group_starts(&tokens, &token_ranges);
         let indents = produce_indents(&group_starts, &token_ranges);
         RangedTokenSheet {
             token_sheet: TokenSheet::new(
                 db,
                 TokenSheetData {
-                    group_starts,
+                    token_group_bases: group_starts,
                     tokens,
                     indents,
                 },
@@ -544,27 +392,27 @@ impl RangedTokenSheet {
     }
 
     pub fn token_idx_text_range(&self, token_idx: TokenIdx) -> TextRange {
-        debug_assert!(token_idx.0 < self.token_ranges.len());
-        self.token_ranges[token_idx.0]
+        debug_assert!(token_idx.index() < self.token_ranges.len());
+        self.token_ranges[token_idx.index()]
     }
 
     pub fn token_idx_range_text_range(&self, token_idx_range: TokenIdxRange) -> TextRange {
-        debug_assert!(token_idx_range.end.token_idx() > token_idx_range.start.token_idx());
-        let text_range_start = self.token_ranges[token_idx_range.start.0 .0].start;
-        let text_range_end = self.token_ranges[token_idx_range.end.0 .0 - 1].end;
+        debug_assert!(token_idx_range.end().token_idx() > token_idx_range.start().token_idx());
+        let text_range_start = self.token_ranges[token_idx_range.start().index()].start;
+        let text_range_end = self.token_ranges[(token_idx_range.end().index() - 1) as usize].end;
         (text_range_start..text_range_end).into()
     }
 
     pub fn token_stream_state_text_range(&self, token_stream_state: TokenStreamState) -> TextRange {
         match token_stream_state.drained() {
             true => {
-                let next_token_idx_raw = token_stream_state.next_token_idx().0;
-                match next_token_idx_raw {
+                let next_token_idx_index = token_stream_state.next_token_idx().index();
+                match next_token_idx_index {
                     0 => todo!(),
-                    _ => self.token_ranges[next_token_idx_raw - 1].right_after(),
+                    _ => self.token_ranges[(next_token_idx_index - 1) as usize].right_after(),
                 }
             }
-            false => self.token_ranges[token_stream_state.next_token_idx().0],
+            false => self.token_ranges[token_stream_state.next_token_idx().index()],
         }
     }
 }
@@ -575,21 +423,21 @@ impl TokenSheetData {
     }
 
     pub fn token_group_iter<'a>(&'a self) -> TokenGroupIter<'a> {
-        TokenGroupIter::new(&self.tokens, &self.group_starts, &self.indents)
+        TokenGroupIter::new(&self.tokens, &self.token_group_bases, &self.indents)
     }
 
-    pub fn group_start(&self, token_group_idx: TokenGroupIdx) -> usize {
-        self.group_starts[token_group_idx.0]
+    pub fn token_group_base(&self, token_group_idx: TokenGroupIdx) -> TokenGroupBase {
+        self.token_group_bases[token_group_idx.0]
     }
 
     pub fn token_group_token_idx_range(&self, token_group_idx: TokenGroupIdx) -> TokenIdxRange {
-        let start = self.group_starts[token_group_idx.0];
+        let start = self.token_group_bases[token_group_idx.0].index();
         let end = self
-            .group_starts
+            .token_group_bases
             .get(token_group_idx.0 + 1)
-            .copied()
+            .map(|&end| end.index())
             .unwrap_or(self.tokens.len());
-        TokenIdxRange::new_from_raw(start, end)
+        TokenIdxRange::from_indices(start, end)
     }
 
     pub fn tokens(&self) -> &[Token] {
@@ -597,14 +445,19 @@ impl TokenSheetData {
     }
 
     pub fn token_group_idx(&self, token_idx: TokenIdx) -> TokenGroupIdx {
-        assert!(self.group_starts[0] == 0);
-        TokenGroupIdx(match self.group_starts.binary_search(&token_idx.raw()) {
-            Ok(i) => i,
-            Err(i) => {
-                assert!(i > 0);
-                i - 1
-            }
-        })
+        assert!(self.token_group_bases[0].index() == 0);
+        TokenGroupIdx(
+            match self
+                .token_group_bases
+                .binary_search_by(|base| base.token_idx().cmp(&token_idx))
+            {
+                Ok(i) => i,
+                Err(i) => {
+                    assert!(i > 0);
+                    i - 1
+                }
+            },
+        )
     }
 }
 
@@ -612,11 +465,11 @@ impl std::ops::Index<TokenGroupIdx> for TokenSheetData {
     type Output = [Token];
 
     fn index(&self, index: TokenGroupIdx) -> &Self::Output {
-        let start = self.group_starts[index.0];
+        let start = self.token_group_bases[index.0].index();
         let end = self
-            .group_starts
+            .token_group_bases
             .get(index.0 + 1)
-            .copied()
+            .map(|&end| end.index())
             .unwrap_or(self.tokens.len());
         &self.tokens[start..end]
     }

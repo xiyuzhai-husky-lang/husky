@@ -43,7 +43,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `raw_contour`,
                                     token_idx: TokenIdx(
-                                        3,
+                                        4,
                                     ),
                                 },
                             },
@@ -96,7 +96,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `row_start`,
                         token_idx: TokenIdx(
-                            14,
+                            15,
                         ),
                     },
                 },
@@ -117,7 +117,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `row_end`,
                         token_idx: TokenIdx(
-                            18,
+                            19,
                         ),
                     },
                 },
@@ -138,7 +138,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `upper_mass`,
                         token_idx: TokenIdx(
-                            22,
+                            23,
                         ),
                     },
                 },
@@ -159,7 +159,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `lower_mass`,
                         token_idx: TokenIdx(
-                            26,
+                            27,
                         ),
                     },
                 },
@@ -202,7 +202,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `matches`,
                         token_idx: TokenIdx(
-                            35,
+                            36,
                         ),
                     },
                 },
@@ -333,7 +333,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `mask`,
                         token_idx: TokenIdx(
-                            73,
+                            74,
                         ),
                     },
                 },

@@ -15,12 +15,12 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `start`,
                                         token_idx: TokenIdx(
-                                            10,
+                                            11,
                                         ),
                                     },
                                     colon: ColonToken(
                                         TokenIdx(
-                                            11,
+                                            12,
                                         ),
                                     ),
                                     ty_expr_idx: 0,
@@ -33,12 +33,12 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `end`,
                                         token_idx: TokenIdx(
-                                            14,
+                                            15,
                                         ),
                                     },
                                     colon: ColonToken(
                                         TokenIdx(
-                                            15,
+                                            16,
                                         ),
                                     ),
                                     ty_expr_idx: 1,
@@ -92,7 +92,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Point2d`,
                                                         token_idx: TokenIdx(
-                                                            12,
+                                                            13,
                                                         ),
                                                     },
                                                 ),
@@ -107,7 +107,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Point2d`,
                                                         token_idx: TokenIdx(
-                                                            16,
+                                                            17,
                                                         ),
                                                     },
                                                 ),
@@ -147,14 +147,14 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        13,
+                                                        14,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::FieldVariable {
                                                         ident_token: IdentToken {
                                                             ident: `start`,
                                                             token_idx: TokenIdx(
-                                                                10,
+                                                                11,
                                                             ),
                                                         },
                                                     },
@@ -162,14 +162,14 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        17,
+                                                        18,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::FieldVariable {
                                                         ident_token: IdentToken {
                                                             ident: `end`,
                                                             token_idx: TokenIdx(
-                                                                14,
+                                                                15,
                                                             ),
                                                         },
                                                     },
@@ -190,7 +190,7 @@ Ok(
                                                             ),
                                                         ),
                                                         token_idx: TokenIdx(
-                                                            10,
+                                                            11,
                                                         ),
                                                     },
                                                     ty_expr_idx: 0,
@@ -210,7 +210,7 @@ Ok(
                                                             ),
                                                         ),
                                                         token_idx: TokenIdx(
-                                                            14,
+                                                            15,
                                                         ),
                                                     },
                                                     ty_expr_idx: 1,
@@ -233,7 +233,7 @@ Ok(
                                                         ),
                                                     ),
                                                     token_idx: TokenIdx(
-                                                        10,
+                                                        11,
                                                     ),
                                                 },
                                             },
@@ -250,7 +250,7 @@ Ok(
                                                         ),
                                                     ),
                                                     token_idx: TokenIdx(
-                                                        14,
+                                                        15,
                                                     ),
                                                 },
                                             },
@@ -313,7 +313,7 @@ Ok(
                                             IdentToken {
                                                 ident: `LineSegment`,
                                                 token_idx: TokenIdx(
-                                                    20,
+                                                    21,
                                                 ),
                                             },
                                         ),
@@ -437,7 +437,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `LineSegment`,
                                                                     token_idx: TokenIdx(
-                                                                        20,
+                                                                        21,
                                                                     ),
                                                                 },
                                                             ),
@@ -529,7 +529,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Vector2d`,
                                                         token_idx: TokenIdx(
-                                                            27,
+                                                            28,
                                                         ),
                                                     },
                                                 ),
@@ -626,7 +626,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `LineSegment`,
                                                                             token_idx: TokenIdx(
-                                                                                20,
+                                                                                21,
                                                                             ),
                                                                         },
                                                                     ),
@@ -718,7 +718,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `Vector2d`,
                                                                 token_idx: TokenIdx(
-                                                                    27,
+                                                                    28,
                                                                 ),
                                                             },
                                                         ),
@@ -793,52 +793,52 @@ Ok(
                                     data: [
                                         SynExpr::SelfValue(
                                             TokenIdx(
-                                                29,
+                                                30,
                                             ),
                                         ),
                                         SynExpr::Field {
                                             owner: 0,
                                             dot_token_idx: TokenIdx(
-                                                30,
+                                                31,
                                             ),
                                             ident_token: IdentToken {
                                                 ident: `start`,
                                                 token_idx: TokenIdx(
-                                                    31,
+                                                    32,
                                                 ),
                                             },
                                         },
                                         SynExpr::SelfValue(
                                             TokenIdx(
-                                                35,
+                                                36,
                                             ),
                                         ),
                                         SynExpr::Field {
                                             owner: 2,
                                             dot_token_idx: TokenIdx(
-                                                36,
+                                                37,
                                             ),
                                             ident_token: IdentToken {
                                                 ident: `end`,
                                                 token_idx: TokenIdx(
-                                                    37,
+                                                    38,
                                                 ),
                                             },
                                         },
                                         SynExpr::MethodApplicationOrCall {
                                             self_argument: 1,
                                             dot_token_idx: TokenIdx(
-                                                32,
+                                                33,
                                             ),
                                             ident_token: IdentToken {
                                                 ident: `to`,
                                                 token_idx: TokenIdx(
-                                                    33,
+                                                    34,
                                                 ),
                                             },
                                             generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
-                                                34,
+                                                35,
                                             ),
                                             items: [
                                                 SynCommaListItem {
@@ -847,7 +847,7 @@ Ok(
                                                 },
                                             ],
                                             rpar_token_idx: TokenIdx(
-                                                38,
+                                                39,
                                             ),
                                         },
                                         SynExpr::Block {
@@ -946,7 +946,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            43,
+                                            44,
                                         ),
                                     ),
                                     ty: 0,
@@ -997,7 +997,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `LineSegment`,
                                                                     token_idx: TokenIdx(
-                                                                        20,
+                                                                        21,
                                                                     ),
                                                                 },
                                                             ),
@@ -1099,7 +1099,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Point2d`,
                                                         token_idx: TokenIdx(
-                                                            44,
+                                                            45,
                                                         ),
                                                     },
                                                 ),
@@ -1114,7 +1114,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f32`,
                                                         token_idx: TokenIdx(
-                                                            47,
+                                                            48,
                                                         ),
                                                     },
                                                 ),
@@ -1137,7 +1137,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `pt`,
                                                         token_idx: TokenIdx(
-                                                            42,
+                                                            43,
                                                         ),
                                                     },
                                                 },
@@ -1181,7 +1181,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        43,
+                                                        44,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -1264,7 +1264,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `LineSegment`,
                                                                             token_idx: TokenIdx(
-                                                                                20,
+                                                                                21,
                                                                             ),
                                                                         },
                                                                     ),
@@ -1366,7 +1366,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `Point2d`,
                                                                 token_idx: TokenIdx(
-                                                                    44,
+                                                                    45,
                                                                 ),
                                                             },
                                                         ),
@@ -1381,7 +1381,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `f32`,
                                                                 token_idx: TokenIdx(
-                                                                    47,
+                                                                    48,
                                                                 ),
                                                             },
                                                         ),
@@ -1404,7 +1404,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `pt`,
                                                                 token_idx: TokenIdx(
-                                                                    42,
+                                                                    43,
                                                                 ),
                                                             },
                                                         },
@@ -1448,7 +1448,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                43,
+                                                                44,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -1509,50 +1509,50 @@ Ok(
                                     data: [
                                         SynExpr::SelfValue(
                                             TokenIdx(
-                                                52,
+                                                53,
                                             ),
                                         ),
                                         SynExpr::MethodApplicationOrCall {
                                             self_argument: 0,
                                             dot_token_idx: TokenIdx(
-                                                53,
+                                                54,
                                             ),
                                             ident_token: IdentToken {
                                                 ident: `displacement`,
                                                 token_idx: TokenIdx(
-                                                    54,
+                                                    55,
                                                 ),
                                             },
                                             generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
-                                                55,
+                                                56,
                                             ),
                                             items: [],
                                             rpar_token_idx: TokenIdx(
-                                                56,
+                                                57,
                                             ),
                                         },
                                         SynExpr::SelfValue(
                                             TokenIdx(
-                                                60,
+                                                61,
                                             ),
                                         ),
                                         SynExpr::Field {
                                             owner: 2,
                                             dot_token_idx: TokenIdx(
-                                                61,
+                                                62,
                                             ),
                                             ident_token: IdentToken {
                                                 ident: `start`,
                                                 token_idx: TokenIdx(
-                                                    62,
+                                                    63,
                                                 ),
                                             },
                                         },
                                         SynExpr::InheritedSymbol {
                                             ident: `pt`,
                                             token_idx: TokenIdx(
-                                                66,
+                                                67,
                                             ),
                                             inherited_symbol_idx: 0,
                                             inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
@@ -1562,17 +1562,17 @@ Ok(
                                         SynExpr::MethodApplicationOrCall {
                                             self_argument: 3,
                                             dot_token_idx: TokenIdx(
-                                                63,
+                                                64,
                                             ),
                                             ident_token: IdentToken {
                                                 ident: `to`,
                                                 token_idx: TokenIdx(
-                                                    64,
+                                                    65,
                                                 ),
                                             },
                                             generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
-                                                65,
+                                                66,
                                             ),
                                             items: [
                                                 SynCommaListItem {
@@ -1581,13 +1581,13 @@ Ok(
                                                 },
                                             ],
                                             rpar_token_idx: TokenIdx(
-                                                67,
+                                                68,
                                             ),
                                         },
                                         SynExpr::CurrentSymbol {
                                             ident: `ab`,
                                             token_idx: TokenIdx(
-                                                69,
+                                                70,
                                             ),
                                             current_symbol_idx: 0,
                                             current_symbol_kind: CurrentSynSymbolKind::LetVariable {
@@ -1597,7 +1597,7 @@ Ok(
                                         SynExpr::CurrentSymbol {
                                             ident: `ap`,
                                             token_idx: TokenIdx(
-                                                73,
+                                                74,
                                             ),
                                             current_symbol_idx: 1,
                                             current_symbol_kind: CurrentSynSymbolKind::LetVariable {
@@ -1607,17 +1607,17 @@ Ok(
                                         SynExpr::MethodApplicationOrCall {
                                             self_argument: 6,
                                             dot_token_idx: TokenIdx(
-                                                70,
+                                                71,
                                             ),
                                             ident_token: IdentToken {
                                                 ident: `dot`,
                                                 token_idx: TokenIdx(
-                                                    71,
+                                                    72,
                                                 ),
                                             },
                                             generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
-                                                72,
+                                                73,
                                             ),
                                             items: [
                                                 SynCommaListItem {
@@ -1626,12 +1626,12 @@ Ok(
                                                 },
                                             ],
                                             rpar_token_idx: TokenIdx(
-                                                74,
+                                                75,
                                             ),
                                         },
                                         SynExpr::Literal(
                                             TokenIdx(
-                                                76,
+                                                77,
                                             ),
                                             Literal::Float(
                                                 Unspecified(
@@ -1649,14 +1649,14 @@ Ok(
                                                 Less,
                                             ),
                                             opr_token_idx: TokenIdx(
-                                                75,
+                                                76,
                                             ),
                                             ropd: 9,
                                         },
                                         SynExpr::CurrentSymbol {
                                             ident: `ap`,
                                             token_idx: TokenIdx(
-                                                78,
+                                                79,
                                             ),
                                             current_symbol_idx: 1,
                                             current_symbol_kind: CurrentSynSymbolKind::LetVariable {
@@ -1666,44 +1666,44 @@ Ok(
                                         SynExpr::MethodApplicationOrCall {
                                             self_argument: 11,
                                             dot_token_idx: TokenIdx(
-                                                79,
+                                                80,
                                             ),
                                             ident_token: IdentToken {
                                                 ident: `norm`,
                                                 token_idx: TokenIdx(
-                                                    80,
+                                                    81,
                                                 ),
                                             },
                                             generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
-                                                81,
+                                                82,
                                             ),
                                             items: [],
                                             rpar_token_idx: TokenIdx(
-                                                82,
+                                                83,
                                             ),
                                         },
                                         SynExpr::SelfValue(
                                             TokenIdx(
-                                                88,
+                                                89,
                                             ),
                                         ),
                                         SynExpr::Field {
                                             owner: 13,
                                             dot_token_idx: TokenIdx(
-                                                89,
+                                                90,
                                             ),
                                             ident_token: IdentToken {
                                                 ident: `end`,
                                                 token_idx: TokenIdx(
-                                                    90,
+                                                    91,
                                                 ),
                                             },
                                         },
                                         SynExpr::InheritedSymbol {
                                             ident: `pt`,
                                             token_idx: TokenIdx(
-                                                94,
+                                                95,
                                             ),
                                             inherited_symbol_idx: 0,
                                             inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
@@ -1713,17 +1713,17 @@ Ok(
                                         SynExpr::MethodApplicationOrCall {
                                             self_argument: 14,
                                             dot_token_idx: TokenIdx(
-                                                91,
+                                                92,
                                             ),
                                             ident_token: IdentToken {
                                                 ident: `to`,
                                                 token_idx: TokenIdx(
-                                                    92,
+                                                    93,
                                                 ),
                                             },
                                             generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
-                                                93,
+                                                94,
                                             ),
                                             items: [
                                                 SynCommaListItem {
@@ -1732,13 +1732,13 @@ Ok(
                                                 },
                                             ],
                                             rpar_token_idx: TokenIdx(
-                                                95,
+                                                96,
                                             ),
                                         },
                                         SynExpr::CurrentSymbol {
                                             ident: `ab`,
                                             token_idx: TokenIdx(
-                                                97,
+                                                98,
                                             ),
                                             current_symbol_idx: 0,
                                             current_symbol_kind: CurrentSynSymbolKind::LetVariable {
@@ -1748,7 +1748,7 @@ Ok(
                                         SynExpr::CurrentSymbol {
                                             ident: `bp`,
                                             token_idx: TokenIdx(
-                                                101,
+                                                102,
                                             ),
                                             current_symbol_idx: 2,
                                             current_symbol_kind: CurrentSynSymbolKind::LetVariable {
@@ -1758,17 +1758,17 @@ Ok(
                                         SynExpr::MethodApplicationOrCall {
                                             self_argument: 17,
                                             dot_token_idx: TokenIdx(
-                                                98,
+                                                99,
                                             ),
                                             ident_token: IdentToken {
                                                 ident: `dot`,
                                                 token_idx: TokenIdx(
-                                                    99,
+                                                    100,
                                                 ),
                                             },
                                             generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
-                                                100,
+                                                101,
                                             ),
                                             items: [
                                                 SynCommaListItem {
@@ -1777,12 +1777,12 @@ Ok(
                                                 },
                                             ],
                                             rpar_token_idx: TokenIdx(
-                                                102,
+                                                103,
                                             ),
                                         },
                                         SynExpr::Literal(
                                             TokenIdx(
-                                                104,
+                                                105,
                                             ),
                                             Literal::Float(
                                                 Unspecified(
@@ -1800,14 +1800,14 @@ Ok(
                                                 Greater,
                                             ),
                                             opr_token_idx: TokenIdx(
-                                                103,
+                                                104,
                                             ),
                                             ropd: 20,
                                         },
                                         SynExpr::CurrentSymbol {
                                             ident: `bp`,
                                             token_idx: TokenIdx(
-                                                106,
+                                                107,
                                             ),
                                             current_symbol_idx: 2,
                                             current_symbol_kind: CurrentSynSymbolKind::LetVariable {
@@ -1817,27 +1817,27 @@ Ok(
                                         SynExpr::MethodApplicationOrCall {
                                             self_argument: 22,
                                             dot_token_idx: TokenIdx(
-                                                107,
+                                                108,
                                             ),
                                             ident_token: IdentToken {
                                                 ident: `norm`,
                                                 token_idx: TokenIdx(
-                                                    108,
+                                                    109,
                                                 ),
                                             },
                                             generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
-                                                109,
+                                                110,
                                             ),
                                             items: [],
                                             rpar_token_idx: TokenIdx(
-                                                110,
+                                                111,
                                             ),
                                         },
                                         SynExpr::CurrentSymbol {
                                             ident: `ab`,
                                             token_idx: TokenIdx(
-                                                113,
+                                                114,
                                             ),
                                             current_symbol_idx: 0,
                                             current_symbol_kind: CurrentSynSymbolKind::LetVariable {
@@ -1847,7 +1847,7 @@ Ok(
                                         SynExpr::CurrentSymbol {
                                             ident: `ap`,
                                             token_idx: TokenIdx(
-                                                117,
+                                                118,
                                             ),
                                             current_symbol_idx: 1,
                                             current_symbol_kind: CurrentSynSymbolKind::LetVariable {
@@ -1857,17 +1857,17 @@ Ok(
                                         SynExpr::MethodApplicationOrCall {
                                             self_argument: 24,
                                             dot_token_idx: TokenIdx(
-                                                114,
+                                                115,
                                             ),
                                             ident_token: IdentToken {
                                                 ident: `cross`,
                                                 token_idx: TokenIdx(
-                                                    115,
+                                                    116,
                                                 ),
                                             },
                                             generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
-                                                116,
+                                                117,
                                             ),
                                             items: [
                                                 SynCommaListItem {
@@ -1876,13 +1876,13 @@ Ok(
                                                 },
                                             ],
                                             rpar_token_idx: TokenIdx(
-                                                118,
+                                                119,
                                             ),
                                         },
                                         SynExpr::CurrentSymbol {
                                             ident: `ab`,
                                             token_idx: TokenIdx(
-                                                124,
+                                                125,
                                             ),
                                             current_symbol_idx: 0,
                                             current_symbol_kind: CurrentSynSymbolKind::LetVariable {
@@ -1892,41 +1892,41 @@ Ok(
                                         SynExpr::MethodApplicationOrCall {
                                             self_argument: 26,
                                             dot_token_idx: TokenIdx(
-                                                119,
+                                                120,
                                             ),
                                             ident_token: IdentToken {
                                                 ident: `abs`,
                                                 token_idx: TokenIdx(
-                                                    120,
+                                                    121,
                                                 ),
                                             },
                                             generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
-                                                121,
+                                                122,
                                             ),
                                             items: [],
                                             rpar_token_idx: TokenIdx(
-                                                122,
+                                                123,
                                             ),
                                         },
                                         SynExpr::MethodApplicationOrCall {
                                             self_argument: 27,
                                             dot_token_idx: TokenIdx(
-                                                125,
+                                                126,
                                             ),
                                             ident_token: IdentToken {
                                                 ident: `norm`,
                                                 token_idx: TokenIdx(
-                                                    126,
+                                                    127,
                                                 ),
                                             },
                                             generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
-                                                127,
+                                                128,
                                             ),
                                             items: [],
                                             rpar_token_idx: TokenIdx(
-                                                128,
+                                                129,
                                             ),
                                         },
                                         SynExpr::Binary {
@@ -1935,7 +1935,7 @@ Ok(
                                                 Div,
                                             ),
                                             opr_token_idx: TokenIdx(
-                                                123,
+                                                124,
                                             ),
                                             ropd: 29,
                                         },
@@ -1972,7 +1972,7 @@ Ok(
                                         SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
-                                                    85,
+                                                    86,
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
@@ -1990,7 +1990,7 @@ Ok(
                                             assign_token: Ok(
                                                 EqToken(
                                                     TokenIdx(
-                                                        87,
+                                                        88,
                                                     ),
                                                 ),
                                             ),
@@ -2000,7 +2000,7 @@ Ok(
                                             if_branch: SynIfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
-                                                        96,
+                                                        97,
                                                     ),
                                                 },
                                                 condition: Ok(
@@ -2010,7 +2010,7 @@ Ok(
                                                     Colon(
                                                         EolColonToken {
                                                             token_idx: TokenIdx(
-                                                                105,
+                                                                106,
                                                             ),
                                                         },
                                                     ),
@@ -2026,14 +2026,14 @@ Ok(
                                                 SynElseBranch {
                                                     else_token: ElseToken {
                                                         token_idx: TokenIdx(
-                                                            111,
+                                                            112,
                                                         ),
                                                     },
                                                     eol_colon: Ok(
                                                         Colon(
                                                             EolColonToken {
                                                                 token_idx: TokenIdx(
-                                                                    112,
+                                                                    113,
                                                                 ),
                                                             },
                                                         ),
@@ -2049,7 +2049,7 @@ Ok(
                                         SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
-                                                    49,
+                                                    50,
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
@@ -2067,7 +2067,7 @@ Ok(
                                             assign_token: Ok(
                                                 EqToken(
                                                     TokenIdx(
-                                                        51,
+                                                        52,
                                                     ),
                                                 ),
                                             ),
@@ -2076,7 +2076,7 @@ Ok(
                                         SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
-                                                    57,
+                                                    58,
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
@@ -2094,7 +2094,7 @@ Ok(
                                             assign_token: Ok(
                                                 EqToken(
                                                     TokenIdx(
-                                                        59,
+                                                        60,
                                                     ),
                                                 ),
                                             ),
@@ -2104,7 +2104,7 @@ Ok(
                                             if_branch: SynIfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
-                                                        68,
+                                                        69,
                                                     ),
                                                 },
                                                 condition: Ok(
@@ -2114,7 +2114,7 @@ Ok(
                                                     Colon(
                                                         EolColonToken {
                                                             token_idx: TokenIdx(
-                                                                77,
+                                                                78,
                                                             ),
                                                         },
                                                     ),
@@ -2130,14 +2130,14 @@ Ok(
                                                 SynElseBranch {
                                                     else_token: ElseToken {
                                                         token_idx: TokenIdx(
-                                                            83,
+                                                            84,
                                                         ),
                                                     },
                                                     eol_colon: Ok(
                                                         Colon(
                                                             EolColonToken {
                                                                 token_idx: TokenIdx(
-                                                                    84,
+                                                                    85,
                                                                 ),
                                                             },
                                                         ),
@@ -2160,7 +2160,7 @@ Ok(
                                                 ident_token: IdentToken {
                                                     ident: `ab`,
                                                     token_idx: TokenIdx(
-                                                        50,
+                                                        51,
                                                     ),
                                                 },
                                             },
@@ -2169,7 +2169,7 @@ Ok(
                                                 ident_token: IdentToken {
                                                     ident: `ap`,
                                                     token_idx: TokenIdx(
-                                                        58,
+                                                        59,
                                                     ),
                                                 },
                                             },
@@ -2178,7 +2178,7 @@ Ok(
                                                 ident_token: IdentToken {
                                                     ident: `bp`,
                                                     token_idx: TokenIdx(
-                                                        86,
+                                                        87,
                                                     ),
                                                 },
                                             },
@@ -2256,12 +2256,12 @@ Ok(
                                             CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
-                                                    51,
+                                                    52,
                                                 ),
                                                 access_end: Some(
                                                     TokenIdxRangeEnd(
                                                         TokenIdx(
-                                                            129,
+                                                            130,
                                                         ),
                                                     ),
                                                 ),
@@ -2273,12 +2273,12 @@ Ok(
                                             CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
-                                                    59,
+                                                    60,
                                                 ),
                                                 access_end: Some(
                                                     TokenIdxRangeEnd(
                                                         TokenIdx(
-                                                            129,
+                                                            130,
                                                         ),
                                                     ),
                                                 ),
@@ -2290,12 +2290,12 @@ Ok(
                                             CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
-                                                    87,
+                                                    88,
                                                 ),
                                                 access_end: Some(
                                                     TokenIdxRangeEnd(
                                                         TokenIdx(
-                                                            129,
+                                                            130,
                                                         ),
                                                     ),
                                                 ),

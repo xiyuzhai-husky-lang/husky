@@ -46,7 +46,7 @@ Ok(
                         label_token: LifetimeToken {
                             label: `'a`,
                             token_idx: TokenIdx(
-                                9,
+                                10,
                             ),
                         },
                     },
@@ -62,7 +62,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `E`,
                             token_idx: TokenIdx(
-                                12,
+                                13,
                             ),
                         },
                     },
@@ -100,7 +100,7 @@ Ok(
                         label_token: LifetimeToken {
                             label: `'a`,
                             token_idx: TokenIdx(
-                                20,
+                                21,
                             ),
                         },
                     },
@@ -116,7 +116,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `E`,
                             token_idx: TokenIdx(
-                                23,
+                                24,
                             ),
                         },
                     },
@@ -154,7 +154,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `E`,
                             token_idx: TokenIdx(
-                                31,
+                                32,
                             ),
                         },
                     },
@@ -172,7 +172,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `E`,
                             token_idx: TokenIdx(
-                                36,
+                                37,
                             ),
                         },
                     },
@@ -202,7 +202,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `E`,
                             token_idx: TokenIdx(
-                                36,
+                                37,
                             ),
                         },
                     },

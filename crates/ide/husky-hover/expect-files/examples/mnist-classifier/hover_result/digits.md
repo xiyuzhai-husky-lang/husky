@@ -2,7 +2,7 @@ Ok(
     [
         (
             TokenIdx(
-                0,
+                1,
             ),
             Some(
                 HoverResult {
@@ -32,7 +32,7 @@ Ok(
         ),
         (
             TokenIdx(
-                4,
+                5,
             ),
             Some(
                 HoverResult {
@@ -62,7 +62,7 @@ Ok(
         ),
         (
             TokenIdx(
-                8,
+                9,
             ),
             Some(
                 HoverResult {
@@ -92,7 +92,7 @@ Ok(
         ),
         (
             TokenIdx(
-                12,
+                13,
             ),
             Some(
                 HoverResult {
@@ -122,7 +122,7 @@ Ok(
         ),
         (
             TokenIdx(
-                16,
+                17,
             ),
             Some(
                 HoverResult {
@@ -152,7 +152,7 @@ Ok(
         ),
         (
             TokenIdx(
-                20,
+                21,
             ),
             Some(
                 HoverResult {
@@ -182,7 +182,7 @@ Ok(
         ),
         (
             TokenIdx(
-                24,
+                25,
             ),
             Some(
                 HoverResult {
@@ -190,7 +190,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 24;\n\ntoken_line_group_idx = 10\n\ntoken = Token::Ident(\n    `is_one`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 0,\n    rule_idx: OnceUseRuleIdx(\n        10,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::MajorItem {\n                module_item_path: MajorItemPath::Fugitive(\n                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),\n                ),\n                node: MajorItemSynNode {\n                    syn_node_path: MajorItemSynNodePath::Fugitive(\n                        FugitiveSynNodePath {\n                            maybe_ambiguous_path: MaybeAmbiguousPath {\n                                path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),\n                                disambiguator: 0,\n                            },\n                        },\n                    ),\n                    visibility: Scope::Pub,\n                    ast_idx: 63,\n                    ident_token: IdentToken {\n                        ident: `is_one`,\n                        token_idx: TokenIdx(\n                            23,\n                        ),\n                    },\n                    block: Fugitive {\n                        path: FugitivePath(\n                            Id {\n                                value: 30,\n                            },\n                        ),\n                        body: Some(\n                            FugitiveBody {\n                                ast_idx_range: ArenaIdxRange(\n                                    48..51,\n                                ),\n                            },\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 24;\n\ntoken_line_group_idx = 10\n\ntoken = Token::Ident(\n    `is_one`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 0,\n    rule_idx: OnceUseRuleIdx(\n        10,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::MajorItem {\n                module_item_path: MajorItemPath::Fugitive(\n                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),\n                ),\n                node: MajorItemSynNode {\n                    syn_node_path: MajorItemSynNodePath::Fugitive(\n                        FugitiveSynNodePath {\n                            maybe_ambiguous_path: MaybeAmbiguousPath {\n                                path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),\n                                disambiguator: 0,\n                            },\n                        },\n                    ),\n                    visibility: Scope::Pub,\n                    ast_idx: 63,\n                    ident_token: IdentToken {\n                        ident: `is_one`,\n                        token_idx: TokenIdx(\n                            24,\n                        ),\n                    },\n                    block: Fugitive {\n                        path: FugitivePath(\n                            Id {\n                                value: 30,\n                            },\n                        ),\n                        body: Some(\n                            FugitiveBody {\n                                ast_idx_range: ArenaIdxRange(\n                                    48..51,\n                                ),\n                            },\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -212,7 +212,7 @@ Ok(
         ),
         (
             TokenIdx(
-                28,
+                29,
             ),
             Some(
                 HoverResult {
@@ -242,7 +242,7 @@ Ok(
         ),
         (
             TokenIdx(
-                32,
+                33,
             ),
             Some(
                 HoverResult {
@@ -272,7 +272,7 @@ Ok(
         ),
         (
             TokenIdx(
-                36,
+                37,
             ),
             Some(
                 HoverResult {
@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 36;\n\ntoken_line_group_idx = 12\n\ntoken = Token::Ident(\n    `zero`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 6,\n    rule_idx: OnceUseRuleIdx(\n        12,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: SubmodulePath(\n                    `mnist_classifier::digits::zero`,\n                ),\n                node: SubmoduleSynNode {\n                    syn_node_path: SubmoduleSynNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: SubmodulePath(\n                                `mnist_classifier::digits::zero`,\n                            ),\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier::digits`,\n                    ),\n                    ast_idx: 0,\n                    ident_token: IdentToken {\n                        ident: `zero`,\n                        token_idx: TokenIdx(\n                            1,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 36;\n\ntoken_line_group_idx = 12\n\ntoken = Token::Ident(\n    `zero`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 6,\n    rule_idx: OnceUseRuleIdx(\n        12,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: SubmodulePath(\n                    `mnist_classifier::digits::zero`,\n                ),\n                node: SubmoduleSynNode {\n                    syn_node_path: SubmoduleSynNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: SubmodulePath(\n                                `mnist_classifier::digits::zero`,\n                            ),\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier::digits`,\n                    ),\n                    ast_idx: 0,\n                    ident_token: IdentToken {\n                        ident: `zero`,\n                        token_idx: TokenIdx(\n                            2,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -302,7 +302,7 @@ Ok(
         ),
         (
             TokenIdx(
-                40,
+                41,
             ),
             Some(
                 HoverResult {
@@ -332,7 +332,7 @@ Ok(
         ),
         (
             TokenIdx(
-                44,
+                45,
             ),
             Some(
                 HoverResult {
@@ -362,7 +362,7 @@ Ok(
         ),
         (
             TokenIdx(
-                48,
+                49,
             ),
             Some(
                 HoverResult {
@@ -392,7 +392,7 @@ Ok(
         ),
         (
             TokenIdx(
-                52,
+                53,
             ),
             Some(
                 HoverResult {
@@ -400,7 +400,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 52;\n\ntoken_line_group_idx = 14\n\ntoken = Token::Ident(\n    `is_three`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 11,\n    rule_idx: OnceUseRuleIdx(\n        22,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::MajorItem {\n                module_item_path: MajorItemPath::Fugitive(\n                    FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),\n                ),\n                node: MajorItemSynNode {\n                    syn_node_path: MajorItemSynNodePath::Fugitive(\n                        FugitiveSynNodePath {\n                            maybe_ambiguous_path: MaybeAmbiguousPath {\n                                path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),\n                                disambiguator: 0,\n                            },\n                        },\n                    ),\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier::digits`,\n                    ),\n                    ast_idx: 29,\n                    ident_token: IdentToken {\n                        ident: `is_three`,\n                        token_idx: TokenIdx(\n                            26,\n                        ),\n                    },\n                    block: Fugitive {\n                        path: FugitivePath(\n                            Id {\n                                value: 40,\n                            },\n                        ),\n                        body: Some(\n                            FugitiveBody {\n                                ast_idx_range: ArenaIdxRange(\n                                    1..18,\n                                ),\n                            },\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 52;\n\ntoken_line_group_idx = 14\n\ntoken = Token::Ident(\n    `is_three`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 11,\n    rule_idx: OnceUseRuleIdx(\n        22,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::MajorItem {\n                module_item_path: MajorItemPath::Fugitive(\n                    FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),\n                ),\n                node: MajorItemSynNode {\n                    syn_node_path: MajorItemSynNodePath::Fugitive(\n                        FugitiveSynNodePath {\n                            maybe_ambiguous_path: MaybeAmbiguousPath {\n                                path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),\n                                disambiguator: 0,\n                            },\n                        },\n                    ),\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier::digits`,\n                    ),\n                    ast_idx: 29,\n                    ident_token: IdentToken {\n                        ident: `is_three`,\n                        token_idx: TokenIdx(\n                            27,\n                        ),\n                    },\n                    block: Fugitive {\n                        path: FugitivePath(\n                            Id {\n                                value: 40,\n                            },\n                        ),\n                        body: Some(\n                            FugitiveBody {\n                                ast_idx_range: ArenaIdxRange(\n                                    1..18,\n                                ),\n                            },\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -422,7 +422,7 @@ Ok(
         ),
         (
             TokenIdx(
-                56,
+                57,
             ),
             Some(
                 HoverResult {
@@ -452,7 +452,7 @@ Ok(
         ),
         (
             TokenIdx(
-                60,
+                61,
             ),
             Some(
                 HoverResult {
@@ -482,7 +482,7 @@ Ok(
         ),
         (
             TokenIdx(
-                64,
+                65,
             ),
             Some(
                 HoverResult {
@@ -490,7 +490,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 64;\n\ntoken_line_group_idx = 16\n\ntoken = Token::Ident(\n    `seven`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 18,\n    rule_idx: OnceUseRuleIdx(\n        16,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: SubmodulePath(\n                    `mnist_classifier::digits::seven`,\n                ),\n                node: SubmoduleSynNode {\n                    syn_node_path: SubmoduleSynNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: SubmodulePath(\n                                `mnist_classifier::digits::seven`,\n                            ),\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier::digits`,\n                    ),\n                    ast_idx: 6,\n                    ident_token: IdentToken {\n                        ident: `seven`,\n                        token_idx: TokenIdx(\n                            13,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 64;\n\ntoken_line_group_idx = 16\n\ntoken = Token::Ident(\n    `seven`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 18,\n    rule_idx: OnceUseRuleIdx(\n        16,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: SubmodulePath(\n                    `mnist_classifier::digits::seven`,\n                ),\n                node: SubmoduleSynNode {\n                    syn_node_path: SubmoduleSynNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: SubmodulePath(\n                                `mnist_classifier::digits::seven`,\n                            ),\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier::digits`,\n                    ),\n                    ast_idx: 6,\n                    ident_token: IdentToken {\n                        ident: `seven`,\n                        token_idx: TokenIdx(\n                            14,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -512,7 +512,7 @@ Ok(
         ),
         (
             TokenIdx(
-                68,
+                69,
             ),
             Some(
                 HoverResult {
@@ -542,7 +542,7 @@ Ok(
         ),
         (
             TokenIdx(
-                72,
+                73,
             ),
             Some(
                 HoverResult {
@@ -572,7 +572,7 @@ Ok(
         ),
         (
             TokenIdx(
-                76,
+                77,
             ),
             Some(
                 HoverResult {
@@ -602,7 +602,7 @@ Ok(
         ),
         (
             TokenIdx(
-                80,
+                81,
             ),
             Some(
                 HoverResult {
@@ -610,7 +610,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 80;\n\ntoken_line_group_idx = 18\n\ntoken = Token::Ident(\n    `is_nine`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 23,\n    rule_idx: OnceUseRuleIdx(\n        26,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::MajorItem {\n                module_item_path: MajorItemPath::Fugitive(\n                    FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),\n                ),\n                node: MajorItemSynNode {\n                    syn_node_path: MajorItemSynNodePath::Fugitive(\n                        FugitiveSynNodePath {\n                            maybe_ambiguous_path: MaybeAmbiguousPath {\n                                path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),\n                                disambiguator: 0,\n                            },\n                        },\n                    ),\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier::digits`,\n                    ),\n                    ast_idx: 38,\n                    ident_token: IdentToken {\n                        ident: `is_nine`,\n                        token_idx: TokenIdx(\n                            35,\n                        ),\n                    },\n                    block: Fugitive {\n                        path: FugitivePath(\n                            Id {\n                                value: 63,\n                            },\n                        ),\n                        body: Some(\n                            FugitiveBody {\n                                ast_idx_range: ArenaIdxRange(\n                                    17..28,\n                                ),\n                            },\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 80;\n\ntoken_line_group_idx = 18\n\ntoken = Token::Ident(\n    `is_nine`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 23,\n    rule_idx: OnceUseRuleIdx(\n        26,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::MajorItem {\n                module_item_path: MajorItemPath::Fugitive(\n                    FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),\n                ),\n                node: MajorItemSynNode {\n                    syn_node_path: MajorItemSynNodePath::Fugitive(\n                        FugitiveSynNodePath {\n                            maybe_ambiguous_path: MaybeAmbiguousPath {\n                                path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),\n                                disambiguator: 0,\n                            },\n                        },\n                    ),\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier::digits`,\n                    ),\n                    ast_idx: 38,\n                    ident_token: IdentToken {\n                        ident: `is_nine`,\n                        token_idx: TokenIdx(\n                            36,\n                        ),\n                    },\n                    block: Fugitive {\n                        path: FugitivePath(\n                            Id {\n                                value: 63,\n                            },\n                        ),\n                        body: Some(\n                            FugitiveBody {\n                                ast_idx_range: ArenaIdxRange(\n                                    17..28,\n                                ),\n                            },\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -632,7 +632,7 @@ Ok(
         ),
         (
             TokenIdx(
-                84,
+                85,
             ),
             Some(
                 HoverResult {

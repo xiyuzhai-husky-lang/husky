@@ -21,7 +21,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Add`,
                                 token_idx: TokenIdx(
-                                    7,
+                                    8,
                                 ),
                             },
                             block: Trait {
@@ -84,7 +84,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Add`,
                                 token_idx: TokenIdx(
-                                    7,
+                                    8,
                                 ),
                             },
                             block: Trait {

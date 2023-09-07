@@ -12,18 +12,18 @@ Ok(
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            15,
+                            16,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `Known`,
                         token_idx: TokenIdx(
-                            16,
+                            17,
                         ),
                     },
                     state_after: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            17,
+                            18,
                         ),
                         drained: false,
                     },
@@ -38,18 +38,18 @@ Ok(
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            20,
+                            21,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `Unknown`,
                         token_idx: TokenIdx(
-                            21,
+                            22,
                         ),
                     },
                     state_after: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            22,
+                            23,
                         ),
                         drained: true,
                     },
@@ -64,18 +64,18 @@ Ok(
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            42,
+                            43,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `Yes`,
                         token_idx: TokenIdx(
-                            43,
+                            44,
                         ),
                     },
                     state_after: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            44,
+                            45,
                         ),
                         drained: true,
                     },
@@ -90,18 +90,18 @@ Ok(
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            44,
+                            45,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `No`,
                         token_idx: TokenIdx(
-                            45,
+                            46,
                         ),
                     },
                     state_after: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            46,
+                            47,
                         ),
                         drained: true,
                     },
@@ -128,13 +128,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Output`,
                         token_idx: TokenIdx(
-                            68,
+                            69,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            69,
+                            70,
                         ),
                         drained: false,
                     },
@@ -152,18 +152,18 @@ Ok(
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            92,
+                            93,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `ConfidentYes`,
                         token_idx: TokenIdx(
-                            93,
+                            94,
                         ),
                     },
                     state_after: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            94,
+                            95,
                         ),
                         drained: true,
                     },
@@ -178,18 +178,18 @@ Ok(
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            94,
+                            95,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `ConfidentNo`,
                         token_idx: TokenIdx(
-                            95,
+                            96,
                         ),
                     },
                     state_after: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            96,
+                            97,
                         ),
                         drained: true,
                     },
@@ -204,18 +204,18 @@ Ok(
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            96,
+                            97,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `Unconfident`,
                         token_idx: TokenIdx(
-                            97,
+                            98,
                         ),
                     },
                     state_after: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            98,
+                            99,
                         ),
                         drained: true,
                     },
@@ -242,13 +242,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Output`,
                         token_idx: TokenIdx(
-                            121,
+                            122,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            122,
+                            123,
                         ),
                         drained: false,
                     },
@@ -271,7 +271,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    9,
+                                    10,
                                 ),
                             },
                         },
@@ -285,13 +285,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Class`,
                         token_idx: TokenIdx(
-                            11,
+                            12,
                         ),
                     },
                     is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            12,
+                            13,
                         ),
                         drained: false,
                     },
@@ -325,7 +325,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    31,
+                                    32,
                                 ),
                             },
                         },
@@ -339,13 +339,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `OneVsAll`,
                         token_idx: TokenIdx(
-                            33,
+                            34,
                         ),
                     },
                     is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            34,
+                            35,
                         ),
                         drained: false,
                     },
@@ -393,7 +393,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    81,
+                                    82,
                                 ),
                             },
                         },
@@ -407,13 +407,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `OneVsAllResult`,
                         token_idx: TokenIdx(
-                            83,
+                            84,
                         ),
                     },
                     is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            84,
+                            85,
                         ),
                         drained: false,
                     },
@@ -455,7 +455,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    125,
+                                    126,
                                 ),
                             },
                         },
@@ -469,13 +469,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `narrow_down`,
                         token_idx: TokenIdx(
-                            127,
+                            128,
                         ),
                     },
                     is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            128,
+                            129,
                         ),
                         drained: false,
                     },

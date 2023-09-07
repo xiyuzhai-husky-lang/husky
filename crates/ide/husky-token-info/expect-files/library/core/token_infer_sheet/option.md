@@ -44,7 +44,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `Option`,
                                     token_idx: TokenIdx(
-                                        11,
+                                        12,
                                     ),
                                 },
                                 block: Type {
@@ -96,7 +96,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `T`,
                             token_idx: TokenIdx(
-                                13,
+                                14,
                             ),
                         },
                     },

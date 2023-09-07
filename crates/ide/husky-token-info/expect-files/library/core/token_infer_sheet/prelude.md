@@ -42,7 +42,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `basic`,
                                     token_idx: TokenIdx(
-                                        5,
+                                        6,
                                     ),
                                 },
                             },
@@ -93,7 +93,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `num`,
                                     token_idx: TokenIdx(
-                                        29,
+                                        30,
                                     ),
                                 },
                             },
@@ -144,7 +144,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `raw_bits`,
                                     token_idx: TokenIdx(
-                                        41,
+                                        42,
                                     ),
                                 },
                             },
@@ -195,7 +195,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `fmt`,
                                     token_idx: TokenIdx(
-                                        17,
+                                        18,
                                     ),
                                 },
                             },
@@ -246,7 +246,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `visual`,
                                     token_idx: TokenIdx(
-                                        56,
+                                        57,
                                     ),
                                 },
                             },
@@ -297,7 +297,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `marker`,
                                     token_idx: TokenIdx(
-                                        23,
+                                        24,
                                     ),
                                 },
                             },
@@ -348,7 +348,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `clone`,
                                     token_idx: TokenIdx(
-                                        8,
+                                        9,
                                     ),
                                 },
                             },
@@ -399,7 +399,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `option`,
                                     token_idx: TokenIdx(
-                                        35,
+                                        36,
                                     ),
                                 },
                             },
@@ -450,7 +450,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `cmp`,
                                     token_idx: TokenIdx(
-                                        11,
+                                        12,
                                     ),
                                 },
                             },
@@ -501,7 +501,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `slice`,
                                     token_idx: TokenIdx(
-                                        50,
+                                        51,
                                     ),
                                 },
                             },
@@ -552,7 +552,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `vec`,
                                     token_idx: TokenIdx(
-                                        47,
+                                        48,
                                     ),
                                 },
                             },

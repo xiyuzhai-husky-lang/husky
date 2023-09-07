@@ -21,7 +21,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `concave_component`,
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         },
@@ -59,7 +59,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `convex_component`,
                                 token_idx: TokenIdx(
-                                    3,
+                                    4,
                                 ),
                             },
                         },
@@ -97,7 +97,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `convexity`,
                                 token_idx: TokenIdx(
-                                    5,
+                                    6,
                                 ),
                             },
                         },
@@ -135,7 +135,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `line_segment`,
                                 token_idx: TokenIdx(
-                                    7,
+                                    8,
                                 ),
                             },
                         },
@@ -171,7 +171,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `LineSegmentStroke`,
                                 token_idx: TokenIdx(
-                                    41,
+                                    42,
                                 ),
                             },
                             block: Type {
@@ -213,7 +213,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `LineSegmentSketch`,
                                 token_idx: TokenIdx(
-                                    170,
+                                    171,
                                 ),
                             },
                             block: Type {
@@ -257,7 +257,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `go_right`,
                                 token_idx: TokenIdx(
-                                    369,
+                                    370,
                                 ),
                             },
                             block: Fugitive {
@@ -309,7 +309,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `go_left`,
                                 token_idx: TokenIdx(
-                                    466,
+                                    467,
                                 ),
                             },
                             block: Fugitive {
@@ -361,7 +361,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `extend_end`,
                                 token_idx: TokenIdx(
-                                    563,
+                                    564,
                                 ),
                             },
                             block: Fugitive {
@@ -413,7 +413,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `extend_start`,
                                 token_idx: TokenIdx(
-                                    796,
+                                    797,
                                 ),
                             },
                             block: Fugitive {
@@ -465,7 +465,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `find_line_segments`,
                                 token_idx: TokenIdx(
-                                    1062,
+                                    1063,
                                 ),
                             },
                             block: Fugitive {
@@ -512,7 +512,7 @@ Ok(
                             IdentToken {
                                 ident: `concave_component`,
                                 token_idx: TokenIdx(
-                                    10,
+                                    11,
                                 ),
                             },
                         ),
@@ -532,7 +532,7 @@ Ok(
                             IdentToken {
                                 ident: `convex_component`,
                                 token_idx: TokenIdx(
-                                    15,
+                                    16,
                                 ),
                             },
                         ),
@@ -552,7 +552,7 @@ Ok(
                             IdentToken {
                                 ident: `line_segment`,
                                 token_idx: TokenIdx(
-                                    20,
+                                    21,
                                 ),
                             },
                         ),
@@ -573,7 +573,7 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    24,
+                                    25,
                                 ),
                             },
                         ),
@@ -594,7 +594,7 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    30,
+                                    31,
                                 ),
                             },
                         ),
@@ -616,7 +616,7 @@ Ok(
                             IdentToken {
                                 ident: `line_segment`,
                                 token_idx: TokenIdx(
-                                    36,
+                                    37,
                                 ),
                             },
                         ),
@@ -637,7 +637,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            12,
+                            13,
                         ),
                     ),
                 },
@@ -647,14 +647,14 @@ Ok(
                             IdentToken {
                                 ident: `concave_component`,
                                 token_idx: TokenIdx(
-                                    10,
+                                    11,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    11,
+                                    12,
                                 ),
                             ),
                         ),
@@ -668,7 +668,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            17,
+                            18,
                         ),
                     ),
                 },
@@ -678,14 +678,14 @@ Ok(
                             IdentToken {
                                 ident: `convex_component`,
                                 token_idx: TokenIdx(
-                                    15,
+                                    16,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    16,
+                                    17,
                                 ),
                             ),
                         ),
@@ -699,7 +699,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            22,
+                            23,
                         ),
                     ),
                 },
@@ -709,14 +709,14 @@ Ok(
                             IdentToken {
                                 ident: `line_segment`,
                                 token_idx: TokenIdx(
-                                    20,
+                                    21,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    21,
+                                    22,
                                 ),
                             ),
                         ),
@@ -730,7 +730,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            28,
+                            29,
                         ),
                     ),
                 },
@@ -740,14 +740,14 @@ Ok(
                             IdentToken {
                                 ident: `geom2d`,
                                 token_idx: TokenIdx(
-                                    26,
+                                    27,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    27,
+                                    28,
                                 ),
                             ),
                         ),
@@ -763,14 +763,14 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    24,
+                                    25,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    25,
+                                    26,
                                 ),
                             ),
                         ),
@@ -785,7 +785,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `RawContour`,
                         token_idx: TokenIdx(
-                            34,
+                            35,
                         ),
                     },
                 },
@@ -795,14 +795,14 @@ Ok(
                             IdentToken {
                                 ident: `raw_contour`,
                                 token_idx: TokenIdx(
-                                    32,
+                                    33,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    33,
+                                    34,
                                 ),
                             ),
                         ),
@@ -818,14 +818,14 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    30,
+                                    31,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    31,
+                                    32,
                                 ),
                             ),
                         ),
@@ -839,7 +839,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            38,
+                            39,
                         ),
                     ),
                 },
@@ -849,14 +849,14 @@ Ok(
                             IdentToken {
                                 ident: `line_segment`,
                                 token_idx: TokenIdx(
-                                    36,
+                                    37,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    37,
+                                    38,
                                 ),
                             ),
                         ),

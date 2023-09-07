@@ -132,13 +132,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `displacement`,
                         token_idx: TokenIdx(
-                            23,
+                            24,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            24,
+                            25,
                         ),
                         drained: false,
                     },
@@ -174,13 +174,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `dist_to_point`,
                         token_idx: TokenIdx(
-                            40,
+                            41,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            41,
+                            42,
                         ),
                         drained: false,
                     },
@@ -219,7 +219,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    6,
+                                    7,
                                 ),
                             },
                         },
@@ -233,13 +233,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `LineSegment`,
                         token_idx: TokenIdx(
-                            8,
+                            9,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            9,
+                            10,
                         ),
                         drained: false,
                     },

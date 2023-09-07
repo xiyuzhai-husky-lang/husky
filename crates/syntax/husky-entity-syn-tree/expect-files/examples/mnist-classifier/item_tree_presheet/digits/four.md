@@ -21,7 +21,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `left_components`,
                                 token_idx: TokenIdx(
-                                    5,
+                                    6,
                                 ),
                             },
                             block: Fugitive {
@@ -73,7 +73,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `left_coordinate_max`,
                                 token_idx: TokenIdx(
-                                    20,
+                                    21,
                                 ),
                             },
                             block: Fugitive {
@@ -125,7 +125,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `components_max_downwards`,
                                 token_idx: TokenIdx(
-                                    39,
+                                    40,
                                 ),
                             },
                             block: Fugitive {
@@ -177,7 +177,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `components_max_heights`,
                                 token_idx: TokenIdx(
-                                    52,
+                                    53,
                                 ),
                             },
                             block: Fugitive {
@@ -229,7 +229,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_four`,
                                 token_idx: TokenIdx(
-                                    65,
+                                    66,
                                 ),
                             },
                             block: Fugitive {
@@ -281,7 +281,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `displacement_downwards`,
                                 token_idx: TokenIdx(
-                                    254,
+                                    255,
                                 ),
                             },
                             block: Fugitive {
@@ -333,7 +333,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `cc_box_heights`,
                                 token_idx: TokenIdx(
-                                    283,
+                                    284,
                                 ),
                             },
                             block: Fugitive {
@@ -381,7 +381,7 @@ Ok(
                         parent_name_token: PathNameToken::Super(
                             SuperToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
@@ -402,7 +402,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            3,
+                            4,
                         ),
                     ),
                 },
@@ -411,14 +411,14 @@ Ok(
                         parent_name_token: PathNameToken::Super(
                             SuperToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    2,
+                                    3,
                                 ),
                             ),
                         ),

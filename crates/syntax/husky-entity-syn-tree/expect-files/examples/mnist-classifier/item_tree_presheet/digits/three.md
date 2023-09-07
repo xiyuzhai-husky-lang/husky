@@ -21,7 +21,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `three_fermi_match`,
                                 token_idx: TokenIdx(
-                                    5,
+                                    6,
                                 ),
                             },
                             block: Fugitive {
@@ -73,7 +73,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_three`,
                                 token_idx: TokenIdx(
-                                    26,
+                                    27,
                                 ),
                             },
                             block: Fugitive {
@@ -125,7 +125,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `uparc`,
                                 token_idx: TokenIdx(
-                                    164,
+                                    165,
                                 ),
                             },
                             block: Fugitive {
@@ -177,7 +177,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `downarc`,
                                 token_idx: TokenIdx(
-                                    201,
+                                    202,
                                 ),
                             },
                             block: Fugitive {
@@ -229,7 +229,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `back`,
                                 token_idx: TokenIdx(
-                                    238,
+                                    239,
                                 ),
                             },
                             block: Fugitive {
@@ -277,7 +277,7 @@ Ok(
                         parent_name_token: PathNameToken::Super(
                             SuperToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
@@ -298,7 +298,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            3,
+                            4,
                         ),
                     ),
                 },
@@ -307,14 +307,14 @@ Ok(
                         parent_name_token: PathNameToken::Super(
                             SuperToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    2,
+                                    3,
                                 ),
                             ),
                         ),

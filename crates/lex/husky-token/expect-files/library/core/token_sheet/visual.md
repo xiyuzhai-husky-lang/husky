@@ -153,13 +153,37 @@ Ok(
                 ),
             ),
         ],
-        group_starts: [
-            0,
-            4,
-            8,
-            15,
-            19,
-            26,
+        token_group_bases: [
+            TokenGroupBase(
+                TokenIdx(
+                    1,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    5,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    9,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    16,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    20,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    27,
+                ),
+            ),
         ],
         indents: [
             0,

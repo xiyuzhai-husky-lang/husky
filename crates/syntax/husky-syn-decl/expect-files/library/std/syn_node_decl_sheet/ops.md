@@ -28,7 +28,7 @@ Ok(
                                     Generics {
                                         langle: LaOrLtToken(
                                             TokenIdx(
-                                                8,
+                                                9,
                                             ),
                                         ),
                                         template_parameters: [
@@ -39,7 +39,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `B`,
                                                         token_idx: TokenIdx(
-                                                            9,
+                                                            10,
                                                         ),
                                                     },
                                                     traits: None,
@@ -52,7 +52,7 @@ Ok(
                                         ),
                                         rangle: RaOrGtToken(
                                             TokenIdx(
-                                                10,
+                                                11,
                                             ),
                                         ),
                                     },
@@ -107,7 +107,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        10,
+                                                        11,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -119,7 +119,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `B`,
                                                                 token_idx: TokenIdx(
-                                                                    9,
+                                                                    10,
                                                                 ),
                                                             },
                                                         },

@@ -262,7 +262,7 @@ Ok(
                         ast_idx: 6,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                9,
+                                10,
                             ),
                         },
                         ty_expr: 0,
@@ -274,7 +274,7 @@ Ok(
                     },
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            9,
+                            10,
                         ),
                     },
                     template_parameter_decl_list: Ok(
@@ -287,7 +287,7 @@ Ok(
                         EolToken::Colon(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    11,
+                                    12,
                                 ),
                             },
                         ),
@@ -329,7 +329,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Nat`,
                                                 token_idx: TokenIdx(
-                                                    10,
+                                                    11,
                                                 ),
                                             },
                                         ),

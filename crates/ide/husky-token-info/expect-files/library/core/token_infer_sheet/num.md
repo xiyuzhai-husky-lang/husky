@@ -57,7 +57,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `ops`,
                                     token_idx: TokenIdx(
-                                        32,
+                                        33,
                                     ),
                                 },
                             },
@@ -91,7 +91,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `Add`,
                                     token_idx: TokenIdx(
-                                        13,
+                                        14,
                                     ),
                                 },
                                 block: Trait {

@@ -200,7 +200,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    18,
+                                    19,
                                 ),
                             },
                         },
@@ -214,13 +214,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_convex`,
                         token_idx: TokenIdx(
-                            20,
+                            21,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            21,
+                            22,
                         ),
                         drained: false,
                     },

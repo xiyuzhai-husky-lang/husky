@@ -270,13 +270,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `left_components`,
                         token_idx: TokenIdx(
-                            5,
+                            6,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            6,
+                            7,
                         ),
                         drained: false,
                     },
@@ -318,13 +318,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `left_coordinate_max`,
                         token_idx: TokenIdx(
-                            20,
+                            21,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            21,
+                            22,
                         ),
                         drained: false,
                     },
@@ -366,13 +366,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `components_max_downwards`,
                         token_idx: TokenIdx(
-                            39,
+                            40,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            40,
+                            41,
                         ),
                         drained: false,
                     },
@@ -414,13 +414,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `components_max_heights`,
                         token_idx: TokenIdx(
-                            52,
+                            53,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            53,
+                            54,
                         ),
                         drained: false,
                     },
@@ -462,13 +462,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_four`,
                         token_idx: TokenIdx(
-                            65,
+                            66,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            66,
+                            67,
                         ),
                         drained: false,
                     },
@@ -510,13 +510,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `displacement_downwards`,
                         token_idx: TokenIdx(
-                            254,
+                            255,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            255,
+                            256,
                         ),
                         drained: false,
                     },
@@ -558,13 +558,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `cc_box_heights`,
                         token_idx: TokenIdx(
-                            283,
+                            284,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            284,
+                            285,
                         ),
                         drained: false,
                     },

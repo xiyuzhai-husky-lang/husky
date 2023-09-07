@@ -19,7 +19,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `RawContour`,
                                 token_idx: TokenIdx(
-                                    24,
+                                    25,
                                 ),
                             },
                             block: Type {
@@ -63,7 +63,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Direction`,
                                 token_idx: TokenIdx(
-                                    401,
+                                    402,
                                 ),
                             },
                             block: Type {
@@ -115,7 +115,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_pixel_pair`,
                                 token_idx: TokenIdx(
-                                    411,
+                                    412,
                                 ),
                             },
                             block: Fugitive {
@@ -167,7 +167,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_pixel_to_the_left`,
                                 token_idx: TokenIdx(
-                                    436,
+                                    437,
                                 ),
                             },
                             block: Fugitive {
@@ -219,7 +219,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_pixel_to_the_right`,
                                 token_idx: TokenIdx(
-                                    457,
+                                    458,
                                 ),
                             },
                             block: Fugitive {
@@ -271,7 +271,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_inward_direction`,
                                 token_idx: TokenIdx(
-                                    482,
+                                    483,
                                 ),
                             },
                             block: Fugitive {
@@ -323,7 +323,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_angle_change`,
                                 token_idx: TokenIdx(
-                                    613,
+                                    614,
                                 ),
                             },
                             block: Fugitive {
@@ -375,7 +375,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_outward_direction`,
                                 token_idx: TokenIdx(
-                                    674,
+                                    675,
                                 ),
                             },
                             block: Fugitive {
@@ -427,7 +427,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `StreakCache`,
                                 token_idx: TokenIdx(
-                                    876,
+                                    877,
                                 ),
                             },
                             block: Type {
@@ -473,7 +473,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_concave_middle_point`,
                                 token_idx: TokenIdx(
-                                    888,
+                                    889,
                                 ),
                             },
                             block: Fugitive {
@@ -523,7 +523,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `find_raw_contours`,
                                 token_idx: TokenIdx(
-                                    954,
+                                    955,
                                 ),
                             },
                             block: Fugitive {
@@ -569,7 +569,7 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
@@ -590,7 +590,7 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    7,
+                                    8,
                                 ),
                             },
                         ),
@@ -611,7 +611,7 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    13,
+                                    14,
                                 ),
                             },
                         ),
@@ -632,7 +632,7 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    19,
+                                    20,
                                 ),
                             },
                         ),
@@ -653,7 +653,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            5,
+                            6,
                         ),
                     ),
                 },
@@ -663,14 +663,14 @@ Ok(
                             IdentToken {
                                 ident: `geom2d`,
                                 token_idx: TokenIdx(
-                                    3,
+                                    4,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    4,
+                                    5,
                                 ),
                             ),
                         ),
@@ -686,14 +686,14 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    2,
+                                    3,
                                 ),
                             ),
                         ),
@@ -707,7 +707,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            11,
+                            12,
                         ),
                     ),
                 },
@@ -717,14 +717,14 @@ Ok(
                             IdentToken {
                                 ident: `connected_component`,
                                 token_idx: TokenIdx(
-                                    9,
+                                    10,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    10,
+                                    11,
                                 ),
                             ),
                         ),
@@ -740,14 +740,14 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    7,
+                                    8,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    8,
+                                    9,
                                 ),
                             ),
                         ),
@@ -761,7 +761,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            17,
+                            18,
                         ),
                     ),
                 },
@@ -771,14 +771,14 @@ Ok(
                             IdentToken {
                                 ident: `line_segment_sketch`,
                                 token_idx: TokenIdx(
-                                    15,
+                                    16,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    16,
+                                    17,
                                 ),
                             ),
                         ),
@@ -794,14 +794,14 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    13,
+                                    14,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    14,
+                                    15,
                                 ),
                             ),
                         ),
@@ -815,7 +815,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            21,
+                            22,
                         ),
                     ),
                 },
@@ -824,14 +824,14 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    19,
+                                    20,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    20,
+                                    21,
                                 ),
                             ),
                         ),

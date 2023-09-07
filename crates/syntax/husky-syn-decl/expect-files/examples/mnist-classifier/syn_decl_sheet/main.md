@@ -174,7 +174,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Class`,
                                                             token_idx: TokenIdx(
-                                                                67,
+                                                                68,
                                                             ),
                                                         },
                                                     ),
@@ -189,7 +189,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `MnistLabel`,
                                                             token_idx: TokenIdx(
-                                                                68,
+                                                                69,
                                                             ),
                                                         },
                                                     ),

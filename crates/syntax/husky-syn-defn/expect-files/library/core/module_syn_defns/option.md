@@ -15,7 +15,7 @@ Ok(
                                         ident_token: IdentToken {
                                             ident: `T`,
                                             token_idx: TokenIdx(
-                                                13,
+                                                14,
                                             ),
                                         },
                                         traits: None,
@@ -71,7 +71,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        14,
+                                                        15,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -83,7 +83,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `T`,
                                                                 token_idx: TokenIdx(
-                                                                    13,
+                                                                    14,
                                                                 ),
                                                             },
                                                         },

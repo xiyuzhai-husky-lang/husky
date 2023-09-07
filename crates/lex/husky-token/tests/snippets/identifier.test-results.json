@@ -1,10 +1,10 @@
 [
   {
     "input": "self",
-    "output": "TokenSheetData {\n    tokens: [\n        Token::Keyword(\n            Keyword::Pronoun(\n                SelfValue,\n            ),\n        ),\n    ],\n    group_starts: [\n        0,\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        Token::Keyword(\n            Keyword::Pronoun(\n                SelfValue,\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupBase(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "Self",
-    "output": "TokenSheetData {\n    tokens: [\n        Token::Keyword(\n            Keyword::Pronoun(\n                SelfType,\n            ),\n        ),\n    ],\n    group_starts: [\n        0,\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        Token::Keyword(\n            Keyword::Pronoun(\n                SelfType,\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupBase(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   }
 ]

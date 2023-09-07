@@ -19,7 +19,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `bool`,
                                 token_idx: TokenIdx(
-                                    6,
+                                    7,
                                 ),
                             },
                             block: Type {
@@ -61,7 +61,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `never`,
                                 token_idx: TokenIdx(
-                                    10,
+                                    11,
                                 ),
                             },
                             block: Type {
@@ -103,7 +103,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `unit`,
                                 token_idx: TokenIdx(
-                                    14,
+                                    15,
                                 ),
                             },
                             block: Type {
@@ -145,7 +145,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Trait`,
                                 token_idx: TokenIdx(
-                                    18,
+                                    19,
                                 ),
                             },
                             block: Type {
@@ -187,7 +187,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Module`,
                                 token_idx: TokenIdx(
-                                    22,
+                                    23,
                                 ),
                             },
                             block: Type {
@@ -227,7 +227,7 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
@@ -248,7 +248,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            3,
+                            4,
                         ),
                     ),
                 },
@@ -257,14 +257,14 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    2,
+                                    3,
                                 ),
                             ),
                         ),

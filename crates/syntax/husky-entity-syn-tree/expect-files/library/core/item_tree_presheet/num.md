@@ -19,7 +19,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `i8`,
                                 token_idx: TokenIdx(
-                                    32,
+                                    33,
                                 ),
                             },
                             block: Type {
@@ -61,7 +61,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `i16`,
                                 token_idx: TokenIdx(
-                                    95,
+                                    96,
                                 ),
                             },
                             block: Type {
@@ -103,7 +103,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `i32`,
                                 token_idx: TokenIdx(
-                                    158,
+                                    159,
                                 ),
                             },
                             block: Type {
@@ -145,7 +145,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `i64`,
                                 token_idx: TokenIdx(
-                                    231,
+                                    232,
                                 ),
                             },
                             block: Type {
@@ -187,7 +187,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `i128`,
                                 token_idx: TokenIdx(
-                                    283,
+                                    284,
                                 ),
                             },
                             block: Type {
@@ -229,7 +229,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `isize`,
                                 token_idx: TokenIdx(
-                                    335,
+                                    336,
                                 ),
                             },
                             block: Type {
@@ -271,7 +271,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `u8`,
                                 token_idx: TokenIdx(
-                                    387,
+                                    388,
                                 ),
                             },
                             block: Type {
@@ -313,7 +313,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `u16`,
                                 token_idx: TokenIdx(
-                                    439,
+                                    440,
                                 ),
                             },
                             block: Type {
@@ -355,7 +355,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `u32`,
                                 token_idx: TokenIdx(
-                                    491,
+                                    492,
                                 ),
                             },
                             block: Type {
@@ -397,7 +397,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `u64`,
                                 token_idx: TokenIdx(
-                                    543,
+                                    544,
                                 ),
                             },
                             block: Type {
@@ -439,7 +439,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `u128`,
                                 token_idx: TokenIdx(
-                                    595,
+                                    596,
                                 ),
                             },
                             block: Type {
@@ -481,7 +481,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `usize`,
                                 token_idx: TokenIdx(
-                                    647,
+                                    648,
                                 ),
                             },
                             block: Type {
@@ -523,7 +523,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `f32`,
                                 token_idx: TokenIdx(
-                                    699,
+                                    700,
                                 ),
                             },
                             block: Type {
@@ -565,7 +565,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `f64`,
                                 token_idx: TokenIdx(
-                                    812,
+                                    813,
                                 ),
                             },
                             block: Type {
@@ -605,7 +605,7 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
@@ -626,7 +626,7 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    5,
+                                    6,
                                 ),
                             },
                         ),
@@ -647,7 +647,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            3,
+                            4,
                         ),
                     ),
                 },
@@ -656,14 +656,14 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    2,
+                                    3,
                                 ),
                             ),
                         ),
@@ -678,7 +678,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Add`,
                         token_idx: TokenIdx(
-                            9,
+                            10,
                         ),
                     },
                 },
@@ -688,14 +688,14 @@ Ok(
                             IdentToken {
                                 ident: `ops`,
                                 token_idx: TokenIdx(
-                                    7,
+                                    8,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    8,
+                                    9,
                                 ),
                             ),
                         ),
@@ -711,14 +711,14 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    5,
+                                    6,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    6,
+                                    7,
                                 ),
                             ),
                         ),

@@ -23,7 +23,7 @@ Ok(
                                     Generics {
                                         langle: LaOrLtToken(
                                             TokenIdx(
-                                                7,
+                                                8,
                                             ),
                                         ),
                                         template_parameters: [
@@ -33,18 +33,18 @@ Ok(
                                                 variant: TemplateParameterDeclPatternVariant::Constant {
                                                     const_token: ConstToken {
                                                         token_idx: TokenIdx(
-                                                            8,
+                                                            9,
                                                         ),
                                                     },
                                                     ident_token: IdentToken {
                                                         ident: `L`,
                                                         token_idx: TokenIdx(
-                                                            9,
+                                                            10,
                                                         ),
                                                     },
                                                     colon_token: ColonToken(
                                                         TokenIdx(
-                                                            10,
+                                                            11,
                                                         ),
                                                     ),
                                                     ty_expr: 0,
@@ -55,7 +55,7 @@ Ok(
                                                     VarianceToken::Covariant(
                                                         CovariantToken {
                                                             token_idx: TokenIdx(
-                                                                13,
+                                                                14,
                                                             ),
                                                         },
                                                     ),
@@ -65,7 +65,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `E`,
                                                         token_idx: TokenIdx(
-                                                            14,
+                                                            15,
                                                         ),
                                                     },
                                                     traits: None,
@@ -75,7 +75,7 @@ Ok(
                                         commas: [
                                             CommaToken(
                                                 TokenIdx(
-                                                    12,
+                                                    13,
                                                 ),
                                             ),
                                         ],
@@ -84,7 +84,7 @@ Ok(
                                         ),
                                         rangle: RaOrGtToken(
                                             TokenIdx(
-                                                15,
+                                                16,
                                             ),
                                         ),
                                     },
@@ -126,7 +126,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `usize`,
                                                         token_idx: TokenIdx(
-                                                            11,
+                                                            12,
                                                         ),
                                                     },
                                                 ),
@@ -166,7 +166,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        12,
+                                                        13,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -178,7 +178,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `L`,
                                                                 token_idx: TokenIdx(
-                                                                    9,
+                                                                    10,
                                                                 ),
                                                             },
                                                             ty_expr_idx: 0,
@@ -188,7 +188,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        15,
+                                                        16,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -199,7 +199,7 @@ Ok(
                                                             VarianceToken::Covariant(
                                                                 CovariantToken {
                                                                     token_idx: TokenIdx(
-                                                                        13,
+                                                                        14,
                                                                     ),
                                                                 },
                                                             ),
@@ -208,7 +208,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `E`,
                                                                 token_idx: TokenIdx(
-                                                                    14,
+                                                                    15,
                                                                 ),
                                                             },
                                                         },

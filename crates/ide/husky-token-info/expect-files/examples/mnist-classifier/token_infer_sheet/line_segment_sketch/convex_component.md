@@ -43,7 +43,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `line_segment_sketch`,
                                     token_idx: TokenIdx(
-                                        7,
+                                        8,
                                     ),
                                 },
                             },
@@ -79,7 +79,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `line_segment_sketch`,
                         token_idx: TokenIdx(
-                            9,
+                            10,
                         ),
                     },
                 },
@@ -101,7 +101,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `line_segments`,
                         token_idx: TokenIdx(
-                            14,
+                            15,
                         ),
                     },
                 },

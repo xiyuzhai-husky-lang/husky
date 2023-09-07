@@ -19,7 +19,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `array`,
                                 token_idx: TokenIdx(
-                                    2,
+                                    3,
                                 ),
                             },
                         },
@@ -53,7 +53,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `basic`,
                                 token_idx: TokenIdx(
-                                    5,
+                                    6,
                                 ),
                             },
                         },
@@ -87,7 +87,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `clone`,
                                 token_idx: TokenIdx(
-                                    8,
+                                    9,
                                 ),
                             },
                         },
@@ -121,7 +121,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `cmp`,
                                 token_idx: TokenIdx(
-                                    11,
+                                    12,
                                 ),
                             },
                         },
@@ -155,7 +155,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `default`,
                                 token_idx: TokenIdx(
-                                    14,
+                                    15,
                                 ),
                             },
                         },
@@ -189,7 +189,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `fmt`,
                                 token_idx: TokenIdx(
-                                    17,
+                                    18,
                                 ),
                             },
                         },
@@ -223,7 +223,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `logic`,
                                 token_idx: TokenIdx(
-                                    20,
+                                    21,
                                 ),
                             },
                         },
@@ -257,7 +257,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `marker`,
                                 token_idx: TokenIdx(
-                                    23,
+                                    24,
                                 ),
                             },
                         },
@@ -291,7 +291,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `mem`,
                                 token_idx: TokenIdx(
-                                    26,
+                                    27,
                                 ),
                             },
                         },
@@ -325,7 +325,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `num`,
                                 token_idx: TokenIdx(
-                                    29,
+                                    30,
                                 ),
                             },
                         },
@@ -359,7 +359,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `ops`,
                                 token_idx: TokenIdx(
-                                    32,
+                                    33,
                                 ),
                             },
                         },
@@ -393,7 +393,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `option`,
                                 token_idx: TokenIdx(
-                                    35,
+                                    36,
                                 ),
                             },
                         },
@@ -427,7 +427,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `prelude`,
                                 token_idx: TokenIdx(
-                                    38,
+                                    39,
                                 ),
                             },
                         },
@@ -461,7 +461,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `raw_bits`,
                                 token_idx: TokenIdx(
-                                    41,
+                                    42,
                                 ),
                             },
                         },
@@ -495,7 +495,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `result`,
                                 token_idx: TokenIdx(
-                                    44,
+                                    45,
                                 ),
                             },
                         },
@@ -529,7 +529,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `vec`,
                                 token_idx: TokenIdx(
-                                    47,
+                                    48,
                                 ),
                             },
                         },
@@ -563,7 +563,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `slice`,
                                 token_idx: TokenIdx(
-                                    50,
+                                    51,
                                 ),
                             },
                         },
@@ -597,7 +597,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `str`,
                                 token_idx: TokenIdx(
-                                    53,
+                                    54,
                                 ),
                             },
                         },
@@ -631,7 +631,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `visual`,
                                 token_idx: TokenIdx(
-                                    56,
+                                    57,
                                 ),
                             },
                         },
@@ -663,7 +663,7 @@ Ok(
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
-                                    58,
+                                    59,
                                 ),
                             },
                         ),
@@ -684,7 +684,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            62,
+                            63,
                         ),
                     ),
                 },
@@ -694,14 +694,14 @@ Ok(
                             IdentToken {
                                 ident: `prelude`,
                                 token_idx: TokenIdx(
-                                    60,
+                                    61,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    61,
+                                    62,
                                 ),
                             ),
                         ),
@@ -717,14 +717,14 @@ Ok(
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
-                                    58,
+                                    59,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    59,
+                                    60,
                                 ),
                             ),
                         ),

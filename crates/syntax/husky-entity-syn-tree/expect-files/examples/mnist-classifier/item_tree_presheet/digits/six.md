@@ -21,7 +21,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `six_match`,
                                 token_idx: TokenIdx(
-                                    5,
+                                    6,
                                 ),
                             },
                             block: Fugitive {
@@ -73,7 +73,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `six_match_refined1`,
                                 token_idx: TokenIdx(
-                                    18,
+                                    19,
                                 ),
                             },
                             block: Fugitive {
@@ -125,7 +125,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_six`,
                                 token_idx: TokenIdx(
-                                    37,
+                                    38,
                                 ),
                             },
                             block: Fugitive {
@@ -177,7 +177,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `upmost`,
                                 token_idx: TokenIdx(
-                                    302,
+                                    303,
                                 ),
                             },
                             block: Fugitive {
@@ -229,7 +229,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `bottom1`,
                                 token_idx: TokenIdx(
-                                    331,
+                                    332,
                                 ),
                             },
                             block: Fugitive {
@@ -277,7 +277,7 @@ Ok(
                         parent_name_token: PathNameToken::Super(
                             SuperToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
@@ -298,7 +298,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            3,
+                            4,
                         ),
                     ),
                 },
@@ -307,14 +307,14 @@ Ok(
                         parent_name_token: PathNameToken::Super(
                             SuperToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    2,
+                                    3,
                                 ),
                             ),
                         ),

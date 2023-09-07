@@ -987,7 +987,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i8`,
                                                 token_idx: TokenIdx(
-                                                    35,
+                                                    36,
                                                 ),
                                             },
                                         ),
@@ -1111,7 +1111,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i8`,
                                                                     token_idx: TokenIdx(
-                                                                        35,
+                                                                        36,
                                                                     ),
                                                                 },
                                                             ),
@@ -1203,7 +1203,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i8`,
                                                         token_idx: TokenIdx(
-                                                            43,
+                                                            44,
                                                         ),
                                                     },
                                                 ),
@@ -1298,7 +1298,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i8`,
                                                                             token_idx: TokenIdx(
-                                                                                35,
+                                                                                36,
                                                                             ),
                                                                         },
                                                                     ),
@@ -1390,7 +1390,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i8`,
                                                                 token_idx: TokenIdx(
-                                                                    43,
+                                                                    44,
                                                                 ),
                                                             },
                                                         ),
@@ -1537,7 +1537,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            50,
+                                            51,
                                         ),
                                     ),
                                     ty: 0,
@@ -1588,7 +1588,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i8`,
                                                                     token_idx: TokenIdx(
-                                                                        35,
+                                                                        36,
                                                                     ),
                                                                 },
                                                             ),
@@ -1690,7 +1690,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i8`,
                                                         token_idx: TokenIdx(
-                                                            51,
+                                                            52,
                                                         ),
                                                     },
                                                 ),
@@ -1705,7 +1705,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i8`,
                                                         token_idx: TokenIdx(
-                                                            54,
+                                                            55,
                                                         ),
                                                     },
                                                 ),
@@ -1728,7 +1728,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            49,
+                                                            50,
                                                         ),
                                                     },
                                                 },
@@ -1772,7 +1772,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        50,
+                                                        51,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -1853,7 +1853,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i8`,
                                                                             token_idx: TokenIdx(
-                                                                                35,
+                                                                                36,
                                                                             ),
                                                                         },
                                                                     ),
@@ -1955,7 +1955,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i8`,
                                                                 token_idx: TokenIdx(
-                                                                    51,
+                                                                    52,
                                                                 ),
                                                             },
                                                         ),
@@ -1970,7 +1970,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i8`,
                                                                 token_idx: TokenIdx(
-                                                                    54,
+                                                                    55,
                                                                 ),
                                                             },
                                                         ),
@@ -1993,7 +1993,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    49,
+                                                                    50,
                                                                 ),
                                                             },
                                                         },
@@ -2037,7 +2037,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                50,
+                                                                51,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -2231,7 +2231,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    57,
+                                                    58,
                                                 ),
                                             },
                                         ),
@@ -2246,7 +2246,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i8`,
                                                 token_idx: TokenIdx(
-                                                    58,
+                                                    59,
                                                 ),
                                             },
                                         ),
@@ -2261,7 +2261,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i8`,
                                                 token_idx: TokenIdx(
-                                                    60,
+                                                    61,
                                                 ),
                                             },
                                         ),
@@ -2357,7 +2357,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            67,
+                                            68,
                                         ),
                                     ),
                                     ty: 0,
@@ -2435,7 +2435,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        57,
+                                                                        58,
                                                                     ),
                                                                 },
                                                             ),
@@ -2450,7 +2450,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i8`,
                                                                     token_idx: TokenIdx(
-                                                                        58,
+                                                                        59,
                                                                     ),
                                                                 },
                                                             ),
@@ -2465,7 +2465,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i8`,
                                                                     token_idx: TokenIdx(
-                                                                        60,
+                                                                        61,
                                                                     ),
                                                                 },
                                                             ),
@@ -2574,7 +2574,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i8`,
                                                         token_idx: TokenIdx(
-                                                            68,
+                                                            69,
                                                         ),
                                                     },
                                                 ),
@@ -2589,7 +2589,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i8`,
                                                         token_idx: TokenIdx(
-                                                            71,
+                                                            72,
                                                         ),
                                                     },
                                                 ),
@@ -2612,7 +2612,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            66,
+                                                            67,
                                                         ),
                                                     },
                                                 },
@@ -2656,7 +2656,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        67,
+                                                        68,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -2764,7 +2764,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                57,
+                                                                                58,
                                                                             ),
                                                                         },
                                                                     ),
@@ -2779,7 +2779,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i8`,
                                                                             token_idx: TokenIdx(
-                                                                                58,
+                                                                                59,
                                                                             ),
                                                                         },
                                                                     ),
@@ -2794,7 +2794,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i8`,
                                                                             token_idx: TokenIdx(
-                                                                                60,
+                                                                                61,
                                                                             ),
                                                                         },
                                                                     ),
@@ -2903,7 +2903,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i8`,
                                                                 token_idx: TokenIdx(
-                                                                    68,
+                                                                    69,
                                                                 ),
                                                             },
                                                         ),
@@ -2918,7 +2918,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i8`,
                                                                 token_idx: TokenIdx(
-                                                                    71,
+                                                                    72,
                                                                 ),
                                                             },
                                                         ),
@@ -2941,7 +2941,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    66,
+                                                                    67,
                                                                 ),
                                                             },
                                                         },
@@ -2985,7 +2985,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                67,
+                                                                68,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -3147,7 +3147,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i16`,
                                                 token_idx: TokenIdx(
-                                                    98,
+                                                    99,
                                                 ),
                                             },
                                         ),
@@ -3271,7 +3271,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i16`,
                                                                     token_idx: TokenIdx(
-                                                                        98,
+                                                                        99,
                                                                     ),
                                                                 },
                                                             ),
@@ -3363,7 +3363,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i16`,
                                                         token_idx: TokenIdx(
-                                                            106,
+                                                            107,
                                                         ),
                                                     },
                                                 ),
@@ -3458,7 +3458,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i16`,
                                                                             token_idx: TokenIdx(
-                                                                                98,
+                                                                                99,
                                                                             ),
                                                                         },
                                                                     ),
@@ -3550,7 +3550,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i16`,
                                                                 token_idx: TokenIdx(
-                                                                    106,
+                                                                    107,
                                                                 ),
                                                             },
                                                         ),
@@ -3697,7 +3697,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            113,
+                                            114,
                                         ),
                                     ),
                                     ty: 0,
@@ -3748,7 +3748,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i16`,
                                                                     token_idx: TokenIdx(
-                                                                        98,
+                                                                        99,
                                                                     ),
                                                                 },
                                                             ),
@@ -3850,7 +3850,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i16`,
                                                         token_idx: TokenIdx(
-                                                            114,
+                                                            115,
                                                         ),
                                                     },
                                                 ),
@@ -3865,7 +3865,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i16`,
                                                         token_idx: TokenIdx(
-                                                            117,
+                                                            118,
                                                         ),
                                                     },
                                                 ),
@@ -3888,7 +3888,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            112,
+                                                            113,
                                                         ),
                                                     },
                                                 },
@@ -3932,7 +3932,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        113,
+                                                        114,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -4013,7 +4013,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i16`,
                                                                             token_idx: TokenIdx(
-                                                                                98,
+                                                                                99,
                                                                             ),
                                                                         },
                                                                     ),
@@ -4115,7 +4115,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i16`,
                                                                 token_idx: TokenIdx(
-                                                                    114,
+                                                                    115,
                                                                 ),
                                                             },
                                                         ),
@@ -4130,7 +4130,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i16`,
                                                                 token_idx: TokenIdx(
-                                                                    117,
+                                                                    118,
                                                                 ),
                                                             },
                                                         ),
@@ -4153,7 +4153,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    112,
+                                                                    113,
                                                                 ),
                                                             },
                                                         },
@@ -4197,7 +4197,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                113,
+                                                                114,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -4391,7 +4391,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    120,
+                                                    121,
                                                 ),
                                             },
                                         ),
@@ -4406,7 +4406,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i32`,
                                                 token_idx: TokenIdx(
-                                                    121,
+                                                    122,
                                                 ),
                                             },
                                         ),
@@ -4421,7 +4421,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i16`,
                                                 token_idx: TokenIdx(
-                                                    123,
+                                                    124,
                                                 ),
                                             },
                                         ),
@@ -4517,7 +4517,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            130,
+                                            131,
                                         ),
                                     ),
                                     ty: 0,
@@ -4595,7 +4595,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        120,
+                                                                        121,
                                                                     ),
                                                                 },
                                                             ),
@@ -4610,7 +4610,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i32`,
                                                                     token_idx: TokenIdx(
-                                                                        121,
+                                                                        122,
                                                                     ),
                                                                 },
                                                             ),
@@ -4625,7 +4625,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i16`,
                                                                     token_idx: TokenIdx(
-                                                                        123,
+                                                                        124,
                                                                     ),
                                                                 },
                                                             ),
@@ -4734,7 +4734,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i32`,
                                                         token_idx: TokenIdx(
-                                                            131,
+                                                            132,
                                                         ),
                                                     },
                                                 ),
@@ -4749,7 +4749,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i16`,
                                                         token_idx: TokenIdx(
-                                                            134,
+                                                            135,
                                                         ),
                                                     },
                                                 ),
@@ -4772,7 +4772,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            129,
+                                                            130,
                                                         ),
                                                     },
                                                 },
@@ -4816,7 +4816,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        130,
+                                                        131,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -4924,7 +4924,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                120,
+                                                                                121,
                                                                             ),
                                                                         },
                                                                     ),
@@ -4939,7 +4939,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i32`,
                                                                             token_idx: TokenIdx(
-                                                                                121,
+                                                                                122,
                                                                             ),
                                                                         },
                                                                     ),
@@ -4954,7 +4954,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i16`,
                                                                             token_idx: TokenIdx(
-                                                                                123,
+                                                                                124,
                                                                             ),
                                                                         },
                                                                     ),
@@ -5063,7 +5063,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i32`,
                                                                 token_idx: TokenIdx(
-                                                                    131,
+                                                                    132,
                                                                 ),
                                                             },
                                                         ),
@@ -5078,7 +5078,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i16`,
                                                                 token_idx: TokenIdx(
-                                                                    134,
+                                                                    135,
                                                                 ),
                                                             },
                                                         ),
@@ -5101,7 +5101,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    129,
+                                                                    130,
                                                                 ),
                                                             },
                                                         },
@@ -5145,7 +5145,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                130,
+                                                                131,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -5307,7 +5307,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i32`,
                                                 token_idx: TokenIdx(
-                                                    161,
+                                                    162,
                                                 ),
                                             },
                                         ),
@@ -5431,7 +5431,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i32`,
                                                                     token_idx: TokenIdx(
-                                                                        161,
+                                                                        162,
                                                                     ),
                                                                 },
                                                             ),
@@ -5523,7 +5523,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i32`,
                                                         token_idx: TokenIdx(
-                                                            169,
+                                                            170,
                                                         ),
                                                     },
                                                 ),
@@ -5618,7 +5618,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i32`,
                                                                             token_idx: TokenIdx(
-                                                                                161,
+                                                                                162,
                                                                             ),
                                                                         },
                                                                     ),
@@ -5710,7 +5710,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i32`,
                                                                 token_idx: TokenIdx(
-                                                                    169,
+                                                                    170,
                                                                 ),
                                                             },
                                                         ),
@@ -5857,7 +5857,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            176,
+                                            177,
                                         ),
                                     ),
                                     ty: 0,
@@ -5908,7 +5908,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i32`,
                                                                     token_idx: TokenIdx(
-                                                                        161,
+                                                                        162,
                                                                     ),
                                                                 },
                                                             ),
@@ -6010,7 +6010,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i32`,
                                                         token_idx: TokenIdx(
-                                                            177,
+                                                            178,
                                                         ),
                                                     },
                                                 ),
@@ -6025,7 +6025,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i32`,
                                                         token_idx: TokenIdx(
-                                                            180,
+                                                            181,
                                                         ),
                                                     },
                                                 ),
@@ -6048,7 +6048,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            175,
+                                                            176,
                                                         ),
                                                     },
                                                 },
@@ -6092,7 +6092,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        176,
+                                                        177,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -6173,7 +6173,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i32`,
                                                                             token_idx: TokenIdx(
-                                                                                161,
+                                                                                162,
                                                                             ),
                                                                         },
                                                                     ),
@@ -6275,7 +6275,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i32`,
                                                                 token_idx: TokenIdx(
-                                                                    177,
+                                                                    178,
                                                                 ),
                                                             },
                                                         ),
@@ -6290,7 +6290,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i32`,
                                                                 token_idx: TokenIdx(
-                                                                    180,
+                                                                    181,
                                                                 ),
                                                             },
                                                         ),
@@ -6313,7 +6313,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    175,
+                                                                    176,
                                                                 ),
                                                             },
                                                         },
@@ -6357,7 +6357,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                176,
+                                                                177,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -6500,7 +6500,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            187,
+                                            188,
                                         ),
                                     ),
                                     ty: 0,
@@ -6551,7 +6551,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i32`,
                                                                     token_idx: TokenIdx(
-                                                                        161,
+                                                                        162,
                                                                     ),
                                                                 },
                                                             ),
@@ -6653,7 +6653,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i32`,
                                                         token_idx: TokenIdx(
-                                                            188,
+                                                            189,
                                                         ),
                                                     },
                                                 ),
@@ -6668,7 +6668,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i32`,
                                                         token_idx: TokenIdx(
-                                                            191,
+                                                            192,
                                                         ),
                                                     },
                                                 ),
@@ -6691,7 +6691,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            186,
+                                                            187,
                                                         ),
                                                     },
                                                 },
@@ -6735,7 +6735,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        187,
+                                                        188,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -6816,7 +6816,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i32`,
                                                                             token_idx: TokenIdx(
-                                                                                161,
+                                                                                162,
                                                                             ),
                                                                         },
                                                                     ),
@@ -6918,7 +6918,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i32`,
                                                                 token_idx: TokenIdx(
-                                                                    188,
+                                                                    189,
                                                                 ),
                                                             },
                                                         ),
@@ -6933,7 +6933,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i32`,
                                                                 token_idx: TokenIdx(
-                                                                    191,
+                                                                    192,
                                                                 ),
                                                             },
                                                         ),
@@ -6956,7 +6956,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    186,
+                                                                    187,
                                                                 ),
                                                             },
                                                         },
@@ -7000,7 +7000,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                187,
+                                                                188,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -7194,7 +7194,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    194,
+                                                    195,
                                                 ),
                                             },
                                         ),
@@ -7209,7 +7209,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i32`,
                                                 token_idx: TokenIdx(
-                                                    195,
+                                                    196,
                                                 ),
                                             },
                                         ),
@@ -7224,7 +7224,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i32`,
                                                 token_idx: TokenIdx(
-                                                    197,
+                                                    198,
                                                 ),
                                             },
                                         ),
@@ -7320,7 +7320,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            203,
+                                            204,
                                         ),
                                     ),
                                     ty: 0,
@@ -7398,7 +7398,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        194,
+                                                                        195,
                                                                     ),
                                                                 },
                                                             ),
@@ -7413,7 +7413,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i32`,
                                                                     token_idx: TokenIdx(
-                                                                        195,
+                                                                        196,
                                                                     ),
                                                                 },
                                                             ),
@@ -7428,7 +7428,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i32`,
                                                                     token_idx: TokenIdx(
-                                                                        197,
+                                                                        198,
                                                                     ),
                                                                 },
                                                             ),
@@ -7537,7 +7537,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i32`,
                                                         token_idx: TokenIdx(
-                                                            204,
+                                                            205,
                                                         ),
                                                     },
                                                 ),
@@ -7552,7 +7552,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i32`,
                                                         token_idx: TokenIdx(
-                                                            207,
+                                                            208,
                                                         ),
                                                     },
                                                 ),
@@ -7575,7 +7575,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            202,
+                                                            203,
                                                         ),
                                                     },
                                                 },
@@ -7619,7 +7619,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        203,
+                                                        204,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -7727,7 +7727,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                194,
+                                                                                195,
                                                                             ),
                                                                         },
                                                                     ),
@@ -7742,7 +7742,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i32`,
                                                                             token_idx: TokenIdx(
-                                                                                195,
+                                                                                196,
                                                                             ),
                                                                         },
                                                                     ),
@@ -7757,7 +7757,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i32`,
                                                                             token_idx: TokenIdx(
-                                                                                197,
+                                                                                198,
                                                                             ),
                                                                         },
                                                                     ),
@@ -7866,7 +7866,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i32`,
                                                                 token_idx: TokenIdx(
-                                                                    204,
+                                                                    205,
                                                                 ),
                                                             },
                                                         ),
@@ -7881,7 +7881,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i32`,
                                                                 token_idx: TokenIdx(
-                                                                    207,
+                                                                    208,
                                                                 ),
                                                             },
                                                         ),
@@ -7904,7 +7904,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    202,
+                                                                    203,
                                                                 ),
                                                             },
                                                         },
@@ -7948,7 +7948,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                203,
+                                                                204,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -8110,7 +8110,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i64`,
                                                 token_idx: TokenIdx(
-                                                    234,
+                                                    235,
                                                 ),
                                             },
                                         ),
@@ -8234,7 +8234,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i64`,
                                                                     token_idx: TokenIdx(
-                                                                        234,
+                                                                        235,
                                                                     ),
                                                                 },
                                                             ),
@@ -8326,7 +8326,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i64`,
                                                         token_idx: TokenIdx(
-                                                            242,
+                                                            243,
                                                         ),
                                                     },
                                                 ),
@@ -8421,7 +8421,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i64`,
                                                                             token_idx: TokenIdx(
-                                                                                234,
+                                                                                235,
                                                                             ),
                                                                         },
                                                                     ),
@@ -8513,7 +8513,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i64`,
                                                                 token_idx: TokenIdx(
-                                                                    242,
+                                                                    243,
                                                                 ),
                                                             },
                                                         ),
@@ -8711,7 +8711,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    245,
+                                                    246,
                                                 ),
                                             },
                                         ),
@@ -8726,7 +8726,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i64`,
                                                 token_idx: TokenIdx(
-                                                    246,
+                                                    247,
                                                 ),
                                             },
                                         ),
@@ -8741,7 +8741,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i64`,
                                                 token_idx: TokenIdx(
-                                                    248,
+                                                    249,
                                                 ),
                                             },
                                         ),
@@ -8837,7 +8837,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            255,
+                                            256,
                                         ),
                                     ),
                                     ty: 0,
@@ -8915,7 +8915,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        245,
+                                                                        246,
                                                                     ),
                                                                 },
                                                             ),
@@ -8930,7 +8930,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i64`,
                                                                     token_idx: TokenIdx(
-                                                                        246,
+                                                                        247,
                                                                     ),
                                                                 },
                                                             ),
@@ -8945,7 +8945,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i64`,
                                                                     token_idx: TokenIdx(
-                                                                        248,
+                                                                        249,
                                                                     ),
                                                                 },
                                                             ),
@@ -9054,7 +9054,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i64`,
                                                         token_idx: TokenIdx(
-                                                            256,
+                                                            257,
                                                         ),
                                                     },
                                                 ),
@@ -9069,7 +9069,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i64`,
                                                         token_idx: TokenIdx(
-                                                            259,
+                                                            260,
                                                         ),
                                                     },
                                                 ),
@@ -9092,7 +9092,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            254,
+                                                            255,
                                                         ),
                                                     },
                                                 },
@@ -9136,7 +9136,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        255,
+                                                        256,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -9244,7 +9244,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                245,
+                                                                                246,
                                                                             ),
                                                                         },
                                                                     ),
@@ -9259,7 +9259,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i64`,
                                                                             token_idx: TokenIdx(
-                                                                                246,
+                                                                                247,
                                                                             ),
                                                                         },
                                                                     ),
@@ -9274,7 +9274,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i64`,
                                                                             token_idx: TokenIdx(
-                                                                                248,
+                                                                                249,
                                                                             ),
                                                                         },
                                                                     ),
@@ -9383,7 +9383,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i64`,
                                                                 token_idx: TokenIdx(
-                                                                    256,
+                                                                    257,
                                                                 ),
                                                             },
                                                         ),
@@ -9398,7 +9398,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i64`,
                                                                 token_idx: TokenIdx(
-                                                                    259,
+                                                                    260,
                                                                 ),
                                                             },
                                                         ),
@@ -9421,7 +9421,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    254,
+                                                                    255,
                                                                 ),
                                                             },
                                                         },
@@ -9465,7 +9465,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                255,
+                                                                256,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -9627,7 +9627,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i128`,
                                                 token_idx: TokenIdx(
-                                                    286,
+                                                    287,
                                                 ),
                                             },
                                         ),
@@ -9751,7 +9751,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i128`,
                                                                     token_idx: TokenIdx(
-                                                                        286,
+                                                                        287,
                                                                     ),
                                                                 },
                                                             ),
@@ -9843,7 +9843,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i128`,
                                                         token_idx: TokenIdx(
-                                                            294,
+                                                            295,
                                                         ),
                                                     },
                                                 ),
@@ -9938,7 +9938,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i128`,
                                                                             token_idx: TokenIdx(
-                                                                                286,
+                                                                                287,
                                                                             ),
                                                                         },
                                                                     ),
@@ -10030,7 +10030,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i128`,
                                                                 token_idx: TokenIdx(
-                                                                    294,
+                                                                    295,
                                                                 ),
                                                             },
                                                         ),
@@ -10228,7 +10228,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    297,
+                                                    298,
                                                 ),
                                             },
                                         ),
@@ -10243,7 +10243,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i128`,
                                                 token_idx: TokenIdx(
-                                                    298,
+                                                    299,
                                                 ),
                                             },
                                         ),
@@ -10258,7 +10258,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i128`,
                                                 token_idx: TokenIdx(
-                                                    300,
+                                                    301,
                                                 ),
                                             },
                                         ),
@@ -10354,7 +10354,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            307,
+                                            308,
                                         ),
                                     ),
                                     ty: 0,
@@ -10432,7 +10432,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        297,
+                                                                        298,
                                                                     ),
                                                                 },
                                                             ),
@@ -10447,7 +10447,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i128`,
                                                                     token_idx: TokenIdx(
-                                                                        298,
+                                                                        299,
                                                                     ),
                                                                 },
                                                             ),
@@ -10462,7 +10462,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i128`,
                                                                     token_idx: TokenIdx(
-                                                                        300,
+                                                                        301,
                                                                     ),
                                                                 },
                                                             ),
@@ -10571,7 +10571,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i128`,
                                                         token_idx: TokenIdx(
-                                                            308,
+                                                            309,
                                                         ),
                                                     },
                                                 ),
@@ -10586,7 +10586,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i128`,
                                                         token_idx: TokenIdx(
-                                                            311,
+                                                            312,
                                                         ),
                                                     },
                                                 ),
@@ -10609,7 +10609,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            306,
+                                                            307,
                                                         ),
                                                     },
                                                 },
@@ -10653,7 +10653,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        307,
+                                                        308,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -10761,7 +10761,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                297,
+                                                                                298,
                                                                             ),
                                                                         },
                                                                     ),
@@ -10776,7 +10776,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i128`,
                                                                             token_idx: TokenIdx(
-                                                                                298,
+                                                                                299,
                                                                             ),
                                                                         },
                                                                     ),
@@ -10791,7 +10791,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i128`,
                                                                             token_idx: TokenIdx(
-                                                                                300,
+                                                                                301,
                                                                             ),
                                                                         },
                                                                     ),
@@ -10900,7 +10900,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i128`,
                                                                 token_idx: TokenIdx(
-                                                                    308,
+                                                                    309,
                                                                 ),
                                                             },
                                                         ),
@@ -10915,7 +10915,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i128`,
                                                                 token_idx: TokenIdx(
-                                                                    311,
+                                                                    312,
                                                                 ),
                                                             },
                                                         ),
@@ -10938,7 +10938,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    306,
+                                                                    307,
                                                                 ),
                                                             },
                                                         },
@@ -10982,7 +10982,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                307,
+                                                                308,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -11144,7 +11144,7 @@ Ok(
                                             IdentToken {
                                                 ident: `isize`,
                                                 token_idx: TokenIdx(
-                                                    338,
+                                                    339,
                                                 ),
                                             },
                                         ),
@@ -11268,7 +11268,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `isize`,
                                                                     token_idx: TokenIdx(
-                                                                        338,
+                                                                        339,
                                                                     ),
                                                                 },
                                                             ),
@@ -11360,7 +11360,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `isize`,
                                                         token_idx: TokenIdx(
-                                                            346,
+                                                            347,
                                                         ),
                                                     },
                                                 ),
@@ -11455,7 +11455,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `isize`,
                                                                             token_idx: TokenIdx(
-                                                                                338,
+                                                                                339,
                                                                             ),
                                                                         },
                                                                     ),
@@ -11547,7 +11547,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `isize`,
                                                                 token_idx: TokenIdx(
-                                                                    346,
+                                                                    347,
                                                                 ),
                                                             },
                                                         ),
@@ -11745,7 +11745,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    349,
+                                                    350,
                                                 ),
                                             },
                                         ),
@@ -11760,7 +11760,7 @@ Ok(
                                             IdentToken {
                                                 ident: `isize`,
                                                 token_idx: TokenIdx(
-                                                    350,
+                                                    351,
                                                 ),
                                             },
                                         ),
@@ -11775,7 +11775,7 @@ Ok(
                                             IdentToken {
                                                 ident: `isize`,
                                                 token_idx: TokenIdx(
-                                                    352,
+                                                    353,
                                                 ),
                                             },
                                         ),
@@ -11871,7 +11871,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            359,
+                                            360,
                                         ),
                                     ),
                                     ty: 0,
@@ -11949,7 +11949,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        349,
+                                                                        350,
                                                                     ),
                                                                 },
                                                             ),
@@ -11964,7 +11964,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `isize`,
                                                                     token_idx: TokenIdx(
-                                                                        350,
+                                                                        351,
                                                                     ),
                                                                 },
                                                             ),
@@ -11979,7 +11979,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `isize`,
                                                                     token_idx: TokenIdx(
-                                                                        352,
+                                                                        353,
                                                                     ),
                                                                 },
                                                             ),
@@ -12088,7 +12088,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `isize`,
                                                         token_idx: TokenIdx(
-                                                            360,
+                                                            361,
                                                         ),
                                                     },
                                                 ),
@@ -12103,7 +12103,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `isize`,
                                                         token_idx: TokenIdx(
-                                                            363,
+                                                            364,
                                                         ),
                                                     },
                                                 ),
@@ -12126,7 +12126,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            358,
+                                                            359,
                                                         ),
                                                     },
                                                 },
@@ -12170,7 +12170,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        359,
+                                                        360,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -12278,7 +12278,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                349,
+                                                                                350,
                                                                             ),
                                                                         },
                                                                     ),
@@ -12293,7 +12293,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `isize`,
                                                                             token_idx: TokenIdx(
-                                                                                350,
+                                                                                351,
                                                                             ),
                                                                         },
                                                                     ),
@@ -12308,7 +12308,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `isize`,
                                                                             token_idx: TokenIdx(
-                                                                                352,
+                                                                                353,
                                                                             ),
                                                                         },
                                                                     ),
@@ -12417,7 +12417,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `isize`,
                                                                 token_idx: TokenIdx(
-                                                                    360,
+                                                                    361,
                                                                 ),
                                                             },
                                                         ),
@@ -12432,7 +12432,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `isize`,
                                                                 token_idx: TokenIdx(
-                                                                    363,
+                                                                    364,
                                                                 ),
                                                             },
                                                         ),
@@ -12455,7 +12455,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    358,
+                                                                    359,
                                                                 ),
                                                             },
                                                         },
@@ -12499,7 +12499,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                359,
+                                                                360,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -12661,7 +12661,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u8`,
                                                 token_idx: TokenIdx(
-                                                    390,
+                                                    391,
                                                 ),
                                             },
                                         ),
@@ -12785,7 +12785,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u8`,
                                                                     token_idx: TokenIdx(
-                                                                        390,
+                                                                        391,
                                                                     ),
                                                                 },
                                                             ),
@@ -12877,7 +12877,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u8`,
                                                         token_idx: TokenIdx(
-                                                            398,
+                                                            399,
                                                         ),
                                                     },
                                                 ),
@@ -12972,7 +12972,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u8`,
                                                                             token_idx: TokenIdx(
-                                                                                390,
+                                                                                391,
                                                                             ),
                                                                         },
                                                                     ),
@@ -13064,7 +13064,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u8`,
                                                                 token_idx: TokenIdx(
-                                                                    398,
+                                                                    399,
                                                                 ),
                                                             },
                                                         ),
@@ -13262,7 +13262,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    401,
+                                                    402,
                                                 ),
                                             },
                                         ),
@@ -13277,7 +13277,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u8`,
                                                 token_idx: TokenIdx(
-                                                    402,
+                                                    403,
                                                 ),
                                             },
                                         ),
@@ -13292,7 +13292,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u8`,
                                                 token_idx: TokenIdx(
-                                                    404,
+                                                    405,
                                                 ),
                                             },
                                         ),
@@ -13388,7 +13388,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            411,
+                                            412,
                                         ),
                                     ),
                                     ty: 0,
@@ -13466,7 +13466,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        401,
+                                                                        402,
                                                                     ),
                                                                 },
                                                             ),
@@ -13481,7 +13481,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u8`,
                                                                     token_idx: TokenIdx(
-                                                                        402,
+                                                                        403,
                                                                     ),
                                                                 },
                                                             ),
@@ -13496,7 +13496,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u8`,
                                                                     token_idx: TokenIdx(
-                                                                        404,
+                                                                        405,
                                                                     ),
                                                                 },
                                                             ),
@@ -13605,7 +13605,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u8`,
                                                         token_idx: TokenIdx(
-                                                            412,
+                                                            413,
                                                         ),
                                                     },
                                                 ),
@@ -13620,7 +13620,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u8`,
                                                         token_idx: TokenIdx(
-                                                            415,
+                                                            416,
                                                         ),
                                                     },
                                                 ),
@@ -13643,7 +13643,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            410,
+                                                            411,
                                                         ),
                                                     },
                                                 },
@@ -13687,7 +13687,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        411,
+                                                        412,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -13795,7 +13795,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                401,
+                                                                                402,
                                                                             ),
                                                                         },
                                                                     ),
@@ -13810,7 +13810,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u8`,
                                                                             token_idx: TokenIdx(
-                                                                                402,
+                                                                                403,
                                                                             ),
                                                                         },
                                                                     ),
@@ -13825,7 +13825,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u8`,
                                                                             token_idx: TokenIdx(
-                                                                                404,
+                                                                                405,
                                                                             ),
                                                                         },
                                                                     ),
@@ -13934,7 +13934,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u8`,
                                                                 token_idx: TokenIdx(
-                                                                    412,
+                                                                    413,
                                                                 ),
                                                             },
                                                         ),
@@ -13949,7 +13949,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u8`,
                                                                 token_idx: TokenIdx(
-                                                                    415,
+                                                                    416,
                                                                 ),
                                                             },
                                                         ),
@@ -13972,7 +13972,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    410,
+                                                                    411,
                                                                 ),
                                                             },
                                                         },
@@ -14016,7 +14016,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                411,
+                                                                412,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -14178,7 +14178,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u16`,
                                                 token_idx: TokenIdx(
-                                                    442,
+                                                    443,
                                                 ),
                                             },
                                         ),
@@ -14302,7 +14302,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u16`,
                                                                     token_idx: TokenIdx(
-                                                                        442,
+                                                                        443,
                                                                     ),
                                                                 },
                                                             ),
@@ -14394,7 +14394,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u16`,
                                                         token_idx: TokenIdx(
-                                                            450,
+                                                            451,
                                                         ),
                                                     },
                                                 ),
@@ -14489,7 +14489,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u16`,
                                                                             token_idx: TokenIdx(
-                                                                                442,
+                                                                                443,
                                                                             ),
                                                                         },
                                                                     ),
@@ -14581,7 +14581,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u16`,
                                                                 token_idx: TokenIdx(
-                                                                    450,
+                                                                    451,
                                                                 ),
                                                             },
                                                         ),
@@ -14779,7 +14779,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    453,
+                                                    454,
                                                 ),
                                             },
                                         ),
@@ -14794,7 +14794,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u16`,
                                                 token_idx: TokenIdx(
-                                                    454,
+                                                    455,
                                                 ),
                                             },
                                         ),
@@ -14809,7 +14809,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u16`,
                                                 token_idx: TokenIdx(
-                                                    456,
+                                                    457,
                                                 ),
                                             },
                                         ),
@@ -14905,7 +14905,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            463,
+                                            464,
                                         ),
                                     ),
                                     ty: 0,
@@ -14983,7 +14983,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        453,
+                                                                        454,
                                                                     ),
                                                                 },
                                                             ),
@@ -14998,7 +14998,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u16`,
                                                                     token_idx: TokenIdx(
-                                                                        454,
+                                                                        455,
                                                                     ),
                                                                 },
                                                             ),
@@ -15013,7 +15013,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u16`,
                                                                     token_idx: TokenIdx(
-                                                                        456,
+                                                                        457,
                                                                     ),
                                                                 },
                                                             ),
@@ -15122,7 +15122,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u16`,
                                                         token_idx: TokenIdx(
-                                                            464,
+                                                            465,
                                                         ),
                                                     },
                                                 ),
@@ -15137,7 +15137,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u16`,
                                                         token_idx: TokenIdx(
-                                                            467,
+                                                            468,
                                                         ),
                                                     },
                                                 ),
@@ -15160,7 +15160,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            462,
+                                                            463,
                                                         ),
                                                     },
                                                 },
@@ -15204,7 +15204,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        463,
+                                                        464,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -15312,7 +15312,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                453,
+                                                                                454,
                                                                             ),
                                                                         },
                                                                     ),
@@ -15327,7 +15327,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u16`,
                                                                             token_idx: TokenIdx(
-                                                                                454,
+                                                                                455,
                                                                             ),
                                                                         },
                                                                     ),
@@ -15342,7 +15342,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u16`,
                                                                             token_idx: TokenIdx(
-                                                                                456,
+                                                                                457,
                                                                             ),
                                                                         },
                                                                     ),
@@ -15451,7 +15451,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u16`,
                                                                 token_idx: TokenIdx(
-                                                                    464,
+                                                                    465,
                                                                 ),
                                                             },
                                                         ),
@@ -15466,7 +15466,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u16`,
                                                                 token_idx: TokenIdx(
-                                                                    467,
+                                                                    468,
                                                                 ),
                                                             },
                                                         ),
@@ -15489,7 +15489,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    462,
+                                                                    463,
                                                                 ),
                                                             },
                                                         },
@@ -15533,7 +15533,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                463,
+                                                                464,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -15695,7 +15695,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u32`,
                                                 token_idx: TokenIdx(
-                                                    494,
+                                                    495,
                                                 ),
                                             },
                                         ),
@@ -15819,7 +15819,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u32`,
                                                                     token_idx: TokenIdx(
-                                                                        494,
+                                                                        495,
                                                                     ),
                                                                 },
                                                             ),
@@ -15911,7 +15911,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u32`,
                                                         token_idx: TokenIdx(
-                                                            502,
+                                                            503,
                                                         ),
                                                     },
                                                 ),
@@ -16006,7 +16006,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u32`,
                                                                             token_idx: TokenIdx(
-                                                                                494,
+                                                                                495,
                                                                             ),
                                                                         },
                                                                     ),
@@ -16098,7 +16098,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u32`,
                                                                 token_idx: TokenIdx(
-                                                                    502,
+                                                                    503,
                                                                 ),
                                                             },
                                                         ),
@@ -16296,7 +16296,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    505,
+                                                    506,
                                                 ),
                                             },
                                         ),
@@ -16311,7 +16311,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u32`,
                                                 token_idx: TokenIdx(
-                                                    506,
+                                                    507,
                                                 ),
                                             },
                                         ),
@@ -16326,7 +16326,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u32`,
                                                 token_idx: TokenIdx(
-                                                    508,
+                                                    509,
                                                 ),
                                             },
                                         ),
@@ -16422,7 +16422,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            515,
+                                            516,
                                         ),
                                     ),
                                     ty: 0,
@@ -16500,7 +16500,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        505,
+                                                                        506,
                                                                     ),
                                                                 },
                                                             ),
@@ -16515,7 +16515,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u32`,
                                                                     token_idx: TokenIdx(
-                                                                        506,
+                                                                        507,
                                                                     ),
                                                                 },
                                                             ),
@@ -16530,7 +16530,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u32`,
                                                                     token_idx: TokenIdx(
-                                                                        508,
+                                                                        509,
                                                                     ),
                                                                 },
                                                             ),
@@ -16639,7 +16639,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u32`,
                                                         token_idx: TokenIdx(
-                                                            516,
+                                                            517,
                                                         ),
                                                     },
                                                 ),
@@ -16654,7 +16654,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u32`,
                                                         token_idx: TokenIdx(
-                                                            519,
+                                                            520,
                                                         ),
                                                     },
                                                 ),
@@ -16677,7 +16677,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            514,
+                                                            515,
                                                         ),
                                                     },
                                                 },
@@ -16721,7 +16721,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        515,
+                                                        516,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -16829,7 +16829,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                505,
+                                                                                506,
                                                                             ),
                                                                         },
                                                                     ),
@@ -16844,7 +16844,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u32`,
                                                                             token_idx: TokenIdx(
-                                                                                506,
+                                                                                507,
                                                                             ),
                                                                         },
                                                                     ),
@@ -16859,7 +16859,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u32`,
                                                                             token_idx: TokenIdx(
-                                                                                508,
+                                                                                509,
                                                                             ),
                                                                         },
                                                                     ),
@@ -16968,7 +16968,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u32`,
                                                                 token_idx: TokenIdx(
-                                                                    516,
+                                                                    517,
                                                                 ),
                                                             },
                                                         ),
@@ -16983,7 +16983,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u32`,
                                                                 token_idx: TokenIdx(
-                                                                    519,
+                                                                    520,
                                                                 ),
                                                             },
                                                         ),
@@ -17006,7 +17006,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    514,
+                                                                    515,
                                                                 ),
                                                             },
                                                         },
@@ -17050,7 +17050,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                515,
+                                                                516,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -17212,7 +17212,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u64`,
                                                 token_idx: TokenIdx(
-                                                    546,
+                                                    547,
                                                 ),
                                             },
                                         ),
@@ -17336,7 +17336,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u64`,
                                                                     token_idx: TokenIdx(
-                                                                        546,
+                                                                        547,
                                                                     ),
                                                                 },
                                                             ),
@@ -17428,7 +17428,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u64`,
                                                         token_idx: TokenIdx(
-                                                            554,
+                                                            555,
                                                         ),
                                                     },
                                                 ),
@@ -17523,7 +17523,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u64`,
                                                                             token_idx: TokenIdx(
-                                                                                546,
+                                                                                547,
                                                                             ),
                                                                         },
                                                                     ),
@@ -17615,7 +17615,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u64`,
                                                                 token_idx: TokenIdx(
-                                                                    554,
+                                                                    555,
                                                                 ),
                                                             },
                                                         ),
@@ -17813,7 +17813,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    557,
+                                                    558,
                                                 ),
                                             },
                                         ),
@@ -17828,7 +17828,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u64`,
                                                 token_idx: TokenIdx(
-                                                    558,
+                                                    559,
                                                 ),
                                             },
                                         ),
@@ -17843,7 +17843,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u64`,
                                                 token_idx: TokenIdx(
-                                                    560,
+                                                    561,
                                                 ),
                                             },
                                         ),
@@ -17939,7 +17939,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            567,
+                                            568,
                                         ),
                                     ),
                                     ty: 0,
@@ -18017,7 +18017,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        557,
+                                                                        558,
                                                                     ),
                                                                 },
                                                             ),
@@ -18032,7 +18032,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u64`,
                                                                     token_idx: TokenIdx(
-                                                                        558,
+                                                                        559,
                                                                     ),
                                                                 },
                                                             ),
@@ -18047,7 +18047,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u64`,
                                                                     token_idx: TokenIdx(
-                                                                        560,
+                                                                        561,
                                                                     ),
                                                                 },
                                                             ),
@@ -18156,7 +18156,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u64`,
                                                         token_idx: TokenIdx(
-                                                            568,
+                                                            569,
                                                         ),
                                                     },
                                                 ),
@@ -18171,7 +18171,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u64`,
                                                         token_idx: TokenIdx(
-                                                            571,
+                                                            572,
                                                         ),
                                                     },
                                                 ),
@@ -18194,7 +18194,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            566,
+                                                            567,
                                                         ),
                                                     },
                                                 },
@@ -18238,7 +18238,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        567,
+                                                        568,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -18346,7 +18346,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                557,
+                                                                                558,
                                                                             ),
                                                                         },
                                                                     ),
@@ -18361,7 +18361,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u64`,
                                                                             token_idx: TokenIdx(
-                                                                                558,
+                                                                                559,
                                                                             ),
                                                                         },
                                                                     ),
@@ -18376,7 +18376,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u64`,
                                                                             token_idx: TokenIdx(
-                                                                                560,
+                                                                                561,
                                                                             ),
                                                                         },
                                                                     ),
@@ -18485,7 +18485,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u64`,
                                                                 token_idx: TokenIdx(
-                                                                    568,
+                                                                    569,
                                                                 ),
                                                             },
                                                         ),
@@ -18500,7 +18500,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u64`,
                                                                 token_idx: TokenIdx(
-                                                                    571,
+                                                                    572,
                                                                 ),
                                                             },
                                                         ),
@@ -18523,7 +18523,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    566,
+                                                                    567,
                                                                 ),
                                                             },
                                                         },
@@ -18567,7 +18567,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                567,
+                                                                568,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -18729,7 +18729,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u128`,
                                                 token_idx: TokenIdx(
-                                                    598,
+                                                    599,
                                                 ),
                                             },
                                         ),
@@ -18853,7 +18853,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u128`,
                                                                     token_idx: TokenIdx(
-                                                                        598,
+                                                                        599,
                                                                     ),
                                                                 },
                                                             ),
@@ -18945,7 +18945,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u128`,
                                                         token_idx: TokenIdx(
-                                                            606,
+                                                            607,
                                                         ),
                                                     },
                                                 ),
@@ -19040,7 +19040,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u128`,
                                                                             token_idx: TokenIdx(
-                                                                                598,
+                                                                                599,
                                                                             ),
                                                                         },
                                                                     ),
@@ -19132,7 +19132,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u128`,
                                                                 token_idx: TokenIdx(
-                                                                    606,
+                                                                    607,
                                                                 ),
                                                             },
                                                         ),
@@ -19330,7 +19330,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    609,
+                                                    610,
                                                 ),
                                             },
                                         ),
@@ -19345,7 +19345,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u128`,
                                                 token_idx: TokenIdx(
-                                                    610,
+                                                    611,
                                                 ),
                                             },
                                         ),
@@ -19360,7 +19360,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u128`,
                                                 token_idx: TokenIdx(
-                                                    612,
+                                                    613,
                                                 ),
                                             },
                                         ),
@@ -19456,7 +19456,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            619,
+                                            620,
                                         ),
                                     ),
                                     ty: 0,
@@ -19534,7 +19534,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        609,
+                                                                        610,
                                                                     ),
                                                                 },
                                                             ),
@@ -19549,7 +19549,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u128`,
                                                                     token_idx: TokenIdx(
-                                                                        610,
+                                                                        611,
                                                                     ),
                                                                 },
                                                             ),
@@ -19564,7 +19564,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u128`,
                                                                     token_idx: TokenIdx(
-                                                                        612,
+                                                                        613,
                                                                     ),
                                                                 },
                                                             ),
@@ -19673,7 +19673,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u128`,
                                                         token_idx: TokenIdx(
-                                                            620,
+                                                            621,
                                                         ),
                                                     },
                                                 ),
@@ -19688,7 +19688,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u128`,
                                                         token_idx: TokenIdx(
-                                                            623,
+                                                            624,
                                                         ),
                                                     },
                                                 ),
@@ -19711,7 +19711,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            618,
+                                                            619,
                                                         ),
                                                     },
                                                 },
@@ -19755,7 +19755,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        619,
+                                                        620,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -19863,7 +19863,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                609,
+                                                                                610,
                                                                             ),
                                                                         },
                                                                     ),
@@ -19878,7 +19878,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u128`,
                                                                             token_idx: TokenIdx(
-                                                                                610,
+                                                                                611,
                                                                             ),
                                                                         },
                                                                     ),
@@ -19893,7 +19893,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u128`,
                                                                             token_idx: TokenIdx(
-                                                                                612,
+                                                                                613,
                                                                             ),
                                                                         },
                                                                     ),
@@ -20002,7 +20002,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u128`,
                                                                 token_idx: TokenIdx(
-                                                                    620,
+                                                                    621,
                                                                 ),
                                                             },
                                                         ),
@@ -20017,7 +20017,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u128`,
                                                                 token_idx: TokenIdx(
-                                                                    623,
+                                                                    624,
                                                                 ),
                                                             },
                                                         ),
@@ -20040,7 +20040,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    618,
+                                                                    619,
                                                                 ),
                                                             },
                                                         },
@@ -20084,7 +20084,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                619,
+                                                                620,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -20246,7 +20246,7 @@ Ok(
                                             IdentToken {
                                                 ident: `usize`,
                                                 token_idx: TokenIdx(
-                                                    650,
+                                                    651,
                                                 ),
                                             },
                                         ),
@@ -20370,7 +20370,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `usize`,
                                                                     token_idx: TokenIdx(
-                                                                        650,
+                                                                        651,
                                                                     ),
                                                                 },
                                                             ),
@@ -20462,7 +20462,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `usize`,
                                                         token_idx: TokenIdx(
-                                                            658,
+                                                            659,
                                                         ),
                                                     },
                                                 ),
@@ -20557,7 +20557,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `usize`,
                                                                             token_idx: TokenIdx(
-                                                                                650,
+                                                                                651,
                                                                             ),
                                                                         },
                                                                     ),
@@ -20649,7 +20649,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `usize`,
                                                                 token_idx: TokenIdx(
-                                                                    658,
+                                                                    659,
                                                                 ),
                                                             },
                                                         ),
@@ -20847,7 +20847,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    661,
+                                                    662,
                                                 ),
                                             },
                                         ),
@@ -20862,7 +20862,7 @@ Ok(
                                             IdentToken {
                                                 ident: `usize`,
                                                 token_idx: TokenIdx(
-                                                    662,
+                                                    663,
                                                 ),
                                             },
                                         ),
@@ -20877,7 +20877,7 @@ Ok(
                                             IdentToken {
                                                 ident: `usize`,
                                                 token_idx: TokenIdx(
-                                                    664,
+                                                    665,
                                                 ),
                                             },
                                         ),
@@ -20973,7 +20973,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            671,
+                                            672,
                                         ),
                                     ),
                                     ty: 0,
@@ -21051,7 +21051,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        661,
+                                                                        662,
                                                                     ),
                                                                 },
                                                             ),
@@ -21066,7 +21066,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `usize`,
                                                                     token_idx: TokenIdx(
-                                                                        662,
+                                                                        663,
                                                                     ),
                                                                 },
                                                             ),
@@ -21081,7 +21081,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `usize`,
                                                                     token_idx: TokenIdx(
-                                                                        664,
+                                                                        665,
                                                                     ),
                                                                 },
                                                             ),
@@ -21190,7 +21190,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `usize`,
                                                         token_idx: TokenIdx(
-                                                            672,
+                                                            673,
                                                         ),
                                                     },
                                                 ),
@@ -21205,7 +21205,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `usize`,
                                                         token_idx: TokenIdx(
-                                                            675,
+                                                            676,
                                                         ),
                                                     },
                                                 ),
@@ -21228,7 +21228,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            670,
+                                                            671,
                                                         ),
                                                     },
                                                 },
@@ -21272,7 +21272,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        671,
+                                                        672,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -21380,7 +21380,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                661,
+                                                                                662,
                                                                             ),
                                                                         },
                                                                     ),
@@ -21395,7 +21395,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `usize`,
                                                                             token_idx: TokenIdx(
-                                                                                662,
+                                                                                663,
                                                                             ),
                                                                         },
                                                                     ),
@@ -21410,7 +21410,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `usize`,
                                                                             token_idx: TokenIdx(
-                                                                                664,
+                                                                                665,
                                                                             ),
                                                                         },
                                                                     ),
@@ -21519,7 +21519,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `usize`,
                                                                 token_idx: TokenIdx(
-                                                                    672,
+                                                                    673,
                                                                 ),
                                                             },
                                                         ),
@@ -21534,7 +21534,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `usize`,
                                                                 token_idx: TokenIdx(
-                                                                    675,
+                                                                    676,
                                                                 ),
                                                             },
                                                         ),
@@ -21557,7 +21557,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    670,
+                                                                    671,
                                                                 ),
                                                             },
                                                         },
@@ -21601,7 +21601,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                671,
+                                                                672,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -21763,7 +21763,7 @@ Ok(
                                             IdentToken {
                                                 ident: `f32`,
                                                 token_idx: TokenIdx(
-                                                    702,
+                                                    703,
                                                 ),
                                             },
                                         ),
@@ -21887,7 +21887,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `f32`,
                                                                     token_idx: TokenIdx(
-                                                                        702,
+                                                                        703,
                                                                     ),
                                                                 },
                                                             ),
@@ -21979,7 +21979,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f32`,
                                                         token_idx: TokenIdx(
-                                                            710,
+                                                            711,
                                                         ),
                                                     },
                                                 ),
@@ -22074,7 +22074,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `f32`,
                                                                             token_idx: TokenIdx(
-                                                                                702,
+                                                                                703,
                                                                             ),
                                                                         },
                                                                     ),
@@ -22166,7 +22166,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `f32`,
                                                                 token_idx: TokenIdx(
-                                                                    710,
+                                                                    711,
                                                                 ),
                                                             },
                                                         ),
@@ -22351,7 +22351,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `f32`,
                                                                     token_idx: TokenIdx(
-                                                                        702,
+                                                                        703,
                                                                     ),
                                                                 },
                                                             ),
@@ -22443,7 +22443,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f32`,
                                                         token_idx: TokenIdx(
-                                                            718,
+                                                            719,
                                                         ),
                                                     },
                                                 ),
@@ -22538,7 +22538,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `f32`,
                                                                             token_idx: TokenIdx(
-                                                                                702,
+                                                                                703,
                                                                             ),
                                                                         },
                                                                     ),
@@ -22630,7 +22630,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `f32`,
                                                                 token_idx: TokenIdx(
-                                                                    718,
+                                                                    719,
                                                                 ),
                                                             },
                                                         ),
@@ -22777,7 +22777,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            725,
+                                            726,
                                         ),
                                     ),
                                     ty: 0,
@@ -22828,7 +22828,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `f32`,
                                                                     token_idx: TokenIdx(
-                                                                        702,
+                                                                        703,
                                                                     ),
                                                                 },
                                                             ),
@@ -22930,7 +22930,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f32`,
                                                         token_idx: TokenIdx(
-                                                            726,
+                                                            727,
                                                         ),
                                                     },
                                                 ),
@@ -22945,7 +22945,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f32`,
                                                         token_idx: TokenIdx(
-                                                            729,
+                                                            730,
                                                         ),
                                                     },
                                                 ),
@@ -22968,7 +22968,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            724,
+                                                            725,
                                                         ),
                                                     },
                                                 },
@@ -23012,7 +23012,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        725,
+                                                        726,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -23093,7 +23093,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `f32`,
                                                                             token_idx: TokenIdx(
-                                                                                702,
+                                                                                703,
                                                                             ),
                                                                         },
                                                                     ),
@@ -23195,7 +23195,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `f32`,
                                                                 token_idx: TokenIdx(
-                                                                    726,
+                                                                    727,
                                                                 ),
                                                             },
                                                         ),
@@ -23210,7 +23210,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `f32`,
                                                                 token_idx: TokenIdx(
-                                                                    729,
+                                                                    730,
                                                                 ),
                                                             },
                                                         ),
@@ -23233,7 +23233,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    724,
+                                                                    725,
                                                                 ),
                                                             },
                                                         },
@@ -23277,7 +23277,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                725,
+                                                                726,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -23420,7 +23420,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            736,
+                                            737,
                                         ),
                                     ),
                                     ty: 0,
@@ -23471,7 +23471,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `f32`,
                                                                     token_idx: TokenIdx(
-                                                                        702,
+                                                                        703,
                                                                     ),
                                                                 },
                                                             ),
@@ -23573,7 +23573,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f32`,
                                                         token_idx: TokenIdx(
-                                                            737,
+                                                            738,
                                                         ),
                                                     },
                                                 ),
@@ -23588,7 +23588,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f32`,
                                                         token_idx: TokenIdx(
-                                                            740,
+                                                            741,
                                                         ),
                                                     },
                                                 ),
@@ -23611,7 +23611,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            735,
+                                                            736,
                                                         ),
                                                     },
                                                 },
@@ -23655,7 +23655,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        736,
+                                                        737,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -23736,7 +23736,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `f32`,
                                                                             token_idx: TokenIdx(
-                                                                                702,
+                                                                                703,
                                                                             ),
                                                                         },
                                                                     ),
@@ -23838,7 +23838,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `f32`,
                                                                 token_idx: TokenIdx(
-                                                                    737,
+                                                                    738,
                                                                 ),
                                                             },
                                                         ),
@@ -23853,7 +23853,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `f32`,
                                                                 token_idx: TokenIdx(
-                                                                    740,
+                                                                    741,
                                                                 ),
                                                             },
                                                         ),
@@ -23876,7 +23876,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    735,
+                                                                    736,
                                                                 ),
                                                             },
                                                         },
@@ -23920,7 +23920,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                736,
+                                                                737,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -24101,7 +24101,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `f32`,
                                                                     token_idx: TokenIdx(
-                                                                        702,
+                                                                        703,
                                                                     ),
                                                                 },
                                                             ),
@@ -24193,7 +24193,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i32`,
                                                         token_idx: TokenIdx(
-                                                            748,
+                                                            749,
                                                         ),
                                                     },
                                                 ),
@@ -24288,7 +24288,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `f32`,
                                                                             token_idx: TokenIdx(
-                                                                                702,
+                                                                                703,
                                                                             ),
                                                                         },
                                                                     ),
@@ -24380,7 +24380,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i32`,
                                                                 token_idx: TokenIdx(
-                                                                    748,
+                                                                    749,
                                                                 ),
                                                             },
                                                         ),
@@ -24565,7 +24565,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `f32`,
                                                                     token_idx: TokenIdx(
-                                                                        702,
+                                                                        703,
                                                                     ),
                                                                 },
                                                             ),
@@ -24657,7 +24657,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f32`,
                                                         token_idx: TokenIdx(
-                                                            756,
+                                                            757,
                                                         ),
                                                     },
                                                 ),
@@ -24752,7 +24752,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `f32`,
                                                                             token_idx: TokenIdx(
-                                                                                702,
+                                                                                703,
                                                                             ),
                                                                         },
                                                                     ),
@@ -24844,7 +24844,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `f32`,
                                                                 token_idx: TokenIdx(
-                                                                    756,
+                                                                    757,
                                                                 ),
                                                             },
                                                         ),
@@ -25029,7 +25029,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `f32`,
                                                                     token_idx: TokenIdx(
-                                                                        702,
+                                                                        703,
                                                                     ),
                                                                 },
                                                             ),
@@ -25121,7 +25121,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f32`,
                                                         token_idx: TokenIdx(
-                                                            764,
+                                                            765,
                                                         ),
                                                     },
                                                 ),
@@ -25216,7 +25216,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `f32`,
                                                                             token_idx: TokenIdx(
-                                                                                702,
+                                                                                703,
                                                                             ),
                                                                         },
                                                                     ),
@@ -25308,7 +25308,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `f32`,
                                                                 token_idx: TokenIdx(
-                                                                    764,
+                                                                    765,
                                                                 ),
                                                             },
                                                         ),
@@ -25493,7 +25493,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `f32`,
                                                                     token_idx: TokenIdx(
-                                                                        702,
+                                                                        703,
                                                                     ),
                                                                 },
                                                             ),
@@ -25585,7 +25585,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f32`,
                                                         token_idx: TokenIdx(
-                                                            772,
+                                                            773,
                                                         ),
                                                     },
                                                 ),
@@ -25680,7 +25680,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `f32`,
                                                                             token_idx: TokenIdx(
-                                                                                702,
+                                                                                703,
                                                                             ),
                                                                         },
                                                                     ),
@@ -25772,7 +25772,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `f32`,
                                                                 token_idx: TokenIdx(
-                                                                    772,
+                                                                    773,
                                                                 ),
                                                             },
                                                         ),
@@ -25970,7 +25970,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    775,
+                                                    776,
                                                 ),
                                             },
                                         ),
@@ -25985,7 +25985,7 @@ Ok(
                                             IdentToken {
                                                 ident: `f32`,
                                                 token_idx: TokenIdx(
-                                                    776,
+                                                    777,
                                                 ),
                                             },
                                         ),
@@ -26000,7 +26000,7 @@ Ok(
                                             IdentToken {
                                                 ident: `f32`,
                                                 token_idx: TokenIdx(
-                                                    778,
+                                                    779,
                                                 ),
                                             },
                                         ),
@@ -26096,7 +26096,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            784,
+                                            785,
                                         ),
                                     ),
                                     ty: 0,
@@ -26174,7 +26174,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        775,
+                                                                        776,
                                                                     ),
                                                                 },
                                                             ),
@@ -26189,7 +26189,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `f32`,
                                                                     token_idx: TokenIdx(
-                                                                        776,
+                                                                        777,
                                                                     ),
                                                                 },
                                                             ),
@@ -26204,7 +26204,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `f32`,
                                                                     token_idx: TokenIdx(
-                                                                        778,
+                                                                        779,
                                                                     ),
                                                                 },
                                                             ),
@@ -26313,7 +26313,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f32`,
                                                         token_idx: TokenIdx(
-                                                            785,
+                                                            786,
                                                         ),
                                                     },
                                                 ),
@@ -26328,7 +26328,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f32`,
                                                         token_idx: TokenIdx(
-                                                            788,
+                                                            789,
                                                         ),
                                                     },
                                                 ),
@@ -26351,7 +26351,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            783,
+                                                            784,
                                                         ),
                                                     },
                                                 },
@@ -26395,7 +26395,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        784,
+                                                        785,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -26503,7 +26503,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                775,
+                                                                                776,
                                                                             ),
                                                                         },
                                                                     ),
@@ -26518,7 +26518,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `f32`,
                                                                             token_idx: TokenIdx(
-                                                                                776,
+                                                                                777,
                                                                             ),
                                                                         },
                                                                     ),
@@ -26533,7 +26533,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `f32`,
                                                                             token_idx: TokenIdx(
-                                                                                778,
+                                                                                779,
                                                                             ),
                                                                         },
                                                                     ),
@@ -26642,7 +26642,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `f32`,
                                                                 token_idx: TokenIdx(
-                                                                    785,
+                                                                    786,
                                                                 ),
                                                             },
                                                         ),
@@ -26657,7 +26657,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `f32`,
                                                                 token_idx: TokenIdx(
-                                                                    788,
+                                                                    789,
                                                                 ),
                                                             },
                                                         ),
@@ -26680,7 +26680,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    783,
+                                                                    784,
                                                                 ),
                                                             },
                                                         },
@@ -26724,7 +26724,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                784,
+                                                                785,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -26886,7 +26886,7 @@ Ok(
                                             IdentToken {
                                                 ident: `f64`,
                                                 token_idx: TokenIdx(
-                                                    815,
+                                                    816,
                                                 ),
                                             },
                                         ),
@@ -27010,7 +27010,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `f64`,
                                                                     token_idx: TokenIdx(
-                                                                        815,
+                                                                        816,
                                                                     ),
                                                                 },
                                                             ),
@@ -27102,7 +27102,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f64`,
                                                         token_idx: TokenIdx(
-                                                            823,
+                                                            824,
                                                         ),
                                                     },
                                                 ),
@@ -27197,7 +27197,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `f64`,
                                                                             token_idx: TokenIdx(
-                                                                                815,
+                                                                                816,
                                                                             ),
                                                                         },
                                                                     ),
@@ -27289,7 +27289,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `f64`,
                                                                 token_idx: TokenIdx(
-                                                                    823,
+                                                                    824,
                                                                 ),
                                                             },
                                                         ),
@@ -27474,7 +27474,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `f64`,
                                                                     token_idx: TokenIdx(
-                                                                        815,
+                                                                        816,
                                                                     ),
                                                                 },
                                                             ),
@@ -27566,7 +27566,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f64`,
                                                         token_idx: TokenIdx(
-                                                            831,
+                                                            832,
                                                         ),
                                                     },
                                                 ),
@@ -27661,7 +27661,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `f64`,
                                                                             token_idx: TokenIdx(
-                                                                                815,
+                                                                                816,
                                                                             ),
                                                                         },
                                                                     ),
@@ -27753,7 +27753,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `f64`,
                                                                 token_idx: TokenIdx(
-                                                                    831,
+                                                                    832,
                                                                 ),
                                                             },
                                                         ),
@@ -27951,7 +27951,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    834,
+                                                    835,
                                                 ),
                                             },
                                         ),
@@ -27966,7 +27966,7 @@ Ok(
                                             IdentToken {
                                                 ident: `f64`,
                                                 token_idx: TokenIdx(
-                                                    835,
+                                                    836,
                                                 ),
                                             },
                                         ),
@@ -27981,7 +27981,7 @@ Ok(
                                             IdentToken {
                                                 ident: `f64`,
                                                 token_idx: TokenIdx(
-                                                    837,
+                                                    838,
                                                 ),
                                             },
                                         ),
@@ -28077,7 +28077,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            844,
+                                            845,
                                         ),
                                     ),
                                     ty: 0,
@@ -28155,7 +28155,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        834,
+                                                                        835,
                                                                     ),
                                                                 },
                                                             ),
@@ -28170,7 +28170,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `f64`,
                                                                     token_idx: TokenIdx(
-                                                                        835,
+                                                                        836,
                                                                     ),
                                                                 },
                                                             ),
@@ -28185,7 +28185,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `f64`,
                                                                     token_idx: TokenIdx(
-                                                                        837,
+                                                                        838,
                                                                     ),
                                                                 },
                                                             ),
@@ -28294,7 +28294,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f64`,
                                                         token_idx: TokenIdx(
-                                                            845,
+                                                            846,
                                                         ),
                                                     },
                                                 ),
@@ -28309,7 +28309,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f64`,
                                                         token_idx: TokenIdx(
-                                                            848,
+                                                            849,
                                                         ),
                                                     },
                                                 ),
@@ -28332,7 +28332,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            843,
+                                                            844,
                                                         ),
                                                     },
                                                 },
@@ -28376,7 +28376,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        844,
+                                                        845,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -28484,7 +28484,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                834,
+                                                                                835,
                                                                             ),
                                                                         },
                                                                     ),
@@ -28499,7 +28499,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `f64`,
                                                                             token_idx: TokenIdx(
-                                                                                835,
+                                                                                836,
                                                                             ),
                                                                         },
                                                                     ),
@@ -28514,7 +28514,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `f64`,
                                                                             token_idx: TokenIdx(
-                                                                                837,
+                                                                                838,
                                                                             ),
                                                                         },
                                                                     ),
@@ -28623,7 +28623,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `f64`,
                                                                 token_idx: TokenIdx(
-                                                                    845,
+                                                                    846,
                                                                 ),
                                                             },
                                                         ),
@@ -28638,7 +28638,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `f64`,
                                                                 token_idx: TokenIdx(
-                                                                    848,
+                                                                    849,
                                                                 ),
                                                             },
                                                         ),
@@ -28661,7 +28661,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    843,
+                                                                    844,
                                                                 ),
                                                             },
                                                         },
@@ -28705,7 +28705,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                844,
+                                                                845,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {

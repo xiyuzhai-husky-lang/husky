@@ -56,7 +56,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                13,
+                                14,
                             ),
                         },
                     },
@@ -126,7 +126,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                35,
+                                36,
                             ),
                         },
                     },
@@ -142,7 +142,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
-                                38,
+                                39,
                             ),
                         },
                     },
@@ -157,7 +157,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                35,
+                                36,
                             ),
                         },
                     },
@@ -178,7 +178,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                48,
+                                49,
                             ),
                         },
                     },
@@ -194,7 +194,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
-                                51,
+                                52,
                             ),
                         },
                     },
@@ -209,7 +209,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                48,
+                                49,
                             ),
                         },
                     },
@@ -250,7 +250,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                48,
+                                49,
                             ),
                         },
                     },
@@ -264,7 +264,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
-                                51,
+                                52,
                             ),
                         },
                     },
@@ -286,7 +286,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                48,
+                                49,
                             ),
                         },
                     },
@@ -381,7 +381,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                85,
+                                86,
                             ),
                         },
                     },
@@ -397,7 +397,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
-                                88,
+                                89,
                             ),
                         },
                     },
@@ -412,7 +412,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                85,
+                                86,
                             ),
                         },
                     },
@@ -435,7 +435,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                100,
+                                101,
                             ),
                         },
                     },
@@ -451,7 +451,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
-                                103,
+                                104,
                             ),
                         },
                     },
@@ -466,7 +466,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                100,
+                                101,
                             ),
                         },
                     },
@@ -507,7 +507,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                100,
+                                101,
                             ),
                         },
                     },
@@ -521,7 +521,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
-                                103,
+                                104,
                             ),
                         },
                     },
@@ -543,7 +543,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                100,
+                                101,
                             ),
                         },
                     },
@@ -557,7 +557,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
-                                103,
+                                104,
                             ),
                         },
                     },
@@ -625,7 +625,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                129,
+                                130,
                             ),
                         },
                     },
@@ -641,7 +641,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
-                                132,
+                                133,
                             ),
                         },
                     },
@@ -656,7 +656,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                129,
+                                130,
                             ),
                         },
                     },
@@ -674,7 +674,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `f`,
                         token_idx: TokenIdx(
-                            140,
+                            141,
                         ),
                     },
                 },
@@ -723,7 +723,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                129,
+                                130,
                             ),
                         },
                     },
@@ -737,7 +737,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
-                                132,
+                                133,
                             ),
                         },
                     },

@@ -114,13 +114,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `norm`,
                         token_idx: TokenIdx(
-                            28,
+                            29,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            29,
+                            30,
                         ),
                         drained: false,
                     },
@@ -156,13 +156,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `rel_norm`,
                         token_idx: TokenIdx(
-                            68,
+                            69,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            69,
+                            70,
                         ),
                         drained: false,
                     },
@@ -198,13 +198,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `angle_change_norm`,
                         token_idx: TokenIdx(
-                            108,
+                            109,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            109,
+                            110,
                         ),
                         drained: false,
                     },
@@ -285,7 +285,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    4,
+                                    5,
                                 ),
                             },
                         },
@@ -299,13 +299,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `FermiMatchResult`,
                         token_idx: TokenIdx(
-                            6,
+                            7,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            7,
+                            8,
                         ),
                         drained: false,
                     },
@@ -341,7 +341,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    151,
+                                    152,
                                 ),
                             },
                         },
@@ -355,13 +355,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `fermi_match`,
                         token_idx: TokenIdx(
-                            153,
+                            154,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            154,
+                            155,
                         ),
                         drained: false,
                     },

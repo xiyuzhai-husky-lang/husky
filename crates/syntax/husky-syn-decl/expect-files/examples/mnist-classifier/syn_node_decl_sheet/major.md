@@ -28,7 +28,7 @@ Ok(
                                     Some(
                                         ColonToken(
                                             TokenIdx(
-                                                7,
+                                                8,
                                             ),
                                         ),
                                     ),
@@ -43,7 +43,7 @@ Ok(
                                 eq_token: Ok(
                                     EqToken(
                                         TokenIdx(
-                                            11,
+                                            12,
                                         ),
                                     ),
                                 ),
@@ -67,11 +67,11 @@ Ok(
                                             data: [
                                                 SynExpr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        8,
+                                                        9,
                                                     ),
                                                     items: [],
                                                     rbox_token_idx: TokenIdx(
-                                                        9,
+                                                        10,
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
@@ -97,7 +97,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `ConnectedComponent`,
                                                             token_idx: TokenIdx(
-                                                                10,
+                                                                11,
                                                             ),
                                                         },
                                                     ),
@@ -178,7 +178,7 @@ Ok(
                                     Some(
                                         ColonToken(
                                             TokenIdx(
-                                                19,
+                                                20,
                                             ),
                                         ),
                                     ),
@@ -193,7 +193,7 @@ Ok(
                                 eq_token: Ok(
                                     EqToken(
                                         TokenIdx(
-                                            22,
+                                            23,
                                         ),
                                     ),
                                 ),
@@ -228,7 +228,7 @@ Ok(
                                                 SynExpr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        20,
+                                                        21,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -241,7 +241,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `ConnectedComponent`,
                                                             token_idx: TokenIdx(
-                                                                21,
+                                                                22,
                                                             ),
                                                         },
                                                     ),
@@ -322,7 +322,7 @@ Ok(
                                     Some(
                                         ColonToken(
                                             TokenIdx(
-                                                70,
+                                                71,
                                             ),
                                         ),
                                     ),
@@ -337,7 +337,7 @@ Ok(
                                 eq_token: Ok(
                                     EqToken(
                                         TokenIdx(
-                                            72,
+                                            73,
                                         ),
                                     ),
                                 ),
@@ -378,7 +378,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `f32`,
                                                             token_idx: TokenIdx(
-                                                                71,
+                                                                72,
                                                             ),
                                                         },
                                                     ),
@@ -459,7 +459,7 @@ Ok(
                                     Some(
                                         ColonToken(
                                             TokenIdx(
-                                                104,
+                                                105,
                                             ),
                                         ),
                                     ),
@@ -474,7 +474,7 @@ Ok(
                                 eq_token: Ok(
                                     EqToken(
                                         TokenIdx(
-                                            109,
+                                            110,
                                         ),
                                     ),
                                 ),
@@ -498,17 +498,17 @@ Ok(
                                             data: [
                                                 SynExpr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        106,
+                                                        107,
                                                     ),
                                                     items: [],
                                                     rbox_token_idx: TokenIdx(
-                                                        107,
+                                                        108,
                                                     ),
                                                 },
                                                 SynExpr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        105,
+                                                        106,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -535,7 +535,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `RawContour`,
                                                             token_idx: TokenIdx(
-                                                                108,
+                                                                109,
                                                             ),
                                                         },
                                                     ),
@@ -616,7 +616,7 @@ Ok(
                                     Some(
                                         ColonToken(
                                             TokenIdx(
-                                                116,
+                                                117,
                                             ),
                                         ),
                                     ),
@@ -631,7 +631,7 @@ Ok(
                                 eq_token: Ok(
                                     EqToken(
                                         TokenIdx(
-                                            119,
+                                            120,
                                         ),
                                     ),
                                 ),
@@ -666,7 +666,7 @@ Ok(
                                                 SynExpr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        117,
+                                                        118,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -679,7 +679,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `RawContour`,
                                                             token_idx: TokenIdx(
-                                                                118,
+                                                                119,
                                                             ),
                                                         },
                                                     ),
@@ -760,7 +760,7 @@ Ok(
                                     Some(
                                         ColonToken(
                                             TokenIdx(
-                                                129,
+                                                130,
                                             ),
                                         ),
                                     ),
@@ -775,7 +775,7 @@ Ok(
                                 eq_token: Ok(
                                     EqToken(
                                         TokenIdx(
-                                            132,
+                                            133,
                                         ),
                                     ),
                                 ),
@@ -810,7 +810,7 @@ Ok(
                                                 SynExpr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        130,
+                                                        131,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -823,7 +823,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `LineSegmentSketch`,
                                                             token_idx: TokenIdx(
-                                                                131,
+                                                                132,
                                                             ),
                                                         },
                                                     ),
@@ -904,7 +904,7 @@ Ok(
                                     Some(
                                         ColonToken(
                                             TokenIdx(
-                                                139,
+                                                140,
                                             ),
                                         ),
                                     ),
@@ -919,7 +919,7 @@ Ok(
                                 eq_token: Ok(
                                     EqToken(
                                         TokenIdx(
-                                            144,
+                                            145,
                                         ),
                                     ),
                                 ),
@@ -943,17 +943,17 @@ Ok(
                                             data: [
                                                 SynExpr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        141,
+                                                        142,
                                                     ),
                                                     items: [],
                                                     rbox_token_idx: TokenIdx(
-                                                        142,
+                                                        143,
                                                     ),
                                                 },
                                                 SynExpr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        140,
+                                                        141,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -980,7 +980,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `ConcaveComponent`,
                                                             token_idx: TokenIdx(
-                                                                143,
+                                                                144,
                                                             ),
                                                         },
                                                     ),

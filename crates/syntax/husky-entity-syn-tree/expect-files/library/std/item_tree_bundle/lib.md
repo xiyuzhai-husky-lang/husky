@@ -23,7 +23,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `prelude`,
                                         token_idx: TokenIdx(
-                                            1,
+                                            2,
                                         ),
                                     },
                                 },
@@ -61,7 +61,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `logic`,
                                         token_idx: TokenIdx(
-                                            3,
+                                            4,
                                         ),
                                     },
                                 },
@@ -99,7 +99,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `ops`,
                                         token_idx: TokenIdx(
-                                            5,
+                                            6,
                                         ),
                                     },
                                 },
@@ -148,7 +148,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `prelude`,
                                         token_idx: TokenIdx(
-                                            1,
+                                            2,
                                         ),
                                     },
                                 },
@@ -179,7 +179,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `logic`,
                                         token_idx: TokenIdx(
-                                            3,
+                                            4,
                                         ),
                                     },
                                 },
@@ -210,7 +210,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `ops`,
                                         token_idx: TokenIdx(
-                                            5,
+                                            6,
                                         ),
                                     },
                                 },
@@ -274,7 +274,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `Prop`,
                                                 token_idx: TokenIdx(
-                                                    6,
+                                                    7,
                                                 ),
                                             },
                                             block: Type {
@@ -321,7 +321,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `LogicAnd`,
                                                 token_idx: TokenIdx(
-                                                    10,
+                                                    11,
                                                 ),
                                             },
                                             block: Type {
@@ -368,7 +368,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `LogicOr`,
                                                 token_idx: TokenIdx(
-                                                    32,
+                                                    33,
                                                 ),
                                             },
                                             block: Type {
@@ -412,7 +412,7 @@ Ok(
                                     IdentToken {
                                         ident: `core`,
                                         token_idx: TokenIdx(
-                                            2,
+                                            3,
                                         ),
                                     },
                                 ),
@@ -440,7 +440,7 @@ Ok(
                                     IdentToken {
                                         ident: `logic`,
                                         token_idx: TokenIdx(
-                                            4,
+                                            5,
                                         ),
                                     },
                                 ),
@@ -503,7 +503,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `Add`,
                                         token_idx: TokenIdx(
-                                            7,
+                                            8,
                                         ),
                                     },
                                     block: Trait {
@@ -566,7 +566,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `Add`,
                                         token_idx: TokenIdx(
-                                            7,
+                                            8,
                                         ),
                                     },
                                     block: Trait {

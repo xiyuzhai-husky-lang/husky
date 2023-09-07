@@ -365,18 +365,62 @@ Ok(
                 ),
             ),
         ],
-        group_starts: [
-            0,
-            7,
-            14,
-            21,
-            28,
-            35,
-            42,
-            49,
-            56,
-            63,
-            70,
+        token_group_bases: [
+            TokenGroupBase(
+                TokenIdx(
+                    1,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    8,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    15,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    22,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    29,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    36,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    43,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    50,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    57,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    64,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    71,
+                ),
+            ),
         ],
         indents: [
             0,

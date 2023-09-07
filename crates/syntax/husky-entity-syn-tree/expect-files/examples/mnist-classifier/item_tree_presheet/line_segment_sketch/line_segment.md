@@ -19,7 +19,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `LineSegment`,
                                 token_idx: TokenIdx(
-                                    8,
+                                    9,
                                 ),
                             },
                             block: Type {
@@ -59,7 +59,7 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
@@ -80,7 +80,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            5,
+                            6,
                         ),
                     ),
                 },
@@ -90,14 +90,14 @@ Ok(
                             IdentToken {
                                 ident: `geom2d`,
                                 token_idx: TokenIdx(
-                                    3,
+                                    4,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    4,
+                                    5,
                                 ),
                             ),
                         ),
@@ -113,14 +113,14 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    2,
+                                    3,
                                 ),
                             ),
                         ),

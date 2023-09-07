@@ -32,7 +32,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `B`,
                             token_idx: TokenIdx(
-                                9,
+                                10,
                             ),
                         },
                     },

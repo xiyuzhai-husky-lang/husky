@@ -170,7 +170,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `one`,
                                     token_idx: TokenIdx(
-                                        3,
+                                        4,
                                     ),
                                 },
                             },
@@ -204,7 +204,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `is_one`,
                                     token_idx: TokenIdx(
-                                        23,
+                                        24,
                                     ),
                                 },
                                 block: Fugitive {
@@ -269,7 +269,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `six`,
                                     token_idx: TokenIdx(
-                                        5,
+                                        6,
                                     ),
                                 },
                             },
@@ -305,7 +305,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `is_six`,
                                     token_idx: TokenIdx(
-                                        37,
+                                        38,
                                     ),
                                 },
                                 block: Fugitive {
@@ -370,7 +370,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `zero`,
                                     token_idx: TokenIdx(
-                                        1,
+                                        2,
                                     ),
                                 },
                             },
@@ -406,7 +406,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `is_zero`,
                                     token_idx: TokenIdx(
-                                        49,
+                                        50,
                                     ),
                                 },
                                 block: Fugitive {
@@ -471,7 +471,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `two`,
                                     token_idx: TokenIdx(
-                                        19,
+                                        20,
                                     ),
                                 },
                             },
@@ -507,7 +507,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `is_two`,
                                     token_idx: TokenIdx(
-                                        113,
+                                        114,
                                     ),
                                 },
                                 block: Fugitive {
@@ -572,7 +572,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `three`,
                                     token_idx: TokenIdx(
-                                        7,
+                                        8,
                                     ),
                                 },
                             },
@@ -608,7 +608,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `is_three`,
                                     token_idx: TokenIdx(
-                                        26,
+                                        27,
                                     ),
                                 },
                                 block: Fugitive {
@@ -673,7 +673,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `five`,
                                     token_idx: TokenIdx(
-                                        11,
+                                        12,
                                     ),
                                 },
                             },
@@ -709,7 +709,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `is_five`,
                                     token_idx: TokenIdx(
-                                        9,
+                                        10,
                                     ),
                                 },
                                 block: Fugitive {
@@ -774,7 +774,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `seven`,
                                     token_idx: TokenIdx(
-                                        13,
+                                        14,
                                     ),
                                 },
                             },
@@ -810,7 +810,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `is_seven`,
                                     token_idx: TokenIdx(
-                                        164,
+                                        165,
                                     ),
                                 },
                                 block: Fugitive {
@@ -875,7 +875,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `eight`,
                                     token_idx: TokenIdx(
-                                        15,
+                                        16,
                                     ),
                                 },
                             },
@@ -911,7 +911,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `is_eight`,
                                     token_idx: TokenIdx(
-                                        22,
+                                        23,
                                     ),
                                 },
                                 block: Fugitive {
@@ -976,7 +976,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `nine`,
                                     token_idx: TokenIdx(
-                                        17,
+                                        18,
                                     ),
                                 },
                             },
@@ -1012,7 +1012,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `is_nine`,
                                     token_idx: TokenIdx(
-                                        35,
+                                        36,
                                     ),
                                 },
                                 block: Fugitive {

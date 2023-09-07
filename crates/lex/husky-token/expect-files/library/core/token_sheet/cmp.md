@@ -78,12 +78,32 @@ Ok(
                 ),
             ),
         ],
-        group_starts: [
-            0,
-            4,
-            8,
-            12,
-            16,
+        token_group_bases: [
+            TokenGroupBase(
+                TokenIdx(
+                    1,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    5,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    9,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    13,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    17,
+                ),
+            ),
         ],
         indents: [
             0,

@@ -15,7 +15,7 @@ Ok(
                             IdentToken {
                                 ident: `core`,
                                 token_idx: TokenIdx(
-                                    2,
+                                    3,
                                 ),
                             },
                         ),
@@ -36,7 +36,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            6,
+                            7,
                         ),
                     ),
                 },
@@ -46,14 +46,14 @@ Ok(
                             IdentToken {
                                 ident: `logic`,
                                 token_idx: TokenIdx(
-                                    4,
+                                    5,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    5,
+                                    6,
                                 ),
                             ),
                         ),
@@ -70,14 +70,14 @@ Ok(
                             IdentToken {
                                 ident: `core`,
                                 token_idx: TokenIdx(
-                                    2,
+                                    3,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    3,
+                                    4,
                                 ),
                             ),
                         ),

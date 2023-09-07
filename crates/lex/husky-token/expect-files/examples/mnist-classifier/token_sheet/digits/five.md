@@ -94,10 +94,22 @@ Ok(
                 `Yes`,
             ),
         ],
-        group_starts: [
-            0,
-            4,
-            17,
+        token_group_bases: [
+            TokenGroupBase(
+                TokenIdx(
+                    1,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    5,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    18,
+                ),
+            ),
         ],
         indents: [
             0,

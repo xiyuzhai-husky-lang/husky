@@ -55,7 +55,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `x`,
                         token_idx: TokenIdx(
-                            13,
+                            14,
                         ),
                     },
                 },
@@ -76,7 +76,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `y`,
                         token_idx: TokenIdx(
-                            17,
+                            18,
                         ),
                     },
                 },
@@ -512,7 +512,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `x`,
                         token_idx: TokenIdx(
-                            155,
+                            156,
                         ),
                     },
                 },
@@ -533,7 +533,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `y`,
                         token_idx: TokenIdx(
-                            159,
+                            160,
                         ),
                     },
                 },
@@ -576,7 +576,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `x`,
                         token_idx: TokenIdx(
-                            168,
+                            169,
                         ),
                     },
                 },
@@ -597,7 +597,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `y`,
                         token_idx: TokenIdx(
-                            172,
+                            173,
                         ),
                     },
                 },
@@ -1466,7 +1466,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `min`,
                         token_idx: TokenIdx(
-                            497,
+                            498,
                         ),
                     },
                 },
@@ -1487,7 +1487,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `max`,
                         token_idx: TokenIdx(
-                            501,
+                            502,
                         ),
                     },
                 },
@@ -1794,7 +1794,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `xrange`,
                         token_idx: TokenIdx(
-                            606,
+                            607,
                         ),
                     },
                 },
@@ -1816,7 +1816,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `yrange`,
                         token_idx: TokenIdx(
-                            611,
+                            612,
                         ),
                     },
                 },
@@ -2226,7 +2226,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `xrange`,
                         token_idx: TokenIdx(
-                            741,
+                            742,
                         ),
                     },
                 },
@@ -2247,7 +2247,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `yrange`,
                         token_idx: TokenIdx(
-                            745,
+                            746,
                         ),
                     },
                 },

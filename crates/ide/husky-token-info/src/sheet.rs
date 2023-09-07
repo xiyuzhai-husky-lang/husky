@@ -11,8 +11,8 @@ pub struct TokenInfoSheet {
 impl std::ops::Index<TokenIdx> for TokenInfoSheet {
     type Output = TokenInfo;
 
-    fn index(&self, index: TokenIdx) -> &Self::Output {
-        &self.token_infos[index.raw()]
+    fn index(&self, idx: TokenIdx) -> &Self::Output {
+        &self.token_infos[idx.index()]
     }
 }
 
@@ -27,8 +27,8 @@ impl TokenInfoSheet {
     }
 
     pub(crate) fn add(&mut self, token_idx: TokenIdx, token_info: TokenInfo) {
-        assert_eq!(self.token_infos[token_idx.raw()], TokenInfo::None);
-        self.token_infos[token_idx.raw()] = token_info
+        assert_eq!(self.token_infos[token_idx.index()], TokenInfo::None);
+        self.token_infos[token_idx.index()] = token_info
     }
 
     pub fn informative_ranged_token_iter<'a>(

@@ -11,7 +11,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    31,
+                                    32,
                                 ),
                             },
                         },
@@ -24,13 +24,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `last_bits`,
                         token_idx: TokenIdx(
-                            33,
+                            34,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            34,
+                            35,
                         ),
                         drained: false,
                     },
@@ -47,7 +47,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    42,
+                                    43,
                                 ),
                             },
                         },
@@ -60,13 +60,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `ctz`,
                         token_idx: TokenIdx(
-                            44,
+                            45,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            45,
+                            46,
                         ),
                         drained: false,
                     },
@@ -83,7 +83,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    50,
+                                    51,
                                 ),
                             },
                         },
@@ -96,13 +96,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `co`,
                         token_idx: TokenIdx(
-                            52,
+                            53,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            53,
+                            54,
                         ),
                         drained: false,
                     },
@@ -119,7 +119,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    58,
+                                    59,
                                 ),
                             },
                         },
@@ -132,13 +132,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `span`,
                         token_idx: TokenIdx(
-                            60,
+                            61,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            61,
+                            62,
                         ),
                         drained: false,
                     },
@@ -155,7 +155,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    66,
+                                    67,
                                 ),
                             },
                         },
@@ -168,13 +168,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `right_mass`,
                         token_idx: TokenIdx(
-                            68,
+                            69,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            69,
+                            70,
                         ),
                         drained: false,
                     },
@@ -218,7 +218,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    24,
+                                    25,
                                 ),
                             },
                         },
@@ -232,13 +232,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `r32`,
                         token_idx: TokenIdx(
-                            26,
+                            27,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            27,
+                            28,
                         ),
                         drained: false,
                     },

@@ -102,13 +102,37 @@ Ok(
                 ),
             ),
         ],
-        group_starts: [
-            0,
-            4,
-            8,
-            12,
-            16,
-            20,
+        token_group_bases: [
+            TokenGroupBase(
+                TokenIdx(
+                    1,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    5,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    9,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    13,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    17,
+                ),
+            ),
+            TokenGroupBase(
+                TokenIdx(
+                    21,
+                ),
+            ),
         ],
         indents: [
             0,

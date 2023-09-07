@@ -43,7 +43,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `line_segment_sketch`,
                                     token_idx: TokenIdx(
-                                        7,
+                                        8,
                                     ),
                                 },
                             },
@@ -95,7 +95,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `line_segment_sketch`,
                                     token_idx: TokenIdx(
-                                        7,
+                                        8,
                                     ),
                                 },
                             },
@@ -131,7 +131,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `line_segment`,
                                     token_idx: TokenIdx(
-                                        7,
+                                        8,
                                     ),
                                 },
                             },
@@ -183,7 +183,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `line_segment_sketch`,
                                     token_idx: TokenIdx(
-                                        7,
+                                        8,
                                     ),
                                 },
                             },
@@ -219,7 +219,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `convexity`,
                                     token_idx: TokenIdx(
-                                        5,
+                                        6,
                                     ),
                                 },
                             },
@@ -271,7 +271,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `geom2d`,
                                     token_idx: TokenIdx(
-                                        5,
+                                        6,
                                     ),
                                 },
                             },
@@ -324,7 +324,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `line_segment_sketch`,
                         token_idx: TokenIdx(
-                            36,
+                            37,
                         ),
                     },
                 },
@@ -346,7 +346,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `strokes`,
                         token_idx: TokenIdx(
-                            41,
+                            42,
                         ),
                     },
                 },

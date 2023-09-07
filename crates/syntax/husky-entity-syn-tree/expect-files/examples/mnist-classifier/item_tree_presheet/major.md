@@ -19,7 +19,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `connected_components`,
                                 token_idx: TokenIdx(
-                                    6,
+                                    7,
                                 ),
                             },
                             block: Fugitive {
@@ -67,7 +67,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `major_connected_component`,
                                 token_idx: TokenIdx(
-                                    18,
+                                    19,
                                 ),
                             },
                             block: Fugitive {
@@ -115,7 +115,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `ignored_connected_components_row_span_sum_sum`,
                                 token_idx: TokenIdx(
-                                    69,
+                                    70,
                                 ),
                             },
                             block: Fugitive {
@@ -163,7 +163,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `major_raw_contours`,
                                 token_idx: TokenIdx(
-                                    103,
+                                    104,
                                 ),
                             },
                             block: Fugitive {
@@ -211,7 +211,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `major_raw_contour`,
                                 token_idx: TokenIdx(
-                                    115,
+                                    116,
                                 ),
                             },
                             block: Fugitive {
@@ -259,7 +259,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `major_line_segment_sketch`,
                                 token_idx: TokenIdx(
-                                    128,
+                                    129,
                                 ),
                             },
                             block: Fugitive {
@@ -307,7 +307,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `major_concave_components`,
                                 token_idx: TokenIdx(
-                                    138,
+                                    139,
                                 ),
                             },
                             block: Fugitive {
@@ -353,7 +353,7 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
@@ -374,7 +374,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            3,
+                            4,
                         ),
                     ),
                 },
@@ -383,14 +383,14 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    2,
+                                    3,
                                 ),
                             ),
                         ),

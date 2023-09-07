@@ -86,7 +86,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `concave_component`,
                                     token_idx: TokenIdx(
-                                        1,
+                                        2,
                                     ),
                                 },
                             },
@@ -125,7 +125,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `convex_component`,
                                     token_idx: TokenIdx(
-                                        3,
+                                        4,
                                     ),
                                 },
                             },
@@ -164,7 +164,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `line_segment`,
                                     token_idx: TokenIdx(
-                                        7,
+                                        8,
                                     ),
                                 },
                             },
@@ -216,7 +216,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `geom2d`,
                                     token_idx: TokenIdx(
-                                        5,
+                                        6,
                                     ),
                                 },
                             },
@@ -268,7 +268,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `raw_contour`,
                                     token_idx: TokenIdx(
-                                        3,
+                                        4,
                                     ),
                                 },
                             },
@@ -302,7 +302,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `RawContour`,
                                     token_idx: TokenIdx(
-                                        24,
+                                        25,
                                     ),
                                 },
                                 block: Type {
@@ -346,7 +346,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `line_segment`,
                                     token_idx: TokenIdx(
-                                        7,
+                                        8,
                                     ),
                                 },
                             },
@@ -383,7 +383,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `points`,
                         token_idx: TokenIdx(
-                            43,
+                            44,
                         ),
                     },
                 },
@@ -412,7 +412,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `start`,
                         token_idx: TokenIdx(
-                            49,
+                            50,
                         ),
                     },
                 },
@@ -433,7 +433,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `points`,
                         token_idx: TokenIdx(
-                            43,
+                            44,
                         ),
                     },
                 },
@@ -455,7 +455,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `end`,
                         token_idx: TokenIdx(
-                            64,
+                            65,
                         ),
                     },
                 },
@@ -476,7 +476,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `points`,
                         token_idx: TokenIdx(
-                            43,
+                            44,
                         ),
                     },
                 },
@@ -791,7 +791,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `contour`,
                         token_idx: TokenIdx(
-                            172,
+                            173,
                         ),
                     },
                 },
@@ -813,7 +813,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `strokes`,
                         token_idx: TokenIdx(
-                            177,
+                            178,
                         ),
                     },
                 },

@@ -326,7 +326,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `prelude`,
                                     token_idx: TokenIdx(
-                                        38,
+                                        39,
                                     ),
                                 },
                             },
