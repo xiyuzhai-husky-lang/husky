@@ -12,7 +12,6 @@ pub struct SynExprContext<'a> {
     path: RegionPath,
     module_path: ModulePath,
     crate_root_path: ModulePath,
-    token_sheet_data: &'a TokenSheetData,
     parent_syn_expr_region: Option<SynExprRegion>,
     syn_symbol_context: SynSymbolContextMut<'a>,
     syn_expr_arena: SynExprArena,
@@ -35,7 +34,6 @@ impl<'a> SynExprContext<'a> {
     pub fn new(
         db: &'a dyn SynExprDb,
         path: RegionPath,
-        token_sheet_data: &'a TokenSheetData,
         module_symbol_context: ModuleSymbolContext<'a>,
         parent_expr_region: Option<SynExprRegion>,
         allow_self_type: AllowSelfType,
@@ -47,7 +45,6 @@ impl<'a> SynExprContext<'a> {
             path,
             module_path,
             crate_root_path: module_path.crate_path(db).root_module_path(db),
-            token_sheet_data,
             parent_syn_expr_region: parent_expr_region,
             syn_symbol_context: SynSymbolContextMut::new(
                 module_symbol_context,
@@ -165,9 +162,5 @@ impl<'a> SynExprContext<'a> {
 
     pub fn crate_root_path(&self) -> ModulePath {
         self.crate_root_path
-    }
-
-    pub fn token_sheet_data(&self) -> &'a TokenSheetData {
-        self.token_sheet_data
     }
 }
