@@ -32,10 +32,10 @@ impl TupleStructTypeSynNodeDecl {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct TupleStructRparToken(RparToken);
 
-impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for TupleStructRparToken {
+impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for TupleStructRparToken {
     type Error = SynNodeDeclError;
 
-    fn try_parse_from_stream(sp: &mut ExprParseContext) -> Result<Self, Self::Error> {
+    fn try_parse_from_stream(sp: &mut SynDeclExprParser<'a>) -> Result<Self, Self::Error> {
         // todo: enrich this
         // consider unexpected
         // maybe sp.skip_exprs_until_next_right_parenthesis

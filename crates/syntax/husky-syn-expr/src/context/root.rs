@@ -44,8 +44,8 @@ pub enum ExprRootKind {
     AssociatedTypeTerm,
 }
 
-impl<'a> ExprParser<'a> {
-    pub(super) fn add_expr_root(&mut self, kind: ExprRootKind, expr: SynExprIdx) {
-        self.expr_roots.push(SynExprRoot::new(kind, expr))
+impl<'a> SynExprContext<'a> {
+    pub(crate) fn add_expr_root(&mut self, kind: ExprRootKind, expr: SynExprIdx) {
+        self.syn_expr_roots.push(SynExprRoot::new(kind, expr))
     }
 }

@@ -65,11 +65,14 @@ impl<'a> DeclParserFactory<'a> {
         token_group_idx: TokenGroupIdx,
     ) -> IllFormedImplBlockSynNodeDecl {
         let db = self.db();
-        let mut parser = self.expr_parser(
+        let mut parser = self.parser(
             node.syn_node_path(db),
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
+            None,
+            token_group_idx,
+            None,
         );
         IllFormedImplBlockSynNodeDecl::new(db, syn_node_path, ast_idx, parser.finish())
     }

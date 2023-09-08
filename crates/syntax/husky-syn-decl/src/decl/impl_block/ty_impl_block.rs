@@ -72,17 +72,19 @@ impl<'a> DeclParserFactory<'a> {
         token_group_idx: TokenGroupIdx,
     ) -> TypeImplBlockSynNodeDecl {
         let db = self.db();
-        let mut parser = self.expr_parser(
+        let mut parser = self.parser(
             syn_node_path,
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
+            None,
+            token_group_idx,
+            None,
         );
-        let mut ctx = parser.ctx(None, token_group_idx, None);
-        let impl_token = ctx.try_parse_option().unwrap().unwrap();
-        let template_parameter_decl_list = ctx.try_parse_option();
-        let ty = ctx.try_parse_option().unwrap().unwrap();
-        let eol_colon = ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
+        let impl_token = parser.try_parse_option().unwrap().unwrap();
+        let template_parameter_decl_list = parser.try_parse_option();
+        let ty = parser.try_parse_option().unwrap().unwrap();
+        let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
         TypeImplBlockSynNodeDecl::new(
             db,
             syn_node_path,

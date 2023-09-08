@@ -16,11 +16,11 @@ impl TupleFieldObelisk {
     }
 }
 
-impl<'a, 'b> parsec::TryParseOptionFromStream<ExprParseContext<'a, 'b>> for TupleFieldObelisk {
+impl<'a> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for TupleFieldObelisk {
     type Error = ExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b>,
+        ctx: &mut SynDeclExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
         let decorators = parse_consecutive_list(ctx)?;
         let visibility = ctx.try_parse_option()?;
@@ -41,11 +41,11 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<ExprParseContext<'a, 'b>> for Tupl
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct FieldDecorator {}
 
-impl<'a, 'b> parsec::TryParseOptionFromStream<ExprParseContext<'a, 'b>> for FieldDecorator {
+impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for FieldDecorator {
     type Error = ExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b>,
+        ctx: &mut SynDeclExprParser<'a>,
     ) -> Result<Option<Self>, Self::Error> {
         let Some(at_token) = ctx.try_parse_option::<AtToken>()? else {
             return Ok(None);
@@ -62,11 +62,11 @@ pub enum FieldVisibilityExpr {
     Pub,
 }
 
-impl<'a, 'b> parsec::TryParseOptionFromStream<ExprParseContext<'a, 'b>> for FieldVisibilityExpr {
+impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for FieldVisibilityExpr {
     type Error = ExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b>,
+        ctx: &mut SynDeclExprParser<'a>,
     ) -> Result<Option<Self>, Self::Error> {
         let Some(pub_token) = ctx.try_parse_option::<PubToken>()? else {
             return Ok(None);

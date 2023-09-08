@@ -15,7 +15,7 @@ impl TraitForTypeMethodFnSynNodeDefn {
         syn_node_path: TraitForTypeItemSynNodePath,
         syn_node_decl: TraitForTypeMethodFnSynNodeDecl,
     ) -> Self {
-        let mut parser = expr_parser(
+        let mut parser = stmt_context(
             db,
             syn_node_path,
             syn_node_decl.syn_expr_region(db),

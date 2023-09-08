@@ -2,12 +2,12 @@ use husky_vfs::ModulePath;
 
 use super::*;
 
-pub struct SymbolContextMut<'a> {
+pub struct SynSymbolContextMut<'a> {
     module_symbol_context: ModuleSymbolContext<'a>,
     symbol_region: SynSymbolRegion,
 }
 
-impl<'a> SymbolContextMut<'a> {
+impl<'a> SynSymbolContextMut<'a> {
     pub fn new(
         module_symbol_context: ModuleSymbolContext<'a>,
         parent_symbol_region: Option<&SynSymbolRegion>,
@@ -47,7 +47,7 @@ impl<'a> SymbolContextMut<'a> {
         parent: Option<SynExprRegion>,
         path: RegionPath,
         expr_arena: SynExprArena,
-        principal_item_path_expr_arena: PrincipalEntityPathSynExprArena,
+        principal_item_path_expr_arena: SynPrincipalEntityPathExprArena,
         pattern_expr_region: SynPatternExprRegion,
         stmt_arena: SynStmtArena,
         roots: Vec<SynExprRoot>,

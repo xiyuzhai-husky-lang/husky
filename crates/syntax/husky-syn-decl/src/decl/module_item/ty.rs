@@ -205,17 +205,19 @@ impl<'a> DeclParserFactory<'a> {
         saved_stream_state: TokenStreamState,
     ) -> TypeSynNodeDecl {
         let db = self.db();
-        let mut parser = self.expr_parser(
+        let mut parser = self.parser(
             syn_node_path,
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
+            None,
+            token_group_idx,
+            Some(saved_stream_state),
         );
-        let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let template_parameters = ctx.try_parse_option();
-        if let Some(lpar) = ctx.try_parse_err_as_none::<LparToken>() {
-            let field_comma_list = ctx.try_parse();
-            let rpar = ctx.try_parse();
+        let template_parameters = parser.try_parse_option();
+        if let Some(lpar) = parser.try_parse_err_as_none::<LparToken>() {
+            let field_comma_list = parser.try_parse();
+            let rpar = parser.try_parse();
             TupleStructTypeSynNodeDecl::new(
                 db,
                 syn_node_path,
@@ -227,13 +229,13 @@ impl<'a> DeclParserFactory<'a> {
                 parser.finish(),
             )
             .into()
-        } else if let Some(semicolon) = ctx.try_parse_err_as_none::<SemiColonToken>() {
+        } else if let Some(semicolon) = parser.try_parse_err_as_none::<SemiColonToken>() {
             todo!()
             // Err(OriginalDeclError::ExpectedLCurlOrLParOrSemicolon(ctx.save_state()).into())
         } else {
-            let lcurl = ctx.try_parse();
-            let field_comma_list = ctx.try_parse();
-            let rcurl = ctx.try_parse();
+            let lcurl = parser.try_parse();
+            let field_comma_list = parser.try_parse();
+            let rcurl = parser.try_parse();
             PropsStructTypeSynNodeDecl::new(
                 db,
                 syn_node_path,

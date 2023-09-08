@@ -22,15 +22,6 @@ pub struct DeriveDecrSynNodeDecl {
 impl DeriveDecrSynNodeDecl {
     pub(super) fn new(db: &dyn SynDeclDb, syn_node_path: DecrSynNodePath, ast_idx: AstIdx) -> Self {
         let parser_factory = DeclParserFactory::new(db, syn_node_path);
-        let mut expr_parser = parser_factory.expr_parser(
-            syn_node_path,
-            syn_node_path
-                .parent_syn_node_path(db)
-                .syn_node_decl(db)
-                .syn_expr_region(db),
-            AllowSelfType::True,
-            AllowSelfValue::False,
-        );
         let Ast::Decr {
             token_group_idx,
             ident,
@@ -38,20 +29,31 @@ impl DeriveDecrSynNodeDecl {
         else {
             unreachable!()
         };
-        let mut ctx = expr_parser.ctx(None, token_group_idx, None);
-        let at_token = ctx
+        let mut parser = parser_factory.parser(
+            syn_node_path,
+            syn_node_path
+                .parent_syn_node_path(db)
+                .syn_node_decl(db)
+                .syn_expr_region(db),
+            AllowSelfType::True,
+            AllowSelfValue::False,
+            None,
+            token_group_idx,
+            None,
+        );
+        let at_token = parser
             .try_parse_option()
             .expect("should be guaranteed")
             .expect("should be guaranteed");
-        let derive_token = ctx
+        let derive_token = parser
             .try_parse_option()
             .expect("should be guaranteed")
             .expect("should be guaranteed");
         let lpar_token =
-            ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectLeftBracketInDerive);
-        let trais = ctx.try_parse();
+            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectLeftBracketInDerive);
+        let trais = parser.try_parse();
         let rpar_token =
-            ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectRightBracketInDerive);
+            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectRightBracketInDerive);
         Self::new_inner(
             db,
             syn_node_path,
@@ -61,7 +63,7 @@ impl DeriveDecrSynNodeDecl {
             lpar_token,
             trais,
             rpar_token,
-            expr_parser.finish(),
+            parser.finish(),
         )
     }
 }

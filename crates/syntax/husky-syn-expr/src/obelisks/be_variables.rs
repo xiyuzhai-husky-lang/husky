@@ -9,7 +9,10 @@ pub struct BeVariablesObelisk {
     variables: CurrentSynSymbolIdxRange,
 }
 
-impl<'a, 'b> ExprParseContext<'a, 'b> {
+impl<'a, C> SynExprParser<'a, C>
+where
+    C: IsSynExprContext<'a>,
+{
     pub(crate) fn parse_be_variables_pattern_expected(
         &mut self,
         access_end: TokenIdxRangeEnd,

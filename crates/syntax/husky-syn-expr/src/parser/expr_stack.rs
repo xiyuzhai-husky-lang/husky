@@ -283,7 +283,10 @@ impl SynExpr {
     }
 }
 
-impl<'a, 'b> ExprParseContext<'a, 'b> {
+impl<'a, C> SynExprParser<'a, C>
+where
+    C: IsSynExprContext<'a>,
+{
     pub(super) fn complete_expr(&self) -> Option<&SynExpr> {
         self.stack.complete_expr.as_ref()
     }
@@ -374,14 +377,14 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     punctuation,
                     punctuation_token_idx,
                 } => {
-                    let lopd = self.alloc_expr(lopd);
+                    let lopd = self.context_mut().alloc_expr(lopd);
                     let finished_expr = self.take_complete_expr();
                     self.stack.complete_expr = Some(match finished_expr {
                         Some(ropd) => SynExpr::Binary {
                             lopd,
                             opr: punctuation,
                             opr_token_idx: punctuation_token_idx,
-                            ropd: self.alloc_expr(ropd),
+                            ropd: self.context_mut().alloc_expr(ropd),
                         },
                         None => SynExpr::Err(
                             OriginalExprError::NoRightOperandForBinaryOperator {
@@ -394,8 +397,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 }
                 IncompleteExpr::Application { function } => {
                     let argument = self.take_complete_expr().expect("");
-                    let function = self.alloc_expr(function);
-                    let argument = self.alloc_expr(argument);
+                    let function = self.context_mut().alloc_expr(function);
+                    let argument = self.context_mut().alloc_expr(argument);
                     self.stack.complete_expr = Some(SynExpr::ExplicitApplication {
                         function_expr_idx: function,
                         argument_expr_idx: argument,
@@ -410,7 +413,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         Some(opd) => SynExpr::Prefix {
                             opr: punctuation,
                             opr_token_idx: punctuation_token_idx,
-                            opd: self.alloc_expr(opd),
+                            opd: self.context_mut().alloc_expr(opd),
                         },
                         None => SynExpr::Err(
                             OriginalExprError::NoOperandForPrefixOperator {
@@ -454,7 +457,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             parameter_ty_items: argument_tys,
                             rpar_token_idx,
                             light_arrow_token: Some(light_arrow_token),
-                            return_ty_expr: Some(self.alloc_expr(return_ty)),
+                            return_ty_expr: Some(self.context_mut().alloc_expr(return_ty)),
                         },
                         None => SynExpr::Err(
                             OriginalExprError::ExpectedTypeAfterLightArrow { light_arrow_token }
@@ -471,7 +474,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         let Some(argument_expr) = opt_complete_expr else {
                             todo!()
                         };
-                        let argument_expr_idx = this.alloc_expr(argument_expr);
+                        let argument_expr_idx = this.context_mut().alloc_expr(argument_expr);
                         match incomplete_expr {
                             IncompleteExpr::CommaList {
                                 opr: IncompleteCommaListOpr::FunctionApplicationOrCall { function },
@@ -533,7 +536,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
     pub(super) fn finish_batch(&mut self) -> Option<SynExprIdx> {
         assert!(self.stack.incomplete_exprs.len() == 0);
-        std::mem::take(&mut self.stack.complete_expr).map(|expr| self.parser.alloc_expr(expr))
+        std::mem::take(&mut self.stack.complete_expr)
+            .map(|expr| self.context_mut().alloc_expr(expr))
     }
 
     pub(super) fn last_bra(&self) -> Option<Bracket> {

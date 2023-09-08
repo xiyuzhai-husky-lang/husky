@@ -47,24 +47,27 @@ impl<'a> DeclParserFactory<'a> {
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
     ) -> FnSynNodeDecl {
-        let mut parser = self.expr_parser(
+        let mut parser = self.parser(
             syn_node_path,
             None,
             AllowSelfType::False,
             AllowSelfValue::False,
+            None,
+            token_group_idx,
+            Some(saved_stream_state),
         );
-        let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let template_parameter_decl_list = ctx.try_parse_option();
+        let template_parameter_decl_list = parser.try_parse_option();
         let parameter_decl_list =
-            ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectedParameterDeclList);
-        let curry_token = ctx.try_parse_option();
+            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedParameterDeclList);
+        let curry_token = parser.try_parse_option();
         let return_ty = if let Ok(Some(_)) = curry_token {
-            ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectedOutputType)
+            parser
+                .try_parse_expected(OriginalSynNodeDeclError::ExpectedOutputType)
                 .map(Some)
         } else {
             Ok(None)
         };
-        let eol_colon = ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
+        let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
         FnSynNodeDecl::new(
             self.db(),
             syn_node_path,

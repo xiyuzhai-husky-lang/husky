@@ -16,7 +16,7 @@ impl TraitForTypeAssociatedTypeSynNodeDefn {
         syn_node_decl: TraitForTypeAssociatedTypeSynNodeDecl,
     ) -> Self {
         let syn_node_path = syn_node_decl.syn_node_path(db);
-        let mut parser = expr_parser(
+        let mut ctx = stmt_context(
             db,
             syn_node_path,
             syn_node_decl.syn_expr_region(db),
@@ -24,11 +24,11 @@ impl TraitForTypeAssociatedTypeSynNodeDefn {
             AllowSelfValue::False,
         );
         let ast_idx = syn_node_decl.ast_idx(db);
-        let body = match parser.ast_sheet()[ast_idx] {
+        let body = match ctx.ast_sheet()[ast_idx] {
             Ast::Identifiable {
                 block: DefnBlock::AssociatedItem { body },
                 ..
-            } => body.map(|body| parser.parse_block_expr(body)),
+            } => body.map(|body| ctx.parse_block_expr(body)),
             _ => unreachable!(),
         };
         TraitForTypeAssociatedTypeSynNodeDefn::new_inner(
@@ -36,7 +36,7 @@ impl TraitForTypeAssociatedTypeSynNodeDefn {
             syn_node_path,
             syn_node_decl,
             body,
-            parser.finish(),
+            ctx.finish(),
         )
     }
 }

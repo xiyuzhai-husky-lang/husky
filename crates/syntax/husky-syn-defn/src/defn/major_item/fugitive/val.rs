@@ -15,7 +15,7 @@ impl ValSynNodeDefn {
         syn_node_path: FugitiveSynNodePath,
         syn_node_decl: ValSynNodeDecl,
     ) -> Self {
-        let mut parser = expr_parser(
+        let mut parser = stmt_context(
             db,
             syn_node_path,
             syn_node_decl.syn_expr_region(db),

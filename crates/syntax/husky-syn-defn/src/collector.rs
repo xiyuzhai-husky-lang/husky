@@ -6,16 +6,16 @@ use husky_vfs::HasModulePath;
 use vec_like::VecPairMap;
 
 #[inline(always)]
-pub(crate) fn expr_parser<'a>(
+pub(crate) fn stmt_context<'a>(
     db: &'a dyn SynDefnDb,
     syn_node_path: impl Into<ItemSynNodePath>,
     decl_expr_region: SynExprRegion,
     allow_self_type: AllowSelfType,
     allow_self_value: AllowSelfValue,
-) -> BlockExprParser<'a> {
+) -> StmtContext<'a> {
     let syn_node_path = syn_node_path.into();
     let module_path = syn_node_path.module_path(db);
-    let parser = ExprParser::new(
+    let parser = SynExprContext::new(
         db,
         RegionPath::Defn(syn_node_path.into()),
         db.token_sheet_data(module_path).unwrap(),
@@ -24,7 +24,7 @@ pub(crate) fn expr_parser<'a>(
         allow_self_type,
         allow_self_value,
     );
-    BlockExprParser::new(
+    StmtContext::new(
         parser,
         db.ast_sheet(module_path).unwrap(),
         db.ast_token_idx_range_sheet(module_path).unwrap(),

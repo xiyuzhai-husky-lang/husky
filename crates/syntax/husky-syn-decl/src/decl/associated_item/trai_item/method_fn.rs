@@ -57,24 +57,27 @@ impl<'a> DeclParserFactory<'a> {
         let parent_trai_syn_node_decl = syn_node_path
             .parent_trai_syn_node_path(db)
             .syn_node_decl(db);
-        let mut parser = self.expr_parser(
+        let mut parser = self.parser(
             node.syn_node_path(db),
             Some(parent_trai_syn_node_decl.syn_expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::True,
+            None,
+            token_group_idx,
+            saved_stream_state,
         );
-        let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
-        let template_parameter_decl_list = ctx.try_parse_option();
+        let template_parameter_decl_list = parser.try_parse_option();
         let parenate_parameter_decl_list =
-            ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectedParameterDeclList);
-        let curry_token = ctx.try_parse_option();
+            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedParameterDeclList);
+        let curry_token = parser.try_parse_option();
         let return_ty = if let Ok(Some(_)) = curry_token {
-            ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectedOutputType)
+            parser
+                .try_parse_expected(OriginalSynNodeDeclError::ExpectedOutputType)
                 .map(Some)
         } else {
             Ok(None)
         };
-        let eol_colon = ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
+        let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
         TraitMethodFnSynNodeDecl::new(
             db,
             syn_node_path,

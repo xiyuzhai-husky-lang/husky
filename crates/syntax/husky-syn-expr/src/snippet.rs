@@ -9,7 +9,7 @@ pub(crate) fn parse_expr_from_snippet(
     snippet: Snippet,
 ) -> PreludeResult<(SynExprRegion, Option<SynExprIdx>)> {
     let token_sheet_data = db.snippet_token_sheet_data(snippet);
-    let mut expr_parser = ExprParser::new(
+    let mut expr_context = SynExprContext::new(
         db,
         RegionPath::Snippet(crate_path.root_module_path(db)),
         token_sheet_data,
@@ -18,12 +18,9 @@ pub(crate) fn parse_expr_from_snippet(
         AllowSelfType::False,
         AllowSelfValue::False,
     );
-    let expr = expr_parser
-        .ctx(
-            None,
-            token_sheet_data.token_group_iter().next().unwrap().0,
-            None,
-        )
-        .parse_expr_root(None, ExprRootKind::Snippet);
+    let token_stream = token_sheet_data
+        .token_group_token_stream(token_sheet_data.token_group_iter().next().unwrap().0, None);
+    let mut expr_parser = expr_context.expr_parser(None, token_stream);
+    let expr = expr_parser.parse_expr_root(None, ExprRootKind::Snippet);
     Ok((expr_parser.finish(), expr))
 }

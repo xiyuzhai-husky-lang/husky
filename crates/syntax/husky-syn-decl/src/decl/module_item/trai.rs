@@ -65,9 +65,16 @@ impl<'a> DeclParserFactory<'a> {
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
     ) -> TraitSynNodeDecl {
-        let mut parser = self.expr_parser(id, None, AllowSelfType::True, AllowSelfValue::False);
-        let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let template_parameters = ctx.try_parse_option();
+        let mut parser = self.parser(
+            id,
+            None,
+            AllowSelfType::True,
+            AllowSelfValue::False,
+            None,
+            token_group_idx,
+            Some(saved_stream_state),
+        );
+        let template_parameters = parser.try_parse_option();
         TraitSynNodeDecl::new(self.db(), id, ast_idx, template_parameters, parser.finish())
     }
 }

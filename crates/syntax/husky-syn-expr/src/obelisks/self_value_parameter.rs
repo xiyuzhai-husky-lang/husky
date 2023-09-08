@@ -17,12 +17,12 @@ impl SelfParameterObelisk {
     }
 }
 
-impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SelfParameterObelisk {
+impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SelfParameterObelisk {
     type Error = ExprError;
 
     // needs more testing
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b>,
+        ctx: &mut SynDeclExprParser<'a>,
     ) -> Result<Option<Self>, Self::Error> {
         let ephem_symbol_modifier_token_group = ctx.try_parse_option()?;
         if let Some(self_value_token) = ctx.try_parse_option::<SelfValueToken>()? {

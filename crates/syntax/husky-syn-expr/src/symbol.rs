@@ -215,10 +215,13 @@ impl std::ops::Deref for TemplateParameterSynAttrs {
     }
 }
 
-impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for TemplateParameterSynAttrs {
+impl<'a, C> TryParseFromStream<SynExprParser<'a, C>> for TemplateParameterSynAttrs
+where
+    C: IsSynExprContext<'a>,
+{
     type Error = ExprError;
 
-    fn try_parse_from_stream(sp: &mut ExprParseContext<'a, 'b>) -> Result<Self, Self::Error> {
+    fn try_parse_from_stream(sp: &mut SynExprParser<'a, C>) -> Result<Self, Self::Error> {
         let mut syn_attrs: SmallVec<[TemplateSymbolSynAttr; 1]> = smallvec::smallvec![];
         while let Some(_) = sp.try_parse_option::<AtToken>()? {
             todo!()

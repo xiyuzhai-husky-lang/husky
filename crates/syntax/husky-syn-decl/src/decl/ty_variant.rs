@@ -77,7 +77,7 @@ impl<'a> DeclParserFactory<'a> {
         else {
             unreachable!()
         };
-        let mut parser = self.expr_parser(
+        let mut parser = self.parser(
             syn_node_path,
             Some(
                 syn_node_path
@@ -87,13 +87,15 @@ impl<'a> DeclParserFactory<'a> {
             ),
             AllowSelfType::True,
             AllowSelfValue::False,
+            None,
+            token_group_idx,
+            Some(state_after),
         );
-        let mut ctx = parser.ctx(None, token_group_idx, Some(state_after));
-        let state = ctx.save_state();
-        match ctx.next() {
+        let state = parser.save_state();
+        match parser.next() {
             Some(Token::Punctuation(Punctuation::LPAR)) => {
-                let field_comma_list = ctx.try_parse();
-                let rpar = ctx.try_parse();
+                let field_comma_list = parser.try_parse();
+                let rpar = parser.try_parse();
                 TupleTypeVariantSynNodeDecl::new(
                     db,
                     syn_node_path,

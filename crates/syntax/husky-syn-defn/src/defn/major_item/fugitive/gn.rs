@@ -16,7 +16,7 @@ impl GnSynNodeDefn {
         syn_node_decl: GnSynNodeDecl,
     ) -> Self {
         let syn_node_path = syn_node_decl.syn_node_path(db);
-        let mut parser = expr_parser(
+        let mut parser = stmt_context(
             db,
             syn_node_path,
             syn_node_decl.syn_expr_region(db),

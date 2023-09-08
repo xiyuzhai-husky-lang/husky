@@ -7,7 +7,10 @@ use std::ops::ControlFlow;
 
 pub type TokenDisambiguationResult<T> = ControlFlow<(), T>;
 
-impl<'a, 'b> ExprParseContext<'a, 'b> {
+impl<'a, C> SynExprParser<'a, C>
+where
+    C: IsSynExprContext<'a>,
+{
     pub(crate) fn disambiguate_token(
         &mut self,
         token_idx: TokenIdx,
@@ -22,7 +25,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 },
                 Keyword::Pronoun(pronoun) => match pronoun {
                     PronounKeyword::Crate => {
-                        let crate_root_path = self.parser.crate_root_path;
+                        let crate_root_path = self.context().crate_root_path();
                         DisambiguatedToken::AtomicExpr(self.parse_principal_item_path_expr(
                             CrateToken::new(token_idx).into(),
                             crate_root_path.into(),
@@ -100,7 +103,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 PunctuationMapped::LaOrLt => match self.top_expr() {
                     TopExprRef::Incomplete(_) => todo!(),
                     TopExprRef::Finished(expr) => {
-                        match expr.base_item_path(self.db(), &self.parser.expr_arena) {
+                        match expr.base_item_path(self.db(), &self.context().syn_expr_arena()) {
                             BaseEntityPath::Uncertain {
                                 inclination: BaseEntityPathInclination::TypeOrVariant,
                             } => DisambiguatedToken::Bra(token_idx, Bracket::TemplateAngle),
@@ -298,7 +301,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     }
 }
 
-impl<'a, 'b> ExprParseContext<'a, 'b> {
+impl<'a, C> SynExprParser<'a, C>
+where
+    C: IsSynExprContext<'a>,
+{
     fn resolve_ident(&mut self, token_idx: TokenIdx, ident: Ident) -> DisambiguatedToken {
         if let Some(opn) = self.last_incomplete_expr() {
             match opn {
@@ -306,7 +312,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     punctuation: BinaryOpr::ScopeResolution,
                     lopd,
                     ..
-                } => match lopd.base_item_path(self.db(), &self.parser.expr_arena) {
+                } => match lopd.base_item_path(self.db(), &self.context().syn_expr_arena()) {
                     BaseEntityPath::None => {
                         match lopd {
                             SynExpr::Literal(_, _) => todo!(),
@@ -450,12 +456,12 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         todo!()
                     }
                     BaseEntityPath::Some(_) => {
-                        p!(
-                            token_idx,
-                            lopd,
-                            ident.debug(self.parser.db),
-                            self.parser.path.debug(self.parser.db)
-                        );
+                        // p!(
+                        //     token_idx,
+                        //     lopd,
+                        //     ident.debug(self.context.db),
+                        //     self.context.path.debug(self.context.db)
+                        // );
                         todo!()
                     }
                     BaseEntityPath::Uncertain { .. } => {
@@ -471,9 +477,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             }
         }
         DisambiguatedToken::AtomicExpr(
-            match self.parser.symbol_context.resolve_ident(
+            match self.context().syn_symbol_context().resolve_ident(
                 self.db(),
-                self.parser.module_path,
+                self.context().module_path(),
                 token_idx,
                 ident,
             ) {

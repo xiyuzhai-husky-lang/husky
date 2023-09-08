@@ -40,14 +40,18 @@ impl<'a> DeclParserFactory<'a> {
     }
 
     #[inline(always)]
-    pub(crate) fn expr_parser(
+    pub(crate) fn parser(
         &self,
         syn_node_path: impl Into<ItemSynNodePath>,
         parent_expr_region: Option<SynExprRegion>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
-    ) -> ExprParser<'a> {
-        ExprParser::new(
+        env: Option<ExprEnvironment>,
+        token_group_idx: TokenGroupIdx,
+        saved_stream_state: impl Into<Option<TokenStreamState>>,
+    ) -> SynDeclExprParser<'a> {
+        let token_stream = todo!();
+        SynExprContext::new(
             self.db,
             RegionPath::Decl(syn_node_path.into()),
             self.token_sheet_data,
@@ -56,6 +60,7 @@ impl<'a> DeclParserFactory<'a> {
             allow_self_type,
             allow_self_value,
         )
+        .expr_parser(env, token_stream)
     }
 
     #[inline(always)]
@@ -66,5 +71,9 @@ impl<'a> DeclParserFactory<'a> {
     #[inline(always)]
     pub(crate) fn ast_sheet(&self) -> &'a AstSheet {
         self.ast_sheet
+    }
+
+    pub(crate) fn token_sheet_data(&self) -> &'a TokenSheetData {
+        self.token_sheet_data
     }
 }
