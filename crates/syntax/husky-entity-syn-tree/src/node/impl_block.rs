@@ -39,7 +39,20 @@ impl ImplBlockSynNodePath {
         }
     }
 
-    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
+    pub fn node(self, db: &dyn EntitySynTreeDb) -> ImplBlockSynNode {
+        todo!()
+    }
+
+    pub fn item_syn_node_paths(self, db: &dyn EntitySynTreeDb) -> &[AssociatedItemPath] {
+        todo!()
+    }
+}
+
+impl<Db> HasModulePath<Db> for ImplBlockSynNodePath
+where
+    Db: ?Sized + EntitySynTreeDb,
+{
+    fn module_path(self, db: &Db) -> ModulePath {
         match self {
             ImplBlockSynNodePath::TypeImplBlock(syn_node_path) => syn_node_path.module_path(db),
             ImplBlockSynNodePath::TraitForTypeImplBlock(syn_node_path) => {
@@ -49,14 +62,6 @@ impl ImplBlockSynNodePath {
                 syn_node_path.module_path(db)
             }
         }
-    }
-
-    pub fn node(self, db: &dyn EntitySynTreeDb) -> ImplBlockSynNode {
-        todo!()
-    }
-
-    pub fn item_syn_node_paths(self, db: &dyn EntitySynTreeDb) -> &[AssociatedItemPath] {
-        todo!()
     }
 }
 

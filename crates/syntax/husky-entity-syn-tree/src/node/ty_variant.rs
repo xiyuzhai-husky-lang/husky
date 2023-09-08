@@ -22,16 +22,22 @@ impl TypeVariantSynNodePath {
         )
     }
 
-    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
-        self.maybe_ambiguous_path(db).path.module_path(db)
-    }
-
     pub fn syn_node(self, db: &dyn EntitySynTreeDb) -> TypeVariantSynNode {
         ty_variant_syn_node(db, self)
     }
 
     pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<TypeVariantPath> {
         self.maybe_ambiguous_path(db).unambiguous_path()
+    }
+}
+
+impl<Db> HasModulePath<Db> for TypeVariantSynNodePath
+where
+    Db: ?Sized + EntitySynTreeDb,
+{
+    fn module_path(self, db: &Db) -> ModulePath {
+        let db = entity_syn_tree_db(db);
+        self.maybe_ambiguous_path(db).path.module_path(db)
     }
 }
 

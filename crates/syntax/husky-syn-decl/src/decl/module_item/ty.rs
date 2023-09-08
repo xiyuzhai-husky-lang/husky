@@ -105,7 +105,7 @@ impl HasSynNodeDecl for TypeSynNodePath {
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_node_decl(db: &dyn SynDeclDb, syn_node_path: TypeSynNodePath) -> TypeSynNodeDecl {
-    let ctx = DeclParserFactory::new(db, syn_node_path.module_path(db));
+    let ctx = DeclParserFactory::new(db, syn_node_path);
     ctx.parse_ty_node_decl(syn_node_path)
 }
 

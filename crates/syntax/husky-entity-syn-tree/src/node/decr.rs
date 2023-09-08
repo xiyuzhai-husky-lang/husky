@@ -22,20 +22,26 @@ impl DecrSynNodePath {
         )
     }
 
-    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
-        self.maybe_ambiguous_path(db).path.module_path(db)
-    }
-
     pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<DecrPath> {
         self.maybe_ambiguous_path(db).unambiguous_path()
     }
 
-    pub fn node<'a>(self, db: &'a dyn EntitySynTreeDb) -> DecrSynNode {
+    pub fn node(self, db: &dyn EntitySynTreeDb) -> DecrSynNode {
         decr_node(db, self)
     }
 
     pub fn ident(self, db: &dyn EntitySynTreeDb) -> Ident {
         self.maybe_ambiguous_path(db).path.ident(db)
+    }
+}
+
+impl<Db> HasModulePath<Db> for DecrSynNodePath
+where
+    Db: ?Sized + EntitySynTreeDb,
+{
+    fn module_path(self, db: &Db) -> ModulePath {
+        let db = entity_syn_tree_db(db);
+        self.maybe_ambiguous_path(db).path.module_path(db)
     }
 }
 

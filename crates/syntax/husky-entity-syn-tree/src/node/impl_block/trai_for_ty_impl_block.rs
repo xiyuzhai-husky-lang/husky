@@ -4,36 +4,14 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
+#[salsa::wrap_id(jar = EntitySynTreeJar)]
 pub struct TraitForTypeImplBlockSynNodePath {
     path: TraitForTypeImplBlockPath,
-}
-
-impl salsa::AsId for TraitForTypeImplBlockSynNodePath {
-    fn as_id(self) -> salsa::Id {
-        self.path.as_id()
-    }
-
-    fn from_id(id: salsa::Id) -> Self {
-        TraitForTypeImplBlockSynNodePath {
-            path: TraitForTypeImplBlockPath::from_id(id),
-        }
-    }
-}
-
-impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for TraitForTypeImplBlockSynNodePath
-where
-    DB: ?Sized + salsa::DbWithJar<EntityPathJar>,
-{
-    fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {}
 }
 
 impl TraitForTypeImplBlockSynNodePath {
     pub fn path(self) -> TraitForTypeImplBlockPath {
         self.path
-    }
-
-    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
-        self.path.module_path(db)
     }
 
     pub fn trai_path(self, db: &dyn EntitySynTreeDb) -> TraitPath {
@@ -63,6 +41,16 @@ impl TraitForTypeImplBlockSynNodePath {
 
     pub fn node(self, db: &dyn EntitySynTreeDb) -> TraitForTypeImplBlockSynNode {
         trai_for_ty_impl_block_syn_node(db, self)
+    }
+}
+
+impl<Db> HasModulePath<Db> for TraitForTypeImplBlockSynNodePath
+where
+    Db: ?Sized + EntitySynTreeDb,
+{
+    fn module_path(self, db: &Db) -> ModulePath {
+        let db = entity_syn_tree_db(db);
+        self.path.module_path(db)
     }
 }
 

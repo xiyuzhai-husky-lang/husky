@@ -18,10 +18,6 @@ impl TraitForTypeItemSynNodePath {
         self.maybe_ambiguous_path(db).unambiguous_path()
     }
 
-    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
-        self.maybe_ambiguous_path(db).path.module_path(db)
-    }
-
     pub fn impl_block(self, db: &dyn EntitySynTreeDb) -> TraitForTypeImplBlockSynNodePath {
         self.maybe_ambiguous_path(db)
             .path
@@ -35,6 +31,16 @@ impl TraitForTypeItemSynNodePath {
 
     pub fn node(self, db: &dyn EntitySynTreeDb) -> TraitForTypeItemSynNode {
         trai_for_ty_item_syn_node(db, self)
+    }
+}
+
+impl<Db> HasModulePath<Db> for TraitForTypeItemSynNodePath
+where
+    Db: ?Sized + EntitySynTreeDb,
+{
+    fn module_path(self, db: &Db) -> ModulePath {
+        let db = entity_syn_tree_db(db);
+        self.maybe_ambiguous_path(db).path.module_path(db)
     }
 }
 

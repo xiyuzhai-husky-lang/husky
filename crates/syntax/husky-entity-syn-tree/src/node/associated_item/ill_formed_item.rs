@@ -9,8 +9,11 @@ impl From<IllFormedItemSynNodePath> for ItemSynNodePath {
     }
 }
 
-impl IllFormedItemSynNodePath {
-    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
+impl<Db> HasModulePath<Db> for IllFormedItemSynNodePath
+where
+    Db: ?Sized + EntitySynTreeDb,
+{
+    fn module_path(self, db: &Db) -> ModulePath {
         todo!()
     }
 }

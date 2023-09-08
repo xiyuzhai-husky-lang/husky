@@ -56,8 +56,7 @@ pub(crate) fn ty_variant_syn_node_decl(
     db: &dyn SynDeclDb,
     syn_node_path: TypeVariantSynNodePath,
 ) -> TypeVariantSynNodeDecl {
-    DeclParserFactory::new(db, syn_node_path.module_path(db))
-        .parse_ty_variant_syn_node_decl(syn_node_path)
+    DeclParserFactory::new(db, syn_node_path).parse_ty_variant_syn_node_decl(syn_node_path)
 }
 
 impl<'a> DeclParserFactory<'a> {

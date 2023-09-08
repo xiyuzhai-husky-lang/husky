@@ -3,7 +3,7 @@ use husky_opr::Bracket;
 
 #[derive(Debug, Clone)]
 pub struct TokenStream<'a> {
-    base: TokenGroupBase,
+    base: TokenGroupStartingTokenIdx,
     tokens: &'a [Token],
     next_relative: TokenGroupRelativeTokenIndex,
 }

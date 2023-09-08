@@ -106,8 +106,7 @@ pub(crate) fn ty_item_syn_node_decl(
     db: &dyn SynDeclDb,
     syn_node_path: TypeItemSynNodePath,
 ) -> TypeItemSynNodeDecl {
-    let module_path = syn_node_path.module_path(db);
-    let ctx = DeclParserFactory::new(db, module_path);
+    let ctx = DeclParserFactory::new(db, syn_node_path);
     ctx.parse_ty_item_syn_node_decl(syn_node_path)
 }
 

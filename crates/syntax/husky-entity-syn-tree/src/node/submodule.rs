@@ -14,20 +14,25 @@ impl SubmoduleSynNodePath {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
     }
 
-    // gives the parent
-    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
-        self.maybe_ambiguous_path(db)
-            .path
-            .parent(db)
-            .expect("non root")
-    }
-
     pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<SubmodulePath> {
         self.maybe_ambiguous_path(db).unambiguous_path()
     }
 
     pub fn node(self, db: &dyn EntitySynTreeDb) -> SubmoduleSynNode {
         submodule_syn_node(db, self)
+    }
+}
+
+impl<Db> HasModulePath<Db> for SubmoduleSynNodePath
+where
+    Db: ?Sized + EntitySynTreeDb,
+{
+    fn module_path(self, db: &Db) -> ModulePath {
+        let db = entity_syn_tree_db(db);
+        self.maybe_ambiguous_path(db)
+            .path
+            .parent(db)
+            .expect("non root")
     }
 }
 

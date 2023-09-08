@@ -10,10 +10,6 @@ pub struct IllFormedImplBlockSynNodePath {
 }
 
 impl IllFormedImplBlockSynNodePath {
-    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
-        self.path.module_path(db)
-    }
-
     pub fn item_syn_node_paths(self, db: &dyn EntitySynTreeDb) -> &[IllFormedItemSynNodePath] {
         // ad hoc
         &[]
@@ -21,6 +17,16 @@ impl IllFormedImplBlockSynNodePath {
 
     pub fn node(self, db: &dyn EntitySynTreeDb) -> IllFormedImplBlockSynNode {
         ill_formed_impl_block_syn_node(db, self)
+    }
+}
+
+impl<Db> HasModulePath<Db> for IllFormedImplBlockSynNodePath
+where
+    Db: ?Sized + EntitySynTreeDb,
+{
+    fn module_path(self, db: &Db) -> ModulePath {
+        let db = entity_syn_tree_db(db);
+        self.path.module_path(db)
     }
 }
 

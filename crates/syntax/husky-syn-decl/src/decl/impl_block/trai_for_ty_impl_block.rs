@@ -53,7 +53,7 @@ pub(crate) fn trai_for_ty_impl_block_syn_node_decl(
     db: &dyn SynDeclDb,
     syn_node_path: TraitForTypeImplBlockSynNodePath,
 ) -> TraitForTypeImplBlockSynNodeDecl {
-    let parser = DeclParserFactory::new(db, syn_node_path.module_path(db));
+    let parser = DeclParserFactory::new(db, syn_node_path);
     parser.parse_trai_for_ty_impl_block_syn_node_decl(syn_node_path)
 }
 

@@ -10,6 +10,22 @@ pub struct ModulePath {
     pub data: ModulePathData,
 }
 
+pub trait HasModulePath<Db>: Copy
+where
+    Db: ?Sized,
+{
+    fn module_path(self, db: &Db) -> ModulePath;
+}
+
+impl<Db> HasModulePath<Db> for ModulePath
+where
+    Db: ?Sized + VfsDb,
+{
+    fn module_path(self, db: &Db) -> ModulePath {
+        self
+    }
+}
+
 /// wrapper type that guarantees that the inner field is a submodule
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = VfsDb)]
