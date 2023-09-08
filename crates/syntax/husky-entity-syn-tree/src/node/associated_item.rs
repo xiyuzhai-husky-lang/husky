@@ -38,7 +38,16 @@ impl AssociatedItemSynNodePath {
         }
     }
 
-    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
+    pub fn node(self, db: &dyn EntitySynTreeDb) -> AssociatedItemSynNode {
+        todo!()
+    }
+}
+
+impl<Db> HasModulePath<Db> for AssociatedItemSynNodePath
+where
+    Db: ?Sized + EntitySynTreeDb,
+{
+    fn module_path(self, db: &Db) -> ModulePath {
         match self {
             AssociatedItemSynNodePath::TypeItem(syn_node_path) => syn_node_path.module_path(db),
             AssociatedItemSynNodePath::TraitItem(syn_node_path) => syn_node_path.module_path(db),
@@ -49,10 +58,6 @@ impl AssociatedItemSynNodePath {
                 syn_node_path.module_path(db)
             }
         }
-    }
-
-    pub fn node(self, db: &dyn EntitySynTreeDb) -> AssociatedItemSynNode {
-        todo!()
     }
 }
 

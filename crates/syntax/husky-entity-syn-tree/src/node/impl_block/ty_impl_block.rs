@@ -4,27 +4,9 @@ use husky_entity_taxonomy::AssociatedItemKind;
 // basically a wrapper type
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
+#[salsa::wrap_id(jar = EntitySynTreeJar)]
 pub struct TypeImplBlockSynNodePath {
     path: TypeImplBlockPath,
-}
-
-impl salsa::AsId for TypeImplBlockSynNodePath {
-    fn as_id(self) -> salsa::Id {
-        self.path.as_id()
-    }
-
-    fn from_id(id: salsa::Id) -> Self {
-        TypeImplBlockSynNodePath {
-            path: TypeImplBlockPath::from_id(id),
-        }
-    }
-}
-
-impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for TypeImplBlockSynNodePath
-where
-    DB: ?Sized + salsa::DbWithJar<EntityPathJar>,
-{
-    fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {}
 }
 
 impl From<TypeImplBlockSynNodePath> for ItemSynNodePath {
@@ -38,11 +20,6 @@ impl TypeImplBlockSynNodePath {
     #[inline(always)]
     pub fn path(self) -> TypeImplBlockPath {
         self.path
-    }
-
-    #[inline(always)]
-    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
-        self.path.module_path(db)
     }
 
     #[inline(always)]
@@ -72,6 +49,16 @@ impl TypeImplBlockSynNodePath {
             .iter()
             .copied()
             .map(|(_, syn_node_path, _)| syn_node_path)
+    }
+}
+
+impl<Db> HasModulePath<Db> for TypeImplBlockSynNodePath
+where
+    Db: ?Sized + EntitySynTreeDb,
+{
+    fn module_path(self, db: &Db) -> ModulePath {
+        let db = entity_syn_tree_db(db);
+        self.path.module_path(db)
     }
 }
 

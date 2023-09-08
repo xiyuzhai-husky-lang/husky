@@ -31,11 +31,7 @@ impl<'a> std::ops::Index<RegionalTokenIdx> for TokraRegionData<'a> {
 }
 
 pub fn token_region_data(path: RegionPath, db: &dyn EntitySynTreeDb) -> Option<TokraRegionData> {
-    Some(match path {
-        RegionPath::Snippet(_) => todo!(),
-        RegionPath::Decl(syn_node_path) => decl_tokra_region(syn_node_path, db).data(db).into(),
-        RegionPath::Defn(syn_node_path) => defn_token_region(syn_node_path, db)?.data(db).into(),
-    })
+    todo!()
 }
 
 pub struct TokraBase {

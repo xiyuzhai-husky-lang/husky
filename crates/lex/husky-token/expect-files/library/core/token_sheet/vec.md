@@ -639,62 +639,62 @@ Ok(
             ),
         ],
         token_group_bases: [
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     1,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     5,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     14,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     22,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     29,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     37,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     50,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     59,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     68,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     80,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     93,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     113,
                 ),

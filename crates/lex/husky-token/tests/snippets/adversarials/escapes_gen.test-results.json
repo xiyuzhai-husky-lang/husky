@@ -1,6 +1,6 @@
 [
   {
     "input": "\"\\a\"",
-    "output": "TokenSheetData {\n    tokens: [\n        Token::Error(\n            TokenError::UnexpectedCharAfterBackslash(\n                'a',\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupBase(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        Token::Error(\n            TokenError::UnexpectedCharAfterBackslash(\n                'a',\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   }
 ]

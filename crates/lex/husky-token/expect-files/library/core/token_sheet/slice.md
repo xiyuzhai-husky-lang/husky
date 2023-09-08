@@ -588,77 +588,77 @@ Ok(
             ),
         ],
         token_group_bases: [
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     1,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     5,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     13,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     20,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     28,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     45,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     52,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     60,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     73,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     77,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     84,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     92,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     100,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     108,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     118,
                 ),

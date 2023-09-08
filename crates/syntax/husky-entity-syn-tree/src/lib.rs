@@ -19,6 +19,7 @@ mod symbol;
 mod table;
 #[cfg(test)]
 mod tests;
+mod utils;
 
 pub use self::bundle::*;
 pub use self::db::*;
@@ -39,6 +40,7 @@ use self::context::*;
 use self::submodule::*;
 #[cfg(test)]
 use self::tests::*;
+use self::utils::*;
 use husky_ast::*;
 use husky_coword::{CowordDb, Ident};
 use husky_entity_path::*;

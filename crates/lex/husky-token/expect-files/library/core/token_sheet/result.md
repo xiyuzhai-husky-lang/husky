@@ -298,47 +298,47 @@ Ok(
             ),
         ],
         token_group_bases: [
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     1,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     5,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     10,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     18,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     23,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     28,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     51,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     55,
                 ),
             ),
-            TokenGroupBase(
+            TokenGroupStartingTokenIdx(
                 TokenIdx(
                     69,
                 ),

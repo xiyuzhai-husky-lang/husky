@@ -13,6 +13,16 @@ impl From<TraitSynNodePath> for ItemSynNodePath {
     }
 }
 
+impl<Db> HasModulePath<Db> for TraitSynNodePath
+where
+    Db: ?Sized + EntitySynTreeDb,
+{
+    fn module_path(self, db: &Db) -> ModulePath {
+        let db = entity_syn_tree_db(db);
+        self.maybe_ambiguous_path(db).path.module_path(db)
+    }
+}
+
 impl TraitSynNodePath {
     pub(super) fn new(
         db: &dyn EntitySynTreeDb,
@@ -20,10 +30,6 @@ impl TraitSynNodePath {
         path: TraitPath,
     ) -> Self {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
-    }
-
-    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
-        self.maybe_ambiguous_path(db).path.module_path(db)
     }
 
     pub fn node(self, db: &dyn EntitySynTreeDb) -> MajorItemSynNode {

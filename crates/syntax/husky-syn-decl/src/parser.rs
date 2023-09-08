@@ -1,13 +1,14 @@
 use crate::*;
 use husky_ast::*;
 
-use husky_entity_syn_tree::*;
+use husky_coword::Ident;
+use husky_entity_syn_tree::{
+    tokra_region::{DeclTokraRegionData, HasDeclTokraRegion},
+    *,
+};
 use husky_entity_taxonomy::*;
-
 use husky_print_utils::p;
 use husky_token::*;
-
-use husky_coword::Ident;
 use parsec::*;
 
 pub(crate) struct DeclParserFactory<'a> {
@@ -15,10 +16,15 @@ pub(crate) struct DeclParserFactory<'a> {
     module_symbol_context: ModuleSymbolContext<'a>,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
+    tokra_region_data: DeclTokraRegionData<'a>,
 }
 
 impl<'a> DeclParserFactory<'a> {
-    pub(crate) fn new(db: &'a dyn SynDeclDb, path: ModulePath) -> Self {
+    pub(crate) fn new<P>(db: &'a dyn SynDeclDb, syn_node_path: P) -> Self
+    where
+        P: HasDeclTokraRegion,
+    {
+        let path = syn_node_path.module_path(db);
         let Ok(module_symbol_context) = db.module_symbol_context(path) else {
             use salsa::DebugWithDb;
             p!(path.debug(db));
@@ -29,6 +35,7 @@ impl<'a> DeclParserFactory<'a> {
             module_symbol_context,
             token_sheet_data: db.token_sheet_data(path).expect("valid module"),
             ast_sheet: db.ast_sheet(path).expect("valid module"),
+            tokra_region_data: syn_node_path.decl_tokra_region(db).data(db),
         }
     }
 

@@ -1,4 +1,4 @@
-use husky_token::TokenGroupBase;
+use husky_token::TokenGroupStartingTokenIdx;
 
 use super::*;
 use std::num::NonZeroU32;
@@ -17,10 +17,11 @@ impl RegionalTokenIdx {
 }
 
 /// equal to the value of TokenIdx::index on the starting token
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct TokenRegionBase(usize);
 
 impl TokenRegionBase {
-    pub(crate) fn new(token_group_base: TokenGroupBase) -> Self {
+    pub(crate) fn new(token_group_base: TokenGroupStartingTokenIdx) -> Self {
         Self(token_group_base.token_idx().index())
     }
 }

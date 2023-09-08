@@ -30,10 +30,6 @@ impl FugitiveSynNodePath {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
     }
 
-    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
-        self.maybe_ambiguous_path(db).path.module_path(db)
-    }
-
     pub fn ident(self, db: &dyn EntitySynTreeDb) -> Ident {
         self.maybe_ambiguous_path(db).path.ident(db)
     }
@@ -44,6 +40,16 @@ impl FugitiveSynNodePath {
 
     pub fn node(self, db: &dyn EntitySynTreeDb) -> MajorItemSynNode {
         fugitive_syn_node(db, self)
+    }
+}
+
+impl<Db> HasModulePath<Db> for FugitiveSynNodePath
+where
+    Db: ?Sized + EntitySynTreeDb,
+{
+    fn module_path(self, db: &Db) -> ModulePath {
+        let db = entity_syn_tree_db(db);
+        self.maybe_ambiguous_path(db).path.module_path(db)
     }
 }
 

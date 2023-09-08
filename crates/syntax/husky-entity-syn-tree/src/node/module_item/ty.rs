@@ -17,10 +17,6 @@ impl TypeSynNodePath {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
     }
 
-    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
-        self.maybe_ambiguous_path(db).path.module_path(db)
-    }
-
     pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<TypePath> {
         self.maybe_ambiguous_path(db).unambiguous_path()
     }
@@ -35,6 +31,16 @@ impl TypeSynNodePath {
 
     pub fn decrs<'a>(self, db: &'a dyn EntitySynTreeDb) -> &'a [(DecrSynNodePath, DecrSynNode)] {
         ty_decrs(db, self)
+    }
+}
+
+impl<Db> HasModulePath<Db> for TypeSynNodePath
+where
+    Db: ?Sized + EntitySynTreeDb,
+{
+    fn module_path(self, db: &Db) -> ModulePath {
+        let db = entity_syn_tree_db(db);
+        self.maybe_ambiguous_path(db).path.module_path(db)
     }
 }
 

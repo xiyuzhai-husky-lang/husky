@@ -1,9 +1,9 @@
 use crate::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct TokenGroupBase(TokenIdx);
+pub struct TokenGroupStartingTokenIdx(TokenIdx);
 
-impl TokenGroupBase {
+impl TokenGroupStartingTokenIdx {
     pub fn from_index(index: usize) -> Self {
         Self(TokenIdx::from_index(index))
     }
@@ -22,7 +22,7 @@ impl TokenGroupBase {
 pub struct TokenGroupRelativeTokenIndex(usize);
 
 impl TokenGroupRelativeTokenIndex {
-    pub(crate) fn new(base: TokenGroupBase, token_idx: TokenIdx) -> Self {
+    pub(crate) fn new(base: TokenGroupStartingTokenIdx, token_idx: TokenIdx) -> Self {
         debug_assert!(base.token_idx() <= token_idx);
         Self(token_idx.index() - base.index())
     }
@@ -31,7 +31,7 @@ impl TokenGroupRelativeTokenIndex {
         self.0
     }
 
-    pub(crate) fn token_idx(self, base: TokenGroupBase) -> TokenIdx {
+    pub(crate) fn token_idx(self, base: TokenGroupStartingTokenIdx) -> TokenIdx {
         base.0 + self.0
     }
 }

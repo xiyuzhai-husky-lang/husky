@@ -20,7 +20,7 @@ TokenSheetData {
         ),
     ],
     token_group_bases: [
-        TokenGroupBase(
+        TokenGroupStartingTokenIdx(
             TokenIdx(
                 1,
             ),

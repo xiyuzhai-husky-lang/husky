@@ -34,7 +34,7 @@ pub(crate) fn trai_syn_node_decl(
     db: &dyn SynDeclDb,
     syn_node_path: TraitSynNodePath,
 ) -> TraitSynNodeDecl {
-    let parser = DeclParserFactory::new(db, syn_node_path.module_path(db));
+    let parser = DeclParserFactory::new(db, syn_node_path);
     parser.parse_trai_syn_node_decl(syn_node_path)
 }
 
