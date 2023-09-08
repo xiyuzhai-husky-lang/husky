@@ -12,7 +12,6 @@ pub(crate) fn parse_expr_from_snippet(
     let mut expr_context = SynExprContext::new(
         db,
         RegionPath::Snippet(crate_path.root_module_path(db)),
-        token_sheet_data,
         ModuleSymbolContext::new_default(db, crate_path)?,
         None,
         AllowSelfType::False,

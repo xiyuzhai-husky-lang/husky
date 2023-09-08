@@ -64,9 +64,7 @@ impl<'a> StmtContext<'a> {
                 case_stmts,
                 ..
             } => {
-                let mut token_stream = self
-                    .token_sheet_data()
-                    .token_group_token_stream(*token_group_idx, None);
+                let mut token_stream = self.token_group_token_stream(*token_group_idx, None);
                 Some(SynStmt::Match {
                     match_token: token_stream.try_parse_option().unwrap().unwrap(),
                 })
@@ -87,17 +85,14 @@ impl<'a> StmtContext<'a> {
         block_end: TokenIdxRangeEnd,
         body: Option<FugitiveBody>,
     ) -> Option<SynStmt> {
-        let token_stream = self
-            .token_sheet_data()
-            .token_group_token_stream(token_group_idx, None);
-        let mut ctx = self.token_group_parser(token_stream);
-        match ctx.try_parse_option::<BasicStmtKeywordToken>() {
+        let mut parser = self.expr_parser(token_group_idx);
+        match parser.try_parse_option::<BasicStmtKeywordToken>() {
             Ok(Some(basic_stmt_keyword_token)) => Some(match basic_stmt_keyword_token {
                 BasicStmtKeywordToken::Let(let_token) => SynStmt::Let {
                     let_token,
-                    let_variables_pattern: ctx.parse_let_variables_pattern_expected(block_end),
-                    assign_token: ctx.try_parse_expected(OriginalExprError::ExpectedAssign),
-                    initial_value: ctx.parse_expr_expected2(
+                    let_variables_pattern: parser.parse_let_variables_pattern_expected(block_end),
+                    assign_token: parser.try_parse_expected(OriginalExprError::ExpectedAssign),
+                    initial_value: parser.parse_expr_expected2(
                         None,
                         ExprRootKind::LetStmtInitialValue,
                         OriginalExprError::ExpectedInitialValue,
@@ -105,7 +100,7 @@ impl<'a> StmtContext<'a> {
                 },
                 BasicStmtKeywordToken::Return(return_token) => SynStmt::Return {
                     return_token,
-                    result: ctx.parse_expr_expected2(
+                    result: parser.parse_expr_expected2(
                         None,
                         ExprRootKind::ReturnExpr,
                         OriginalExprError::ExpectedResult,
@@ -113,7 +108,7 @@ impl<'a> StmtContext<'a> {
                 },
                 BasicStmtKeywordToken::Require(require_token) => SynStmt::Require {
                     require_token,
-                    condition: ctx.parse_expr_expected2(
+                    condition: parser.parse_expr_expected2(
                         Some(ExprEnvironment::Condition(block_end)),
                         ExprRootKind::Condition,
                         OriginalExprError::ExpectedCondition,
@@ -121,7 +116,7 @@ impl<'a> StmtContext<'a> {
                 },
                 BasicStmtKeywordToken::Assert(assert_token) => SynStmt::Assert {
                     assert_token,
-                    condition: ctx.parse_expr_expected2(
+                    condition: parser.parse_expr_expected2(
                         Some(ExprEnvironment::Condition(block_end)),
                         ExprRootKind::Condition,
                         OriginalExprError::ExpectedCondition,
@@ -129,12 +124,13 @@ impl<'a> StmtContext<'a> {
                 },
                 BasicStmtKeywordToken::Break(break_token) => SynStmt::Break { break_token },
                 BasicStmtKeywordToken::For(for_token) => {
-                    let expr =
-                        match ctx.parse_expr_expected(None, OriginalExprError::ExpectedCondition) {
-                            Ok(expr) => expr,
-                            Err(_) => todo!(),
-                        };
-                    let eol_colon = ctx.try_parse_expected(OriginalExprError::ExpectedEolColon);
+                    let expr = match parser
+                        .parse_expr_expected(None, OriginalExprError::ExpectedCondition)
+                    {
+                        Ok(expr) => expr,
+                        Err(_) => todo!(),
+                    };
+                    let eol_colon = parser.try_parse_expected(OriginalExprError::ExpectedEolColon);
                     self.parse_for_loop_stmt(
                         token_group_idx,
                         for_token,
@@ -145,12 +141,13 @@ impl<'a> StmtContext<'a> {
                     .into()
                 }
                 BasicStmtKeywordToken::ForExt(forext_token) => {
-                    let expr =
-                        match ctx.parse_expr_expected(None, OriginalExprError::ExpectedCondition) {
-                            Ok(expr) => expr,
-                            Err(_) => todo!(),
-                        };
-                    let eol_colon = ctx.try_parse_expected(OriginalExprError::ExpectedEolColon);
+                    let expr = match parser
+                        .parse_expr_expected(None, OriginalExprError::ExpectedCondition)
+                    {
+                        Ok(expr) => expr,
+                        Err(_) => todo!(),
+                    };
+                    let eol_colon = parser.try_parse_expected(OriginalExprError::ExpectedEolColon);
                     self.parse_forext_loop_stmt(
                         token_group_idx,
                         forext_token,
@@ -162,38 +159,41 @@ impl<'a> StmtContext<'a> {
                 }
                 BasicStmtKeywordToken::While(while_token) => SynStmt::While {
                     while_token,
-                    condition: ctx.parse_expr_expected(
+                    condition: parser.parse_expr_expected(
                         Some(ExprEnvironment::Condition(block_end)),
                         OriginalExprError::ExpectedCondition,
                     ),
-                    eol_colon: ctx.try_parse_expected(OriginalExprError::ExpectedEolColon),
+                    eol_colon: parser.try_parse_expected(OriginalExprError::ExpectedEolColon),
                     block: self.parse_stmts_expected(
                         body.expect("should be checked in `husky_ast`"),
                         token_group_idx,
                     ),
                 },
-                BasicStmtKeywordToken::Do(do_token) => match ctx.try_parse_option::<WhileToken>() {
-                    Ok(Some(while_token)) => SynStmt::DoWhile {
-                        do_token,
-                        while_token,
-                        condition: ctx.parse_expr_expected(
-                            Some(ExprEnvironment::Condition(block_end)),
-                            OriginalExprError::ExpectedCondition,
-                        ),
-                        eol_colon: ctx.try_parse_expected(OriginalExprError::ExpectedEolColon),
-                        block: self.parse_stmts_expected(
-                            body.expect("should be checked in `husky_ast`"),
-                            token_group_idx,
-                        ),
-                    },
-                    Ok(None) => todo!(),
-                    Err(_) => todo!(),
-                },
+                BasicStmtKeywordToken::Do(do_token) => {
+                    match parser.try_parse_option::<WhileToken>() {
+                        Ok(Some(while_token)) => SynStmt::DoWhile {
+                            do_token,
+                            while_token,
+                            condition: parser.parse_expr_expected(
+                                Some(ExprEnvironment::Condition(block_end)),
+                                OriginalExprError::ExpectedCondition,
+                            ),
+                            eol_colon: parser
+                                .try_parse_expected(OriginalExprError::ExpectedEolColon),
+                            block: self.parse_stmts_expected(
+                                body.expect("should be checked in `husky_ast`"),
+                                token_group_idx,
+                            ),
+                        },
+                        Ok(None) => todo!(),
+                        Err(_) => todo!(),
+                    }
+                }
             }),
-            Ok(None) => match ctx.parse_expr_root(None, ExprRootKind::EvalExpr) {
+            Ok(None) => match parser.parse_expr_root(None, ExprRootKind::EvalExpr) {
                 Some(expr_idx) => Some(SynStmt::Eval {
                     expr_idx,
-                    eol_semicolon: ctx.try_parse_option(),
+                    eol_semicolon: parser.try_parse_option(),
                 }),
                 None => None,
             },
@@ -387,17 +387,14 @@ impl<'a> StmtContext<'a> {
             } => {
                 let body_end =
                     self.fugitive_body_end(body.expect("should be checked in `husky_ast`"));
-                let mut token_stream = self
-                    .token_sheet_data()
-                    .token_group_token_stream(token_group_idx, None);
-                let mut ctx = self.token_group_parser(token_stream);
+                let mut parser = self.expr_parser(token_group_idx);
                 SynIfBranch {
-                    if_token: ctx.try_parse_option().unwrap().unwrap(),
-                    condition: ctx.parse_expr_expected(
+                    if_token: parser.try_parse_option().unwrap().unwrap(),
+                    condition: parser.parse_expr_expected(
                         Some(ExprEnvironment::Condition(body_end)),
                         OriginalExprError::ExpectedCondition,
                     ),
-                    eol_colon: ctx.try_parse_expected(OriginalExprError::ExpectedEolColon),
+                    eol_colon: parser.try_parse_expected(OriginalExprError::ExpectedEolColon),
                     stmts: self.parse_stmts_expected(
                         body.expect("should be checked in `husky_ast`"),
                         token_group_idx,
@@ -427,17 +424,14 @@ impl<'a> StmtContext<'a> {
             } => {
                 let body = body.expect("should be checked in `husky_ast`");
                 let body_end = self.fugitive_body_end(body);
-                let mut token_stream = self
-                    .token_sheet_data()
-                    .token_group_token_stream(token_group_idx, None);
-                let mut ctx = self.token_group_parser(token_stream);
+                let mut parser = self.expr_parser(token_group_idx);
                 SynElifBranch {
-                    elif_token: ctx.try_parse_option().unwrap().unwrap(),
-                    condition: ctx.parse_expr_expected(
+                    elif_token: parser.try_parse_option().unwrap().unwrap(),
+                    condition: parser.parse_expr_expected(
                         Some(ExprEnvironment::Condition(body_end)),
                         OriginalExprError::ExpectedCondition,
                     ),
-                    eol_colon: ctx.try_parse_expected(OriginalExprError::ExpectedEolColon),
+                    eol_colon: parser.try_parse_expected(OriginalExprError::ExpectedEolColon),
                     stmts: self.parse_stmts_expected(body, token_group_idx),
                 }
             }
@@ -451,13 +445,10 @@ impl<'a> StmtContext<'a> {
                 token_group_idx,
                 body,
             } => {
-                let mut token_stream = self
-                    .token_sheet_data()
-                    .token_group_token_stream(token_group_idx, None);
-                let mut ctx = self.token_group_parser(token_stream);
+                let mut parser = self.expr_parser(token_group_idx);
                 Some(SynElseBranch {
-                    else_token: ctx.try_parse_option().unwrap().unwrap(),
-                    eol_colon: ctx.try_parse_expected(OriginalExprError::ExpectedEolColon),
+                    else_token: parser.try_parse_option().unwrap().unwrap(),
+                    eol_colon: parser.try_parse_expected(OriginalExprError::ExpectedEolColon),
                     stmts: self.parse_stmts_expected(
                         body.expect("should be checked in `husky_ast`"),
                         token_group_idx,

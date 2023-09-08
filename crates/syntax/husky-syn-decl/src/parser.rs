@@ -54,7 +54,6 @@ impl<'a> DeclParserFactory<'a> {
         SynExprContext::new(
             self.db,
             RegionPath::Decl(syn_node_path.into()),
-            self.token_sheet_data,
             self.module_symbol_context,
             parent_expr_region,
             allow_self_type,

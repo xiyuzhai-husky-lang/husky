@@ -18,16 +18,10 @@ pub(crate) fn stmt_context<'a>(
     let parser = SynExprContext::new(
         db,
         RegionPath::Defn(syn_node_path.into()),
-        db.token_sheet_data(module_path).unwrap(),
         db.module_symbol_context(module_path).unwrap(),
         Some(decl_expr_region),
         allow_self_type,
         allow_self_value,
     );
-    StmtContext::new(
-        parser,
-        db.ast_sheet(module_path).unwrap(),
-        db.ast_token_idx_range_sheet(module_path).unwrap(),
-        None, // ad hoc
-    )
+    StmtContext::new(parser, module_path, db)
 }
