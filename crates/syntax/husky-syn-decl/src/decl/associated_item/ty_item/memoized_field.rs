@@ -37,22 +37,26 @@ impl<'a> DeclParserFactory<'a> {
         let db = self.db();
         let syn_node_path = node.syn_node_path(db);
         let impl_block_syn_node_decl = syn_node_path.impl_block(db).syn_node_decl(db);
-        let mut parser = self.expr_parser(
+        let mut parser = self.parser(
             syn_node_path,
             Some(impl_block_syn_node_decl.syn_expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::True,
+            None,
+            token_group_idx,
+            saved_stream_state,
         );
-        let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
-        let colon_token = ctx.try_parse_option();
+        let colon_token = parser.try_parse_option();
         let form_ty = if let Ok(Some(_)) = colon_token {
-            ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectedOutputType)
+            parser
+                .try_parse_expected(OriginalSynNodeDeclError::ExpectedOutputType)
                 .map(Some)
         } else {
             Ok(None)
         };
-        let eq_token = ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectEqTokenForVariable);
-        let expr = ctx.parse_expr_root(None, ExprRootKind::ValExpr);
+        let eq_token =
+            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectEqTokenForVariable);
+        let expr = parser.parse_expr_root(None, ExprRootKind::ValExpr);
         TypeMemoizedFieldSynNodeDecl::new(
             db,
             syn_node_path,

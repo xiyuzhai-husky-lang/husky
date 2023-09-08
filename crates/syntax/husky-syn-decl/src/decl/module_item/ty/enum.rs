@@ -39,14 +39,16 @@ impl<'a> DeclParserFactory<'a> {
         saved_stream_state: TokenStreamState,
     ) -> EnumTypeSynNodeDecl {
         let db = self.db();
-        let mut parser = self.expr_parser(
+        let mut parser = self.parser(
             syn_node_path,
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
+            None,
+            token_group_idx,
+            Some(saved_stream_state),
         );
-        let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let template_parameters = ctx.try_parse_option();
+        let template_parameters = parser.try_parse_option();
         EnumTypeSynNodeDecl::new(
             db,
             syn_node_path,

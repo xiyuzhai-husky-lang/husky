@@ -62,11 +62,14 @@ pub(super) enum IncompleteExpr {
     },
 }
 
-impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SynHtmlArgumentExpr {
+impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for SynHtmlArgumentExpr
+where
+    C: IsSynExprContext<'a>,
+{
     type Error = ExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        sp: &mut ExprParseContext<'a, 'b>,
+        sp: &mut SynExprParser<'a, C>,
     ) -> Result<Option<Self>, Self::Error> {
         if let Some(lcurl) = sp.try_parse_option::<LcurlToken>()? {
             Ok(Some(SynHtmlArgumentExpr::Shortened {

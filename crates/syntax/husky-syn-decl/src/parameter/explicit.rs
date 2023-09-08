@@ -15,13 +15,13 @@ pub struct RitchieParameters<const ALLOW_SELF_PARAMETER: bool> {
     rpar: RparToken,
 }
 
-impl<'a, 'b, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<ExprParseContext<'a, 'b>>
+impl<'a, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<SynDeclExprParser<'a>>
     for RitchieParameters<ALLOW_SELF_PARAMETER>
 {
     type Error = SynNodeDeclError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b>,
+        ctx: &mut SynDeclExprParser<'a>,
     ) -> Result<Option<Self>, SynNodeDeclError> {
         let Some(lpar) = ctx.try_parse_option::<LparToken>()? else {
             return Ok(None);

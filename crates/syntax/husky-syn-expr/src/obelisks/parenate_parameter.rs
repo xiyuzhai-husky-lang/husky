@@ -12,10 +12,10 @@ pub enum VariadicVariant {
     },
 }
 
-impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for VariadicVariant {
+impl<'a, 'b> TryParseFromStream<SynDeclExprParser<'a>> for VariadicVariant {
     type Error = ExprError;
 
-    fn try_parse_from_stream(sp: &mut ExprParseContext<'a, 'b>) -> Result<Self, Self::Error> {
+    fn try_parse_from_stream(sp: &mut SynDeclExprParser<'a>) -> Result<Self, Self::Error> {
         if let Some(lbox_token) = sp.try_parse_option::<LboxToken>()? {
             if let Some(rbox_token) = sp.try_parse_option::<RboxToken>()? {
                 Ok(VariadicVariant::Vec {
@@ -62,11 +62,11 @@ pub enum SpecificParameterObelisk {
     },
 }
 
-impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SpecificParameterObelisk {
+impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParameterObelisk {
     type Error = ExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b>,
+        ctx: &mut SynDeclExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
         if let Some(pattern_expr_idx) = ctx.parse_pattern_expr(SynPatternExprInfo::Parameter)? {
             let symbols = ctx

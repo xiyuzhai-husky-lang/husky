@@ -1,6 +1,7 @@
 #![feature(result_flattening)]
 #![feature(trait_upcasting)]
 #![feature(let_chains)]
+mod context;
 mod db;
 mod error;
 mod html;
@@ -18,6 +19,7 @@ pub mod symbol;
 #[cfg(test)]
 mod tests;
 
+pub use self::context::*;
 pub use self::db::*;
 pub use self::error::*;
 pub use self::html::*;

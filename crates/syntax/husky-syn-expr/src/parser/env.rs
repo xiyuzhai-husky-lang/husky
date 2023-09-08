@@ -25,7 +25,10 @@ impl ExprEnvironmentStack {
     }
 }
 
-impl<'a, 'b> ExprParseContext<'a, 'b> {
+impl<'a, C> SynExprParser<'a, C>
+where
+    C: IsSynExprContext<'a>,
+{
     pub(super) fn env(&self) -> Option<ExprEnvironment> {
         self.env_stack.0.last().copied()
     }

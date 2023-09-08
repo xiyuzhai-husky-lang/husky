@@ -45,11 +45,11 @@ pub enum TemplateParameterDeclPatternVariant {
     },
 }
 
-impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for TemplateParameterObelisk {
+impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParameterObelisk {
     type Error = ExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b>,
+        ctx: &mut SynDeclExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
         let syn_attrs = ctx.try_parse()?;
         let annotated_variance_token = ctx.try_parse_err_as_none();

@@ -12,9 +12,9 @@ impl TokenSheetData {
     pub fn token_group_token_stream<'a>(
         &'a self,
         token_group_idx: TokenGroupIdx,
-        state: impl Into<Option<TokenStreamState>>,
+        saved_stream_state: impl Into<Option<TokenStreamState>>,
     ) -> TokenStream<'a> {
-        let state: Option<TokenStreamState> = state.into();
+        let state: Option<TokenStreamState> = saved_stream_state.into();
         let base = self.token_group_base(token_group_idx);
         let next_relative = state
             .map(|state| TokenGroupRelativeTokenIndex::new(base, state.next_token_idx))

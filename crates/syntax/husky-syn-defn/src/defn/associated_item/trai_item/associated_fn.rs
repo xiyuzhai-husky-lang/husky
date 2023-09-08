@@ -15,7 +15,7 @@ impl TraitAssociatedFnSynNodeDefn {
         syn_node_path: TraitItemSynNodePath,
         syn_node_decl: TraitAssociatedFnSynNodeDecl,
     ) -> Self {
-        let mut parser = expr_parser(
+        let mut parser = stmt_context(
             db,
             syn_node_path,
             syn_node_decl.syn_expr_region(db),

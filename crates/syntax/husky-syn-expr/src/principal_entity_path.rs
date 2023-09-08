@@ -23,20 +23,25 @@ pub enum PrincipalEntityPathExpr {
     },
 }
 
-pub type PrincipalEntityPathSynExprArena = Arena<PrincipalEntityPathExpr>;
+pub type SynPrincipalEntityPathExprArena = Arena<PrincipalEntityPathExpr>;
 pub type PrincipalEntityPathExprIdx = ArenaIdx<PrincipalEntityPathExpr>;
 
 // todo: change this to trait impl
-impl<'a, 'b> ExprParseContext<'a, 'b> {
+impl<'a, C> SynExprParser<'a, C>
+where
+    C: IsSynExprContext<'a>,
+{
     pub(crate) fn parse_principal_item_path_expr(
         &mut self,
         path_name_token: PathNameToken,
         principal_item_path: PrincipalEntityPath,
     ) -> SynExpr {
-        let root = self.alloc_item_path_expr(PrincipalEntityPathExpr::Root {
-            path_name_token,
-            principal_entity_path: principal_item_path,
-        });
+        let root = self
+            .context_mut()
+            .alloc_item_path_expr(PrincipalEntityPathExpr::Root {
+                path_name_token,
+                principal_entity_path: principal_item_path,
+            });
         if let Some(major_path) = principal_item_path.major()
            && let Some(scope_resolution_token)= self.try_parse_err_as_none::<ScopeResolutionToken>() {
             self.parse_subitem_path_expr(root, major_path, scope_resolution_token)
@@ -65,10 +70,12 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         SubitemPath::Principal(path) => Ok(path),
                         SubitemPath::Associated => {
                             return SynExpr::ScopeResolution {
-                                parent_expr_idx: self.alloc_expr(SynExpr::PrincipalEntityPath {
-                                    item_path_expr: parent,
-                                    opt_path: Some(parent_path.into()),
-                                }),
+                                parent_expr_idx: self.context_mut().alloc_expr(
+                                    SynExpr::PrincipalEntityPath {
+                                        item_path_expr: parent,
+                                        opt_path: Some(parent_path.into()),
+                                    },
+                                ),
                                 scope_resolution_token,
                                 ident_token,
                             }
@@ -90,7 +97,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             ident_token,
             path,
         };
-        let expr = self.alloc_item_path_expr(expr);
+        let expr = self.context_mut().alloc_item_path_expr(expr);
         if let Some(path) = opt_path && let Some(major_path) = path.major()
             && let Some(scope_resolution_token) = self.try_parse_err_as_none::<ScopeResolutionToken>() {
             self.parse_subitem_path_expr(expr, major_path, scope_resolution_token)

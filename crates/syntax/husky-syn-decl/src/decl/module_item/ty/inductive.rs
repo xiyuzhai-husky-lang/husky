@@ -38,14 +38,16 @@ impl<'a> DeclParserFactory<'a> {
         variants: TypeVariants,
         saved_stream_state: TokenStreamState,
     ) -> InductiveTypeSynNodeDecl {
-        let mut parser = self.expr_parser(
+        let mut parser = self.parser(
             syn_node_path,
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
+            None,
+            token_group_idx,
+            Some(saved_stream_state),
         );
-        let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let template_parameter_decl_list = ctx.try_parse_option();
+        let template_parameter_decl_list = parser.try_parse_option();
         InductiveTypeSynNodeDecl::new(
             self.db(),
             syn_node_path,

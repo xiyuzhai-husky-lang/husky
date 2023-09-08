@@ -1,16 +1,13 @@
 mod accept;
-mod alloc;
 mod block;
 mod debug;
 mod disambiguate_token;
 mod env;
 mod expr_stack;
 mod incomplete_expr;
-mod root;
 
 pub use self::block::*;
 pub use self::env::*;
-pub use self::root::*;
 
 use self::incomplete_expr::*;
 use crate::symbol::*;
@@ -38,144 +35,64 @@ macro_rules! report {
 }
 use report;
 
-pub struct ExprParser<'a> {
-    db: &'a dyn SynExprDb,
-    path: RegionPath,
-    // todo: make this option
-    module_path: ModulePath,
-    crate_root_path: ModulePath,
-    token_sheet_data: &'a TokenSheetData,
-    parent_expr_region: Option<SynExprRegion>,
-    symbol_context: SymbolContextMut<'a>,
-    expr_arena: SynExprArena,
-    principal_item_path_expr_arena: PrincipalEntityPathSynExprArena,
-    pattern_expr_region: SynPatternExprRegion,
-    stmt_arena: SynStmtArena,
-    expr_roots: Vec<SynExprRoot>,
-}
-
-impl<'a> ExprParser<'a> {
-    pub fn new(
-        db: &'a dyn SynExprDb,
-        path: RegionPath,
-        token_sheet_data: &'a TokenSheetData,
-        module_symbol_context: ModuleSymbolContext<'a>,
-        parent_expr_region: Option<SynExprRegion>,
-        allow_self_type: AllowSelfType,
-        allow_self_value: AllowSelfValue,
-    ) -> Self {
-        let module_path = path.module_path(db);
-        Self {
-            db,
-            path,
-            module_path,
-            crate_root_path: module_path.crate_path(db).root_module_path(db),
-            token_sheet_data,
-            parent_expr_region,
-            symbol_context: SymbolContextMut::new(
-                module_symbol_context,
-                parent_expr_region.map(|er| er.data(db).symbol_region()),
-                allow_self_type,
-                allow_self_value,
-            ),
-            expr_arena: Default::default(),
-            principal_item_path_expr_arena: Default::default(),
-            pattern_expr_region: Default::default(),
-            stmt_arena: Default::default(),
-            expr_roots: vec![],
-        }
-    }
-
-    pub fn finish(self) -> SynExprRegion {
-        self.symbol_context.into_expr_region(
-            self.db,
-            self.parent_expr_region,
-            self.path,
-            self.expr_arena,
-            self.principal_item_path_expr_arena,
-            self.pattern_expr_region,
-            self.stmt_arena,
-            self.expr_roots,
-        )
-    }
-
-    pub fn ctx<'b>(
-        &'b mut self,
-        env: Option<ExprEnvironment>,
-        token_group_idx: TokenGroupIdx,
-        state: impl Into<Option<TokenStreamState>>,
-    ) -> ExprParseContext<'a, 'b>
-    where
-        'a: 'b,
-    {
-        ExprParseContext::new(
-            self,
-            env,
-            self.token_sheet_data
-                .token_group_token_stream(token_group_idx, state),
-        )
-    }
-
-    pub(crate) fn pattern_expr_region(&self) -> &SynPatternExprRegion {
-        &self.pattern_expr_region
-    }
-
-    #[inline(always)]
-    fn define_symbol(
-        &mut self,
-        variable: CurrentSynSymbol,
-        ty_constraint: Option<ObeliskTypeConstraint>,
-    ) -> CurrentSynSymbolIdx {
-        self.symbol_context.define_symbol(variable, ty_constraint)
-    }
-
-    #[inline(always)]
-    fn define_symbols(
-        &mut self,
-        variables: impl IntoIterator<Item = CurrentSynSymbol>,
-        ty_constraint: Option<ObeliskTypeConstraint>,
-    ) -> CurrentSynSymbolIdxRange {
-        self.symbol_context.define_symbols(variables, ty_constraint)
-    }
-}
-
-pub struct ExprParseContext<'a, 'b> {
-    parser: &'b mut ExprParser<'a>,
+/// parse token group into exprs
+pub struct SynExprParser<'a, C>
+where
+    C: IsSynExprContext<'a>,
+{
+    pub(crate) context: C,
     env_stack: ExprEnvironmentStack,
     token_stream: TokenStream<'a>,
     stack: ExprStack,
 }
 
-impl<'a, 'b> HasTokenDb for ExprParseContext<'a, 'b> {
+pub type SynDeclExprParser<'a> = SynExprParser<'a, SynExprContext<'a>>;
+pub type SynDefnExprParser<'a, 'b> = SynExprParser<'a, &'b mut SynExprContext<'a>>;
+
+impl<'a, C> HasTokenDb for SynExprParser<'a, C>
+where
+    C: IsSynExprContext<'a>,
+{
     fn token_db(&self) -> &dyn TokenDb {
-        self.parser.db
+        self.context().db()
     }
 }
 
-impl<'a, 'b> ExprParseContext<'a, 'b> {
+impl<'a, C> SynExprParser<'a, C>
+where
+    C: IsSynExprContext<'a>,
+{
     pub(super) fn new(
-        parser: &'b mut ExprParser<'a>,
+        context: C,
         env: Option<ExprEnvironment>,
         token_stream: TokenStream<'a>,
     ) -> Self {
         Self {
-            parser,
+            context,
             env_stack: ExprEnvironmentStack::new(env),
             token_stream,
             stack: Default::default(),
         }
     }
 
+    pub(crate) fn context(&self) -> &SynExprContext<'a> {
+        self.context.borrow()
+    }
+
+    pub(crate) fn context_mut(&mut self) -> &mut SynExprContext<'a> {
+        self.context.borrow_mut()
+    }
+
     pub(crate) fn db(&self) -> &'a dyn SynExprDb {
-        self.parser.db
+        self.context().db()
     }
 
     pub(crate) fn tokens(&self) -> &TokenStream<'a> {
         &self.token_stream
     }
 
-    pub fn expr_arena(&self) -> &SynExprArena {
-        &self.parser.expr_arena
+    pub fn syn_expr_arena(&self) -> &SynExprArena {
+        &self.context().syn_expr_arena()
     }
 
     pub fn parse_expr_root(
@@ -204,7 +121,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             self.env_stack.unset();
         }
         let opt_expr_idx = self.finish_batch();
-        opt_expr_idx.map(|expr_idx| self.parser.add_expr_root(expr_root_kind, expr_idx));
+        opt_expr_idx.map(|expr_idx| self.context_mut().add_expr_root(expr_root_kind, expr_idx));
         opt_expr_idx
     }
 
@@ -268,15 +185,17 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         let expr_idx = {
             match self.finish_batch() {
                 Some(expr_idx) => expr_idx,
-                None => self.alloc_expr(SynExpr::Err(err(state).into())),
+                None => self
+                    .context_mut()
+                    .alloc_expr(SynExpr::Err(err(state).into())),
             }
         };
-        self.parser.add_expr_root(expr_root_kind, expr_idx);
+        self.context_mut().add_expr_root(expr_root_kind, expr_idx);
         expr_idx
     }
 
     pub(crate) fn pattern_expr_region(&self) -> &SynPatternExprRegion {
-        self.parser.pattern_expr_region()
+        self.context().pattern_expr_region()
     }
 
     pub(crate) fn define_symbol(
@@ -284,7 +203,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         variable: CurrentSynSymbol,
         ty_constraint: Option<ObeliskTypeConstraint>,
     ) -> CurrentSynSymbolIdx {
-        self.parser.define_symbol(variable, ty_constraint)
+        self.context_mut().define_symbol(variable, ty_constraint)
     }
 
     pub(crate) fn define_symbols(
@@ -292,7 +211,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         variables: impl IntoIterator<Item = CurrentSynSymbol>,
         ty_constraint: Option<ObeliskTypeConstraint>,
     ) -> CurrentSynSymbolIdxRange {
-        self.parser.define_symbols(variables, ty_constraint)
+        self.context_mut().define_symbols(variables, ty_constraint)
     }
 
     pub fn parse_pattern_expr(
@@ -314,7 +233,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 })?
             }
         };
-        Ok(Some(self.alloc_pattern_expr(
+        Ok(Some(self.context_mut().alloc_pattern_expr(
             SynPatternExpr::Ident {
                 symbol_modifier_keyword_group: symbol_modifier_token_group,
                 ident_token,
@@ -347,40 +266,61 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     }
 
     fn allow_self_ty(&self) -> AllowSelfType {
-        self.parser.symbol_context.symbol_region().allow_self_ty()
+        self.context()
+            .syn_symbol_context()
+            .symbol_region()
+            .allow_self_ty()
     }
 
     fn allow_self_value(&self) -> AllowSelfValue {
-        self.parser
-            .symbol_context
+        self.context()
+            .syn_symbol_context()
             .symbol_region()
             .allow_self_value()
     }
 }
 
-impl<'a, 'b> std::ops::Deref for ExprParseContext<'a, 'b> {
+impl<'a> SynExprParser<'a, SynExprContext<'a>> {
+    pub fn finish(self) -> SynExprRegion {
+        todo!()
+    }
+}
+
+impl<'a, C> std::ops::Deref for SynExprParser<'a, C>
+where
+    C: IsSynExprContext<'a>,
+{
     type Target = TokenStream<'a>;
     fn deref(&self) -> &Self::Target {
         &self.token_stream
     }
 }
 
-impl<'a, 'b> std::ops::DerefMut for ExprParseContext<'a, 'b> {
+impl<'a, C> std::ops::DerefMut for SynExprParser<'a, C>
+where
+    C: IsSynExprContext<'a>,
+{
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.token_stream
     }
 }
 
-impl<'a, 'b> std::borrow::Borrow<TokenStream<'a>> for ExprParseContext<'a, 'b> {
+impl<'a, C> std::borrow::Borrow<TokenStream<'a>> for SynExprParser<'a, C>
+where
+    C: IsSynExprContext<'a>,
+{
     fn borrow(&self) -> &TokenStream<'a> {
         &self.token_stream
     }
 }
 
-impl<'a, 'b> std::borrow::BorrowMut<TokenStream<'a>> for ExprParseContext<'a, 'b> {
+impl<'a, C> std::borrow::BorrowMut<TokenStream<'a>> for SynExprParser<'a, C>
+where
+    C: IsSynExprContext<'a>,
+{
     fn borrow_mut(&mut self) -> &mut TokenStream<'a> {
         &mut self.token_stream
     }
 }
 
-impl<'a, 'b> parsec::StreamWrapper for ExprParseContext<'a, 'b> {}
+impl<'a, C> parsec::StreamWrapper for SynExprParser<'a, C> where C: IsSynExprContext<'a> {}

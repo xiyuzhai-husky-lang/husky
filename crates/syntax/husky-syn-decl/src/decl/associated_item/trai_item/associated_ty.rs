@@ -39,21 +39,23 @@ impl<'a> DeclParserFactory<'a> {
         let parent_trai_syn_node_decl = syn_node_path
             .parent_trai_syn_node_path(db)
             .syn_node_decl(db);
-        let mut parser = self.expr_parser(
+        let mut parser = self.parser(
             node.syn_node_path(db),
             Some(parent_trai_syn_node_decl.syn_expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::False,
+            None,
+            token_group_idx,
+            saved_stream_state,
         );
-        let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
         let eq_token =
-            ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectedEqForAssociatedType);
-        let ty_term_expr_idx = ctx.parse_expr_expected2(
+            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEqForAssociatedType);
+        let ty_term_expr_idx = parser.parse_expr_expected2(
             None,
             ExprRootKind::AssociatedTypeTerm,
             OriginalExprError::ExpectedTypeTermForAssociatedType,
         );
-        let generics = ctx.try_parse_option();
+        let generics = parser.try_parse_option();
         TraitAssociatedTypeSynNodeDecl::new(
             db,
             node.syn_node_path(db),

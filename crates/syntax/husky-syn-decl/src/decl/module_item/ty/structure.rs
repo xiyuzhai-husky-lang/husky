@@ -29,14 +29,16 @@ impl<'a> DeclParserFactory<'a> {
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
     ) -> TypeSynNodeDecl {
-        let mut parser = self.expr_parser(
+        let mut parser = self.parser(
             syn_node_path,
             None,
             AllowSelfType::True,
             AllowSelfValue::True,
+            None,
+            token_group_idx,
+            Some(saved_stream_state),
         );
-        let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let template_parameters = ctx.try_parse_option();
+        let template_parameters = parser.try_parse_option();
         StructureTypeSynNodeDecl::new(
             self.db(),
             syn_node_path,

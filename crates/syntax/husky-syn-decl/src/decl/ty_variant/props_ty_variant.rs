@@ -24,10 +24,10 @@ pub struct PropsTypeVariantSynNodeDecl {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct PropsTypeVariantLeftCurlyBrace(LcurlToken);
 
-impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsTypeVariantLeftCurlyBrace {
+impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for PropsTypeVariantLeftCurlyBrace {
     type Error = SynNodeDeclError;
 
-    fn try_parse_from_stream(sp: &mut ExprParseContext) -> Result<Self, Self::Error> {
+    fn try_parse_from_stream(sp: &mut SynDeclExprParser<'a>) -> Result<Self, Self::Error> {
         let lcurl = sp.try_parse_expected(
             OriginalSynNodeDeclError::ExpectedLeftCurlyBraceOrLeftParenthesisOrSemicolonForStruct,
         )?;
@@ -38,10 +38,10 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsTypeVariantLe
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct PropsTypeVariantRcurlToken(RcurlToken);
 
-impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsTypeVariantRcurlToken {
+impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for PropsTypeVariantRcurlToken {
     type Error = SynNodeDeclError;
 
-    fn try_parse_from_stream(sp: &mut ExprParseContext) -> Result<Self, Self::Error> {
+    fn try_parse_from_stream(sp: &mut SynDeclExprParser<'a>) -> Result<Self, Self::Error> {
         // todo: enrich this
         // consider unexpected
         // maybe sp.skip_exprs_until_next_right_curly_brace

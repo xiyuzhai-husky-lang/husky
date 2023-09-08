@@ -11,11 +11,11 @@ impl SelfTypeObelisk {
     }
 }
 
-impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SelfTypeObelisk {
+impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SelfTypeObelisk {
     type Error = ExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b>,
+        ctx: &mut SynDeclExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
         if let Some(expr) = ctx.parse_expr_root(None, ExprRootKind::SelfType) {
             Ok(Some(SelfTypeObelisk { expr }))

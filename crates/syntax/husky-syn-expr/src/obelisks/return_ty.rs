@@ -11,11 +11,11 @@ impl ReturnTypeBeforeColonObelisk {
     }
 }
 
-impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for ReturnTypeBeforeColonObelisk {
+impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ReturnTypeBeforeColonObelisk {
     type Error = ExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b>,
+        ctx: &mut SynDeclExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
         if let Some(expr) = ctx.parse_expr_root(None, ExprRootKind::ReturnType) {
             Ok(Some(ReturnTypeBeforeColonObelisk { expr }))
@@ -36,11 +36,11 @@ impl ReturnTypeBeforeEqObelisk {
     }
 }
 
-impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for ReturnTypeBeforeEqObelisk {
+impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ReturnTypeBeforeEqObelisk {
     type Error = ExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b>,
+        ctx: &mut SynDeclExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
         if let Some(expr) =
             ctx.parse_expr_root(ExprEnvironment::TypeBeforeEq, ExprRootKind::ReturnType)

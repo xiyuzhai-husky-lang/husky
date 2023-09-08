@@ -5,7 +5,10 @@ use husky_print_utils::p;
 use parsec::{parse_consecutive_list, parse_consecutive_vec_map, StreamParser};
 use smallvec::smallvec;
 
-impl<'a, 'b> ExprParseContext<'a, 'b> {
+impl<'a, C> SynExprParser<'a, C>
+where
+    C: IsSynExprContext<'a>,
+{
     pub(crate) fn accept_token(&mut self, token: DisambiguatedToken) {
         match token {
             DisambiguatedToken::AtomicExpr(atom) => self.accept_atom(atom),
@@ -46,7 +49,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 }
                 self.take_complete_and_push_to_top(|this, finished_expr| {
                     if let Some(expr) = finished_expr {
-                        items.push(SynCommaListItem::new(this.alloc_expr(expr), None))
+                        items.push(SynCommaListItem::new(
+                            this.context_mut().alloc_expr(expr),
+                            None,
+                        ))
                     }
                     match opr {
                         IncompleteCommaListOpr::UnitOrBracketedOrNewTuple => match items.last() {
@@ -208,7 +214,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             // }
             _ => {
                 p!(last_incomplete_expr);
-                p!(self.parser.path.debug(self.db()));
+                // p!(self.context.path.debug(self.db()));
                 p!(ket_token_idx);
                 todo!()
             }
@@ -232,7 +238,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     fn accept_suffix_opr(&mut self, punctuation: SuffixOpr, punctuation_token_idx: TokenIdx) {
         self.take_complete_and_push_to_top(|this, top_expr| match top_expr {
             Some(expr) => SynExpr::Suffix {
-                opd: this.alloc_expr(expr),
+                opd: this.context_mut().alloc_expr(expr),
                 opr: punctuation,
                 opr_token_idx: punctuation_token_idx,
             }
@@ -244,7 +250,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     fn accept_dot_opr(&mut self, dot_token_idx: TokenIdx) {
         self.take_complete_and_push_to_top(|this, finished_expr| match finished_expr {
             Some(self_expr) => {
-                let self_expr = this.alloc_expr(self_expr);
+                let self_expr = this.context_mut().alloc_expr(self_expr);
                 match this.try_parse_option::<IdentToken>() {
                     Ok(Some(ident_token)) => match this.try_parse_option::<LparToken>() {
                         Ok(Some(lpar)) => IncompleteExpr::CommaList {
@@ -298,7 +304,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     fn accept_comma(&mut self, comma_token_idx: TokenIdx) {
         match self.take_complete_expr() {
             Some(item) => {
-                let item = self.alloc_expr(item);
+                let item = self.context_mut().alloc_expr(item);
                 match self.last_incomplete_expr_mut() {
                     Some(expr) => match expr {
                         IncompleteExpr::CommaList {
@@ -349,7 +355,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         let src = self.take_complete_expr().unwrap_or(SynExpr::Err(
             OriginalExprError::ExpectedItemBeforeBe { be_token_idx }.into(),
         ));
-        let src = self.alloc_expr(src);
+        let src = self.context_mut().alloc_expr(src);
         let end = match self.env() {
             Some(env) => match env {
                 ExprEnvironment::TypeBeforeEq => todo!(),
@@ -407,7 +413,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
     fn accept_list_start(&mut self, bra: Bracket, bra_token_idx: TokenIdx) {
         self.take_complete_and_push_to_top(|parser, finished_expr| -> TopExpr {
-            let finished_expr = finished_expr.map(|expr| parser.alloc_expr(expr));
+            let finished_expr = finished_expr.map(|expr| parser.context_mut().alloc_expr(expr));
             match bra {
                 Bracket::Par => match finished_expr {
                     Some(function) => IncompleteExpr::CommaList {

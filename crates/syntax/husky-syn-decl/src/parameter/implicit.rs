@@ -27,11 +27,11 @@ impl Generics {
     }
 }
 
-impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for Generics {
+impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for Generics {
     type Error = SynNodeDeclError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b>,
+        ctx: &mut SynDeclExprParser<'a>,
     ) -> SynNodeDeclResult<Option<Self>> {
         let Some(langle) = ctx.try_parse_option::<LaOrLtToken>()? else {
             return Ok(None);

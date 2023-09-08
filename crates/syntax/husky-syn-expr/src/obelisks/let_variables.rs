@@ -11,7 +11,7 @@ pub struct LetVariableObelisk {
     ty: Option<SynExprIdx>,
 }
 
-impl<'a, 'b> ExprParseContext<'a, 'b> {
+impl<'a, 'b> SynDefnExprParser<'a, 'b> {
     pub(crate) fn parse_let_variables_pattern_expected(
         &mut self,
         access_end: TokenIdxRangeEnd,

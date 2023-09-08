@@ -14,7 +14,7 @@ pub struct SynExprRegionData {
     parent: Option<SynExprRegion>,
     path: RegionPath,
     expr_arena: SynExprArena,
-    principal_item_path_expr_arena: PrincipalEntityPathSynExprArena,
+    principal_item_path_expr_arena: SynPrincipalEntityPathExprArena,
     stmt_arena: SynStmtArena,
     pattern_expr_region: SynPatternExprRegion,
     symbol_region: SynSymbolRegion,
@@ -26,7 +26,7 @@ impl SynExprRegionData {
         parent: Option<SynExprRegion>,
         path: RegionPath,
         expr_arena: SynExprArena,
-        item_path_expr_arena: PrincipalEntityPathSynExprArena,
+        item_path_expr_arena: SynPrincipalEntityPathExprArena,
         stmt_arena: SynStmtArena,
         pattern_expr_region: SynPatternExprRegion,
         symbol_region: SynSymbolRegion,
@@ -60,7 +60,7 @@ impl SynExprRegionData {
         &self.expr_arena
     }
 
-    pub fn principal_item_path_expr_arena(&self) -> &PrincipalEntityPathSynExprArena {
+    pub fn principal_item_path_expr_arena(&self) -> &SynPrincipalEntityPathExprArena {
         &self.principal_item_path_expr_arena
     }
 

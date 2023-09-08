@@ -89,24 +89,27 @@ impl<'a> DeclParserFactory<'a> {
         token_group_idx: TokenGroupIdx,
     ) -> TraitForTypeImplBlockSynNodeDecl {
         let db = self.db();
-        let mut parser = self.expr_parser(
+        let mut parser = self.parser(
             node.syn_node_path(db),
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
+            None,
+            token_group_idx,
+            None,
         );
-        let mut ctx = parser.ctx(None, token_group_idx, None);
-        let impl_token = ctx.try_parse_option().unwrap().unwrap();
-        let template_parameter_decl_list = ctx.try_parse_option();
+        let impl_token = parser.try_parse_option().unwrap().unwrap();
+        let template_parameter_decl_list = parser.try_parse_option();
         // ad hoc
-        let trai: TraitObelisk = ctx.try_parse_option().unwrap().unwrap();
-        let for_token = ctx
+        let trai: TraitObelisk = parser.try_parse_option().unwrap().unwrap();
+        let for_token = parser
             .try_parse_option()
             .expect("guaranteed by parsing")
             .expect("guaranteed by parsing");
         let ty = match node.ty_sketch_expr(db) {
             SelfTypeSketchExpr::Path(_) => SelfTypeDecl::PathLeadingExpr(
-                ctx.try_parse_option()
+                parser
+                    .try_parse_option()
                     .expect("guaranteed")
                     .expect("guaranteed"),
             ),
@@ -115,7 +118,7 @@ impl<'a> DeclParserFactory<'a> {
                 derive_token,
                 underscore_token,
             } => {
-                ctx.advance_by(3);
+                parser.advance_by(3);
                 SelfTypeDecl::DeriveAny {
                     at_token,
                     derive_token,
@@ -123,7 +126,7 @@ impl<'a> DeclParserFactory<'a> {
                 }
             }
         };
-        let eol_colon = ctx.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
+        let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
         TraitForTypeImplBlockSynNodeDecl::new(
             db,
             syn_node_path,
