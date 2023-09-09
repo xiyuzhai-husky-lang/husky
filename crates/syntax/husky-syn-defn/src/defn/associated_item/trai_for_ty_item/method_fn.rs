@@ -15,19 +15,19 @@ impl TraitForTypeMethodFnSynNodeDefn {
         syn_node_path: TraitForTypeItemSynNodePath,
         syn_node_decl: TraitForTypeMethodFnSynNodeDecl,
     ) -> Self {
-        let mut parser = stmt_context(
-            db,
+        let mut ctx = SynStmtContext::new(
             syn_node_path,
             syn_node_decl.syn_expr_region(db),
             AllowSelfType::True,
             AllowSelfValue::True,
+            db,
         );
         let ast_idx = syn_node_decl.ast_idx(db);
-        let body = match parser.ast_sheet()[ast_idx] {
+        let body = match ctx.ast_sheet()[ast_idx] {
             Ast::Identifiable {
                 block: DefnBlock::AssociatedItem { body },
                 ..
-            } => body.map(|body| parser.parse_block_expr(body)),
+            } => body.map(|body| ctx.parse_block_expr(body)),
             _ => unreachable!(),
         };
         TraitForTypeMethodFnSynNodeDefn::new_inner(
@@ -35,7 +35,7 @@ impl TraitForTypeMethodFnSynNodeDefn {
             syn_node_path,
             syn_node_decl,
             body,
-            parser.finish(),
+            ctx.finish(),
         )
     }
 }

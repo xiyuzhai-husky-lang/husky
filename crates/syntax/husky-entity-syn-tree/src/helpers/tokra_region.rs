@@ -15,7 +15,7 @@ use husky_token::{Token, TokenIdx, TokenSheet};
 pub enum TokraRegionData<'a> {
     Snippet(SnippetTokraRegionData<'a>),
     Decl(DeclTokraRegionData<'a>),
-    Defn(DefnTokraRegionData<'a>),
+    Defn(SynDefnTokraRegionData<'a>),
 }
 
 impl<'a> std::ops::Index<RegionalTokenIdx> for TokraRegionData<'a> {

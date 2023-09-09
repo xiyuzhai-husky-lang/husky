@@ -15,13 +15,12 @@ impl TraitAssociatedTypeSynNodeDefn {
         syn_node_path: TraitItemSynNodePath,
         syn_node_decl: TraitAssociatedTypeSynNodeDecl,
     ) -> Self {
-        let syn_node_path = syn_node_decl.syn_node_path(db);
-        let mut parser = stmt_context(
-            db,
+        let mut parser = SynStmtContext::new(
             syn_node_path,
             syn_node_decl.syn_expr_region(db),
             AllowSelfType::True,
             AllowSelfValue::False,
+            db,
         );
         let ast_idx = syn_node_decl.ast_idx(db);
         let body = match parser.ast_sheet()[ast_idx] {

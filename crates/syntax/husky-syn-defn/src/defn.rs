@@ -47,12 +47,12 @@ impl SynNodeDefn {
 
     pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
         match self {
-            SynNodeDefn::Submodule(_) => None,
             SynNodeDefn::MajorItem(defn) => defn.syn_expr_region(db),
             SynNodeDefn::AssociatedItem(defn) => defn.syn_expr_region(db),
-            SynNodeDefn::TypeVariant(_defn) => None,
-            SynNodeDefn::ImplBlock(_) => None,
-            SynNodeDefn::Decr(_) => None,
+            SynNodeDefn::Submodule(_)
+            | SynNodeDefn::TypeVariant(_)
+            | SynNodeDefn::ImplBlock(_)
+            | SynNodeDefn::Decr(_) => None,
         }
     }
 }

@@ -1,16 +1,16 @@
 #![feature(trait_upcasting)]
-mod collector;
 mod db;
 mod defn;
 mod error;
 #[cfg(test)]
 mod tests;
+mod utils;
 
 pub use self::db::*;
 pub use self::defn::*;
 pub use self::error::*;
 
-use self::collector::*;
+use self::utils::*;
 use husky_ast::*;
 use husky_entity_path::*;
 use husky_entity_syn_tree::*;

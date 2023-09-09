@@ -15,12 +15,12 @@ impl ValSynNodeDefn {
         syn_node_path: FugitiveSynNodePath,
         syn_node_decl: ValSynNodeDecl,
     ) -> Self {
-        let mut parser = stmt_context(
-            db,
+        let mut parser = SynStmtContext::new(
             syn_node_path,
             syn_node_decl.syn_expr_region(db),
             AllowSelfType::False,
             AllowSelfValue::False,
+            db,
         );
         let ast_idx = syn_node_decl.ast_idx(db);
         let body = match parser.ast_sheet()[ast_idx] {

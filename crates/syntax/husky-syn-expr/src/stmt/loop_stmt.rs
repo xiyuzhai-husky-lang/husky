@@ -230,7 +230,7 @@ fn test_step_n_for_neg_step() {
     assert_eq!(step.n(0, 1), 0);
 }
 
-impl<'a> StmtContext<'a> {
+impl<'a> SynStmtContext<'a> {
     pub(super) fn parse_for_loop_stmt(
         &mut self,
         token_group_idx: TokenGroupIdx,

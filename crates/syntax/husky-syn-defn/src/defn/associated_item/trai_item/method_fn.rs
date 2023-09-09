@@ -15,13 +15,18 @@ impl TraitMethodFnSynNodeDefn {
         syn_node_path: TraitItemSynNodePath,
         syn_node_decl: TraitMethodFnSynNodeDecl,
     ) -> Self {
-        let mut parser = stmt_context(
-            db,
-            syn_node_path,
-            syn_node_decl.syn_expr_region(db),
-            AllowSelfType::True,
-            AllowSelfValue::True,
-        );
+        let mut parser = {
+            let decl_expr_region = syn_node_decl.syn_expr_region(db);
+            let allow_self_type = AllowSelfType::True;
+            let allow_self_value = AllowSelfValue::True;
+            SynStmtContext::new(
+                syn_node_path,
+                decl_expr_region,
+                allow_self_type,
+                allow_self_value,
+                db,
+            )
+        };
         let ast_idx = syn_node_decl.ast_idx(db);
         let body = match parser.ast_sheet()[ast_idx] {
             Ast::Identifiable {

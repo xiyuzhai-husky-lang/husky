@@ -57,7 +57,7 @@ impl SynElseBranch {
     }
 }
 
-impl<'a> StmtContext<'a> {
+impl<'a> SynStmtContext<'a> {
     pub(super) fn parse_if_branch(&mut self, if_branch: AstIdx) -> SynIfBranch {
         match self.ast_sheet()[if_branch] {
             Ast::BasicStmtOrBranch {
