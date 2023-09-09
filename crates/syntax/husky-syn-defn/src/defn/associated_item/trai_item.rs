@@ -22,14 +22,23 @@ pub enum TraitItemSynNodeDefn {
 }
 
 impl TraitItemSynNodeDefn {
-    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> SynExprRegion {
+    pub fn body_with_syn_expr_region(
+        self,
+        db: &dyn SynDefnDb,
+    ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
-            TraitItemSynNodeDefn::AssociatedFn(syn_node_defn) => syn_node_defn.syn_expr_region(db),
-            TraitItemSynNodeDefn::MethodFn(syn_node_defn) => syn_node_defn.syn_expr_region(db),
-            TraitItemSynNodeDefn::AssociatedType(syn_node_defn) => {
-                syn_node_defn.syn_expr_region(db)
+            TraitItemSynNodeDefn::AssociatedFn(syn_node_defn) => {
+                syn_node_defn.body_with_syn_expr_region(db)
             }
-            TraitItemSynNodeDefn::AssociatedVal(syn_node_defn) => syn_node_defn.syn_expr_region(db),
+            TraitItemSynNodeDefn::MethodFn(syn_node_defn) => {
+                syn_node_defn.body_with_syn_expr_region(db)
+            }
+            TraitItemSynNodeDefn::AssociatedType(syn_node_defn) => {
+                syn_node_defn.body_with_syn_expr_region(db)
+            }
+            TraitItemSynNodeDefn::AssociatedVal(syn_node_defn) => {
+                syn_node_defn.body_with_syn_expr_region(db)
+            }
         }
     }
 }

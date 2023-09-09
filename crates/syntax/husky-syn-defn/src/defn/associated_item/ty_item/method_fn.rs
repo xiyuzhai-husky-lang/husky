@@ -7,8 +7,7 @@ pub struct TypeMethodFnSynNodeDefn {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
     pub syn_node_decl: TypeMethodFnSynNodeDecl,
-    pub body: Option<SynExprIdx>,
-    pub syn_expr_region: SynExprRegion,
+    pub body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
 }
 
 impl TypeMethodFnSynNodeDefn {
@@ -17,22 +16,18 @@ impl TypeMethodFnSynNodeDefn {
         syn_node_path: TypeItemSynNodePath,
         syn_node_decl: TypeMethodFnSynNodeDecl,
     ) -> Self {
-        let mut parser = SynStmtContext::new(
-            syn_node_path,
-            syn_node_decl.syn_expr_region(db),
-            AllowSelfType::True,
-            AllowSelfValue::True,
+        Self::new_inner(
             db,
-        );
-        let ast_idx = syn_node_decl.ast_idx(db);
-        let body = match parser.ast_sheet()[ast_idx] {
-            Ast::Identifiable {
-                block: DefnBlock::AssociatedItem { body },
-                ..
-            } => body.map(|body| parser.parse_block_expr(body)),
-            _ => unreachable!(),
-        };
-        Self::new_inner(db, syn_node_path, syn_node_decl, body, parser.finish())
+            syn_node_path,
+            syn_node_decl,
+            parse_defn_block_expr(
+                syn_node_path,
+                syn_node_decl.syn_expr_region(db),
+                AllowSelfType::True,
+                AllowSelfValue::True,
+                db,
+            ),
+        )
     }
 }
 
@@ -41,8 +36,7 @@ pub struct TypeMethodFnSynDefn {
     #[id]
     pub path: TypeItemPath,
     pub decl: TypeMethodFnSynDecl,
-    pub body: Option<SynExprIdx>,
-    pub syn_expr_region: SynExprRegion,
+    pub body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
 }
 
 impl TypeMethodFnSynDefn {
@@ -59,8 +53,7 @@ impl TypeMethodFnSynDefn {
             db,
             path,
             decl,
-            syn_node_defn.body(db),
-            syn_node_defn.syn_expr_region(db),
+            syn_node_defn.body_with_syn_expr_region(db),
         ))
     }
 }

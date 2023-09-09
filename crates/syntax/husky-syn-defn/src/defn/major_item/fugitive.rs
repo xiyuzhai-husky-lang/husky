@@ -39,11 +39,14 @@ impl FugitiveSynNodeDefn {
         // }
     }
 
-    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> SynExprRegion {
+    pub fn body_with_syn_expr_region(
+        self,
+        db: &dyn SynDefnDb,
+    ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
-            FugitiveSynNodeDefn::Fn(defn) => defn.syn_expr_region(db),
-            FugitiveSynNodeDefn::Val(defn) => defn.syn_expr_region(db),
-            FugitiveSynNodeDefn::Gn(defn) => defn.syn_expr_region(db),
+            FugitiveSynNodeDefn::Fn(defn) => defn.body_with_syn_expr_region(db),
+            FugitiveSynNodeDefn::Val(defn) => defn.body_with_syn_expr_region(db),
+            FugitiveSynNodeDefn::Gn(defn) => defn.body_with_syn_expr_region(db),
         }
     }
 }
@@ -101,11 +104,15 @@ impl FugitiveSynDefn {
             FugitiveSynDefn::Gn(defn) => defn.path(db),
         }
     }
-    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> SynExprRegion {
+
+    pub fn body_with_syn_expr_region(
+        self,
+        db: &dyn SynDefnDb,
+    ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
-            FugitiveSynDefn::Fn(defn) => defn.syn_expr_region(db),
-            FugitiveSynDefn::Val(defn) => defn.syn_expr_region(db),
-            FugitiveSynDefn::Gn(defn) => defn.syn_expr_region(db),
+            FugitiveSynDefn::Fn(defn) => defn.body_with_syn_expr_region(db),
+            FugitiveSynDefn::Val(defn) => defn.body_with_syn_expr_region(db),
+            FugitiveSynDefn::Gn(defn) => defn.body_with_syn_expr_region(db),
         }
     }
 }

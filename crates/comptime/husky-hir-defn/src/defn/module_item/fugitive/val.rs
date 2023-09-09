@@ -1,11 +1,11 @@
 use super::*;
+use husky_hir_expr::helpers::build_body;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
 pub struct ValHirDefn {
     pub path: FugitivePath,
     pub hir_decl: ValFugitiveHirDecl,
-    pub body: Option<HirExprIdx>,
-    pub hir_expr_region: HirExprRegion,
+    pub body_with_hir_expr_region: Option<(HirExprIdx, HirExprRegion)>,
 }
 
 impl ValHirDefn {
@@ -17,9 +17,15 @@ impl ValHirDefn {
         let Ok(FugitiveSynDefn::Val(syn_defn)) = path.syn_defn(db) else {
             unreachable!()
         };
-        let mut builder = HirExprBuilder::new(db, syn_defn.syn_expr_region(db));
-        let body = syn_defn.body(db).map(|body| body.to_hir(&mut builder));
-        let hir_expr_region = builder.finish();
-        Self::new_inner(db, path, hir_decl, body, hir_expr_region)
+        Self::new_inner(
+            db,
+            path,
+            hir_decl,
+            build_body(syn_defn.body_with_syn_expr_region(db), db),
+        )
+    }
+
+    pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {
+        self.body_with_hir_expr_region(db).map(|v| v.1)
     }
 }

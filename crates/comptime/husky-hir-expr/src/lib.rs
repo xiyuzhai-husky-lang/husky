@@ -1,6 +1,7 @@
 #![feature(trait_upcasting)]
 pub mod builder;
 pub mod db;
+pub mod helpers;
 mod region;
 
 pub use self::region::*;

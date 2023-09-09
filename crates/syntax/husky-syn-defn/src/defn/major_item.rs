@@ -26,11 +26,14 @@ impl MajorItemSynNodeDefn {
         }
     }
 
-    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
+    pub fn body_with_syn_expr_region(
+        self,
+        db: &dyn SynDefnDb,
+    ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
             MajorItemSynNodeDefn::Type(_) | MajorItemSynNodeDefn::Trait(_) => None,
             MajorItemSynNodeDefn::Fugitive(syn_node_defn) => {
-                Some(syn_node_defn.syn_expr_region(db))
+                syn_node_defn.body_with_syn_expr_region(db)
             }
         }
     }
@@ -74,10 +77,13 @@ impl MajorItemSynDefn {
         }
     }
 
-    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
+    pub fn body_with_syn_expr_region(
+        self,
+        db: &dyn SynDefnDb,
+    ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
             MajorItemSynDefn::Type(_) | MajorItemSynDefn::Trait(_) => None,
-            MajorItemSynDefn::Fugitive(defn) => Some(defn.syn_expr_region(db)),
+            MajorItemSynDefn::Fugitive(defn) => defn.body_with_syn_expr_region(db),
         }
     }
 }
