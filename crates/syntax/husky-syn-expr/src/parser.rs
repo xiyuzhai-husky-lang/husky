@@ -282,7 +282,7 @@ where
 
 impl<'a> SynExprParser<'a, SynExprContext<'a>> {
     pub fn finish(self) -> SynExprRegion {
-        todo!()
+        self.context.finish()
     }
 }
 

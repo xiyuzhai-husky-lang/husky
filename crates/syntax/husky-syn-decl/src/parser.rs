@@ -50,7 +50,9 @@ impl<'a> DeclParserFactory<'a> {
         token_group_idx: TokenGroupIdx,
         saved_stream_state: impl Into<Option<TokenStreamState>>,
     ) -> SynDeclExprParser<'a> {
-        let token_stream = todo!();
+        let token_stream = self
+            .token_sheet_data
+            .token_group_token_stream(token_group_idx, saved_stream_state);
         SynExprContext::new(
             self.db,
             RegionPath::Decl(syn_node_path.into()),
