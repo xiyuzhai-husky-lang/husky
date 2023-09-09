@@ -2,8 +2,7 @@ use super::*;
 use husky_syn_defn::HasDefns;
 use husky_syn_expr::{
     OriginalPrincipalEntityPathExprError, OriginalSynExprError, PrincipalEntityPathExpr,
-    PrincipalEntityPathExprError, SynExpr, SynExprError, SynExprRegion, SynExprResult,
-    SynForBetweenError, SynStmt,
+    PrincipalEntityPathExprError, SynExpr, SynExprError, SynExprRegion, SynExprResult, SynStmt,
 };
 use salsa::DebugWithDb;
 
@@ -99,26 +98,51 @@ impl<'a> ModuleDiagnosticsCollector<'a> {
                     particulars,
                     eol_colon,
                     block,
-                } => todo!(),
+                } => {
+                    self.visit_syn_expr_result(eol_colon);
+                    // todo: handle errors in particulars
+                    self.visit_syn_expr_result(block);
+                }
                 SynStmt::While {
                     while_token,
                     condition,
                     eol_colon,
                     block,
-                } => todo!(),
+                } => {
+                    self.visit_syn_expr_result(condition);
+                    self.visit_syn_expr_result(eol_colon);
+                    self.visit_syn_expr_result(block)
+                }
                 SynStmt::DoWhile {
                     do_token,
                     while_token,
                     condition,
                     eol_colon,
                     block,
-                } => todo!(),
+                } => {
+                    self.visit_syn_expr_result(condition);
+                    self.visit_syn_expr_result(eol_colon);
+                    self.visit_syn_expr_result(block)
+                }
                 SynStmt::IfElse {
                     if_branch,
                     elif_branches,
                     else_branch,
-                } => todo!(),
-                SynStmt::Match { match_token } => todo!(),
+                } => {
+                    self.visit_syn_expr_result(&if_branch.condition);
+                    self.visit_syn_expr_result(&if_branch.eol_colon);
+                    self.visit_syn_expr_result(&if_branch.stmts);
+                    for elif_branch in elif_branches {
+                        self.visit_syn_expr_result(&elif_branch.condition);
+                        self.visit_syn_expr_result(&elif_branch.eol_colon);
+                        self.visit_syn_expr_result(&elif_branch.stmts);
+                    }
+                    if let Some(else_branch) = else_branch {
+                        self.visit_syn_expr_result(&else_branch.eol_colon);
+                        self.visit_syn_expr_result(&else_branch.stmts);
+                    }
+                }
+                SynStmt::Match { match_token } => {}
             }
         }
         for item_path_expr in expr_region_data.principal_item_path_expr_arena().data() {
@@ -320,21 +344,5 @@ impl Diagnose for OriginalPrincipalEntityPathExprError {
             } => ctx.token_idx_text_range(*token_idx),
             OriginalPrincipalEntityPathExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
         }
-    }
-}
-
-impl Diagnose for SynForBetweenError {
-    type Context<'a> = SheetDiagnosticsContext<'a>;
-
-    fn message(&self, _ctx: &SheetDiagnosticsContext) -> String {
-        todo!()
-    }
-
-    fn severity(&self) -> DiagnosticSeverity {
-        todo!()
-    }
-
-    fn range(&self, _ctx: &SheetDiagnosticsContext) -> TextRange {
-        todo!()
     }
 }

@@ -5125,23 +5125,25 @@ Ok(
                                                 ),
                                                 for_between_loop_var_ident: `k`,
                                                 for_between_loop_var_expr_idx: 105,
-                                                range: SynForBetweenRange {
-                                                    initial_boundary: SynForBetweenLoopBoundary {
-                                                        bound_expr: Some(
-                                                            104,
+                                                range: Ok(
+                                                    SynForBetweenRange {
+                                                        initial_boundary: SynForBetweenLoopBoundary {
+                                                            bound_expr: Some(
+                                                                104,
+                                                            ),
+                                                            kind: LowerClosed,
+                                                        },
+                                                        final_boundary: SynForBetweenLoopBoundary {
+                                                            bound_expr: Some(
+                                                                107,
+                                                            ),
+                                                            kind: UpperOpen,
+                                                        },
+                                                        step: Constant(
+                                                            1,
                                                         ),
-                                                        kind: LowerClosed,
                                                     },
-                                                    final_boundary: SynForBetweenLoopBoundary {
-                                                        bound_expr: Some(
-                                                            107,
-                                                        ),
-                                                        kind: UpperOpen,
-                                                    },
-                                                    step: Constant(
-                                                        1,
-                                                    ),
-                                                },
+                                                ),
                                             },
                                             frame_var_symbol_idx: 13,
                                             eol_colon: Ok(
@@ -5263,21 +5265,23 @@ Ok(
                                                 ),
                                                 for_between_loop_var_ident: `j`,
                                                 for_between_loop_var_expr_idx: 7,
-                                                range: SynForBetweenRange {
-                                                    initial_boundary: SynForBetweenLoopBoundary {
-                                                        bound_expr: None,
-                                                        kind: LowerClosed,
-                                                    },
-                                                    final_boundary: SynForBetweenLoopBoundary {
-                                                        bound_expr: Some(
-                                                            8,
+                                                range: Ok(
+                                                    SynForBetweenRange {
+                                                        initial_boundary: SynForBetweenLoopBoundary {
+                                                            bound_expr: None,
+                                                            kind: LowerClosed,
+                                                        },
+                                                        final_boundary: SynForBetweenLoopBoundary {
+                                                            bound_expr: Some(
+                                                                8,
+                                                            ),
+                                                            kind: UpperOpen,
+                                                        },
+                                                        step: Constant(
+                                                            1,
                                                         ),
-                                                        kind: UpperOpen,
                                                     },
-                                                    step: Constant(
-                                                        1,
-                                                    ),
-                                                },
+                                                ),
                                             },
                                             frame_var_symbol_idx: 3,
                                             eol_colon: Ok(
@@ -9301,23 +9305,25 @@ Ok(
                                                 ),
                                                 for_between_loop_var_ident: `i`,
                                                 for_between_loop_var_expr_idx: 5,
-                                                range: SynForBetweenRange {
-                                                    initial_boundary: SynForBetweenLoopBoundary {
-                                                        bound_expr: Some(
-                                                            4,
+                                                range: Ok(
+                                                    SynForBetweenRange {
+                                                        initial_boundary: SynForBetweenLoopBoundary {
+                                                            bound_expr: Some(
+                                                                4,
+                                                            ),
+                                                            kind: LowerOpen,
+                                                        },
+                                                        final_boundary: SynForBetweenLoopBoundary {
+                                                            bound_expr: Some(
+                                                                8,
+                                                            ),
+                                                            kind: UpperOpen,
+                                                        },
+                                                        step: Constant(
+                                                            1,
                                                         ),
-                                                        kind: LowerOpen,
                                                     },
-                                                    final_boundary: SynForBetweenLoopBoundary {
-                                                        bound_expr: Some(
-                                                            8,
-                                                        ),
-                                                        kind: UpperOpen,
-                                                    },
-                                                    step: Constant(
-                                                        1,
-                                                    ),
-                                                },
+                                                ),
                                             },
                                             frame_var_symbol_idx: 3,
                                             eol_colon: Ok(
@@ -10289,23 +10295,25 @@ Ok(
                                                 ),
                                                 for_between_loop_var_ident: `i`,
                                                 for_between_loop_var_expr_idx: 4,
-                                                range: SynForBetweenRange {
-                                                    initial_boundary: SynForBetweenLoopBoundary {
-                                                        bound_expr: Some(
-                                                            3,
+                                                range: Ok(
+                                                    SynForBetweenRange {
+                                                        initial_boundary: SynForBetweenLoopBoundary {
+                                                            bound_expr: Some(
+                                                                3,
+                                                            ),
+                                                            kind: LowerOpen,
+                                                        },
+                                                        final_boundary: SynForBetweenLoopBoundary {
+                                                            bound_expr: Some(
+                                                                6,
+                                                            ),
+                                                            kind: UpperOpen,
+                                                        },
+                                                        step: Constant(
+                                                            1,
                                                         ),
-                                                        kind: LowerOpen,
                                                     },
-                                                    final_boundary: SynForBetweenLoopBoundary {
-                                                        bound_expr: Some(
-                                                            6,
-                                                        ),
-                                                        kind: UpperOpen,
-                                                    },
-                                                    step: Constant(
-                                                        1,
-                                                    ),
-                                                },
+                                                ),
                                             },
                                             frame_var_symbol_idx: 2,
                                             eol_colon: Ok(
@@ -11140,23 +11148,25 @@ Ok(
                                                 ),
                                                 for_between_loop_var_ident: `i`,
                                                 for_between_loop_var_expr_idx: 3,
-                                                range: SynForBetweenRange {
-                                                    initial_boundary: SynForBetweenLoopBoundary {
-                                                        bound_expr: Some(
-                                                            2,
+                                                range: Ok(
+                                                    SynForBetweenRange {
+                                                        initial_boundary: SynForBetweenLoopBoundary {
+                                                            bound_expr: Some(
+                                                                2,
+                                                            ),
+                                                            kind: LowerOpen,
+                                                        },
+                                                        final_boundary: SynForBetweenLoopBoundary {
+                                                            bound_expr: Some(
+                                                                5,
+                                                            ),
+                                                            kind: UpperOpen,
+                                                        },
+                                                        step: Constant(
+                                                            1,
                                                         ),
-                                                        kind: LowerOpen,
                                                     },
-                                                    final_boundary: SynForBetweenLoopBoundary {
-                                                        bound_expr: Some(
-                                                            5,
-                                                        ),
-                                                        kind: UpperOpen,
-                                                    },
-                                                    step: Constant(
-                                                        1,
-                                                    ),
-                                                },
+                                                ),
                                             },
                                             frame_var_symbol_idx: 2,
                                             eol_colon: Ok(
@@ -12733,23 +12743,25 @@ Ok(
                                                 ),
                                                 for_between_loop_var_ident: `i1`,
                                                 for_between_loop_var_expr_idx: 28,
-                                                range: SynForBetweenRange {
-                                                    initial_boundary: SynForBetweenLoopBoundary {
-                                                        bound_expr: Some(
-                                                            27,
+                                                range: Ok(
+                                                    SynForBetweenRange {
+                                                        initial_boundary: SynForBetweenLoopBoundary {
+                                                            bound_expr: Some(
+                                                                27,
+                                                            ),
+                                                            kind: LowerClosed,
+                                                        },
+                                                        final_boundary: SynForBetweenLoopBoundary {
+                                                            bound_expr: Some(
+                                                                32,
+                                                            ),
+                                                            kind: UpperOpen,
+                                                        },
+                                                        step: Constant(
+                                                            1,
                                                         ),
-                                                        kind: LowerClosed,
                                                     },
-                                                    final_boundary: SynForBetweenLoopBoundary {
-                                                        bound_expr: Some(
-                                                            32,
-                                                        ),
-                                                        kind: UpperOpen,
-                                                    },
-                                                    step: Constant(
-                                                        1,
-                                                    ),
-                                                },
+                                                ),
                                             },
                                             frame_var_symbol_idx: 6,
                                             eol_colon: Ok(
@@ -12806,23 +12818,25 @@ Ok(
                                                 ),
                                                 for_between_loop_var_ident: `i2`,
                                                 for_between_loop_var_expr_idx: 43,
-                                                range: SynForBetweenRange {
-                                                    initial_boundary: SynForBetweenLoopBoundary {
-                                                        bound_expr: Some(
-                                                            42,
+                                                range: Ok(
+                                                    SynForBetweenRange {
+                                                        initial_boundary: SynForBetweenLoopBoundary {
+                                                            bound_expr: Some(
+                                                                42,
+                                                            ),
+                                                            kind: UpperOpen,
+                                                        },
+                                                        final_boundary: SynForBetweenLoopBoundary {
+                                                            bound_expr: Some(
+                                                                47,
+                                                            ),
+                                                            kind: LowerClosed,
+                                                        },
+                                                        step: Constant(
+                                                            -1,
                                                         ),
-                                                        kind: UpperOpen,
                                                     },
-                                                    final_boundary: SynForBetweenLoopBoundary {
-                                                        bound_expr: Some(
-                                                            47,
-                                                        ),
-                                                        kind: LowerClosed,
-                                                    },
-                                                    step: Constant(
-                                                        -1,
-                                                    ),
-                                                },
+                                                ),
                                             },
                                             frame_var_symbol_idx: 8,
                                             eol_colon: Ok(
@@ -15412,23 +15426,25 @@ Ok(
                                                 ),
                                                 for_between_loop_var_ident: `j`,
                                                 for_between_loop_var_expr_idx: 14,
-                                                range: SynForBetweenRange {
-                                                    initial_boundary: SynForBetweenLoopBoundary {
-                                                        bound_expr: Some(
-                                                            13,
+                                                range: Ok(
+                                                    SynForBetweenRange {
+                                                        initial_boundary: SynForBetweenLoopBoundary {
+                                                            bound_expr: Some(
+                                                                13,
+                                                            ),
+                                                            kind: LowerClosed,
+                                                        },
+                                                        final_boundary: SynForBetweenLoopBoundary {
+                                                            bound_expr: Some(
+                                                                18,
+                                                            ),
+                                                            kind: UpperOpen,
+                                                        },
+                                                        step: Constant(
+                                                            1,
                                                         ),
-                                                        kind: LowerClosed,
                                                     },
-                                                    final_boundary: SynForBetweenLoopBoundary {
-                                                        bound_expr: Some(
-                                                            18,
-                                                        ),
-                                                        kind: UpperOpen,
-                                                    },
-                                                    step: Constant(
-                                                        1,
-                                                    ),
-                                                },
+                                                ),
                                             },
                                             frame_var_symbol_idx: 3,
                                             eol_colon: Ok(
@@ -16723,23 +16739,25 @@ Ok(
                                                 ),
                                                 for_between_loop_var_ident: `j`,
                                                 for_between_loop_var_expr_idx: 14,
-                                                range: SynForBetweenRange {
-                                                    initial_boundary: SynForBetweenLoopBoundary {
-                                                        bound_expr: Some(
-                                                            13,
+                                                range: Ok(
+                                                    SynForBetweenRange {
+                                                        initial_boundary: SynForBetweenLoopBoundary {
+                                                            bound_expr: Some(
+                                                                13,
+                                                            ),
+                                                            kind: LowerClosed,
+                                                        },
+                                                        final_boundary: SynForBetweenLoopBoundary {
+                                                            bound_expr: Some(
+                                                                18,
+                                                            ),
+                                                            kind: UpperOpen,
+                                                        },
+                                                        step: Constant(
+                                                            1,
                                                         ),
-                                                        kind: LowerClosed,
                                                     },
-                                                    final_boundary: SynForBetweenLoopBoundary {
-                                                        bound_expr: Some(
-                                                            18,
-                                                        ),
-                                                        kind: UpperOpen,
-                                                    },
-                                                    step: Constant(
-                                                        1,
-                                                    ),
-                                                },
+                                                ),
                                             },
                                             frame_var_symbol_idx: 3,
                                             eol_colon: Ok(
