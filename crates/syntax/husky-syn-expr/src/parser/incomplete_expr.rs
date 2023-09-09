@@ -66,7 +66,7 @@ impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for SynHtmlArgumentEx
 where
     C: IsSynExprContext<'a>,
 {
-    type Error = ExprError;
+    type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         sp: &mut SynExprParser<'a, C>,
@@ -74,20 +74,20 @@ where
         if let Some(lcurl) = sp.try_parse_option::<LcurlToken>()? {
             Ok(Some(SynHtmlArgumentExpr::Shortened {
                 lcurl,
-                property_ident: sp.try_parse_expected(OriginalExprError::HtmlTodo)?,
-                rcurl: sp.try_parse_expected(OriginalExprError::HtmlTodo)?,
+                property_ident: sp.try_parse_expected(OriginalSynExprError::HtmlTodo)?,
+                rcurl: sp.try_parse_expected(OriginalSynExprError::HtmlTodo)?,
             }))
         } else if let Some(argument_ident) = sp.try_parse_option::<IdentToken>()? {
             Ok(Some(SynHtmlArgumentExpr::Expanded {
                 property_ident: argument_ident,
-                eq: sp.try_parse_expected(OriginalExprError::HtmlTodo)?,
-                lcurl: sp.try_parse_expected(OriginalExprError::HtmlTodo)?,
+                eq: sp.try_parse_expected(OriginalSynExprError::HtmlTodo)?,
+                lcurl: sp.try_parse_expected(OriginalSynExprError::HtmlTodo)?,
                 expr: sp.parse_expr_expected2(
                     None,
                     ExprRootKind::HtmlArgumentExpr,
-                    OriginalExprError::HtmlTodo,
+                    OriginalSynExprError::HtmlTodo,
                 ),
-                rcurl: sp.try_parse_expected(OriginalExprError::HtmlTodo)?,
+                rcurl: sp.try_parse_expected(OriginalSynExprError::HtmlTodo)?,
             }))
         } else {
             Ok(None)

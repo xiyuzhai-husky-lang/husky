@@ -10,6 +10,11 @@ pub struct SynForBetweenParticulars {
 }
 
 #[derive(Debug, PartialEq, Eq)]
+pub enum SynForBetweenError {}
+
+pub type SynForBetweenResult<T> = Result<T, SynForBetweenError>;
+
+#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
 pub struct SynForBetweenRange {
     pub initial_boundary: SynForBetweenLoopBoundary,
@@ -23,7 +28,7 @@ impl SynForBetweenRange {
         initial_comparison: BinaryComparisonOpr,
         final_comparison: BinaryComparisonOpr,
         final_bound: SynExprIdx,
-    ) -> StmtResult<Self> {
+    ) -> SynExprResult<Self> {
         let (initial_boundary_kind, step) = match initial_comparison {
             BinaryComparisonOpr::Geq => (LoopBoundaryKind::UpperClosed, LoopStep::Constant(-1)),
             BinaryComparisonOpr::Greater => (LoopBoundaryKind::UpperOpen, LoopStep::Constant(-1)),
@@ -49,7 +54,7 @@ impl SynForBetweenRange {
     pub(crate) fn new_with_default_initial(
         comparison: BinaryComparisonOpr,
         final_bound: SynExprIdx,
-    ) -> StmtResult<Self> {
+    ) -> Self {
         let final_boundary_kind = match comparison {
             // ill-formed: $frame_var >= $final_bound
             BinaryComparisonOpr::Geq => todo!("invalid form",),
@@ -61,20 +66,20 @@ impl SynForBetweenRange {
             BinaryComparisonOpr::Less => LoopBoundaryKind::UpperOpen,
             _ => todo!(),
         };
-        Ok(SynForBetweenRange {
+        SynForBetweenRange {
             initial_boundary: Default::default(),
             final_boundary: SynForBetweenLoopBoundary {
                 bound_expr: Some(final_bound),
                 kind: final_boundary_kind,
             },
             step: LoopStep::Constant(1),
-        })
+        }
     }
 
     pub(crate) fn new_with_default_final(
         initial_bound: SynExprIdx,
         comparison: BinaryComparisonOpr,
-    ) -> StmtResult<Self> {
+    ) -> Self {
         let initial_boundary_kind = match comparison {
             // well-formed: $initial_bound >= $frame_var
             BinaryComparisonOpr::Geq => LoopBoundaryKind::LowerClosed,
@@ -86,20 +91,20 @@ impl SynForBetweenRange {
             BinaryComparisonOpr::Less => todo!("invalid form",),
             _ => return todo!("expect comparison"),
         };
-        Ok(Self {
+        Self {
             initial_boundary: SynForBetweenLoopBoundary {
                 bound_expr: Some(initial_bound),
                 kind: initial_boundary_kind,
             },
             final_boundary: Default::default(),
             step: LoopStep::Constant(-1),
-        })
+        }
     }
 
     fn check_for_between_range_compatibility(
         initial_boundary_kind: LoopBoundaryKind,
         final_boundary_kind: LoopBoundaryKind,
-    ) -> StmtResult<()> {
+    ) -> SynForBetweenResult<()> {
         #[derive(Debug, PartialEq, Eq, Clone, Copy)]
         enum Direction {
             Incremental,
@@ -228,4 +233,186 @@ fn test_step_n_for_neg_step() {
     assert_eq!(step.n(0, -2), 3);
     assert_eq!(step.n(0, -3), 4);
     assert_eq!(step.n(0, 1), 0);
+}
+
+impl<'a> StmtContext<'a> {
+    pub(super) fn parse_for_loop_stmt(
+        &mut self,
+        token_group_idx: TokenGroupIdx,
+        for_token: StmtForToken,
+        expr: SynExprIdx,
+        eol_colon: SynExprResult<EolToken>,
+        body: FugitiveBody,
+    ) -> SynStmt {
+        match self.syn_expr_arena()[expr] {
+            SynExpr::Binary {
+                lopd,
+                opr: BinaryOpr::Comparison(comparison_opr),
+                opr_token_idx,
+                ropd,
+            } => {
+                let particulars = self.parse_for_between_particulars(lopd, ropd, comparison_opr);
+                let current_symbol_variant = CurrentSynSymbolVariant::FrameVariable {
+                    expr_idx: particulars.for_between_loop_var_expr_idx,
+                    ident: particulars.for_between_loop_var_ident,
+                };
+                let current_symbol_kind = current_symbol_variant.kind();
+                let access_start = self.ast_token_idx_range_sheet()[body.ast_idx_range().start()]
+                    .start()
+                    .token_idx();
+                let access_end =
+                    self.ast_token_idx_range_sheet()[body.ast_idx_range().end() - 1].end();
+                let frame_var_symbol = CurrentSynSymbol::new(
+                    self.syn_pattern_expr_region(),
+                    access_start,
+                    Some(access_end),
+                    current_symbol_variant,
+                );
+                let frame_var_symbol_idx = self
+                    .define_symbols(
+                        vec![frame_var_symbol],
+                        Some(ObeliskTypeConstraint::FrameVariable),
+                    )
+                    .start();
+                self.syn_expr_arena_mut().set(
+                    particulars.for_between_loop_var_expr_idx,
+                    SynExpr::FrameVarDecl {
+                        token_idx: particulars.for_between_loop_var_token_idx,
+                        ident: particulars.for_between_loop_var_ident,
+                        frame_var_symbol_idx,
+                        current_symbol_kind,
+                    },
+                );
+                SynStmt::ForBetween {
+                    for_token,
+                    particulars,
+                    frame_var_symbol_idx,
+                    eol_colon,
+                    block: self.parse_stmts_expected(body, token_group_idx),
+                }
+            }
+            SynExpr::Binary {
+                lopd,
+                opr: BinaryOpr::In,
+                opr_token_idx,
+                ropd,
+            } => SynStmt::ForIn {
+                for_token,
+                condition: todo!(),
+                eol_colon,
+                block: self.parse_stmts_expected(body, token_group_idx),
+            },
+            _ => todo!(),
+        }
+    }
+
+    fn parse_for_between_particulars(
+        &self,
+        lopd: SynExprIdx,
+        ropd: SynExprIdx,
+        comparison_opr: BinaryComparisonOpr,
+    ) -> SynExprResult<SynForBetweenParticulars> {
+        use OriginalSynExprError::UnrecognizedIdent;
+        let lopd_expr = &self.syn_expr_arena()[lopd];
+        let ropd_expr = &self.syn_expr_arena()[ropd];
+        // todo: parse with
+        if let SynExpr::Err(SynExprError::Original(UnrecognizedIdent { token_idx, ident })) =
+            lopd_expr
+        {
+            Ok(SynForBetweenParticulars {
+                for_between_loop_var_token_idx: *token_idx,
+                for_between_loop_var_expr_idx: lopd,
+                for_between_loop_var_ident: *ident,
+                range: SynForBetweenRange::new_with_default_initial(comparison_opr, ropd),
+            })
+            // SynExpr::Err(SynExprError::Original(UnrecognizedIdent {..})) will be changed to Ok
+        } else if let SynExpr::Err(SynExprError::Original(UnrecognizedIdent { token_idx, ident })) =
+            ropd_expr
+        {
+            Ok(SynForBetweenParticulars {
+                for_between_loop_var_token_idx: *token_idx,
+                for_between_loop_var_expr_idx: ropd,
+                for_between_loop_var_ident: *ident,
+                range: SynForBetweenRange::new_with_default_final(lopd, comparison_opr),
+            })
+        } else {
+            let final_comparison = comparison_opr;
+            match lopd_expr {
+                SynExpr::Binary {
+                    lopd: llopd,
+                    opr: BinaryOpr::Comparison(initial_comparison),
+                    opr_token_idx,
+                    ropd: lropd,
+                } => {
+                    let lropd_expr = &self.syn_expr_arena()[lropd];
+                    match lropd_expr {
+                        SynExpr::Err(SynExprError::Original(UnrecognizedIdent {
+                            token_idx,
+                            ident,
+                        })) => Ok(SynForBetweenParticulars {
+                            for_between_loop_var_token_idx: *token_idx,
+                            for_between_loop_var_expr_idx: *lropd,
+                            for_between_loop_var_ident: *ident,
+                            range: SynForBetweenRange::new_without_defaults(
+                                *llopd,
+                                *initial_comparison,
+                                final_comparison,
+                                ropd,
+                            )?,
+                        }),
+                        _ => todo!(),
+                    }
+                }
+                _ => todo!(),
+            }
+        }
+    }
+
+    pub(super) fn parse_forext_loop_stmt(
+        &mut self,
+        token_group_idx: TokenGroupIdx,
+        forext_token: ForextToken,
+        expr: SynExprIdx,
+        eol_colon: SynExprResult<EolToken>,
+        body: FugitiveBody,
+    ) -> SynStmt {
+        let SynExpr::Binary {
+            lopd: forext_loop_var_expr_idx,
+            opr: BinaryOpr::Comparison(opr),
+            opr_token_idx,
+            ropd: bound_expr,
+        } = self.syn_expr_arena()[expr]
+        else {
+            todo!()
+        };
+        let (forext_loop_var_ident, forext_loop_var_token_idx) =
+            match self.syn_expr_arena()[forext_loop_var_expr_idx] {
+                SynExpr::InheritedSymbol {
+                    ident,
+                    token_idx,
+                    inherited_symbol_idx,
+                    inherited_symbol_kind,
+                } => (ident, token_idx),
+                SynExpr::CurrentSymbol {
+                    ident,
+                    token_idx,
+                    current_symbol_idx,
+                    current_symbol_kind,
+                } => (ident, token_idx),
+                _ => todo!(),
+            };
+        let particulars = SynForextParticulars::new(
+            forext_loop_var_token_idx,
+            forext_loop_var_ident,
+            forext_loop_var_expr_idx,
+            opr,
+            bound_expr,
+        );
+        SynStmt::ForExt {
+            forext_token,
+            particulars,
+            eol_colon,
+            block: self.parse_stmts_expected(body, token_group_idx),
+        }
+    }
 }

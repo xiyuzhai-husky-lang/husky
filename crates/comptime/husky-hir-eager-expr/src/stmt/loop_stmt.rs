@@ -15,7 +15,7 @@ impl ToHirEager for SynForBetweenParticulars {
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         HirEagerForBetweenParticulars {
             frame_var_ident: self.for_between_loop_var_ident,
-            range: self.range.to_hir_eager(builder),
+            range: self.range.as_ref().expect("ok").to_hir_eager(builder),
         }
     }
 }

@@ -1,25 +1,23 @@
 mod accept;
-mod block;
 mod debug;
 mod disambiguate_token;
 mod env;
 mod expr_stack;
 mod incomplete_expr;
 
-pub use self::block::*;
 pub use self::env::*;
 
+use self::disambiguate_token::*;
+use self::expr_stack::*;
 use self::incomplete_expr::*;
 use crate::symbol::*;
 use crate::*;
-use disambiguate_token::*;
-use expr_stack::*;
 use husky_ast::{Ast, AstIdxRange, AstSheet};
 use husky_entity_syn_tree::*;
 use husky_token::Token;
 use husky_token::TokenStream;
 use husky_vfs::{ModulePath, Toolchain};
-use original_error::IntoError;
+use original_error::OriginalError;
 use parsec::{HasStreamState, StreamParser};
 use salsa::DebugWithDb;
 use std::ops::ControlFlow;
@@ -125,7 +123,7 @@ where
         opt_expr_idx
     }
 
-    pub fn parse_expr_expected<E: IntoError>(
+    pub fn parse_expr_expected<E: OriginalError>(
         &mut self,
         env: Option<ExprEnvironment>,
         err: impl FnOnce(TokenStreamState) -> E,
@@ -160,7 +158,7 @@ where
         &mut self,
         env: Option<ExprEnvironment>,
         expr_root_kind: ExprRootKind,
-        err: impl FnOnce(TokenStreamState) -> OriginalExprError,
+        err: impl FnOnce(TokenStreamState) -> OriginalSynExprError,
     ) -> SynExprIdx {
         let state = self.save_state();
         if let Some(env) = env {
@@ -226,7 +224,7 @@ where
             },
             Some(ephem_symbol_modifier_token_group) => {
                 self.try_parse_expected(|token_stream_state| {
-                    OriginalExprError::ExpectedIdentAfterModifier(
+                    OriginalSynExprError::ExpectedIdentAfterModifier(
                         token_stream_state,
                         ephem_symbol_modifier_token_group,
                     )

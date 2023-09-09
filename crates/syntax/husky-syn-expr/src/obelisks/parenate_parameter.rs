@@ -13,7 +13,7 @@ pub enum VariadicVariant {
 }
 
 impl<'a, 'b> TryParseFromStream<SynDeclExprParser<'a>> for VariadicVariant {
-    type Error = ExprError;
+    type Error = SynExprError;
 
     fn try_parse_from_stream(sp: &mut SynDeclExprParser<'a>) -> Result<Self, Self::Error> {
         if let Some(lbox_token) = sp.try_parse_option::<LboxToken>()? {
@@ -63,7 +63,7 @@ pub enum SpecificParameterObelisk {
 }
 
 impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParameterObelisk {
-    type Error = ExprError;
+    type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
@@ -87,11 +87,11 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
                     )
                 })
                 .collect::<Vec<_>>();
-            let colon = ctx.try_parse_expected(OriginalExprError::ExpectedColon)?;
+            let colon = ctx.try_parse_expected(OriginalSynExprError::ExpectedColon)?;
             let ty_expr_idx = ctx.parse_expr_expected2(
                 Some(ExprEnvironment::WithinBracketedParameterList(Bracket::Par)),
                 ExprRootKind::ExplicitParameterType,
-                OriginalExprError::ExpectedParameterType,
+                OriginalSynExprError::ExpectedParameterType,
             );
             let variables = ctx.define_symbols(
                 variables,
@@ -115,7 +115,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
                     Right(ctx.parse_expr_expected2(
                         Some(ExprEnvironment::WithinBracketedParameterList(Bracket::Par)),
                         ExprRootKind::ExplicitParameterDefaultValue { ty_expr_idx },
-                        OriginalExprError::ExpectedExplicitParameterDefaultValue,
+                        OriginalSynExprError::ExpectedExplicitParameterDefaultValue,
                     ))
                 };
                 Ok(Some(SpecificParameterObelisk::Keyed {
@@ -142,7 +142,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
             let symbol_modifier_keyword_group =
                 ctx.try_parse_option::<EphemSymbolModifierTokenGroup>()?;
             let ident_token =
-                ctx.try_parse_expected::<IdentToken, _>(OriginalExprError::ExpectedIdent)?;
+                ctx.try_parse_expected::<IdentToken, _>(OriginalSynExprError::ExpectedIdent)?;
             let variable = CurrentSynSymbol::new(
                 ctx.pattern_expr_region(),
                 access_start,
@@ -152,11 +152,11 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
                     symbol_modifier_keyword_group,
                 },
             );
-            let colon = ctx.try_parse_expected(OriginalExprError::ExpectedColon)?;
+            let colon = ctx.try_parse_expected(OriginalSynExprError::ExpectedColon)?;
             let ty = ctx.parse_expr_expected2(
                 Some(ExprEnvironment::WithinBracketedParameterList(Bracket::Par)),
                 ExprRootKind::ExplicitParameterType,
-                OriginalExprError::ExpectedParameterType,
+                OriginalSynExprError::ExpectedParameterType,
             );
             let variable = ctx.define_symbol(
                 variable,

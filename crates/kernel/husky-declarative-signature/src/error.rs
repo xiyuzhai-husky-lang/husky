@@ -1,5 +1,5 @@
 use husky_entity_syn_tree::EntityTreeBundleError;
-use husky_syn_expr::ExprError;
+use husky_syn_expr::SynExprError;
 use thiserror::Error;
 
 use crate::*;
@@ -49,8 +49,8 @@ impl From<&SynNodeDeclError> for DeclarativeSignatureError {
         DeclarativeSignatureError::NodeDeclError
     }
 }
-impl From<&ExprError> for DeclarativeSignatureError {
-    fn from(_: &ExprError) -> Self {
+impl From<&SynExprError> for DeclarativeSignatureError {
+    fn from(_: &SynExprError) -> Self {
         DeclarativeSignatureError::ExprError
     }
 }

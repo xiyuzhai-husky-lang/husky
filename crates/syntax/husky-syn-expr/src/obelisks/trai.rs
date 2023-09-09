@@ -12,7 +12,7 @@ impl TraitObelisk {
 }
 
 impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TraitObelisk {
-    type Error = ExprError;
+    type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,

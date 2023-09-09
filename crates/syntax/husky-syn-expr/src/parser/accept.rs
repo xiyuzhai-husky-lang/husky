@@ -291,13 +291,15 @@ where
                         }
                     },
                     _ => SynExpr::Err(
-                        OriginalExprError::ExpectedIdentAfterDot { dot_token_idx }.into(),
+                        OriginalSynExprError::ExpectedIdentAfterDot { dot_token_idx }.into(),
                     )
                     .into(),
                 }
             }
-            None => SynExpr::Err(OriginalExprError::ExpectedExprBeforeDot { dot_token_idx }.into())
-                .into(),
+            None => {
+                SynExpr::Err(OriginalSynExprError::ExpectedExprBeforeDot { dot_token_idx }.into())
+                    .into()
+            }
         })
     }
 
@@ -353,7 +355,7 @@ where
     fn accept_be_pattern(&mut self, be_token_idx: TokenIdx) {
         self.reduce(Precedence::Be);
         let src = self.take_complete_expr().unwrap_or(SynExpr::Err(
-            OriginalExprError::ExpectedItemBeforeBe { be_token_idx }.into(),
+            OriginalSynExprError::ExpectedItemBeforeBe { be_token_idx }.into(),
         ));
         let src = self.context_mut().alloc_expr(src);
         let end = match self.env() {
@@ -375,7 +377,7 @@ where
     fn accept_binary_opr(&mut self, binary: BinaryOpr, binary_token_idx: TokenIdx) {
         self.reduce(binary.into());
         let lopd = self.take_complete_expr().unwrap_or(SynExpr::Err(
-            OriginalExprError::NoLeftOperandForBinaryOperator { binary_token_idx }.into(),
+            OriginalSynExprError::NoLeftOperandForBinaryOperator { binary_token_idx }.into(),
         ));
         let unfinished_expr = IncompleteExpr::Binary {
             lopd,
@@ -453,14 +455,14 @@ where
                     .into(),
                     None => todo!(),
                 },
-                Bracket::Curl => {
-                    SynExpr::Err(OriginalExprError::UnexpectedLeftCurlyBrace(bra_token_idx).into())
-                        .into()
-                }
+                Bracket::Curl => SynExpr::Err(
+                    OriginalSynExprError::UnexpectedLeftCurlyBrace(bra_token_idx).into(),
+                )
+                .into(),
                 Bracket::Lambda => todo!(),
                 Bracket::HtmlAngle => {
                     let function_ident = match parser.try_parse_expected(
-                        OriginalExprError::ExpectedFunctionIdentAfterOpeningHtmlBra,
+                        OriginalSynExprError::ExpectedFunctionIdentAfterOpeningHtmlBra,
                     ) {
                         Ok(function_ident) => function_ident,
                         Err(e) => return SynExpr::Err(e).into(),

@@ -42,7 +42,7 @@ impl PropsFieldDeclPattern {
 }
 
 impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFieldDeclPattern {
-    type Error = ExprError;
+    type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
@@ -52,11 +52,11 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
         let Some(ident_token) = ctx.try_parse_option::<IdentToken>()? else {
             return Ok(None);
         };
-        let colon: ColonToken = ctx.try_parse_expected(OriginalExprError::ExpectedColon)?;
+        let colon: ColonToken = ctx.try_parse_expected(OriginalSynExprError::ExpectedColon)?;
         let ty_expr_idx = ctx.parse_expr_expected2(
             None,
             ExprRootKind::PropsStructFieldType { ident_token },
-            OriginalExprError::ExpectedFieldType,
+            OriginalSynExprError::ExpectedFieldType,
         );
         let initialization = if let Some(colon_eq_token) = ctx.try_parse_option::<ColonEqToken>()? {
             Some(PropsFieldInitialization::Bind {
@@ -64,7 +64,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
                 value: ctx.parse_expr_expected2(
                     None,
                     ExprRootKind::FieldBindInitialValue { ty_expr_idx },
-                    OriginalExprError::ExpectedValueForFieldBindInitialization,
+                    OriginalSynExprError::ExpectedValueForFieldBindInitialization,
                 ),
             })
         } else if let Some(_) = ctx.try_parse_option::<EqToken>()? {
@@ -103,7 +103,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
 pub struct FieldDecorator {}
 
 impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for FieldDecorator {
-    type Error = ExprError;
+    type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
@@ -122,7 +122,7 @@ pub enum FieldVisibilityExpr {
 }
 
 impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for FieldVisibilityExpr {
-    type Error = ExprError;
+    type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,

@@ -2,29 +2,29 @@ use crate::*;
 use husky_entity_syn_tree::EntitySynTreeError;
 use husky_opr::Bracket;
 use husky_token::*;
-use original_error::IntoError;
+use original_error::OriginalError;
 use parsec::*;
 use thiserror::Error;
 
 #[derive(Error, Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
-pub enum ExprError {
+pub enum SynExprError {
     #[error("original {0}")]
-    Original(#[from] OriginalExprError),
+    Original(#[from] OriginalSynExprError),
     #[error("derived {0}")]
-    Derived(#[from] DerivedExprError),
+    Derived(#[from] DerivedSynExprError),
 }
 
-impl From<TokenError> for ExprError {
+impl From<TokenError> for SynExprError {
     fn from(value: TokenError) -> Self {
-        ExprError::Derived(value.into())
+        SynExprError::Derived(value.into())
     }
 }
 
 #[derive(Error, Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
 // #[salsa::derive_debug_with_db(db = ExprDb)]
-pub enum OriginalExprError {
+pub enum OriginalSynExprError {
     #[error("expected `>`")]
     ExpectedRightAngleBracket { langle_token_idx: TokenIdx },
     #[error("expected `}}`")]
@@ -135,112 +135,112 @@ pub enum OriginalExprError {
     ExpectedTypeTermForAssociatedType(TokenStreamState),
 }
 
-impl OriginalExprError {
+impl OriginalSynExprError {
     pub fn token_idx_range(&self) -> TokenIdxRange {
         match self {
-            OriginalExprError::ExpectedLetVariableDecls(token_idx)
-            | OriginalExprError::ExpectedBeVariablesPattern(token_idx) => todo!(),
-            OriginalExprError::ExpectedLetVariablesType(token_stream_state)
-            | OriginalExprError::ExpectedAssign(token_stream_state)
-            | OriginalExprError::ExpectedInitialValue(token_stream_state)
-            | OriginalExprError::ExpectedResult(token_stream_state)
-            | OriginalExprError::ExpectedCondition(token_stream_state)
-            | OriginalExprError::ExpectedRightCurlyBrace(token_stream_state)
-            | OriginalExprError::ExpectedIdent(token_stream_state)
-            | OriginalExprError::ExpectedColon(token_stream_state)
-            | OriginalExprError::ExpectedRightParenthesis(token_stream_state)
-            | OriginalExprError::ExpectedEolColon(token_stream_state)
-            | OriginalExprError::ExpectedIdentAfterModifier(token_stream_state, _)
-            | OriginalExprError::ExpectedFieldType(token_stream_state)
-            | OriginalExprError::ExpectedParameterType(token_stream_state)
-            | OriginalExprError::HtmlTodo(token_stream_state)
-            | OriginalExprError::ExpectedValueForFieldBindInitialization(token_stream_state)
-            | OriginalExprError::ExpectedFunctionIdentAfterOpeningHtmlBra(token_stream_state)
-            | OriginalExprError::ExpectedConstantImplicitParameterType(token_stream_state)
-            | OriginalExprError::ExpectedTraits(token_stream_state)
-            | OriginalExprError::ExpectedExplicitParameterDefaultValue(token_stream_state) => {
+            OriginalSynExprError::ExpectedLetVariableDecls(token_idx)
+            | OriginalSynExprError::ExpectedBeVariablesPattern(token_idx) => todo!(),
+            OriginalSynExprError::ExpectedLetVariablesType(token_stream_state)
+            | OriginalSynExprError::ExpectedAssign(token_stream_state)
+            | OriginalSynExprError::ExpectedInitialValue(token_stream_state)
+            | OriginalSynExprError::ExpectedResult(token_stream_state)
+            | OriginalSynExprError::ExpectedCondition(token_stream_state)
+            | OriginalSynExprError::ExpectedRightCurlyBrace(token_stream_state)
+            | OriginalSynExprError::ExpectedIdent(token_stream_state)
+            | OriginalSynExprError::ExpectedColon(token_stream_state)
+            | OriginalSynExprError::ExpectedRightParenthesis(token_stream_state)
+            | OriginalSynExprError::ExpectedEolColon(token_stream_state)
+            | OriginalSynExprError::ExpectedIdentAfterModifier(token_stream_state, _)
+            | OriginalSynExprError::ExpectedFieldType(token_stream_state)
+            | OriginalSynExprError::ExpectedParameterType(token_stream_state)
+            | OriginalSynExprError::HtmlTodo(token_stream_state)
+            | OriginalSynExprError::ExpectedValueForFieldBindInitialization(token_stream_state)
+            | OriginalSynExprError::ExpectedFunctionIdentAfterOpeningHtmlBra(token_stream_state)
+            | OriginalSynExprError::ExpectedConstantImplicitParameterType(token_stream_state)
+            | OriginalSynExprError::ExpectedTraits(token_stream_state)
+            | OriginalSynExprError::ExpectedExplicitParameterDefaultValue(token_stream_state) => {
                 let token_idx = token_stream_state.next_token_idx();
                 match token_stream_state.drained() {
                     true => TokenIdxRange::new_drained(token_idx),
                     false => TokenIdxRange::new_single(token_idx),
                 }
             }
-            OriginalExprError::MismatchingBracket {
+            OriginalSynExprError::MismatchingBracket {
                 ket_token_idx: token_idx,
                 ..
             }
-            | OriginalExprError::ExpectedRightAngleBracket {
+            | OriginalSynExprError::ExpectedRightAngleBracket {
                 langle_token_idx: token_idx,
             }
-            | OriginalExprError::NoMatchingBra {
+            | OriginalSynExprError::NoMatchingBra {
                 ket_token_idx: token_idx,
                 ..
             }
-            | OriginalExprError::NoLeftOperandForBinaryOperator {
+            | OriginalSynExprError::NoLeftOperandForBinaryOperator {
                 binary_token_idx: token_idx,
             }
-            | OriginalExprError::NoRightOperandForBinaryOperator {
+            | OriginalSynExprError::NoRightOperandForBinaryOperator {
                 punctuation_token_idx: token_idx,
                 ..
             }
-            | OriginalExprError::NoOperandForPrefixOperator {
+            | OriginalSynExprError::NoOperandForPrefixOperator {
                 prefix_token_idx: token_idx,
                 ..
             }
-            | OriginalExprError::UnexpectedKeyword(token_idx)
-            | OriginalExprError::ExpectedItemBeforeComma {
+            | OriginalSynExprError::UnexpectedKeyword(token_idx)
+            | OriginalSynExprError::ExpectedItemBeforeComma {
                 comma_token_idx: token_idx,
             }
-            | OriginalExprError::ExpectedItemBeforeBe {
+            | OriginalSynExprError::ExpectedItemBeforeBe {
                 be_token_idx: token_idx,
             }
-            | OriginalExprError::ExpectedForExpr(token_idx)
-            | OriginalExprError::ExpectedBePattern(token_idx)
-            | OriginalExprError::ExpectedParameterPattern(token_idx)
-            | OriginalExprError::UnterminatedList {
+            | OriginalSynExprError::ExpectedForExpr(token_idx)
+            | OriginalSynExprError::ExpectedBePattern(token_idx)
+            | OriginalSynExprError::ExpectedParameterPattern(token_idx)
+            | OriginalSynExprError::UnterminatedList {
                 bra_token_idx: token_idx,
             }
-            | OriginalExprError::UnterminatedFunctionCallKeyedArgumentList {
+            | OriginalSynExprError::UnterminatedFunctionCallKeyedArgumentList {
                 bra_token_idx: token_idx,
             }
-            | OriginalExprError::UnterminatedMethodCallKeyedArgumentList {
+            | OriginalSynExprError::UnterminatedMethodCallKeyedArgumentList {
                 bra_token_idx: token_idx,
             }
-            | OriginalExprError::UnexpectedSheba(token_idx)
-            | OriginalExprError::UnrecognizedIdent { token_idx, .. }
-            | OriginalExprError::UnresolvedSubitem { token_idx, .. }
-            | OriginalExprError::SelfTypeNotAllowed(token_idx)
-            | OriginalExprError::SelfValueNotAllowed(token_idx)
-            | OriginalExprError::ExpectedIdentAfterDot {
+            | OriginalSynExprError::UnexpectedSheba(token_idx)
+            | OriginalSynExprError::UnrecognizedIdent { token_idx, .. }
+            | OriginalSynExprError::UnresolvedSubitem { token_idx, .. }
+            | OriginalSynExprError::SelfTypeNotAllowed(token_idx)
+            | OriginalSynExprError::SelfValueNotAllowed(token_idx)
+            | OriginalSynExprError::ExpectedIdentAfterDot {
                 dot_token_idx: token_idx,
                 ..
             }
-            | OriginalExprError::ExpectedExprBeforeDot {
+            | OriginalSynExprError::ExpectedExprBeforeDot {
                 dot_token_idx: token_idx,
             }
-            | OriginalExprError::UnexpectedLeftCurlyBrace(token_idx) => {
+            | OriginalSynExprError::UnexpectedLeftCurlyBrace(token_idx) => {
                 TokenIdxRange::new_single(*token_idx)
             }
-            OriginalExprError::ExpectedBlock(_) => todo!(),
-            OriginalExprError::ExpectedTypeAfterLightArrow { light_arrow_token } => todo!(),
-            OriginalExprError::ExpectedTypeTermForAssociatedType(_) => todo!(),
+            OriginalSynExprError::ExpectedBlock(_) => todo!(),
+            OriginalSynExprError::ExpectedTypeAfterLightArrow { light_arrow_token } => todo!(),
+            OriginalSynExprError::ExpectedTypeTermForAssociatedType(_) => todo!(),
         }
     }
 }
 
-impl IntoError for OriginalExprError {
-    type Error = ExprError;
+impl OriginalError for OriginalSynExprError {
+    type Error = SynExprError;
 }
 
 #[derive(Error, Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
-pub enum DerivedExprError {
+pub enum DerivedSynExprError {
     #[error("token error {0}")]
     Token(#[from] TokenError),
 }
 
-pub type SynExprResult<T> = Result<T, ExprError>;
-pub type ExprResultRef<'a, T> = Result<T, &'a ExprError>;
+pub type SynExprResult<T> = Result<T, SynExprError>;
+pub type ExprResultRef<'a, T> = Result<T, &'a SynExprError>;
 
 // impl<'a, 'b> FromAbsent<RcurlToken, ExprParseContext<'a, 'b>> for OriginalExprError {
 //     fn new_absent_error(state: <ExprParseContext<'a, 'b> as HasParseState>::State) -> Self {

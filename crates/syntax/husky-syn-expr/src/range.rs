@@ -340,8 +340,8 @@ impl<'a> SynExprRangeCalculator<'a> {
             SynExpr::Sorry { token_idx } => todo!(),
             SynExpr::Todo { token_idx } => TokenIdxRange::new_single(*token_idx),
             SynExpr::Err(error) => match error {
-                ExprError::Original(error) => error.token_idx_range(),
-                ExprError::Derived(_) => todo!(),
+                SynExprError::Original(error) => error.token_idx_range(),
+                SynExprError::Derived(_) => todo!(),
             },
         }
     }
@@ -411,10 +411,19 @@ impl<'a> SynExprRangeCalculator<'a> {
                     self.calc_block_range(*block).end()
                 } else if let Ok(eol_colon) = eol_colon {
                     TokenIdxRangeEnd::new_after(eol_colon.token_idx())
-                } else if let Some(bound_expr) = particulars.range.final_boundary.bound_expr {
-                    self[bound_expr].end()
                 } else {
-                    TokenIdxRangeEnd::new_after(particulars.for_between_loop_var_token_idx)
+                    match particulars.range {
+                        Ok(ref range) => {
+                            if let Some(bound_expr) = range.final_boundary.bound_expr {
+                                self[bound_expr].end()
+                            } else {
+                                TokenIdxRangeEnd::new_after(
+                                    particulars.for_between_loop_var_token_idx,
+                                )
+                            }
+                        }
+                        Err(_) => todo!(),
+                    }
                 };
                 TokenIdxRange::new(start, end)
             }
@@ -531,7 +540,6 @@ impl<'a> SynExprRangeCalculator<'a> {
                 // ad hoc
                 TokenIdxRange::new_single(match_token.token_idx())
             }
-            SynStmt::Err(_) => todo!(),
         }
     }
 }

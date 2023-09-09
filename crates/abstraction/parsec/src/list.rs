@@ -197,7 +197,7 @@ fn parse_separated_list_works() {
     );
 }
 
-pub fn parse_separated_list_expected<Context, Element, Separator, E: IntoError>(
+pub fn parse_separated_list_expected<Context, Element, Separator, E: OriginalError>(
     ctx: &mut Context,
     nelem_min: usize,
     f: impl FnOnce(<Context as HasStreamState>::State) -> E,
@@ -242,7 +242,7 @@ where
     (elements, separators, result)
 }
 
-pub fn parse_separated_small2_list_expected<Context, Element, Separator, E: IntoError>(
+pub fn parse_separated_small2_list_expected<Context, Element, Separator, E: OriginalError>(
     ctx: &mut Context,
     nelem_min: usize,
     f: impl FnOnce(<Context as HasStreamState>::State) -> E,

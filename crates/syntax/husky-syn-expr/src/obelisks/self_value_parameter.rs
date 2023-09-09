@@ -18,7 +18,7 @@ impl SelfParameterObelisk {
 }
 
 impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SelfParameterObelisk {
-    type Error = ExprError;
+    type Error = SynExprError;
 
     // needs more testing
     fn try_parse_option_from_stream_without_guaranteed_rollback(
