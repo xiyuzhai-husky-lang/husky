@@ -6,13 +6,8 @@ pub struct SynForBetweenParticulars {
     pub for_between_loop_var_token_idx: TokenIdx,
     pub for_between_loop_var_ident: Ident,
     pub for_between_loop_var_expr_idx: SynExprIdx,
-    pub range: SynForBetweenRange,
+    pub range: SynExprResult<SynForBetweenRange>,
 }
-
-#[derive(Debug, PartialEq, Eq)]
-pub enum SynForBetweenError {}
-
-pub type SynForBetweenResult<T> = Result<T, SynForBetweenError>;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
@@ -104,7 +99,7 @@ impl SynForBetweenRange {
     fn check_for_between_range_compatibility(
         initial_boundary_kind: LoopBoundaryKind,
         final_boundary_kind: LoopBoundaryKind,
-    ) -> SynForBetweenResult<()> {
+    ) -> SynExprResult<()> {
         #[derive(Debug, PartialEq, Eq, Clone, Copy)]
         enum Direction {
             Incremental,
@@ -311,7 +306,7 @@ impl<'a> StmtContext<'a> {
         lopd: SynExprIdx,
         ropd: SynExprIdx,
         comparison_opr: BinaryComparisonOpr,
-    ) -> SynExprResult<SynForBetweenParticulars> {
+    ) -> SynForBetweenParticulars {
         use OriginalSynExprError::UnrecognizedIdent;
         let lopd_expr = &self.syn_expr_arena()[lopd];
         let ropd_expr = &self.syn_expr_arena()[ropd];
@@ -319,22 +314,28 @@ impl<'a> StmtContext<'a> {
         if let SynExpr::Err(SynExprError::Original(UnrecognizedIdent { token_idx, ident })) =
             lopd_expr
         {
-            Ok(SynForBetweenParticulars {
+            SynForBetweenParticulars {
                 for_between_loop_var_token_idx: *token_idx,
                 for_between_loop_var_expr_idx: lopd,
                 for_between_loop_var_ident: *ident,
-                range: SynForBetweenRange::new_with_default_initial(comparison_opr, ropd),
-            })
+                range: Ok(SynForBetweenRange::new_with_default_initial(
+                    comparison_opr,
+                    ropd,
+                )),
+            }
             // SynExpr::Err(SynExprError::Original(UnrecognizedIdent {..})) will be changed to Ok
         } else if let SynExpr::Err(SynExprError::Original(UnrecognizedIdent { token_idx, ident })) =
             ropd_expr
         {
-            Ok(SynForBetweenParticulars {
+            SynForBetweenParticulars {
                 for_between_loop_var_token_idx: *token_idx,
                 for_between_loop_var_expr_idx: ropd,
                 for_between_loop_var_ident: *ident,
-                range: SynForBetweenRange::new_with_default_final(lopd, comparison_opr),
-            })
+                range: Ok(SynForBetweenRange::new_with_default_final(
+                    lopd,
+                    comparison_opr,
+                )),
+            }
         } else {
             let final_comparison = comparison_opr;
             match lopd_expr {
@@ -349,7 +350,7 @@ impl<'a> StmtContext<'a> {
                         SynExpr::Err(SynExprError::Original(UnrecognizedIdent {
                             token_idx,
                             ident,
-                        })) => Ok(SynForBetweenParticulars {
+                        })) => SynForBetweenParticulars {
                             for_between_loop_var_token_idx: *token_idx,
                             for_between_loop_var_expr_idx: *lropd,
                             for_between_loop_var_ident: *ident,
@@ -358,8 +359,8 @@ impl<'a> StmtContext<'a> {
                                 *initial_comparison,
                                 final_comparison,
                                 ropd,
-                            )?,
-                        }),
+                            ),
+                        },
                         _ => todo!(),
                     }
                 }
