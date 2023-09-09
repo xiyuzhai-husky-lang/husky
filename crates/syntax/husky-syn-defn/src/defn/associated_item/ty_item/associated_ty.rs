@@ -5,7 +5,7 @@ pub struct TypeAssociatedTypeSynNodeDefn {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
     pub syn_node_decl: TypeAssociatedTypeSynNodeDecl,
-    pub syn_expr_region: SynExprRegion,
+    pub body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
 }
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
@@ -13,7 +13,7 @@ pub struct TypeAssociatedTypeSynDefn {
     #[id]
     pub path: TypeItemPath,
     pub decl: TypeAssociatedTypeSynDecl,
-    pub syn_expr_region: SynExprRegion,
+    pub body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
 }
 
 impl TypeAssociatedTypeSynDefn {

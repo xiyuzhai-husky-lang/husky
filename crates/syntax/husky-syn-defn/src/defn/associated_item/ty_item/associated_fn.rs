@@ -5,8 +5,7 @@ pub struct TypeAssociatedFnSynNodeDefn {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
     pub syn_node_decl: TypeAssociatedFnSynNodeDecl,
-    pub body: Option<SynExprIdx>,
-    pub syn_expr_region: SynExprRegion,
+    pub body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
 }
 
 impl TypeAssociatedFnSynNodeDefn {
@@ -15,22 +14,18 @@ impl TypeAssociatedFnSynNodeDefn {
         syn_node_path: TypeItemSynNodePath,
         syn_node_decl: TypeAssociatedFnSynNodeDecl,
     ) -> Self {
-        let mut parser = SynStmtContext::new(
-            syn_node_path,
-            syn_node_decl.syn_expr_region(db),
-            AllowSelfType::True,
-            AllowSelfValue::False,
+        Self::new_inner(
             db,
-        );
-        let ast_idx = syn_node_decl.ast_idx(db);
-        let body = match parser.ast_sheet()[ast_idx] {
-            Ast::Identifiable {
-                block: DefnBlock::AssociatedItem { body },
-                ..
-            } => body.map(|body| parser.parse_block_expr(body)),
-            _ => unreachable!(),
-        };
-        Self::new_inner(db, syn_node_path, syn_node_decl, body, parser.finish())
+            syn_node_path,
+            syn_node_decl,
+            parse_defn_block_expr(
+                syn_node_path,
+                syn_node_decl.syn_expr_region(db),
+                AllowSelfType::True,
+                AllowSelfValue::False,
+                db,
+            ),
+        )
     }
 }
 
@@ -39,8 +34,7 @@ pub struct TypeAssociatedFnSynDefn {
     #[id]
     pub path: TypeItemPath,
     pub decl: TypeAssociatedFnSynDecl,
-    pub body: Option<SynExprIdx>,
-    pub syn_expr_region: SynExprRegion,
+    pub body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
 }
 
 impl TypeAssociatedFnSynDefn {
@@ -58,8 +52,7 @@ impl TypeAssociatedFnSynDefn {
             db,
             path,
             decl,
-            syn_node_defn.body(db),
-            syn_node_defn.syn_expr_region(db),
+            syn_node_defn.body_with_syn_expr_region(db),
         ))
     }
 }

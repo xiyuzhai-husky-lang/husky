@@ -40,14 +40,19 @@ impl AssociatedItemSynNodeDefn {
         }
     }
 
-    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
+    pub fn body_with_syn_expr_region(
+        self,
+        db: &dyn SynDefnDb,
+    ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
-            AssociatedItemSynNodeDefn::TypeItem(syn_node_defn) => syn_node_defn.syn_expr_region(db),
+            AssociatedItemSynNodeDefn::TypeItem(syn_node_defn) => {
+                syn_node_defn.body_with_syn_expr_region(db)
+            }
             AssociatedItemSynNodeDefn::TraitItem(syn_node_defn) => {
-                Some(syn_node_defn.syn_expr_region(db))
+                syn_node_defn.body_with_syn_expr_region(db)
             }
             AssociatedItemSynNodeDefn::TraitForTypeItem(syn_node_defn) => {
-                Some(syn_node_defn.syn_expr_region(db))
+                syn_node_defn.body_with_syn_expr_region(db)
             }
         }
     }
@@ -90,11 +95,14 @@ impl AssociatedItemSynDefn {
         }
     }
 
-    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
+    pub fn body_with_syn_expr_region(
+        self,
+        db: &dyn SynDefnDb,
+    ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
-            AssociatedItemSynDefn::TypeItem(defn) => defn.syn_expr_region(db),
+            AssociatedItemSynDefn::TypeItem(defn) => defn.body_with_syn_expr_region(db),
             AssociatedItemSynDefn::TraitItem(_) => todo!(),
-            AssociatedItemSynDefn::TraitForTypeItem(defn) => Some(defn.syn_expr_region(db)),
+            AssociatedItemSynDefn::TraitForTypeItem(defn) => defn.body_with_syn_expr_region(db),
         }
     }
 

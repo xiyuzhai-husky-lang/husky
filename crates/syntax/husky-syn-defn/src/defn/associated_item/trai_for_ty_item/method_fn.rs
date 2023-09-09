@@ -5,8 +5,7 @@ pub struct TraitForTypeMethodFnSynNodeDefn {
     #[id]
     pub syn_node_path: TraitForTypeItemSynNodePath,
     pub syn_node_decl: TraitForTypeMethodFnSynNodeDecl,
-    pub body: Option<SynExprIdx>,
-    pub syn_expr_region: SynExprRegion,
+    pub body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
 }
 
 impl TraitForTypeMethodFnSynNodeDefn {
@@ -15,27 +14,17 @@ impl TraitForTypeMethodFnSynNodeDefn {
         syn_node_path: TraitForTypeItemSynNodePath,
         syn_node_decl: TraitForTypeMethodFnSynNodeDecl,
     ) -> Self {
-        let mut ctx = SynStmtContext::new(
-            syn_node_path,
-            syn_node_decl.syn_expr_region(db),
-            AllowSelfType::True,
-            AllowSelfValue::True,
-            db,
-        );
-        let ast_idx = syn_node_decl.ast_idx(db);
-        let body = match ctx.ast_sheet()[ast_idx] {
-            Ast::Identifiable {
-                block: DefnBlock::AssociatedItem { body },
-                ..
-            } => body.map(|body| ctx.parse_block_expr(body)),
-            _ => unreachable!(),
-        };
         TraitForTypeMethodFnSynNodeDefn::new_inner(
             db,
             syn_node_path,
             syn_node_decl,
-            body,
-            ctx.finish(),
+            parse_defn_block_expr(
+                syn_node_path,
+                syn_node_decl.syn_expr_region(db),
+                AllowSelfType::True,
+                AllowSelfValue::True,
+                db,
+            ),
         )
     }
 }
@@ -45,8 +34,7 @@ pub struct TraitForTypeMethodFnSynDefn {
     #[id]
     pub path: TraitForTypeItemPath,
     pub decl: TraitForTypeMethodFnSynDecl,
-    pub body: Option<SynExprIdx>,
-    pub syn_expr_region: SynExprRegion,
+    pub body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
 }
 
 impl TraitForTypeMethodFnSynDefn {
@@ -64,8 +52,7 @@ impl TraitForTypeMethodFnSynDefn {
             db,
             path,
             decl,
-            syn_node_defn.body(db),
-            syn_node_defn.syn_expr_region(db),
+            syn_node_defn.body_with_syn_expr_region(db),
         )
     }
 }

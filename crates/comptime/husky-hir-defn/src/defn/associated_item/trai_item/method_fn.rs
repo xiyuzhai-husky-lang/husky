@@ -4,8 +4,7 @@ use super::*;
 pub struct TraitMethodFnHirDefn {
     pub path: TraitItemPath,
     pub hir_decl: TraitMethodFnHirDecl,
-    pub body: Option<HirEagerExprIdx>,
-    pub hir_expr_region: HirEagerExprRegion,
+    pub eager_body_with_hir_eager_expr_region: Option<(HirEagerExprIdx, HirEagerExprRegion)>,
 }
 
 impl TraitMethodFnHirDefn {

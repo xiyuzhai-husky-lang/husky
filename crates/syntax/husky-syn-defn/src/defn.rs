@@ -15,6 +15,7 @@ pub use self::ty_variant::*;
 use crate::*;
 use husky_ast::AstIdx;
 use husky_entity_syn_tree::paths::{module_item_paths, module_item_syn_node_paths};
+use husky_syn_expr::helpers::block_expr::parse_defn_block_expr;
 use salsa::debug::ExpectWithDb;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -45,15 +46,22 @@ impl SynNodeDefn {
         self.syn_node_decl(db).ast_idx(db)
     }
 
-    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
+    pub fn body_with_syn_expr_region(
+        self,
+        db: &dyn SynDefnDb,
+    ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
-            SynNodeDefn::MajorItem(defn) => defn.syn_expr_region(db),
-            SynNodeDefn::AssociatedItem(defn) => defn.syn_expr_region(db),
+            SynNodeDefn::MajorItem(defn) => defn.body_with_syn_expr_region(db),
+            SynNodeDefn::AssociatedItem(defn) => defn.body_with_syn_expr_region(db),
             SynNodeDefn::Submodule(_)
             | SynNodeDefn::TypeVariant(_)
             | SynNodeDefn::ImplBlock(_)
             | SynNodeDefn::Decr(_) => None,
         }
+    }
+
+    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
+        self.body_with_syn_expr_region(db).map(|v| v.1)
     }
 }
 
@@ -145,14 +153,21 @@ impl SynDefn {
         self.syn_decl(db).template_parameters(db)
     }
 
-    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
+    pub fn body_with_syn_expr_region(
+        self,
+        db: &dyn SynDefnDb,
+    ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
             SynDefn::Submodule(_) => None,
-            SynDefn::MajorItem(defn) => defn.syn_expr_region(db),
-            SynDefn::AssociatedItem(defn) => defn.syn_expr_region(db),
+            SynDefn::MajorItem(defn) => defn.body_with_syn_expr_region(db),
+            SynDefn::AssociatedItem(defn) => defn.body_with_syn_expr_region(db),
             SynDefn::TypeVariant(_defn) => None,
             SynDefn::ImplBlock(_) => None,
         }
+    }
+
+    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
+        self.body_with_syn_expr_region(db).map(|v| v.1)
     }
 }
 

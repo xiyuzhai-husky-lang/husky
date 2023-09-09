@@ -5,8 +5,7 @@ use salsa::DebugWithDb;
 pub struct TypeMethodFnHirDefn {
     pub path: TypeItemPath,
     pub hir_decl: TypeMethodFnHirDecl,
-    pub body: Option<HirEagerExprIdx>,
-    pub hir_expr_region: HirEagerExprRegion,
+    pub eager_body_with_hir_eager_expr_region: Option<(HirEagerExprIdx, HirEagerExprRegion)>,
 }
 
 impl TypeMethodFnHirDefn {
@@ -18,11 +17,11 @@ impl TypeMethodFnHirDefn {
         let Ok(TypeItemSynDefn::MethodFn(syn_defn)) = path.syn_defn(db) else {
             unreachable!("hir stage no error")
         };
-        let mut builder = HirEagerExprBuilder::new(db, syn_defn.syn_expr_region(db));
-        let body = syn_defn
-            .body(db)
-            .map(|body| body.to_hir_eager(&mut builder));
-        let hir_expr_region = builder.finish();
-        TypeMethodFnHirDefn::new_inner(db, path, hir_decl, body, hir_expr_region)
+        TypeMethodFnHirDefn::new_inner(
+            db,
+            path,
+            hir_decl,
+            build_eager_body(syn_defn.body_with_syn_expr_region(db), db),
+        )
     }
 }

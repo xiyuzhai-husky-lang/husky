@@ -54,19 +54,22 @@ impl TraitForTypeItemSynNodeDefn {
         }
     }
 
-    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> SynExprRegion {
+    pub fn body_with_syn_expr_region(
+        self,
+        db: &dyn SynDefnDb,
+    ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
             TraitForTypeItemSynNodeDefn::AssociatedFn(syn_node_defn) => {
-                syn_node_defn.syn_expr_region(db)
+                syn_node_defn.body_with_syn_expr_region(db)
             }
             TraitForTypeItemSynNodeDefn::MethodFn(syn_node_defn) => {
-                syn_node_defn.syn_expr_region(db)
+                syn_node_defn.body_with_syn_expr_region(db)
             }
             TraitForTypeItemSynNodeDefn::AssociatedType(syn_node_defn) => {
-                syn_node_defn.syn_expr_region(db)
+                syn_node_defn.body_with_syn_expr_region(db)
             }
             TraitForTypeItemSynNodeDefn::AssociatedVal(syn_node_defn) => {
-                syn_node_defn.syn_expr_region(db)
+                syn_node_defn.body_with_syn_expr_region(db)
             }
         }
     }
@@ -127,12 +130,15 @@ impl TraitForTypeItemSynDefn {
         }
     }
 
-    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> SynExprRegion {
+    pub fn body_with_syn_expr_region(
+        self,
+        db: &dyn SynDefnDb,
+    ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
-            TraitForTypeItemSynDefn::AssociatedFn(defn) => defn.syn_expr_region(db),
-            TraitForTypeItemSynDefn::MethodFn(defn) => defn.syn_expr_region(db),
-            TraitForTypeItemSynDefn::AssociatedType(defn) => defn.syn_expr_region(db),
-            TraitForTypeItemSynDefn::AssociatedVal(defn) => defn.syn_expr_region(db),
+            TraitForTypeItemSynDefn::AssociatedFn(defn) => defn.body_with_syn_expr_region(db),
+            TraitForTypeItemSynDefn::MethodFn(defn) => defn.body_with_syn_expr_region(db),
+            TraitForTypeItemSynDefn::AssociatedType(defn) => defn.body_with_syn_expr_region(db),
+            TraitForTypeItemSynDefn::AssociatedVal(defn) => defn.body_with_syn_expr_region(db),
         }
     }
 }

@@ -1,6 +1,7 @@
 use super::*;
 use husky_ast::{AstIdx, AstSheet, AstTokenIdxRangeSheet, FugitiveBody};
 use husky_entity_syn_tree::tokra_region::{HasSynDefnTokraRegion, SynDefnTokraRegionData};
+use husky_print_utils::p;
 
 pub struct SynStmtContext<'a> {
     expr_context: SynExprContext<'a>,
@@ -31,7 +32,7 @@ impl<'a> SynStmtContext<'a> {
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
         db: &'a dyn SynExprDb,
-    ) -> Self
+    ) -> Option<Self>
     where
         P: HasSynDefnTokraRegion + Into<ItemSynNodePath>,
     {
@@ -44,15 +45,17 @@ impl<'a> SynStmtContext<'a> {
             allow_self_type,
             allow_self_value,
         );
-        Self {
+        use salsa::DebugWithDb;
+        p!(syn_node_path.into().debug(db));
+        Some(Self {
             expr_context,
             ast_sheet: db.ast_sheet(module_path).unwrap(),
             ast_token_idx_range_sheet: db.ast_token_idx_range_sheet(module_path).unwrap(),
             token_sheet_data: db
                 .token_sheet_data(module_path)
                 .expect("modules should be valid"),
-            defn_tokra_region_data: syn_node_path.syn_defn_tokra_region(db).data(db),
-        }
+            defn_tokra_region_data: syn_node_path.syn_defn_tokra_region(db)?.data(db),
+        })
     }
 
     pub fn ast_sheet(&self) -> &'a AstSheet {

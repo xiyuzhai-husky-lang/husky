@@ -4,20 +4,19 @@ use super::*;
 pub struct FnHirDefn {
     pub path: FugitivePath,
     pub hir_decl: FnFugitiveHirDecl,
-    pub body: Option<HirEagerExprIdx>,
-    pub hir_expr_region: HirEagerExprRegion,
+    pub eager_body_with_hir_eager_expr_region: Option<(HirEagerExprIdx, HirEagerExprRegion)>,
 }
 
 impl FnHirDefn {
     pub(super) fn new(db: &dyn HirDefnDb, path: FugitivePath, hir_decl: FnFugitiveHirDecl) -> Self {
-        let FugitiveSynDefn::Fn(syn_defn) = path.syn_defn(db).expect("hir stage no error") else {
+        let Ok(FugitiveSynDefn::Fn(syn_defn)) = path.syn_defn(db) else {
             unreachable!()
         };
-        let mut builder = HirEagerExprBuilder::new(db, syn_defn.syn_expr_region(db));
-        let body = syn_defn
-            .body(db)
-            .map(|body| body.to_hir_eager(&mut builder));
-        let hir_expr_region = builder.finish();
-        FnHirDefn::new_inner(db, path, hir_decl, body, hir_expr_region)
+        FnHirDefn::new_inner(
+            db,
+            path,
+            hir_decl,
+            build_eager_body(syn_defn.body_with_syn_expr_region(db), db),
+        )
     }
 }

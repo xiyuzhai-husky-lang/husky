@@ -5,8 +5,7 @@ pub struct TraitMethodFnSynNodeDefn {
     #[id]
     pub syn_node_path: TraitItemSynNodePath,
     pub syn_node_decl: TraitMethodFnSynNodeDecl,
-    pub body: Option<SynExprIdx>,
-    pub syn_expr_region: SynExprRegion,
+    pub body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
 }
 
 impl TraitMethodFnSynNodeDefn {
@@ -15,27 +14,18 @@ impl TraitMethodFnSynNodeDefn {
         syn_node_path: TraitItemSynNodePath,
         syn_node_decl: TraitMethodFnSynNodeDecl,
     ) -> Self {
-        let mut parser = {
-            let decl_expr_region = syn_node_decl.syn_expr_region(db);
-            let allow_self_type = AllowSelfType::True;
-            let allow_self_value = AllowSelfValue::True;
-            SynStmtContext::new(
+        Self::new_inner(
+            db,
+            syn_node_path,
+            syn_node_decl,
+            parse_defn_block_expr(
                 syn_node_path,
-                decl_expr_region,
-                allow_self_type,
-                allow_self_value,
+                syn_node_decl.syn_expr_region(db),
+                AllowSelfType::True,
+                AllowSelfValue::True,
                 db,
-            )
-        };
-        let ast_idx = syn_node_decl.ast_idx(db);
-        let body = match parser.ast_sheet()[ast_idx] {
-            Ast::Identifiable {
-                block: DefnBlock::AssociatedItem { body },
-                ..
-            } => body.map(|body| parser.parse_block_expr(body)),
-            _ => unreachable!(),
-        };
-        Self::new_inner(db, syn_node_path, syn_node_decl, body, parser.finish())
+            ),
+        )
     }
 }
 
@@ -44,8 +34,7 @@ pub struct TraitMethodFnSynDefn {
     #[id]
     pub path: TraitItemPath,
     pub decl: TraitMethodFnSynDecl,
-    pub body: Option<SynExprIdx>,
-    pub syn_expr_region: SynExprRegion,
+    pub body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
 }
 
 impl TraitMethodFnSynDefn {
@@ -63,8 +52,7 @@ impl TraitMethodFnSynDefn {
             db,
             path,
             decl,
-            syn_node_defn.body(db),
-            syn_node_defn.syn_expr_region(db),
+            syn_node_defn.body_with_syn_expr_region(db),
         ))
     }
 }

@@ -14,6 +14,7 @@ pub use self::ty_variant::*;
 
 use crate::*;
 use husky_hir_eager_expr::builder::HirEagerExprBuilder;
+use husky_hir_eager_expr::helpers::build_eager_body;
 use husky_hir_expr::builder::HirExprBuilder;
 use husky_hir_lazy_expr::builder::HirLazyExprBuilder;
 use husky_hir_ty::{

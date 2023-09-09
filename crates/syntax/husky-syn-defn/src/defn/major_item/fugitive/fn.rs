@@ -5,8 +5,7 @@ pub struct FnSynNodeDefn {
     #[id]
     pub syn_node_path: FugitiveSynNodePath,
     pub syn_node_decl: FnSynNodeDecl,
-    pub body: Option<SynExprIdx>,
-    pub syn_expr_region: SynExprRegion,
+    pub body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
 }
 
 impl FnSynNodeDefn {
@@ -15,23 +14,18 @@ impl FnSynNodeDefn {
         syn_node_path: FugitiveSynNodePath,
         syn_node_decl: FnSynNodeDecl,
     ) -> Self {
-        let syn_node_path = syn_node_decl.syn_node_path(db);
-        let mut parser = SynStmtContext::new(
-            syn_node_path,
-            syn_node_decl.syn_expr_region(db),
-            AllowSelfType::False,
-            AllowSelfValue::False,
+        FnSynNodeDefn::new_inner(
             db,
-        );
-        let ast_idx = syn_node_decl.ast_idx(db);
-        let body = match parser.ast_sheet()[ast_idx] {
-            Ast::Identifiable {
-                block: DefnBlock::Fugitive { body, .. },
-                ..
-            } => body.map(|body| parser.parse_block_expr(body)),
-            _ => unreachable!(),
-        };
-        FnSynNodeDefn::new_inner(db, syn_node_path, syn_node_decl, body, parser.finish())
+            syn_node_path,
+            syn_node_decl,
+            parse_defn_block_expr(
+                syn_node_path,
+                syn_node_decl.syn_expr_region(db),
+                AllowSelfType::False,
+                AllowSelfValue::False,
+                db,
+            ),
+        )
     }
 }
 
@@ -40,8 +34,7 @@ pub struct FnSynDefn {
     #[id]
     pub path: FugitivePath,
     pub decl: FnSynDecl,
-    pub body: Option<SynExprIdx>,
-    pub syn_expr_region: SynExprRegion,
+    pub body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
 }
 
 impl FnSynDefn {
@@ -50,12 +43,6 @@ impl FnSynDefn {
         else {
             unreachable!()
         };
-        FnSynDefn::new_inner(
-            db,
-            path,
-            decl,
-            syn_node_defn.body(db),
-            syn_node_defn.syn_expr_region(db),
-        )
+        FnSynDefn::new_inner(db, path, decl, syn_node_defn.body_with_syn_expr_region(db))
     }
 }

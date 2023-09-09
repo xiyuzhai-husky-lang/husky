@@ -4,6 +4,7 @@
 mod context;
 mod db;
 mod error;
+pub mod helpers;
 mod html;
 mod list_item;
 mod obelisks;
