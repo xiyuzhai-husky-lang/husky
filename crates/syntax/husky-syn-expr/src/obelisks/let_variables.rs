@@ -18,7 +18,7 @@ impl<'a, 'b> SynDefnExprParser<'a, 'b> {
     ) -> SynExprResult<LetVariableObelisk> {
         let state = self.save_state();
         let Some(pattern) = self.parse_pattern_expr(SynPatternExprInfo::Let)? else {
-            Err(OriginalExprError::ExpectedLetVariableDecls(state))?
+            Err(OriginalSynExprError::ExpectedLetVariableDecls(state))?
         };
         let symbols = self.pattern_expr_region().pattern_expr_symbols(pattern);
         let access_start = self.save_state().next_token_idx();
@@ -41,7 +41,7 @@ impl<'a, 'b> SynDefnExprParser<'a, 'b> {
             Ok(Some(_)) => Some(self.parse_expr_expected2(
                 Some(ExprEnvironment::TypeBeforeEq),
                 ExprRootKind::LetStmtType,
-                OriginalExprError::ExpectedLetVariablesType,
+                OriginalSynExprError::ExpectedLetVariablesType,
             )),
             _ => None,
         };

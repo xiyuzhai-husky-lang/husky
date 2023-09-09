@@ -46,7 +46,7 @@ pub enum TemplateParameterDeclPatternVariant {
 }
 
 impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParameterObelisk {
-    type Error = ExprError;
+    type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
@@ -85,7 +85,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
                                     Bracket::TemplateAngle,
                                 )),
                                 ExprRootKind::Traits,
-                                OriginalExprError::ExpectedTraits,
+                                OriginalSynExprError::ExpectedTraits,
                             ),
                         ))
                     } else {
@@ -122,14 +122,14 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
                 variant: TemplateParameterDeclPatternVariant::Binding { label_token },
             }))
         } else if let Some(const_token) = ctx.try_parse_option::<ConstToken>()? {
-            let ident_token = ctx.try_parse_expected(OriginalExprError::ExpectedIdent)?;
-            let colon_token = ctx.try_parse_expected(OriginalExprError::ExpectedColon)?;
+            let ident_token = ctx.try_parse_expected(OriginalSynExprError::ExpectedIdent)?;
+            let colon_token = ctx.try_parse_expected(OriginalSynExprError::ExpectedColon)?;
             let ty_expr = ctx.parse_expr_expected2(
                 Some(ExprEnvironment::WithinBracketedParameterList(
                     Bracket::TemplateAngle,
                 )),
                 ExprRootKind::ConstantImplicitParameterType,
-                OriginalExprError::ExpectedConstantImplicitParameterType,
+                OriginalSynExprError::ExpectedConstantImplicitParameterType,
             );
             let access_start = ctx.save_state().next_token_idx();
             let syn_attrs = ctx.try_parse()?;

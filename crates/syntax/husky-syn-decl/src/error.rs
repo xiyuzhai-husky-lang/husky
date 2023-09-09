@@ -1,10 +1,10 @@
 use crate::*;
 use husky_entity_syn_tree::EntitySynTreeError;
 use husky_print_utils::p;
-use husky_syn_expr::OriginalExprError;
+use husky_syn_expr::OriginalSynExprError;
 use husky_token::*;
 use husky_vfs::VfsError;
-use original_error::IntoError;
+use original_error::OriginalError;
 use parsec::*;
 use thiserror::Error;
 
@@ -26,17 +26,17 @@ impl From<TokenError> for SynNodeDeclError {
     }
 }
 
-impl From<ExprError> for DeclError {
-    fn from(value: ExprError) -> Self {
+impl From<SynExprError> for DeclError {
+    fn from(value: SynExprError) -> Self {
         todo!()
     }
 }
 
-impl From<ExprError> for SynNodeDeclError {
-    fn from(error: ExprError) -> Self {
+impl From<SynExprError> for SynNodeDeclError {
+    fn from(error: SynExprError) -> Self {
         match error {
-            ExprError::Original(error) => SynNodeDeclError::Original(error.into()),
-            ExprError::Derived(error) => SynNodeDeclError::Derived(error.into()),
+            SynExprError::Original(error) => SynNodeDeclError::Original(error.into()),
+            SynExprError::Derived(error) => SynNodeDeclError::Derived(error.into()),
         }
     }
 }
@@ -45,7 +45,7 @@ impl From<ExprError> for SynNodeDeclError {
 #[salsa::debug_with_db(db = SynDeclDb)]
 pub enum OriginalSynNodeDeclError {
     #[error("derived {0}")]
-    Expr(#[from] OriginalExprError),
+    Expr(#[from] OriginalSynExprError),
     #[error("expect output type")]
     ExpectedOutputType(TokenStreamState),
     #[error("expect `->`")]
@@ -81,7 +81,7 @@ pub enum OriginalSynNodeDeclError {
     ExpectRightBracketInDerive(TokenStreamState),
 }
 
-impl IntoError for OriginalSynNodeDeclError {
+impl OriginalError for OriginalSynNodeDeclError {
     type Error = SynNodeDeclError;
 }
 
@@ -89,7 +89,7 @@ impl IntoError for OriginalSynNodeDeclError {
 #[salsa::debug_with_db(db = SynDeclDb)]
 pub enum DerivedSynNodeDeclError {
     #[error("{0}")]
-    ExprError(#[from] DerivedExprError),
+    ExprError(#[from] DerivedSynExprError),
     #[error("{0}")]
     TokenError(#[from] TokenError),
 }

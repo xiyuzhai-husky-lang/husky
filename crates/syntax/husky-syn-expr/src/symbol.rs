@@ -219,7 +219,7 @@ impl<'a, C> TryParseFromStream<SynExprParser<'a, C>> for TemplateParameterSynAtt
 where
     C: IsSynExprContext<'a>,
 {
-    type Error = ExprError;
+    type Error = SynExprError;
 
     fn try_parse_from_stream(sp: &mut SynExprParser<'a, C>) -> Result<Self, Self::Error> {
         let mut syn_attrs: SmallVec<[TemplateSymbolSynAttr; 1]> = smallvec::smallvec![];

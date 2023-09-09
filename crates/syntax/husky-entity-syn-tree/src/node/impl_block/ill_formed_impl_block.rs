@@ -1,4 +1,4 @@
-use original_error::IntoError;
+use original_error::OriginalError;
 
 use super::*;
 
@@ -95,7 +95,7 @@ pub enum ImplBlockIllForm {
     ExpectedDeriveIdent(TokenStreamState),
 }
 
-impl IntoError for ImplBlockIllForm {
+impl OriginalError for ImplBlockIllForm {
     type Error = Self;
 }
 

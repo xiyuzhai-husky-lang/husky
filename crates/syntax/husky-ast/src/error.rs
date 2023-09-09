@@ -5,7 +5,7 @@ use husky_token::{
     IdentToken, Punctuation, TokenError, TokenGroupIdx, TokenIdx, TokenIdxRange, TokenStreamParser,
     TokenStreamState,
 };
-use original_error::IntoError;
+use original_error::OriginalError;
 use thiserror::Error;
 
 use crate::{AstDb, AstIdx};
@@ -124,7 +124,7 @@ impl From<std::convert::Infallible> for AstError {
     }
 }
 
-impl IntoError for OriginalAstError {
+impl OriginalError for OriginalAstError {
     type Error = AstError;
 }
 

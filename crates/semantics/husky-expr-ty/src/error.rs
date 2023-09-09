@@ -10,7 +10,7 @@ use husky_ethereal_signature::EtherealSignatureError;
 use husky_ethereal_term::EtherealTermError;
 use husky_syn_expr::SynExprIdx;
 use husky_token::IdentToken;
-use original_error::IntoError;
+use original_error::OriginalError;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -94,7 +94,7 @@ pub enum OriginalExprTypeError {
     MissingArgument,
 }
 
-impl IntoError for OriginalExprTypeError {
+impl OriginalError for OriginalExprTypeError {
     type Error = ExprTypeError;
 }
 

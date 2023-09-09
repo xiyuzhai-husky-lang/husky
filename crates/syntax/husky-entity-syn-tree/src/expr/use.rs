@@ -1,7 +1,7 @@
 use super::*;
 use husky_opr::BinaryOpr;
 use husky_token::*;
-use original_error::IntoError;
+use original_error::OriginalError;
 use parsec::{StreamParser, StreamWrapper, TryParseOptionFromStream};
 use thiserror::Error;
 
@@ -159,7 +159,7 @@ pub enum OriginalUseExprError {
     },
 }
 
-impl IntoError for OriginalUseExprError {
+impl OriginalError for OriginalUseExprError {
     type Error = UseExprError;
 }
 

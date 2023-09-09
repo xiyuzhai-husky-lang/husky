@@ -36,7 +36,7 @@ where
                             DisambiguatedToken::AtomicExpr(SynExpr::SelfType(token_idx))
                         }
                         AllowSelfType::False => DisambiguatedToken::AtomicExpr(SynExpr::Err(
-                            OriginalExprError::SelfTypeNotAllowed(token_idx).into(),
+                            OriginalSynExprError::SelfTypeNotAllowed(token_idx).into(),
                         )),
                     },
                     PronounKeyword::SelfValue => match self.peek() {
@@ -48,7 +48,7 @@ where
                                 DisambiguatedToken::AtomicExpr(SynExpr::SelfValue(token_idx))
                             }
                             AllowSelfValue::False => DisambiguatedToken::AtomicExpr(SynExpr::Err(
-                                OriginalExprError::SelfValueNotAllowed(token_idx).into(),
+                                OriginalSynExprError::SelfValueNotAllowed(token_idx).into(),
                             )),
                         },
                     },
@@ -60,7 +60,7 @@ where
                 Keyword::Sorry => DisambiguatedToken::AtomicExpr(SynExpr::Sorry { token_idx }),
                 Keyword::Todo => DisambiguatedToken::AtomicExpr(SynExpr::Todo { token_idx }),
                 _ => DisambiguatedToken::AtomicExpr(SynExpr::Err(
-                    OriginalExprError::UnexpectedKeyword(token_idx).into(),
+                    OriginalSynExprError::UnexpectedKeyword(token_idx).into(),
                 )),
             },
             Token::Ident(ident) => match self.top_expr() {
@@ -158,7 +158,7 @@ where
                     ),
                 },
                 PunctuationMapped::Sheba => DisambiguatedToken::AtomicExpr(SynExpr::Err(
-                    OriginalExprError::UnexpectedSheba(token_idx).into(),
+                    OriginalSynExprError::UnexpectedSheba(token_idx).into(),
                 )),
                 PunctuationMapped::Shr => {
                     DisambiguatedToken::BinaryOpr(token_idx, BinaryOpr::Shift(BinaryShiftOpr::Shr))
@@ -280,9 +280,9 @@ where
             Token::Literal(literal) => {
                 DisambiguatedToken::AtomicExpr(SynExpr::Literal(token_idx, literal))
             }
-            Token::Error(error) => {
-                DisambiguatedToken::AtomicExpr(SynExpr::Err(DerivedExprError::Token(error).into()))
-            }
+            Token::Error(error) => DisambiguatedToken::AtomicExpr(SynExpr::Err(
+                DerivedSynExprError::Token(error).into(),
+            )),
         })
     }
 
@@ -466,7 +466,7 @@ where
                     }
                     BaseEntityPath::Uncertain { .. } => {
                         return DisambiguatedToken::AtomicExpr(SynExpr::Err(
-                            OriginalExprError::UnresolvedSubitem { token_idx, ident }.into(),
+                            OriginalSynExprError::UnresolvedSubitem { token_idx, ident }.into(),
                         ))
                     }
                     BaseEntityPath::Err => todo!(),
@@ -509,9 +509,9 @@ where
                         }
                     } //  Expr::EntityPath(item_path),
                 },
-                None => {
-                    SynExpr::Err(OriginalExprError::UnrecognizedIdent { token_idx, ident }.into())
-                }
+                None => SynExpr::Err(
+                    OriginalSynExprError::UnrecognizedIdent { token_idx, ident }.into(),
+                ),
             },
         )
     }

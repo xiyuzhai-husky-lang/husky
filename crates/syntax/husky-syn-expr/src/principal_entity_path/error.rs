@@ -1,5 +1,5 @@
 use super::*;
-use original_error::IntoError;
+use original_error::OriginalError;
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
@@ -40,12 +40,12 @@ pub enum OriginalPrincipalEntityPathExprError {
     ExpectIdentAfterScopeResolution(TokenStreamState),
 }
 
-impl IntoError for OriginalPrincipalEntityPathExprError {
+impl OriginalError for OriginalPrincipalEntityPathExprError {
     type Error = PrincipalEntityPathExprError;
 }
 
-impl From<OriginalExprError> for OriginalPrincipalEntityPathExprError {
-    fn from(value: OriginalExprError) -> Self {
+impl From<OriginalSynExprError> for OriginalPrincipalEntityPathExprError {
+    fn from(value: OriginalSynExprError) -> Self {
         todo!()
     }
 }
@@ -54,7 +54,7 @@ impl From<OriginalExprError> for OriginalPrincipalEntityPathExprError {
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum DerivedPrincipalEntityPathExprError {
     #[error("derived from expr error {0}")]
-    AbortFromExprError(#[from] OriginalExprError),
+    AbortFromExprError(#[from] OriginalSynExprError),
     #[error("token error {0}")]
     TokenError(#[from] TokenError),
 }

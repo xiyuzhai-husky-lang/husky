@@ -19,7 +19,7 @@ where
     ) -> SynExprResult<BeVariablesObelisk> {
         let state = self.save_state();
         let Some(pattern_expr) = self.parse_pattern_expr(SynPatternExprInfo::Let)? else {
-            Err(OriginalExprError::ExpectedBeVariablesPattern(state))?
+            Err(OriginalSynExprError::ExpectedBeVariablesPattern(state))?
         };
         let symbols = self
             .pattern_expr_region()

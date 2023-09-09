@@ -53,7 +53,7 @@ impl<'a> DeclParserFactory<'a> {
         let ty_term_expr_idx = parser.parse_expr_expected2(
             None,
             ExprRootKind::AssociatedTypeTerm,
-            OriginalExprError::ExpectedTypeTermForAssociatedType,
+            OriginalSynExprError::ExpectedTypeTermForAssociatedType,
         );
         let generics = parser.try_parse_option();
         TraitAssociatedTypeSynNodeDecl::new(

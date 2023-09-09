@@ -261,7 +261,7 @@ pub enum SynExpr {
     Todo {
         token_idx: TokenIdx,
     },
-    Err(ExprError),
+    Err(SynExprError),
 }
 
 #[derive(Debug, PartialEq, Eq)]

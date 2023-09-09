@@ -17,7 +17,7 @@ impl TupleFieldObelisk {
 }
 
 impl<'a> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for TupleFieldObelisk {
-    type Error = ExprError;
+    type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
@@ -27,7 +27,7 @@ impl<'a> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for TupleFieldO
         let ty = ctx.parse_expr_expected2(
             None,
             ExprRootKind::TupleStructFieldType,
-            OriginalExprError::ExpectedFieldType,
+            OriginalSynExprError::ExpectedFieldType,
         );
         Ok(Some(TupleFieldObelisk {
             decorators,
@@ -42,7 +42,7 @@ impl<'a> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for TupleFieldO
 pub struct FieldDecorator {}
 
 impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for FieldDecorator {
-    type Error = ExprError;
+    type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
@@ -63,7 +63,7 @@ pub enum FieldVisibilityExpr {
 }
 
 impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for FieldVisibilityExpr {
-    type Error = ExprError;
+    type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,

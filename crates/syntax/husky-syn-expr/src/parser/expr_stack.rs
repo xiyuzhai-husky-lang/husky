@@ -248,9 +248,10 @@ impl SynExpr {
             SynExpr::Bracketed { item, .. } => arena[item].base_item_path(db, arena),
             SynExpr::Err(e) => BaseEntityPath::Uncertain {
                 inclination: match e {
-                    ExprError::Original(OriginalExprError::UnrecognizedIdent { ident, .. }) => {
-                        BaseEntityPathInclination::from_case(ident.case(db))
-                    }
+                    SynExprError::Original(OriginalSynExprError::UnrecognizedIdent {
+                        ident,
+                        ..
+                    }) => BaseEntityPathInclination::from_case(ident.case(db)),
                     // ad hoc
                     _ => BaseEntityPathInclination::FunctionOrLocalValue,
                 },
@@ -387,7 +388,7 @@ where
                             ropd: self.context_mut().alloc_expr(ropd),
                         },
                         None => SynExpr::Err(
-                            OriginalExprError::NoRightOperandForBinaryOperator {
+                            OriginalSynExprError::NoRightOperandForBinaryOperator {
                                 punctuation,
                                 punctuation_token_idx,
                             }
@@ -416,7 +417,7 @@ where
                             opd: self.context_mut().alloc_expr(opd),
                         },
                         None => SynExpr::Err(
-                            OriginalExprError::NoOperandForPrefixOperator {
+                            OriginalSynExprError::NoOperandForPrefixOperator {
                                 prefix: punctuation,
                                 prefix_token_idx: punctuation_token_idx,
                             }
@@ -426,7 +427,7 @@ where
                 }
                 IncompleteExpr::CommaList { bra_token_idx, .. } => {
                     self.stack.complete_expr = Some(SynExpr::Err(
-                        OriginalExprError::UnterminatedList { bra_token_idx }.into(),
+                        OriginalSynExprError::UnterminatedList { bra_token_idx }.into(),
                     ))
                 }
                 IncompleteExpr::LambdaHead { inputs, start } => todo!(),
@@ -434,7 +435,7 @@ where
                     p!(prev_precedence, next_precedence);
                     todo!();
                     self.stack.complete_expr = Some(SynExpr::Err(
-                        OriginalExprError::UnterminatedFunctionCallKeyedArgumentList {
+                        OriginalSynExprError::UnterminatedFunctionCallKeyedArgumentList {
                             bra_token_idx: lpar_token_idx,
                         }
                         .into(),
@@ -460,7 +461,7 @@ where
                             return_ty_expr: Some(self.context_mut().alloc_expr(return_ty)),
                         },
                         None => SynExpr::Err(
-                            OriginalExprError::ExpectedTypeAfterLightArrow { light_arrow_token }
+                            OriginalSynExprError::ExpectedTypeAfterLightArrow { light_arrow_token }
                                 .into(),
                         ),
                     })

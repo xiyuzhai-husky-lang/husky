@@ -1,6 +1,6 @@
 use super::*;
 use husky_syn_decl::*;
-use husky_syn_expr::ExprError;
+use husky_syn_expr::SynExprError;
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
 pub struct DeclDiagnosticSheet {

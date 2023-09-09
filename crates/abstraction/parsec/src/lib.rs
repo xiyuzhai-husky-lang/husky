@@ -8,7 +8,7 @@ pub use list::*;
 pub use rollback::*;
 pub use seq::*;
 
-use original_error::IntoError;
+use original_error::OriginalError;
 #[cfg(test)]
 use tests::*;
 
@@ -60,14 +60,14 @@ pub trait StreamParser: HasStreamState {
 
     fn try_parse_err_as_none<P: TryParseOptionFromStream<Self>>(&mut self) -> Option<P>;
 
-    fn try_parse_expected<T: TryParseOptionFromStream<Self>, E: IntoError>(
+    fn try_parse_expected<T: TryParseOptionFromStream<Self>, E: OriginalError>(
         &mut self,
         f: impl FnOnce(Self::State) -> E,
     ) -> Result<T, E::Error>
     where
         E::Error: From<<T as TryParseOptionFromStream<Self>>::Error>;
 
-    fn parse_expected_with_context<T: TryParseOptionFromStreamWithContext<Self>, E: IntoError>(
+    fn parse_expected_with_context<T: TryParseOptionFromStreamWithContext<Self>, E: OriginalError>(
         &mut self,
         ctx: T::Context,
         f: impl FnOnce(Self::State) -> E,
@@ -121,7 +121,7 @@ where
     }
 
     #[inline(always)]
-    fn try_parse_expected<T: TryParseOptionFromStream<Self>, E: IntoError>(
+    fn try_parse_expected<T: TryParseOptionFromStream<Self>, E: OriginalError>(
         &mut self,
         f: impl FnOnce(Self::State) -> E,
     ) -> Result<T, E::Error>
@@ -136,7 +136,7 @@ where
     }
 
     #[inline(always)]
-    fn parse_expected_with_context<T: TryParseOptionFromStreamWithContext<Self>, E: IntoError>(
+    fn parse_expected_with_context<T: TryParseOptionFromStreamWithContext<Self>, E: OriginalError>(
         &mut self,
         ctx: T::Context,
         f: impl FnOnce(Self::State) -> E,

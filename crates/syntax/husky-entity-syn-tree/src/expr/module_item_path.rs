@@ -45,7 +45,7 @@ pub enum OriginalMajorPathExprError {
     NoSuchSubitem,
 }
 
-impl IntoError for OriginalMajorPathExprError {
+impl OriginalError for OriginalMajorPathExprError {
     type Error = MajorPathExprError;
 }
 
