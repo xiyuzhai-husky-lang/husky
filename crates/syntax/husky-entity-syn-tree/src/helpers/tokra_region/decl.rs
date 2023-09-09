@@ -90,27 +90,74 @@ fn build_decl_tokra_region(
 
 pub trait HasDeclTokraRegion: for<'a> HasModulePath<dyn EntitySynTreeDb + 'a> + Copy {
     fn decl_tokra_region(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegion;
+    // use this only when necessary
+    fn decl_tokra_region_source_map(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegionSourceMap;
 }
 
 impl HasDeclTokraRegion for ItemSynNodePath {
     fn decl_tokra_region(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegion {
         match self {
-            ItemSynNodePath::Submodule(_) => todo!(),
+            ItemSynNodePath::Submodule(syn_node_path) => syn_node_path.decl_tokra_region(db),
             ItemSynNodePath::MajorItem(syn_node_path) => syn_node_path.decl_tokra_region(db),
-            ItemSynNodePath::TypeVariant(_) => todo!(),
-            ItemSynNodePath::ImplBlock(_) => todo!(),
-            ItemSynNodePath::AssociatedItem(_) => todo!(),
-            ItemSynNodePath::Decr(_) => todo!(),
+            ItemSynNodePath::TypeVariant(syn_node_path) => syn_node_path.decl_tokra_region(db),
+            ItemSynNodePath::ImplBlock(syn_node_path) => syn_node_path.decl_tokra_region(db),
+            ItemSynNodePath::AssociatedItem(syn_node_path) => syn_node_path.decl_tokra_region(db),
+            ItemSynNodePath::Decr(syn_node_path) => syn_node_path.decl_tokra_region(db),
         }
+    }
+
+    fn decl_tokra_region_source_map(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegionSourceMap {
+        match self {
+            ItemSynNodePath::Submodule(syn_node_path) => {
+                syn_node_path.decl_tokra_region_source_map(db)
+            }
+            ItemSynNodePath::MajorItem(syn_node_path) => {
+                syn_node_path.decl_tokra_region_source_map(db)
+            }
+            ItemSynNodePath::TypeVariant(syn_node_path) => {
+                syn_node_path.decl_tokra_region_source_map(db)
+            }
+            ItemSynNodePath::ImplBlock(syn_node_path) => {
+                syn_node_path.decl_tokra_region_source_map(db)
+            }
+            ItemSynNodePath::AssociatedItem(syn_node_path) => {
+                syn_node_path.decl_tokra_region_source_map(db)
+            }
+            ItemSynNodePath::Decr(syn_node_path) => syn_node_path.decl_tokra_region_source_map(db),
+        }
+    }
+}
+
+impl HasDeclTokraRegion for SubmoduleSynNodePath {
+    fn decl_tokra_region(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegion {
+        todo!()
+    }
+
+    fn decl_tokra_region_source_map(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegionSourceMap {
+        todo!()
     }
 }
 
 impl HasDeclTokraRegion for MajorItemSynNodePath {
     fn decl_tokra_region(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegion {
         match self {
-            MajorItemSynNodePath::Trait(_) => todo!(),
-            MajorItemSynNodePath::Type(_) => todo!(),
-            MajorItemSynNodePath::Fugitive(_) => todo!(),
+            MajorItemSynNodePath::Trait(syn_node_path) => syn_node_path.decl_tokra_region(db),
+            MajorItemSynNodePath::Type(syn_node_path) => syn_node_path.decl_tokra_region(db),
+            MajorItemSynNodePath::Fugitive(syn_node_path) => syn_node_path.decl_tokra_region(db),
+        }
+    }
+
+    fn decl_tokra_region_source_map(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegionSourceMap {
+        match self {
+            MajorItemSynNodePath::Trait(syn_node_path) => {
+                syn_node_path.decl_tokra_region_source_map(db)
+            }
+            MajorItemSynNodePath::Type(syn_node_path) => {
+                syn_node_path.decl_tokra_region_source_map(db)
+            }
+            MajorItemSynNodePath::Fugitive(syn_node_path) => {
+                syn_node_path.decl_tokra_region_source_map(db)
+            }
         }
     }
 }
@@ -118,6 +165,10 @@ impl HasDeclTokraRegion for MajorItemSynNodePath {
 impl HasDeclTokraRegion for TraitSynNodePath {
     fn decl_tokra_region(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegion {
         trai_decl_tokra_region(db, self)
+    }
+
+    fn decl_tokra_region_source_map(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegionSourceMap {
+        trai_decl_tokra_region_with_source_map(db, self).1
     }
 }
 
@@ -145,6 +196,10 @@ impl HasDeclTokraRegion for TypeSynNodePath {
     fn decl_tokra_region(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegion {
         ty_decl_tokra_region(db, self)
     }
+
+    fn decl_tokra_region_source_map(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegionSourceMap {
+        ty_decl_tokra_region_with_source_map(db, self).1
+    }
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
@@ -170,6 +225,10 @@ fn ty_decl_tokra_region(
 impl HasDeclTokraRegion for FugitiveSynNodePath {
     fn decl_tokra_region(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegion {
         fugitive_decl_tokra_region(db, self)
+    }
+
+    fn decl_tokra_region_source_map(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegionSourceMap {
+        fugitive_decl_tokra_region_with_source_map(db, self).1
     }
 }
 
@@ -197,6 +256,10 @@ impl HasDeclTokraRegion for TypeVariantSynNodePath {
     fn decl_tokra_region(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegion {
         ty_variant_decl_tokra_region(db, self)
     }
+
+    fn decl_tokra_region_source_map(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegionSourceMap {
+        ty_variant_decl_tokra_region_with_source_map(db, self).1
+    }
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
@@ -222,9 +285,29 @@ fn ty_variant_decl_tokra_region(
 impl HasDeclTokraRegion for ImplBlockSynNodePath {
     fn decl_tokra_region(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegion {
         match self {
-            ImplBlockSynNodePath::TypeImplBlock(_) => todo!(),
-            ImplBlockSynNodePath::TraitForTypeImplBlock(_) => todo!(),
-            ImplBlockSynNodePath::IllFormedImplBlock(_) => todo!(),
+            ImplBlockSynNodePath::TypeImplBlock(syn_node_path) => {
+                syn_node_path.decl_tokra_region(db)
+            }
+            ImplBlockSynNodePath::TraitForTypeImplBlock(syn_node_path) => {
+                syn_node_path.decl_tokra_region(db)
+            }
+            ImplBlockSynNodePath::IllFormedImplBlock(syn_node_path) => {
+                syn_node_path.decl_tokra_region(db)
+            }
+        }
+    }
+
+    fn decl_tokra_region_source_map(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegionSourceMap {
+        match self {
+            ImplBlockSynNodePath::TypeImplBlock(syn_node_path) => {
+                syn_node_path.decl_tokra_region_source_map(db)
+            }
+            ImplBlockSynNodePath::TraitForTypeImplBlock(syn_node_path) => {
+                syn_node_path.decl_tokra_region_source_map(db)
+            }
+            ImplBlockSynNodePath::IllFormedImplBlock(syn_node_path) => {
+                syn_node_path.decl_tokra_region_source_map(db)
+            }
         }
     }
 }
@@ -232,6 +315,10 @@ impl HasDeclTokraRegion for ImplBlockSynNodePath {
 impl HasDeclTokraRegion for TypeImplBlockSynNodePath {
     fn decl_tokra_region(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegion {
         ty_impl_block_decl_tokra_region(db, self)
+    }
+
+    fn decl_tokra_region_source_map(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegionSourceMap {
+        ty_impl_block_decl_tokra_region_with_source_map(db, self).1
     }
 }
 
@@ -259,6 +346,10 @@ impl HasDeclTokraRegion for TraitForTypeImplBlockSynNodePath {
     fn decl_tokra_region(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegion {
         trai_for_ty_impl_block_decl_tokra_region(db, self)
     }
+
+    fn decl_tokra_region_source_map(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegionSourceMap {
+        trai_for_ty_impl_block_decl_tokra_region_with_source_map(db, self).1
+    }
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
@@ -283,7 +374,11 @@ fn trai_for_ty_impl_block_decl_tokra_region(
 
 impl HasDeclTokraRegion for IllFormedImplBlockSynNodePath {
     fn decl_tokra_region(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegion {
-        todo!()
+        ill_formed_impl_block_decl_tokra_region(db, self)
+    }
+
+    fn decl_tokra_region_source_map(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegionSourceMap {
+        ill_formed_impl_block_decl_tokra_region_with_source_map(db, self).1
     }
 }
 
@@ -310,10 +405,35 @@ fn ill_formed_impl_block_decl_tokra_region(
 impl HasDeclTokraRegion for AssociatedItemSynNodePath {
     fn decl_tokra_region(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegion {
         match self {
-            AssociatedItemSynNodePath::TypeItem(_) => todo!(),
-            AssociatedItemSynNodePath::TraitItem(_) => todo!(),
-            AssociatedItemSynNodePath::TraitForTypeItem(_) => todo!(),
-            AssociatedItemSynNodePath::IllFormedItem(_) => todo!(),
+            AssociatedItemSynNodePath::TypeItem(syn_node_path) => {
+                syn_node_path.decl_tokra_region(db)
+            }
+            AssociatedItemSynNodePath::TraitItem(syn_node_path) => {
+                syn_node_path.decl_tokra_region(db)
+            }
+            AssociatedItemSynNodePath::TraitForTypeItem(syn_node_path) => {
+                syn_node_path.decl_tokra_region(db)
+            }
+            AssociatedItemSynNodePath::IllFormedItem(syn_node_path) => {
+                syn_node_path.decl_tokra_region(db)
+            }
+        }
+    }
+
+    fn decl_tokra_region_source_map(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegionSourceMap {
+        match self {
+            AssociatedItemSynNodePath::TypeItem(syn_node_path) => {
+                syn_node_path.decl_tokra_region_source_map(db)
+            }
+            AssociatedItemSynNodePath::TraitItem(syn_node_path) => {
+                syn_node_path.decl_tokra_region_source_map(db)
+            }
+            AssociatedItemSynNodePath::TraitForTypeItem(syn_node_path) => {
+                syn_node_path.decl_tokra_region_source_map(db)
+            }
+            AssociatedItemSynNodePath::IllFormedItem(syn_node_path) => {
+                syn_node_path.decl_tokra_region_source_map(db)
+            }
         }
     }
 }
@@ -321,6 +441,10 @@ impl HasDeclTokraRegion for AssociatedItemSynNodePath {
 impl HasDeclTokraRegion for TypeItemSynNodePath {
     fn decl_tokra_region(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegion {
         ty_item_decl_tokra_region(db, self)
+    }
+
+    fn decl_tokra_region_source_map(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegionSourceMap {
+        ty_item_decl_tokra_region_with_source_map(db, self).1
     }
 }
 
@@ -346,7 +470,11 @@ fn ty_item_decl_tokra_region(
 
 impl HasDeclTokraRegion for TraitItemSynNodePath {
     fn decl_tokra_region(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegion {
-        todo!()
+        trai_item_decl_tokra_region(db, self)
+    }
+
+    fn decl_tokra_region_source_map(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegionSourceMap {
+        trai_item_decl_tokra_region_with_source_map(db, self).1
     }
 }
 
@@ -375,6 +503,10 @@ impl HasDeclTokraRegion for TraitForTypeItemSynNodePath {
     fn decl_tokra_region(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegion {
         trai_for_ty_item_decl_tokra_region(db, self)
     }
+
+    fn decl_tokra_region_source_map(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegionSourceMap {
+        trai_for_ty_item_decl_tokra_region_with_source_map(db, self).1
+    }
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
@@ -400,6 +532,10 @@ fn trai_for_ty_item_decl_tokra_region(
 impl HasDeclTokraRegion for IllFormedItemSynNodePath {
     fn decl_tokra_region(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegion {
         ill_formed_item_decl_tokra_region(db, self)
+    }
+
+    fn decl_tokra_region_source_map(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegionSourceMap {
+        ill_formed_item_decl_tokra_region_with_source_map(db, self).1
     }
 }
 
@@ -427,6 +563,10 @@ fn ill_formed_item_decl_tokra_region(
 impl HasDeclTokraRegion for DecrSynNodePath {
     fn decl_tokra_region(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegion {
         decr_decl_tokra_region(db, self)
+    }
+
+    fn decl_tokra_region_source_map(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegionSourceMap {
+        decr_decl_tokra_region_with_source_map(db, self).1
     }
 }
 
