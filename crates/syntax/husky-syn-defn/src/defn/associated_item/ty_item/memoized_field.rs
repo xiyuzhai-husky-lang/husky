@@ -15,12 +15,12 @@ impl TypeMemoizedFieldSynNodeDefn {
         syn_node_path: TypeItemSynNodePath,
         syn_node_decl: TypeMemoizedFieldSynNodeDecl,
     ) -> TypeMemoizedFieldSynNodeDefn {
-        let mut parser = stmt_context(
-            db,
+        let mut parser = SynStmtContext::new(
             syn_node_path,
             syn_node_decl.syn_expr_region(db),
             AllowSelfType::True,
             AllowSelfValue::True,
+            db,
         );
         let ast_idx = syn_node_decl.ast_idx(db);
         let body = match parser.ast_sheet()[ast_idx] {

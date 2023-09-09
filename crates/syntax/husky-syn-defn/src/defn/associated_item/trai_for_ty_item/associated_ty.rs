@@ -16,12 +16,12 @@ impl TraitForTypeAssociatedTypeSynNodeDefn {
         syn_node_decl: TraitForTypeAssociatedTypeSynNodeDecl,
     ) -> Self {
         let syn_node_path = syn_node_decl.syn_node_path(db);
-        let mut ctx = stmt_context(
-            db,
+        let mut ctx = SynStmtContext::new(
             syn_node_path,
             syn_node_decl.syn_expr_region(db),
             AllowSelfType::True,
             AllowSelfValue::False,
+            db,
         );
         let ast_idx = syn_node_decl.ast_idx(db);
         let body = match ctx.ast_sheet()[ast_idx] {

@@ -1,14 +1,16 @@
 use super::*;
 use husky_ast::{AstIdx, AstSheet, AstTokenIdxRangeSheet, FugitiveBody};
+use husky_entity_syn_tree::tokra_region::{HasSynDefnTokraRegion, SynDefnTokraRegionData};
 
-pub struct StmtContext<'a> {
+pub struct SynStmtContext<'a> {
     expr_context: SynExprContext<'a>,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     ast_token_idx_range_sheet: &'a AstTokenIdxRangeSheet,
+    defn_tokra_region_data: SynDefnTokraRegionData<'a>,
 }
 
-impl<'a> std::ops::Deref for StmtContext<'a> {
+impl<'a> std::ops::Deref for SynStmtContext<'a> {
     type Target = SynExprContext<'a>;
 
     fn deref(&self) -> &Self::Target {
@@ -16,25 +18,40 @@ impl<'a> std::ops::Deref for StmtContext<'a> {
     }
 }
 
-impl<'a> std::ops::DerefMut for StmtContext<'a> {
+impl<'a> std::ops::DerefMut for SynStmtContext<'a> {
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.expr_context
     }
 }
 
-impl<'a> StmtContext<'a> {
-    pub fn new(
-        expr_parser: SynExprContext<'a>,
-        module_path: ModulePath,
+impl<'a> SynStmtContext<'a> {
+    pub fn new<P>(
+        syn_node_path: P,
+        decl_expr_region: SynExprRegion,
+        allow_self_type: AllowSelfType,
+        allow_self_value: AllowSelfValue,
         db: &'a dyn SynExprDb,
-    ) -> Self {
+    ) -> Self
+    where
+        P: HasSynDefnTokraRegion + Into<ItemSynNodePath>,
+    {
+        let module_path = syn_node_path.module_path(db);
+        let expr_context = SynExprContext::new(
+            db,
+            RegionPath::Defn(syn_node_path.into()),
+            db.module_symbol_context(module_path).unwrap(),
+            Some(decl_expr_region),
+            allow_self_type,
+            allow_self_value,
+        );
         Self {
-            expr_context: expr_parser,
+            expr_context,
             ast_sheet: db.ast_sheet(module_path).unwrap(),
             ast_token_idx_range_sheet: db.ast_token_idx_range_sheet(module_path).unwrap(),
             token_sheet_data: db
                 .token_sheet_data(module_path)
                 .expect("modules should be valid"),
+            defn_tokra_region_data: syn_node_path.syn_defn_tokra_region(db).data(db),
         }
     }
 

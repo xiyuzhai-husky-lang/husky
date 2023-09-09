@@ -183,8 +183,8 @@ pub struct EntitySynTreeJar(
     crate::helpers::tokra_region::decr_decl_tokra_region_with_source_map,
     crate::helpers::tokra_region::decr_decl_tokra_region,
     // defn
-    crate::helpers::tokra_region::DefnTokraRegion,
-    crate::helpers::tokra_region::DefnTokraRegionSourceMap,
+    crate::helpers::tokra_region::SynDefnTokraRegion,
+    crate::helpers::tokra_region::SynDefnTokraRegionSourceMap,
     crate::helpers::tokra_region::trai_defn_tokra_region_with_source_map,
     crate::helpers::tokra_region::trai_defn_tokra_region,
     crate::helpers::tokra_region::ty_defn_tokra_region_with_source_map,

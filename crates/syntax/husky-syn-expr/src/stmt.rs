@@ -86,7 +86,7 @@ pub enum SynStmt {
     },
 }
 
-impl<'a> StmtContext<'a> {
+impl<'a> SynStmtContext<'a> {
     pub fn parse_stmts_expected(
         &mut self,
         body: FugitiveBody,

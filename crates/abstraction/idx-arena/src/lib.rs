@@ -19,6 +19,17 @@ pub struct Arena<T> {
     data: Vec<T>,
 }
 
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+pub struct ArenaRef<'a, T> {
+    data: &'a [T],
+}
+
+impl<T> Arena<T> {
+    pub fn to_ref<'a>(&'a self) -> ArenaRef<'a, T> {
+        ArenaRef { data: &self.data }
+    }
+}
+
 impl<T> Default for Arena<T> {
     fn default() -> Self {
         Self {
