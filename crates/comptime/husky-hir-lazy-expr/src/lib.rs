@@ -2,6 +2,7 @@
 pub mod builder;
 pub mod db;
 mod expr;
+pub mod helpers;
 mod pattern;
 mod pattern_expr;
 mod region;

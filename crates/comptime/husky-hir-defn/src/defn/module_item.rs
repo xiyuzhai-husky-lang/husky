@@ -29,7 +29,7 @@ impl MajorItemHirDefn {
     pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {
         match self {
             MajorItemHirDefn::Type(_) | MajorItemHirDefn::Trait(_) => None,
-            MajorItemHirDefn::Fugitive(hir_defn) => Some(hir_defn.hir_expr_region(db)),
+            MajorItemHirDefn::Fugitive(hir_defn) => hir_defn.hir_expr_region(db),
         }
     }
 }
