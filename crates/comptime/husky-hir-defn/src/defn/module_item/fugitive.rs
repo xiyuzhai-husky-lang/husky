@@ -39,11 +39,11 @@ impl FugitiveHirDefn {
         // }
     }
 
-    pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> HirExprRegion {
+    pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {
         match self {
-            FugitiveHirDefn::Fn(hir_defn) => hir_defn.hir_expr_region(db).into(),
-            FugitiveHirDefn::Val(hir_defn) => hir_defn.hir_expr_region(db).into(),
-            FugitiveHirDefn::Gn(hir_defn) => hir_defn.hir_expr_region(db).into(),
+            FugitiveHirDefn::Fn(hir_defn) => hir_defn.hir_eager_expr_region(db).map(Into::into),
+            FugitiveHirDefn::Val(hir_defn) => hir_defn.hir_expr_region(db),
+            FugitiveHirDefn::Gn(hir_defn) => hir_defn.hir_lazy_expr_region(db).map(Into::into),
         }
     }
 }

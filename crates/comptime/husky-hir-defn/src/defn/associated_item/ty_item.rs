@@ -41,11 +41,19 @@ impl TypeItemHirDefn {
 
     pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {
         match self {
-            TypeItemHirDefn::AssociatedFn(hir_defn) => Some(hir_defn.hir_expr_region(db).into()),
-            TypeItemHirDefn::MethodFn(hir_defn) => Some(hir_defn.hir_expr_region(db).into()),
-            TypeItemHirDefn::AssociatedType(hir_defn) => Some(hir_defn.hir_expr_region(db).into()),
-            TypeItemHirDefn::AssociatedVal(hir_defn) => Some(hir_defn.hir_expr_region(db).into()),
-            TypeItemHirDefn::MemoizedField(hir_defn) => Some(hir_defn.hir_expr_region(db).into()),
+            TypeItemHirDefn::AssociatedFn(hir_defn) => {
+                hir_defn.hir_eager_expr_region(db).map(Into::into)
+            }
+            TypeItemHirDefn::MethodFn(hir_defn) => {
+                hir_defn.hir_eager_expr_region(db).map(Into::into)
+            }
+            TypeItemHirDefn::AssociatedType(hir_defn) => todo!(),
+            //  hir_defn.hir_expr_region(db).into(),
+            TypeItemHirDefn::AssociatedVal(hir_defn) => todo!(),
+            // Some(hir_defn.hir_expr_region(db).into()),
+            TypeItemHirDefn::MemoizedField(hir_defn) => {
+                hir_defn.hir_eager_expr_region(db).map(Into::into)
+            }
         }
     }
 }

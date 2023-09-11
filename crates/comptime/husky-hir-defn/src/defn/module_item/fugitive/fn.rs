@@ -19,4 +19,8 @@ impl FnHirDefn {
             build_eager_body(syn_defn.body_with_syn_expr_region(db), db),
         )
     }
+
+    pub fn hir_eager_expr_region(self, db: &dyn HirDefnDb) -> Option<HirEagerExprRegion> {
+        Some(self.eager_body_with_hir_eager_expr_region(db)?.1)
+    }
 }
