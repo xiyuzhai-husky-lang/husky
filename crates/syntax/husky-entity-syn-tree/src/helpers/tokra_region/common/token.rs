@@ -3,6 +3,7 @@ use husky_token::TokenGroupStartingTokenIdx;
 use husky_token::*;
 use parsec::{HasStreamState, StreamParser, TryParseOptionFromStream};
 use std::num::NonZeroU32;
+use thiserror::Error;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct RegionalTokenIdx(NonZeroU32);
@@ -17,6 +18,12 @@ impl RegionalTokenIdx {
     }
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct RegionalTokenIdxRange {
+    start: (),
+    end: (),
+}
+
 /// equal to the value of TokenIdx::index on the starting token
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct TokenRegionBase(usize);
@@ -26,6 +33,9 @@ impl TokenRegionBase {
         Self(token_group_base.token_idx().index())
     }
 }
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct RegionalTokenGroupIdx {}
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct RegionalTokenStreamState {
@@ -81,17 +91,17 @@ macro_rules! define_regional_specific_punctuation_token {
         where
             Context: RegionalTokenStreamParser<'a>,
         {
-            type Error = TokenError;
+            type Error = TokenDataError;
 
             fn try_parse_option_from_stream_without_guaranteed_rollback(
                 ctx: &mut Context,
-            ) -> TokenResult<Option<Self>> {
+            ) -> TokenDataResult<Option<Self>> {
                 parse_regional_specific_punctuation_from(ctx, Punctuation::$punc, $ty)
             }
         }
         #[test]
         fn $test_name() {
-            fn t(db: &DB, input: &str) -> TokenResult<Option<$ty>> {
+            fn t(db: &DB, input: &str) -> TokenDataResult<Option<$ty>> {
                 quick_parse(db, input)
             }
 
@@ -124,6 +134,11 @@ impl<'a, T> RegionalTokenStreamParser<'a> for T where
 {
 }
 
+#[derive(Debug, Error)]
+#[error("{0}")]
+pub struct RegionalTokenError(#[from] TokenDataError);
+pub type RegionalTokenResult<T> = Result<T, RegionalTokenError>;
+
 #[cfg(test)]
 fn quick_parse<T, Error>(db: &DB, input: &str) -> Result<Option<T>, Error>
 where
@@ -144,7 +159,7 @@ fn parse_regional_specific_punctuation_from<'a, Context, T>(
     ctx: &mut Context,
     target: Punctuation,
     f: impl FnOnce(RegionalTokenIdx) -> T,
-) -> TokenResult<Option<T>>
+) -> TokenDataResult<Option<T>>
 where
     Context: RegionalTokenStreamParser<'a>,
 {
@@ -293,3 +308,73 @@ define_regional_specific_punctuation_token!(
     regional_tilde_token_works,
     "~"
 );
+
+define_regional_specific_punctuation_token!(
+    RegionalLightArrowToken,
+    LIGHT_ARROW,
+    regional_light_arrow_token_works,
+    "~"
+);
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::debug_with_db(db = TokenDb)]
+pub struct RegionalIdentToken {
+    pub(in crate::helpers) ident: Ident,
+    pub(in crate::helpers) regional_token_idx: RegionalTokenIdx,
+}
+
+impl RegionalIdentToken {
+    pub fn new(ident: Ident, regional_token_idx: RegionalTokenIdx) -> Self {
+        Self {
+            ident,
+            regional_token_idx,
+        }
+    }
+
+    pub fn ident(&self) -> Ident {
+        self.ident
+    }
+
+    pub fn ident_ref(&self) -> &Ident {
+        &self.ident
+    }
+
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
+    }
+}
+
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for RegionalIdentToken
+where
+    Context: RegionalTokenStreamParser<'a>,
+{
+    type Error = RegionalTokenError;
+
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> RegionalTokenResult<Option<Self>> {
+        if let Some((regional_token_idx, token)) = ctx.token_stream_mut().next_indexed() {
+            match token {
+                Token::Ident(ident) => Ok(Some(RegionalIdentToken {
+                    ident,
+                    regional_token_idx,
+                })),
+                Token::Error(error) => Err(error)?,
+                Token::Label(_)
+                | Token::Punctuation(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+#[test]
+fn ident_token_works() {
+    // todo
+}
+
+pub struct RegionalEphemSymbolModifierTokenGroup {}

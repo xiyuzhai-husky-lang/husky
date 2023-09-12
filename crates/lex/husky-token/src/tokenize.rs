@@ -9,7 +9,6 @@ use self::pretoken::*;
 use self::tokenizer::*;
 use self::word::*;
 use crate::*;
-use convexity::*;
 use husky_text::TextCharIter;
 
 // must be used inside tracked context

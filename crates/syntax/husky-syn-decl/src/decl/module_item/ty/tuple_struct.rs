@@ -9,7 +9,7 @@ pub struct TupleStructTypeSynNodeDecl {
     pub ast_idx: AstIdx,
     #[return_ref]
     template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
-    lpar: LparToken,
+    lpar: RegionalLparToken,
     #[return_ref]
     field_comma_list:
         SynNodeDeclResult<PunctuatedSmallList<TupleFieldObelisk, CommaToken, 4, SynNodeDeclError>>,

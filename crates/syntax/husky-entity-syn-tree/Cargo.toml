@@ -24,6 +24,7 @@ maybe-result = { path = "../../abstraction/maybe-result" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
+husky-token-data = { path = "../../lex/husky-token-data" }
 husky-token = { path = "../../lex/husky-token" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }

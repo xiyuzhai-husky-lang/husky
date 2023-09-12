@@ -12,12 +12,11 @@ pub use self::integer::*;
 pub use self::string::*;
 pub use self::tuple_index::*;
 
-use super::*;
-use crate::TokenJar;
+use crate::*;
 
 /// follows mainly from <https://doc.rust-lang.org/reference/tokens.html#literals/>
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDataDb)]
 pub enum Literal {
     Unit,
     Char(CharLiteral),

@@ -146,7 +146,7 @@ where
                             ritchie_kind_token_idx,
                             ritchie_kind,
                             lpar_token,
-                        } => match this.try_parse_option::<LightArrowToken>() {
+                        } => match this.try_parse_option::<RegionalLightArrowToken>() {
                             Ok(Some(light_arrow_token)) => IncompleteExpr::Ritchie {
                                 ritchie_kind_token_idx,
                                 ritchie_kind,
@@ -256,7 +256,7 @@ where
             Some(self_expr) => {
                 let self_expr = this.context_mut().alloc_expr(self_expr);
                 match this.try_parse_option::<RegionalIdentToken>() {
-                    Ok(Some(ident_token)) => match this.try_parse_option::<LparToken>() {
+                    Ok(Some(ident_token)) => match this.try_parse_option::<RegionalLparToken>() {
                         Ok(Some(lpar)) => IncompleteExpr::CommaList {
                             opr: IncompleteCommaListOpr::MethodApplicationOrCall {
                                 self_expr,
@@ -496,7 +496,7 @@ where
         ritchie_kind_token_idx: RegionalTokenIdx,
         ritchie_kind: RitchieKind,
     ) {
-        match self.try_parse_option::<LparToken>() {
+        match self.try_parse_option::<RegionalLparToken>() {
             Ok(Some(lpar_token)) => self.push_top_expr(
                 IncompleteExpr::CommaList {
                     opr: IncompleteCommaListOpr::RitchieArguments {

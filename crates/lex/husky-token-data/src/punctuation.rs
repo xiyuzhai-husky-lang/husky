@@ -5,7 +5,7 @@ use husky_opr::{
 };
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDataDb)]
 pub struct Punctuation(PunctuationMapped);
 
 impl Punctuation {
@@ -203,7 +203,7 @@ impl std::fmt::Display for Punctuation {
 /// for punctuation that unambiguously maps to an opr,
 /// we use that opr to represent it
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDataDb)]
 pub enum PunctuationMapped {
     // predetermined
     Binary(BinaryOpr),

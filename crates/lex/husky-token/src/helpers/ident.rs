@@ -29,11 +29,11 @@ impl<'a, Context> parsec::TryParseOptionFromStream<Context> for IdentToken
 where
     Context: TokenStreamParser<'a>,
 {
-    type Error = TokenError;
+    type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
+    ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
                 Token::Ident(ident) => Ok(Some(IdentToken { ident, token_idx })),
@@ -64,11 +64,11 @@ impl<'a, Context> parsec::TryParseOptionFromStream<Context> for UnderscoreToken
 where
     Context: TokenStreamParser<'a> + HasTokenDb,
 {
-    type Error = TokenError;
+    type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
+    ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
                 Token::Ident(ident) => match ident.data(ctx.token_db()) {
@@ -110,11 +110,11 @@ impl<'a, Context> parsec::TryParseOptionFromStream<Context> for DeriveToken
 where
     Context: TokenStreamParser<'a> + HasTokenDb,
 {
-    type Error = TokenError;
+    type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
+    ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
                 Token::Ident(ident) => match ident.data(ctx.token_db()) {
@@ -148,11 +148,11 @@ impl<'a, Context> parsec::TryParseOptionFromStream<Context> for PhantomToken
 where
     Context: TokenStreamParser<'a> + HasTokenDb,
 {
-    type Error = TokenError;
+    type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
+    ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
                 Token::Ident(ident) => match ident.data(ctx.token_db()) {

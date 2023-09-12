@@ -7,7 +7,7 @@ pub(crate) type ExplicitParameterDeclPatterns = SmallVec<[SpecificParameterObeli
 #[salsa::debug_with_db(db = SynDeclDb)]
 #[derive(Getters)]
 pub struct RitchieParameters<const ALLOW_SELF_PARAMETER: bool> {
-    lpar: LparToken,
+    lpar: RegionalLparToken,
     self_value_parameter: Option<SelfParameterObelisk>,
     comma_after_self_parameter: Option<CommaToken>,
     parenate_parameters: ExplicitParameterDeclPatterns,
@@ -23,7 +23,7 @@ impl<'a, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<SynDeclExprP
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
     ) -> Result<Option<Self>, SynNodeDeclError> {
-        let Some(lpar) = ctx.try_parse_option::<LparToken>()? else {
+        let Some(lpar) = ctx.try_parse_option::<RegionalLparToken>()? else {
             return Ok(None);
         };
         let self_value_parameter: Option<SelfParameterObelisk> = ctx.try_parse_option()?;

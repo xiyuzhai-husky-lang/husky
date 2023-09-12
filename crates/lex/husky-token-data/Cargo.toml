@@ -1,11 +1,9 @@
 [package]
+name = "husky-token-data"
+version = "0.1.0"
 edition = "2021"
-name = "husky-token"
-version = "0.0.0"
-authors = ["Xiyu Zhai"]
-license = "MIT OR Apache-2.0"
-description = "Generic LSP server scaffold."
 
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 thiserror.workspace = true
 ordered-float.workspace = true
@@ -23,7 +21,6 @@ enum-class = { path = "../../abstraction/enum-class" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
-husky-token-data = { path = "../../lex/husky-token-data" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
@@ -37,17 +34,3 @@ husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
-
-[lib]
-
-[dev-dependencies]
-indicatif = "0.17.2"
-# fs
-husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
-# kernel
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
-# utils
-husky-adversarial-utils = { path = "../../utils/husky-adversarial-utils" }
-
-[features]
-test-utils = ["husky-vfs/test-utils"]

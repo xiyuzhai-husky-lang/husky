@@ -11,7 +11,7 @@ pub struct TraitForTypeMethodFnSynNodeDecl {
     #[return_ref]
     pub parenate_parameter_decl_list: SynNodeDeclResult<RitchieParameters<true>>,
     #[return_ref]
-    pub curry_token: TokenResult<Option<CurryToken>>,
+    pub light_arrow_token: TokenDataResult<Option<RegionalLightArrowToken>>,
     #[return_ref]
     pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
     #[return_ref]
@@ -61,8 +61,8 @@ impl<'a> DeclParserFactory<'a> {
         let template_parameter_decl_list = parser.try_parse_option();
         let parenate_parameter_decl_list =
             parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedParameterDeclList);
-        let curry_token = parser.try_parse_option();
-        let return_ty = if let Ok(Some(_)) = curry_token {
+        let light_arrow_token = parser.try_parse_option();
+        let return_ty = if let Ok(Some(_)) = light_arrow_token {
             parser
                 .try_parse_expected(OriginalSynNodeDeclError::ExpectedOutputType)
                 .map(Some)
@@ -77,7 +77,7 @@ impl<'a> DeclParserFactory<'a> {
             ast_idx,
             template_parameter_decl_list,
             parenate_parameter_decl_list,
-            curry_token,
+            light_arrow_token,
             return_ty,
             eol_colon,
             parser.finish(),

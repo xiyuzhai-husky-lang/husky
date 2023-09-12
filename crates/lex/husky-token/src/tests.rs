@@ -7,7 +7,14 @@ use husky_expect_test_snippets_utils::*;
 use husky_vfs::*;
 use salsa::{Database, DebugWithDb, Storage};
 
-#[salsa::db(CowordJar, VfsJar, TokenJar, TermPreludeJar, EntityPathJar)]
+#[salsa::db(
+    CowordJar,
+    VfsJar,
+    husky_token_data::db::TokenDataJar,
+    TokenJar,
+    TermPreludeJar,
+    EntityPathJar
+)]
 #[derive(Default)]
 pub(crate) struct DB {
     storage: Storage<Self>,

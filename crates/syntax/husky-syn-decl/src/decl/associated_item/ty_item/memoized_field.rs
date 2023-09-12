@@ -5,7 +5,7 @@ pub struct TypeMemoizedFieldSynNodeDecl {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
     pub ast_idx: AstIdx,
-    pub colon_token: TokenResult<Option<ColonToken>>,
+    pub colon_token: TokenDataResult<Option<ColonToken>>,
     #[return_ref]
     pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeEqObelisk>>,
     #[return_ref]

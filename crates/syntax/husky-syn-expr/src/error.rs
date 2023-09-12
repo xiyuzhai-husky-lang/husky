@@ -14,8 +14,8 @@ pub enum SynExprError {
     Derived(#[from] DerivedSynExprError),
 }
 
-impl From<TokenError> for SynExprError {
-    fn from(value: TokenError) -> Self {
+impl From<RegionalTokenError> for SynExprError {
+    fn from(value: RegionalTokenError) -> Self {
         SynExprError::Derived(value.into())
     }
 }
@@ -68,7 +68,10 @@ pub enum OriginalSynExprError {
     #[error("ExpectedFunctionIdentAfterOpeningHtmlBra")]
     ExpectedFunctionIdentAfterOpeningHtmlBra(RegionalTokenStreamState),
     #[error("expected identifier after modifier")]
-    ExpectedIdentAfterModifier(RegionalTokenStreamState, EphemSymbolModifierTokenGroup),
+    ExpectedIdentAfterModifier(
+        RegionalTokenStreamState,
+        RegionalEphemSymbolModifierTokenGroup,
+    ),
     #[error("expected `:` at end of line")]
     ExpectedEolColon(RegionalTokenStreamState),
     #[error("expected constant implicit parameter type")]
@@ -95,7 +98,7 @@ pub enum OriginalSynExprError {
     #[error("expected exprBeforeDot")]
     ExpectedExprBeforeDot { dot_token_idx: RegionalTokenIdx },
     #[error("expect block")]
-    ExpectedBlock(TokenGroupIdx),
+    ExpectedBlock(RegionalTokenGroupIdx),
     #[error("unterminated list")]
     UnterminatedList { bra_token_idx: RegionalTokenIdx },
     #[error("unterminated list")]
@@ -135,13 +138,15 @@ pub enum OriginalSynExprError {
     #[error("UnexpectedLeftCurlyBrace")]
     UnexpectedLeftCurlyBrace(RegionalTokenIdx),
     #[error("ExpectedTypeAfterLightArrow")]
-    ExpectedTypeAfterLightArrow { light_arrow_token: LightArrowToken },
+    ExpectedTypeAfterLightArrow {
+        light_arrow_token: RegionalLightArrowToken,
+    },
     #[error("ExpectedTypeTermForAssociatedType")]
     ExpectedTypeTermForAssociatedType(RegionalTokenStreamState),
 }
 
 impl OriginalSynExprError {
-    pub fn token_idx_range(&self) -> TokenIdxRange {
+    pub fn token_idx_range(&self) -> RegionalTokenIdxRange {
         todo!()
         // match self {
         //     OriginalSynExprError::ExpectedLetVariableDecls(token_idx)
@@ -242,13 +247,13 @@ impl OriginalError for OriginalSynExprError {
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum DerivedSynExprError {
     #[error("token error {0}")]
-    Token(#[from] TokenError),
+    Token(#[from] RegionalTokenError),
 }
 
 pub type SynExprResult<T> = Result<T, SynExprError>;
 pub type ExprResultRef<'a, T> = Result<T, &'a SynExprError>;
 
-// impl<'a, 'b> FromAbsent<RegionalRCurlToken, ExprParseContext<'a, 'b>> for OriginalExprError {
+// impl<'a, 'b> FromAbsent<RegionalRcurlToken, ExprParseContext<'a, 'b>> for OriginalExprError {
 //     fn new_absent_error(state: <ExprParseContext<'a, 'b> as HasParseState>::State) -> Self {
 //         OriginalExprError::ExpectRightCurlyBrace(state)
 //     }

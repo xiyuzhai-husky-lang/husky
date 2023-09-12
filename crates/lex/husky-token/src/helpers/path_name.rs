@@ -59,7 +59,7 @@ impl<'a, Context> parsec::TryParseOptionFromStream<Context> for PathNameToken
 where
     Context: TokenStreamParser<'a>,
 {
-    type Error = TokenError;
+    type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,

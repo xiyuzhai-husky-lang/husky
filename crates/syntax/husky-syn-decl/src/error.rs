@@ -20,8 +20,8 @@ pub enum SynNodeDeclError {
 pub type SynNodeDeclResult<T> = Result<T, SynNodeDeclError>;
 pub type SynNodeDeclErrorRefs<'a> = smallvec::SmallVec<[&'a SynNodeDeclError; 4]>;
 
-impl From<TokenError> for SynNodeDeclError {
-    fn from(error: TokenError) -> Self {
+impl From<TokenDataError> for SynNodeDeclError {
+    fn from(error: TokenDataError) -> Self {
         SynNodeDeclError::Derived(error.into())
     }
 }
@@ -91,7 +91,7 @@ pub enum DerivedSynNodeDeclError {
     #[error("{0}")]
     ExprError(#[from] DerivedSynExprError),
     #[error("{0}")]
-    TokenError(#[from] TokenError),
+    TokenDataError(#[from] TokenDataError),
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]

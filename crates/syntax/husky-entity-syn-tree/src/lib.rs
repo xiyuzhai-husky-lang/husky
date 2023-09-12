@@ -46,6 +46,7 @@ use husky_entity_path::*;
 use husky_entity_taxonomy::EntityKind;
 use husky_scope::*;
 use husky_scope_expr::*;
+use husky_token_data::*;
 use husky_vfs::*;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use salsa::DebugWithDb;

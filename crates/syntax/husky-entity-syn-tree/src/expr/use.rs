@@ -167,11 +167,11 @@ impl OriginalError for OriginalUseExprError {
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub enum DerivedUseExprError {
     #[error("token error")]
-    Token(#[from] TokenError),
+    Token(#[from] TokenDataError),
 }
 
-impl From<TokenError> for UseExprError {
-    fn from(value: TokenError) -> Self {
+impl From<TokenDataError> for UseExprError {
+    fn from(value: TokenDataError) -> Self {
         UseExprError::Derived(value.into())
     }
 }

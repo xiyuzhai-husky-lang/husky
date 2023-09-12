@@ -84,7 +84,7 @@ pub enum ImplBlockIllForm {
     #[error("unmatched angle bras")]
     UnmatchedAngleBras,
     #[error("token error")]
-    Token(#[from] TokenError),
+    Token(#[from] TokenDataError),
     #[error("principal path expr error")]
     MajorPath(#[from] MajorPathExprError),
     #[error("MissingFor")]

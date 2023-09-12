@@ -5,7 +5,7 @@ use husky_entity_taxonomy::{
 };
 use husky_opr::{BinaryOpr, Bracket};
 use husky_print_utils::p;
-use husky_token::{EntityKindKeywordGroup, FugitiveKeyword, TokenStreamParser, TypeEntityKeyword};
+use husky_token::{EntityKindKeywordGroup, TokenStreamParser};
 use parsec::{StreamParser, TryParseOptionFromStream};
 use salsa::DebugWithDb;
 

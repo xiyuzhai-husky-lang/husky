@@ -1,4 +1,4 @@
-use husky_token::{Token, TokenError};
+use husky_token::{Token, TokenDataError};
 
 use super::*;
 

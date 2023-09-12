@@ -24,6 +24,7 @@ parsec = { path = "../../abstraction/parsec" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # lex
+husky-token-data = { path = "../../lex/husky-token-data" }
 husky-token = { path = "../../lex/husky-token" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }

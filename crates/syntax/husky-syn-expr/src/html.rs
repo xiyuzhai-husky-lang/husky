@@ -5,14 +5,14 @@ pub enum SynHtmlArgumentExpr {
     Expanded {
         property_ident: RegionalIdentToken,
         eq: RegionalEqToken,
-        lcurl: RegionalLCurlToken,
+        lcurl: RegionalLcurlToken,
         expr: SynExprIdx,
-        rcurl: RegionalRCurlToken,
+        rcurl: RegionalRcurlToken,
     },
     Shortened {
-        lcurl: RegionalLCurlToken,
+        lcurl: RegionalLcurlToken,
         property_ident: RegionalIdentToken,
-        rcurl: RegionalRCurlToken,
+        rcurl: RegionalRcurlToken,
     },
 }
 

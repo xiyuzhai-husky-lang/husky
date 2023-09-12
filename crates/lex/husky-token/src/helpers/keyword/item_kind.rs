@@ -39,11 +39,11 @@ impl<'a, Context> parsec::TryParseOptionFromStream<Context> for ConstToken
 where
     Context: TokenStreamParser<'a>,
 {
-    type Error = TokenError;
+    type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
+    ) -> TokenDataResult<Option<Self>> {
         let token_stream: &mut TokenStream<'a> = &mut ctx.borrow_mut();
         let Some((token_idx, token)) = token_stream.next_indexed() else {
             return Ok(None);
@@ -153,11 +153,11 @@ impl<'a, Context> parsec::TryParseOptionFromStream<Context> for EntityKindKeywor
 where
     Context: TokenStreamParser<'a>,
 {
-    type Error = TokenError;
+    type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
+    ) -> TokenDataResult<Option<Self>> {
         let token_stream: &mut TokenStream<'a> = &mut ctx.borrow_mut();
         let Some((token_idx, token)) = token_stream.next_indexed() else {
             return Ok(None);

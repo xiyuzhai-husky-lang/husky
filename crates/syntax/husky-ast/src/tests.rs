@@ -8,7 +8,15 @@ use husky_token::TokenJar;
 use husky_vfs::*;
 use salsa::{Database, ParallelDatabase, Snapshot};
 
-#[salsa::db(CowordJar, VfsJar, EntityPathJar, TokenJar, AstJar, TermPreludeJar)]
+#[salsa::db(
+    CowordJar,
+    VfsJar,
+    EntityPathJar,
+    husky_token_data::db::TokenDataJar,
+    TokenJar,
+    AstJar,
+    TermPreludeJar
+)]
 #[derive(Default)]
 pub(crate) struct DB {
     storage: salsa::Storage<Self>,

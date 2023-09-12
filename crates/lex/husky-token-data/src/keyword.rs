@@ -24,7 +24,7 @@ use serde::{Deserialize, Serialize};
 use std::ops::Deref;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDataDb)]
 #[enum_class::from_variants]
 pub enum Keyword {
     Fugitive(FugitiveKeyword),

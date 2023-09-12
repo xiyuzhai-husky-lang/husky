@@ -12,12 +12,12 @@ use thiserror::Error;
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum PrincipalEntityPathExpr {
     Root {
-        path_name_token: PathNameToken,
+        path_name_token: RegionalPathNameToken,
         principal_entity_path: PrincipalEntityPath,
     },
     Subitem {
         parent: PrincipalEntityPathExprIdx,
-        scope_resolution_token: ScopeResolutionToken,
+        scope_resolution_token: RegionalScopeResolutionToken,
         ident_token: PrincipalEntityPathExprResult<RegionalIdentToken>,
         path: PrincipalEntityPathExprResult<PrincipalEntityPath>,
     },
@@ -33,7 +33,7 @@ where
 {
     pub(crate) fn parse_principal_item_path_expr(
         &mut self,
-        path_name_token: PathNameToken,
+        path_name_token: RegionalPathNameToken,
         principal_item_path: PrincipalEntityPath,
     ) -> SynExpr {
         let root = self
@@ -83,7 +83,7 @@ where
                         }
                     },
                     Err(error) => Err(OriginalPrincipalEntityPathExprError::EntityTree {
-                        token_idx: ident_token.token_idx(),
+                        token_idx: ident_token.regional_token_idx(),
                         error,
                     }
                     .into()),
