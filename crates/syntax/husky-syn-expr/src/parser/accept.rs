@@ -34,7 +34,7 @@ where
         }
     }
 
-    fn accept_list_end(&mut self, ket: Bracket, ket_token_idx: TokenIdx) {
+    fn accept_list_end(&mut self, ket: Bracket, ket_token_idx: RegionalTokenIdx) {
         self.reduce(Precedence::ListItem);
         let last_incomplete_expr = self.take_last_incomplete_expr().unwrap();
         match last_incomplete_expr {
@@ -225,7 +225,7 @@ where
         self.push_top_expr(atom.into())
     }
 
-    fn accept_prefix_opr(&mut self, prefix: PrefixOpr, prefix_token_idx: TokenIdx) {
+    fn accept_prefix_opr(&mut self, prefix: PrefixOpr, prefix_token_idx: RegionalTokenIdx) {
         self.push_top_expr(
             IncompleteExpr::Prefix {
                 punctuation: prefix,
@@ -235,7 +235,11 @@ where
         )
     }
 
-    fn accept_suffix_opr(&mut self, punctuation: SuffixOpr, punctuation_token_idx: TokenIdx) {
+    fn accept_suffix_opr(
+        &mut self,
+        punctuation: SuffixOpr,
+        punctuation_token_idx: RegionalTokenIdx,
+    ) {
         self.take_complete_and_push_to_top(|this, top_expr| match top_expr {
             Some(expr) => SynExpr::Suffix {
                 opd: this.context_mut().alloc_expr(expr),
@@ -247,11 +251,11 @@ where
         })
     }
 
-    fn accept_dot_opr(&mut self, dot_token_idx: TokenIdx) {
+    fn accept_dot_opr(&mut self, dot_token_idx: RegionalTokenIdx) {
         self.take_complete_and_push_to_top(|this, finished_expr| match finished_expr {
             Some(self_expr) => {
                 let self_expr = this.context_mut().alloc_expr(self_expr);
-                match this.try_parse_option::<IdentToken>() {
+                match this.try_parse_option::<RegionalIdentToken>() {
                     Ok(Some(ident_token)) => match this.try_parse_option::<LparToken>() {
                         Ok(Some(lpar)) => IncompleteExpr::CommaList {
                             opr: IncompleteCommaListOpr::MethodApplicationOrCall {
@@ -303,7 +307,7 @@ where
         })
     }
 
-    fn accept_comma(&mut self, comma_token_idx: TokenIdx) {
+    fn accept_comma(&mut self, comma_token_idx: RegionalTokenIdx) {
         match self.take_complete_expr() {
             Some(item) => {
                 let item = self.context_mut().alloc_expr(item);
@@ -352,7 +356,7 @@ where
         }
     }
 
-    fn accept_be_pattern(&mut self, be_token_idx: TokenIdx) {
+    fn accept_be_pattern(&mut self, be_token_idx: RegionalTokenIdx) {
         self.reduce(Precedence::Be);
         let src = self.take_complete_expr().unwrap_or(SynExpr::Err(
             OriginalSynExprError::ExpectedItemBeforeBe { be_token_idx }.into(),
@@ -374,7 +378,7 @@ where
         self.push_top_expr(expr.into())
     }
 
-    fn accept_binary_opr(&mut self, binary: BinaryOpr, binary_token_idx: TokenIdx) {
+    fn accept_binary_opr(&mut self, binary: BinaryOpr, binary_token_idx: RegionalTokenIdx) {
         self.reduce(binary.into());
         let lopd = self.take_complete_expr().unwrap_or(SynExpr::Err(
             OriginalSynExprError::NoLeftOperandForBinaryOperator { binary_token_idx }.into(),
@@ -387,7 +391,7 @@ where
         self.push_top_expr(unfinished_expr.into())
     }
 
-    fn accept_colon_right_after_lbox(&mut self, colon_token_idx: TokenIdx) {
+    fn accept_colon_right_after_lbox(&mut self, colon_token_idx: RegionalTokenIdx) {
         #[cfg(test)]
         assert!(self.complete_expr().is_none());
         let unfinished_expr = self.take_last_incomplete_expr().unwrap();
@@ -413,7 +417,7 @@ where
         }
     }
 
-    fn accept_list_start(&mut self, bra: Bracket, bra_token_idx: TokenIdx) {
+    fn accept_list_start(&mut self, bra: Bracket, bra_token_idx: RegionalTokenIdx) {
         self.take_complete_and_push_to_top(|parser, finished_expr| -> TopExpr {
             let finished_expr = finished_expr.map(|expr| parser.context_mut().alloc_expr(expr));
             match bra {
@@ -487,7 +491,11 @@ where
         })
     }
 
-    fn accept_ritchie(&mut self, ritchie_kind_token_idx: TokenIdx, ritchie_kind: RitchieKind) {
+    fn accept_ritchie(
+        &mut self,
+        ritchie_kind_token_idx: RegionalTokenIdx,
+        ritchie_kind: RitchieKind,
+    ) {
         match self.try_parse_option::<LparToken>() {
             Ok(Some(lpar_token)) => self.push_top_expr(
                 IncompleteExpr::CommaList {
@@ -509,9 +517,9 @@ where
 
     fn accept_incomplete_keyword_argument(
         &mut self,
-        key_token_idx: TokenIdx,
+        key_token_idx: RegionalTokenIdx,
         key: Ident,
-        eq_token: EqToken,
+        eq_token: RegionalEqToken,
     ) {
         self.push_top_expr(
             IncompleteExpr::KeyedArgument {

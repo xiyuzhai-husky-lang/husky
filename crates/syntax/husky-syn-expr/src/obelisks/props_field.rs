@@ -7,8 +7,8 @@ use super::*;
 pub struct PropsFieldDeclPattern {
     decorators: Vec<FieldDecorator>,
     visibility: Option<FieldVisibilityExpr>,
-    ident_token: IdentToken,
-    colon: ColonToken,
+    ident_token: RegionalIdentToken,
+    colon: RegionalColonToken,
     ty_expr_idx: SynExprIdx,
     initialization: Option<PropsFieldInitialization>,
     variable: CurrentSynSymbolIdx,
@@ -28,7 +28,7 @@ impl PropsFieldDeclPattern {
         self.ident_token.ident()
     }
 
-    pub fn colon(&self) -> ColonToken {
+    pub fn colon(&self) -> RegionalColonToken {
         self.colon
     }
 
@@ -49,10 +49,11 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
     ) -> SynExprResult<Option<Self>> {
         let decorators = parse_consecutive_list(ctx)?;
         let visibility = ctx.try_parse_option()?;
-        let Some(ident_token) = ctx.try_parse_option::<IdentToken>()? else {
+        let Some(ident_token) = ctx.try_parse_option::<RegionalIdentToken>()? else {
             return Ok(None);
         };
-        let colon: ColonToken = ctx.try_parse_expected(OriginalSynExprError::ExpectedColon)?;
+        let colon: RegionalColonToken =
+            ctx.try_parse_expected(OriginalSynExprError::ExpectedColon)?;
         let ty_expr_idx = ctx.parse_expr_expected2(
             None,
             ExprRootKind::PropsStructFieldType { ident_token },
@@ -67,7 +68,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
                     OriginalSynExprError::ExpectedValueForFieldBindInitialization,
                 ),
             })
-        } else if let Some(_) = ctx.try_parse_option::<EqToken>()? {
+        } else if let Some(_) = ctx.try_parse_option::<RegionalEqToken>()? {
             todo!()
         } else {
             None

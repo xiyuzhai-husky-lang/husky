@@ -18,7 +18,7 @@ pub enum PrincipalEntityPathExpr {
     Subitem {
         parent: PrincipalEntityPathExprIdx,
         scope_resolution_token: ScopeResolutionToken,
-        ident_token: PrincipalEntityPathExprResult<IdentToken>,
+        ident_token: PrincipalEntityPathExprResult<RegionalIdentToken>,
         path: PrincipalEntityPathExprResult<PrincipalEntityPath>,
     },
 }
@@ -59,9 +59,10 @@ where
         parent_path: MajorEntityPath,
         scope_resolution_token: ScopeResolutionToken,
     ) -> SynExpr {
-        let ident_token: PrincipalEntityPathExprResult<IdentToken> = self.try_parse_expected(
-            OriginalPrincipalEntityPathExprError::ExpectIdentAfterScopeResolution,
-        );
+        let ident_token: PrincipalEntityPathExprResult<RegionalIdentToken> = self
+            .try_parse_expected(
+                OriginalPrincipalEntityPathExprError::ExpectIdentAfterScopeResolution,
+            );
         let path: PrincipalEntityPathExprResult<PrincipalEntityPath> = match ident_token {
             Ok(ident_token) => {
                 let ident = ident_token.ident();

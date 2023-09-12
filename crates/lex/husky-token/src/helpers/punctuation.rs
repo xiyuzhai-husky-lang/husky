@@ -36,32 +36,6 @@ where
     }
 }
 
-// specific punctuation
-
-fn parse_specific_punctuation_from<'a, Context, T>(
-    ctx: &mut Context,
-    target: Punctuation,
-    f: impl FnOnce(TokenIdx) -> T,
-) -> TokenResult<Option<T>>
-where
-    Context: TokenStreamParser<'a>,
-{
-    if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
-        match token {
-            Token::Punctuation(punc) if punc == target => Ok(Some(f(token_idx))),
-            Token::Error(error) => Err(error),
-            Token::Label(_)
-            | Token::Punctuation(_)
-            | Token::Ident(_)
-            | Token::WordOpr(_)
-            | Token::Literal(_)
-            | Token::Keyword(_) => Ok(None),
-        }
-    } else {
-        Ok(None)
-    }
-}
-
 macro_rules! define_specific_punctuation_token {
     ($ty: ident, $punc: ident, $test_name: ident, $s: literal) => {
         #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -96,6 +70,32 @@ macro_rules! define_specific_punctuation_token {
             assert!(t(&db, $s).unwrap().is_some());
         }
     };
+}
+
+// specific punctuation
+
+fn parse_specific_punctuation_from<'a, Context, T>(
+    ctx: &mut Context,
+    target: Punctuation,
+    f: impl FnOnce(TokenIdx) -> T,
+) -> TokenResult<Option<T>>
+where
+    Context: TokenStreamParser<'a>,
+{
+    if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+        match token {
+            Token::Punctuation(punc) if punc == target => Ok(Some(f(token_idx))),
+            Token::Error(error) => Err(error),
+            Token::Label(_)
+            | Token::Punctuation(_)
+            | Token::Ident(_)
+            | Token::WordOpr(_)
+            | Token::Literal(_)
+            | Token::Keyword(_) => Ok(None),
+        }
+    } else {
+        Ok(None)
+    }
 }
 
 define_specific_punctuation_token!(ColonToken, COLON, colon_token_works, ":");

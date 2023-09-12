@@ -25,7 +25,7 @@ pub enum ExprRootKind {
     SelfType,
     Trait,
     ReturnType,
-    PropsStructFieldType { ident_token: IdentToken },
+    PropsStructFieldType { ident_token: RegionalIdentToken },
     TupleStructFieldType,
     BlockExpr,
     ReturnExpr,

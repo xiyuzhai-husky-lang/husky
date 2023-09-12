@@ -1,6 +1,6 @@
 use super::*;
 use husky_ast::{AstIdx, AstSheet, AstTokenIdxRangeSheet, FugitiveBody};
-use husky_entity_syn_tree::tokra_region::{HasSynDefnTokraRegion, SynDefnTokraRegionData};
+use husky_entity_syn_tree::helpers::tokra_region::{HasSynDefnTokraRegion, SynDefnTokraRegionData};
 use husky_print_utils::p;
 
 pub struct SynStmtContext<'a> {
@@ -84,9 +84,10 @@ impl<'a> SynStmtContext<'a> {
     pub(crate) fn token_group_token_stream(
         &self,
         token_group_idx: TokenGroupIdx,
-        saved_stream_state: impl Into<Option<TokenStreamState>>,
-    ) -> TokenStream<'a> {
-        self.token_sheet_data
-            .token_group_token_stream(token_group_idx, saved_stream_state)
+        saved_stream_state: impl Into<Option<RegionalTokenStreamState>>,
+    ) -> RegionalTokenStream<'a> {
+        // self.token_sheet_data
+        //     .token_group_token_stream(token_group_idx, saved_stream_state)
+        todo!()
     }
 }

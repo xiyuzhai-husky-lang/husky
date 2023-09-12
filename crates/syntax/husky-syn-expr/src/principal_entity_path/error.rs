@@ -33,11 +33,11 @@ impl From<DerivedPrincipalEntityPathExprError> for PrincipalEntityPathExprError 
 pub enum OriginalPrincipalEntityPathExprError {
     #[error("item tree")]
     EntityTree {
-        token_idx: TokenIdx,
+        token_idx: RegionalTokenIdx,
         error: EntitySynTreeError,
     },
     #[error("expect identifier after `::`")]
-    ExpectIdentAfterScopeResolution(TokenStreamState),
+    ExpectIdentAfterScopeResolution(RegionalTokenStreamState),
 }
 
 impl OriginalError for OriginalPrincipalEntityPathExprError {

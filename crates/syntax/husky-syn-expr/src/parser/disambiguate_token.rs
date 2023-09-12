@@ -13,7 +13,7 @@ where
 {
     pub(crate) fn disambiguate_token(
         &mut self,
-        token_idx: TokenIdx,
+        token_idx: RegionalTokenIdx,
         token: Token,
     ) -> TokenDisambiguationResult<DisambiguatedToken> {
         TokenDisambiguationResult::Continue(match token {
@@ -72,7 +72,7 @@ where
                         ..
                     }
                     | IncompleteExpr::CallList { .. },
-                ) => match self.try_parse_err_as_none::<EqToken>() {
+                ) => match self.try_parse_err_as_none::<RegionalEqToken>() {
                     Some(eq_token) => DisambiguatedToken::IncompleteKeywordArgument {
                         token_idx,
                         ident,
@@ -288,7 +288,7 @@ where
 
     fn resolve_prefix_or_other(
         &mut self,
-        token_idx: TokenIdx,
+        token_idx: RegionalTokenIdx,
         prefix_opr: PrefixOpr,
         other: DisambiguatedToken,
     ) -> DisambiguatedToken {
@@ -305,7 +305,7 @@ impl<'a, C> SynExprParser<'a, C>
 where
     C: IsSynExprContext<'a>,
 {
-    fn resolve_ident(&mut self, token_idx: TokenIdx, ident: Ident) -> DisambiguatedToken {
+    fn resolve_ident(&mut self, token_idx: RegionalTokenIdx, ident: Ident) -> DisambiguatedToken {
         if let Some(opn) = self.last_incomplete_expr() {
             match opn {
                 IncompleteExpr::Binary {
@@ -489,7 +489,7 @@ where
                     //     symbol_idx: variable_idx,
                     // },
                     Symbol::PrincipalEntity(item_path) => self.parse_principal_item_path_expr(
-                        IdentToken::new(ident, token_idx).into(),
+                        RegionalIdentToken::new(ident, token_idx).into(),
                         item_path,
                     ),
                     Symbol::Inherited(inherited_symbol_idx, inherited_symbol_kind) => {
@@ -520,19 +520,19 @@ where
 #[derive(Debug)]
 pub(crate) enum DisambiguatedToken {
     AtomicExpr(SynExpr),
-    BinaryOpr(TokenIdx, BinaryOpr),
-    PrefixOpr(TokenIdx, PrefixOpr),
-    SuffixOpr(TokenIdx, SuffixOpr),
-    Bra(TokenIdx, Bracket),
-    Ket(TokenIdx, Bracket),
-    Dot(TokenIdx),
-    Comma(TokenIdx),
-    Be(TokenIdx),
-    ColonRightAfterLBox(TokenIdx),
-    Ritchie(TokenIdx, RitchieKind),
+    BinaryOpr(RegionalTokenIdx, BinaryOpr),
+    PrefixOpr(RegionalTokenIdx, PrefixOpr),
+    SuffixOpr(RegionalTokenIdx, SuffixOpr),
+    Bra(RegionalTokenIdx, Bracket),
+    Ket(RegionalTokenIdx, Bracket),
+    Dot(RegionalTokenIdx),
+    Comma(RegionalTokenIdx),
+    Be(RegionalTokenIdx),
+    ColonRightAfterLBox(RegionalTokenIdx),
+    Ritchie(RegionalTokenIdx, RitchieKind),
     IncompleteKeywordArgument {
-        token_idx: TokenIdx,
+        token_idx: RegionalTokenIdx,
         ident: Ident,
-        eq_token: EqToken,
+        eq_token: RegionalEqToken,
     },
 }

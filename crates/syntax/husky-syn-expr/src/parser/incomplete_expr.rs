@@ -14,11 +14,11 @@ pub(super) enum IncompleteExpr {
     Binary {
         lopd: SynExpr,
         punctuation: BinaryOpr,
-        punctuation_token_idx: TokenIdx,
+        punctuation_token_idx: RegionalTokenIdx,
     },
     Prefix {
         punctuation: PrefixOpr,
-        punctuation_token_idx: TokenIdx,
+        punctuation_token_idx: RegionalTokenIdx,
     },
     /// list separated by commas
     /// ```husky
@@ -29,13 +29,13 @@ pub(super) enum IncompleteExpr {
         // todo: move this into opr
         bra: Bracket,
         // todo: move this into opr
-        bra_token_idx: TokenIdx,
+        bra_token_idx: RegionalTokenIdx,
         items: SmallVec<[SynCommaListItem; 4]>,
     },
     /// call list includes more separators like `;`
     CallList {
         opr: IncompleteCallListOpr,
-        lpar_token_idx: TokenIdx,
+        lpar_token_idx: RegionalTokenIdx,
         items: SmallVec<[CallListItem; 4]>,
     },
     LambdaHead {
@@ -48,17 +48,17 @@ pub(super) enum IncompleteExpr {
     },
     /// just needs the return type
     Ritchie {
-        ritchie_kind_token_idx: TokenIdx,
+        ritchie_kind_token_idx: RegionalTokenIdx,
         ritchie_kind: RitchieKind,
         lpar_token: LparToken,
         argument_tys: SmallVec<[SynCommaListItem; 4]>,
-        rpar_token_idx: TokenIdx,
+        rpar_token_idx: RegionalTokenIdx,
         light_arrow_token: LightArrowToken,
     },
     KeyedArgument {
-        key_token_idx: TokenIdx,
+        key_token_idx: RegionalTokenIdx,
         key: Ident,
-        eq_token: EqToken,
+        eq_token: RegionalEqToken,
     },
 }
 
@@ -71,13 +71,13 @@ where
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         sp: &mut SynExprParser<'a, C>,
     ) -> Result<Option<Self>, Self::Error> {
-        if let Some(lcurl) = sp.try_parse_option::<LcurlToken>()? {
+        if let Some(lcurl) = sp.try_parse_option::<RegionalLCurlToken>()? {
             Ok(Some(SynHtmlArgumentExpr::Shortened {
                 lcurl,
                 property_ident: sp.try_parse_expected(OriginalSynExprError::HtmlTodo)?,
                 rcurl: sp.try_parse_expected(OriginalSynExprError::HtmlTodo)?,
             }))
-        } else if let Some(argument_ident) = sp.try_parse_option::<IdentToken>()? {
+        } else if let Some(argument_ident) = sp.try_parse_option::<RegionalIdentToken>()? {
             Ok(Some(SynHtmlArgumentExpr::Expanded {
                 property_ident: argument_ident,
                 eq: sp.try_parse_expected(OriginalSynExprError::HtmlTodo)?,

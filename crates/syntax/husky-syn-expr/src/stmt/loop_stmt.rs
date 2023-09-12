@@ -3,7 +3,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
 pub struct SynForBetweenParticulars {
-    pub for_between_loop_var_token_idx: TokenIdx,
+    pub for_between_loop_var_token_idx: RegionalTokenIdx,
     pub for_between_loop_var_ident: Ident,
     pub for_between_loop_var_expr_idx: SynExprIdx,
     pub range: SynExprResult<SynForBetweenRange>,
@@ -139,7 +139,7 @@ impl Default for SynForBetweenLoopBoundary {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SynForextParticulars {
-    pub forext_loop_var_token_idx: TokenIdx,
+    pub forext_loop_var_token_idx: RegionalTokenIdx,
     pub forext_loop_var_ident: Ident,
     pub forext_loop_var_expr_idx: SynExprIdx,
     pub bound_expr: SynExprIdx,
@@ -148,7 +148,7 @@ pub struct SynForextParticulars {
 
 impl SynForextParticulars {
     pub(crate) fn new(
-        forext_loop_var_token_idx: TokenIdx,
+        forext_loop_var_token_idx: RegionalTokenIdx,
         forext_loop_var_ident: Ident,
         forext_loop_var_expr_idx: SynExprIdx,
         opr: BinaryComparisonOpr,

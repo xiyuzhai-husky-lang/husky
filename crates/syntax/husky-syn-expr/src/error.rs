@@ -1,7 +1,6 @@
 use crate::*;
 use husky_entity_syn_tree::EntitySynTreeError;
 use husky_opr::Bracket;
-use husky_token::*;
 use original_error::OriginalError;
 use parsec::*;
 use thiserror::Error;
@@ -26,205 +25,212 @@ impl From<TokenError> for SynExprError {
 // #[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum OriginalSynExprError {
     #[error("expected `>`")]
-    ExpectedRightAngleBracket { langle_token_idx: TokenIdx },
+    ExpectedRightAngleBracket { langle_token_idx: RegionalTokenIdx },
     #[error("expected `}}`")]
-    ExpectedRightCurlyBrace(TokenStreamState),
+    ExpectedRightCurlyBrace(RegionalTokenStreamState),
     #[error("expected identifier")]
-    ExpectedIdent(TokenStreamState),
+    ExpectedIdent(RegionalTokenStreamState),
     #[error("expected `:`")]
-    ExpectedColon(TokenStreamState),
+    ExpectedColon(RegionalTokenStreamState),
     #[error("expected `)`")]
-    ExpectedRightParenthesis(TokenStreamState),
+    ExpectedRightParenthesis(RegionalTokenStreamState),
     #[error("no matching bracket")]
     NoMatchingBra {
         ket: Bracket,
-        ket_token_idx: TokenIdx,
+        ket_token_idx: RegionalTokenIdx,
     },
     #[error("expected item before `,`")]
-    ExpectedItemBeforeComma { comma_token_idx: TokenIdx },
+    ExpectedItemBeforeComma { comma_token_idx: RegionalTokenIdx },
     #[error("expected item before `be`")]
-    ExpectedItemBeforeBe { be_token_idx: TokenIdx },
+    ExpectedItemBeforeBe { be_token_idx: RegionalTokenIdx },
     #[error("expected variable pattern")]
-    ExpectedLetVariableDecls(TokenStreamState),
+    ExpectedLetVariableDecls(RegionalTokenStreamState),
     #[error("expected pattern expression after `be`")]
-    ExpectedBeVariablesPattern(TokenStreamState),
+    ExpectedBeVariablesPattern(RegionalTokenStreamState),
     #[error("expected `=`")]
-    ExpectedAssign(TokenStreamState),
+    ExpectedAssign(RegionalTokenStreamState),
     #[error("expected initial value")]
-    ExpectedInitialValue(TokenStreamState),
+    ExpectedInitialValue(RegionalTokenStreamState),
     #[error("unexpected keyword")]
-    UnexpectedKeyword(TokenIdx),
+    UnexpectedKeyword(RegionalTokenIdx),
     #[error("expected result")]
-    ExpectedResult(TokenStreamState),
+    ExpectedResult(RegionalTokenStreamState),
     #[error("expected condition")]
-    ExpectedCondition(TokenStreamState),
+    ExpectedCondition(RegionalTokenStreamState),
     #[error("expected for expr")]
-    ExpectedForExpr(TokenIdx),
+    ExpectedForExpr(RegionalTokenIdx),
     #[error("expected be pattern")]
-    ExpectedBePattern(TokenIdx),
+    ExpectedBePattern(RegionalTokenIdx),
     #[error("expected paramter pattern")]
-    ExpectedParameterPattern(TokenIdx),
+    ExpectedParameterPattern(RegionalTokenIdx),
     #[error("ExpectedValueForFieldBindInitialization")]
-    ExpectedValueForFieldBindInitialization(TokenStreamState),
+    ExpectedValueForFieldBindInitialization(RegionalTokenStreamState),
     #[error("ExpectedFunctionIdentAfterOpeningHtmlBra")]
-    ExpectedFunctionIdentAfterOpeningHtmlBra(TokenStreamState),
+    ExpectedFunctionIdentAfterOpeningHtmlBra(RegionalTokenStreamState),
     #[error("expected identifier after modifier")]
-    ExpectedIdentAfterModifier(TokenStreamState, EphemSymbolModifierTokenGroup),
+    ExpectedIdentAfterModifier(RegionalTokenStreamState, EphemSymbolModifierTokenGroup),
     #[error("expected `:` at end of line")]
-    ExpectedEolColon(TokenStreamState),
+    ExpectedEolColon(RegionalTokenStreamState),
     #[error("expected constant implicit parameter type")]
-    ExpectedConstantImplicitParameterType(TokenStreamState),
+    ExpectedConstantImplicitParameterType(RegionalTokenStreamState),
     #[error("mismatching bracket")]
     MismatchingBracket {
         bra: Bracket,
-        bra_token_idx: TokenIdx,
+        bra_token_idx: RegionalTokenIdx,
         ket: Bracket,
-        ket_token_idx: TokenIdx,
+        ket_token_idx: RegionalTokenIdx,
     },
     #[error("expected let variables type")]
-    ExpectedLetVariablesType(TokenStreamState),
+    ExpectedLetVariablesType(RegionalTokenStreamState),
     #[error("expected field type")]
-    ExpectedFieldType(TokenStreamState),
+    ExpectedFieldType(RegionalTokenStreamState),
     #[error("expected parameter type")]
-    ExpectedParameterType(TokenStreamState),
+    ExpectedParameterType(RegionalTokenStreamState),
     #[error("ExpectedTraits")]
-    ExpectedTraits(TokenStreamState),
+    ExpectedTraits(RegionalTokenStreamState),
     #[error("ExpectedKeyedWithDefaultParameterInitialValue")]
-    ExpectedExplicitParameterDefaultValue(TokenStreamState),
+    ExpectedExplicitParameterDefaultValue(RegionalTokenStreamState),
     #[error("expected identifier after `.`")]
-    ExpectedIdentAfterDot { dot_token_idx: TokenIdx },
+    ExpectedIdentAfterDot { dot_token_idx: RegionalTokenIdx },
     #[error("expected exprBeforeDot")]
-    ExpectedExprBeforeDot { dot_token_idx: TokenIdx },
+    ExpectedExprBeforeDot { dot_token_idx: RegionalTokenIdx },
     #[error("expect block")]
     ExpectedBlock(TokenGroupIdx),
     #[error("unterminated list")]
-    UnterminatedList { bra_token_idx: TokenIdx },
+    UnterminatedList { bra_token_idx: RegionalTokenIdx },
     #[error("unterminated list")]
-    UnterminatedFunctionCallKeyedArgumentList { bra_token_idx: TokenIdx },
+    UnterminatedFunctionCallKeyedArgumentList { bra_token_idx: RegionalTokenIdx },
     #[error("unterminated list")]
-    UnterminatedMethodCallKeyedArgumentList { bra_token_idx: TokenIdx },
+    UnterminatedMethodCallKeyedArgumentList { bra_token_idx: RegionalTokenIdx },
     #[error("no left operand for binary operator")]
-    NoLeftOperandForBinaryOperator { binary_token_idx: TokenIdx },
+    NoLeftOperandForBinaryOperator { binary_token_idx: RegionalTokenIdx },
     #[error("no right operand for binary operator")]
     NoRightOperandForBinaryOperator {
         punctuation: BinaryOpr,
-        punctuation_token_idx: TokenIdx,
+        punctuation_token_idx: RegionalTokenIdx,
     },
     #[error("no operand for prefix operator")]
     NoOperandForPrefixOperator {
         prefix: PrefixOpr,
-        prefix_token_idx: TokenIdx,
+        prefix_token_idx: RegionalTokenIdx,
     },
     #[error("unexpected `$`")]
-    UnexpectedSheba(TokenIdx),
+    UnexpectedSheba(RegionalTokenIdx),
     #[error("unrecognized identifier")]
-    UnrecognizedIdent { token_idx: TokenIdx, ident: Ident },
+    UnrecognizedIdent {
+        token_idx: RegionalTokenIdx,
+        ident: Ident,
+    },
     #[error("unrecognized identifier")]
-    UnresolvedSubitem { token_idx: TokenIdx, ident: Ident },
+    UnresolvedSubitem {
+        token_idx: RegionalTokenIdx,
+        ident: Ident,
+    },
     #[error("SelfTypeNotAllowed")]
-    SelfTypeNotAllowed(TokenIdx),
+    SelfTypeNotAllowed(RegionalTokenIdx),
     #[error("SelfValueNotAllowed")]
-    SelfValueNotAllowed(TokenIdx),
+    SelfValueNotAllowed(RegionalTokenIdx),
     #[error("HtmlTodo")]
-    HtmlTodo(TokenStreamState),
+    HtmlTodo(RegionalTokenStreamState),
     #[error("UnexpectedLeftCurlyBrace")]
-    UnexpectedLeftCurlyBrace(TokenIdx),
+    UnexpectedLeftCurlyBrace(RegionalTokenIdx),
     #[error("ExpectedTypeAfterLightArrow")]
     ExpectedTypeAfterLightArrow { light_arrow_token: LightArrowToken },
     #[error("ExpectedTypeTermForAssociatedType")]
-    ExpectedTypeTermForAssociatedType(TokenStreamState),
+    ExpectedTypeTermForAssociatedType(RegionalTokenStreamState),
 }
 
 impl OriginalSynExprError {
     pub fn token_idx_range(&self) -> TokenIdxRange {
-        match self {
-            OriginalSynExprError::ExpectedLetVariableDecls(token_idx)
-            | OriginalSynExprError::ExpectedBeVariablesPattern(token_idx) => todo!(),
-            OriginalSynExprError::ExpectedLetVariablesType(token_stream_state)
-            | OriginalSynExprError::ExpectedAssign(token_stream_state)
-            | OriginalSynExprError::ExpectedInitialValue(token_stream_state)
-            | OriginalSynExprError::ExpectedResult(token_stream_state)
-            | OriginalSynExprError::ExpectedCondition(token_stream_state)
-            | OriginalSynExprError::ExpectedRightCurlyBrace(token_stream_state)
-            | OriginalSynExprError::ExpectedIdent(token_stream_state)
-            | OriginalSynExprError::ExpectedColon(token_stream_state)
-            | OriginalSynExprError::ExpectedRightParenthesis(token_stream_state)
-            | OriginalSynExprError::ExpectedEolColon(token_stream_state)
-            | OriginalSynExprError::ExpectedIdentAfterModifier(token_stream_state, _)
-            | OriginalSynExprError::ExpectedFieldType(token_stream_state)
-            | OriginalSynExprError::ExpectedParameterType(token_stream_state)
-            | OriginalSynExprError::HtmlTodo(token_stream_state)
-            | OriginalSynExprError::ExpectedValueForFieldBindInitialization(token_stream_state)
-            | OriginalSynExprError::ExpectedFunctionIdentAfterOpeningHtmlBra(token_stream_state)
-            | OriginalSynExprError::ExpectedConstantImplicitParameterType(token_stream_state)
-            | OriginalSynExprError::ExpectedTraits(token_stream_state)
-            | OriginalSynExprError::ExpectedExplicitParameterDefaultValue(token_stream_state) => {
-                let token_idx = token_stream_state.next_token_idx();
-                match token_stream_state.drained() {
-                    true => TokenIdxRange::new_drained(token_idx),
-                    false => TokenIdxRange::new_single(token_idx),
-                }
-            }
-            OriginalSynExprError::MismatchingBracket {
-                ket_token_idx: token_idx,
-                ..
-            }
-            | OriginalSynExprError::ExpectedRightAngleBracket {
-                langle_token_idx: token_idx,
-            }
-            | OriginalSynExprError::NoMatchingBra {
-                ket_token_idx: token_idx,
-                ..
-            }
-            | OriginalSynExprError::NoLeftOperandForBinaryOperator {
-                binary_token_idx: token_idx,
-            }
-            | OriginalSynExprError::NoRightOperandForBinaryOperator {
-                punctuation_token_idx: token_idx,
-                ..
-            }
-            | OriginalSynExprError::NoOperandForPrefixOperator {
-                prefix_token_idx: token_idx,
-                ..
-            }
-            | OriginalSynExprError::UnexpectedKeyword(token_idx)
-            | OriginalSynExprError::ExpectedItemBeforeComma {
-                comma_token_idx: token_idx,
-            }
-            | OriginalSynExprError::ExpectedItemBeforeBe {
-                be_token_idx: token_idx,
-            }
-            | OriginalSynExprError::ExpectedForExpr(token_idx)
-            | OriginalSynExprError::ExpectedBePattern(token_idx)
-            | OriginalSynExprError::ExpectedParameterPattern(token_idx)
-            | OriginalSynExprError::UnterminatedList {
-                bra_token_idx: token_idx,
-            }
-            | OriginalSynExprError::UnterminatedFunctionCallKeyedArgumentList {
-                bra_token_idx: token_idx,
-            }
-            | OriginalSynExprError::UnterminatedMethodCallKeyedArgumentList {
-                bra_token_idx: token_idx,
-            }
-            | OriginalSynExprError::UnexpectedSheba(token_idx)
-            | OriginalSynExprError::UnrecognizedIdent { token_idx, .. }
-            | OriginalSynExprError::UnresolvedSubitem { token_idx, .. }
-            | OriginalSynExprError::SelfTypeNotAllowed(token_idx)
-            | OriginalSynExprError::SelfValueNotAllowed(token_idx)
-            | OriginalSynExprError::ExpectedIdentAfterDot {
-                dot_token_idx: token_idx,
-                ..
-            }
-            | OriginalSynExprError::ExpectedExprBeforeDot {
-                dot_token_idx: token_idx,
-            }
-            | OriginalSynExprError::UnexpectedLeftCurlyBrace(token_idx) => {
-                TokenIdxRange::new_single(*token_idx)
-            }
-            OriginalSynExprError::ExpectedBlock(_) => todo!(),
-            OriginalSynExprError::ExpectedTypeAfterLightArrow { light_arrow_token } => todo!(),
-            OriginalSynExprError::ExpectedTypeTermForAssociatedType(_) => todo!(),
-        }
+        todo!()
+        // match self {
+        //     OriginalSynExprError::ExpectedLetVariableDecls(token_idx)
+        //     | OriginalSynExprError::ExpectedBeVariablesPattern(token_idx) => todo!(),
+        //     OriginalSynExprError::ExpectedLetVariablesType(token_stream_state)
+        //     | OriginalSynExprError::ExpectedAssign(token_stream_state)
+        //     | OriginalSynExprError::ExpectedInitialValue(token_stream_state)
+        //     | OriginalSynExprError::ExpectedResult(token_stream_state)
+        //     | OriginalSynExprError::ExpectedCondition(token_stream_state)
+        //     | OriginalSynExprError::ExpectedRightCurlyBrace(token_stream_state)
+        //     | OriginalSynExprError::ExpectedIdent(token_stream_state)
+        //     | OriginalSynExprError::ExpectedColon(token_stream_state)
+        //     | OriginalSynExprError::ExpectedRightParenthesis(token_stream_state)
+        //     | OriginalSynExprError::ExpectedEolColon(token_stream_state)
+        //     | OriginalSynExprError::ExpectedIdentAfterModifier(token_stream_state, _)
+        //     | OriginalSynExprError::ExpectedFieldType(token_stream_state)
+        //     | OriginalSynExprError::ExpectedParameterType(token_stream_state)
+        //     | OriginalSynExprError::HtmlTodo(token_stream_state)
+        //     | OriginalSynExprError::ExpectedValueForFieldBindInitialization(token_stream_state)
+        //     | OriginalSynExprError::ExpectedFunctionIdentAfterOpeningHtmlBra(token_stream_state)
+        //     | OriginalSynExprError::ExpectedConstantImplicitParameterType(token_stream_state)
+        //     | OriginalSynExprError::ExpectedTraits(token_stream_state)
+        //     | OriginalSynExprError::ExpectedExplicitParameterDefaultValue(token_stream_state) => {
+        //         let token_idx = token_stream_state.next_token_idx();
+        //         match token_stream_state.drained() {
+        //             true => TokenIdxRange::new_drained(token_idx),
+        //             false => TokenIdxRange::new_single(token_idx),
+        //         }
+        //     }
+        //     OriginalSynExprError::MismatchingBracket {
+        //         ket_token_idx: token_idx,
+        //         ..
+        //     }
+        //     | OriginalSynExprError::ExpectedRightAngleBracket {
+        //         langle_token_idx: token_idx,
+        //     }
+        //     | OriginalSynExprError::NoMatchingBra {
+        //         ket_token_idx: token_idx,
+        //         ..
+        //     }
+        //     | OriginalSynExprError::NoLeftOperandForBinaryOperator {
+        //         binary_token_idx: token_idx,
+        //     }
+        //     | OriginalSynExprError::NoRightOperandForBinaryOperator {
+        //         punctuation_token_idx: token_idx,
+        //         ..
+        //     }
+        //     | OriginalSynExprError::NoOperandForPrefixOperator {
+        //         prefix_token_idx: token_idx,
+        //         ..
+        //     }
+        //     | OriginalSynExprError::UnexpectedKeyword(token_idx)
+        //     | OriginalSynExprError::ExpectedItemBeforeComma {
+        //         comma_token_idx: token_idx,
+        //     }
+        //     | OriginalSynExprError::ExpectedItemBeforeBe {
+        //         be_token_idx: token_idx,
+        //     }
+        //     | OriginalSynExprError::ExpectedForExpr(token_idx)
+        //     | OriginalSynExprError::ExpectedBePattern(token_idx)
+        //     | OriginalSynExprError::ExpectedParameterPattern(token_idx)
+        //     | OriginalSynExprError::UnterminatedList {
+        //         bra_token_idx: token_idx,
+        //     }
+        //     | OriginalSynExprError::UnterminatedFunctionCallKeyedArgumentList {
+        //         bra_token_idx: token_idx,
+        //     }
+        //     | OriginalSynExprError::UnterminatedMethodCallKeyedArgumentList {
+        //         bra_token_idx: token_idx,
+        //     }
+        //     | OriginalSynExprError::UnexpectedSheba(token_idx)
+        //     | OriginalSynExprError::UnrecognizedIdent { token_idx, .. }
+        //     | OriginalSynExprError::UnresolvedSubitem { token_idx, .. }
+        //     | OriginalSynExprError::SelfTypeNotAllowed(token_idx)
+        //     | OriginalSynExprError::SelfValueNotAllowed(token_idx)
+        //     | OriginalSynExprError::ExpectedIdentAfterDot {
+        //         dot_token_idx: token_idx,
+        //         ..
+        //     }
+        //     | OriginalSynExprError::ExpectedExprBeforeDot {
+        //         dot_token_idx: token_idx,
+        //     }
+        //     | OriginalSynExprError::UnexpectedLeftCurlyBrace(token_idx) => {
+        //         TokenIdxRange::new_single(*token_idx)
+        //     }
+        //     OriginalSynExprError::ExpectedBlock(_) => todo!(),
+        //     OriginalSynExprError::ExpectedTypeAfterLightArrow { light_arrow_token } => todo!(),
+        //     OriginalSynExprError::ExpectedTypeTermForAssociatedType(_) => todo!(),
+        // }
     }
 }
 
@@ -242,13 +248,13 @@ pub enum DerivedSynExprError {
 pub type SynExprResult<T> = Result<T, SynExprError>;
 pub type ExprResultRef<'a, T> = Result<T, &'a SynExprError>;
 
-// impl<'a, 'b> FromAbsent<RcurlToken, ExprParseContext<'a, 'b>> for OriginalExprError {
+// impl<'a, 'b> FromAbsent<RegionalRCurlToken, ExprParseContext<'a, 'b>> for OriginalExprError {
 //     fn new_absent_error(state: <ExprParseContext<'a, 'b> as HasParseState>::State) -> Self {
 //         OriginalExprError::ExpectRightCurlyBrace(state)
 //     }
 // }
 
-// // impl<'a, Context> FromAbsent<IdentToken, Context> for ExprError
+// // impl<'a, Context> FromAbsent<RegionalIdentToken, Context> for ExprError
 // // where
 // //     Context: TokenParseContext<'a>,
 // //
@@ -258,7 +264,7 @@ pub type ExprResultRef<'a, T> = Result<T, &'a SynExprError>;
 // //     }
 // // }
 
-// impl<'a, Context> FromAbsent<ColonToken, Context> for OriginalExprError
+// impl<'a, Context> FromAbsent<RegionalColonToken, Context> for OriginalExprError
 // where
 //     Context: TokenParseContext<'a>,
 // {

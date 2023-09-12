@@ -76,9 +76,10 @@ impl<'a> SynExprContext<'a> {
     pub fn expr_parser(
         self,
         env: Option<ExprEnvironment>,
-        token_stream: TokenStream<'a>,
+        token_stream: RegionalTokenStream<'a>,
     ) -> SynExprParser<'a, Self> {
-        SynExprParser::new(self, env, token_stream)
+        todo!()
+        // SynExprParser::new(self, env, token_stream)
     }
 
     pub(crate) fn pattern_expr_region(&self) -> &SynPatternExprRegion {

@@ -40,7 +40,7 @@ where
 {
     pub(crate) context: C,
     env_stack: ExprEnvironmentStack,
-    token_stream: TokenStream<'a>,
+    token_stream: RegionalTokenStream<'a>,
     stack: ExprStack,
 }
 
@@ -63,7 +63,7 @@ where
     pub(super) fn new(
         context: C,
         env: Option<ExprEnvironment>,
-        token_stream: TokenStream<'a>,
+        token_stream: RegionalTokenStream<'a>,
     ) -> Self {
         Self {
             context,
@@ -83,10 +83,6 @@ where
 
     pub(crate) fn db(&self) -> &'a dyn SynExprDb {
         self.context().db()
-    }
-
-    pub(crate) fn tokens(&self) -> &TokenStream<'a> {
-        &self.token_stream
     }
 
     pub fn syn_expr_arena(&self) -> &SynExprArena {
@@ -126,7 +122,7 @@ where
     pub fn parse_expr_expected<E: OriginalError>(
         &mut self,
         env: Option<ExprEnvironment>,
-        err: impl FnOnce(TokenStreamState) -> E,
+        err: impl FnOnce(RegionalTokenStreamState) -> E,
     ) -> Result<SynExprIdx, E::Error> {
         let state = self.save_state();
         if let Some(env) = env {
@@ -158,7 +154,7 @@ where
         &mut self,
         env: Option<ExprEnvironment>,
         expr_root_kind: ExprRootKind,
-        err: impl FnOnce(TokenStreamState) -> OriginalSynExprError,
+        err: impl FnOnce(RegionalTokenStreamState) -> OriginalSynExprError,
     ) -> SynExprIdx {
         let state = self.save_state();
         if let Some(env) = env {
@@ -218,7 +214,7 @@ where
     ) -> SynExprResult<Option<SynPatternExprIdx>> {
         let symbol_modifier_token_group = self.try_parse_option()?;
         let ident_token = match symbol_modifier_token_group {
-            None => match self.try_parse_option::<IdentToken>()? {
+            None => match self.try_parse_option::<RegionalIdentToken>()? {
                 Some(ident_token) => ident_token,
                 None => return Ok(None),
             },
@@ -241,7 +237,7 @@ where
         // if let Some(ref_token) = self.parse::<RefToken>()? {
         //     todo!()
         // } else if let Some(mut_token) = self.parse::<MutToken>()? {
-        //     let ident_token: IdentToken =
+        //     let ident_token: RegionalIdentToken =
         //         self.parse_expected(OriginalExprError::ExpectedIdentAfterMut)?;
         //     Ok(Some(self.alloc_pattern_expr(
         //         PatternExpr::Ident {
@@ -250,7 +246,7 @@ where
         //         },
         //         env,
         //     )))
-        // } else if let Some(ident_token) = self.parse::<IdentToken>()? {
+        // } else if let Some(ident_token) = self.parse::<RegionalIdentToken>()? {
         //     Ok(Some(self.alloc_pattern_expr(
         //         PatternExpr::Ident {
         //             ident_token,
@@ -288,7 +284,7 @@ impl<'a, C> std::ops::Deref for SynExprParser<'a, C>
 where
     C: IsSynExprContext<'a>,
 {
-    type Target = TokenStream<'a>;
+    type Target = RegionalTokenStream<'a>;
     fn deref(&self) -> &Self::Target {
         &self.token_stream
     }

@@ -28,20 +28,20 @@ impl TemplateParameterObelisk {
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub enum TemplateParameterDeclPatternVariant {
     Type {
-        ident_token: IdentToken,
-        traits: Option<(ColonToken, SynExprIdx)>,
+        ident_token: RegionalIdentToken,
+        traits: Option<(RegionalColonToken, SynExprIdx)>,
     },
     Constant {
-        const_token: ConstToken,
-        ident_token: IdentToken,
-        colon_token: ColonToken,
+        const_token: RegionalConstToken,
+        ident_token: RegionalIdentToken,
+        colon_token: RegionalColonToken,
         ty_expr: SynExprIdx,
     },
     Lifetime {
-        label_token: LifetimeToken,
+        label_token: RegionalLifetimeToken,
     },
     Binding {
-        label_token: BindingLabelToken,
+        label_token: RegionalBindingLabelToken,
     },
 }
 
@@ -53,7 +53,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
     ) -> SynExprResult<Option<Self>> {
         let syn_attrs = ctx.try_parse()?;
         let annotated_variance_token = ctx.try_parse_err_as_none();
-        if let Some(ident_token) = ctx.try_parse_option::<IdentToken>()? {
+        if let Some(ident_token) = ctx.try_parse_option::<RegionalIdentToken>()? {
             let access_start = ctx.save_state().next_token_idx();
             let parameter_symbol = CurrentSynSymbol::new(
                 ctx.pattern_expr_region(),
@@ -77,7 +77,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
                 symbol: symbols.start(),
                 variant: TemplateParameterDeclPatternVariant::Type {
                     ident_token,
-                    traits: if let Some(colon) = ctx.try_parse_option::<ColonToken>()? {
+                    traits: if let Some(colon) = ctx.try_parse_option::<RegionalColonToken>()? {
                         Some((
                             colon,
                             ctx.parse_expr_expected2(
@@ -114,14 +114,14 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
                 symbol: symbols.start(),
                 variant: TemplateParameterDeclPatternVariant::Lifetime { label_token },
             }))
-        } else if let Some(label_token) = ctx.try_parse_option::<BindingLabelToken>()? {
+        } else if let Some(label_token) = ctx.try_parse_option::<RegionalBindingLabelToken>()? {
             let symbol = todo!();
             Ok(Some(TemplateParameterObelisk {
                 annotated_variance_token,
                 symbol,
                 variant: TemplateParameterDeclPatternVariant::Binding { label_token },
             }))
-        } else if let Some(const_token) = ctx.try_parse_option::<ConstToken>()? {
+        } else if let Some(const_token) = ctx.try_parse_option::<RegionalConstToken>()? {
             let ident_token = ctx.try_parse_expected(OriginalSynExprError::ExpectedIdent)?;
             let colon_token = ctx.try_parse_expected(OriginalSynExprError::ExpectedColon)?;
             let ty_expr = ctx.parse_expr_expected2(

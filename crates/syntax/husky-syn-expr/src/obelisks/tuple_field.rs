@@ -47,7 +47,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for FieldDe
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
     ) -> Result<Option<Self>, Self::Error> {
-        let Some(at_token) = ctx.try_parse_option::<AtToken>()? else {
+        let Some(at_token) = ctx.try_parse_option::<RegionalAtToken>()? else {
             return Ok(None);
         };
         todo!()
@@ -68,10 +68,10 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for FieldVi
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
     ) -> Result<Option<Self>, Self::Error> {
-        let Some(pub_token) = ctx.try_parse_option::<PubToken>()? else {
+        let Some(pub_token) = ctx.try_parse_option::<RegionalPubToken>()? else {
             return Ok(None);
         };
-        let Some(lpar_token) = ctx.try_parse_option::<LparToken>()? else {
+        let Some(lpar_token) = ctx.try_parse_option::<RegionalLparToken>()? else {
             return Ok(Some(FieldVisibilityExpr::Pub));
         };
         todo!()
