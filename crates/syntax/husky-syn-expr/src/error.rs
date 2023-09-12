@@ -14,8 +14,8 @@ pub enum SynExprError {
     Derived(#[from] DerivedSynExprError),
 }
 
-impl From<RegionalTokenError> for SynExprError {
-    fn from(value: RegionalTokenError) -> Self {
+impl From<TokenDataError> for SynExprError {
+    fn from(value: TokenDataError) -> Self {
         SynExprError::Derived(value.into())
     }
 }
@@ -247,7 +247,7 @@ impl OriginalError for OriginalSynExprError {
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum DerivedSynExprError {
     #[error("token error {0}")]
-    Token(#[from] RegionalTokenError),
+    Token(#[from] TokenDataError),
 }
 
 pub type SynExprResult<T> = Result<T, SynExprError>;

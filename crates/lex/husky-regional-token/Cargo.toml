@@ -1,0 +1,18 @@
+[package]
+name = "husky-regional-token"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+thiserror.workspace = true
+# abstraction
+parsec = { path = "../../abstraction/parsec" }
+salsa = { path = "../../abstraction/salsa" }
+# lex
+husky-token-data = { path = "../../lex/husky-token-data" }
+husky-token = { path = "../../lex/husky-token" }
+# kernel
+husky-coword = { path = "../../kernel/husky-coword" }
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
