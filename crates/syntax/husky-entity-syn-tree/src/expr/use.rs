@@ -9,7 +9,7 @@ use thiserror::Error;
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct ParentUseExpr {
     pub parent_name_token: PathNameToken,
-    pub scope_resolution_token: UseExprResult<ScopeResolutionToken>,
+    pub colon_colon_token: UseExprResult<ColonColonToken>,
     pub children: UseExprResult<UseExprChildren>,
 }
 
@@ -252,12 +252,12 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
     }
 
     fn parse_use_expr_after_ident(&mut self, ident_token: IdentToken) -> UseExprResult<UseExpr> {
-        let Some(scope_resolution_token) = self.try_parse_option::<ScopeResolutionToken>()? else {
+        let Some(colon_colon_token) = self.try_parse_option::<ColonColonToken>()? else {
             return Ok(UseExpr::Leaf { ident_token });
         };
         Ok(UseExpr::Parent(ParentUseExpr {
             parent_name_token: PathNameToken::Ident(ident_token),
-            scope_resolution_token: Ok(scope_resolution_token),
+            colon_colon_token: Ok(colon_colon_token),
             children: self.parse_children(),
         }))
     }
@@ -301,7 +301,7 @@ impl<'a, 'b> TryParseOptionFromStream<UseExprParser<'a, 'b>> for UseExpr {
             }
             PathNameToken::CrateRoot(crate_token) => Ok(Some(UseExpr::Parent(ParentUseExpr {
                 parent_name_token: PathNameToken::CrateRoot(crate_token),
-                scope_resolution_token: ctx
+                colon_colon_token: ctx
                     .try_parse_expected(OriginalUseExprError::ExpectScopeResolution),
                 children: ctx.parse_children(),
             }))),
@@ -310,7 +310,7 @@ impl<'a, 'b> TryParseOptionFromStream<UseExprParser<'a, 'b>> for UseExpr {
                 if ctx.peek() == Some(&Token::Punctuation(Punctuation::COLON_COLON)) {
                     Ok(Some(UseExpr::Parent(ParentUseExpr {
                         parent_name_token: self_mod_token.into(),
-                        scope_resolution_token: Ok(ctx
+                        colon_colon_token: Ok(ctx
                             .try_parse_option()
                             .expect("guaranteed by peek")
                             .expect("guaranteed by peek")),
@@ -322,7 +322,7 @@ impl<'a, 'b> TryParseOptionFromStream<UseExprParser<'a, 'b>> for UseExpr {
             }
             PathNameToken::Super(super_token) => Ok(Some(UseExpr::Parent(ParentUseExpr {
                 parent_name_token: PathNameToken::Super(super_token),
-                scope_resolution_token: ctx
+                colon_colon_token: ctx
                     .try_parse_expected(OriginalUseExprError::ExpectScopeResolution),
                 children: ctx.parse_children(),
             }))),

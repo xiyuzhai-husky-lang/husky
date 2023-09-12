@@ -54,7 +54,7 @@ impl Label {
         })
     }
 
-    pub fn is_valid_binding_label(self) -> bool {
+    pub fn is_valid_place_label(self) -> bool {
         self.kind == LabelKind::AllGreek
     }
 

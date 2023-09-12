@@ -33,8 +33,8 @@ pub enum SynPatternExpr {
     Literal(LiteralData),
     /// example: `a`
     Ident {
-        symbol_modifier_keyword_group: Option<EphemSymbolModifierTokenGroup>,
-        ident_token: RegionalIdentToken,
+        symbol_modifier_keyword_group: Option<EphemSymbolModifierRegionalTokenGroup>,
+        ident_token: IdentRegionalToken,
     },
     /// example: `A::B`
     Entity(ItemPath),
@@ -53,7 +53,7 @@ pub enum SynPatternExpr {
     OneOf { options: SynPatternExprIdxRange },
     /// example: `x @ 1..9`
     Binding {
-        ident_token: RegionalIdentToken,
+        ident_token: IdentRegionalToken,
         asperand_token: AtToken,
         /// example: `1..9`
         src: SynPatternExprIdx,

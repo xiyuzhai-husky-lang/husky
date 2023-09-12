@@ -17,7 +17,7 @@ pub enum MajorItemPathExpr {
     },
     Subitem {
         name_token: PathNameToken,
-        scope_resolution_token: ScopeResolutionToken,
+        colon_colon_token: ColonColonToken,
         subexpr: MajorItemPathExprIdx,
     },
 }
@@ -170,35 +170,34 @@ impl<'a, 'b> MajorItemPathExprParser<'a, 'b> {
         major_path: MajorEntityPath,
         name_token: PathNameToken,
     ) -> MajorItemPathExprResult<(ArenaIdx<MajorItemPathExpr>, MajorItemPath)> {
-        let (expr, module_item_path) = if let Some(scope_resolution_token) =
-            self.try_parse_err_as_none::<ScopeResolutionToken>()
-        {
-            match major_path {
-                MajorEntityPath::Module(parent) => {
-                    let (subexpr, module_item_path) = self.parse_major_path_subexpr(parent)?;
-                    (
-                        MajorItemPathExpr::Subitem {
-                            name_token,
-                            scope_resolution_token,
-                            subexpr,
-                        },
-                        module_item_path,
-                    )
+        let (expr, module_item_path) =
+            if let Some(colon_colon_token) = self.try_parse_err_as_none::<ColonColonToken>() {
+                match major_path {
+                    MajorEntityPath::Module(parent) => {
+                        let (subexpr, module_item_path) = self.parse_major_path_subexpr(parent)?;
+                        (
+                            MajorItemPathExpr::Subitem {
+                                name_token,
+                                colon_colon_token,
+                                subexpr,
+                            },
+                            module_item_path,
+                        )
+                    }
+                    MajorEntityPath::MajorItem(_) => todo!(),
                 }
-                MajorEntityPath::MajorItem(_) => todo!(),
-            }
-        } else {
-            let MajorEntityPath::MajorItem(module_item_path) = major_path else {
-                todo!()
+            } else {
+                let MajorEntityPath::MajorItem(module_item_path) = major_path else {
+                    todo!()
+                };
+                (
+                    MajorItemPathExpr::Root {
+                        name_token,
+                        major_path,
+                    },
+                    module_item_path,
+                )
             };
-            (
-                MajorItemPathExpr::Root {
-                    name_token,
-                    major_path,
-                },
-                module_item_path,
-            )
-        };
         let expr = self.major_path_expr_arena.alloc_one(expr);
         Ok((expr, module_item_path))
     }

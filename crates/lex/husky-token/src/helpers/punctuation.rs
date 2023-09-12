@@ -149,7 +149,7 @@ define_specific_punctuation_token!(AmbersandToken, AMBERSAND, ambersand_works, "
 define_specific_punctuation_token!(TildeToken, TILDE, tilde_token_works, "~");
 
 define_specific_punctuation_token!(
-    ScopeResolutionToken,
+    ColonColonToken,
     COLON_COLON,
     scope_resolution_token_works,
     "::"
@@ -157,13 +157,16 @@ define_specific_punctuation_token!(
 
 define_specific_punctuation_token!(StarToken, STAR, star_token_works, "*");
 
-define_specific_punctuation_token!(CurryToken, LIGHT_ARROW, curry_token_works, "->");
-
 define_specific_punctuation_token!(LightArrowToken, LIGHT_ARROW, light_arrow_token_works, "->");
 
 define_specific_punctuation_token!(HeavyArrowToken, HEAVY_ARROW, heavy_arrow_token_works, "->");
 
-define_specific_punctuation_token!(OwnedToken, DOUBLE_EXCLAMATION, owned_token_works, "!!");
+define_specific_punctuation_token!(
+    DoubleExclamationToken,
+    DOUBLE_EXCLAMATION,
+    double_exclamation_token_works,
+    "!!"
+);
 
 define_specific_punctuation_token!(ColonEqToken, COLON_EQ, colon_eq_token_works, ":=");
 

@@ -2,9 +2,9 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SynIfBranch {
-    pub if_token: IfToken,
+    pub if_token: IfRegionalToken,
     pub condition: SynExprResult<SynExprIdx>,
-    pub eol_colon: SynExprResult<EolToken>,
+    pub eol_colon: SynExprResult<EolRegionalToken>,
     pub stmts: SynExprResult<SynStmtIdxRange>,
 }
 
@@ -13,7 +13,7 @@ impl SynIfBranch {
         self.condition.as_ref().copied()
     }
 
-    pub fn eol_colon_token(&self) -> Result<EolToken, &SynExprError> {
+    pub fn eol_colon_token(&self) -> Result<EolRegionalToken, &SynExprError> {
         self.eol_colon.as_ref().copied()
     }
 
@@ -24,9 +24,9 @@ impl SynIfBranch {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SynElifBranch {
-    pub elif_token: ElifToken,
+    pub elif_token: ElifRegionalToken,
     pub condition: SynExprResult<SynExprIdx>,
-    pub eol_colon: SynExprResult<EolToken>,
+    pub eol_colon: SynExprResult<EolRegionalToken>,
     pub stmts: SynExprResult<SynStmtIdxRange>,
 }
 
@@ -35,7 +35,7 @@ impl SynElifBranch {
         self.condition.as_ref().copied()
     }
 
-    pub fn eol_colon(&self) -> Result<EolToken, &SynExprError> {
+    pub fn eol_colon(&self) -> Result<EolRegionalToken, &SynExprError> {
         self.eol_colon.as_ref().copied()
     }
 
@@ -46,8 +46,8 @@ impl SynElifBranch {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SynElseBranch {
-    pub else_token: ElseToken,
-    pub eol_colon: SynExprResult<EolToken>,
+    pub else_token: ElseRegionalToken,
+    pub eol_colon: SynExprResult<EolRegionalToken>,
     pub stmts: SynExprResult<SynStmtIdxRange>,
 }
 
@@ -58,9 +58,9 @@ impl SynElseBranch {
 }
 
 impl<'a> SynStmtContext<'a> {
-    pub(super) fn parse_if_branch(&mut self, if_branch: AstIdx) -> SynIfBranch {
+    pub(super) fn parse_if_branch(&mut self, if_branch: RegionalAstIdx) -> SynIfBranch {
         match self.ast_sheet()[if_branch] {
-            Ast::BasicStmtOrBranch {
+            RegionalAst::BasicStmtOrBranch {
                 token_group_idx,
                 body,
             } => {
@@ -93,7 +93,7 @@ impl<'a> SynStmtContext<'a> {
 
     fn parse_elif_branch(&mut self, elif_branch: AstIdx) -> SynElifBranch {
         match self.ast_sheet()[elif_branch] {
-            Ast::BasicStmtOrBranch {
+            RegionalAst::BasicStmtOrBranch {
                 token_group_idx,
                 body,
             } => {
@@ -119,7 +119,7 @@ impl<'a> SynStmtContext<'a> {
         else_branch: Option<AstIdx>,
     ) -> Option<SynElseBranch> {
         match self.ast_sheet()[else_branch?] {
-            Ast::BasicStmtOrBranch {
+            RegionalAst::BasicStmtOrBranch {
                 token_group_idx,
                 body,
             } => {

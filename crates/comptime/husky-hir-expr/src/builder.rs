@@ -44,7 +44,7 @@ fn expr_region_contains_gn(db: &dyn HirExprDb, syn_expr_region: SynExprRegion) -
             },
             SynExpr::ScopeResolution {
                 parent_expr_idx,
-                scope_resolution_token,
+                colon_colon_regional_token,
                 ident_token,
             } => todo!(),
             SynExpr::MethodApplicationOrCall {

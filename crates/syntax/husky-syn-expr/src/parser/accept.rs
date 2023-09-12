@@ -20,7 +20,7 @@ where
             DisambiguatedToken::Dot(token_idx) => self.accept_dot_opr(token_idx),
             DisambiguatedToken::Comma(token_idx) => self.accept_comma(token_idx),
             DisambiguatedToken::Be(token_idx) => self.accept_be_pattern(token_idx),
-            DisambiguatedToken::ColonRightAfterLBox(colon_token_idx) => {
+            DisambiguatedToken::ColonRightAfterLbox(colon_token_idx) => {
                 self.accept_colon_right_after_lbox(colon_token_idx)
             }
             DisambiguatedToken::Ritchie(token_idx, ritchie_kind) => {
@@ -146,7 +146,7 @@ where
                             ritchie_kind_token_idx,
                             ritchie_kind,
                             lpar_token,
-                        } => match this.try_parse_option::<RegionalLightArrowToken>() {
+                        } => match this.try_parse_option::<LightArrowRegionalToken>() {
                             Ok(Some(light_arrow_token)) => IncompleteExpr::Ritchie {
                                 ritchie_kind_token_idx,
                                 ritchie_kind,
@@ -255,8 +255,8 @@ where
         self.take_complete_and_push_to_top(|this, finished_expr| match finished_expr {
             Some(self_expr) => {
                 let self_expr = this.context_mut().alloc_expr(self_expr);
-                match this.try_parse_option::<RegionalIdentToken>() {
-                    Ok(Some(ident_token)) => match this.try_parse_option::<RegionalLparToken>() {
+                match this.try_parse_option::<IdentRegionalToken>() {
+                    Ok(Some(ident_token)) => match this.try_parse_option::<LparRegionalToken>() {
                         Ok(Some(lpar)) => IncompleteExpr::CommaList {
                             opr: IncompleteCommaListOpr::MethodApplicationOrCall {
                                 self_expr,
@@ -269,7 +269,7 @@ where
                             items: smallvec![],
                         }
                         .into(),
-                        Ok(None) => match this.try_parse_option::<ColonColonLaToken>() {
+                        Ok(None) => match this.try_parse_option::<ColonColonLaRegionalToken>() {
                             Ok(Some(langle)) => IncompleteExpr::CommaList {
                                 opr: IncompleteCommaListOpr::MethodInstantiation {
                                     self_expr,
@@ -475,7 +475,7 @@ where
                         Ok(arguments) => arguments,
                         Err(e) => return SynExpr::Err(e).into(),
                     };
-                    match parser.try_parse_option::<EmptyHtmlKetToken>() {
+                    match parser.try_parse_option::<EmptyHtmlKetRegionalToken>() {
                         Ok(Some(empty_html_ket)) => SynExpr::EmptyHtmlTag {
                             empty_html_bra_idx: bra_token_idx,
                             function_ident,
@@ -496,7 +496,7 @@ where
         ritchie_kind_token_idx: RegionalTokenIdx,
         ritchie_kind: RitchieKind,
     ) {
-        match self.try_parse_option::<RegionalLparToken>() {
+        match self.try_parse_option::<LparRegionalToken>() {
             Ok(Some(lpar_token)) => self.push_top_expr(
                 IncompleteExpr::CommaList {
                     opr: IncompleteCommaListOpr::RitchieArguments {

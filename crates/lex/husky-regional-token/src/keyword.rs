@@ -11,140 +11,140 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct LetToken {
-    token_idx: TokenIdx,
+pub struct LetRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
-impl LetToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+impl LetRegionalToken {
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct ReturnToken {
-    token_idx: TokenIdx,
+pub struct ReturnRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
-impl ReturnToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+impl ReturnRegionalToken {
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct RequireToken {
-    token_idx: TokenIdx,
+pub struct RequireRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
-impl RequireToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+impl RequireRegionalToken {
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct AssertToken {
-    token_idx: TokenIdx,
+pub struct AssertRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
-impl AssertToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+impl AssertRegionalToken {
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct BreakToken {
-    token_idx: TokenIdx,
+pub struct BreakRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
-impl BreakToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+impl BreakRegionalToken {
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct StmtForToken {
-    token_idx: TokenIdx,
+pub struct StmtForRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
-impl StmtForToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+impl StmtForRegionalToken {
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct ForextToken {
-    token_idx: TokenIdx,
+pub struct ForextRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
-impl ForextToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+impl ForextRegionalToken {
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct WhileToken {
-    token_idx: TokenIdx,
+pub struct WhileRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
-impl WhileToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+impl WhileRegionalToken {
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct DoToken {
-    token_idx: TokenIdx,
+pub struct DoRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
-impl DoToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+impl DoRegionalToken {
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
 #[enum_class::from_variants]
-pub enum BasicStmtKeywordToken {
-    Let(LetToken),
-    Return(ReturnToken),
-    Require(RequireToken),
-    Assert(AssertToken),
-    Break(BreakToken),
-    For(StmtForToken),
-    ForExt(ForextToken),
-    While(WhileToken),
-    Do(DoToken),
+pub enum BasicStmtKeywordRegionalToken {
+    Let(LetRegionalToken),
+    Return(ReturnRegionalToken),
+    Require(RequireRegionalToken),
+    Assert(AssertRegionalToken),
+    Break(BreakRegionalToken),
+    For(StmtForRegionalToken),
+    ForExt(ForextRegionalToken),
+    While(WhileRegionalToken),
+    Do(DoRegionalToken),
 }
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for WhileToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for WhileRegionalToken
 where
-    Context: TokenStreamParser<'a>,
+    Context: RegionalTokenStreamParser<'a>,
 {
     type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenDataResult<Option<Self>> {
-        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+        if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Stmt(StmtKeyword::While)) => {
-                    Ok(Some(WhileToken { token_idx }))
+                    Ok(Some(WhileRegionalToken { regional_token_idx }))
                 }
                 Token::Error(error) => Err(error),
                 Token::Label(_)
@@ -160,27 +160,41 @@ where
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for BasicStmtKeywordToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for BasicStmtKeywordRegionalToken
 where
-    Context: TokenStreamParser<'a>,
+    Context: RegionalTokenStreamParser<'a>,
 {
     type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenDataResult<Option<Self>> {
-        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+        if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Stmt(stmt_keyword)) => match stmt_keyword {
-                    StmtKeyword::Let => Ok(Some(LetToken { token_idx }.into())),
-                    StmtKeyword::Return => Ok(Some(ReturnToken { token_idx }.into())),
-                    StmtKeyword::Require => Ok(Some(RequireToken { token_idx }.into())),
-                    StmtKeyword::Assert => Ok(Some(AssertToken { token_idx }.into())),
-                    StmtKeyword::Break => Ok(Some(BreakToken { token_idx }.into())),
-                    StmtKeyword::NonImplFor => Ok(Some(StmtForToken { token_idx }.into())),
-                    StmtKeyword::ForExt => Ok(Some(ForextToken { token_idx }.into())),
-                    StmtKeyword::While => Ok(Some(WhileToken { token_idx }.into())),
-                    StmtKeyword::Do => Ok(Some(DoToken { token_idx }.into())),
+                    StmtKeyword::Let => Ok(Some(LetRegionalToken { regional_token_idx }.into())),
+                    StmtKeyword::Return => {
+                        Ok(Some(ReturnRegionalToken { regional_token_idx }.into()))
+                    }
+                    StmtKeyword::Require => {
+                        Ok(Some(RequireRegionalToken { regional_token_idx }.into()))
+                    }
+                    StmtKeyword::Assert => {
+                        Ok(Some(AssertRegionalToken { regional_token_idx }.into()))
+                    }
+                    StmtKeyword::Break => {
+                        Ok(Some(BreakRegionalToken { regional_token_idx }.into()))
+                    }
+                    StmtKeyword::NonImplFor => {
+                        Ok(Some(StmtForRegionalToken { regional_token_idx }.into()))
+                    }
+                    StmtKeyword::ForExt => {
+                        Ok(Some(ForextRegionalToken { regional_token_idx }.into()))
+                    }
+                    StmtKeyword::While => {
+                        Ok(Some(WhileRegionalToken { regional_token_idx }.into()))
+                    }
+                    StmtKeyword::Do => Ok(Some(DoRegionalToken { regional_token_idx }.into())),
                     StmtKeyword::If => todo!(),
                     StmtKeyword::Elif => todo!(),
                     StmtKeyword::Else => todo!(),
@@ -202,29 +216,29 @@ where
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct MatchToken {
-    token_idx: TokenIdx,
+pub struct MatchRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
-impl MatchToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+impl MatchRegionalToken {
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for MatchToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for MatchRegionalToken
 where
-    Context: TokenStreamParser<'a>,
+    Context: RegionalTokenStreamParser<'a>,
 {
     type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenDataResult<Option<Self>> {
-        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+        if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Stmt(StmtKeyword::Match)) => {
-                    Ok(Some(MatchToken { token_idx }))
+                    Ok(Some(MatchRegionalToken { regional_token_idx }))
                 }
                 _ => Ok(None),
             }
@@ -236,67 +250,29 @@ where
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct IfToken {
-    token_idx: TokenIdx,
+pub struct IfRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
-impl IfToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+impl IfRegionalToken {
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for IfToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for IfRegionalToken
 where
-    Context: TokenStreamParser<'a>,
+    Context: RegionalTokenStreamParser<'a>,
 {
     type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenDataResult<Option<Self>> {
-        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+        if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Stmt(StmtKeyword::If)) => Ok(Some(IfToken { token_idx })),
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
-            }
-        } else {
-            Ok(None)
-        }
-    }
-}
-
-#[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
-pub struct ElifToken {
-    token_idx: TokenIdx,
-}
-
-impl ElifToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
-    }
-}
-
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for ElifToken
-where
-    Context: TokenStreamParser<'a>,
-{
-    type Error = TokenDataError;
-
-    fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> TokenDataResult<Option<Self>> {
-        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
-            match token {
-                Token::Keyword(Keyword::Stmt(StmtKeyword::Elif)) => {
-                    Ok(Some(ElifToken { token_idx }))
+                Token::Keyword(Keyword::Stmt(StmtKeyword::If)) => {
+                    Ok(Some(IfRegionalToken { regional_token_idx }))
                 }
                 Token::Error(error) => Err(error),
                 Token::Label(_)
@@ -314,29 +290,69 @@ where
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct ElseToken {
-    token_idx: TokenIdx,
+pub struct ElifRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
-impl ElseToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+impl ElifRegionalToken {
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for ElseToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for ElifRegionalToken
 where
-    Context: TokenStreamParser<'a>,
+    Context: RegionalTokenStreamParser<'a>,
 {
     type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenDataResult<Option<Self>> {
-        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+        if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
+            match token {
+                Token::Keyword(Keyword::Stmt(StmtKeyword::Elif)) => {
+                    Ok(Some(ElifRegionalToken { regional_token_idx }))
+                }
+                Token::Error(error) => Err(error),
+                Token::Label(_)
+                | Token::Punctuation(_)
+                | Token::Ident(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+#[derive(Debug, PartialEq, Eq)]
+#[salsa::debug_with_db(db = TokenDb)]
+pub struct ElseRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
+}
+
+impl ElseRegionalToken {
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
+    }
+}
+
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for ElseRegionalToken
+where
+    Context: RegionalTokenStreamParser<'a>,
+{
+    type Error = TokenDataError;
+
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenDataResult<Option<Self>> {
+        if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Stmt(StmtKeyword::Else)) => {
-                    Ok(Some(ElseToken { token_idx }))
+                    Ok(Some(ElseRegionalToken { regional_token_idx }))
                 }
                 Token::Error(error) => Err(error),
                 Token::Label(_)
@@ -356,28 +372,28 @@ where
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct ImplToken {
-    token_idx: TokenIdx,
+pub struct ImplRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
-impl ImplToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+impl ImplRegionalToken {
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for ImplToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for ImplRegionalToken
 where
-    Context: TokenStreamParser<'a>,
+    Context: RegionalTokenStreamParser<'a>,
 {
     type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenDataResult<Option<Self>> {
-        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+        if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Impl) => Ok(Some(ImplToken { token_idx })),
+                Token::Keyword(Keyword::Impl) => Ok(Some(ImplRegionalToken { regional_token_idx })),
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)
@@ -396,28 +412,28 @@ where
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct PubToken {
-    token_idx: TokenIdx,
+pub struct PubRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
-impl PubToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+impl PubRegionalToken {
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for PubToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for PubRegionalToken
 where
-    Context: TokenStreamParser<'a>,
+    Context: RegionalTokenStreamParser<'a>,
 {
     type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenDataResult<Option<Self>> {
-        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+        if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Pub) => Ok(Some(PubToken { token_idx })),
+                Token::Keyword(Keyword::Pub) => Ok(Some(PubRegionalToken { regional_token_idx })),
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)
@@ -436,28 +452,28 @@ where
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct UseToken {
-    token_idx: TokenIdx,
+pub struct UseRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
-impl UseToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+impl UseRegionalToken {
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for UseToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for UseRegionalToken
 where
-    Context: TokenStreamParser<'a>,
+    Context: RegionalTokenStreamParser<'a>,
 {
     type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenDataResult<Option<Self>> {
-        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+        if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Use) => Ok(Some(UseToken { token_idx })),
+                Token::Keyword(Keyword::Use) => Ok(Some(UseRegionalToken { regional_token_idx })),
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)
@@ -474,7 +490,7 @@ where
 
 #[test]
 fn use_token_works() {
-    fn t(db: &DB, input: &str) -> TokenDataResult<Option<UseToken>> {
+    fn t(db: &DB, input: &str) -> TokenDataResult<Option<UseRegionalToken>> {
         quick_parse(db, input)
     }
 
@@ -491,29 +507,29 @@ fn use_token_works() {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct SelfValueToken {
-    token_idx: TokenIdx,
+pub struct SelfValueRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
-impl SelfValueToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+impl SelfValueRegionalToken {
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for SelfValueToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for SelfValueRegionalToken
 where
-    Context: TokenStreamParser<'a>,
+    Context: RegionalTokenStreamParser<'a>,
 {
     type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenDataResult<Option<Self>> {
-        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+        if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Pronoun(PronounKeyword::SelfValue)) => {
-                    Ok(Some(SelfValueToken { token_idx }))
+                    Ok(Some(SelfValueRegionalToken { regional_token_idx }))
                 }
                 Token::Error(error) => Err(error),
                 Token::Label(_)
@@ -531,7 +547,7 @@ where
 
 #[test]
 fn self_value_token_works() {
-    fn t(db: &DB, input: &str) -> TokenDataResult<Option<SelfValueToken>> {
+    fn t(db: &DB, input: &str) -> TokenDataResult<Option<SelfValueRegionalToken>> {
         quick_parse(db, input)
     }
 
@@ -547,29 +563,29 @@ fn self_value_token_works() {
 /// `Self` self type token
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct SelfTypeToken {
-    token_idx: TokenIdx,
+pub struct SelfTypeRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
-impl SelfTypeToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+impl SelfTypeRegionalToken {
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for SelfTypeToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for SelfTypeRegionalToken
 where
-    Context: TokenStreamParser<'a>,
+    Context: RegionalTokenStreamParser<'a>,
 {
     type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenDataResult<Option<Self>> {
-        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+        if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Pronoun(PronounKeyword::SelfType)) => {
-                    Ok(Some(SelfTypeToken { token_idx }))
+                    Ok(Some(SelfTypeRegionalToken { regional_token_idx }))
                 }
                 Token::Error(error) => Err(error),
                 Token::Label(_)
@@ -587,7 +603,7 @@ where
 
 #[test]
 fn self_type_token_works() {
-    fn t(db: &DB, input: &str) -> TokenDataResult<Option<SelfTypeToken>> {
+    fn t(db: &DB, input: &str) -> TokenDataResult<Option<SelfTypeRegionalToken>> {
         quick_parse(db, input)
     }
 
@@ -603,41 +619,41 @@ fn self_type_token_works() {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
 #[enum_class::from_variants]
-pub enum VarianceToken {
-    Covariant(CovariantToken),
-    Contravariant(ContravariantToken),
-    Invariant(InvariantToken),
+pub enum VarianceRegionalToken {
+    Covariant(CovariantRegionalToken),
+    Contravariant(ContravariantRegionalToken),
+    Invariant(InvariantRegionalToken),
 }
 
-impl Into<Variance> for VarianceToken {
+impl Into<Variance> for VarianceRegionalToken {
     fn into(self) -> Variance {
         match self {
-            VarianceToken::Covariant(_) => Variance::Covariant,
-            VarianceToken::Contravariant(_) => Variance::Contravariant,
-            VarianceToken::Invariant(_) => Variance::Invariant,
+            VarianceRegionalToken::Covariant(_) => Variance::Covariant,
+            VarianceRegionalToken::Contravariant(_) => Variance::Contravariant,
+            VarianceRegionalToken::Invariant(_) => Variance::Invariant,
         }
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for VarianceToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for VarianceRegionalToken
 where
-    Context: TokenStreamParser<'a>,
+    Context: RegionalTokenStreamParser<'a>,
 {
     type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenDataResult<Option<Self>> {
-        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+        if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Modifier(ModifierKeyword::Covariant)) => {
-                    Ok(Some(CovariantToken { token_idx }.into()))
+                    Ok(Some(CovariantRegionalToken { regional_token_idx }.into()))
                 }
-                Token::Keyword(Keyword::Modifier(ModifierKeyword::Contravariant)) => {
-                    Ok(Some(ContravariantToken { token_idx }.into()))
-                }
+                Token::Keyword(Keyword::Modifier(ModifierKeyword::Contravariant)) => Ok(Some(
+                    ContravariantRegionalToken { regional_token_idx }.into(),
+                )),
                 Token::Keyword(Keyword::Modifier(ModifierKeyword::Invariant)) => {
-                    Ok(Some(InvariantToken { token_idx }.into()))
+                    Ok(Some(InvariantRegionalToken { regional_token_idx }.into()))
                 }
                 Token::Error(error) => Err(error),
                 Token::Label(_)
@@ -655,7 +671,7 @@ where
 
 #[test]
 fn variance_token_works() {
-    fn t(db: &DB, input: &str) -> TokenDataResult<Option<VarianceToken>> {
+    fn t(db: &DB, input: &str) -> TokenDataResult<Option<VarianceRegionalToken>> {
         quick_parse(db, input)
     }
 
@@ -674,46 +690,46 @@ fn variance_token_works() {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct CovariantToken {
-    token_idx: TokenIdx,
+pub struct CovariantRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
-impl CovariantToken {
-    pub fn token_idx(self) -> TokenIdx {
-        self.token_idx
+impl CovariantRegionalToken {
+    pub fn regional_token_idx(self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct ContravariantToken {
-    token_idx: TokenIdx,
+pub struct ContravariantRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
-impl ContravariantToken {
-    pub fn token_idx(self) -> TokenIdx {
-        self.token_idx
+impl ContravariantRegionalToken {
+    pub fn regional_token_idx(self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct InvariantToken {
-    token_idx: TokenIdx,
+pub struct InvariantRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
-impl InvariantToken {
-    pub fn token_idx(self) -> TokenIdx {
-        self.token_idx
+impl InvariantRegionalToken {
+    pub fn regional_token_idx(self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct RegionalConnectionForToken {
-    token_idx: RegionalTokenIdx,
+pub struct ConnectionForRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for RegionalConnectionForToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for ConnectionForRegionalToken
 where
     Context: RegionalTokenStreamParser<'a>,
 {
@@ -722,10 +738,10 @@ where
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenDataResult<Option<Self>> {
-        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+        if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Connection(ConnectionKeyword::For)) => {
-                    Ok(Some(RegionalConnectionForToken { token_idx }))
+                    Ok(Some(ConnectionForRegionalToken { regional_token_idx }))
                 }
                 Token::Error(error) => Err(error),
                 Token::Label(_)

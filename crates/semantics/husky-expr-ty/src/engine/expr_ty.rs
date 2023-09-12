@@ -108,7 +108,7 @@ impl<'a> ExprTypeEngine<'a> {
             } => self.calc_principal_item_path_expr_ty(path, expr_ty_expectation),
             SynExpr::ScopeResolution {
                 parent_expr_idx,
-                scope_resolution_token,
+                colon_colon_regional_token,
                 ident_token,
             } => self.calc_scope_resolution_ty(expr_idx, parent_expr_idx, ident_token),
             SynExpr::InheritedSymbol {
@@ -396,8 +396,12 @@ impl<'a> ExprTypeEngine<'a> {
                     Ok(self.term_menu.ty0().into()),
                 ))
             }
-            SynExpr::Sorry { token_idx } => todo!(),
-            SynExpr::Todo { token_idx } => Ok((
+            SynExpr::Sorry {
+                regional_token_idx: token_idx,
+            } => todo!(),
+            SynExpr::Todo {
+                regional_token_idx: token_idx,
+            } => Ok((
                 SynExprDisambiguation::Trivial,
                 Ok(self.term_menu.never().into()),
             )),

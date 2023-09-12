@@ -11,7 +11,7 @@ pub enum ModulePathExpr {
     },
     Parent {
         ident: IdentToken,
-        scope_resolution_token: ScopeResolutionToken,
+        colon_colon_token: ScopeResolutionToken,
         child: ModulePathExprIdx,
     },
 }

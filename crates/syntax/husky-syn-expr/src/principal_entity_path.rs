@@ -12,13 +12,13 @@ use thiserror::Error;
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum PrincipalEntityPathExpr {
     Root {
-        path_name_token: RegionalPathNameToken,
+        path_name_token: PathNameRegionalToken,
         principal_entity_path: PrincipalEntityPath,
     },
     Subitem {
         parent: PrincipalEntityPathExprIdx,
-        scope_resolution_token: RegionalScopeResolutionToken,
-        ident_token: PrincipalEntityPathExprResult<RegionalIdentToken>,
+        colon_colon_token: ScopeResolutionRegionalToken,
+        ident_token: PrincipalEntityPathExprResult<IdentRegionalToken>,
         path: PrincipalEntityPathExprResult<PrincipalEntityPath>,
     },
 }
@@ -33,7 +33,7 @@ where
 {
     pub(crate) fn parse_principal_item_path_expr(
         &mut self,
-        path_name_token: RegionalPathNameToken,
+        path_name_token: PathNameRegionalToken,
         principal_item_path: PrincipalEntityPath,
     ) -> SynExpr {
         let root = self
@@ -43,8 +43,8 @@ where
                 principal_entity_path: principal_item_path,
             });
         if let Some(major_path) = principal_item_path.major()
-           && let Some(scope_resolution_token)= self.try_parse_err_as_none::<ScopeResolutionToken>() {
-            self.parse_subitem_path_expr(root, major_path, scope_resolution_token)
+           && let Some(colon_colon_token)= self.try_parse_err_as_none::<ColonColonRegionalToken>() {
+            self.parse_subitem_path_expr(root, major_path, colon_colon_token)
         } else{
             SynExpr::PrincipalEntityPath {
                 item_path_expr: root,
@@ -57,9 +57,9 @@ where
         &mut self,
         parent: PrincipalEntityPathExprIdx,
         parent_path: MajorEntityPath,
-        scope_resolution_token: ScopeResolutionToken,
+        colon_colon_token: ColonColonRegionalToken,
     ) -> SynExpr {
-        let ident_token: PrincipalEntityPathExprResult<RegionalIdentToken> = self
+        let ident_token: PrincipalEntityPathExprResult<IdentRegionalToken> = self
             .try_parse_expected(
                 OriginalPrincipalEntityPathExprError::ExpectIdentAfterScopeResolution,
             );
@@ -77,7 +77,7 @@ where
                                         opt_path: Some(parent_path.into()),
                                     },
                                 ),
-                                scope_resolution_token,
+                                colon_colon_regional_token,
                                 ident_token,
                             }
                         }
@@ -94,14 +94,14 @@ where
         let opt_path = path.as_ref().ok().copied();
         let expr = PrincipalEntityPathExpr::Subitem {
             parent,
-            scope_resolution_token,
+            colon_colon_token,
             ident_token,
             path,
         };
         let expr = self.context_mut().alloc_item_path_expr(expr);
         if let Some(path) = opt_path && let Some(major_path) = path.major()
-            && let Some(scope_resolution_token) = self.try_parse_err_as_none::<ScopeResolutionToken>() {
-            self.parse_subitem_path_expr(expr, major_path, scope_resolution_token)
+            && let Some(colon_colon_token) = self.try_parse_err_as_none::<ScopeResolutionToken>() {
+            self.parse_subitem_path_expr(expr, major_path, colon_colon_token)
         } else {
             SynExpr::PrincipalEntityPath {
                 item_path_expr: expr,

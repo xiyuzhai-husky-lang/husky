@@ -125,8 +125,8 @@ impl<'a> SynStmtContext<'a> {
     fn parse_stmt(
         &mut self,
         ast: &Ast,
-        ast_token_idx_range: TokenIdxRange,
-        block_end: TokenIdxRangeEnd,
+        ast_token_idx_range: RegionalTokenIdxRange,
+        block_end: RegionalTokenIdxRangeEnd,
     ) -> Option<SynStmt> {
         match ast {
             Ast::BasicStmtOrBranch {
@@ -287,7 +287,7 @@ impl<'a> SynStmtContext<'a> {
         }
     }
 
-    fn fugitive_body_end(&self, body: FugitiveBody) -> TokenIdxRangeEnd {
+    fn fugitive_body_end(&self, body: FugitiveBody) -> RegionalTokenIdxRangeEnd {
         self.ast_token_idx_range_sheet()[body.ast_idx_range().end() - 1].end()
     }
 }

@@ -7,14 +7,14 @@ use super::*;
 pub struct LetVariableObelisk {
     pattern_expr_idx: SynPatternExprIdx,
     variables: CurrentSynSymbolIdxRange,
-    colon_token: SynExprResult<Option<RegionalColonToken>>,
+    colon_token: SynExprResult<Option<ColonRegionalToken>>,
     ty: Option<SynExprIdx>,
 }
 
 impl<'a, 'b> SynDefnExprParser<'a, 'b> {
     pub(crate) fn parse_let_variables_pattern_expected(
         &mut self,
-        access_end: TokenIdxRangeEnd,
+        access_end: RegionalTokenIdxRangeEnd,
     ) -> SynExprResult<LetVariableObelisk> {
         let state = self.save_state();
         let Some(pattern) = self.parse_pattern_expr(SynPatternExprInfo::Let)? else {
@@ -37,7 +37,7 @@ impl<'a, 'b> SynDefnExprParser<'a, 'b> {
             })
             .collect::<Vec<_>>();
         let colon_token = self
-            .try_parse_option::<RegionalColonToken>()
+            .try_parse_option::<ColonRegionalToken>()
             .map_err(|e| e.into());
         let ty = match colon_token {
             Ok(Some(_)) => Some(self.parse_expr_expected2(

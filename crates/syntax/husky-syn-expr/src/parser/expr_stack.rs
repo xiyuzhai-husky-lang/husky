@@ -61,7 +61,7 @@ impl SynExpr {
             },
             SynExpr::ScopeResolution {
                 parent_expr_idx,
-                scope_resolution_token,
+                colon_colon_regional_token,
                 ident_token,
             } => todo!(),
             SynExpr::InheritedSymbol { .. } | SynExpr::CurrentSymbol { .. } => BaseEntityPath::None,
@@ -81,7 +81,7 @@ impl SynExpr {
                     } => todo!(),
                     SynExpr::ScopeResolution {
                         parent_expr_idx,
-                        scope_resolution_token,
+                        colon_colon_regional_token,
                         ident_token,
                     } => todo!(),
                     SynExpr::InheritedSymbol {
@@ -208,8 +208,12 @@ impl SynExpr {
                         arguments,
                         empty_html_ket,
                     } => todo!(),
-                    SynExpr::Sorry { token_idx } => todo!(),
-                    SynExpr::Todo { token_idx } => todo!(),
+                    SynExpr::Sorry {
+                        regional_token_idx: token_idx,
+                    } => todo!(),
+                    SynExpr::Todo {
+                        regional_token_idx: token_idx,
+                    } => todo!(),
                     SynExpr::Err(e) => {
                         p!(e.debug(db));
                         todo!()
@@ -278,8 +282,12 @@ impl SynExpr {
             SynExpr::EmptyHtmlTag { .. } => BaseEntityPath::Err,
             SynExpr::FunctionCall { .. } => todo!(),
             SynExpr::Ritchie { .. } => todo!(),
-            SynExpr::Sorry { token_idx } => todo!(),
-            SynExpr::Todo { token_idx } => todo!(),
+            SynExpr::Sorry {
+                regional_token_idx: token_idx,
+            } => todo!(),
+            SynExpr::Todo {
+                regional_token_idx: token_idx,
+            } => todo!(),
         }
     }
 }

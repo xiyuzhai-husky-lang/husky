@@ -227,7 +227,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                         },
                         UseExpr::Parent(ParentUseExpr {
                             parent_name_token,
-                            scope_resolution_token: _,
+                            colon_colon_token: _,
                             children: Ok(children),
                         }) => match path.major() {
                             Some(path) => {

@@ -9,6 +9,7 @@ pub use self::defn::*;
 pub use self::snippet::*;
 
 use crate::*;
+use husky_regional_token::*;
 use husky_token::{TokenIdx, TokenSheet};
 
 #[enum_class::from_variants]

@@ -1,41 +1,16 @@
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum RegionalEntityKindKeywordGroup {
-    // todo: remove mod
-    Mod(RegionalModToken),
-    // `fn`
-    Fn(RegionalFormFnToken),
-    // `const fn`
-    ConstFn(RegionalConstToken, RegionalFormFnToken),
-    // `static fn`
-    StaticFn(RegionalStaticToken, RegionalFormFnToken),
-    // `static const fn`
-    StaticConstFn(RegionalStaticToken, RegionalConstToken, RegionalFormFnToken),
-    // `val`
-    Val(RegionalValToken),
-    // `gn`
-    Gn(RegionalGnToken),
-    //
-    GeneralDef(RegionalGeneralDefToken),
-    // Type
-    TypeEntity(RegionalTypeEntityToken),
-    // Type
-    Type(RegionalTypeToken),
-    Trait(RegionalTraitToken),
+pub struct FormFnRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct RegionalFormFnToken {
-    token_idx: TokenIdx,
+pub struct ConstRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct RegionalConstToken {
-    token_idx: TokenIdx,
-}
-
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for RegionalConstToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for ConstRegionalToken
 where
     Context: RegionalTokenStreamParser<'a>,
 {
@@ -44,12 +19,12 @@ where
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenDataResult<Option<Self>> {
-        let token_stream: &mut TokenStream<'a> = &mut ctx.borrow_mut();
-        let Some((token_idx, token)) = token_stream.next_indexed() else {
+        let token_stream: &mut RegionalTokenStream<'a> = &mut ctx.borrow_mut();
+        let Some((regional_token_idx, token)) = token_stream.next_indexed() else {
             return Ok(None);
         };
         match token {
-            Token::Keyword(Keyword::Const) => Ok(Some(RegionalConstToken { token_idx })),
+            Token::Keyword(Keyword::Const) => Ok(Some(ConstRegionalToken { regional_token_idx })),
             Token::Error(error) => Err(error)?,
             _ => Ok(None),
         }
@@ -58,7 +33,7 @@ where
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct StaticToken {
-    token_idx: TokenIdx,
+    regional_token_idx: RegionalTokenIdx,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -71,27 +46,28 @@ pub enum GeneralDefToken {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct DefToken {
-    token_idx: TokenIdx,
+    regional_token_idx: RegionalTokenIdx,
 }
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct LemmaToken {
-    token_idx: TokenIdx,
+    regional_token_idx: RegionalTokenIdx,
 }
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct TheoremToken {
-    token_idx: TokenIdx,
+    regional_token_idx: RegionalTokenIdx,
 }
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct FunctionToken {
-    token_idx: TokenIdx,
+pub struct FunctionRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct TypeEntityToken {
+pub struct TypeEntityRegionalToken {
     keyword: TypeEntityKeyword,
-    token_idx: TokenIdx,
+    regional_token_idx: RegionalTokenIdx,
 }
-impl TypeEntityToken {
+
+impl TypeEntityRegionalToken {
     pub fn type_kind(self) -> TypeKind {
         // MOM
         match self.keyword {
@@ -108,111 +84,43 @@ impl TypeEntityToken {
         self.keyword
     }
 
-    pub fn token_idx(self) -> TokenIdx {
-        self.token_idx
+    pub fn regional_token_idx(self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct TypeToken {
-    token_idx: TokenIdx,
+pub struct RegionalTypeToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct TraitToken {
-    token_idx: TokenIdx,
+pub struct TraitRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct MemoToken {
-    token_idx: TokenIdx,
+pub struct MemoRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct ValToken {
-    token_idx: TokenIdx,
+pub struct ValRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
-impl ValToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+impl ValRegionalToken {
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct ModToken {
-    token_idx: TokenIdx,
+pub struct ModRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct GnToken {
-    token_idx: TokenIdx,
-}
-
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for EntityKindKeywordGroup
-where
-    Context: TokenStreamParser<'a>,
-{
-    type Error = TokenDataError;
-
-    fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> TokenDataResult<Option<Self>> {
-        let token_stream: &mut TokenStream<'a> = &mut ctx.borrow_mut();
-        let Some((token_idx, token)) = token_stream.next_indexed() else {
-            return Ok(None);
-        };
-        let kw = match token {
-            Token::Keyword(kw) => kw,
-            Token::Error(error) => Err(error)?,
-            _ => return Ok(None),
-        };
-        match kw {
-            Keyword::Fugitive(kw) => match kw {
-                FugitiveKeyword::Def => todo!(),
-                FugitiveKeyword::Fn => {
-                    Ok(Some(EntityKindKeywordGroup::Fn(FormFnToken { token_idx })))
-                }
-                FugitiveKeyword::Theorem => Ok(Some(EntityKindKeywordGroup::GeneralDef(
-                    GeneralDefToken::Theorem(TheoremToken { token_idx }),
-                ))),
-                FugitiveKeyword::Lemma => todo!(),
-                FugitiveKeyword::Proposition => todo!(),
-                FugitiveKeyword::Type => {
-                    Ok(Some(EntityKindKeywordGroup::Type(TypeToken { token_idx })))
-                }
-                FugitiveKeyword::Val => {
-                    Ok(Some(EntityKindKeywordGroup::Val(ValToken { token_idx })))
-                }
-                FugitiveKeyword::Gn => Ok(Some(EntityKindKeywordGroup::Gn(GnToken { token_idx }))),
-                FugitiveKeyword::Constexpr => todo!(),
-            },
-            Keyword::TypeEntity(keyword) => {
-                Ok(Some(EntityKindKeywordGroup::TypeEntity(TypeEntityToken {
-                    keyword,
-                    token_idx,
-                })))
-            }
-            Keyword::Stmt(_) => todo!(),
-            Keyword::Mod => Ok(Some(EntityKindKeywordGroup::Mod(ModToken { token_idx }))),
-            Keyword::Trait => Ok(Some(EntityKindKeywordGroup::Trait(TraitToken {
-                token_idx,
-            }))),
-            Keyword::Const => todo!(),
-            Keyword::Static => match token_stream.peek() {
-                Some(Token::Keyword(Keyword::Fugitive(FugitiveKeyword::Fn))) => {
-                    token_stream.next();
-                    Ok(Some(EntityKindKeywordGroup::StaticFn(
-                        StaticToken { token_idx },
-                        FormFnToken {
-                            token_idx: token_idx + 1,
-                        },
-                    )))
-                }
-                Some(Token::Keyword(Keyword::Const)) => todo!(),
-                _ => Ok(None),
-            },
-            _ => Ok(None),
-        }
-    }
+pub struct RegionalGnRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
 }

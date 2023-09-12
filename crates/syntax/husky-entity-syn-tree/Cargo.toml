@@ -26,6 +26,8 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 husky-text = { path = "../../lex/husky-text" }
 husky-token-data = { path = "../../lex/husky-token-data" }
 husky-token = { path = "../../lex/husky-token" }
+# todo: make this optional and add feature tokra
+husky-regional-token = { path = "../../lex/husky-regional-token" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }

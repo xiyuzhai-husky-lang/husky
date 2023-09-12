@@ -7,8 +7,8 @@ use parsec::{HasStreamState, TryParseOptionFromStream};
 pub enum VariadicVariant {
     Default,
     Vec {
-        lbox_token: RegionalLBoxToken,
-        rbox_token: RegionalRBoxToken,
+        lbox_token: LboxRegionalToken,
+        rbox_token: RboxRegionalToken,
     },
 }
 
@@ -16,8 +16,8 @@ impl<'a, 'b> TryParseFromStream<SynDeclExprParser<'a>> for VariadicVariant {
     type Error = SynExprError;
 
     fn try_parse_from_stream(sp: &mut SynDeclExprParser<'a>) -> Result<Self, Self::Error> {
-        if let Some(lbox_token) = sp.try_parse_option::<RegionalLBoxToken>()? {
-            if let Some(rbox_token) = sp.try_parse_option::<RegionalRBoxToken>()? {
+        if let Some(lbox_token) = sp.try_parse_option::<LboxRegionalToken>()? {
+            if let Some(rbox_token) = sp.try_parse_option::<RboxRegionalToken>()? {
                 Ok(VariadicVariant::Vec {
                     lbox_token,
                     rbox_token,
@@ -37,28 +37,28 @@ pub enum SpecificParameterObelisk {
     Regular {
         pattern: SynPatternExprIdx,
         variables: CurrentSynSymbolIdxRange,
-        colon: RegionalColonToken,
+        colon: ColonRegionalToken,
         ty: SynExprIdx,
     },
     Variadic {
-        dot_dot_dot_token: DotDotDotToken,
+        dot_dot_dot_token: DotDotDotRegionalToken,
         variadic_variant: VariadicVariant,
-        symbol_modifier_keyword_group: Option<EphemSymbolModifierTokenGroup>,
-        ident_token: RegionalIdentToken,
+        symbol_modifier_keyword_group: Option<EphemSymbolModifierRegionalTokenGroup>,
+        ident_token: IdentRegionalToken,
         variable: CurrentSynSymbolIdx,
-        colon: RegionalColonToken,
+        colon: ColonRegionalToken,
         ty: SynExprIdx,
     },
     Keyed {
         pattern: SynPatternExprIdx,
-        symbol_modifier_keyword_group: Option<EphemSymbolModifierTokenGroup>,
-        ident_token: RegionalIdentToken,
+        symbol_modifier_keyword_group: Option<EphemSymbolModifierRegionalTokenGroup>,
+        ident_token: IdentRegionalToken,
         variable: CurrentSynSymbolIdx,
-        colon: RegionalColonToken,
+        colon: ColonRegionalToken,
         ty: SynExprIdx,
         eq_token: RegionalEqToken,
         // todo: change this to custom enum
-        default: Either<UnderscoreToken, SynExprIdx>,
+        default: Either<UnderscoreRegionalToken, SynExprIdx>,
     },
 }
 
@@ -109,7 +109,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
                     todo!()
                 };
                 // todo: KeyedWithoutDefault
-                let default = if let Some(_) = ctx.try_parse_option::<UnderscoreToken>()? {
+                let default = if let Some(_) = ctx.try_parse_option::<UnderscoreRegionalToken>()? {
                     todo!()
                 } else {
                     Right(ctx.parse_expr_expected2(
@@ -136,13 +136,13 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
                     ty: ty_expr_idx,
                 }))
             }
-        } else if let Some(dot_dot_dot_token) = ctx.try_parse_option::<DotDotDotToken>()? {
+        } else if let Some(dot_dot_dot_token) = ctx.try_parse_option::<DotDotDotRegionalToken>()? {
             let access_start = ctx.save_state().next_token_idx();
             let variadic_variant = ctx.try_parse()?;
             let symbol_modifier_keyword_group =
-                ctx.try_parse_option::<EphemSymbolModifierTokenGroup>()?;
+                ctx.try_parse_option::<EphemSymbolModifierRegionalTokenGroup>()?;
             let ident_token = ctx
-                .try_parse_expected::<RegionalIdentToken, _>(OriginalSynExprError::ExpectedIdent)?;
+                .try_parse_expected::<IdentRegionalToken, _>(OriginalSynExprError::ExpectedIdent)?;
             let variable = CurrentSynSymbol::new(
                 ctx.pattern_expr_region(),
                 access_start,

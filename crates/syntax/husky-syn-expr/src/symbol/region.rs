@@ -57,7 +57,7 @@ pub enum ObeliskTypeConstraint {
         ty: SynExprIdx,
     },
     FieldVariable {
-        ident_token: RegionalIdentToken,
+        ident_token: IdentRegionalToken,
         ty_expr_idx: SynExprIdx,
     },
     FrameVariable,
