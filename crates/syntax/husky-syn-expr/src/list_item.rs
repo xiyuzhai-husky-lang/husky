@@ -3,14 +3,17 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SynCommaListItem {
     expr_idx: SynExprIdx,
-    comma_token_idx: Option<RegionalTokenIdx>,
+    comma_regional_token_idx: Option<RegionalTokenIdx>,
 }
 
 impl SynCommaListItem {
-    pub(crate) fn new(expr_idx: SynExprIdx, comma_token_idx: Option<RegionalTokenIdx>) -> Self {
+    pub(crate) fn new(
+        expr_idx: SynExprIdx,
+        comma_regional_token_idx: Option<RegionalTokenIdx>,
+    ) -> Self {
         Self {
             expr_idx,
-            comma_token_idx,
+            comma_regional_token_idx,
         }
     }
 
@@ -18,8 +21,8 @@ impl SynCommaListItem {
         self.expr_idx
     }
 
-    pub fn comma_token_idx(self) -> Option<RegionalTokenIdx> {
-        self.comma_token_idx
+    pub fn comma_regional_token_idx(self) -> Option<RegionalTokenIdx> {
+        self.comma_regional_token_idx
     }
 }
 
@@ -34,8 +37,10 @@ impl From<SynCommaListItem> for CallListItem {
     fn from(item: SynCommaListItem) -> Self {
         CallListItem::RegularOrVariadic(RegularOrVariadicCallListItem {
             argument_expr_idx: item.expr_idx,
-            separator: match item.comma_token_idx {
-                Some(comma_token_idx) => CallListSeparator::Comma(comma_token_idx),
+            separator: match item.comma_regional_token_idx {
+                Some(comma_regional_token_idx) => {
+                    CallListSeparator::Comma(comma_regional_token_idx)
+                }
                 None => CallListSeparator::None,
             },
         })
@@ -46,7 +51,9 @@ impl CallListItem {
     pub fn new_regular(argument_expr_idx: SynExprIdx, comma: Option<RegionalTokenIdx>) -> Self {
         CallListItem::RegularOrVariadic(RegularOrVariadicCallListItem {
             separator: match comma {
-                Some(comma_token_idx) => CallListSeparator::Comma(comma_token_idx),
+                Some(comma_regional_token_idx) => {
+                    CallListSeparator::Comma(comma_regional_token_idx)
+                }
                 None => CallListSeparator::None,
             },
             argument_expr_idx,
@@ -125,7 +132,7 @@ impl RegularOrVariadicCallListItem {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct KeyedCallListItem {
-    key_token_idx: RegionalTokenIdx,
+    key_regional_token_idx: RegionalTokenIdx,
     key: Ident,
     argument_expr_idx: SynExprIdx,
     separator: CallListSeparator,
@@ -133,21 +140,21 @@ pub struct KeyedCallListItem {
 
 impl KeyedCallListItem {
     pub(crate) fn new(
-        key_token_idx: RegionalTokenIdx,
+        key_regional_token_idx: RegionalTokenIdx,
         key: Ident,
         argument_expr_idx: SynExprIdx,
         separator: CallListSeparator,
     ) -> Self {
         Self {
-            key_token_idx,
+            key_regional_token_idx,
             key,
             argument_expr_idx,
             separator,
         }
     }
 
-    pub fn key_token_idx(&self) -> RegionalTokenIdx {
-        self.key_token_idx
+    pub fn key_regional_token_idx(&self) -> RegionalTokenIdx {
+        self.key_regional_token_idx
     }
 
     pub fn key(&self) -> Ident {

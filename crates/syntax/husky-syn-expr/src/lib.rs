@@ -97,18 +97,18 @@ pub enum SynExpr {
     },
     InheritedSymbol {
         ident: Ident,
-        token_idx: RegionalTokenIdx,
+        regional_token_idx: RegionalTokenIdx,
         inherited_symbol_idx: InheritedSynSymbolIdx,
         inherited_symbol_kind: InheritedSynSymbolKind,
     },
     CurrentSymbol {
         ident: Ident,
-        token_idx: RegionalTokenIdx,
+        regional_token_idx: RegionalTokenIdx,
         current_symbol_idx: CurrentSynSymbolIdx,
         current_symbol_kind: CurrentSynSymbolKind,
     },
     FrameVarDecl {
-        token_idx: RegionalTokenIdx,
+        regional_token_idx: RegionalTokenIdx,
         ident: Ident,
         frame_var_symbol_idx: CurrentSynSymbolIdx,
         current_symbol_kind: CurrentSynSymbolKind,
@@ -118,23 +118,23 @@ pub enum SynExpr {
     Binary {
         lopd: SynExprIdx,
         opr: BinaryOpr,
-        opr_token_idx: RegionalTokenIdx,
+        opr_regional_token_idx: RegionalTokenIdx,
         ropd: SynExprIdx,
     },
     Be {
         src: SynExprIdx,
-        be_token_idx: RegionalTokenIdx,
+        be_regional_token_idx: RegionalTokenIdx,
         target: SynExprResult<BeVariablesObelisk>,
     },
     Prefix {
         opr: PrefixOpr,
-        opr_token_idx: RegionalTokenIdx,
+        opr_regional_token_idx: RegionalTokenIdx,
         opd: SynExprIdx,
     },
     Suffix {
         opd: SynExprIdx,
         opr: SuffixOpr,
-        opr_token_idx: RegionalTokenIdx,
+        opr_regional_token_idx: RegionalTokenIdx,
     },
     /// we shall need the exact type of `f` to disambiguate the following:
     /// - `f(x1, ..., xn)` can be interpreted in two ways:
@@ -159,17 +159,17 @@ pub enum SynExpr {
     FunctionApplicationOrCall {
         function: SynExprIdx,
         generic_arguments: Option<SynGenericArgumentList>,
-        lpar_token_idx: RegionalTokenIdx,
+        lpar_regional_token_idx: RegionalTokenIdx,
         items: SmallVec<[SynCommaListItem; 4]>,
-        rpar_token_idx: RegionalTokenIdx,
+        rpar_regional_token_idx: RegionalTokenIdx,
     },
     /// function type or trait
     Ritchie {
-        ritchie_kind_token_idx: RegionalTokenIdx,
+        ritchie_kind_regional_token_idx: RegionalTokenIdx,
         ritchie_kind: RitchieKind,
         lpar_token: LparRegionalToken,
         parameter_ty_items: SmallVec<[SynCommaListItem; 4]>,
-        rpar_token_idx: RegionalTokenIdx,
+        rpar_regional_token_idx: RegionalTokenIdx,
         light_arrow_token: Option<LightArrowRegionalToken>,
         /// it's guaranteed that `return_ty_expr` is some if and only if
         /// `light_arrow_token` is some
@@ -178,23 +178,23 @@ pub enum SynExpr {
     FunctionCall {
         function: SynExprIdx,
         generic_arguments: Option<SynGenericArgumentList>,
-        lpar_token_idx: RegionalTokenIdx,
+        lpar_regional_token_idx: RegionalTokenIdx,
         items: SmallVec<[CallListItem; 4]>,
-        rpar_token_idx: RegionalTokenIdx,
+        rpar_regional_token_idx: RegionalTokenIdx,
     },
     Field {
         owner: SynExprIdx,
-        dot_token_idx: RegionalTokenIdx,
+        dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
     },
     MethodApplicationOrCall {
         self_argument: SynExprIdx,
-        dot_token_idx: RegionalTokenIdx,
+        dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
         generic_arguments: Option<SynGenericArgumentList>,
-        lpar_token_idx: RegionalTokenIdx,
+        lpar_regional_token_idx: RegionalTokenIdx,
         items: SmallVec<[SynCommaListItem; 4]>,
-        rpar_token_idx: RegionalTokenIdx,
+        rpar_regional_token_idx: RegionalTokenIdx,
     },
     TemplateInstantiation {
         template: SynExprIdx,
@@ -206,19 +206,19 @@ pub enum SynExpr {
         argument_expr_idx: SynExprIdx,
     },
     Unit {
-        lpar_token_idx: RegionalTokenIdx,
-        rpar_token_idx: RegionalTokenIdx,
+        lpar_regional_token_idx: RegionalTokenIdx,
+        rpar_regional_token_idx: RegionalTokenIdx,
     },
     Bracketed {
-        lpar_token_idx: RegionalTokenIdx,
+        lpar_regional_token_idx: RegionalTokenIdx,
         item: SynExprIdx,
-        rpar_token_idx: RegionalTokenIdx,
+        rpar_regional_token_idx: RegionalTokenIdx,
     },
     NewTuple {
-        lpar_token_idx: RegionalTokenIdx,
+        lpar_regional_token_idx: RegionalTokenIdx,
         /// guaranteed that items.len() > 0
         items: SmallVec<[SynCommaListItem; 4]>,
-        rpar_token_idx: RegionalTokenIdx,
+        rpar_regional_token_idx: RegionalTokenIdx,
     },
     /// there are two cases
     /// - index `$owner[$items]` where `$owner` can be indexed
@@ -226,23 +226,23 @@ pub enum SynExpr {
     /// the cases are determined by whether `$owner` is of curry type
     IndexOrCompositionWithList {
         owner: SynExprIdx,
-        lbox_token_idx: RegionalTokenIdx,
+        lbox_regional_token_idx: RegionalTokenIdx,
         items: SmallVec<[SynCommaListItem; 4]>,
-        rbox_token_idx: RegionalTokenIdx,
+        rbox_regional_token_idx: RegionalTokenIdx,
     },
     List {
-        lbox_token_idx: RegionalTokenIdx,
+        lbox_regional_token_idx: RegionalTokenIdx,
         items: SmallVec<[SynCommaListItem; 4]>,
-        rbox_token_idx: RegionalTokenIdx,
+        rbox_regional_token_idx: RegionalTokenIdx,
     },
     /// [:] means Slice
     /// [:n] means array as `[_;n]` in Rust
     /// [:n1, n2, ...] means multidimensional array
     BoxColonList {
-        lbox_token_idx: RegionalTokenIdx,
-        colon_token_idx: RegionalTokenIdx,
+        lbox_regional_token_idx: RegionalTokenIdx,
+        colon_regional_token_idx: RegionalTokenIdx,
         items: SmallVec<[SynCommaListItem; 4]>,
-        rbox_token_idx: RegionalTokenIdx,
+        rbox_regional_token_idx: RegionalTokenIdx,
     },
     Block {
         stmts: SynStmtIdxRange,

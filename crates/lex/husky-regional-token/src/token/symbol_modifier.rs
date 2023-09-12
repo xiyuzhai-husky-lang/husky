@@ -62,13 +62,13 @@ where
         sp: &mut SP,
     ) -> TokenDataResult<Option<Self>> {
         let token_stream: &mut RegionalTokenStream<'a> = &mut sp.borrow_mut();
-        let Some((token_idx, token)) = token_stream.next_indexed() else {
+        let Some((regional_token_idx, token)) = token_stream.next_indexed() else {
             return Ok(None);
         };
         match token {
             Token::Keyword(Keyword::Modifier(kw)) => match kw {
                 ModifierKeyword::Mut => Ok(Some(EphemSymbolModifierRegionalTokenGroup::Mut(
-                    MutRegionalToken { token_idx },
+                    MutRegionalToken { regional_token_idx },
                 ))),
                 ModifierKeyword::Covariant
                 | ModifierKeyword::Contravariant
@@ -80,20 +80,22 @@ where
                 let lifetime_token = token_stream.try_parse_option::<LifetimeRegionalToken>()?;
                 if let Some(mut_token) = token_stream.try_parse_option::<MutRegionalToken>()? {
                     Ok(Some(EphemSymbolModifierRegionalTokenGroup::AmbersandMut(
-                        AmbersandRegionalToken(token_idx),
+                        AmbersandRegionalToken(regional_token_idx),
                         lifetime_token,
                         mut_token,
                     )))
                 } else {
                     Ok(Some(EphemSymbolModifierRegionalTokenGroup::Ambersand(
-                        AmbersandRegionalToken(token_idx),
+                        AmbersandRegionalToken(regional_token_idx),
                         lifetime_token,
                     )))
                 }
             }
-            Token::Punctuation(Punctuation::TILDE) => Ok(Some(
-                EphemSymbolModifierRegionalTokenGroup::Tilde(TildeRegionalToken(token_idx)),
-            )),
+            Token::Punctuation(Punctuation::TILDE) => {
+                Ok(Some(EphemSymbolModifierRegionalTokenGroup::Tilde(
+                    TildeRegionalToken(regional_token_idx),
+                )))
+            }
             Token::Error(error) => Err(error)?,
             _ => Ok(None),
         }
@@ -103,12 +105,12 @@ where
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = TokenDb)]
 pub struct MutRegionalToken {
-    token_idx: RegionalTokenIdx,
+    regional_token_idx: RegionalTokenIdx,
 }
 
 impl MutRegionalToken {
-    pub fn token_idx(&self) -> RegionalTokenIdx {
-        self.token_idx
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
@@ -121,10 +123,10 @@ where
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenDataResult<Option<Self>> {
-        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+        if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Modifier(ModifierKeyword::Mut)) => {
-                    Ok(Some(MutRegionalToken { token_idx }))
+                    Ok(Some(MutRegionalToken { regional_token_idx }))
                 }
                 Token::Error(error) => Err(error),
                 Token::Label(_)
@@ -144,12 +146,12 @@ where
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = TokenDb)]
 pub struct RefRegionalToken {
-    token_idx: RegionalTokenIdx,
+    regional_token_idx: RegionalTokenIdx,
 }
 
 impl RefRegionalToken {
-    pub fn token_idx(&self) -> RegionalTokenIdx {
-        self.token_idx
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
@@ -157,11 +159,11 @@ impl RefRegionalToken {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = TokenDb)]
 pub struct LeRegionalToken {
-    token_idx: RegionalTokenIdx,
+    regional_token_idx: RegionalTokenIdx,
 }
 
 impl LeRegionalToken {
-    pub fn token_idx(&self) -> RegionalTokenIdx {
-        self.token_idx
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }

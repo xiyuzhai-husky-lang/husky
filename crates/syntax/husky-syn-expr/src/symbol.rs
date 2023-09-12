@@ -25,7 +25,7 @@ pub enum Symbol {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum ImplicitParameterSymbol {
-    Lifetime { label_token: LifetimeToken },
+    Lifetime { label_token: LifetimeRegionalToken },
     Type { ident_token: IdentRegionalToken },
     Const {},
 }
@@ -165,7 +165,7 @@ pub enum CurrentSynSymbolKind {
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum CurrentImplicitParameterSynSymbolKind {
     Type { ident_token: IdentRegionalToken },
-    Lifetime { label_token: LifetimeToken },
+    Lifetime { label_token: LifetimeRegionalToken },
     Constant { ident_token: IdentRegionalToken },
 }
 
@@ -174,7 +174,7 @@ pub enum CurrentImplicitParameterSynSymbolKind {
 pub enum CurrentSynSymbolVariant {
     TemplateParameter {
         syn_attrs: TemplateParameterSynAttrs,
-        annotated_variance_token: Option<VarianceToken>,
+        annotated_variance_token: Option<VarianceRegionalToken>,
         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant,
     },
     SelfType,
@@ -223,7 +223,7 @@ where
 
     fn try_parse_from_stream(sp: &mut SynExprParser<'a, C>) -> Result<Self, Self::Error> {
         let mut syn_attrs: SmallVec<[TemplateSymbolSynAttr; 1]> = smallvec::smallvec![];
-        while let Some(_) = sp.try_parse_option::<AtToken>()? {
+        while let Some(_) = sp.try_parse_option::<AtRegionalToken>()? {
             todo!()
         }
         Ok(TemplateParameterSynAttrs { syn_attrs })
@@ -232,7 +232,7 @@ where
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum TemplateSymbolSynAttr {
-    Phantom(AtToken, PhantomToken),
+    Phantom(AtRegionalToken, PhantomRegionalToken),
 }
 
 impl CurrentSynSymbolVariant {
@@ -267,7 +267,7 @@ impl CurrentSynSymbolVariant {
 #[non_exhaustive]
 pub enum CurrentTemplateParameterSynSymbolVariant {
     Lifetime {
-        label_token: LifetimeToken,
+        label_token: LifetimeRegionalToken,
     },
     Type {
         ident_token: IdentRegionalToken,

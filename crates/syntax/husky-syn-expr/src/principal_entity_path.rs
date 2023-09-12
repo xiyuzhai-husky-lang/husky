@@ -17,7 +17,7 @@ pub enum PrincipalEntityPathExpr {
     },
     Subitem {
         parent: PrincipalEntityPathExprIdx,
-        colon_colon_token: ScopeResolutionRegionalToken,
+        colon_colon_token: ColonColonRegionalToken,
         ident_token: PrincipalEntityPathExprResult<IdentRegionalToken>,
         path: PrincipalEntityPathExprResult<PrincipalEntityPath>,
     },
@@ -57,7 +57,7 @@ where
         &mut self,
         parent: PrincipalEntityPathExprIdx,
         parent_path: MajorEntityPath,
-        colon_colon_token: ColonColonRegionalToken,
+        colon_colon_regional_token: ColonColonRegionalToken,
     ) -> SynExpr {
         let ident_token: PrincipalEntityPathExprResult<IdentRegionalToken> = self
             .try_parse_expected(
@@ -94,13 +94,13 @@ where
         let opt_path = path.as_ref().ok().copied();
         let expr = PrincipalEntityPathExpr::Subitem {
             parent,
-            colon_colon_token,
+            colon_colon_token: colon_colon_regional_token,
             ident_token,
             path,
         };
         let expr = self.context_mut().alloc_item_path_expr(expr);
         if let Some(path) = opt_path && let Some(major_path) = path.major()
-            && let Some(colon_colon_token) = self.try_parse_err_as_none::<ScopeResolutionToken>() {
+            && let Some(colon_colon_token) = self.try_parse_err_as_none::<ColonColonRegionalToken>() {
             self.parse_subitem_path_expr(expr, major_path, colon_colon_token)
         } else {
             SynExpr::PrincipalEntityPath {

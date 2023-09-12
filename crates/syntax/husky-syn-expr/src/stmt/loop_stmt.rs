@@ -3,7 +3,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
 pub struct SynForBetweenParticulars {
-    pub for_between_loop_var_token_idx: RegionalTokenIdx,
+    pub for_between_loop_var_regional_token_idx: RegionalTokenIdx,
     pub for_between_loop_var_ident: Ident,
     pub for_between_loop_var_expr_idx: SynExprIdx,
     pub range: SynExprResult<SynForBetweenRange>,
@@ -139,7 +139,7 @@ impl Default for SynForBetweenLoopBoundary {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SynForextParticulars {
-    pub forext_loop_var_token_idx: RegionalTokenIdx,
+    pub forext_loop_var_regional_token_idx: RegionalTokenIdx,
     pub forext_loop_var_ident: Ident,
     pub forext_loop_var_expr_idx: SynExprIdx,
     pub bound_expr: SynExprIdx,
@@ -148,14 +148,14 @@ pub struct SynForextParticulars {
 
 impl SynForextParticulars {
     pub(crate) fn new(
-        forext_loop_var_token_idx: RegionalTokenIdx,
+        forext_loop_var_regional_token_idx: RegionalTokenIdx,
         forext_loop_var_ident: Ident,
         forext_loop_var_expr_idx: SynExprIdx,
         opr: BinaryComparisonOpr,
         bound_expr: SynExprIdx,
     ) -> Self {
         Self {
-            forext_loop_var_token_idx,
+            forext_loop_var_regional_token_idx,
             forext_loop_var_ident,
             forext_loop_var_expr_idx,
             bound_expr,
@@ -233,17 +233,17 @@ fn test_step_n_for_neg_step() {
 impl<'a> SynStmtContext<'a> {
     pub(super) fn parse_for_loop_stmt(
         &mut self,
-        token_group_idx: TokenGroupIdx,
-        for_token: StmtForToken,
+        token_group_idx: RegionalTokenGroupIdx,
+        for_token: StmtForRegionalToken,
         expr: SynExprIdx,
-        eol_colon: SynExprResult<EolToken>,
+        eol_colon: SynExprResult<EolRegionalToken>,
         body: FugitiveBody,
     ) -> SynStmt {
         match self.syn_expr_arena()[expr] {
             SynExpr::Binary {
                 lopd,
                 opr: BinaryOpr::Comparison(comparison_opr),
-                opr_token_idx,
+                opr_regional_token_idx,
                 ropd,
             } => {
                 let particulars = self.parse_for_between_particulars(lopd, ropd, comparison_opr);
@@ -252,11 +252,12 @@ impl<'a> SynStmtContext<'a> {
                     ident: particulars.for_between_loop_var_ident,
                 };
                 let current_symbol_kind = current_symbol_variant.kind();
-                let access_start = self.ast_token_idx_range_sheet()[body.ast_idx_range().start()]
-                    .start()
-                    .token_idx();
+                let access_start = self.ast_regional_token_idx_range_sheet()
+                    [body.ast_idx_range().start()]
+                .start()
+                .regional_token_idx();
                 let access_end =
-                    self.ast_token_idx_range_sheet()[body.ast_idx_range().end() - 1].end();
+                    self.ast_regional_token_idx_range_sheet()[body.ast_idx_range().end() - 1].end();
                 let frame_var_symbol = CurrentSynSymbol::new(
                     self.syn_pattern_expr_region(),
                     access_start,
@@ -272,7 +273,7 @@ impl<'a> SynStmtContext<'a> {
                 self.syn_expr_arena_mut().set(
                     particulars.for_between_loop_var_expr_idx,
                     SynExpr::FrameVarDecl {
-                        token_idx: particulars.for_between_loop_var_token_idx,
+                        regional_token_idx: particulars.for_between_loop_var_regional_token_idx,
                         ident: particulars.for_between_loop_var_ident,
                         frame_var_symbol_idx,
                         current_symbol_kind,
@@ -289,7 +290,7 @@ impl<'a> SynStmtContext<'a> {
             SynExpr::Binary {
                 lopd,
                 opr: BinaryOpr::In,
-                opr_token_idx,
+                opr_regional_token_idx,
                 ropd,
             } => SynStmt::ForIn {
                 for_token,
@@ -311,11 +312,13 @@ impl<'a> SynStmtContext<'a> {
         let lopd_expr = &self.syn_expr_arena()[lopd];
         let ropd_expr = &self.syn_expr_arena()[ropd];
         // todo: parse with
-        if let SynExpr::Err(SynExprError::Original(UnrecognizedIdent { token_idx, ident })) =
-            lopd_expr
+        if let SynExpr::Err(SynExprError::Original(UnrecognizedIdent {
+            regional_token_idx,
+            ident,
+        })) = lopd_expr
         {
             SynForBetweenParticulars {
-                for_between_loop_var_token_idx: *token_idx,
+                for_between_loop_var_regional_token_idx: *regional_token_idx,
                 for_between_loop_var_expr_idx: lopd,
                 for_between_loop_var_ident: *ident,
                 range: Ok(SynForBetweenRange::new_with_default_initial(
@@ -324,11 +327,13 @@ impl<'a> SynStmtContext<'a> {
                 )),
             }
             // SynExpr::Err(SynExprError::Original(UnrecognizedIdent {..})) will be changed to Ok
-        } else if let SynExpr::Err(SynExprError::Original(UnrecognizedIdent { token_idx, ident })) =
-            ropd_expr
+        } else if let SynExpr::Err(SynExprError::Original(UnrecognizedIdent {
+            regional_token_idx,
+            ident,
+        })) = ropd_expr
         {
             SynForBetweenParticulars {
-                for_between_loop_var_token_idx: *token_idx,
+                for_between_loop_var_regional_token_idx: *regional_token_idx,
                 for_between_loop_var_expr_idx: ropd,
                 for_between_loop_var_ident: *ident,
                 range: Ok(SynForBetweenRange::new_with_default_final(
@@ -342,16 +347,16 @@ impl<'a> SynStmtContext<'a> {
                 SynExpr::Binary {
                     lopd: llopd,
                     opr: BinaryOpr::Comparison(initial_comparison),
-                    opr_token_idx,
+                    opr_regional_token_idx,
                     ropd: lropd,
                 } => {
                     let lropd_expr = &self.syn_expr_arena()[lropd];
                     match lropd_expr {
                         SynExpr::Err(SynExprError::Original(UnrecognizedIdent {
-                            token_idx,
+                            regional_token_idx,
                             ident,
                         })) => SynForBetweenParticulars {
-                            for_between_loop_var_token_idx: *token_idx,
+                            for_between_loop_var_regional_token_idx: *regional_token_idx,
                             for_between_loop_var_expr_idx: *lropd,
                             for_between_loop_var_ident: *ident,
                             range: SynForBetweenRange::new_without_defaults(
@@ -371,39 +376,39 @@ impl<'a> SynStmtContext<'a> {
 
     pub(super) fn parse_forext_loop_stmt(
         &mut self,
-        token_group_idx: TokenGroupIdx,
-        forext_token: ForextToken,
+        token_group_idx: RegionalTokenGroupIdx,
+        forext_token: ForextRegionalToken,
         expr: SynExprIdx,
-        eol_colon: SynExprResult<EolToken>,
+        eol_colon: SynExprResult<EolRegionalToken>,
         body: FugitiveBody,
     ) -> SynStmt {
         let SynExpr::Binary {
             lopd: forext_loop_var_expr_idx,
             opr: BinaryOpr::Comparison(opr),
-            opr_token_idx,
+            opr_regional_token_idx,
             ropd: bound_expr,
         } = self.syn_expr_arena()[expr]
         else {
             todo!()
         };
-        let (forext_loop_var_ident, forext_loop_var_token_idx) =
+        let (forext_loop_var_ident, forext_loop_var_regional_token_idx) =
             match self.syn_expr_arena()[forext_loop_var_expr_idx] {
                 SynExpr::InheritedSymbol {
                     ident,
-                    token_idx,
+                    regional_token_idx,
                     inherited_symbol_idx,
                     inherited_symbol_kind,
-                } => (ident, token_idx),
+                } => (ident, regional_token_idx),
                 SynExpr::CurrentSymbol {
                     ident,
-                    token_idx,
+                    regional_token_idx,
                     current_symbol_idx,
                     current_symbol_kind,
-                } => (ident, token_idx),
+                } => (ident, regional_token_idx),
                 _ => todo!(),
             };
         let particulars = SynForextParticulars::new(
-            forext_loop_var_token_idx,
+            forext_loop_var_regional_token_idx,
             forext_loop_var_ident,
             forext_loop_var_expr_idx,
             opr,

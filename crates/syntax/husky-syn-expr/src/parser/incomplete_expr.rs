@@ -14,11 +14,11 @@ pub(super) enum IncompleteExpr {
     Binary {
         lopd: SynExpr,
         punctuation: BinaryOpr,
-        punctuation_token_idx: RegionalTokenIdx,
+        punctuation_regional_token_idx: RegionalTokenIdx,
     },
     Prefix {
         punctuation: PrefixOpr,
-        punctuation_token_idx: RegionalTokenIdx,
+        punctuation_regional_token_idx: RegionalTokenIdx,
     },
     /// list separated by commas
     /// ```husky
@@ -29,13 +29,13 @@ pub(super) enum IncompleteExpr {
         // todo: move this into opr
         bra: Bracket,
         // todo: move this into opr
-        bra_token_idx: RegionalTokenIdx,
+        bra_regional_token_idx: RegionalTokenIdx,
         items: SmallVec<[SynCommaListItem; 4]>,
     },
     /// call list includes more separators like `;`
     CallList {
         opr: IncompleteCallListOpr,
-        lpar_token_idx: RegionalTokenIdx,
+        lpar_regional_token_idx: RegionalTokenIdx,
         items: SmallVec<[CallListItem; 4]>,
     },
     LambdaHead {
@@ -48,15 +48,15 @@ pub(super) enum IncompleteExpr {
     },
     /// just needs the return type
     Ritchie {
-        ritchie_kind_token_idx: RegionalTokenIdx,
+        ritchie_kind_regional_token_idx: RegionalTokenIdx,
         ritchie_kind: RitchieKind,
         lpar_token: LparRegionalToken,
         argument_tys: SmallVec<[SynCommaListItem; 4]>,
-        rpar_token_idx: RegionalTokenIdx,
+        rpar_regional_token_idx: RegionalTokenIdx,
         light_arrow_token: LightArrowRegionalToken,
     },
     KeyedArgument {
-        key_token_idx: RegionalTokenIdx,
+        key_regional_token_idx: RegionalTokenIdx,
         key: Ident,
         eq_token: RegionalEqToken,
     },

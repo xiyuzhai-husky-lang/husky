@@ -1,6 +1,6 @@
 use husky_token_data::db::HasTokenDataDb;
 
-use crate::*;
+use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDataDb)]
