@@ -10,7 +10,7 @@ pub struct DeriveDecrSynNodeDecl {
     pub at_token: AtToken,
     pub derive_token: IdentToken,
     #[return_ref]
-    pub lpar_token: SynNodeDeclResult<LparToken>,
+    pub lpar_token: SynNodeDeclResult<RegionalLparToken>,
     #[return_ref]
     pub trais:
         SynNodeDeclResult<PunctuatedSmallList<TraitObelisk, CommaToken, 8, SynNodeDeclError>>,

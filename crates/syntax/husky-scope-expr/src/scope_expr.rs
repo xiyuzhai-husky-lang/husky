@@ -6,11 +6,11 @@ use thiserror::Error;
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum VisibilityExpr {
     Public {
-        pub_token: PubToken,
+        pub_token: RegionalPubToken,
     },
     PublicUnder {
-        pub_token: PubToken,
-        lpar: LparToken,
+        pub_token: RegionalPubToken,
+        lpar: RegionalLparToken,
         visibility: ModulePathExprIdx,
         rpar: RparToken,
     },
@@ -20,7 +20,7 @@ pub enum VisibilityExpr {
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum VisibilityExprError {
     #[error("token error")]
-    Token(#[from] TokenError),
+    Token(#[from] TokenDataError),
 }
 
 pub type VisibilityExprResult<T> = Result<T, VisibilityExprError>;
@@ -46,11 +46,11 @@ impl<'a, 'b> parsec::ParseFrom<VisibilityExprParser<'a, 'b>> for VisibilityExpr 
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut VisibilityExprParser<'a, 'b>,
     ) -> Result<Option<Self>, VisibilityExprError> {
-        let Some(pub_token) = ctx.parse::<PubToken>()? else {
-            return Ok(None)
+        let Some(pub_token) = ctx.parse::<RegionalPubToken>()? else {
+            return Ok(None);
         };
-        let Some(_lpar) = ctx.parse::<LparToken>()? else {
-            return Ok(Some(VisibilityExpr::Public { pub_token }))
+        let Some(_lpar) = ctx.parse::<RegionalLparToken>()? else {
+            return Ok(Some(VisibilityExpr::Public { pub_token }));
         };
         todo!()
     }

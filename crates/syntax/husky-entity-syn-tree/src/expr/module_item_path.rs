@@ -49,8 +49,8 @@ impl OriginalError for OriginalMajorPathExprError {
     type Error = MajorPathExprError;
 }
 
-impl From<TokenError> for MajorPathExprError {
-    fn from(value: TokenError) -> Self {
+impl From<TokenDataError> for MajorPathExprError {
+    fn from(value: TokenDataError) -> Self {
         MajorPathExprError::Derived(value.into())
     }
 }
@@ -59,7 +59,7 @@ impl From<TokenError> for MajorPathExprError {
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub enum DerivedMajorPathExprError {
     #[error("token error")]
-    Token(#[from] TokenError),
+    Token(#[from] TokenDataError),
 }
 
 pub type MajorItemPathExprResult<T> = Result<T, MajorPathExprError>;

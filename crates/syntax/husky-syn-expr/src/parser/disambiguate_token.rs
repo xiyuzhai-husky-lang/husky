@@ -1,7 +1,6 @@
 use super::*;
 use husky_entity_taxonomy::{EntityKind, FugitiveKind, MajorItemKind};
 use husky_print_utils::p;
-use husky_token::Punctuation;
 use salsa::DebugWithDb;
 use std::ops::ControlFlow;
 
@@ -27,7 +26,7 @@ where
                     PronounKeyword::Crate => {
                         let crate_root_path = self.context().crate_root_path();
                         DisambiguatedToken::AtomicExpr(self.parse_principal_item_path_expr(
-                            CrateToken::new(token_idx).into(),
+                            RegionalCrateToken::new(token_idx).into(),
                             crate_root_path.into(),
                         ))
                     }

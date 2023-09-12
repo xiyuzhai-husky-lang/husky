@@ -1,14 +1,12 @@
+use crate::*;
 use husky_scope_expr::{
     DerivedVisibilityExprError, OriginalVisibilityExprError, VisibilityExprError,
 };
 use husky_token::{
-    IdentToken, Punctuation, TokenError, TokenGroupIdx, TokenIdx, TokenIdxRange, TokenStreamParser,
-    TokenStreamState,
+    IdentToken, TokenGroupIdx, TokenIdx, TokenIdxRange, TokenStreamParser, TokenStreamState,
 };
 use original_error::OriginalError;
 use thiserror::Error;
-
-use crate::{AstDb, AstIdx};
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db(db = AstDb)]
@@ -128,8 +126,8 @@ impl OriginalError for OriginalAstError {
     type Error = AstError;
 }
 
-impl From<TokenError> for AstError {
-    fn from(value: TokenError) -> Self {
+impl From<TokenDataError> for AstError {
+    fn from(value: TokenDataError) -> Self {
         AstError::Derived(value.into())
     }
 }
@@ -138,7 +136,7 @@ impl From<TokenError> for AstError {
 #[salsa::debug_with_db(db = AstDb)]
 pub enum DerivedAstError {
     #[error("{0}")]
-    Token(#[from] TokenError),
+    Token(#[from] TokenDataError),
     #[error("VisibilityExprError")]
     VisibilityExprError(#[from] DerivedVisibilityExprError),
 }

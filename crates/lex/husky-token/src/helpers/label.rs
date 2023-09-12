@@ -23,11 +23,11 @@ impl<'a, Context> parsec::TryParseOptionFromStream<Context> for LifetimeToken
 where
     Context: TokenStreamParser<'a>,
 {
-    type Error = TokenError;
+    type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
+    ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
                 Token::Label(label) if label.is_valid_lifetime_label() => {
@@ -73,11 +73,11 @@ impl<'a, Context> parsec::TryParseOptionFromStream<Context> for BindingLabelToke
 where
     Context: TokenStreamParser<'a>,
 {
-    type Error = TokenError;
+    type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
+    ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
                 Token::Label(label) if label.is_valid_binding_label() => {
@@ -123,11 +123,11 @@ impl<'a, Context> parsec::TryParseOptionFromStream<Context> for BlockLabelToken
 where
     Context: TokenStreamParser<'a>,
 {
-    type Error = TokenError;
+    type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
+    ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
                 Token::Label(label) => Ok(Some(BlockLabelToken { label, token_idx })),

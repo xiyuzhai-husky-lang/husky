@@ -6,7 +6,7 @@ use husky_print_utils::p;
 pub enum ExprEnvironment {
     TypeBeforeEq,
     WithinBracketedParameterList(Bracket),
-    Condition(TokenIdxRangeEnd),
+    Condition(RegionalTokenIdxRangeEnd),
 }
 
 pub struct ExprEnvironmentStack(smallvec::SmallVec<[ExprEnvironment; 2]>);

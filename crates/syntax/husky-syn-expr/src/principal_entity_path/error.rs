@@ -10,8 +10,8 @@ pub enum PrincipalEntityPathExprError {
     Derived(DerivedPrincipalEntityPathExprError),
 }
 
-impl From<TokenError> for PrincipalEntityPathExprError {
-    fn from(value: TokenError) -> Self {
+impl From<TokenDataError> for PrincipalEntityPathExprError {
+    fn from(value: TokenDataError) -> Self {
         PrincipalEntityPathExprError::Derived(value.into())
     }
 }
@@ -56,7 +56,7 @@ pub enum DerivedPrincipalEntityPathExprError {
     #[error("derived from expr error {0}")]
     AbortFromExprError(#[from] OriginalSynExprError),
     #[error("token error {0}")]
-    TokenError(#[from] TokenError),
+    TokenDataError(#[from] TokenDataError),
 }
 
 pub type PrincipalEntityPathExprResult<T> = Result<T, PrincipalEntityPathExprError>;

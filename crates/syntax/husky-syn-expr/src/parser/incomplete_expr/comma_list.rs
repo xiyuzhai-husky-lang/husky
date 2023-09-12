@@ -18,7 +18,7 @@ pub(in crate::parser) enum IncompleteCommaListOpr {
     RitchieArguments {
         ritchie_kind_token_idx: RegionalTokenIdx,
         ritchie_kind: RitchieKind,
-        lpar_token: RegionalLParToken,
+        lpar_token: RegionalLparToken,
     },
     TemplateInstantiation {
         template: SynExprIdx,

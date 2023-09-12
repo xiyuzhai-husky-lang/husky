@@ -9,7 +9,7 @@ pub struct TraitForTypeAssociatedFnSynNodeDecl {
     pub template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
     #[return_ref]
     pub parenate_parameter_decl_list: SynNodeDeclResult<RitchieParameters<false>>,
-    pub curry_token: TokenResult<Option<CurryToken>>,
+    pub light_arrow_token: TokenDataResult<Option<RegionalLightArrowToken>>,
     #[return_ref]
     pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
     #[return_ref]

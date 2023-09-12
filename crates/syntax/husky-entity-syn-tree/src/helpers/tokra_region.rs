@@ -9,7 +9,7 @@ pub use self::defn::*;
 pub use self::snippet::*;
 
 use crate::*;
-use husky_token::{Token, TokenIdx, TokenSheet};
+use husky_token::{TokenIdx, TokenSheet};
 
 #[enum_class::from_variants]
 pub enum TokraRegionData<'a> {

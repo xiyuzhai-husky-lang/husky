@@ -5,8 +5,9 @@ use husky_print_utils::p;
 
 pub struct SynStmtContext<'a> {
     expr_context: SynExprContext<'a>,
-    token_sheet_data: &'a TokenSheetData,
+    #[deprecated(note = "remove this")]
     ast_sheet: &'a AstSheet,
+    #[deprecated(note = "remove this")]
     ast_token_idx_range_sheet: &'a AstTokenIdxRangeSheet,
     defn_tokra_region_data: SynDefnTokraRegionData<'a>,
 }
@@ -51,9 +52,6 @@ impl<'a> SynStmtContext<'a> {
             expr_context,
             ast_sheet: db.ast_sheet(module_path).unwrap(),
             ast_token_idx_range_sheet: db.ast_token_idx_range_sheet(module_path).unwrap(),
-            token_sheet_data: db
-                .token_sheet_data(module_path)
-                .expect("modules should be valid"),
             defn_tokra_region_data: syn_node_path.syn_defn_tokra_region(db)?.data(db),
         })
     }
@@ -64,7 +62,7 @@ impl<'a> SynStmtContext<'a> {
 
     pub(crate) fn expr_parser<'b>(
         &'b mut self,
-        token_group_idx: TokenGroupIdx,
+        token_group_idx: RegionalTokenGroupIdx,
     ) -> SynExprParser<'a, &'b mut SynExprContext<'a>>
     where
         'a: 'b,
@@ -83,7 +81,7 @@ impl<'a> SynStmtContext<'a> {
 
     pub(crate) fn token_group_token_stream(
         &self,
-        token_group_idx: TokenGroupIdx,
+        token_group_idx: RegionalTokenGroupIdx,
         saved_stream_state: impl Into<Option<RegionalTokenStreamState>>,
     ) -> RegionalTokenStream<'a> {
         // self.token_sheet_data

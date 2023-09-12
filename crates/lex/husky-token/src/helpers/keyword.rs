@@ -136,11 +136,11 @@ impl<'a, Context> parsec::TryParseOptionFromStream<Context> for WhileToken
 where
     Context: TokenStreamParser<'a>,
 {
-    type Error = TokenError;
+    type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
+    ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Stmt(StmtKeyword::While)) => {
@@ -164,11 +164,11 @@ impl<'a, Context> parsec::TryParseOptionFromStream<Context> for BasicStmtKeyword
 where
     Context: TokenStreamParser<'a>,
 {
-    type Error = TokenError;
+    type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
+    ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Stmt(stmt_keyword)) => match stmt_keyword {
@@ -216,11 +216,11 @@ impl<'a, Context> parsec::TryParseOptionFromStream<Context> for MatchToken
 where
     Context: TokenStreamParser<'a>,
 {
-    type Error = TokenError;
+    type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
+    ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Stmt(StmtKeyword::Match)) => {
@@ -250,11 +250,11 @@ impl<'a, Context> parsec::TryParseOptionFromStream<Context> for IfToken
 where
     Context: TokenStreamParser<'a>,
 {
-    type Error = TokenError;
+    type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
+    ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Stmt(StmtKeyword::If)) => Ok(Some(IfToken { token_idx })),
@@ -288,11 +288,11 @@ impl<'a, Context> parsec::TryParseOptionFromStream<Context> for ElifToken
 where
     Context: TokenStreamParser<'a>,
 {
-    type Error = TokenError;
+    type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
+    ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Stmt(StmtKeyword::Elif)) => {
@@ -328,11 +328,11 @@ impl<'a, Context> parsec::TryParseOptionFromStream<Context> for ElseToken
 where
     Context: TokenStreamParser<'a>,
 {
-    type Error = TokenError;
+    type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
+    ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Stmt(StmtKeyword::Else)) => {
@@ -370,11 +370,11 @@ impl<'a, Context> parsec::TryParseOptionFromStream<Context> for ImplToken
 where
     Context: TokenStreamParser<'a>,
 {
-    type Error = TokenError;
+    type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
+    ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Impl) => Ok(Some(ImplToken { token_idx })),
@@ -410,11 +410,11 @@ impl<'a, Context> parsec::TryParseOptionFromStream<Context> for PubToken
 where
     Context: TokenStreamParser<'a>,
 {
-    type Error = TokenError;
+    type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
+    ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Pub) => Ok(Some(PubToken { token_idx })),
@@ -450,11 +450,11 @@ impl<'a, Context> parsec::TryParseOptionFromStream<Context> for UseToken
 where
     Context: TokenStreamParser<'a>,
 {
-    type Error = TokenError;
+    type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
+    ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Use) => Ok(Some(UseToken { token_idx })),
@@ -474,7 +474,7 @@ where
 
 #[test]
 fn use_token_works() {
-    fn t(db: &DB, input: &str) -> TokenResult<Option<UseToken>> {
+    fn t(db: &DB, input: &str) -> TokenDataResult<Option<UseToken>> {
         quick_parse(db, input)
     }
 
@@ -505,11 +505,11 @@ impl<'a, Context> parsec::TryParseOptionFromStream<Context> for SelfValueToken
 where
     Context: TokenStreamParser<'a>,
 {
-    type Error = TokenError;
+    type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
+    ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Pronoun(PronounKeyword::SelfValue)) => {
@@ -531,7 +531,7 @@ where
 
 #[test]
 fn self_value_token_works() {
-    fn t(db: &DB, input: &str) -> TokenResult<Option<SelfValueToken>> {
+    fn t(db: &DB, input: &str) -> TokenDataResult<Option<SelfValueToken>> {
         quick_parse(db, input)
     }
 
@@ -561,11 +561,11 @@ impl<'a, Context> parsec::TryParseOptionFromStream<Context> for SelfTypeToken
 where
     Context: TokenStreamParser<'a>,
 {
-    type Error = TokenError;
+    type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
+    ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Pronoun(PronounKeyword::SelfType)) => {
@@ -587,7 +587,7 @@ where
 
 #[test]
 fn self_type_token_works() {
-    fn t(db: &DB, input: &str) -> TokenResult<Option<SelfTypeToken>> {
+    fn t(db: &DB, input: &str) -> TokenDataResult<Option<SelfTypeToken>> {
         quick_parse(db, input)
     }
 
@@ -623,11 +623,11 @@ impl<'a, Context> parsec::TryParseOptionFromStream<Context> for VarianceToken
 where
     Context: TokenStreamParser<'a>,
 {
-    type Error = TokenError;
+    type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
+    ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Modifier(ModifierKeyword::Covariant)) => {
@@ -655,7 +655,7 @@ where
 
 #[test]
 fn variance_token_works() {
-    fn t(db: &DB, input: &str) -> TokenResult<Option<VarianceToken>> {
+    fn t(db: &DB, input: &str) -> TokenDataResult<Option<VarianceToken>> {
         quick_parse(db, input)
     }
 
@@ -717,11 +717,11 @@ impl<'a, Context> parsec::TryParseOptionFromStream<Context> for ConnectionForTok
 where
     Context: TokenStreamParser<'a>,
 {
-    type Error = TokenError;
+    type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
+    ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Connection(ConnectionKeyword::For)) => {

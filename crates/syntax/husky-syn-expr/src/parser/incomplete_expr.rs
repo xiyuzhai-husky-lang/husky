@@ -50,10 +50,10 @@ pub(super) enum IncompleteExpr {
     Ritchie {
         ritchie_kind_token_idx: RegionalTokenIdx,
         ritchie_kind: RitchieKind,
-        lpar_token: LparToken,
+        lpar_token: RegionalLparToken,
         argument_tys: SmallVec<[SynCommaListItem; 4]>,
         rpar_token_idx: RegionalTokenIdx,
-        light_arrow_token: LightArrowToken,
+        light_arrow_token: RegionalLightArrowToken,
     },
     KeyedArgument {
         key_token_idx: RegionalTokenIdx,
@@ -71,7 +71,7 @@ where
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         sp: &mut SynExprParser<'a, C>,
     ) -> Result<Option<Self>, Self::Error> {
-        if let Some(lcurl) = sp.try_parse_option::<RegionalLCurlToken>()? {
+        if let Some(lcurl) = sp.try_parse_option::<RegionalLcurlToken>()? {
             Ok(Some(SynHtmlArgumentExpr::Shortened {
                 lcurl,
                 property_ident: sp.try_parse_expected(OriginalSynExprError::HtmlTodo)?,

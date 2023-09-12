@@ -3,8 +3,8 @@ use crate::*;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = TokenDb)]
-pub enum TokenError {
+#[salsa::debug_with_db(db = TokenDataDb)]
+pub enum TokenDataError {
     #[error("incomplete string literal before end of file")]
     IncompleteStringLiteralBeforeEof,
     #[error("incomplete string literal before end of line")]
@@ -34,4 +34,4 @@ pub enum TokenError {
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 pub enum NumberPseudoLiteral {}
 
-pub type TokenResult<T> = Result<T, TokenError>;
+pub type TokenDataResult<T> = Result<T, TokenDataError>;

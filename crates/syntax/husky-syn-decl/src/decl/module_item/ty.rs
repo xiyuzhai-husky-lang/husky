@@ -215,7 +215,7 @@ impl<'a> DeclParserFactory<'a> {
             Some(saved_stream_state),
         );
         let template_parameters = parser.try_parse_option();
-        if let Some(lpar) = parser.try_parse_err_as_none::<LparToken>() {
+        if let Some(lpar) = parser.try_parse_err_as_none::<RegionalLparToken>() {
             let field_comma_list = parser.try_parse();
             let rpar = parser.try_parse();
             TupleStructTypeSynNodeDecl::new(

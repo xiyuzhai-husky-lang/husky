@@ -14,8 +14,6 @@ use crate::symbol::*;
 use crate::*;
 use husky_ast::{Ast, AstIdxRange, AstSheet};
 use husky_entity_syn_tree::*;
-use husky_token::Token;
-use husky_token::TokenStream;
 use husky_vfs::{ModulePath, Toolchain};
 use original_error::OriginalError;
 use parsec::{HasStreamState, StreamParser};

@@ -6,7 +6,6 @@ pub use self::loop_stmt::*;
 
 use crate::*;
 use husky_ast::{Ast, AstIdx, AstIdxRange, FugitiveBody};
-use husky_token::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use parsec::StreamParser;
 
@@ -19,61 +18,61 @@ pub type SynStmtMap<V> = ArenaMap<SynStmt, V>;
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum SynStmt {
     Let {
-        let_token: LetToken,
+        let_token: RegionalLetToken,
         let_variables_pattern: SynExprResult<LetVariableObelisk>,
         assign_token: SynExprResult<RegionalEqToken>,
         initial_value: SynExprIdx,
     },
     Return {
-        return_token: ReturnToken,
+        return_token: RegionalReturnToken,
         result: SynExprIdx,
     },
     Require {
-        require_token: RequireToken,
+        require_token: RegionalRequireToken,
         condition: SynExprIdx,
     },
     Assert {
-        assert_token: AssertToken,
+        assert_token: RegionalAssertToken,
         condition: SynExprIdx,
     },
     Break {
-        break_token: BreakToken,
+        break_token: RegionalBreakToken,
     },
     Eval {
         expr_idx: SynExprIdx,
         // todo: change this to EolOrEolSemicolonToken
-        eol_semicolon: TokenResult<Option<EolSemicolonToken>>,
+        eol_semicolon: TokenDataResult<Option<RegionalEolSemicolonToken>>,
     },
     ForBetween {
-        for_token: StmtForToken,
+        for_token: RegionalStmtForToken,
         particulars: SynForBetweenParticulars,
         frame_var_symbol_idx: CurrentSynSymbolIdx,
-        eol_colon: SynExprResult<EolToken>,
+        eol_colon: SynExprResult<RegionalEolToken>,
         block: SynExprResult<SynStmtIdxRange>,
     },
     ForIn {
-        for_token: StmtForToken,
+        for_token: RegionalStmtForToken,
         condition: SynExprResult<SynExprIdx>,
         eol_colon: SynExprResult<EolToken>,
         block: SynExprResult<SynStmtIdxRange>,
     },
     ForExt {
-        forext_token: ForextToken,
+        forext_token: RegionalForextToken,
         particulars: SynForextParticulars,
-        eol_colon: SynExprResult<EolToken>,
+        eol_colon: SynExprResult<RegionalEolToken>,
         block: SynExprResult<SynStmtIdxRange>,
     },
     While {
-        while_token: WhileToken,
+        while_token: RegionalWhileToken,
         condition: SynExprResult<SynExprIdx>,
-        eol_colon: SynExprResult<EolToken>,
+        eol_colon: SynExprResult<RegionalEolToken>,
         block: SynExprResult<SynStmtIdxRange>,
     },
     DoWhile {
-        do_token: DoToken,
-        while_token: WhileToken,
+        do_token: RegionalDoToken,
+        while_token: RegionalWhileToken,
         condition: SynExprResult<SynExprIdx>,
-        eol_colon: SynExprResult<EolToken>,
+        eol_colon: SynExprResult<RegionalEolToken>,
         block: SynExprResult<SynStmtIdxRange>,
     },
     IfElse {
@@ -82,7 +81,7 @@ pub enum SynStmt {
         else_branch: Option<SynElseBranch>,
     },
     Match {
-        match_token: MatchToken,
+        match_token: RegionalMatchToken,
     },
 }
 
@@ -90,7 +89,7 @@ impl<'a> SynStmtContext<'a> {
     pub fn parse_stmts_expected(
         &mut self,
         body: FugitiveBody,
-        token_group_idx: TokenGroupIdx,
+        token_group_idx: RegionalTokenGroupIdx,
     ) -> SynExprResult<SynStmtIdxRange> {
         match self.parse_stmts(body) {
             Some(stmt_idx_range) => Ok(stmt_idx_range),
@@ -166,14 +165,14 @@ impl<'a> SynStmtContext<'a> {
 
     fn parse_basic_stmt(
         &mut self,
-        token_group_idx: TokenGroupIdx,
-        block_end: TokenIdxRangeEnd,
+        token_group_idx: RegionalTokenGroupIdx,
+        block_end: RegionalTokenIdxRangeEnd,
         body: Option<FugitiveBody>,
     ) -> Option<SynStmt> {
         let mut parser = self.expr_parser(token_group_idx);
         match parser.try_parse_option::<BasicStmtKeywordToken>() {
             Ok(Some(basic_stmt_keyword_token)) => Some(match basic_stmt_keyword_token {
-                BasicStmtKeywordToken::Let(let_token) => SynStmt::Let {
+                RegionalBasicStmtKeywordToken::Let(let_token) => SynStmt::Let {
                     let_token,
                     let_variables_pattern: parser.parse_let_variables_pattern_expected(block_end),
                     assign_token: parser.try_parse_expected(OriginalSynExprError::ExpectedAssign),
@@ -191,7 +190,7 @@ impl<'a> SynStmtContext<'a> {
                         OriginalSynExprError::ExpectedResult,
                     ),
                 },
-                BasicStmtKeywordToken::Require(require_token) => SynStmt::Require {
+                RegionalBasicStmtKeywordToken::Require(require_token) => SynStmt::Require {
                     require_token,
                     condition: parser.parse_expr_expected2(
                         Some(ExprEnvironment::Condition(block_end)),
@@ -199,7 +198,7 @@ impl<'a> SynStmtContext<'a> {
                         OriginalSynExprError::ExpectedCondition,
                     ),
                 },
-                BasicStmtKeywordToken::Assert(assert_token) => SynStmt::Assert {
+                RegionalBasicStmtKeywordToken::Assert(assert_token) => SynStmt::Assert {
                     assert_token,
                     condition: parser.parse_expr_expected2(
                         Some(ExprEnvironment::Condition(block_end)),
@@ -207,8 +206,8 @@ impl<'a> SynStmtContext<'a> {
                         OriginalSynExprError::ExpectedCondition,
                     ),
                 },
-                BasicStmtKeywordToken::Break(break_token) => SynStmt::Break { break_token },
-                BasicStmtKeywordToken::For(for_token) => {
+                RegionalBasicStmtKeywordToken::Break(break_token) => SynStmt::Break { break_token },
+                RegionalBasicStmtKeywordToken::For(for_token) => {
                     let expr = match parser
                         .parse_expr_expected(None, OriginalSynExprError::ExpectedCondition)
                     {
@@ -226,7 +225,7 @@ impl<'a> SynStmtContext<'a> {
                     )
                     .into()
                 }
-                BasicStmtKeywordToken::ForExt(forext_token) => {
+                RegionalBasicStmtKeywordToken::ForExt(forext_token) => {
                     let expr = match parser
                         .parse_expr_expected(None, OriginalSynExprError::ExpectedCondition)
                     {
@@ -244,7 +243,7 @@ impl<'a> SynStmtContext<'a> {
                     )
                     .into()
                 }
-                BasicStmtKeywordToken::While(while_token) => SynStmt::While {
+                RegionalBasicStmtKeywordToken::While(while_token) => SynStmt::While {
                     while_token,
                     condition: parser.parse_expr_expected(
                         Some(ExprEnvironment::Condition(block_end)),
@@ -256,7 +255,7 @@ impl<'a> SynStmtContext<'a> {
                         token_group_idx,
                     ),
                 },
-                BasicStmtKeywordToken::Do(do_token) => {
+                RegionalBasicStmtKeywordToken::Do(do_token) => {
                     match parser.try_parse_option::<WhileToken>() {
                         Ok(Some(while_token)) => SynStmt::DoWhile {
                             do_token,

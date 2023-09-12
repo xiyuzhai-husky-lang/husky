@@ -39,8 +39,7 @@ use husky_entity_path::{EntityPath, ItemPath, PrincipalEntityPath};
 use husky_entity_syn_tree::{helpers::tokra_region::*, *};
 use husky_opr::*;
 use husky_term_prelude::*;
-use husky_text::*;
-use husky_token::*;
+use husky_token_data::*;
 use precedence::*;
 use range::*;
 use smallvec::SmallVec;
@@ -92,7 +91,7 @@ pub enum SynExpr {
     },
     ScopeResolution {
         parent_expr_idx: SynExprIdx,
-        scope_resolution_token: ScopeResolutionToken,
+        scope_resolution_token: RegionalScopeResolutionToken,
         ident_token: RegionalIdentToken,
     },
     InheritedSymbol {
@@ -167,10 +166,10 @@ pub enum SynExpr {
     Ritchie {
         ritchie_kind_token_idx: RegionalTokenIdx,
         ritchie_kind: RitchieKind,
-        lpar_token: LparToken,
+        lpar_token: RegionalLparToken,
         parameter_ty_items: SmallVec<[SynCommaListItem; 4]>,
         rpar_token_idx: RegionalTokenIdx,
-        light_arrow_token: Option<LightArrowToken>,
+        light_arrow_token: Option<RegionalLightArrowToken>,
         /// it's guaranteed that `return_ty_expr` is some if and only if
         /// `light_arrow_token` is some
         return_ty_expr: Option<SynExprIdx>,

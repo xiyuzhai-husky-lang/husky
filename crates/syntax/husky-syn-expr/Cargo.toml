@@ -27,6 +27,8 @@ husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 # lex
+# just use `husky-token-data`, `husky-token` shouldn't be included for dependencies!!
+husky-token-data = { path = "../../lex/husky-token-data" }
 # syntax
 husky-opr = { path = "../../kernel/husky-opr" }
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }

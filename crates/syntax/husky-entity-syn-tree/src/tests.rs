@@ -18,6 +18,7 @@ use husky_toml_token::TomlTokenJar;
     VfsJar,
     EntityPathJar,
     TermPreludeJar,
+    husky_token_data::db::TokenDataJar,
     TokenJar,
     AstJar,
     EntitySynTreeJar,

@@ -1,6 +1,5 @@
 use crate::*;
 use husky_print_utils::p;
-use husky_token::{HasTokenIdxRange, RangedTokenSheet, TokenIdxRange, TokenSheetData};
 use husky_vfs::ModulePath;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -167,9 +166,9 @@ impl<'a> SynExprRangeCalculator<'a> {
                 ident_token,
                 path,
             } => match ident_token {
-                Ok(ident_token) => {
-                    self[parent].to(TokenIdxRangeEnd::new_after(ident_token.token_idx()))
-                }
+                Ok(ident_token) => self[parent].to(TokenIdxRangeEnd::new_after(
+                    ident_token.regional_token_idx(),
+                )),
                 Err(_) => self[parent].to(TokenIdxRangeEnd::new_after(
                     scope_resolution_token.token_idx(),
                 )),
@@ -184,14 +183,18 @@ impl<'a> SynExprRangeCalculator<'a> {
                 symbol_modifier_keyword_group,
                 ident_token,
             } => match symbol_modifier_keyword_group {
-                Some(EphemSymbolModifierTokenGroup::Mut(mut_token)) => {
-                    TokenIdxRange::new_closed(mut_token.token_idx(), ident_token.token_idx())
-                }
+                Some(EphemSymbolModifierTokenGroup::Mut(mut_token)) => TokenIdxRange::new_closed(
+                    mut_token.token_idx(),
+                    ident_token.regional_token_idx(),
+                ),
                 Some(EphemSymbolModifierTokenGroup::RefMut(ref_token, ..)) => {
-                    TokenIdxRange::new_closed(ref_token.token_idx(), ident_token.token_idx())
+                    TokenIdxRange::new_closed(
+                        ref_token.token_idx(),
+                        ident_token.regional_token_idx(),
+                    )
                 }
                 Some(_) => todo!(),
-                None => TokenIdxRange::new_single(ident_token.token_idx()),
+                None => TokenIdxRange::new_single(ident_token.regional_token_idx()),
             },
             SynPatternExpr::Entity(_) => todo!(),
             SynPatternExpr::Tuple { name, fields } => todo!(),
@@ -229,7 +232,9 @@ impl<'a> SynExprRangeCalculator<'a> {
                 ident_token,
             } => {
                 // todo: consider implicit(angular) arguments
-                self[parent_expr_idx].to(TokenIdxRangeEnd::new_after(ident_token.token_idx()))
+                self[parent_expr_idx].to(TokenIdxRangeEnd::new_after(
+                    ident_token.regional_token_idx(),
+                ))
             }
             SynExpr::Be {
                 src,
@@ -271,7 +276,9 @@ impl<'a> SynExprRangeCalculator<'a> {
             } => self[first_expr].to(TokenIdxRangeEnd::new_after(*rpar_token_idx)),
             SynExpr::Field {
                 owner, ident_token, ..
-            } => self[owner].to(TokenIdxRangeEnd::new_after(ident_token.token_idx())),
+            } => self[owner].to(TokenIdxRangeEnd::new_after(
+                ident_token.regional_token_idx(),
+            )),
             SynExpr::TemplateInstantiation {
                 template,
                 generic_arguments,

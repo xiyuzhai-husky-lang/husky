@@ -32,6 +32,7 @@ use husky_scope_expr::VisibilityExpr;
 use husky_token::{
     DecrIdentToken, IdentToken, TokenGroupIdx, TokenIdx, TokenStreamState, VerticalToken,
 };
+use husky_token_data::*;
 use husky_vfs::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use salsa::DbWithJar;
