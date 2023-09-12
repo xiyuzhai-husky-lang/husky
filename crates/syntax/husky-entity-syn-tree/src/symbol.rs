@@ -1,4 +1,5 @@
 use crate::*;
+use husky_regional_token::RegionalTokenIdx;
 use husky_token::{IdentToken, TokenIdx};
 
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
@@ -125,7 +126,7 @@ impl<'a> ModuleSymbolContext<'a> {
         &self,
         db: &'a dyn EntitySynTreeDb,
         reference_module_path: ModulePath,
-        _token_idx: TokenIdx,
+        _token_idx: RegionalTokenIdx,
         ident: Ident,
     ) -> Option<EntitySymbol> {
         self.module_symbols

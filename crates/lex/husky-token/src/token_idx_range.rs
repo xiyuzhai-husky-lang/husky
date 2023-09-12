@@ -7,6 +7,29 @@ pub struct TokenIdxRange {
 }
 
 impl TokenIdxRange {
+    #[inline(always)]
+    pub fn new(start: TokenIdx, end: TokenIdxRangeEnd) -> Self {
+        Self {
+            start: TokenIdxRangeStart(start),
+            end,
+        }
+    }
+
+    pub(crate) fn from_indices(start: usize, end: usize) -> Self {
+        Self {
+            start: TokenIdxRangeStart(TokenIdx::from_index(start)),
+            end: TokenIdxRangeEnd(TokenIdx::from_index(end)),
+        }
+    }
+
+    pub fn start(&self) -> TokenIdxRangeStart {
+        self.start
+    }
+
+    pub fn end(&self) -> TokenIdxRangeEnd {
+        self.end
+    }
+
     pub fn new_single(token_idx: TokenIdx) -> Self {
         Self {
             start: TokenIdxRangeStart(token_idx),
@@ -74,31 +97,6 @@ impl TokenIdxRangeEnd {
 
     pub fn index(self) -> usize {
         self.0.index()
-    }
-}
-
-impl TokenIdxRange {
-    #[inline(always)]
-    pub fn new(start: TokenIdx, end: TokenIdxRangeEnd) -> Self {
-        Self {
-            start: TokenIdxRangeStart(start),
-            end,
-        }
-    }
-
-    pub(crate) fn from_indices(start: usize, end: usize) -> Self {
-        Self {
-            start: TokenIdxRangeStart(TokenIdx::from_index(start)),
-            end: TokenIdxRangeEnd(TokenIdx::from_index(end)),
-        }
-    }
-
-    pub fn start(&self) -> TokenIdxRangeStart {
-        self.start
-    }
-
-    pub fn end(&self) -> TokenIdxRangeEnd {
-        self.end
     }
 }
 

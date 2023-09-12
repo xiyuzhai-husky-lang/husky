@@ -8,7 +8,7 @@ pub(in crate::parser) enum IncompleteCommaListOpr {
     },
     BoxList,
     BoxColonList {
-        colon_token_idx: RegionalTokenIdx,
+        colon_regional_token_idx: RegionalTokenIdx,
     },
     NewLambdaHead,
     FunctionInstantiation {},
@@ -16,7 +16,7 @@ pub(in crate::parser) enum IncompleteCommaListOpr {
         function: SynExprIdx,
     },
     RitchieArguments {
-        ritchie_kind_token_idx: RegionalTokenIdx,
+        ritchie_kind_regional_token_idx: RegionalTokenIdx,
         ritchie_kind: RitchieKind,
         lpar_token: LparRegionalToken,
     },
@@ -25,13 +25,13 @@ pub(in crate::parser) enum IncompleteCommaListOpr {
     },
     MethodInstantiation {
         self_expr: SynExprIdx,
-        dot_token_idx: RegionalTokenIdx,
+        dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
     },
     #[deprecated(note = "move this to CallList")]
     MethodApplicationOrCall {
         self_expr: SynExprIdx,
-        dot_token_idx: RegionalTokenIdx,
+        dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
         generic_arguments: Option<SynGenericArgumentList>,
     },

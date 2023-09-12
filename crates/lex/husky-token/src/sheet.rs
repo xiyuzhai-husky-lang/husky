@@ -34,7 +34,7 @@ pub struct TokenSheet {
 #[salsa::debug_with_db(db = TokenDb)]
 pub struct TokenSheetData {
     tokens: Vec<Token>,
-    token_group_bases: Vec<TokenGroupStartingTokenIdx>,
+    token_group_bases: Vec<TokenGroupStart>,
     indents: Vec<u32>,
 }
 
@@ -166,7 +166,7 @@ impl std::fmt::Display for TokenGroupIdx {
 
 pub struct TokenGroupIter<'a> {
     tokens: &'a [Token],
-    line_group_starts: &'a [TokenGroupStartingTokenIdx],
+    line_group_starts: &'a [TokenGroupStart],
     indents: &'a [u32],
     current: usize,
 }
@@ -174,7 +174,7 @@ pub struct TokenGroupIter<'a> {
 impl<'a> TokenGroupIter<'a> {
     pub(crate) fn new(
         tokens: &'a [Token],
-        line_group_starts: &'a [TokenGroupStartingTokenIdx],
+        line_group_starts: &'a [TokenGroupStart],
         indents: &'a [u32],
     ) -> Self {
         Self {
@@ -252,7 +252,7 @@ impl<'a> Iterator for TokenGroupIter<'a> {
 }
 
 pub struct TokenGroup<'a> {
-    base: TokenGroupStartingTokenIdx,
+    base: TokenGroupStart,
     tokens: &'a [Token],
     indent: u32,
 }
@@ -279,14 +279,14 @@ impl<'a> TokenGroup<'a> {
 pub(crate) fn produce_token_group_starts(
     tokens: &[Token],
     token_ranges: &[TextRange],
-) -> Vec<TokenGroupStartingTokenIdx> {
+) -> Vec<TokenGroupStart> {
     let line_starts = produce_line_starts(token_ranges);
     let mut i = 0;
     let mut line_group_starts = vec![];
     while i < line_starts.len() {
         let line0_start = line_starts[i];
         let line0_indent = token_ranges[line0_start].start.col.0;
-        line_group_starts.push(TokenGroupStartingTokenIdx::from_index(line0_start));
+        line_group_starts.push(TokenGroupStart::from_index(line0_start));
         i = {
             let mut j = i + 1;
             while j < line_starts.len() {
@@ -361,10 +361,7 @@ fn produce_line_starts(token_ranges: &[TextRange]) -> Vec<usize> {
         .collect()
 }
 
-fn produce_indents(
-    token_group_starts: &[TokenGroupStartingTokenIdx],
-    token_ranges: &[TextRange],
-) -> Vec<u32> {
+fn produce_indents(token_group_starts: &[TokenGroupStart], token_ranges: &[TextRange]) -> Vec<u32> {
     token_group_starts
         .iter()
         .map(|i| token_ranges[i.index()].start.j())
@@ -429,7 +426,7 @@ impl TokenSheetData {
         TokenGroupIter::new(&self.tokens, &self.token_group_bases, &self.indents)
     }
 
-    pub fn token_group_base(&self, token_group_idx: TokenGroupIdx) -> TokenGroupStartingTokenIdx {
+    pub fn token_group_base(&self, token_group_idx: TokenGroupIdx) -> TokenGroupStart {
         self.token_group_bases[token_group_idx.0]
     }
 

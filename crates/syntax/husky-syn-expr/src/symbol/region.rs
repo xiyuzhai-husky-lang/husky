@@ -129,13 +129,13 @@ impl SynSymbolRegion {
 
     pub(crate) fn resolve_ident(
         &self,
-        token_idx: RegionalTokenIdx,
+        regional_token_idx: RegionalTokenIdx,
         ident: Ident,
     ) -> Option<Symbol> {
         self.current_symbol_arena
             .find_rev_indexed(|symbol| {
                 let accessible = match symbol.access_end {
-                    Some(access_end) => access_end.token_idx() > token_idx,
+                    Some(access_end) => access_end.regional_token_idx() > regional_token_idx,
                     None => true,
                 };
                 symbol.ident() == Some(ident) && accessible

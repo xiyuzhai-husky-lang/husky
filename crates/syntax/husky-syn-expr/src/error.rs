@@ -25,7 +25,9 @@ impl From<TokenDataError> for SynExprError {
 // #[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum OriginalSynExprError {
     #[error("expected `>`")]
-    ExpectedRightAngleBracket { langle_token_idx: RegionalTokenIdx },
+    ExpectedRightAngleBracket {
+        langle_regional_token_idx: RegionalTokenIdx,
+    },
     #[error("expected `}}`")]
     ExpectedRightCurlyBrace(RegionalTokenStreamState),
     #[error("expected identifier")]
@@ -37,12 +39,16 @@ pub enum OriginalSynExprError {
     #[error("no matching bracket")]
     NoMatchingBra {
         ket: Bracket,
-        ket_token_idx: RegionalTokenIdx,
+        ket_regional_token_idx: RegionalTokenIdx,
     },
     #[error("expected item before `,`")]
-    ExpectedItemBeforeComma { comma_token_idx: RegionalTokenIdx },
+    ExpectedItemBeforeComma {
+        comma_regional_token_idx: RegionalTokenIdx,
+    },
     #[error("expected item before `be`")]
-    ExpectedItemBeforeBe { be_token_idx: RegionalTokenIdx },
+    ExpectedItemBeforeBe {
+        be_regional_token_idx: RegionalTokenIdx,
+    },
     #[error("expected variable pattern")]
     ExpectedLetVariableDecls(RegionalTokenStreamState),
     #[error("expected pattern expression after `be`")]
@@ -79,9 +85,9 @@ pub enum OriginalSynExprError {
     #[error("mismatching bracket")]
     MismatchingBracket {
         bra: Bracket,
-        bra_token_idx: RegionalTokenIdx,
+        bra_regional_token_idx: RegionalTokenIdx,
         ket: Bracket,
-        ket_token_idx: RegionalTokenIdx,
+        ket_regional_token_idx: RegionalTokenIdx,
     },
     #[error("expected let variables type")]
     ExpectedLetVariablesType(RegionalTokenStreamState),
@@ -94,39 +100,51 @@ pub enum OriginalSynExprError {
     #[error("ExpectedKeyedWithDefaultParameterInitialValue")]
     ExpectedExplicitParameterDefaultValue(RegionalTokenStreamState),
     #[error("expected identifier after `.`")]
-    ExpectedIdentAfterDot { dot_token_idx: RegionalTokenIdx },
+    ExpectedIdentAfterDot {
+        dot_regional_token_idx: RegionalTokenIdx,
+    },
     #[error("expected exprBeforeDot")]
-    ExpectedExprBeforeDot { dot_token_idx: RegionalTokenIdx },
+    ExpectedExprBeforeDot {
+        dot_regional_token_idx: RegionalTokenIdx,
+    },
     #[error("expect block")]
     ExpectedBlock(RegionalTokenGroupIdx),
     #[error("unterminated list")]
-    UnterminatedList { bra_token_idx: RegionalTokenIdx },
+    UnterminatedList {
+        bra_regional_token_idx: RegionalTokenIdx,
+    },
     #[error("unterminated list")]
-    UnterminatedFunctionCallKeyedArgumentList { bra_token_idx: RegionalTokenIdx },
+    UnterminatedFunctionCallKeyedArgumentList {
+        bra_regional_token_idx: RegionalTokenIdx,
+    },
     #[error("unterminated list")]
-    UnterminatedMethodCallKeyedArgumentList { bra_token_idx: RegionalTokenIdx },
+    UnterminatedMethodCallKeyedArgumentList {
+        bra_regional_token_idx: RegionalTokenIdx,
+    },
     #[error("no left operand for binary operator")]
-    NoLeftOperandForBinaryOperator { binary_token_idx: RegionalTokenIdx },
+    NoLeftOperandForBinaryOperator {
+        binary_regional_token_idx: RegionalTokenIdx,
+    },
     #[error("no right operand for binary operator")]
     NoRightOperandForBinaryOperator {
         punctuation: BinaryOpr,
-        punctuation_token_idx: RegionalTokenIdx,
+        punctuation_regional_token_idx: RegionalTokenIdx,
     },
     #[error("no operand for prefix operator")]
     NoOperandForPrefixOperator {
         prefix: PrefixOpr,
-        prefix_token_idx: RegionalTokenIdx,
+        prefix_regional_token_idx: RegionalTokenIdx,
     },
     #[error("unexpected `$`")]
     UnexpectedSheba(RegionalTokenIdx),
     #[error("unrecognized identifier")]
     UnrecognizedIdent {
-        token_idx: RegionalTokenIdx,
+        regional_token_idx: RegionalTokenIdx,
         ident: Ident,
     },
     #[error("unrecognized identifier")]
     UnresolvedSubitem {
-        token_idx: RegionalTokenIdx,
+        regional_token_idx: RegionalTokenIdx,
         ident: Ident,
     },
     #[error("SelfTypeNotAllowed")]
@@ -146,11 +164,11 @@ pub enum OriginalSynExprError {
 }
 
 impl OriginalSynExprError {
-    pub fn token_idx_range(&self) -> RegionalTokenIdxRange {
+    pub fn regional_token_idx_range(&self) -> RegionalTokenIdxRange {
         todo!()
         // match self {
-        //     OriginalSynExprError::ExpectedLetVariableDecls(token_idx)
-        //     | OriginalSynExprError::ExpectedBeVariablesPattern(token_idx) => todo!(),
+        //     OriginalSynExprError::ExpectedLetVariableDecls(regional_token_idx)
+        //     | OriginalSynExprError::ExpectedBeVariablesPattern(regional_token_idx) => todo!(),
         //     OriginalSynExprError::ExpectedLetVariablesType(token_stream_state)
         //     | OriginalSynExprError::ExpectedAssign(token_stream_state)
         //     | OriginalSynExprError::ExpectedInitialValue(token_stream_state)
@@ -170,67 +188,67 @@ impl OriginalSynExprError {
         //     | OriginalSynExprError::ExpectedConstantImplicitParameterType(token_stream_state)
         //     | OriginalSynExprError::ExpectedTraits(token_stream_state)
         //     | OriginalSynExprError::ExpectedExplicitParameterDefaultValue(token_stream_state) => {
-        //         let token_idx = token_stream_state.next_token_idx();
+        //         let regional_token_idx = token_stream_state.next_regional_token_idx();
         //         match token_stream_state.drained() {
-        //             true => RegionalTokenIdxRange::new_drained(token_idx),
-        //             false => RegionalTokenIdxRange::new_single(token_idx),
+        //             true => RegionalTokenIdxRange::new_drained(regional_token_idx),
+        //             false => RegionalTokenIdxRange::new_single(regional_token_idx),
         //         }
         //     }
         //     OriginalSynExprError::MismatchingBracket {
-        //         ket_token_idx: token_idx,
+        //         ket_regional_token_idx: regional_token_idx,
         //         ..
         //     }
         //     | OriginalSynExprError::ExpectedRightAngleBracket {
-        //         langle_token_idx: token_idx,
+        //         langle_regional_token_idx: regional_token_idx,
         //     }
         //     | OriginalSynExprError::NoMatchingBra {
-        //         ket_token_idx: token_idx,
+        //         ket_regional_token_idx: regional_token_idx,
         //         ..
         //     }
         //     | OriginalSynExprError::NoLeftOperandForBinaryOperator {
-        //         binary_token_idx: token_idx,
+        //         binary_regional_token_idx: regional_token_idx,
         //     }
         //     | OriginalSynExprError::NoRightOperandForBinaryOperator {
-        //         punctuation_token_idx: token_idx,
+        //         punctuation_regional_token_idx: regional_token_idx,
         //         ..
         //     }
         //     | OriginalSynExprError::NoOperandForPrefixOperator {
-        //         prefix_token_idx: token_idx,
+        //         prefix_regional_token_idx: regional_token_idx,
         //         ..
         //     }
-        //     | OriginalSynExprError::UnexpectedKeyword(token_idx)
+        //     | OriginalSynExprError::UnexpectedKeyword(regional_token_idx)
         //     | OriginalSynExprError::ExpectedItemBeforeComma {
-        //         comma_token_idx: token_idx,
+        //         comma_regional_token_idx: regional_token_idx,
         //     }
         //     | OriginalSynExprError::ExpectedItemBeforeBe {
-        //         be_token_idx: token_idx,
+        //         be_regional_token_idx: regional_token_idx,
         //     }
-        //     | OriginalSynExprError::ExpectedForExpr(token_idx)
-        //     | OriginalSynExprError::ExpectedBePattern(token_idx)
-        //     | OriginalSynExprError::ExpectedParameterPattern(token_idx)
+        //     | OriginalSynExprError::ExpectedForExpr(regional_token_idx)
+        //     | OriginalSynExprError::ExpectedBePattern(regional_token_idx)
+        //     | OriginalSynExprError::ExpectedParameterPattern(regional_token_idx)
         //     | OriginalSynExprError::UnterminatedList {
-        //         bra_token_idx: token_idx,
+        //         bra_regional_token_idx: regional_token_idx,
         //     }
         //     | OriginalSynExprError::UnterminatedFunctionCallKeyedArgumentList {
-        //         bra_token_idx: token_idx,
+        //         bra_regional_token_idx: regional_token_idx,
         //     }
         //     | OriginalSynExprError::UnterminatedMethodCallKeyedArgumentList {
-        //         bra_token_idx: token_idx,
+        //         bra_regional_token_idx: regional_token_idx,
         //     }
-        //     | OriginalSynExprError::UnexpectedSheba(token_idx)
-        //     | OriginalSynExprError::UnrecognizedIdent { token_idx, .. }
-        //     | OriginalSynExprError::UnresolvedSubitem { token_idx, .. }
-        //     | OriginalSynExprError::SelfTypeNotAllowed(token_idx)
-        //     | OriginalSynExprError::SelfValueNotAllowed(token_idx)
+        //     | OriginalSynExprError::UnexpectedSheba(regional_token_idx)
+        //     | OriginalSynExprError::UnrecognizedIdent { regional_token_idx, .. }
+        //     | OriginalSynExprError::UnresolvedSubitem { regional_token_idx, .. }
+        //     | OriginalSynExprError::SelfTypeNotAllowed(regional_token_idx)
+        //     | OriginalSynExprError::SelfValueNotAllowed(regional_token_idx)
         //     | OriginalSynExprError::ExpectedIdentAfterDot {
-        //         dot_token_idx: token_idx,
+        //         dot_regional_token_idx: regional_token_idx,
         //         ..
         //     }
         //     | OriginalSynExprError::ExpectedExprBeforeDot {
-        //         dot_token_idx: token_idx,
+        //         dot_regional_token_idx: regional_token_idx,
         //     }
-        //     | OriginalSynExprError::UnexpectedLeftCurlyBrace(token_idx) => {
-        //         RegionalTokenIdxRange::new_single(*token_idx)
+        //     | OriginalSynExprError::UnexpectedLeftCurlyBrace(regional_token_idx) => {
+        //         RegionalTokenIdxRange::new_single(*regional_token_idx)
         //     }
         //     OriginalSynExprError::ExpectedBlock(_) => todo!(),
         //     OriginalSynExprError::ExpectedTypeAfterLightArrow { light_arrow_token } => todo!(),

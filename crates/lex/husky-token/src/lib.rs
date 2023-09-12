@@ -2,8 +2,6 @@
 #![feature(const_trait_impl)]
 mod db;
 mod helpers;
-mod idx;
-mod idx_range;
 mod sheet;
 mod snippet;
 mod stream;
@@ -11,6 +9,8 @@ mod stream;
 pub mod test_utils;
 #[cfg(test)]
 mod tests;
+mod token_idx;
+mod token_idx_range;
 // mod token;
 mod token_group;
 mod token_visibility;
@@ -18,11 +18,11 @@ mod tokenize;
 
 pub use self::db::*;
 pub use self::helpers::*;
-pub use self::idx::*;
-pub use self::idx_range::*;
 pub use self::sheet::*;
 pub use self::snippet::*;
 pub use self::stream::*;
+pub use self::token_idx::*;
+pub use self::token_idx_range::*;
 // pub use self::token::*;
 pub use self::token_group::*;
 pub use self::token_visibility::*;

@@ -78,7 +78,7 @@ where
                     | IncompleteExpr::CallList { .. },
                 ) => match self.try_parse_err_as_none::<RegionalEqToken>() {
                     Some(eq_token) => DisambiguatedToken::IncompleteKeywordArgument {
-                        token_idx: regional_token_idx,
+                        regional_token_idx: regional_token_idx,
                         ident,
                         eq_token,
                     },
@@ -308,13 +308,13 @@ where
 
     fn resolve_prefix_or_other(
         &mut self,
-        token_idx: RegionalTokenIdx,
+        regional_token_idx: RegionalTokenIdx,
         prefix_opr: PrefixOpr,
         other: DisambiguatedToken,
     ) -> DisambiguatedToken {
         match self.complete_expr() {
             Some(SynExpr::List { .. }) | Some(SynExpr::BoxColonList { .. }) | None => {
-                DisambiguatedToken::PrefixOpr(token_idx, prefix_opr)
+                DisambiguatedToken::PrefixOpr(regional_token_idx, prefix_opr)
             }
             Some(_) => other,
         }
@@ -325,7 +325,11 @@ impl<'a, C> SynExprParser<'a, C>
 where
     C: IsSynExprContext<'a>,
 {
-    fn resolve_ident(&mut self, token_idx: RegionalTokenIdx, ident: Ident) -> DisambiguatedToken {
+    fn resolve_ident(
+        &mut self,
+        regional_token_idx: RegionalTokenIdx,
+        ident: Ident,
+    ) -> DisambiguatedToken {
         if let Some(opn) = self.last_incomplete_expr() {
             match opn {
                 IncompleteExpr::Binary {
@@ -347,18 +351,18 @@ where
                             } => todo!(),
                             SynExpr::InheritedSymbol {
                                 ident,
-                                token_idx,
+                                regional_token_idx,
                                 inherited_symbol_idx,
                                 inherited_symbol_kind,
                             } => todo!(),
                             SynExpr::CurrentSymbol {
                                 ident,
-                                token_idx,
+                                regional_token_idx,
                                 current_symbol_idx,
                                 current_symbol_kind,
                             } => todo!(),
                             SynExpr::FrameVarDecl {
-                                token_idx,
+                                regional_token_idx,
                                 ident,
                                 frame_var_symbol_idx,
                                 current_symbol_kind,
@@ -368,60 +372,60 @@ where
                             SynExpr::Binary {
                                 lopd,
                                 opr,
-                                opr_token_idx,
+                                opr_regional_token_idx,
                                 ropd,
                             } => todo!(),
                             SynExpr::Be {
                                 src,
-                                be_token_idx,
+                                be_regional_token_idx,
                                 target,
                             } => todo!(),
                             SynExpr::Prefix {
                                 opr,
-                                opr_token_idx,
+                                opr_regional_token_idx,
                                 opd,
                             } => todo!(),
                             SynExpr::Suffix {
                                 opd,
                                 opr,
-                                opr_token_idx,
+                                opr_regional_token_idx,
                             } => todo!(),
                             SynExpr::FunctionApplicationOrCall {
                                 function,
                                 generic_arguments,
-                                lpar_token_idx,
+                                lpar_regional_token_idx,
                                 items,
-                                rpar_token_idx,
+                                rpar_regional_token_idx,
                             } => todo!(),
                             SynExpr::Ritchie {
-                                ritchie_kind_token_idx,
+                                ritchie_kind_regional_token_idx,
                                 ritchie_kind,
                                 lpar_token,
                                 parameter_ty_items,
-                                rpar_token_idx,
+                                rpar_regional_token_idx,
                                 light_arrow_token,
                                 return_ty_expr,
                             } => todo!(),
                             SynExpr::FunctionCall {
                                 function,
                                 generic_arguments,
-                                lpar_token_idx,
+                                lpar_regional_token_idx,
                                 items,
-                                rpar_token_idx,
+                                rpar_regional_token_idx,
                             } => todo!(),
                             SynExpr::Field {
                                 owner,
-                                dot_token_idx,
+                                dot_regional_token_idx,
                                 ident_token,
                             } => todo!(),
                             SynExpr::MethodApplicationOrCall {
                                 self_argument,
-                                dot_token_idx,
+                                dot_regional_token_idx,
                                 ident_token,
                                 generic_arguments,
-                                lpar_token_idx,
+                                lpar_regional_token_idx,
                                 items,
-                                rpar_token_idx,
+                                rpar_regional_token_idx,
                             } => todo!(),
                             SynExpr::TemplateInstantiation {
                                 template,
@@ -432,35 +436,35 @@ where
                                 argument_expr_idx,
                             } => todo!(),
                             SynExpr::Unit {
-                                lpar_token_idx,
-                                rpar_token_idx,
+                                lpar_regional_token_idx,
+                                rpar_regional_token_idx,
                             } => todo!(),
                             SynExpr::Bracketed {
-                                lpar_token_idx,
+                                lpar_regional_token_idx,
                                 item,
-                                rpar_token_idx,
+                                rpar_regional_token_idx,
                             } => todo!(),
                             SynExpr::NewTuple {
-                                lpar_token_idx,
+                                lpar_regional_token_idx,
                                 items,
-                                rpar_token_idx,
+                                rpar_regional_token_idx,
                             } => todo!(),
                             SynExpr::IndexOrCompositionWithList {
                                 owner,
-                                lbox_token_idx,
+                                lbox_regional_token_idx,
                                 items,
-                                rbox_token_idx,
+                                rbox_regional_token_idx,
                             } => todo!(),
                             SynExpr::List {
-                                lbox_token_idx,
+                                lbox_regional_token_idx,
                                 items,
-                                rbox_token_idx,
+                                rbox_regional_token_idx,
                             } => todo!(),
                             SynExpr::BoxColonList {
-                                lbox_token_idx,
-                                colon_token_idx,
+                                lbox_regional_token_idx,
+                                colon_regional_token_idx,
                                 items,
-                                rbox_token_idx,
+                                rbox_regional_token_idx,
                             } => todo!(),
                             SynExpr::Block { stmts } => todo!(),
                             SynExpr::EmptyHtmlTag {
@@ -470,10 +474,10 @@ where
                                 empty_html_ket,
                             } => todo!(),
                             SynExpr::Sorry {
-                                regional_token_idx: token_idx,
+                                regional_token_idx: regional_token_idx,
                             } => todo!(),
                             SynExpr::Todo {
-                                regional_token_idx: token_idx,
+                                regional_token_idx: regional_token_idx,
                             } => todo!(),
                             SynExpr::Err(_) => todo!(),
                         }
@@ -481,7 +485,7 @@ where
                     }
                     BaseEntityPath::Some(_) => {
                         // p!(
-                        //     token_idx,
+                        //     regional_token_idx,
                         //     lopd,
                         //     ident.debug(self.context.db),
                         //     self.context.path.debug(self.context.db)
@@ -490,12 +494,16 @@ where
                     }
                     BaseEntityPath::Uncertain { .. } => {
                         return DisambiguatedToken::AtomicExpr(SynExpr::Err(
-                            OriginalSynExprError::UnresolvedSubitem { token_idx, ident }.into(),
+                            OriginalSynExprError::UnresolvedSubitem {
+                                regional_token_idx,
+                                ident,
+                            }
+                            .into(),
                         ))
                     }
                     BaseEntityPath::Err => todo!(),
                     BaseEntityPath::SelfType => todo!(),
-                    // DisambiguatedToken::BinaryOpr(token_idx, BinaryOpr::Scop),
+                    // DisambiguatedToken::BinaryOpr(regional_token_idx, BinaryOpr::Scop),
                 },
                 _ => (),
             }
@@ -504,22 +512,22 @@ where
             match self.context().syn_symbol_context().resolve_ident(
                 self.db(),
                 self.context().module_path(),
-                token_idx,
+                regional_token_idx,
                 ident,
             ) {
                 Some(symbol) => match symbol {
                     // Symbol::Variable(variable_idx) => Expr::Variable {
-                    //     token_idx,
+                    //     regional_token_idx,
                     //     symbol_idx: variable_idx,
                     // },
                     Symbol::PrincipalEntity(item_path) => self.parse_principal_item_path_expr(
-                        IdentRegionalToken::new(ident, token_idx).into(),
+                        IdentRegionalToken::new(ident, regional_token_idx).into(),
                         item_path,
                     ),
                     Symbol::Inherited(inherited_symbol_idx, inherited_symbol_kind) => {
                         SynExpr::InheritedSymbol {
                             ident,
-                            token_idx,
+                            regional_token_idx,
                             inherited_symbol_idx,
                             inherited_symbol_kind,
                         }
@@ -527,14 +535,18 @@ where
                     Symbol::Local(current_symbol_idx, current_symbol_kind) => {
                         SynExpr::CurrentSymbol {
                             ident,
-                            token_idx,
+                            regional_token_idx,
                             current_symbol_idx,
                             current_symbol_kind,
                         }
                     } //  Expr::EntityPath(item_path),
                 },
                 None => SynExpr::Err(
-                    OriginalSynExprError::UnrecognizedIdent { token_idx, ident }.into(),
+                    OriginalSynExprError::UnrecognizedIdent {
+                        regional_token_idx,
+                        ident,
+                    }
+                    .into(),
                 ),
             },
         )
@@ -555,7 +567,7 @@ pub(crate) enum DisambiguatedToken {
     ColonRightAfterLbox(RegionalTokenIdx),
     Ritchie(RegionalTokenIdx, RitchieKind),
     IncompleteKeywordArgument {
-        token_idx: RegionalTokenIdx,
+        regional_token_idx: RegionalTokenIdx,
         ident: Ident,
         eq_token: RegionalEqToken,
     },

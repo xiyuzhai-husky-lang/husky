@@ -7,7 +7,7 @@ macro_rules! define_specific_punctuation_regional_token {
         pub struct $ty(pub(crate) RegionalTokenIdx);
 
         impl $ty {
-            pub fn token_idx(self) -> RegionalTokenIdx {
+            pub fn regional_token_idx(self) -> RegionalTokenIdx {
                 self.0
             }
         }
@@ -44,9 +44,9 @@ fn parse_regional_specific_punctuation_from<'a, Context, T>(
 where
     Context: RegionalTokenStreamParser<'a>,
 {
-    if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+    if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
         match token {
-            Token::Punctuation(punc) if punc == target => Ok(Some(f(token_idx))),
+            Token::Punctuation(punc) if punc == target => Ok(Some(f(regional_token_idx))),
             Token::Error(error) => Err(error),
             Token::Label(_)
             | Token::Punctuation(_)
@@ -224,3 +224,115 @@ define_specific_punctuation_regional_token!(
     colon_eq_regional_token_works,
     ":="
 );
+
+/// `:` at the end of line
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::debug_with_db(db = TokenDb)]
+pub enum EolRegionalToken {
+    Colon(EolColonRegionalToken),
+    Semicolon(EolSemicolonRegionalToken),
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::debug_with_db(db = TokenDb)]
+pub struct EolColonRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::debug_with_db(db = TokenDb)]
+pub struct EolSemicolonRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
+}
+
+impl EolRegionalToken {
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        match self {
+            EolRegionalToken::Colon(token) => token.regional_token_idx,
+            EolRegionalToken::Semicolon(token) => token.regional_token_idx,
+        }
+    }
+}
+
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for EolRegionalToken
+where
+    Context: RegionalTokenStreamParser<'a>,
+{
+    type Error = TokenDataError;
+
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenDataResult<Option<Self>> {
+        let token_stream = ctx.token_stream_mut();
+        if let Some((regional_token_idx, token)) = token_stream.next_indexed() {
+            match token {
+                Token::Punctuation(Punctuation::COLON) => match token_stream.peek() {
+                    Some(_) => Ok(None),
+                    None => Ok(Some(EolRegionalToken::Colon(EolColonRegionalToken {
+                        regional_token_idx,
+                    }))),
+                },
+                Token::Punctuation(Punctuation::SEMICOLON) => match token_stream.peek() {
+                    Some(_) => Ok(None),
+                    None => Ok(Some(EolRegionalToken::Semicolon(
+                        EolSemicolonRegionalToken { regional_token_idx },
+                    ))),
+                },
+                Token::Error(error) => Err(error),
+                Token::Label(_)
+                | Token::Punctuation(_)
+                | Token::Ident(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for EolSemicolonRegionalToken
+where
+    Context: RegionalTokenStreamParser<'a>,
+{
+    type Error = TokenDataError;
+
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenDataResult<Option<Self>> {
+        let token_stream = ctx.token_stream_mut();
+        if let Some((regional_token_idx, token)) = token_stream.next_indexed() {
+            match token {
+                Token::Punctuation(Punctuation::SEMICOLON) => match token_stream.peek() {
+                    Some(_) => Ok(None),
+                    None => Ok(Some(EolSemicolonRegionalToken { regional_token_idx })),
+                },
+                Token::Error(error) => Err(error),
+                Token::Label(_)
+                | Token::Punctuation(_)
+                | Token::Ident(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+#[test]
+fn eol_colon_token_works() {
+    fn t(db: &DB, input: &str) -> TokenDataResult<Option<EolRegionalToken>> {
+        quick_parse(db, input)
+    }
+
+    let db = DB::default();
+    assert!(t(&db, ":").unwrap().is_some());
+    assert!(t(&db, ":@").unwrap().is_none());
+    assert!(t(&db, ".").unwrap().is_none());
+    assert!(t(&db, "||").unwrap().is_none());
+    assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
+}

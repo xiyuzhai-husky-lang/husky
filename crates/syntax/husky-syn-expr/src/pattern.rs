@@ -54,14 +54,14 @@ pub enum SynPatternExpr {
     /// example: `x @ 1..9`
     Binding {
         ident_token: IdentRegionalToken,
-        asperand_token: AtToken,
+        asperand_token: AtRegionalToken,
         /// example: `1..9`
         src: SynPatternExprIdx,
     },
     /// example: `1..9`
     Range {
         start: SynPatternExprIdx,
-        dot_dot_token: DotDotToken,
+        dot_dot_token: DotDotRegionalToken,
         end: SynPatternExprIdx,
     },
 }
