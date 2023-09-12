@@ -4,24 +4,24 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct LifetimeToken {
+pub struct LifetimeRegionalToken {
     label: Label,
-    token_idx: TokenIdx,
+    token_idx: RegionalTokenIdx,
 }
 
-impl LifetimeToken {
+impl LifetimeRegionalToken {
     pub fn label(&self) -> Label {
         self.label
     }
 
-    pub fn token_idx(&self) -> TokenIdx {
+    pub fn token_idx(&self) -> RegionalTokenIdx {
         self.token_idx
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for LifetimeToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for LifetimeRegionalToken
 where
-    Context: TokenStreamParser<'a>,
+    Context: RegionalTokenStreamParser<'a>,
 {
     type Error = TokenDataError;
 
@@ -31,7 +31,7 @@ where
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
                 Token::Label(label) if label.is_valid_lifetime_label() => {
-                    Ok(Some(LifetimeToken { label, token_idx }))
+                    Ok(Some(LifetimeRegionalToken { label, token_idx }))
                 }
                 Token::Error(error) => Err(error),
                 Token::Label(_)
@@ -54,34 +54,37 @@ fn lifetime_label_token_works() {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct PlaceLabelToken {
+pub struct PlaceLabelRegionalToken {
     label: Label,
-    token_idx: TokenIdx,
+    regional_token_idx: RegionalTokenIdx,
 }
 
-impl PlaceLabelToken {
+impl PlaceLabelRegionalToken {
     pub fn label(&self) -> Label {
         self.label
     }
 
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+    pub fn token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for PlaceLabelToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for PlaceLabelRegionalToken
 where
-    Context: TokenStreamParser<'a>,
+    Context: RegionalTokenStreamParser<'a>,
 {
     type Error = TokenDataError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenDataResult<Option<Self>> {
-        if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
+        if let Some((regional_token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
                 Token::Label(label) if label.is_valid_place_label() => {
-                    Ok(Some(PlaceLabelToken { label, token_idx }))
+                    Ok(Some(PlaceLabelRegionalToken {
+                        label,
+                        regional_token_idx,
+                    }))
                 }
                 Token::Error(error) => Err(error),
                 Token::Label(_)
@@ -104,24 +107,24 @@ fn aux_ident_token_works() {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct BlockLabelToken {
+pub struct BlockLabelRegionalToken {
     label: Label,
-    token_idx: TokenIdx,
+    token_idx: RegionalTokenIdx,
 }
 
-impl BlockLabelToken {
+impl BlockLabelRegionalToken {
     pub fn ident(&self) -> Label {
         self.label
     }
 
-    pub fn token_idx(&self) -> TokenIdx {
+    pub fn token_idx(&self) -> RegionalTokenIdx {
         self.token_idx
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for BlockLabelToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for BlockLabelRegionalToken
 where
-    Context: TokenStreamParser<'a>,
+    Context: RegionalTokenStreamParser<'a>,
 {
     type Error = TokenDataError;
 
@@ -130,7 +133,7 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
-                Token::Label(label) => Ok(Some(BlockLabelToken { label, token_idx })),
+                Token::Label(label) => Ok(Some(BlockLabelRegionalToken { label, token_idx })),
                 Token::Error(error) => Err(error),
                 Token::Ident(_)
                 | Token::Punctuation(_)

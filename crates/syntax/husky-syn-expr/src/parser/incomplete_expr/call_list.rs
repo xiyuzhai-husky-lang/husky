@@ -9,7 +9,7 @@ pub(in crate::parser) enum IncompleteCallListOpr {
     MethodCall {
         self_expr: SynExprIdx,
         dot_token_idx: RegionalTokenIdx,
-        ident_token: RegionalIdentToken,
+        ident_token: IdentRegionalToken,
         generic_arguments: Option<SynGenericArgumentList>,
     },
 }

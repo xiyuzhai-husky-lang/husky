@@ -3,18 +3,18 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 // #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct SelfParameterObelisk {
-    ephem_symbol_modifier_token_group: Option<RegionalEphemSymbolModifierTokenGroup>,
-    self_value_token: RegionalSelfValueToken,
+    ephem_symbol_modifier_token_group: Option<EphemSymbolModifierRegionalTokenGroup>,
+    self_value_token: SelfValueRegionalToken,
 }
 
 impl SelfParameterObelisk {
     pub fn ephem_symbol_modifier_token_group(
         &self,
-    ) -> Option<RegionalEphemSymbolModifierTokenGroup> {
+    ) -> Option<EphemSymbolModifierRegionalTokenGroup> {
         self.ephem_symbol_modifier_token_group
     }
 
-    pub fn self_value_token(&self) -> RegionalSelfValueToken {
+    pub fn self_value_token(&self) -> SelfValueRegionalToken {
         self.self_value_token
     }
 }
@@ -27,7 +27,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SelfParameterOb
         ctx: &mut SynDeclExprParser<'a>,
     ) -> Result<Option<Self>, Self::Error> {
         let ephem_symbol_modifier_token_group = ctx.try_parse_option()?;
-        if let Some(self_value_token) = ctx.try_parse_option::<RegionalSelfValueToken>()? {
+        if let Some(self_value_token) = ctx.try_parse_option::<SelfValueRegionalToken>()? {
             Ok(Some(Self {
                 ephem_symbol_modifier_token_group,
                 self_value_token,

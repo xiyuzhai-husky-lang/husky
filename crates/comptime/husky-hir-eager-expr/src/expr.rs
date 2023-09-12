@@ -121,7 +121,7 @@ impl ToHirEager for SynExprIdx {
             }
             SynExpr::ScopeResolution {
                 parent_expr_idx,
-                scope_resolution_token,
+                colon_colon_regional_token,
                 ident_token,
             } => {
                 let SynExprDisambiguation::StaticDispatch(dispatch) =
@@ -356,8 +356,12 @@ impl ToHirEager for SynExprIdx {
                     )
                 },
             },
-            SynExpr::Sorry { token_idx } => todo!(),
-            SynExpr::Todo { token_idx } => HirEagerExpr::Todo,
+            SynExpr::Sorry {
+                regional_token_idx: token_idx,
+            } => todo!(),
+            SynExpr::Todo {
+                regional_token_idx: token_idx,
+            } => HirEagerExpr::Todo,
             SynExpr::Err(ref e) => {
                 unreachable!(
                     "e = {:?}, path = {:?}",

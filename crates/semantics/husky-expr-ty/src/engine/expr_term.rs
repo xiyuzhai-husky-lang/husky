@@ -208,7 +208,7 @@ impl<'a> ExprTypeEngine<'a> {
             } => self.calc_item_path_term(expr_idx, opt_path),
             SynExpr::ScopeResolution {
                 parent_expr_idx,
-                scope_resolution_token,
+                colon_colon_regional_token,
                 ident_token,
             } => todo!(),
             SynExpr::InheritedSymbol {
@@ -307,8 +307,12 @@ impl<'a> ExprTypeEngine<'a> {
                 rpar_token_idx,
             } => todo!(),
             SynExpr::Ritchie { .. } => todo!(),
-            SynExpr::Sorry { token_idx } => todo!(),
-            SynExpr::Todo { token_idx } => todo!(),
+            SynExpr::Sorry {
+                regional_token_idx: token_idx,
+            } => todo!(),
+            SynExpr::Todo {
+                regional_token_idx: token_idx,
+            } => todo!(),
             SynExpr::Err(_) => Err(DerivedExprTermError::ExprError.into()),
         }
     }

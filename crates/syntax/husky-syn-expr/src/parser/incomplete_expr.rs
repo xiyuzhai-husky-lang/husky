@@ -40,8 +40,8 @@ pub(super) enum IncompleteExpr {
     },
     LambdaHead {
         // todo: use SmallVec
-        inputs: Vec<(RangedIdent, Option<SynExprIdx>)>,
-        start: TextPosition,
+        // inputs: Vec<(RangedIdent, Option<SynExprIdx>)>,
+        // start: TextPosition,
     },
     Application {
         function: SynExpr,
@@ -50,10 +50,10 @@ pub(super) enum IncompleteExpr {
     Ritchie {
         ritchie_kind_token_idx: RegionalTokenIdx,
         ritchie_kind: RitchieKind,
-        lpar_token: RegionalLparToken,
+        lpar_token: LparRegionalToken,
         argument_tys: SmallVec<[SynCommaListItem; 4]>,
         rpar_token_idx: RegionalTokenIdx,
-        light_arrow_token: RegionalLightArrowToken,
+        light_arrow_token: LightArrowRegionalToken,
     },
     KeyedArgument {
         key_token_idx: RegionalTokenIdx,
@@ -71,13 +71,13 @@ where
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         sp: &mut SynExprParser<'a, C>,
     ) -> Result<Option<Self>, Self::Error> {
-        if let Some(lcurl) = sp.try_parse_option::<RegionalLcurlToken>()? {
+        if let Some(lcurl) = sp.try_parse_option::<LcurlRegionalToken>()? {
             Ok(Some(SynHtmlArgumentExpr::Shortened {
                 lcurl,
                 property_ident: sp.try_parse_expected(OriginalSynExprError::HtmlTodo)?,
                 rcurl: sp.try_parse_expected(OriginalSynExprError::HtmlTodo)?,
             }))
-        } else if let Some(argument_ident) = sp.try_parse_option::<RegionalIdentToken>()? {
+        } else if let Some(argument_ident) = sp.try_parse_option::<IdentRegionalToken>()? {
             Ok(Some(SynHtmlArgumentExpr::Expanded {
                 property_ident: argument_ident,
                 eq: sp.try_parse_expected(OriginalSynExprError::HtmlTodo)?,

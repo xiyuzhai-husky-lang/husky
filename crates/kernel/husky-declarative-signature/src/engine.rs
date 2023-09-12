@@ -378,7 +378,7 @@ impl<'a> DeclarativeTermEngine<'a> {
             },
             SynExpr::ScopeResolution {
                 parent_expr_idx,
-                scope_resolution_token,
+                colon_colon_regional_token,
                 ident_token,
             } => todo!(),
             SynExpr::InheritedSymbol {
@@ -601,8 +601,12 @@ impl<'a> DeclarativeTermEngine<'a> {
                         .into(),
                 )
             }
-            SynExpr::Sorry { token_idx } => todo!(),
-            SynExpr::Todo { token_idx } => todo!(),
+            SynExpr::Sorry {
+                regional_token_idx: token_idx,
+            } => todo!(),
+            SynExpr::Todo {
+                regional_token_idx: token_idx,
+            } => todo!(),
         }
     }
 

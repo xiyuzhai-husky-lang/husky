@@ -406,8 +406,12 @@ impl<'a> InferContext<'a> {
             }
             SynExpr::FunctionCall { .. } => (),
             SynExpr::Ritchie { .. } => (),
-            SynExpr::Sorry { token_idx } => todo!(),
-            SynExpr::Todo { token_idx } => self.sheet.add(*token_idx, TokenInfo::Todo),
+            SynExpr::Sorry {
+                regional_token_idx: token_idx,
+            } => todo!(),
+            SynExpr::Todo {
+                regional_token_idx: token_idx,
+            } => self.sheet.add(*token_idx, TokenInfo::Todo),
         }
     }
 

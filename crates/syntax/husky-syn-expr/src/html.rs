@@ -3,16 +3,16 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum SynHtmlArgumentExpr {
     Expanded {
-        property_ident: RegionalIdentToken,
+        property_ident: IdentRegionalToken,
         eq: RegionalEqToken,
-        lcurl: RegionalLcurlToken,
+        lcurl: LcurlRegionalToken,
         expr: SynExprIdx,
-        rcurl: RegionalRcurlToken,
+        rcurl: RcurlRegionalToken,
     },
     Shortened {
-        lcurl: RegionalLcurlToken,
-        property_ident: RegionalIdentToken,
-        rcurl: RegionalRcurlToken,
+        lcurl: LcurlRegionalToken,
+        property_ident: IdentRegionalToken,
+        rcurl: RcurlRegionalToken,
     },
 }
 

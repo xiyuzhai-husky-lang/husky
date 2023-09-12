@@ -7,8 +7,8 @@ use super::*;
 pub struct PropsFieldDeclPattern {
     decorators: Vec<FieldDecorator>,
     visibility: Option<FieldVisibilityExpr>,
-    ident_token: RegionalIdentToken,
-    colon: RegionalColonToken,
+    ident_token: IdentRegionalToken,
+    colon: ColonRegionalToken,
     ty_expr_idx: SynExprIdx,
     initialization: Option<PropsFieldInitialization>,
     variable: CurrentSynSymbolIdx,
@@ -17,7 +17,7 @@ pub struct PropsFieldDeclPattern {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum PropsFieldInitialization {
     Bind {
-        colon_eq_token: ColonEqToken,
+        colon_eq_token: ColonEqRegionalToken,
         value: SynExprIdx,
     },
     Default {},
@@ -28,7 +28,7 @@ impl PropsFieldDeclPattern {
         self.ident_token.ident()
     }
 
-    pub fn colon(&self) -> RegionalColonToken {
+    pub fn colon(&self) -> ColonRegionalToken {
         self.colon
     }
 
@@ -49,30 +49,31 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
     ) -> SynExprResult<Option<Self>> {
         let decorators = parse_consecutive_list(ctx)?;
         let visibility = ctx.try_parse_option()?;
-        let Some(ident_token) = ctx.try_parse_option::<RegionalIdentToken>()? else {
+        let Some(ident_token) = ctx.try_parse_option::<IdentRegionalToken>()? else {
             return Ok(None);
         };
-        let colon: RegionalColonToken =
+        let colon: ColonRegionalToken =
             ctx.try_parse_expected(OriginalSynExprError::ExpectedColon)?;
         let ty_expr_idx = ctx.parse_expr_expected2(
             None,
             ExprRootKind::PropsStructFieldType { ident_token },
             OriginalSynExprError::ExpectedFieldType,
         );
-        let initialization = if let Some(colon_eq_token) = ctx.try_parse_option::<ColonEqToken>()? {
-            Some(PropsFieldInitialization::Bind {
-                colon_eq_token,
-                value: ctx.parse_expr_expected2(
-                    None,
-                    ExprRootKind::FieldBindInitialValue { ty_expr_idx },
-                    OriginalSynExprError::ExpectedValueForFieldBindInitialization,
-                ),
-            })
-        } else if let Some(_) = ctx.try_parse_option::<RegionalEqToken>()? {
-            todo!()
-        } else {
-            None
-        };
+        let initialization =
+            if let Some(colon_eq_token) = ctx.try_parse_option::<ColonEqRegionalToken>()? {
+                Some(PropsFieldInitialization::Bind {
+                    colon_eq_token,
+                    value: ctx.parse_expr_expected2(
+                        None,
+                        ExprRootKind::FieldBindInitialValue { ty_expr_idx },
+                        OriginalSynExprError::ExpectedValueForFieldBindInitialization,
+                    ),
+                })
+            } else if let Some(_) = ctx.try_parse_option::<RegionalEqToken>()? {
+                todo!()
+            } else {
+                None
+            };
         let access_start = ctx.save_state().next_token_idx();
         let symbol = CurrentSynSymbol::new(
             ctx.pattern_expr_region(),
@@ -109,7 +110,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for FieldDe
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
     ) -> Result<Option<Self>, Self::Error> {
-        let Some(at_token) = ctx.try_parse_option::<AtToken>()? else {
+        let Some(at_token) = ctx.try_parse_option::<AtRegionalToken>()? else {
             return Ok(None);
         };
         todo!()
@@ -128,10 +129,10 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for FieldVi
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
     ) -> Result<Option<Self>, Self::Error> {
-        let Some(pub_token) = ctx.try_parse_option::<RegionalPubToken>()? else {
+        let Some(pub_token) = ctx.try_parse_option::<PubRegionalToken>()? else {
             return Ok(None);
         };
-        let Some(lpar_token) = ctx.try_parse_option::<RegionalLparToken>()? else {
+        let Some(lpar_token) = ctx.try_parse_option::<LparRegionalToken>()? else {
             return Ok(Some(FieldVisibilityExpr::Pub));
         };
         todo!()

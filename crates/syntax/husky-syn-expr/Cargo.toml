@@ -21,14 +21,16 @@ original-error = { path = "../../abstraction/original-error" }
 enum-class = { path = "../../abstraction/enum-class" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
+# lex
+# `husky-token` shouldn't be included for dependencies!!
+husky-token-data = { path = "../../lex/husky-token-data" }
+husky-regional-token = { path = "../../lex/husky-regional-token" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 # lex
-# just use `husky-token-data`, `husky-token` shouldn't be included for dependencies!!
-husky-token-data = { path = "../../lex/husky-token-data" }
 # syntax
 husky-opr = { path = "../../kernel/husky-opr" }
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }

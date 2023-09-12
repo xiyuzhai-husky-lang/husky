@@ -125,7 +125,7 @@ impl ToHirLazy for SynExprIdx {
             }
             SynExpr::ScopeResolution {
                 parent_expr_idx,
-                scope_resolution_token,
+                colon_colon_regional_token,
                 ident_token,
             } => todo!(),
             SynExpr::InheritedSymbol {
@@ -351,8 +351,12 @@ impl ToHirLazy for SynExprIdx {
                 ref arguments,
                 empty_html_ket,
             } => todo!(),
-            SynExpr::Sorry { token_idx } => todo!(),
-            SynExpr::Todo { token_idx } => todo!(),
+            SynExpr::Sorry {
+                regional_token_idx: token_idx,
+            } => todo!(),
+            SynExpr::Todo {
+                regional_token_idx: token_idx,
+            } => todo!(),
             SynExpr::Err(_) => todo!(),
         };
         builder.alloc_expr(*self, hir_lazy_expr)

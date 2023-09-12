@@ -14,6 +14,7 @@ use crate::symbol::*;
 use crate::*;
 use husky_ast::{Ast, AstIdxRange, AstSheet};
 use husky_entity_syn_tree::*;
+use husky_token_data::db::{HasTokenDataDb, TokenDataDb};
 use husky_vfs::{ModulePath, Toolchain};
 use original_error::OriginalError;
 use parsec::{HasStreamState, StreamParser};
@@ -45,11 +46,11 @@ where
 pub type SynDeclExprParser<'a> = SynExprParser<'a, SynExprContext<'a>>;
 pub type SynDefnExprParser<'a, 'b> = SynExprParser<'a, &'b mut SynExprContext<'a>>;
 
-impl<'a, C> HasTokenDb for SynExprParser<'a, C>
+impl<'a, C> HasTokenDataDb<'a> for SynExprParser<'a, C>
 where
     C: IsSynExprContext<'a>,
 {
-    fn token_db(&self) -> &dyn TokenDb {
+    fn token_data_db(&self) -> &'a dyn TokenDataDb {
         self.context().db()
     }
 }
@@ -212,7 +213,7 @@ where
     ) -> SynExprResult<Option<SynPatternExprIdx>> {
         let symbol_modifier_token_group = self.try_parse_option()?;
         let ident_token = match symbol_modifier_token_group {
-            None => match self.try_parse_option::<RegionalIdentToken>()? {
+            None => match self.try_parse_option::<IdentRegionalToken>()? {
                 Some(ident_token) => ident_token,
                 None => return Ok(None),
             },
@@ -297,20 +298,20 @@ where
     }
 }
 
-impl<'a, C> std::borrow::Borrow<TokenStream<'a>> for SynExprParser<'a, C>
+impl<'a, C> std::borrow::Borrow<RegionalTokenStream<'a>> for SynExprParser<'a, C>
 where
     C: IsSynExprContext<'a>,
 {
-    fn borrow(&self) -> &TokenStream<'a> {
+    fn borrow(&self) -> &RegionalTokenStream<'a> {
         &self.token_stream
     }
 }
 
-impl<'a, C> std::borrow::BorrowMut<TokenStream<'a>> for SynExprParser<'a, C>
+impl<'a, C> std::borrow::BorrowMut<RegionalTokenStream<'a>> for SynExprParser<'a, C>
 where
     C: IsSynExprContext<'a>,
 {
-    fn borrow_mut(&mut self) -> &mut TokenStream<'a> {
+    fn borrow_mut(&mut self) -> &mut RegionalTokenStream<'a> {
         &mut self.token_stream
     }
 }

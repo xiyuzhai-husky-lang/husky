@@ -70,7 +70,7 @@ pub enum OriginalSynExprError {
     #[error("expected identifier after modifier")]
     ExpectedIdentAfterModifier(
         RegionalTokenStreamState,
-        RegionalEphemSymbolModifierTokenGroup,
+        EphemSymbolModifierRegionalTokenGroup,
     ),
     #[error("expected `:` at end of line")]
     ExpectedEolColon(RegionalTokenStreamState),
@@ -139,7 +139,7 @@ pub enum OriginalSynExprError {
     UnexpectedLeftCurlyBrace(RegionalTokenIdx),
     #[error("ExpectedTypeAfterLightArrow")]
     ExpectedTypeAfterLightArrow {
-        light_arrow_token: RegionalLightArrowToken,
+        light_arrow_token: LightArrowRegionalToken,
     },
     #[error("ExpectedTypeTermForAssociatedType")]
     ExpectedTypeTermForAssociatedType(RegionalTokenStreamState),
@@ -172,8 +172,8 @@ impl OriginalSynExprError {
         //     | OriginalSynExprError::ExpectedExplicitParameterDefaultValue(token_stream_state) => {
         //         let token_idx = token_stream_state.next_token_idx();
         //         match token_stream_state.drained() {
-        //             true => TokenIdxRange::new_drained(token_idx),
-        //             false => TokenIdxRange::new_single(token_idx),
+        //             true => RegionalTokenIdxRange::new_drained(token_idx),
+        //             false => RegionalTokenIdxRange::new_single(token_idx),
         //         }
         //     }
         //     OriginalSynExprError::MismatchingBracket {
@@ -230,7 +230,7 @@ impl OriginalSynExprError {
         //         dot_token_idx: token_idx,
         //     }
         //     | OriginalSynExprError::UnexpectedLeftCurlyBrace(token_idx) => {
-        //         TokenIdxRange::new_single(*token_idx)
+        //         RegionalTokenIdxRange::new_single(*token_idx)
         //     }
         //     OriginalSynExprError::ExpectedBlock(_) => todo!(),
         //     OriginalSynExprError::ExpectedTypeAfterLightArrow { light_arrow_token } => todo!(),

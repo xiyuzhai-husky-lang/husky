@@ -11,8 +11,8 @@ inductive SpecialToken
   | Shl                -- <<
   | LCurl              -- {
   | RCurl              -- }
-  | LBox               -- [
-  | RBox               --]
+  | Lbox               -- [
+  | Rbox               --]
   | LPar               -- (
   | RPar               --)
   | Add                -- +
@@ -61,8 +61,8 @@ namespace SpecialToken
     | Shl => "SpecialToken::Shl"
     | LCurl => "SpecialToken::Bra(Bracket::Curl)"
     | RCurl => "SpecialToken::Ket(Bracket::Curl)"
-    | LBox => "SpecialToken::Bra(Bracket::Box)"
-    | RBox => "SpecialToken::Ket(Bracket::Box)"  
+    | Lbox => "SpecialToken::Bra(Bracket::Box)"
+    | Rbox => "SpecialToken::Ket(Bracket::Box)"  
     | LPar => "SpecialToken::Bra(Bracket::Par)"
     | RPar => "SpecialToken::Ket(Bracket::Par)"
     | Add => "SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Add))"
@@ -110,8 +110,8 @@ instance : Enumerable SpecialToken where
     Shl,
     LCurl,
     RCurl,
-    LBox,
-    RBox,
+    Lbox,
+    Rbox,
     LPar,
     RPar,
     Add,
@@ -164,8 +164,8 @@ def huskyCode : SpecialToken -> String
   | Shl => "<<"
   | LCurl => "{"
   | RCurl => "}"
-  | LBox => "["
-  | RBox => "]"
+  | Lbox => "["
+  | Rbox => "]"
   | LPar => "("
   | RPar => ")"
   | Add => "+"

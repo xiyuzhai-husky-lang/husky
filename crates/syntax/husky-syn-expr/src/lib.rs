@@ -38,6 +38,7 @@ use husky_coword::*;
 use husky_entity_path::{EntityPath, ItemPath, PrincipalEntityPath};
 use husky_entity_syn_tree::{helpers::tokra_region::*, *};
 use husky_opr::*;
+use husky_regional_token::*;
 use husky_term_prelude::*;
 use husky_token_data::*;
 use precedence::*;
@@ -91,8 +92,8 @@ pub enum SynExpr {
     },
     ScopeResolution {
         parent_expr_idx: SynExprIdx,
-        scope_resolution_token: RegionalScopeResolutionToken,
-        ident_token: RegionalIdentToken,
+        colon_colon_regional_token: ColonColonRegionalToken,
+        ident_token: IdentRegionalToken,
     },
     InheritedSymbol {
         ident: Ident,
@@ -166,10 +167,10 @@ pub enum SynExpr {
     Ritchie {
         ritchie_kind_token_idx: RegionalTokenIdx,
         ritchie_kind: RitchieKind,
-        lpar_token: RegionalLparToken,
+        lpar_token: LparRegionalToken,
         parameter_ty_items: SmallVec<[SynCommaListItem; 4]>,
         rpar_token_idx: RegionalTokenIdx,
-        light_arrow_token: Option<RegionalLightArrowToken>,
+        light_arrow_token: Option<LightArrowRegionalToken>,
         /// it's guaranteed that `return_ty_expr` is some if and only if
         /// `light_arrow_token` is some
         return_ty_expr: Option<SynExprIdx>,
@@ -184,12 +185,12 @@ pub enum SynExpr {
     Field {
         owner: SynExprIdx,
         dot_token_idx: RegionalTokenIdx,
-        ident_token: RegionalIdentToken,
+        ident_token: IdentRegionalToken,
     },
     MethodApplicationOrCall {
         self_argument: SynExprIdx,
         dot_token_idx: RegionalTokenIdx,
-        ident_token: RegionalIdentToken,
+        ident_token: IdentRegionalToken,
         generic_arguments: Option<SynGenericArgumentList>,
         lpar_token_idx: RegionalTokenIdx,
         items: SmallVec<[SynCommaListItem; 4]>,
@@ -249,17 +250,17 @@ pub enum SynExpr {
     // todo: handle container
     EmptyHtmlTag {
         empty_html_bra_idx: RegionalTokenIdx,
-        function_ident: RegionalIdentToken,
+        function_ident: IdentRegionalToken,
         arguments: IdentMap<SynHtmlArgumentExpr>,
-        empty_html_ket: EmptyHtmlKetToken,
+        empty_html_ket: EmptyHtmlKetRegionalToken,
     },
     /// sorry is for comptime (say proof) terms
     Sorry {
-        token_idx: RegionalTokenIdx,
+        regional_token_idx: RegionalTokenIdx,
     },
     /// todo is for runtime terms
     Todo {
-        token_idx: RegionalTokenIdx,
+        regional_token_idx: RegionalTokenIdx,
     },
     Err(SynExprError),
 }
