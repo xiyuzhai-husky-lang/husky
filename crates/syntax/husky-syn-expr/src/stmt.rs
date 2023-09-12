@@ -21,7 +21,7 @@ pub enum SynStmt {
     Let {
         let_token: LetToken,
         let_variables_pattern: SynExprResult<LetVariableObelisk>,
-        assign_token: SynExprResult<EqToken>,
+        assign_token: SynExprResult<RegionalEqToken>,
         initial_value: SynExprIdx,
     },
     Return {

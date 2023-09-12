@@ -15,7 +15,7 @@ where
 {
     pub(crate) fn parse_be_variables_pattern_expected(
         &mut self,
-        access_end: TokenIdxRangeEnd,
+        access_end: RegionalTokenIdxRangeEnd,
     ) -> SynExprResult<BeVariablesObelisk> {
         let state = self.save_state();
         let Some(pattern_expr) = self.parse_pattern_expr(SynPatternExprInfo::Let)? else {

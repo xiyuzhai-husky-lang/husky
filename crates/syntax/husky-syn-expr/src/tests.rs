@@ -65,7 +65,7 @@ fn parse_expr_works() {
                 expr_arena: Arena {
                     data: [
                         Literal(
-                            TokenIdx(
+                            RegionalTokenIdx(
                                 1,
                             ),
                             Integer(
@@ -139,7 +139,7 @@ fn parse_expr_works() {
                 expr_arena: Arena {
                     data: [
                         Literal(
-                            TokenIdx(
+                            RegionalTokenIdx(
                                 2,
                             ),
                             Integer(
@@ -150,7 +150,7 @@ fn parse_expr_works() {
                         ),
                         Prefix {
                             opr: Minus,
-                            opr_token_idx: TokenIdx(
+                            opr_token_idx: RegionalTokenIdx(
                                 1,
                             ),
                             opd: 1,
@@ -220,7 +220,7 @@ fn parse_expr_works() {
                 expr_arena: Arena {
                     data: [
                         Literal(
-                            TokenIdx(
+                            RegionalTokenIdx(
                                 1,
                             ),
                             Integer(
@@ -294,7 +294,7 @@ fn parse_expr_works() {
                 expr_arena: Arena {
                     data: [
                         Literal(
-                            TokenIdx(
+                            RegionalTokenIdx(
                                 1,
                             ),
                             Integer(
@@ -439,7 +439,7 @@ fn parse_expr_works() {
                 expr_arena: Arena {
                     data: [
                         Literal(
-                            TokenIdx(
+                            RegionalTokenIdx(
                                 1,
                             ),
                             Integer(
@@ -449,7 +449,7 @@ fn parse_expr_works() {
                             ),
                         ),
                         Literal(
-                            TokenIdx(
+                            RegionalTokenIdx(
                                 3,
                             ),
                             Integer(
@@ -463,7 +463,7 @@ fn parse_expr_works() {
                             opr: Closed(
                                 Add,
                             ),
-                            opr_token_idx: TokenIdx(
+                            opr_token_idx: RegionalTokenIdx(
                                 2,
                             ),
                             ropd: 2,
@@ -533,18 +533,18 @@ fn parse_expr_works() {
                 expr_arena: Arena {
                     data: [
                         List {
-                            lbox_token_idx: TokenIdx(
+                            lbox_token_idx: RegionalTokenIdx(
                                 1,
                             ),
                             items: [],
-                            rbox_token_idx: TokenIdx(
+                            rbox_token_idx: RegionalTokenIdx(
                                 2,
                             ),
                         },
                         Err(
                             Original(
                                 UnrecognizedIdent {
-                                    token_idx: TokenIdx(
+                                    token_idx: RegionalTokenIdx(
                                         3,
                                     ),
                                     ident: Ident(
@@ -626,7 +626,7 @@ fn parse_expr_works() {
                 expr_arena: Arena {
                     data: [
                         Literal(
-                            TokenIdx(
+                            RegionalTokenIdx(
                                 2,
                             ),
                             Integer(
@@ -636,7 +636,7 @@ fn parse_expr_works() {
                             ),
                         ),
                         List {
-                            lbox_token_idx: TokenIdx(
+                            lbox_token_idx: RegionalTokenIdx(
                                 1,
                             ),
                             items: [
@@ -645,14 +645,14 @@ fn parse_expr_works() {
                                     comma_token_idx: None,
                                 },
                             ],
-                            rbox_token_idx: TokenIdx(
+                            rbox_token_idx: RegionalTokenIdx(
                                 3,
                             ),
                         },
                         Err(
                             Original(
                                 UnrecognizedIdent {
-                                    token_idx: TokenIdx(
+                                    token_idx: RegionalTokenIdx(
                                         4,
                                     ),
                                     ident: Ident(
@@ -736,7 +736,7 @@ fn parse_expr_works() {
                         Err(
                             Original(
                                 UnrecognizedIdent {
-                                    token_idx: TokenIdx(
+                                    token_idx: RegionalTokenIdx(
                                         2,
                                     ),
                                     ident: Ident(
@@ -752,7 +752,7 @@ fn parse_expr_works() {
                         Err(
                             Original(
                                 UnrecognizedIdent {
-                                    token_idx: TokenIdx(
+                                    token_idx: RegionalTokenIdx(
                                         4,
                                     ),
                                     ident: Ident(
@@ -766,14 +766,14 @@ fn parse_expr_works() {
                             ),
                         ),
                         NewTuple {
-                            lpar_token_idx: TokenIdx(
+                            lpar_token_idx: RegionalTokenIdx(
                                 1,
                             ),
                             items: [
                                 SynCommaListItem {
                                     expr_idx: 1,
                                     comma_token_idx: Some(
-                                        TokenIdx(
+                                        RegionalTokenIdx(
                                             3,
                                         ),
                                     ),
@@ -783,7 +783,7 @@ fn parse_expr_works() {
                                     comma_token_idx: None,
                                 },
                             ],
-                            rpar_token_idx: TokenIdx(
+                            rpar_token_idx: RegionalTokenIdx(
                                 5,
                             ),
                         },
@@ -856,10 +856,10 @@ fn parse_expr_works() {
     //                         opn: List {
     //                             opr: NewLambdaHead,
     //                             bracket: Vertical,
-    //                             bra_token_idx: TokenIdx(
+    //                             bra_token_idx: RegionalTokenIdx(
     //                                 0,
     //                             ),
-    //                             ket_token_idx: TokenIdx(
+    //                             ket_token_idx: RegionalTokenIdx(
     //                                 2,
     //                             ),
     //                         },
@@ -912,7 +912,7 @@ fn parse_expr_works() {
                         Err(
                             Original(
                                 UnrecognizedIdent {
-                                    token_idx: TokenIdx(
+                                    token_idx: RegionalTokenIdx(
                                         1,
                                     ),
                                     ident: Ident(
@@ -927,10 +927,10 @@ fn parse_expr_works() {
                         ),
                         Field {
                             owner: 1,
-                            dot_token_idx: TokenIdx(
+                            dot_token_idx: RegionalTokenIdx(
                                 2,
                             ),
-                            ident_token: IdentToken {
+                            ident_token: RegionalIdentToken {
                                 ident: Ident(
                                     Coword(
                                         Id {
@@ -938,7 +938,7 @@ fn parse_expr_works() {
                                         },
                                     ),
                                 ),
-                                token_idx: TokenIdx(
+                                token_idx: RegionalTokenIdx(
                                     3,
                                 ),
                             },
@@ -1010,7 +1010,7 @@ fn parse_expr_works() {
                         Err(
                             Original(
                                 UnrecognizedIdent {
-                                    token_idx: TokenIdx(
+                                    token_idx: RegionalTokenIdx(
                                         1,
                                     ),
                                     ident: Ident(
@@ -1025,10 +1025,10 @@ fn parse_expr_works() {
                         ),
                         MethodApplicationOrCall {
                             self_argument: 1,
-                            dot_token_idx: TokenIdx(
+                            dot_token_idx: RegionalTokenIdx(
                                 2,
                             ),
-                            ident_token: IdentToken {
+                            ident_token: RegionalIdentToken {
                                 ident: Ident(
                                     Coword(
                                         Id {
@@ -1036,16 +1036,16 @@ fn parse_expr_works() {
                                         },
                                     ),
                                 ),
-                                token_idx: TokenIdx(
+                                token_idx: RegionalTokenIdx(
                                     3,
                                 ),
                             },
                             generic_arguments: None,
-                            lpar_token_idx: TokenIdx(
+                            lpar_token_idx: RegionalTokenIdx(
                                 4,
                             ),
                             items: [],
-                            rpar_token_idx: TokenIdx(
+                            rpar_token_idx: RegionalTokenIdx(
                                 5,
                             ),
                         },
@@ -1119,7 +1119,7 @@ fn parse_application_expr_works() {
                 expr_arena: Arena {
                     data: [
                         Literal(
-                            TokenIdx(
+                            RegionalTokenIdx(
                                 1,
                             ),
                             Integer(
@@ -1129,7 +1129,7 @@ fn parse_application_expr_works() {
                             ),
                         ),
                         Literal(
-                            TokenIdx(
+                            RegionalTokenIdx(
                                 2,
                             ),
                             Integer(
@@ -1143,7 +1143,7 @@ fn parse_application_expr_works() {
                             argument_expr_idx: 2,
                         },
                         Literal(
-                            TokenIdx(
+                            RegionalTokenIdx(
                                 3,
                             ),
                             Integer(

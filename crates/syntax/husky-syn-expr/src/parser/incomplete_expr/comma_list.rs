@@ -8,7 +8,7 @@ pub(in crate::parser) enum IncompleteCommaListOpr {
     },
     BoxList,
     BoxColonList {
-        colon_token_idx: TokenIdx,
+        colon_token_idx: RegionalTokenIdx,
     },
     NewLambdaHead,
     FunctionInstantiation {},
@@ -16,47 +16,23 @@ pub(in crate::parser) enum IncompleteCommaListOpr {
         function: SynExprIdx,
     },
     RitchieArguments {
-        ritchie_kind_token_idx: TokenIdx,
+        ritchie_kind_token_idx: RegionalTokenIdx,
         ritchie_kind: RitchieKind,
-        lpar_token: LparToken,
+        lpar_token: RegionalLParToken,
     },
     TemplateInstantiation {
         template: SynExprIdx,
     },
     MethodInstantiation {
         self_expr: SynExprIdx,
-        dot_token_idx: TokenIdx,
-        ident_token: IdentToken,
+        dot_token_idx: RegionalTokenIdx,
+        ident_token: RegionalIdentToken,
     },
     #[deprecated(note = "move this to CallList")]
     MethodApplicationOrCall {
         self_expr: SynExprIdx,
-        dot_token_idx: TokenIdx,
-        ident_token: IdentToken,
+        dot_token_idx: RegionalTokenIdx,
+        ident_token: RegionalIdentToken,
         generic_arguments: Option<SynGenericArgumentList>,
     },
-}
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub(super) enum ListStartAttr {
-    None,
-    Attach,
-    MethodAttach { ranged_ident: RangedIdent },
-}
-
-impl ListStartAttr {
-    pub fn attached(&self) -> bool {
-        match self {
-            ListStartAttr::None => false,
-            ListStartAttr::Attach => true,
-            ListStartAttr::MethodAttach { .. } => true,
-        }
-    }
-}
-
-#[derive(Debug, Copy, Clone, PartialEq, Eq)]
-pub enum ListEndAttr {
-    None,
-    Attach,
-    Modulo,
 }

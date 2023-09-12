@@ -26,7 +26,7 @@ pub enum Symbol {
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum ImplicitParameterSymbol {
     Lifetime { label_token: LifetimeToken },
-    Type { ident_token: IdentToken },
+    Type { ident_token: RegionalIdentToken },
     Const {},
 }
 
@@ -80,7 +80,7 @@ pub enum InheritedTemplateParameterSynSymbol {
 #[salsa::debug_with_db(db = SynExprDb)]
 pub struct CurrentSynSymbol {
     modifier: SymbolModifier,
-    access_start: TokenIdx,
+    access_start: RegionalTokenIdx,
     /// this is none only for lambda variable
     access_end: Option<TokenIdxRangeEnd>,
     variant: CurrentSynSymbolVariant,
@@ -89,7 +89,7 @@ pub struct CurrentSynSymbol {
 impl CurrentSynSymbol {
     pub fn new(
         pattern_expr_region: &SynPatternExprRegion,
-        access_start: TokenIdx,
+        access_start: RegionalTokenIdx,
         access_end: Option<TokenIdxRangeEnd>,
         variant: CurrentSynSymbolVariant,
     ) -> Self {
@@ -150,13 +150,13 @@ pub enum CurrentSynSymbolKind {
         pattern_symbol_idx: SynPatternSymbolIdx,
     },
     ExplicitVariadicParameter {
-        ident_token: IdentToken,
+        ident_token: RegionalIdentToken,
     },
     LetVariable {
         pattern_symbol_idx: SynPatternSymbolIdx,
     },
     FieldVariable {
-        ident_token: IdentToken,
+        ident_token: RegionalIdentToken,
     },
     FrameVariable(SynExprIdx),
 }
@@ -164,9 +164,9 @@ pub enum CurrentSynSymbolKind {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum CurrentImplicitParameterSynSymbolKind {
-    Type { ident_token: IdentToken },
+    Type { ident_token: RegionalIdentToken },
     Lifetime { label_token: LifetimeToken },
-    Constant { ident_token: IdentToken },
+    Constant { ident_token: RegionalIdentToken },
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -187,14 +187,14 @@ pub enum CurrentSynSymbolVariant {
     },
     ParenateVariadicParameter {
         symbol_modifier_keyword_group: Option<EphemSymbolModifierTokenGroup>,
-        ident_token: IdentToken,
+        ident_token: RegionalIdentToken,
     },
     LetVariable {
         ident: Ident,
         pattern_symbol_idx: SynPatternSymbolIdx,
     },
     FieldVariable {
-        ident_token: IdentToken,
+        ident_token: RegionalIdentToken,
     },
     FrameVariable {
         ident: Ident,
@@ -270,10 +270,10 @@ pub enum CurrentTemplateParameterSynSymbolVariant {
         label_token: LifetimeToken,
     },
     Type {
-        ident_token: IdentToken,
+        ident_token: RegionalIdentToken,
     },
     Constant {
-        ident_token: IdentToken,
+        ident_token: RegionalIdentToken,
         ty_expr_idx: SynExprIdx,
     },
 }

@@ -36,7 +36,7 @@ pub use self::symbol::*;
 
 use husky_coword::*;
 use husky_entity_path::{EntityPath, ItemPath, PrincipalEntityPath};
-use husky_entity_syn_tree::*;
+use husky_entity_syn_tree::{helpers::tokra_region::*, *};
 use husky_opr::*;
 use husky_term_prelude::*;
 use husky_text::*;
@@ -85,7 +85,7 @@ impl BaseEntityPathInclination {
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum SynExpr {
-    Literal(TokenIdx, Literal),
+    Literal(RegionalTokenIdx, Literal),
     PrincipalEntityPath {
         item_path_expr: PrincipalEntityPathExprIdx,
         opt_path: Option<PrincipalEntityPath>,
@@ -93,48 +93,48 @@ pub enum SynExpr {
     ScopeResolution {
         parent_expr_idx: SynExprIdx,
         scope_resolution_token: ScopeResolutionToken,
-        ident_token: IdentToken,
+        ident_token: RegionalIdentToken,
     },
     InheritedSymbol {
         ident: Ident,
-        token_idx: TokenIdx,
+        token_idx: RegionalTokenIdx,
         inherited_symbol_idx: InheritedSynSymbolIdx,
         inherited_symbol_kind: InheritedSynSymbolKind,
     },
     CurrentSymbol {
         ident: Ident,
-        token_idx: TokenIdx,
+        token_idx: RegionalTokenIdx,
         current_symbol_idx: CurrentSynSymbolIdx,
         current_symbol_kind: CurrentSynSymbolKind,
     },
     FrameVarDecl {
-        token_idx: TokenIdx,
+        token_idx: RegionalTokenIdx,
         ident: Ident,
         frame_var_symbol_idx: CurrentSynSymbolIdx,
         current_symbol_kind: CurrentSynSymbolKind,
     },
-    SelfType(TokenIdx),
-    SelfValue(TokenIdx),
+    SelfType(RegionalTokenIdx),
+    SelfValue(RegionalTokenIdx),
     Binary {
         lopd: SynExprIdx,
         opr: BinaryOpr,
-        opr_token_idx: TokenIdx,
+        opr_token_idx: RegionalTokenIdx,
         ropd: SynExprIdx,
     },
     Be {
         src: SynExprIdx,
-        be_token_idx: TokenIdx,
+        be_token_idx: RegionalTokenIdx,
         target: SynExprResult<BeVariablesObelisk>,
     },
     Prefix {
         opr: PrefixOpr,
-        opr_token_idx: TokenIdx,
+        opr_token_idx: RegionalTokenIdx,
         opd: SynExprIdx,
     },
     Suffix {
         opd: SynExprIdx,
         opr: SuffixOpr,
-        opr_token_idx: TokenIdx,
+        opr_token_idx: RegionalTokenIdx,
     },
     /// we shall need the exact type of `f` to disambiguate the following:
     /// - `f(x1, ..., xn)` can be interpreted in two ways:
@@ -159,17 +159,17 @@ pub enum SynExpr {
     FunctionApplicationOrCall {
         function: SynExprIdx,
         generic_arguments: Option<SynGenericArgumentList>,
-        lpar_token_idx: TokenIdx,
+        lpar_token_idx: RegionalTokenIdx,
         items: SmallVec<[SynCommaListItem; 4]>,
-        rpar_token_idx: TokenIdx,
+        rpar_token_idx: RegionalTokenIdx,
     },
     /// function type or trait
     Ritchie {
-        ritchie_kind_token_idx: TokenIdx,
+        ritchie_kind_token_idx: RegionalTokenIdx,
         ritchie_kind: RitchieKind,
         lpar_token: LparToken,
         parameter_ty_items: SmallVec<[SynCommaListItem; 4]>,
-        rpar_token_idx: TokenIdx,
+        rpar_token_idx: RegionalTokenIdx,
         light_arrow_token: Option<LightArrowToken>,
         /// it's guaranteed that `return_ty_expr` is some if and only if
         /// `light_arrow_token` is some
@@ -178,23 +178,23 @@ pub enum SynExpr {
     FunctionCall {
         function: SynExprIdx,
         generic_arguments: Option<SynGenericArgumentList>,
-        lpar_token_idx: TokenIdx,
+        lpar_token_idx: RegionalTokenIdx,
         items: SmallVec<[CallListItem; 4]>,
-        rpar_token_idx: TokenIdx,
+        rpar_token_idx: RegionalTokenIdx,
     },
     Field {
         owner: SynExprIdx,
-        dot_token_idx: TokenIdx,
-        ident_token: IdentToken,
+        dot_token_idx: RegionalTokenIdx,
+        ident_token: RegionalIdentToken,
     },
     MethodApplicationOrCall {
         self_argument: SynExprIdx,
-        dot_token_idx: TokenIdx,
-        ident_token: IdentToken,
+        dot_token_idx: RegionalTokenIdx,
+        ident_token: RegionalIdentToken,
         generic_arguments: Option<SynGenericArgumentList>,
-        lpar_token_idx: TokenIdx,
+        lpar_token_idx: RegionalTokenIdx,
         items: SmallVec<[SynCommaListItem; 4]>,
-        rpar_token_idx: TokenIdx,
+        rpar_token_idx: RegionalTokenIdx,
     },
     TemplateInstantiation {
         template: SynExprIdx,
@@ -206,19 +206,19 @@ pub enum SynExpr {
         argument_expr_idx: SynExprIdx,
     },
     Unit {
-        lpar_token_idx: TokenIdx,
-        rpar_token_idx: TokenIdx,
+        lpar_token_idx: RegionalTokenIdx,
+        rpar_token_idx: RegionalTokenIdx,
     },
     Bracketed {
-        lpar_token_idx: TokenIdx,
+        lpar_token_idx: RegionalTokenIdx,
         item: SynExprIdx,
-        rpar_token_idx: TokenIdx,
+        rpar_token_idx: RegionalTokenIdx,
     },
     NewTuple {
-        lpar_token_idx: TokenIdx,
+        lpar_token_idx: RegionalTokenIdx,
         /// guaranteed that items.len() > 0
         items: SmallVec<[SynCommaListItem; 4]>,
-        rpar_token_idx: TokenIdx,
+        rpar_token_idx: RegionalTokenIdx,
     },
     /// there are two cases
     /// - index `$owner[$items]` where `$owner` can be indexed
@@ -226,57 +226,57 @@ pub enum SynExpr {
     /// the cases are determined by whether `$owner` is of curry type
     IndexOrCompositionWithList {
         owner: SynExprIdx,
-        lbox_token_idx: TokenIdx,
+        lbox_token_idx: RegionalTokenIdx,
         items: SmallVec<[SynCommaListItem; 4]>,
-        rbox_token_idx: TokenIdx,
+        rbox_token_idx: RegionalTokenIdx,
     },
     List {
-        lbox_token_idx: TokenIdx,
+        lbox_token_idx: RegionalTokenIdx,
         items: SmallVec<[SynCommaListItem; 4]>,
-        rbox_token_idx: TokenIdx,
+        rbox_token_idx: RegionalTokenIdx,
     },
     /// [:] means Slice
     /// [:n] means array as `[_;n]` in Rust
     /// [:n1, n2, ...] means multidimensional array
     BoxColonList {
-        lbox_token_idx: TokenIdx,
-        colon_token_idx: TokenIdx,
+        lbox_token_idx: RegionalTokenIdx,
+        colon_token_idx: RegionalTokenIdx,
         items: SmallVec<[SynCommaListItem; 4]>,
-        rbox_token_idx: TokenIdx,
+        rbox_token_idx: RegionalTokenIdx,
     },
     Block {
         stmts: SynStmtIdxRange,
     },
     // todo: handle container
     EmptyHtmlTag {
-        empty_html_bra_idx: TokenIdx,
-        function_ident: IdentToken,
+        empty_html_bra_idx: RegionalTokenIdx,
+        function_ident: RegionalIdentToken,
         arguments: IdentMap<SynHtmlArgumentExpr>,
         empty_html_ket: EmptyHtmlKetToken,
     },
     /// sorry is for comptime (say proof) terms
     Sorry {
-        token_idx: TokenIdx,
+        token_idx: RegionalTokenIdx,
     },
     /// todo is for runtime terms
     Todo {
-        token_idx: TokenIdx,
+        token_idx: RegionalTokenIdx,
     },
     Err(SynExprError),
 }
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SynGenericArgumentList {
-    langle: TokenIdx,
+    langle: RegionalTokenIdx,
     arguments: SmallVec<[SynCommaListItem; 4]>,
-    rangle: TokenIdx,
+    rangle: RegionalTokenIdx,
 }
 
 impl SynGenericArgumentList {
     pub(crate) fn new(
-        langle: TokenIdx,
+        langle: RegionalTokenIdx,
         arguments: SmallVec<[SynCommaListItem; 4]>,
-        rangle: TokenIdx,
+        rangle: RegionalTokenIdx,
     ) -> Self {
         Self {
             langle,
@@ -285,7 +285,7 @@ impl SynGenericArgumentList {
         }
     }
 
-    pub fn langle(&self) -> TokenIdx {
+    pub fn langle(&self) -> RegionalTokenIdx {
         self.langle
     }
 
@@ -293,7 +293,7 @@ impl SynGenericArgumentList {
         &self.arguments
     }
 
-    pub fn rangle(&self) -> TokenIdx {
+    pub fn rangle(&self) -> RegionalTokenIdx {
         self.rangle
     }
 }
@@ -306,4 +306,4 @@ pub type SynExprIdx = ArenaIdx<SynExpr>;
 pub type SynExprIdxRange = ArenaIdxRange<SynExpr>;
 pub type SynExprMap<V> = ArenaMap<SynExpr, V>;
 
-type Commas = SmallVec<[TokenIdx; 2]>;
+type Commas = SmallVec<[RegionalTokenIdx; 2]>;

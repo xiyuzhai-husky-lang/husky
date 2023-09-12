@@ -57,7 +57,7 @@ pub enum ObeliskTypeConstraint {
         ty: SynExprIdx,
     },
     FieldVariable {
-        ident_token: IdentToken,
+        ident_token: RegionalIdentToken,
         ty_expr_idx: SynExprIdx,
     },
     FrameVariable,
@@ -127,7 +127,11 @@ impl SynSymbolRegion {
         symbols
     }
 
-    pub(crate) fn resolve_ident(&self, token_idx: TokenIdx, ident: Ident) -> Option<Symbol> {
+    pub(crate) fn resolve_ident(
+        &self,
+        token_idx: RegionalTokenIdx,
+        ident: Ident,
+    ) -> Option<Symbol> {
         self.current_symbol_arena
             .find_rev_indexed(|symbol| {
                 let accessible = match symbol.access_end {

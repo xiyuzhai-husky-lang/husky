@@ -28,7 +28,7 @@ impl<'a> SynSymbolContextMut<'a> {
         &self,
         db: &dyn SynExprDb,
         reference_module_path: ModulePath,
-        token_idx: TokenIdx,
+        token_idx: RegionalTokenIdx,
         ident: Ident,
     ) -> Option<Symbol> {
         self.symbol_region.resolve_ident(token_idx, ident).or(self

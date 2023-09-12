@@ -8,7 +8,6 @@ pub use self::symbol::*;
 use super::*;
 use husky_coword::Ident;
 use husky_entity_path::ItemPath;
-use husky_token::{AtToken, DotDotToken, IdentToken, TokenStream};
 use idx_arena::{ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use ordered_float::NotNan;
 use parsec::{StreamParser, TryParseOptionFromStream};
@@ -35,7 +34,7 @@ pub enum SynPatternExpr {
     /// example: `a`
     Ident {
         symbol_modifier_keyword_group: Option<EphemSymbolModifierTokenGroup>,
-        ident_token: IdentToken,
+        ident_token: RegionalIdentToken,
     },
     /// example: `A::B`
     Entity(ItemPath),
@@ -54,7 +53,7 @@ pub enum SynPatternExpr {
     OneOf { options: SynPatternExprIdxRange },
     /// example: `x @ 1..9`
     Binding {
-        ident_token: IdentToken,
+        ident_token: RegionalIdentToken,
         asperand_token: AtToken,
         /// example: `1..9`
         src: SynPatternExprIdx,
