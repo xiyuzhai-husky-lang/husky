@@ -24,14 +24,14 @@ impl TraitAssociatedTypeSynNodeDecl {
     }
 }
 
-impl<'a> DeclParserFactory<'a, TraitItemSynNodePath> {
+impl<'a> DeclParser<'a, TraitItemSynNodePath> {
     pub(super) fn parse_trai_associated_ty_node_decl(&self) -> TraitAssociatedTypeSynNodeDecl {
         let db = self.db();
         let parent_trai_syn_node_decl = self
             .syn_node_path()
             .parent_trai_syn_node_path(db)
             .syn_node_decl(db);
-        let mut parser = self.parser(
+        let mut parser = self.expr_parser(
             Some(parent_trai_syn_node_decl.syn_expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::False,

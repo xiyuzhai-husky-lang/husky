@@ -4,7 +4,7 @@ use crate::*;
 pub struct RegionalTokenGroupStart(RegionalTokenIdx);
 
 impl RegionalTokenGroupStart {
-    pub fn from_index(index: usize) -> Self {
+    pub(crate) fn from_index(index: usize) -> Self {
         Self(RegionalTokenIdx::from_index(index))
     }
 

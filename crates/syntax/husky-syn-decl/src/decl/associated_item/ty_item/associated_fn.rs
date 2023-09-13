@@ -35,10 +35,10 @@ impl TypeAssociatedFnSynNodeDecl {
     }
 }
 
-impl<'a> DeclParserFactory<'a, TypeItemSynNodePath> {
+impl<'a> DeclParser<'a, TypeItemSynNodePath> {
     pub(super) fn parse_ty_associated_fn_node_decl(&self) -> TypeAssociatedFnSynNodeDecl {
         let db = self.db();
-        let mut parser = self.parser(
+        let mut parser = self.expr_parser(
             Some(
                 self.syn_node_path()
                     .impl_block(db)

@@ -63,7 +63,7 @@ impl HasSynNodePath for TypeVariantPath {
 }
 
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub struct TypeVariantSynNode {
+pub(crate) struct TypeVariantSynNode {
     #[id]
     pub syn_node_path: TypeVariantSynNodePath,
     pub ast_idx: AstIdx,

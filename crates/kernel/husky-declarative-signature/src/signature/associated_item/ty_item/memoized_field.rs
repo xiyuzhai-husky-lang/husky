@@ -1,5 +1,3 @@
-use husky_entity_syn_tree::ImplBlockSynNode;
-
 use crate::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]

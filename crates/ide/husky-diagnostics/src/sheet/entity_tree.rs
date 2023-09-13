@@ -1,7 +1,8 @@
 use super::*;
+use husky_ast::Ast;
 use husky_entity_syn_tree::{
-    EntitySynTreeError, ImplBlockIllForm, MajorPathExprError, OnceUseRuleState,
-    OriginalEntityTreeError, OriginalMajorPathExprError,
+    helpers::tokra_region::HasDeclTokraRegion, EntitySynTreeError, ImplBlockIllForm,
+    MajorPathExprError, OnceUseRuleState, OriginalEntityTreeError, OriginalMajorPathExprError,
 };
 use salsa::DebugWithDb;
 
@@ -55,13 +56,25 @@ impl Diagnose for OriginalEntityTreeError {
     }
 
     fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
+        let db = ctx.db();
         match self {
             OriginalEntityTreeError::UnresolvedRootIdent(ident_token) => {
                 ctx.token_idx_text_range(ident_token.token_idx())
             }
             OriginalEntityTreeError::NoVisibleSubitem => todo!(),
             OriginalEntityTreeError::EntitySymbolAlreadyDefined { old, new } => {
-                ctx.token_idx_text_range(new.ident_token(ctx.db()).token_idx())
+                match ctx.ast_sheet()[new.decl_ast_idx(db)] {
+                    Ast::Use {
+                        token_group_idx,
+                        ref visibility_expr,
+                        state_after_visibility_expr,
+                    } => todo!(),
+                    Ast::Identifiable { ident_token, .. }
+                    | Ast::TypeVariant { ident_token, .. } => {
+                        ctx.token_idx_text_range(ident_token.token_idx())
+                    }
+                    _ => unreachable!(),
+                }
             }
             OriginalEntityTreeError::ExpectIdentAfterKeyword => todo!(),
             OriginalEntityTreeError::InvalidTypePath(_) => todo!(),

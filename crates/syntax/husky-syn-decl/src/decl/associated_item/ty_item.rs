@@ -87,11 +87,11 @@ pub(crate) fn ty_item_syn_node_decl(
     db: &dyn SynDeclDb,
     syn_node_path: TypeItemSynNodePath,
 ) -> TypeItemSynNodeDecl {
-    let ctx = DeclParserFactory::new(db, syn_node_path);
+    let ctx = DeclParser::new(db, syn_node_path);
     ctx.parse_ty_item_syn_node_decl()
 }
 
-impl<'a> DeclParserFactory<'a, TypeItemSynNodePath> {
+impl<'a> DeclParser<'a, TypeItemSynNodePath> {
     fn parse_ty_item_syn_node_decl(&self) -> TypeItemSynNodeDecl {
         match self.syn_node_path().item_kind(self.db()) {
             TypeItemKind::MethodFn => self.parse_ty_method_node_decl().into(),

@@ -1,4 +1,4 @@
-use crate::{EntitySynTreeDb, EntityTreeBundleError, ItemSynNode, PreludeError};
+use crate::{EntitySynTreeDb, EntityTreeBundleError, ItemSynNode, ItemSynNodePath, PreludeError};
 use husky_ast::AstIdx;
 use husky_entity_path::{EntityPathError, TypePath};
 use husky_manifest::ManifestError;
@@ -60,7 +60,10 @@ pub enum OriginalEntityTreeError {
     #[error("no visible subitem")]
     NoVisibleSubitem,
     #[error("item symbol already defined")]
-    EntitySymbolAlreadyDefined { old: ItemSynNode, new: ItemSynNode },
+    EntitySymbolAlreadyDefined {
+        old: ItemSynNodePath,
+        new: ItemSynNodePath,
+    },
     #[error("expect identifier after keyword")]
     ExpectIdentAfterKeyword,
     #[error("InvalidTypePath")]

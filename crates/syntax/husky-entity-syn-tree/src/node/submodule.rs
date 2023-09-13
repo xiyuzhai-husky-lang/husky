@@ -45,7 +45,7 @@ impl HasSynNodePath for SubmodulePath {
 }
 
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub struct SubmoduleSynNode {
+pub(crate) struct SubmoduleSynNode {
     #[id]
     pub syn_node_path: SubmoduleSynNodePath,
     pub visibility: Scope,
