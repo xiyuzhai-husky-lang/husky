@@ -12,7 +12,6 @@ use self::expr_stack::*;
 use self::incomplete_expr::*;
 use crate::symbol::*;
 use crate::*;
-use husky_ast::{Ast, AstIdxRange, AstSheet};
 use husky_entity_syn_tree::*;
 use husky_token_data::db::{HasTokenDataDb, TokenDataDb};
 use husky_vfs::{ModulePath, Toolchain};

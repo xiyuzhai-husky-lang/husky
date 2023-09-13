@@ -30,11 +30,10 @@ husky-coword = { path = "../../kernel/husky-coword" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
-# lex
-# syntax
 husky-opr = { path = "../../kernel/husky-opr" }
+# syntax
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
-husky-ast = { path = "../../syntax/husky-ast" }
+husky-regional-ast = { path = "../../syntax/husky-regional-ast" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }

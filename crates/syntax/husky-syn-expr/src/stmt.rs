@@ -5,7 +5,7 @@ pub use self::branch_stmt::*;
 pub use self::loop_stmt::*;
 
 use crate::*;
-use husky_ast::{Ast, AstIdx, AstIdxRange, FugitiveBody};
+use husky_regional_ast::{RegionalAst, RegionalAstIdx, RegionalAstIdxRange};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use parsec::StreamParser;
 
@@ -88,7 +88,7 @@ pub enum SynStmt {
 impl<'a> SynStmtContext<'a> {
     pub fn parse_stmts_expected(
         &mut self,
-        body: FugitiveBody,
+        body: RegionalAstIdxRange,
         token_group_idx: RegionalTokenGroupIdx,
     ) -> SynExprResult<SynStmtIdxRange> {
         match self.parse_stmts(body) {
@@ -97,23 +97,19 @@ impl<'a> SynStmtContext<'a> {
         }
     }
 
-    pub fn parse_stmts(&mut self, body: FugitiveBody) -> Option<SynStmtIdxRange> {
+    pub fn parse_stmts(&mut self, body: RegionalAstIdxRange) -> Option<SynStmtIdxRange> {
         let block_end = self.fugitive_body_end(body);
-        let body = body.ast_idx_range();
         if body.len() == 0 {
             return None;
         }
-        let stmts = self
-            .ast_sheet()
-            .indexed_iter(body)
-            .filter_map(|(idx, ast)| {
-                self.parse_stmt(ast, self.ast_token_idx_range_sheet()[idx], block_end)
-            })
+        let stmts = body
+            .into_iter()
+            .map(|ast_idx| self.parse_stmt(ast_idx, block_end))
             .collect();
         Some(self.alloc_stmts(stmts))
     }
 
-    pub fn parse_block_expr(&mut self, body: FugitiveBody) -> SynExprIdx {
+    pub fn parse_block_expr(&mut self, body: RegionalAstIdxRange) -> SynExprIdx {
         let stmts = self
             .parse_stmts(body)
             .expect("husky-ast should guarantee that this not empty");
@@ -124,42 +120,36 @@ impl<'a> SynStmtContext<'a> {
 
     fn parse_stmt(
         &mut self,
-        ast: &Ast,
-        ast_token_idx_range: RegionalTokenIdxRange,
+        ast_idx: RegionalAstIdx,
         block_end: RegionalTokenIdxRangeEnd,
-    ) -> Option<SynStmt> {
+    ) -> SynStmt {
+        let ast = todo!();
         match ast {
-            Ast::BasicStmtOrBranch {
+            RegionalAst::BasicStmtOrBranch {
                 token_group_idx,
                 body,
-            } => self.parse_basic_stmt(*token_group_idx, block_end, *body),
-            Ast::IfElseStmts {
+            } => self.parse_basic_stmt(token_group_idx, block_end, body),
+            RegionalAst::IfElseStmts {
                 if_branch,
                 elif_branches,
                 else_branch,
-            } => Some(SynStmt::IfElse {
-                if_branch: self.parse_if_branch(*if_branch),
-                elif_branches: self.parse_elif_branches(*elif_branches),
-                else_branch: self.parse_else_branch(*else_branch),
-            }),
-            Ast::MatchStmts {
+            } => SynStmt::IfElse {
+                if_branch: self.parse_if_branch(if_branch),
+                elif_branches: self.parse_elif_branches(elif_branches),
+                else_branch: self.parse_else_branch(else_branch),
+            },
+            RegionalAst::MatchStmts {
                 token_group_idx,
                 pattern_stmt,
                 case_stmts,
                 ..
             } => {
-                let mut token_stream = self.token_group_token_stream(*token_group_idx, None);
-                Some(SynStmt::Match {
+                let mut token_stream = self.token_group_token_stream(token_group_idx, None);
+                SynStmt::Match {
                     match_token: token_stream.try_parse_option().unwrap().unwrap(),
-                })
+                }
             }
-            Ast::Err { .. }
-            | Ast::Use { .. }
-            | Ast::Sorc { .. }
-            | Ast::Decr { .. }
-            | Ast::Identifiable { .. }
-            | Ast::TypeVariant { .. }
-            | Ast::ImplBlock { .. } => None,
+            RegionalAst::Err { .. } => todo!(),
         }
     }
 
@@ -167,8 +157,8 @@ impl<'a> SynStmtContext<'a> {
         &mut self,
         token_group_idx: RegionalTokenGroupIdx,
         block_end: RegionalTokenIdxRangeEnd,
-        body: Option<FugitiveBody>,
-    ) -> Option<SynStmt> {
+        body: Option<RegionalAstIdxRange>,
+    ) -> SynStmt {
         let mut parser = self.expr_parser(token_group_idx);
         match parser.try_parse_option::<BasicStmtKeywordRegionalToken>() {
             Ok(Some(basic_stmt_keyword_token)) => Some(match basic_stmt_keyword_token {
@@ -277,17 +267,17 @@ impl<'a> SynStmtContext<'a> {
                 }
             }),
             Ok(None) => match parser.parse_expr_root(None, ExprRootKind::EvalExpr) {
-                Some(expr_idx) => Some(SynStmt::Eval {
+                Some(expr_idx) => SynStmt::Eval {
                     expr_idx,
                     eol_semicolon: parser.try_parse_option(),
-                }),
-                None => None,
+                },
+                None => todo!(),
             },
             Err(_) => todo!(),
         }
     }
 
-    fn fugitive_body_end(&self, body: FugitiveBody) -> RegionalTokenIdxRangeEnd {
+    fn fugitive_body_end(&self, body: RegionalAstIdxRange) -> RegionalTokenIdxRangeEnd {
         todo!()
         // self.ast_token_idx_range_sheet()[body.ast_idx_range().end() - 1].end()
     }

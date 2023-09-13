@@ -252,12 +252,13 @@ impl<'a> SynStmtContext<'a> {
                     ident: particulars.for_between_loop_var_ident,
                 };
                 let current_symbol_kind = current_symbol_variant.kind();
-                let access_start = self.ast_regional_token_idx_range_sheet()
-                    [body.ast_idx_range().start()]
-                .start()
-                .regional_token_idx();
-                let access_end =
-                    self.ast_regional_token_idx_range_sheet()[body.ast_idx_range().end() - 1].end();
+                let access_start = self
+                    .regional_ast(body.ast_idx_range().start())
+                    .start()
+                    .regional_token_idx();
+                let access_end = self
+                    .regional_ast_token_idx_range(body.ast_idx_range().end() - 1)
+                    .end();
                 let frame_var_symbol = CurrentSynSymbol::new(
                     self.syn_pattern_expr_region(),
                     access_start,

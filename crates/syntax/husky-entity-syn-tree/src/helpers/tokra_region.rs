@@ -1,9 +1,7 @@
-mod common;
 mod decl;
 mod defn;
 mod snippet;
 
-pub use self::common::*;
 pub use self::decl::*;
 pub use self::defn::*;
 pub use self::snippet::*;
