@@ -66,10 +66,10 @@ where
     ) -> Result<Option<Self>, Self::Error> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
-                Token::Ident(ident) => {
+                TokenData::Ident(ident) => {
                     Ok(Some(PathNameToken::Ident(IdentToken { ident, token_idx })))
                 }
-                Token::Keyword(Keyword::Pronoun(pronoun)) => match pronoun {
+                TokenData::Keyword(Keyword::Pronoun(pronoun)) => match pronoun {
                     PronounKeyword::Crate => {
                         Ok(Some(PathNameToken::CrateRoot(CrateToken { token_idx })))
                     }
@@ -81,12 +81,12 @@ where
                         Ok(Some(PathNameToken::Super(SuperToken { token_idx })))
                     }
                 },
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)

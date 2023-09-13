@@ -8,8 +8,8 @@ use crate::*;
 use husky_entity_path::EntityPathError;
 use husky_ethereal_signature::EtherealSignatureError;
 use husky_ethereal_term::EtherealTermError;
+use husky_regional_token::IdentRegionalToken;
 use husky_syn_expr::SynExprIdx;
-use husky_token::IdentToken;
 use original_error::OriginalError;
 use thiserror::Error;
 
@@ -71,12 +71,12 @@ pub enum OriginalExprTypeError {
     #[error("no such field")]
     NoSuchField {
         owner_ty: FluffyTerm,
-        ident_token: IdentToken,
+        ident_token: IdentRegionalToken,
     },
     #[error("no such method")]
     NoMethodForType {
         self_expr_ty: FluffyTerm,
-        ident_token: IdentToken,
+        ident_token: IdentRegionalToken,
     },
     #[error("ExpectedCurryButGotRitchieInstead")]
     ExpectedCurryButGotRitchieInstead,

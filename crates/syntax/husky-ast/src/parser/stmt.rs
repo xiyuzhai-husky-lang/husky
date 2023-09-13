@@ -49,7 +49,7 @@ impl<'a> AstParser<'a> {
             .peek_token_group_of_exact_indent_with_its_first_token(self.indent())
         {
             match first_noncomment_token {
-                Token::Keyword(Keyword::Stmt(StmtKeyword::Elif)) => {
+                TokenData::Keyword(Keyword::Stmt(StmtKeyword::Elif)) => {
                     self.token_groups.next();
                     elif_stmts.push(self.parse_stmt(idx))
                 }
@@ -64,7 +64,7 @@ impl<'a> AstParser<'a> {
             .token_groups
             .peek_token_group_of_exact_indent_with_its_first_token(self.indent())?;
         match first_noncomment_token {
-            Token::Keyword(Keyword::Stmt(StmtKeyword::Else)) => {
+            TokenData::Keyword(Keyword::Stmt(StmtKeyword::Else)) => {
                 self.token_groups.next();
                 Some(self.alloc_stmt(idx))
             }
@@ -103,7 +103,7 @@ impl<'a> AstParser<'a> {
             .peek_token_group_of_exact_indent_with_its_first_token(self.indent())
         {
             match first {
-                Token::Punctuation(Punctuation::VERTICAL) => {
+                TokenData::Punctuation(Punctuation::VERTICAL) => {
                     self.token_groups.next();
                     verticals.push(self.parse_stmt(idx))
                 }

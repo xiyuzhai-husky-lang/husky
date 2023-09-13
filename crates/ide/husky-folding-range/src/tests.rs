@@ -12,6 +12,7 @@ use husky_token::TokenJar;
     VfsJar,
     EntityPathJar,
     TermPreludeJar,
+    husky_token_data::db::TokenDataJar,
     TokenJar,
     AstJar,
     FoldingRangeJar

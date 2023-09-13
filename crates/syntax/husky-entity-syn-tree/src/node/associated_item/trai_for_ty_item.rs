@@ -29,7 +29,7 @@ impl TraitForTypeItemSynNodePath {
         self.maybe_ambiguous_path(db).path.item_kind(db)
     }
 
-    pub fn node(self, db: &dyn EntitySynTreeDb) -> TraitForTypeItemSynNode {
+    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> TraitForTypeItemSynNode {
         trai_for_ty_item_syn_node(db, self)
     }
 }
@@ -59,7 +59,7 @@ impl HasSynNodePath for TraitForTypeItemPath {
 }
 
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub struct TraitForTypeItemSynNode {
+pub(crate) struct TraitForTypeItemSynNode {
     #[id]
     pub syn_node_path: TraitForTypeItemSynNodePath,
     pub ast_idx: AstIdx,
@@ -117,7 +117,7 @@ pub(crate) fn trai_for_ty_impl_block_items(
     db: &dyn EntitySynTreeDb,
     impl_block_syn_node_path: TraitForTypeImplBlockSynNodePath,
 ) -> Vec<(Ident, TraitForTypeItemSynNodePath, TraitForTypeItemSynNode)> {
-    let impl_block_syn_node = impl_block_syn_node_path.node(db);
+    let impl_block_syn_node = impl_block_syn_node_path.syn_node(db);
     let module_path = impl_block_syn_node_path.module_path(db);
     let ast_sheet = db.ast_sheet(module_path).unwrap();
     let Some(items) = impl_block_syn_node.items(db) else {

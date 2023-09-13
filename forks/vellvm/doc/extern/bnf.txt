@@ -794,7 +794,7 @@ LabelType
 	: "label"
 ;
 
-// --- [ Token Types ] ---------------------------------------------------------
+// --- [ TokenData Types ] ---------------------------------------------------------
 
 TokenType
 	: "token"
@@ -969,7 +969,7 @@ NullConst
 	: "null"
 ;
 
-// --- [ Token Constants ] -----------------------------------------------------
+// --- [ TokenData Constants ] -----------------------------------------------------
 
 // https://llvm.org/docs/LangRef.html#simple-constants
 

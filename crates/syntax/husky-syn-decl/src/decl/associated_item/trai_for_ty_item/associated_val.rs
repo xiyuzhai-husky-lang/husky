@@ -4,7 +4,6 @@ use super::*;
 pub struct TraitForTypeAssociatedValSynNodeDecl {
     #[id]
     pub path: TraitForTypeItemPath,
-    pub ast_idx: AstIdx,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -14,8 +13,6 @@ impl TraitForTypeAssociatedValSynNodeDecl {
         Default::default()
     }
 }
-
-impl<'a> DeclParserFactory<'a> {}
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TraitForTypeAssociatedValSynDecl {

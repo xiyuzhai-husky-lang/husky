@@ -240,21 +240,25 @@ impl Diagnose for OriginalSynExprError {
             OriginalSynExprError::UnterminatedList { .. } => {
                 format!("Syntax Error: unterminated list")
             }
-            OriginalSynExprError::UnterminatedFunctionCallKeyedArgumentList { bra_token_idx } => {
+            OriginalSynExprError::UnterminatedFunctionCallKeyedArgumentList {
+                bra_regional_token_idx,
+            } => {
                 format!("Syntax Error: unterminated function call keyed argument list")
             }
-            OriginalSynExprError::UnterminatedMethodCallKeyedArgumentList { bra_token_idx } => {
+            OriginalSynExprError::UnterminatedMethodCallKeyedArgumentList {
+                bra_regional_token_idx,
+            } => {
                 format!("Syntax Error: unterminated method call keyed argument list")
             }
             OriginalSynExprError::UnexpectedSheba(_) => format!("Syntax Error: unexpected `$`"),
             OriginalSynExprError::UnrecognizedIdent {
-                token_idx: _,
+                regional_token_idx: _,
                 ident: _,
             } => {
                 format!("Syntax Error: unrecognized identifier")
             }
             OriginalSynExprError::UnresolvedSubitem {
-                token_idx: _,
+                regional_token_idx: _,
                 ident: _,
             } => {
                 format!("Syntax Error: unresolved subitem")
@@ -304,8 +308,8 @@ impl Diagnose for OriginalSynExprError {
     }
 
     fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
-        let token_idx_range = self.token_idx_range();
-        ctx.token_idx_range_text_range(token_idx_range)
+        let regional_token_idx_range = self.regional_token_idx_range();
+        ctx.regional_token_idx_range_text_range(regional_token_idx_range)
     }
 }
 
@@ -315,7 +319,7 @@ impl Diagnose for OriginalPrincipalEntityPathExprError {
     fn message(&self, ctx: &SheetDiagnosticsContext) -> String {
         match self {
             OriginalPrincipalEntityPathExprError::EntityTree {
-                token_idx: _,
+                regional_token_idx: _,
                 error,
             } => {
                 format!("item tree error {:?}", error.debug(ctx.db()))
@@ -327,7 +331,7 @@ impl Diagnose for OriginalPrincipalEntityPathExprError {
     fn severity(&self) -> DiagnosticSeverity {
         match self {
             OriginalPrincipalEntityPathExprError::EntityTree {
-                token_idx: _,
+                regional_token_idx: _,
                 error: _,
             } => DiagnosticSeverity::Error,
             OriginalPrincipalEntityPathExprError::ExpectIdentAfterScopeResolution(_) => {
@@ -339,9 +343,9 @@ impl Diagnose for OriginalPrincipalEntityPathExprError {
     fn range(&self, ctx: &SheetDiagnosticsContext) -> TextRange {
         match self {
             OriginalPrincipalEntityPathExprError::EntityTree {
-                token_idx,
+                regional_token_idx,
                 error: _,
-            } => ctx.token_idx_text_range(*token_idx),
+            } => ctx.regional_token_idx_text_range(*regional_token_idx),
             OriginalPrincipalEntityPathExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
         }
     }

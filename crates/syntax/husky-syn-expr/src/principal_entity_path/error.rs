@@ -33,7 +33,7 @@ impl From<DerivedPrincipalEntityPathExprError> for PrincipalEntityPathExprError 
 pub enum OriginalPrincipalEntityPathExprError {
     #[error("item tree")]
     EntityTree {
-        token_idx: RegionalTokenIdx,
+        regional_token_idx: RegionalTokenIdx,
         error: EntitySynTreeError,
     },
     #[error("expect identifier after `::`")]

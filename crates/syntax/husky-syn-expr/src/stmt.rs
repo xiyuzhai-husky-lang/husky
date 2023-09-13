@@ -5,7 +5,7 @@ pub use self::branch_stmt::*;
 pub use self::loop_stmt::*;
 
 use crate::*;
-use husky_regional_ast::{RegionalAst, RegionalAstIdx, RegionalAstIdxRange};
+use husky_defn_ast::{DefnAst, DefnAstIdx, DefnAstIdxRange};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use parsec::StreamParser;
 
@@ -88,7 +88,7 @@ pub enum SynStmt {
 impl<'a> SynStmtContext<'a> {
     pub fn parse_stmts_expected(
         &mut self,
-        body: RegionalAstIdxRange,
+        body: DefnAstIdxRange,
         token_group_idx: RegionalTokenGroupIdx,
     ) -> SynExprResult<SynStmtIdxRange> {
         match self.parse_stmts(body) {
@@ -97,7 +97,7 @@ impl<'a> SynStmtContext<'a> {
         }
     }
 
-    pub fn parse_stmts(&mut self, body: RegionalAstIdxRange) -> Option<SynStmtIdxRange> {
+    pub fn parse_stmts(&mut self, body: DefnAstIdxRange) -> Option<SynStmtIdxRange> {
         let block_end = self.fugitive_body_end(body);
         if body.len() == 0 {
             return None;
@@ -109,7 +109,7 @@ impl<'a> SynStmtContext<'a> {
         Some(self.alloc_stmts(stmts))
     }
 
-    pub fn parse_block_expr(&mut self, body: RegionalAstIdxRange) -> SynExprIdx {
+    pub fn parse_block_expr(&mut self, body: DefnAstIdxRange) -> SynExprIdx {
         let stmts = self
             .parse_stmts(body)
             .expect("husky-ast should guarantee that this not empty");
@@ -118,18 +118,14 @@ impl<'a> SynStmtContext<'a> {
         expr
     }
 
-    fn parse_stmt(
-        &mut self,
-        ast_idx: RegionalAstIdx,
-        block_end: RegionalTokenIdxRangeEnd,
-    ) -> SynStmt {
+    fn parse_stmt(&mut self, ast_idx: DefnAstIdx, block_end: RegionalTokenIdxRangeEnd) -> SynStmt {
         let ast = todo!();
         match ast {
-            RegionalAst::BasicStmtOrBranch {
+            DefnAst::BasicStmtOrBranch {
                 token_group_idx,
                 body,
             } => self.parse_basic_stmt(token_group_idx, block_end, body),
-            RegionalAst::IfElseStmts {
+            DefnAst::IfElseStmts {
                 if_branch,
                 elif_branches,
                 else_branch,
@@ -138,7 +134,7 @@ impl<'a> SynStmtContext<'a> {
                 elif_branches: self.parse_elif_branches(elif_branches),
                 else_branch: self.parse_else_branch(else_branch),
             },
-            RegionalAst::MatchStmts {
+            DefnAst::MatchStmts {
                 token_group_idx,
                 pattern_stmt,
                 case_stmts,
@@ -149,7 +145,7 @@ impl<'a> SynStmtContext<'a> {
                     match_token: token_stream.try_parse_option().unwrap().unwrap(),
                 }
             }
-            RegionalAst::Err { .. } => todo!(),
+            DefnAst::Err { .. } => todo!(),
         }
     }
 
@@ -157,11 +153,11 @@ impl<'a> SynStmtContext<'a> {
         &mut self,
         token_group_idx: RegionalTokenGroupIdx,
         block_end: RegionalTokenIdxRangeEnd,
-        body: Option<RegionalAstIdxRange>,
+        body: Option<DefnAstIdxRange>,
     ) -> SynStmt {
         let mut parser = self.expr_parser(token_group_idx);
         match parser.try_parse_option::<BasicStmtKeywordRegionalToken>() {
-            Ok(Some(basic_stmt_keyword_token)) => Some(match basic_stmt_keyword_token {
+            Ok(Some(basic_stmt_keyword_token)) => match basic_stmt_keyword_token {
                 BasicStmtKeywordRegionalToken::Let(let_token) => SynStmt::Let {
                     let_token,
                     let_variables_pattern: parser.parse_let_variables_pattern_expected(block_end),
@@ -265,7 +261,7 @@ impl<'a> SynStmtContext<'a> {
                         Err(_) => todo!(),
                     }
                 }
-            }),
+            },
             Ok(None) => match parser.parse_expr_root(None, ExprRootKind::EvalExpr) {
                 Some(expr_idx) => SynStmt::Eval {
                     expr_idx,
@@ -277,7 +273,7 @@ impl<'a> SynStmtContext<'a> {
         }
     }
 
-    fn fugitive_body_end(&self, body: RegionalAstIdxRange) -> RegionalTokenIdxRangeEnd {
+    fn fugitive_body_end(&self, body: DefnAstIdxRange) -> RegionalTokenIdxRangeEnd {
         todo!()
         // self.ast_token_idx_range_sheet()[body.ast_idx_range().end() - 1].end()
     }

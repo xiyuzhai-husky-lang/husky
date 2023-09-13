@@ -1,11 +1,11 @@
 use super::*;
-use husky_token::IdentToken;
+use husky_regional_token::IdentRegionalToken;
 
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_field_expr_ty(
         &mut self,
         owner: SynExprIdx,
-        ident_token: IdentToken,
+        ident_token: IdentRegionalToken,
     ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(owner_ty) = self.infer_new_expr_ty(owner, ExpectAnyOriginal) else {
             return Err(DerivedExprTypeError::FieldOwnerTypeNotInferred.into());

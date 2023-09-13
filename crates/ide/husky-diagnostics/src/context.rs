@@ -114,7 +114,8 @@ impl<'a> RegionDiagnosticsContext<'a> {
     }
 
     pub(crate) fn expr_text_range(&self, expr_idx: SynExprIdx) -> TextRange {
-        self.text_range(self.expr_range_region[expr_idx])
+        todo!()
+        // self.text_range(self.expr_range_region[expr_idx])
     }
 
     fn text_range(&self, token_idx_range: TokenIdxRange) -> TextRange {

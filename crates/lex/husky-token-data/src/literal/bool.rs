@@ -21,8 +21,8 @@ impl From<BoolLiteral> for Literal {
     }
 }
 
-impl From<BoolLiteral> for Token {
+impl From<BoolLiteral> for TokenData {
     fn from(value: BoolLiteral) -> Self {
-        Token::Literal(value.into())
+        TokenData::Literal(value.into())
     }
 }

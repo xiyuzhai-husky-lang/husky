@@ -14,11 +14,11 @@ use husky_token::{TokenIdx, TokenSheet};
 pub enum TokraRegionData<'a> {
     Snippet(SnippetTokraRegionData<'a>),
     Decl(DeclTokraRegionData<'a>),
-    Defn(SynDefnTokraRegionData<'a>),
+    Defn(DefnTokraRegionData<'a>),
 }
 
 impl<'a> std::ops::Index<RegionalTokenIdx> for TokraRegionData<'a> {
-    type Output = Token;
+    type Output = TokenData;
 
     fn index(&self, index: RegionalTokenIdx) -> &Self::Output {
         match self {

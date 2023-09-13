@@ -4,7 +4,6 @@ use super::*;
 pub struct StructureTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
-    pub ast_idx: AstIdx,
     #[return_ref]
     template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
     pub syn_expr_region: SynExprRegion,
@@ -21,28 +20,13 @@ impl StructureTypeSynNodeDecl {
     }
 }
 
-impl<'a> DeclParserFactory<'a> {
-    pub(super) fn parse_structure_ty_node_decl(
-        &self,
-        syn_node_path: TypeSynNodePath,
-        ast_idx: AstIdx,
-        token_group_idx: TokenGroupIdx,
-        saved_stream_state: TokenStreamState,
-    ) -> TypeSynNodeDecl {
-        let mut parser = self.parser(
-            syn_node_path,
-            None,
-            AllowSelfType::True,
-            AllowSelfValue::True,
-            None,
-            token_group_idx,
-            Some(saved_stream_state),
-        );
+impl<'a> DeclParserFactory<'a, TypeSynNodePath> {
+    pub(super) fn parse_structure_ty_node_decl(&self) -> TypeSynNodeDecl {
+        let mut parser = self.parser(None, AllowSelfType::True, AllowSelfValue::True, None);
         let template_parameters = parser.try_parse_option();
         StructureTypeSynNodeDecl::new(
             self.db(),
-            syn_node_path,
-            ast_idx,
+            self.syn_node_path(),
             template_parameters,
             parser.finish(),
         )

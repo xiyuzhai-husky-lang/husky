@@ -5,7 +5,6 @@ use super::*;
 pub struct UnitTypeVariantSynNodeDecl {
     #[id]
     pub syn_node_path: TypeVariantSynNodePath,
-    pub ast_idx: AstIdx,
     pub syn_expr_region: SynExprRegion,
 }
 

@@ -5,16 +5,16 @@ use husky_text::TextLine;
 
 pub(crate) struct Tokenizer<'lex> {
     db: &'lex dyn TokenDb,
-    tokens: Vec<Token>,
+    tokens: Vec<TokenData>,
     token_ranges: Vec<TextRange>,
     line: TextLine,
     comments: Vec<Comment>,
 }
 
 enum TokenizerAction {
-    Push((Token, TextRange)),
+    Push((TokenData, TextRange)),
     Comment(TextRange),
-    ReplaceLast((Token, TextRange)),
+    ReplaceLast((TokenData, TextRange)),
     NewLine,
 }
 
@@ -57,36 +57,36 @@ impl<'token> Tokenizer<'token> {
         match ranged_pretoken.token {
             Pretoken::Certain(kind) => TokenizerAction::Push((kind, ranged_pretoken.range)),
             Pretoken::Literal(lit) => match self.tokens.last() {
-                Some(Token::Punctuation(Punctuation::MINUS)) => TokenizerAction::ReplaceLast((
-                    Token::Literal(lit.negative().expect("todo")),
+                Some(TokenData::Punctuation(Punctuation::MINUS)) => TokenizerAction::ReplaceLast((
+                    TokenData::Literal(lit.negative().expect("todo")),
                     ranged_pretoken.range,
                 )),
-                _ => TokenizerAction::Push((Token::Literal(lit), ranged_pretoken.range)),
+                _ => TokenizerAction::Push((TokenData::Literal(lit), ranged_pretoken.range)),
             },
             Pretoken::NewLine => TokenizerAction::NewLine,
             Pretoken::Ambiguous(punc) => match punc {
                 AmbiguousPretoken::SubOrMinus => {
                     let token = match self.right_convexity() {
-                        Convexity::Convex => Token::Punctuation(Punctuation::SUB),
+                        Convexity::Convex => TokenData::Punctuation(Punctuation::SUB),
                         Convexity::Concave | Convexity::Any => {
-                            Token::Punctuation(Punctuation::MINUS)
+                            TokenData::Punctuation(Punctuation::MINUS)
                         }
                     };
                     TokenizerAction::Push((token, ranged_pretoken.range))
                 }
                 AmbiguousPretoken::For => match self.last_token_in_unfinished_line() {
                     Some(_token) => TokenizerAction::Push((
-                        Token::Keyword(ConnectionKeyword::For.into()),
+                        TokenData::Keyword(ConnectionKeyword::For.into()),
                         ranged_pretoken.range,
                     )),
                     None => TokenizerAction::Push((
-                        Token::Keyword(StmtKeyword::NonImplFor.into()),
+                        TokenData::Keyword(StmtKeyword::NonImplFor.into()),
                         ranged_pretoken.range,
                     )),
                 },
             },
             Pretoken::Comment => TokenizerAction::Comment(ranged_pretoken.range),
-            Pretoken::Err(e) => TokenizerAction::Push((Token::Error(e), ranged_pretoken.range)),
+            Pretoken::Err(e) => TokenizerAction::Push((TokenData::Error(e), ranged_pretoken.range)),
         }
     }
 
@@ -97,7 +97,7 @@ impl<'token> Tokenizer<'token> {
         }
     }
 
-    fn last_token_in_unfinished_line(&self) -> Option<&Token> {
+    fn last_token_in_unfinished_line(&self) -> Option<&TokenData> {
         if self.token_ranges.last()?.start.line >= self.line {
             self.tokens.last()
         } else {
@@ -105,11 +105,11 @@ impl<'token> Tokenizer<'token> {
         }
     }
 
-    // fn last_token(&self, line: &TokenizedLine) -> &Token {
+    // fn last_token(&self, line: &TokenizedLine) -> &TokenData {
     //     &self.tokens[line.tokens.end - 1]
     // }
 
-    // fn first_token(&self, line: &TokenizedLine) -> &Token {
+    // fn first_token(&self, line: &TokenizedLine) -> &TokenData {
     //     &self.tokens[line.tokens.start]
     // }
 
@@ -145,21 +145,21 @@ impl<'token> Tokenizer<'token> {
     //                         match line.indent.within(group_indent) {
     //                             Ok(is_within) => {
     //                                 if !is_within {
-    //                                     self.errors.push(TokenError {
+    //                                     self.errors.push(TokenDataError {
     //                                         message: format!("expect indentated lines after `:`"),
     //                                         range: self.last_token(first_line).range,
     //                                         dev_src: dev_src!(),
     //                                     });
     //                                 }
     //                             }
-    //                             Err(e) => self.errors.push(TokenError {
+    //                             Err(e) => self.errors.push(TokenDataError {
     //                                 message: format!("{:?}", e),
     //                                 range: self.last_token(first_line).range,
     //                                 dev_src: dev_src!(),
     //                             }),
     //                         }
     //                     } else {
-    //                         self.errors.push(TokenError {
+    //                         self.errors.push(TokenDataError {
     //                             message: format!("expect indentated lines after `:`"),
     //                             range: self.last_token(first_line).range,
     //                             dev_src: dev_src!(),
@@ -200,7 +200,7 @@ impl<'token> Tokenizer<'token> {
     //                                     }
     //                                 }
     //                                 Err(e) => {
-    //                                     self.errors.push(TokenError {
+    //                                     self.errors.push(TokenDataError {
     //                                         message: format!("{:?}", e),
     //                                         range: self.last_token(first_line).range,
     //                                         dev_src: dev_src!(),

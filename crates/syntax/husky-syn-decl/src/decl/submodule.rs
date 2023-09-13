@@ -4,7 +4,6 @@ use super::*;
 pub struct SubmoduleSynNodeDecl {
     #[id]
     pub syn_node_path: SubmoduleSynNodePath,
-    pub ast_idx: AstIdx,
 }
 
 impl SubmoduleSynNodeDecl {
@@ -26,15 +25,13 @@ pub(crate) fn submodule_syn_node_decl(
     db: &dyn SynDeclDb,
     syn_node_path: SubmoduleSynNodePath,
 ) -> SubmoduleSynNodeDecl {
-    let node = syn_node_path.node(db);
-    SubmoduleSynNodeDecl::new(db, syn_node_path, node.ast_idx(db))
+    SubmoduleSynNodeDecl::new(db, syn_node_path)
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new)]
 pub struct SubmoduleSynDecl {
     #[id]
     pub path: SubmodulePath,
-    pub ast_idx: AstIdx,
 }
 
 impl SubmoduleSynDecl {
@@ -44,7 +41,7 @@ impl SubmoduleSynDecl {
         path: SubmodulePath,
         syn_node_decl: SubmoduleSynNodeDecl,
     ) -> Self {
-        Self::new(db, path, syn_node_decl.ast_idx(db))
+        Self::new(db, path)
     }
 }
 

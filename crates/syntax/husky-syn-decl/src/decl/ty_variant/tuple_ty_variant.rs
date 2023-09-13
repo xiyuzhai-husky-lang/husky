@@ -7,20 +7,20 @@ use parsec::{PunctuatedSmallList, TryParseFromStream};
 pub struct TupleTypeVariantSynNodeDecl {
     #[id]
     pub syn_node_path: TypeVariantSynNodePath,
-    pub ast_idx: AstIdx,
-    lpar_token_idx: TokenIdx,
+    lpar_token_idx: RegionalTokenIdx,
     #[return_ref]
-    field_comma_list:
-        SynNodeDeclResult<PunctuatedSmallList<TupleFieldObelisk, CommaToken, 4, SynNodeDeclError>>,
+    field_comma_list: SynNodeDeclResult<
+        PunctuatedSmallList<TupleFieldObelisk, CommaRegionalToken, 4, SynNodeDeclError>,
+    >,
     #[return_ref]
-    rpar: SynNodeDeclResult<TupleTypeVariantRparToken>,
+    rpar: SynNodeDeclResult<TupleTypeVariantRparRegionalToken>,
     pub syn_expr_region: SynExprRegion,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct TupleTypeVariantRparToken(RparToken);
+pub struct TupleTypeVariantRparRegionalToken(RparRegionalToken);
 
-impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for TupleTypeVariantRparToken {
+impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for TupleTypeVariantRparRegionalToken {
     type Error = SynNodeDeclError;
 
     fn try_parse_from_stream(sp: &mut SynDeclExprParser<'a>) -> Result<Self, Self::Error> {

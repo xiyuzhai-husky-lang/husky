@@ -16,7 +16,7 @@ pub fn view(view: TokenStream) -> TokenStream {
 }
 
 #[proc_macro]
-pub fn node(input: TokenStream) -> TokenStream {
+pub(crate) fn syn_node(input: TokenStream) -> TokenStream {
     let elem = parse_macro_input!(input as view::WithcxArg<view::ir::Element>);
 
     view::node_impl(elem).into()

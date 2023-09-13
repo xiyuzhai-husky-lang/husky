@@ -10,6 +10,7 @@ use crate::*;
 use husky_coword::IdentPairMap;
 use husky_entity_taxonomy::TypeItemKind;
 use husky_print_utils::p;
+use husky_token::ImplToken;
 use husky_token::*;
 use maybe_result::*;
 use parsec::{HasStreamState, StreamParser};
@@ -39,7 +40,7 @@ impl ImplBlockSynNodePath {
         }
     }
 
-    pub fn node(self, db: &dyn EntitySynTreeDb) -> ImplBlockSynNode {
+    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> ImplBlockSynNode {
         todo!()
     }
 
@@ -121,7 +122,7 @@ impl ImplBlockSynNode {
             princiapl_item_path_expr_arena,
             item_tree_context,
         );
-        let impl_token = parser
+        let impl_regional_token = parser
             .try_parse_option::<ImplToken>()
             .expect("okay guaranteed by `husky-ast`")
             .expect("some guaranteed by `husky-ast`");
@@ -133,13 +134,13 @@ impl ImplBlockSynNode {
             ast_idx,
             items,
             parser,
-            impl_token,
+            impl_regional_token,
         ) {
             Ok(node) => node,
             Err(ill_form) => IllFormedImplBlockSynNode::new(
                 db,
                 registry,
-                impl_token,
+                impl_regional_token,
                 module_path,
                 ast_idx,
                 items,
@@ -264,7 +265,7 @@ pub enum ImplError {
     #[error("unmatched angle bras")]
     UnmatchedAngleBras,
     #[error("token error")]
-    Token(#[from] TokenDataError),
+    TokenData(#[from] TokenDataError),
     #[error("principal path expr error")]
     MajorPath(#[from] MajorPathExprError),
 }
@@ -275,14 +276,14 @@ fn ignore_template_parameters<'a>(token_stream: &mut TokenStream<'a>) -> ImplRes
     let mut layer = 1;
     while let Some(token) = token_stream.next() {
         match token {
-            Token::Punctuation(Punctuation::LA_OR_LT) => layer += 1,
-            Token::Punctuation(Punctuation::RA_OR_GT) => {
+            TokenData::Punctuation(Punctuation::LA_OR_LT) => layer += 1,
+            TokenData::Punctuation(Punctuation::RA_OR_GT) => {
                 layer -= 1;
                 if layer == 0 {
                     break;
                 }
             }
-            Token::Error(e) => return Err(e.clone().into()),
+            TokenData::Error(e) => return Err(e.clone().into()),
             _ => (),
         }
     }
@@ -295,10 +296,10 @@ fn ignore_template_parameters<'a>(token_stream: &mut TokenStream<'a>) -> ImplRes
 fn ignore_util_for_is_eaten<'a>(token_stream: &mut TokenStream<'a>) -> ImplResult<TokenIdx> {
     while let Some(token) = token_stream.next() {
         match token {
-            Token::Keyword(Keyword::Connection(ConnectionKeyword::For)) => {
+            TokenData::Keyword(Keyword::Connection(ConnectionKeyword::For)) => {
                 return Ok(token_stream.save_state().next_token_idx() - 1)
             }
-            Token::Error(e) => return Err(e.clone().into()),
+            TokenData::Error(e) => return Err(e.clone().into()),
             _ => continue,
         }
     }

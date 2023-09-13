@@ -136,7 +136,7 @@ impl From<TokenDataError> for AstError {
 #[salsa::debug_with_db(db = AstDb)]
 pub enum DerivedAstError {
     #[error("{0}")]
-    Token(#[from] TokenDataError),
+    TokenData(#[from] TokenDataError),
     #[error("VisibilityExprError")]
     VisibilityExprError(#[from] DerivedVisibilityExprError),
 }

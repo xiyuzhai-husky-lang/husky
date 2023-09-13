@@ -9,7 +9,7 @@ pub mod parse;
 use proc_macro2::TokenStream;
 use quote::quote;
 use syn::parse::{Parse, ParseStream};
-use syn::{parse_quote, Expr, Result, Token};
+use syn::{parse_quote, Expr, Result, TokenData};
 
 use self::codegen::Codegen;
 use self::ir::*;
@@ -22,7 +22,7 @@ pub struct WithcxArg<T> {
 impl<T: Parse> Parse for WithcxArg<T> {
     fn parse(input: ParseStream) -> Result<Self> {
         let cx = input.parse()?;
-        let _comma: Token![,] = input.parse().map_err(|_| input.error("expected `,` (help: make sure you pass the cx variable to the macro as an argument)"))?;
+        let _comma: TokenData![,] = input.parse().map_err(|_| input.error("expected `,` (help: make sure you pass the cx variable to the macro as an argument)"))?;
         let rest = input.parse()?;
         Ok(Self { cx, rest })
     }

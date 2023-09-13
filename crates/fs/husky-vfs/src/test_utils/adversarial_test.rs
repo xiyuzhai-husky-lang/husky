@@ -15,7 +15,7 @@ use xrng::XRng;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum AdversarialKind {
     Vfs,
-    Token,
+    TokenData,
     Ast,
 }
 
@@ -23,7 +23,7 @@ impl AdversarialKind {
     pub fn as_str(self) -> &'static str {
         match self {
             AdversarialKind::Vfs => "vfs",
-            AdversarialKind::Token => "token",
+            AdversarialKind::TokenData => "token",
             AdversarialKind::Ast => "ast",
         }
     }

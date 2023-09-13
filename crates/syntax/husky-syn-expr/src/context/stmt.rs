@@ -1,11 +1,11 @@
 use super::*;
-use husky_entity_syn_tree::helpers::tokra_region::{HasSynDefnTokraRegion, SynDefnTokraRegionData};
+use husky_defn_ast::{DefnAstArenaRef, DefnAstIdx};
+use husky_entity_syn_tree::helpers::tokra_region::{DefnTokraRegionData, HasSynDefnTokraRegion};
 use husky_print_utils::p;
-use husky_regional_ast::RegionalAstArenaRef;
 
 pub struct SynStmtContext<'a> {
     expr_context: SynExprContext<'a>,
-    defn_tokra_region_data: SynDefnTokraRegionData<'a>,
+    defn_tokra_region_data: DefnTokraRegionData<'a>,
 }
 
 impl<'a> std::ops::Deref for SynStmtContext<'a> {
@@ -75,7 +75,14 @@ impl<'a> SynStmtContext<'a> {
         todo!()
     }
 
-    pub(crate) fn regional_ast_arena(&self) -> RegionalAstArenaRef<'a> {
+    pub(crate) fn regional_asts(&self) -> DefnAstArenaRef<'a> {
+        todo!()
+    }
+
+    pub(crate) fn regional_ast_token_idx_range(
+        &self,
+        defn_ast_idx: DefnAstIdx,
+    ) -> RegionalTokenIdxRange {
         todo!()
     }
 }

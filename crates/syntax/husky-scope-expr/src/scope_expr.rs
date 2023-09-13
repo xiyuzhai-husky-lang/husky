@@ -20,7 +20,7 @@ pub enum VisibilityExpr {
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum VisibilityExprError {
     #[error("token error")]
-    Token(#[from] TokenDataError),
+    TokenData(#[from] TokenDataError),
 }
 
 pub type VisibilityExprResult<T> = Result<T, VisibilityExprError>;

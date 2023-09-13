@@ -9,7 +9,7 @@ use husky_declarative_signature::DeclarativeSignatureJar;
 use husky_declarative_term::DeclarativeTermJar;
 use husky_declarative_ty::DeclarativeTypeJar;
 use husky_entity_path::{EntityPathJar, MajorItemPath, TypePath};
-use husky_entity_syn_tree::{paths::module_item_paths, EntitySynTreeDb, EntitySynTreeJar};
+use husky_entity_syn_tree::{helpers::paths::module_item_paths, EntitySynTreeDb, EntitySynTreeJar};
 use husky_ethereal_signature::EtherealSignatureJar;
 use husky_ethereal_term::EtherealTermJar;
 use husky_expr_ty::ExprTypeJar;
@@ -29,6 +29,7 @@ use husky_toml_token::TomlTokenJar;
     CowordJar,
     VfsJar,
     EntityPathJar,
+    husky_token_data::db::TokenDataJar,
     TokenJar,
     AstJar,
     EntitySynTreeJar,

@@ -39,7 +39,7 @@ impl TraitForTypeImplBlockSynNodePath {
             .map(|(_, syn_node_path, _)| syn_node_path)
     }
 
-    pub fn node(self, db: &dyn EntitySynTreeDb) -> TraitForTypeImplBlockSynNode {
+    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> TraitForTypeImplBlockSynNode {
         trai_for_ty_impl_block_syn_node(db, self)
     }
 }
@@ -69,11 +69,11 @@ impl HasSynNodePath for TraitForTypeImplBlockPath {
 }
 
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub struct TraitForTypeImplBlockSynNode {
+pub(crate) struct TraitForTypeImplBlockSynNode {
     #[id]
     pub syn_node_path: TraitForTypeImplBlockSynNodePath,
     pub ast_idx: AstIdx,
-    pub impl_token: ImplToken,
+    pub impl_regional_token: ImplToken,
     pub trai_expr: MajorItemPathExprIdx,
     pub for_token: TokenIdx,
     pub ty_sketch_expr: SelfTypeSketchExpr,

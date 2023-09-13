@@ -16,7 +16,7 @@ pub(super) trait AstTokenParseContext<'a>: TokenStreamParser<'a> {
             .ok_or(OriginalAstError::ExpectedEntityKeyword)?;
         Ok(match token {
             // self.take_item_kind_keyword()?,
-            Token::Keyword(kw) => todo!(),
+            TokenData::Keyword(kw) => todo!(),
             // kw,
             _ => return Err(OriginalAstError::ExpectedEntityKeyword.into()),
         })
@@ -27,7 +27,7 @@ pub(super) trait AstTokenParseContext<'a>: TokenStreamParser<'a> {
             return false;
         };
         match token {
-            Token::Punctuation(Punctuation::LA_OR_LT) => true,
+            TokenData::Punctuation(Punctuation::LA_OR_LT) => true,
             _ => false,
         }
     }

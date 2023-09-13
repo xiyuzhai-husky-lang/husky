@@ -12,10 +12,11 @@ pub(crate) use self::utils::*;
 
 use self::symbol::*;
 use crate::*;
+use husky_entity_syn_tree::helpers::TraitInUseItemsTable;
 use husky_ethereal_signature::HasEtherealSignatureTemplate;
 use husky_opr::PrefixOpr;
 use husky_print_utils::p;
-use husky_token::{IntegerLikeLiteral, Literal, Token, TokenIdx, TokenSheetData};
+use husky_token_data::{IntegerLikeLiteral, Literal, TokenData};
 use husky_vfs::Toolchain;
 use husky_vfs::VfsPathMenu;
 
@@ -24,7 +25,6 @@ pub(crate) struct ExprTypeEngine<'a> {
     toolchain: Toolchain,
     item_path_menu: &'a ItemPathMenu,
     term_menu: &'a EtherealTermMenu,
-    token_sheet_data: &'a TokenSheetData,
     expr_region_data: &'a SynExprRegionData,
     declarative_term_region: &'a DeclarativeTermRegion,
     fluffy_term_region: FluffyTermRegion,
@@ -126,7 +126,6 @@ impl<'a> ExprTypeEngine<'a> {
             toolchain,
             item_path_menu: db.item_path_menu(toolchain),
             term_menu: db.ethereal_term_menu(toolchain),
-            token_sheet_data: expr_region_data.path().token_sheet_data(db).unwrap(),
             expr_region_data,
             declarative_term_region: db.declarative_term_region(syn_expr_region),
             fluffy_term_region: FluffyTermRegion::new(

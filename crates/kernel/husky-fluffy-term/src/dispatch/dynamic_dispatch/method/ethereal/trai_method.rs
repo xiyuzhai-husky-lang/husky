@@ -9,7 +9,7 @@ impl HasFluffyTraitMethodDispatch for EtherealTerm {
         self,
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
-        ident_token: IdentToken,
+        ident_token: IdentRegionalToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         ethereal_term_trai_method_dispatch_aux(
@@ -27,7 +27,7 @@ fn ethereal_term_trai_method_dispatch_aux(
     engine: &mut impl FluffyTermEngine,
     expr_idx: SynExprIdx,
     term: EtherealTerm,
-    ident_token: IdentToken,
+    ident_token: IdentRegionalToken,
     trai_item_records: TraitInUseItemsWithGivenIdent,
     mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
 ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {

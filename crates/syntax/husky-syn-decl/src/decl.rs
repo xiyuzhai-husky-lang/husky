@@ -13,6 +13,9 @@ pub use self::submodule::*;
 pub use self::ty_variant::*;
 
 use crate::*;
+use husky_decl_ast::*;
+use husky_regional_token::*;
+use husky_token_data::{TokenData, TokenDataResult};
 use parsec::{parse_separated_list, HasStreamState};
 
 type SmallVecImpl<T> = smallvec::SmallVec<[T; 2]>;
@@ -31,17 +34,6 @@ pub enum ItemSynNodeDecl {
 }
 
 impl ItemSynNodeDecl {
-    pub fn ast_idx(self, db: &dyn SynDeclDb) -> AstIdx {
-        match self {
-            ItemSynNodeDecl::Submodule(syn_node_decl) => syn_node_decl.ast_idx(db),
-            ItemSynNodeDecl::MajorItem(syn_node_decl) => syn_node_decl.ast_idx(db),
-            ItemSynNodeDecl::ImplBlock(syn_node_decl) => syn_node_decl.ast_idx(db),
-            ItemSynNodeDecl::AssociatedItem(syn_node_decl) => syn_node_decl.ast_idx(db),
-            ItemSynNodeDecl::TypeVariant(syn_node_decl) => syn_node_decl.ast_idx(db),
-            ItemSynNodeDecl::Decr(syn_node_decl) => syn_node_decl.ast_idx(db),
-        }
-    }
-
     pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> Option<SynExprRegion> {
         match self {
             ItemSynNodeDecl::Submodule(_) => None,

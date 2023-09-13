@@ -1,22 +1,20 @@
 use super::*;
 use husky_print_utils::p;
-use husky_token::{EolToken, RegionalLightArrowToken};
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct FnSynNodeDecl {
     #[id]
     pub syn_node_path: FugitiveSynNodePath,
-    pub ast_idx: AstIdx,
     #[return_ref]
     template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
     #[return_ref]
     parenate_parameter_decl_list: SynNodeDeclResult<RitchieParameters<false>>,
     #[return_ref]
-    pub light_arrow_token: TokenDataResult<Option<RegionalLightArrowToken>>,
+    pub light_arrow_token: TokenDataResult<Option<LightArrowRegionalToken>>,
     #[return_ref]
     pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
     #[return_ref]
-    pub eol_colon: SynNodeDeclResult<EolToken>,
+    pub eol_colon: SynNodeDeclResult<EolRegionalToken>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -39,23 +37,9 @@ impl FnSynNodeDecl {
     }
 }
 
-impl<'a> DeclParserFactory<'a> {
-    pub(super) fn parse_fn_node_decl(
-        &self,
-        syn_node_path: FugitiveSynNodePath,
-        ast_idx: AstIdx,
-        token_group_idx: TokenGroupIdx,
-        saved_stream_state: TokenStreamState,
-    ) -> FnSynNodeDecl {
-        let mut parser = self.parser(
-            syn_node_path,
-            None,
-            AllowSelfType::False,
-            AllowSelfValue::False,
-            None,
-            token_group_idx,
-            Some(saved_stream_state),
-        );
+impl<'a> DeclParserFactory<'a, FugitiveSynNodePath> {
+    pub(super) fn parse_fn_node_decl(&self) -> FnSynNodeDecl {
+        let mut parser = self.parser(None, AllowSelfType::False, AllowSelfValue::False, None);
         let template_parameter_decl_list = parser.try_parse_option();
         let parameter_decl_list =
             parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedParameterDeclList);
@@ -70,8 +54,7 @@ impl<'a> DeclParserFactory<'a> {
         let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
         FnSynNodeDecl::new(
             self.db(),
-            syn_node_path,
-            ast_idx,
+            self.syn_node_path(),
             template_parameter_decl_list,
             parameter_decl_list,
             light_arrow_token,

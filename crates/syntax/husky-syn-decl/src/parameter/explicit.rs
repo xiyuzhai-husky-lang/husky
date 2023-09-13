@@ -7,12 +7,12 @@ pub(crate) type ExplicitParameterDeclPatterns = SmallVec<[SpecificParameterObeli
 #[salsa::debug_with_db(db = SynDeclDb)]
 #[derive(Getters)]
 pub struct RitchieParameters<const ALLOW_SELF_PARAMETER: bool> {
-    lpar: RegionalLparToken,
+    lpar: LparRegionalToken,
     self_value_parameter: Option<SelfParameterObelisk>,
-    comma_after_self_parameter: Option<CommaToken>,
+    comma_after_self_parameter: Option<CommaRegionalToken>,
     parenate_parameters: ExplicitParameterDeclPatterns,
-    commas: CommaTokens,
-    rpar: RparToken,
+    commas: CommaRegionalTokens,
+    rpar: RparRegionalToken,
 }
 
 impl<'a, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<SynDeclExprParser<'a>>
@@ -23,12 +23,12 @@ impl<'a, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<SynDeclExprP
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
     ) -> Result<Option<Self>, SynNodeDeclError> {
-        let Some(lpar) = ctx.try_parse_option::<RegionalLparToken>()? else {
+        let Some(lpar) = ctx.try_parse_option::<LparRegionalToken>()? else {
             return Ok(None);
         };
         let self_value_parameter: Option<SelfParameterObelisk> = ctx.try_parse_option()?;
         let comma_after_self_parameter = if self_value_parameter.is_some() {
-            ctx.try_parse_err_as_none::<CommaToken>()
+            ctx.try_parse_err_as_none::<CommaRegionalToken>()
         } else {
             None
         };

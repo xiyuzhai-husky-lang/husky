@@ -8,8 +8,8 @@ pub(crate) use self::solid::*;
 
 use super::*;
 use husky_coword::Ident;
-use husky_entity_syn_tree::{TraitInUseItemRecord, TraitInUseItemsWithGivenIdent};
-use husky_token::IdentToken;
+use husky_entity_syn_tree::helpers::{TraitInUseItemRecord, TraitInUseItemsWithGivenIdent};
+use husky_regional_token::IdentRegionalToken;
 
 impl MemberSignature for MethodFluffySignature {
     fn expr_ty(
@@ -27,15 +27,15 @@ pub trait HasFluffyTraitMethodDispatch: Copy {
         self,
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
-        ident_token: IdentToken,
+        ident_regional_token: IdentRegionalToken,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         self.trai_method_dispatch_aux(
             engine,
             expr_idx,
-            ident_token,
+            ident_regional_token,
             engine
                 .trai_in_use_items_table()?
-                .available_trait_items_with_given_ident(ident_token.ident())?,
+                .available_trait_items_with_given_ident(ident_regional_token.ident())?,
         )
     }
 
@@ -43,7 +43,7 @@ pub trait HasFluffyTraitMethodDispatch: Copy {
         self,
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
-        ident_token: IdentToken,
+        ident_token: IdentRegionalToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch>;
 }
@@ -53,7 +53,7 @@ pub trait HasFluffyTypeMethodDispatch: Copy {
         self,
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
-        ident_token: IdentToken,
+        ident_token: IdentRegionalToken,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch>;
 }
 
@@ -71,7 +71,7 @@ pub trait HasFluffyMethodDispatch:
         self,
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
-        ident_token: IdentToken,
+        ident_token: IdentRegionalToken,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         if let Some(dispatch) = self
             .ty_method_dispatch(engine, expr_idx, ident_token)
@@ -88,7 +88,7 @@ impl HasFluffyTypeMethodDispatch for FluffyTerm {
         self,
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
-        ident_token: IdentToken,
+        ident_token: IdentRegionalToken,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         match self.base_resolved(engine) {
             FluffyTermBase::Ethereal(ty_term) => {
@@ -109,7 +109,7 @@ impl HasFluffyTraitMethodDispatch for FluffyTerm {
         self,
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
-        ident_token: IdentToken,
+        ident_token: IdentRegionalToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         match self.base_resolved(engine) {

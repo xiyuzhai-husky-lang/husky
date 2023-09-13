@@ -20,6 +20,7 @@ use salsa::Database;
     VfsJar,
     EntityPathJar,
     TermPreludeJar,
+    husky_token_data::db::TokenDataJar,
     TokenJar,
     AstJar,
     EntitySynTreeJar,

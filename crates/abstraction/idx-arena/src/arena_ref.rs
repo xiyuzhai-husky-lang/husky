@@ -66,3 +66,11 @@ impl<'a, T> ArenaRef<'a, T> {
         })
     }
 }
+
+impl<'a, T> core::ops::Index<ArenaIdx<T>> for ArenaRef<'a, T> {
+    type Output = T;
+
+    fn index(&self, idx: ArenaIdx<T>) -> &Self::Output {
+        &self.data[idx.index()]
+    }
+}

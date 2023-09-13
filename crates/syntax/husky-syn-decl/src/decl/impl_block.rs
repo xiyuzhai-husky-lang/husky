@@ -7,7 +7,7 @@ pub use self::trai_for_ty_impl_block::*;
 pub use self::ty_impl_block::*;
 
 use super::*;
-use husky_token::ImplToken;
+use husky_regional_token::ImplRegionalToken;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = SynDeclDb)]
@@ -24,14 +24,6 @@ impl ImplBlockSynNodeDecl {
             ImplBlockSynNodeDecl::Type(decl) => decl.syn_node_path(db).into(),
             ImplBlockSynNodeDecl::TraitForType(decl) => decl.syn_node_path(db).into(),
             ImplBlockSynNodeDecl::IllFormed(decl) => decl.syn_node_path(db).into(),
-        }
-    }
-
-    pub fn ast_idx(self, db: &dyn SynDeclDb) -> AstIdx {
-        match self {
-            ImplBlockSynNodeDecl::Type(decl) => decl.ast_idx(db),
-            ImplBlockSynNodeDecl::TraitForType(decl) => decl.ast_idx(db),
-            ImplBlockSynNodeDecl::IllFormed(decl) => decl.ast_idx(db),
         }
     }
 

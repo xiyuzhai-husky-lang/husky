@@ -1,58 +1,58 @@
 [
   {
     "input": "+",
-    "output": "TokenSheetData {\n    tokens: [\n        Token::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    Closed(\n                        Add,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    Closed(\n                        Add,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "-",
-    "output": "TokenSheetData {\n    tokens: [\n        Token::Punctuation(\n            Punctuation(\n                PunctuationMapped::Minus,\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Minus,\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "*",
-    "output": "TokenSheetData {\n    tokens: [\n        Token::Punctuation(\n            Punctuation(\n                PunctuationMapped::Star,\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Star,\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "/",
-    "output": "TokenSheetData {\n    tokens: [\n        Token::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    Closed(\n                        Div,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    Closed(\n                        Div,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "**",
-    "output": "TokenSheetData {\n    tokens: [\n        Token::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    Closed(\n                        Power,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    Closed(\n                        Power,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "|",
-    "output": "TokenSheetData {\n    tokens: [\n        Token::Punctuation(\n            Punctuation(\n                PunctuationMapped::Vertical,\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Vertical,\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "||",
-    "output": "TokenSheetData {\n    tokens: [\n        Token::Punctuation(\n            Punctuation(\n                PunctuationMapped::DoubleVertical,\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::DoubleVertical,\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "&&",
-    "output": "TokenSheetData {\n    tokens: [\n        Token::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    ShortCircuitLogic(\n                        And,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    ShortCircuitLogic(\n                        And,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "==",
-    "output": "TokenSheetData {\n    tokens: [\n        Token::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    Comparison(\n                        Eq,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    Comparison(\n                        Eq,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "!=",
-    "output": "TokenSheetData {\n    tokens: [\n        Token::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    Comparison(\n                        Neq,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    Comparison(\n                        Neq,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": ">",
-    "output": "TokenSheetData {\n    tokens: [\n        Token::Punctuation(\n            Punctuation(\n                PunctuationMapped::RaOrGt,\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::RaOrGt,\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": ">=",
-    "output": "TokenSheetData {\n    tokens: [\n        Token::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    Comparison(\n                        Geq,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    Comparison(\n                        Geq,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "<",
-    "output": "TokenSheetData {\n    tokens: [\n        Token::Punctuation(\n            Punctuation(\n                PunctuationMapped::LaOrLt,\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::LaOrLt,\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "<=",
-    "output": "TokenSheetData {\n    tokens: [\n        Token::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    Comparison(\n                        Leq,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    Comparison(\n                        Leq,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   }
 ]

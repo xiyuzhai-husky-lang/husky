@@ -1,6 +1,6 @@
 import Specs.syntax.Word
 import Specs.syntax.LiteralToken
-import Specs.syntax.Token.SpecialToken -- mod SpecialToken; use SpecialToken
+import Specs.syntax.TokenData.SpecialToken -- mod SpecialToken; use SpecialToken
 
 inductive TokenKind
   | Decorator : Decorator -> TokenKind

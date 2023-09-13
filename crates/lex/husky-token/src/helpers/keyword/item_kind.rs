@@ -49,8 +49,8 @@ where
             return Ok(None);
         };
         match token {
-            Token::Keyword(Keyword::Const) => Ok(Some(ConstToken { token_idx })),
-            Token::Error(error) => Err(error)?,
+            TokenData::Keyword(Keyword::Const) => Ok(Some(ConstToken { token_idx })),
+            TokenData::Error(error) => Err(error)?,
             _ => Ok(None),
         }
     }
@@ -163,8 +163,8 @@ where
             return Ok(None);
         };
         let kw = match token {
-            Token::Keyword(kw) => kw,
-            Token::Error(error) => Err(error)?,
+            TokenData::Keyword(kw) => kw,
+            TokenData::Error(error) => Err(error)?,
             _ => return Ok(None),
         };
         match kw {
@@ -200,7 +200,7 @@ where
             }))),
             Keyword::Const => todo!(),
             Keyword::Static => match token_stream.peek() {
-                Some(Token::Keyword(Keyword::Fugitive(FugitiveKeyword::Fn))) => {
+                Some(TokenData::Keyword(Keyword::Fugitive(FugitiveKeyword::Fn))) => {
                     token_stream.next();
                     Ok(Some(EntityKindKeywordGroup::StaticFn(
                         StaticToken { token_idx },
@@ -209,7 +209,7 @@ where
                         },
                     )))
                 }
-                Some(Token::Keyword(Keyword::Const)) => todo!(),
+                Some(TokenData::Keyword(Keyword::Const)) => todo!(),
                 _ => Ok(None),
             },
             _ => Ok(None),

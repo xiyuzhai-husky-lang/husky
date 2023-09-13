@@ -12,7 +12,7 @@ enum-class = { path = "../../abstraction/enum-class" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # lex
-husky-token = { path = "../../lex/husky-token" }
+husky-regional-token = { path = "../../lex/husky-regional-token" }
 
 [dev-dependencies]
 # kernel

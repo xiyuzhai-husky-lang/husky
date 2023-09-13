@@ -143,16 +143,16 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Stmt(StmtKeyword::While)) => {
+                TokenData::Keyword(Keyword::Stmt(StmtKeyword::While)) => {
                     Ok(Some(WhileRegionalToken { regional_token_idx }))
                 }
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -171,7 +171,7 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Stmt(stmt_keyword)) => match stmt_keyword {
+                TokenData::Keyword(Keyword::Stmt(stmt_keyword)) => match stmt_keyword {
                     StmtKeyword::Let => Ok(Some(LetRegionalToken { regional_token_idx }.into())),
                     StmtKeyword::Return => {
                         Ok(Some(ReturnRegionalToken { regional_token_idx }.into()))
@@ -200,13 +200,13 @@ where
                     StmtKeyword::Else => todo!(),
                     StmtKeyword::Match => todo!(),
                 },
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Keyword(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Keyword(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -237,7 +237,7 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Stmt(StmtKeyword::Match)) => {
+                TokenData::Keyword(Keyword::Stmt(StmtKeyword::Match)) => {
                     Ok(Some(MatchRegionalToken { regional_token_idx }))
                 }
                 _ => Ok(None),
@@ -271,16 +271,16 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Stmt(StmtKeyword::If)) => {
+                TokenData::Keyword(Keyword::Stmt(StmtKeyword::If)) => {
                     Ok(Some(IfRegionalToken { regional_token_idx }))
                 }
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -311,16 +311,16 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Stmt(StmtKeyword::Elif)) => {
+                TokenData::Keyword(Keyword::Stmt(StmtKeyword::Elif)) => {
                     Ok(Some(ElifRegionalToken { regional_token_idx }))
                 }
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -351,16 +351,16 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Stmt(StmtKeyword::Else)) => {
+                TokenData::Keyword(Keyword::Stmt(StmtKeyword::Else)) => {
                     Ok(Some(ElseRegionalToken { regional_token_idx }))
                 }
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -393,14 +393,16 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Impl) => Ok(Some(ImplRegionalToken { regional_token_idx })),
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Keyword(Keyword::Impl) => {
+                    Ok(Some(ImplRegionalToken { regional_token_idx }))
+                }
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -433,14 +435,16 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Pub) => Ok(Some(PubRegionalToken { regional_token_idx })),
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Keyword(Keyword::Pub) => {
+                    Ok(Some(PubRegionalToken { regional_token_idx }))
+                }
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -473,14 +477,16 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Use) => Ok(Some(UseRegionalToken { regional_token_idx })),
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Keyword(Keyword::Use) => {
+                    Ok(Some(UseRegionalToken { regional_token_idx }))
+                }
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -528,16 +534,16 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Pronoun(PronounKeyword::SelfValue)) => {
+                TokenData::Keyword(Keyword::Pronoun(PronounKeyword::SelfValue)) => {
                     Ok(Some(SelfValueRegionalToken { regional_token_idx }))
                 }
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -584,16 +590,16 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Pronoun(PronounKeyword::SelfType)) => {
+                TokenData::Keyword(Keyword::Pronoun(PronounKeyword::SelfType)) => {
                     Ok(Some(SelfTypeRegionalToken { regional_token_idx }))
                 }
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -646,22 +652,22 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Modifier(ModifierKeyword::Covariant)) => {
+                TokenData::Keyword(Keyword::Modifier(ModifierKeyword::Covariant)) => {
                     Ok(Some(CovariantRegionalToken { regional_token_idx }.into()))
                 }
-                Token::Keyword(Keyword::Modifier(ModifierKeyword::Contravariant)) => Ok(Some(
+                TokenData::Keyword(Keyword::Modifier(ModifierKeyword::Contravariant)) => Ok(Some(
                     ContravariantRegionalToken { regional_token_idx }.into(),
                 )),
-                Token::Keyword(Keyword::Modifier(ModifierKeyword::Invariant)) => {
+                TokenData::Keyword(Keyword::Modifier(ModifierKeyword::Invariant)) => {
                     Ok(Some(InvariantRegionalToken { regional_token_idx }.into()))
                 }
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -740,16 +746,16 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Connection(ConnectionKeyword::For)) => {
+                TokenData::Keyword(Keyword::Connection(ConnectionKeyword::For)) => {
                     Ok(Some(ConnectionForRegionalToken { regional_token_idx }))
                 }
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)

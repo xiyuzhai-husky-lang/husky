@@ -283,7 +283,7 @@ impl EntityNodeEntry {
         })
     }
 
-    pub fn node(&self) -> ItemSynNode {
+    pub(crate) fn syn_node(&self) -> ItemSynNode {
         self.node
     }
 }

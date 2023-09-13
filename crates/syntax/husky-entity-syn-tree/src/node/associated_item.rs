@@ -38,7 +38,7 @@ impl AssociatedItemSynNodePath {
         }
     }
 
-    pub fn node(self, db: &dyn EntitySynTreeDb) -> AssociatedItemSynNode {
+    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> AssociatedItemSynNode {
         todo!()
     }
 }
@@ -71,7 +71,7 @@ impl HasSynNodePath for AssociatedItemPath {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub enum AssociatedItemSynNode {
+pub(crate) enum AssociatedItemSynNode {
     TypeItem(TypeItemSynNode),
 }
 

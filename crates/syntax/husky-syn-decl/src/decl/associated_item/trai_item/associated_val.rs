@@ -4,7 +4,6 @@ use super::*;
 pub struct TraitAssociatedValSynNodeDecl {
     #[id]
     pub syn_node_path: TraitItemSynNodePath,
-    pub ast_idx: AstIdx,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -14,5 +13,3 @@ pub struct TraitAssociatedValSynDecl {
     pub path: TraitItemPath,
     pub syn_expr_region: SynExprRegion,
 }
-
-impl<'a> DeclParserFactory<'a> {}

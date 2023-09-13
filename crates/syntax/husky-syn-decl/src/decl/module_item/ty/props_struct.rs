@@ -1,22 +1,21 @@
 use super::*;
-use husky_token::{CommaToken, LcurlToken, RcurlToken};
+use husky_regional_token::{CommaRegionalToken, LcurlRegionalToken, RcurlRegionalToken};
 use parsec::{parse_separated_list2, PunctuatedSmallList, TryParseFromStream};
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct PropsStructTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
-    pub ast_idx: AstIdx,
     #[return_ref]
     template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
     #[return_ref]
-    lcurl: SynNodeDeclResult<PropsStructLeftCurlyBrace>,
+    lcurl: SynNodeDeclResult<PropsStructLcurlRegionalToken>,
     #[return_ref]
     fields: SynNodeDeclResult<
-        PunctuatedSmallList<PropsFieldDeclPattern, CommaToken, 4, SynNodeDeclError>,
+        PunctuatedSmallList<PropsFieldDeclPattern, CommaRegionalToken, 4, SynNodeDeclError>,
     >,
     #[return_ref]
-    rcurl: SynNodeDeclResult<PropsStructRcurlToken>,
+    rcurl: SynNodeDeclResult<PropsStructRcurlRegionalToken>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -37,30 +36,30 @@ impl PropsStructTypeSynNodeDecl {
 /// we delegate a struct for this for better error message
 /// regular struct is the fallback case, but the lang user might want to mean other things
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct PropsStructLeftCurlyBrace(LcurlToken);
+pub struct PropsStructLcurlRegionalToken(LcurlRegionalToken);
 
-impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for PropsStructLeftCurlyBrace {
+impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for PropsStructLcurlRegionalToken {
     type Error = SynNodeDeclError;
 
     fn try_parse_from_stream(sp: &mut SynDeclExprParser<'a>) -> Result<Self, Self::Error> {
         let lcurl = sp.try_parse_expected(
-            OriginalSynNodeDeclError::ExpectedLeftCurlyBraceOrLeftParenthesisOrSemicolonForStruct,
+            OriginalSynNodeDeclError::ExpectedLcurlOrLparOrSemicolonForStruct,
         )?;
         Ok(Self(lcurl))
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct PropsStructRcurlToken(RcurlToken);
+pub struct PropsStructRcurlRegionalToken(RcurlRegionalToken);
 
-impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for PropsStructRcurlToken {
+impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for PropsStructRcurlRegionalToken {
     type Error = SynNodeDeclError;
 
     fn try_parse_from_stream(sp: &mut SynDeclExprParser<'a>) -> Result<Self, Self::Error> {
         // todo: enrich this
         // consider unexpected
         // maybe sp.skip_exprs_until_next_right_curly_brace
-        let rcurl = sp.try_parse_expected(OriginalSynNodeDeclError::ExpectedRightCurlyBrace)?;
+        let rcurl = sp.try_parse_expected(OriginalSynNodeDeclError::ExpectedRcurl)?;
         Ok(Self(rcurl))
     }
 }

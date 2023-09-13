@@ -19,7 +19,7 @@ where
 }
 
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub struct IllFormedItemSynNode {
+pub(crate) struct IllFormedItemSynNode {
     #[id]
     pub syn_node_path: IllFormedItemSynNodePath,
 }

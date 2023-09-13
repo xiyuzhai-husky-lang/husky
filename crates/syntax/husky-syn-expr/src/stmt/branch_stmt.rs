@@ -1,4 +1,5 @@
 use super::*;
+use husky_defn_ast::DefnAst;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SynIfBranch {
@@ -58,9 +59,9 @@ impl SynElseBranch {
 }
 
 impl<'a> SynStmtContext<'a> {
-    pub(super) fn parse_if_branch(&mut self, if_branch: RegionalAstIdx) -> SynIfBranch {
-        match self.region_ast_arena_ref()[if_branch] {
-            RegionalAst::BasicStmtOrBranch {
+    pub(super) fn parse_if_branch(&mut self, if_branch: DefnAstIdx) -> SynIfBranch {
+        match self.regional_asts()[if_branch] {
+            DefnAst::BasicStmtOrBranch {
                 token_group_idx,
                 body,
             } => {
@@ -84,16 +85,19 @@ impl<'a> SynStmtContext<'a> {
         }
     }
 
-    pub(super) fn parse_elif_branches(&mut self, elif_branches: AstIdxRange) -> Vec<SynElifBranch> {
+    pub(super) fn parse_elif_branches(
+        &mut self,
+        elif_branches: DefnAstIdxRange,
+    ) -> Vec<SynElifBranch> {
         elif_branches
             .into_iter()
             .map(|elif_branch| self.parse_elif_branch(elif_branch))
             .collect()
     }
 
-    fn parse_elif_branch(&mut self, elif_branch: AstIdx) -> SynElifBranch {
-        match self.ast_sheet()[elif_branch] {
-            RegionalAst::BasicStmtOrBranch {
+    fn parse_elif_branch(&mut self, elif_branch: DefnAstIdx) -> SynElifBranch {
+        match self.regional_asts()[elif_branch] {
+            DefnAst::BasicStmtOrBranch {
                 token_group_idx,
                 body,
             } => {
@@ -116,10 +120,10 @@ impl<'a> SynStmtContext<'a> {
 
     pub(super) fn parse_else_branch(
         &mut self,
-        else_branch: Option<AstIdx>,
+        else_branch: Option<DefnAstIdx>,
     ) -> Option<SynElseBranch> {
-        match self.ast_sheet()[else_branch?] {
-            RegionalAst::BasicStmtOrBranch {
+        match self.regional_asts()[else_branch?] {
+            DefnAst::BasicStmtOrBranch {
                 token_group_idx,
                 body,
             } => {

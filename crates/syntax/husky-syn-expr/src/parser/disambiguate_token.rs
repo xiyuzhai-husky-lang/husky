@@ -13,10 +13,10 @@ where
     pub(crate) fn disambiguate_token(
         &mut self,
         regional_token_idx: RegionalTokenIdx,
-        token: Token,
+        token: TokenData,
     ) -> TokenDisambiguationResult<DisambiguatedToken> {
         TokenDisambiguationResult::Continue(match token {
-            Token::Keyword(keyword) => match keyword {
+            TokenData::Keyword(keyword) => match keyword {
                 Keyword::Connection(keyword) => match keyword {
                     ConnectionKeyword::For
                     | ConnectionKeyword::Where
@@ -39,7 +39,7 @@ where
                         )),
                     },
                     PronounKeyword::SelfValue => match self.peek() {
-                        Some(Token::Punctuation(Punctuation::COLON_COLON)) => {
+                        Some(TokenData::Punctuation(Punctuation::COLON_COLON)) => {
                             todo!()
                         }
                         _ => match self.allow_self_value() {
@@ -67,7 +67,7 @@ where
                     OriginalSynExprError::UnexpectedKeyword(regional_token_idx).into(),
                 )),
             },
-            Token::Ident(ident) => match self.top_expr() {
+            TokenData::Ident(ident) => match self.top_expr() {
                 TopExprRef::Incomplete(
                     IncompleteExpr::CommaList {
                         opr:
@@ -86,8 +86,8 @@ where
                 },
                 _ => self.resolve_ident(regional_token_idx, ident),
             },
-            Token::Label(_) => todo!(),
-            Token::Punctuation(punct) => match punct.mapped() {
+            TokenData::Label(_) => todo!(),
+            TokenData::Punctuation(punct) => match punct.mapped() {
                 PunctuationMapped::Binary(binary) => {
                     DisambiguatedToken::BinaryOpr(regional_token_idx, binary)
                 }
@@ -285,7 +285,7 @@ where
                 PunctuationMapped::Exists => todo!(),
                 PunctuationMapped::HeavyArrow => todo!(),
             },
-            Token::WordOpr(opr) => match opr {
+            TokenData::WordOpr(opr) => match opr {
                 WordOpr::And => DisambiguatedToken::BinaryOpr(
                     regional_token_idx,
                     BinaryOpr::ShortCircuitLogic(BinaryShortcuitLogicOpr::And),
@@ -297,11 +297,11 @@ where
                 WordOpr::As => DisambiguatedToken::BinaryOpr(regional_token_idx, BinaryOpr::As),
                 WordOpr::Be => DisambiguatedToken::Be(regional_token_idx),
             },
-            Token::Literal(literal) => {
+            TokenData::Literal(literal) => {
                 DisambiguatedToken::AtomicExpr(SynExpr::Literal(regional_token_idx, literal))
             }
-            Token::Error(error) => DisambiguatedToken::AtomicExpr(SynExpr::Err(
-                DerivedSynExprError::Token(error).into(),
+            TokenData::Error(error) => DisambiguatedToken::AtomicExpr(SynExpr::Err(
+                DerivedSynExprError::TokenData(error).into(),
             )),
         })
     }

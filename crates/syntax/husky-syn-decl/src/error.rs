@@ -1,8 +1,9 @@
 use crate::*;
 use husky_entity_syn_tree::EntitySynTreeError;
 use husky_print_utils::p;
+use husky_regional_token::{RegionalTokenIdx, RegionalTokenStreamState};
 use husky_syn_expr::OriginalSynExprError;
-use husky_token::*;
+use husky_token_data::TokenDataError;
 use husky_vfs::VfsError;
 use original_error::OriginalError;
 use parsec::*;
@@ -47,38 +48,38 @@ pub enum OriginalSynNodeDeclError {
     #[error("derived {0}")]
     Expr(#[from] OriginalSynExprError),
     #[error("expect output type")]
-    ExpectedOutputType(TokenStreamState),
+    ExpectedOutputType(RegionalTokenStreamState),
     #[error("expect `->`")]
-    ExpectedCurry(TokenStreamState),
+    ExpectedCurry(RegionalTokenStreamState),
     #[error("expect `:` at end of line")]
-    ExpectedEolColon(TokenStreamState),
+    ExpectedEolColon(RegionalTokenStreamState),
     #[error("expect `}}`")]
-    ExpectedRightCurlyBrace(TokenStreamState),
+    ExpectedRcurl(RegionalTokenStreamState),
     #[error("expect `>` for implicit parameters")]
     ExpectedRightAngleBracketForImplicitParameterDeclList {
-        langle_token_idx: TokenIdx,
-        token_stream_state: TokenStreamState,
+        langle_regional_token_idx: RegionalTokenIdx,
+        regional_token_stream_state: RegionalTokenStreamState,
     },
     #[error("expect parameter declaration list")]
-    ExpectedParameterDeclList(TokenStreamState),
+    ExpectedParameterDeclList(RegionalTokenStreamState),
     #[error("expect implicit parameter declaration")]
-    ExpectedImplicitParameterDecl(TokenStreamState),
+    ExpectedImplicitParameterDecl(RegionalTokenStreamState),
     #[error("expect `)` in parameter list")]
-    ExpectedRightParenthesisInParameterList(TokenStreamState),
+    ExpectedRightParenthesisInParameterList(RegionalTokenStreamState),
     #[error("expect `)` in parameter list")]
-    ExpectedRightParenthesisInTupleStructFieldTypeList(TokenStreamState),
+    ExpectedRightParenthesisInTupleStructFieldTypeList(RegionalTokenStreamState),
     #[error("ExpectVariableType")]
-    ExpectedVariableType(TokenStreamState),
+    ExpectedVariableType(RegionalTokenStreamState),
     #[error("ExpectEqTokenForVariable")]
-    ExpectEqTokenForVariable(TokenStreamState),
+    ExpectEqTokenForVariable(RegionalTokenStreamState),
     #[error("expected `{{` `(` or `;` for struct")]
-    ExpectedLeftCurlyBraceOrLeftParenthesisOrSemicolonForStruct(TokenStreamState),
+    ExpectedLcurlOrLparOrSemicolonForStruct(RegionalTokenStreamState),
     #[error("expected `=` for associated type")]
-    ExpectedEqForAssociatedType(TokenStreamState),
+    ExpectedEqForAssociatedType(RegionalTokenStreamState),
     #[error("expected `(` for derive")]
-    ExpectLeftBracketInDerive(TokenStreamState),
+    ExpectLeftBracketInDerive(RegionalTokenStreamState),
     #[error("expected `)` for derive")]
-    ExpectRightBracketInDerive(TokenStreamState),
+    ExpectRightBracketInDerive(RegionalTokenStreamState),
 }
 
 impl OriginalError for OriginalSynNodeDeclError {

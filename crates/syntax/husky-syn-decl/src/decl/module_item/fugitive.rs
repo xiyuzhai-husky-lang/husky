@@ -29,14 +29,6 @@ impl FugitiveSynNodeDecl {
         }
     }
 
-    pub fn ast_idx(self, db: &dyn SynDeclDb) -> AstIdx {
-        match self {
-            FugitiveSynNodeDecl::Fn(decl) => decl.ast_idx(db),
-            FugitiveSynNodeDecl::Val(decl) => decl.ast_idx(db),
-            FugitiveSynNodeDecl::Gn(decl) => decl.ast_idx(db),
-        }
-    }
-
     pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
             FugitiveSynNodeDecl::Fn(decl) => decl.syn_expr_region(db),
@@ -67,54 +59,18 @@ pub(crate) fn fugitive_syn_node_decl(
     db: &dyn SynDeclDb,
     syn_node_path: FugitiveSynNodePath,
 ) -> FugitiveSynNodeDecl {
-    let parser = DeclParserFactory::new(db, syn_node_path);
-    parser.parse_fugitive_syn_node_decl(syn_node_path)
+    DeclParserFactory::new(db, syn_node_path).parse_fugitive_syn_node_decl()
 }
 
-impl<'a> DeclParserFactory<'a> {
-    fn parse_fugitive_syn_node_decl(
-        &self,
-        syn_node_path: FugitiveSynNodePath,
-    ) -> FugitiveSynNodeDecl {
-        let db = self.db();
-        let node = syn_node_path.node(db);
-        let ast_idx: AstIdx = node.ast_idx(db);
-        match self.ast_sheet()[ast_idx] {
-            Ast::Identifiable {
-                token_group_idx,
-                saved_stream_state,
-                ..
-            } => self.parse_fugitive_syn_node_decl_aux(
-                syn_node_path,
-                ast_idx,
-                token_group_idx,
-                saved_stream_state,
-            ),
-            _ => unreachable!(),
-        }
-    }
-
-    fn parse_fugitive_syn_node_decl_aux(
-        &self,
-        syn_node_path: FugitiveSynNodePath,
-        ast_idx: AstIdx,
-        token_group_idx: TokenGroupIdx,
-        saved_stream_state: TokenStreamState,
-    ) -> FugitiveSynNodeDecl {
-        let db = self.db();
-        match syn_node_path.fugitive_kind(db) {
-            FugitiveKind::Val => self
-                .parse_val_node_decl(syn_node_path, ast_idx, token_group_idx, saved_stream_state)
-                .into(),
-            FugitiveKind::Fn => self
-                .parse_fn_node_decl(syn_node_path, ast_idx, token_group_idx, saved_stream_state)
-                .into(),
+impl<'a> DeclParserFactory<'a, FugitiveSynNodePath> {
+    fn parse_fugitive_syn_node_decl(&self) -> FugitiveSynNodeDecl {
+        match self.syn_node_path().fugitive_kind(self.db()) {
+            FugitiveKind::Val => self.parse_val_node_decl().into(),
+            FugitiveKind::Fn => self.parse_fn_node_decl().into(),
             FugitiveKind::AliasType => {
                 todo!()
             }
-            FugitiveKind::Gn => self
-                .parse_gn_node_decl(syn_node_path, ast_idx, token_group_idx, saved_stream_state)
-                .into(),
+            FugitiveKind::Gn => self.parse_gn_node_decl().into(),
         }
     }
 }

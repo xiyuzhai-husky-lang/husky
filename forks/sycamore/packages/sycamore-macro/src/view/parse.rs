@@ -7,7 +7,7 @@ use syn::parse::discouraged::Speculative;
 use syn::parse::{Parse, ParseStream};
 use syn::punctuated::Punctuated;
 use syn::token::{Brace, Paren};
-use syn::{braced, parenthesized, token, Expr, FieldValue, Ident, LitStr, Result, Token};
+use syn::{braced, parenthesized, token, Expr, FieldValue, Ident, LitStr, Result, TokenData};
 
 use super::ir::*;
 
@@ -31,13 +31,13 @@ impl ViewNode {
             Some(NodeType::Text)
         } else if input.peek(Paren) {
             Some(NodeType::Dyn)
-        } else if input.peek(Token![::]) {
+        } else if input.peek(TokenData![::]) {
             Some(NodeType::Component)
         } else if input.peek(Ident::peek_any) {
             let ident: Ident = input.call(Ident::parse_any).ok()?;
             let ident = ident.to_string();
 
-            if ident.chars().next().unwrap().is_ascii_uppercase() || input.peek(Token![::]) {
+            if ident.chars().next().unwrap().is_ascii_uppercase() || input.peek(TokenData![::]) {
                 Some(NodeType::Component)
             } else {
                 Some(NodeType::Element)
@@ -71,7 +71,7 @@ impl Parse for Element {
             let content;
             parenthesized!(content in input);
             content
-                .parse_terminated::<Attribute, Token![,]>(Attribute::parse)?
+                .parse_terminated::<Attribute, TokenData![,]>(Attribute::parse)?
                 .into_iter()
                 .collect()
         } else {
@@ -114,8 +114,8 @@ impl Parse for Element {
 impl Parse for ElementTag {
     fn parse(input: ParseStream) -> Result<Self> {
         let tag = input.call(Ident::parse_any)?;
-        let mut extended = Vec::<(Token![-], Ident)>::new();
-        while input.peek(Token![-]) {
+        let mut extended = Vec::<(TokenData![-], Ident)>::new();
+        while input.peek(TokenData![-]) {
             extended.push((input.parse()?, input.parse()?));
         }
         if extended.is_empty() {
@@ -138,7 +138,7 @@ impl Parse for Attribute {
     fn parse(input: ParseStream) -> Result<Self> {
         let span = input.span();
         let ty = input.parse()?;
-        let _eqs: Token![=] = input.parse()?;
+        let _eqs: TokenData![=] = input.parse()?;
         let value = input.parse()?;
         Ok(Self { ty, value, span })
     }
@@ -148,14 +148,14 @@ impl Parse for AttributeType {
     fn parse(input: ParseStream) -> Result<Self> {
         pub struct AttributeName {
             tag: Ident,
-            extended: Vec<(Token![-], Ident)>,
+            extended: Vec<(TokenData![-], Ident)>,
         }
 
         impl Parse for AttributeName {
             fn parse(input: ParseStream) -> Result<Self> {
                 let tag = input.call(Ident::parse_any)?;
                 let mut extended = Vec::new();
-                while input.peek(Token![-]) {
+                while input.peek(TokenData![-]) {
                     extended.push((input.parse()?, input.parse()?));
                 }
 
@@ -183,8 +183,8 @@ impl Parse for AttributeType {
             Ok(Self::Ref)
         } else if name == "dangerously_set_inner_html" {
             Ok(Self::DangerouslySetInnerHtml)
-        } else if input.peek(Token![:]) {
-            let _colon: Token![:] = input.parse()?;
+        } else if input.peek(TokenData![:]) {
+            let _colon: TokenData![:] = input.parse()?;
             match name.as_str() {
                 "on" => {
                     let event = input.call(Ident::parse_any)?;
@@ -223,7 +223,7 @@ impl Parse for Component {
         } else if input.peek(Brace) {
             // Parse element link component.
             let brace = braced!(content in input);
-            let mut props = Punctuated::<FieldValue, Token![,]>::new();
+            let mut props = Punctuated::<FieldValue, TokenData![,]>::new();
             while !content.is_empty() {
                 let fork = content.fork();
                 if let Ok(value) = fork.parse() {

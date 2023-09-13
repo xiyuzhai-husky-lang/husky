@@ -4,7 +4,6 @@ use super::*;
 pub struct InductiveTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
-    pub ast_idx: AstIdx,
     #[return_ref]
     template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
     pub syn_expr_region: SynExprRegion,
@@ -29,29 +28,13 @@ impl InductiveTypeSynNodeDecl {
     }
 }
 
-impl<'a> DeclParserFactory<'a> {
-    pub(super) fn parse_inductive_ty_node_decl(
-        &self,
-        ast_idx: AstIdx,
-        syn_node_path: TypeSynNodePath,
-        token_group_idx: TokenGroupIdx,
-        variants: TypeVariants,
-        saved_stream_state: TokenStreamState,
-    ) -> InductiveTypeSynNodeDecl {
-        let mut parser = self.parser(
-            syn_node_path,
-            None,
-            AllowSelfType::True,
-            AllowSelfValue::False,
-            None,
-            token_group_idx,
-            Some(saved_stream_state),
-        );
+impl<'a> DeclParserFactory<'a, TypeSynNodePath> {
+    pub(super) fn parse_inductive_ty_node_decl(&self) -> InductiveTypeSynNodeDecl {
+        let mut parser = self.parser(None, AllowSelfType::True, AllowSelfValue::False, None);
         let template_parameter_decl_list = parser.try_parse_option();
         InductiveTypeSynNodeDecl::new(
             self.db(),
-            syn_node_path,
-            ast_idx,
+            self.syn_node_path(),
             template_parameter_decl_list,
             parser.finish(),
         )

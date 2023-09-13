@@ -3,15 +3,15 @@ use super::*;
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub struct SnippetTokraRegion {
     #[return_ref]
-    tokens: Vec<Token>,
+    tokens: Vec<TokenData>,
 }
 
 pub struct SnippetTokraRegionData<'a> {
-    tokens: &'a [Token],
+    tokens: &'a [TokenData],
 }
 
 impl<'a> std::ops::Index<RegionalTokenIdx> for SnippetTokraRegionData<'a> {
-    type Output = Token;
+    type Output = TokenData;
 
     fn index(&self, idx: RegionalTokenIdx) -> &Self::Output {
         &self.tokens[idx.index()]

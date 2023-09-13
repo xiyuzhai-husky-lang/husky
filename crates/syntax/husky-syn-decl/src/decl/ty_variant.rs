@@ -2,6 +2,8 @@ mod props_ty_variant;
 mod tuple_ty_variant;
 mod unit_ty_variant;
 
+use husky_token_data::Punctuation;
+
 pub use self::props_ty_variant::*;
 pub use self::tuple_ty_variant::*;
 pub use self::unit_ty_variant::*;
@@ -23,14 +25,6 @@ impl TypeVariantSynNodeDecl {
             TypeVariantSynNodeDecl::Props(syn_node_decl) => syn_node_decl.syn_node_path(db),
             TypeVariantSynNodeDecl::Unit(syn_node_decl) => syn_node_decl.syn_node_path(db),
             TypeVariantSynNodeDecl::Tuple(syn_node_decl) => syn_node_decl.syn_node_path(db),
-        }
-    }
-
-    pub fn ast_idx(self, db: &dyn SynDeclDb) -> AstIdx {
-        match self {
-            TypeVariantSynNodeDecl::Props(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeVariantSynNodeDecl::Unit(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeVariantSynNodeDecl::Tuple(syn_node_decl) => syn_node_decl.ast_idx(db),
         }
     }
 
@@ -56,31 +50,15 @@ pub(crate) fn ty_variant_syn_node_decl(
     db: &dyn SynDeclDb,
     syn_node_path: TypeVariantSynNodePath,
 ) -> TypeVariantSynNodeDecl {
-    DeclParserFactory::new(db, syn_node_path).parse_ty_variant_syn_node_decl(syn_node_path)
+    DeclParserFactory::new(db, syn_node_path).parse_ty_variant_syn_node_decl()
 }
 
-impl<'a> DeclParserFactory<'a> {
-    fn parse_ty_variant_syn_node_decl(
-        &self,
-        syn_node_path: TypeVariantSynNodePath,
-    ) -> TypeVariantSynNodeDecl {
+impl<'a> DeclParserFactory<'a, TypeVariantSynNodePath> {
+    fn parse_ty_variant_syn_node_decl(&self) -> TypeVariantSynNodeDecl {
         let db = self.db();
-        let node = syn_node_path.syn_node(db);
-        let ast_idx = node.ast_idx(db);
-        let Ast::TypeVariant {
-            token_group_idx,
-            vertical_token,
-            ident_token,
-            state_after,
-            ..
-        } = self.ast_sheet()[ast_idx]
-        else {
-            unreachable!()
-        };
         let mut parser = self.parser(
-            syn_node_path,
             Some(
-                syn_node_path
+                self.syn_node_path()
                     .parent_ty_node_path(db)
                     .syn_node_decl(db)
                     .syn_expr_region(db),
@@ -88,18 +66,15 @@ impl<'a> DeclParserFactory<'a> {
             AllowSelfType::True,
             AllowSelfValue::False,
             None,
-            token_group_idx,
-            Some(state_after),
         );
         let state = parser.save_state();
         match parser.next() {
-            Some(Token::Punctuation(Punctuation::LPAR)) => {
+            Some(TokenData::Punctuation(Punctuation::LPAR)) => {
                 let field_comma_list = parser.try_parse();
                 let rpar = parser.try_parse();
                 TupleTypeVariantSynNodeDecl::new(
                     db,
-                    syn_node_path,
-                    ast_idx,
+                    self.syn_node_path(),
                     state.next_token_idx(),
                     field_comma_list,
                     rpar,
@@ -107,9 +82,9 @@ impl<'a> DeclParserFactory<'a> {
                 )
                 .into()
             }
-            Some(Token::Punctuation(Punctuation::LCURL)) => todo!(),
+            Some(TokenData::Punctuation(Punctuation::LCURL)) => todo!(),
             None => {
-                UnitTypeVariantSynNodeDecl::new(db, syn_node_path, ast_idx, parser.finish()).into()
+                UnitTypeVariantSynNodeDecl::new(db, self.syn_node_path(), parser.finish()).into()
             }
             _ => todo!(),
         }
@@ -150,10 +125,6 @@ impl TypeVariantSynDecl {
             TypeVariantSynDecl::Unit(_) => todo!(),
             TypeVariantSynDecl::Tuple(_) => todo!(),
         }
-    }
-
-    pub(crate) fn ast_idx(self, _db: &dyn SynDeclDb) -> AstIdx {
-        todo!()
     }
 }
 

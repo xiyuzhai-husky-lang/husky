@@ -46,14 +46,14 @@ where
 {
     if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
         match token {
-            Token::Punctuation(punc) if punc == target => Ok(Some(f(regional_token_idx))),
-            Token::Error(error) => Err(error),
-            Token::Label(_)
-            | Token::Punctuation(_)
-            | Token::Ident(_)
-            | Token::WordOpr(_)
-            | Token::Literal(_)
-            | Token::Keyword(_) => Ok(None),
+            TokenData::Punctuation(punc) if punc == target => Ok(Some(f(regional_token_idx))),
+            TokenData::Error(error) => Err(error),
+            TokenData::Label(_)
+            | TokenData::Punctuation(_)
+            | TokenData::Ident(_)
+            | TokenData::WordOpr(_)
+            | TokenData::Literal(_)
+            | TokenData::Keyword(_) => Ok(None),
         }
     } else {
         Ok(None)
@@ -225,6 +225,8 @@ define_specific_punctuation_regional_token!(
     ":="
 );
 
+define_specific_punctuation_regional_token!(EqRegionalToken, EQ, eq_regional_token_works, "=");
+
 /// `:` at the end of line
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
@@ -266,25 +268,25 @@ where
         let token_stream = ctx.token_stream_mut();
         if let Some((regional_token_idx, token)) = token_stream.next_indexed() {
             match token {
-                Token::Punctuation(Punctuation::COLON) => match token_stream.peek() {
+                TokenData::Punctuation(Punctuation::COLON) => match token_stream.peek() {
                     Some(_) => Ok(None),
                     None => Ok(Some(EolRegionalToken::Colon(EolColonRegionalToken {
                         regional_token_idx,
                     }))),
                 },
-                Token::Punctuation(Punctuation::SEMICOLON) => match token_stream.peek() {
+                TokenData::Punctuation(Punctuation::SEMICOLON) => match token_stream.peek() {
                     Some(_) => Ok(None),
                     None => Ok(Some(EolRegionalToken::Semicolon(
                         EolSemicolonRegionalToken { regional_token_idx },
                     ))),
                 },
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -304,17 +306,17 @@ where
         let token_stream = ctx.token_stream_mut();
         if let Some((regional_token_idx, token)) = token_stream.next_indexed() {
             match token {
-                Token::Punctuation(Punctuation::SEMICOLON) => match token_stream.peek() {
+                TokenData::Punctuation(Punctuation::SEMICOLON) => match token_stream.peek() {
                     Some(_) => Ok(None),
                     None => Ok(Some(EolSemicolonRegionalToken { regional_token_idx })),
                 },
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)

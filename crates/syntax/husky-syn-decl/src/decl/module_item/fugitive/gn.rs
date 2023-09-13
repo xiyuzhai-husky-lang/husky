@@ -4,17 +4,16 @@ use super::*;
 pub struct GnSynNodeDecl {
     #[id]
     pub syn_node_path: FugitiveSynNodePath,
-    pub ast_idx: AstIdx,
     pub syn_expr_region: SynExprRegion,
     #[return_ref]
     template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
     #[return_ref]
     parenate_parameter_decl_list: SynNodeDeclResult<RitchieParameters<false>>,
-    pub light_arrow_token: TokenDataResult<Option<RegionalLightArrowToken>>,
+    pub light_arrow_token: TokenDataResult<Option<LightArrowRegionalToken>>,
     #[return_ref]
     pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
     #[return_ref]
-    pub eol_colon: SynNodeDeclResult<EolToken>,
+    pub eol_colon: SynNodeDeclResult<EolRegionalToken>,
 }
 
 impl GnSynNodeDecl {
@@ -36,23 +35,9 @@ impl GnSynNodeDecl {
     }
 }
 
-impl<'a> DeclParserFactory<'a> {
-    pub(super) fn parse_gn_node_decl(
-        &self,
-        syn_node_path: FugitiveSynNodePath,
-        ast_idx: AstIdx,
-        token_group_idx: TokenGroupIdx,
-        saved_stream_state: TokenStreamState,
-    ) -> GnSynNodeDecl {
-        let mut parser = self.parser(
-            syn_node_path,
-            None,
-            AllowSelfType::False,
-            AllowSelfValue::False,
-            None,
-            token_group_idx,
-            Some(saved_stream_state),
-        );
+impl<'a> DeclParserFactory<'a, FugitiveSynNodePath> {
+    pub(super) fn parse_gn_node_decl(&self) -> GnSynNodeDecl {
+        let mut parser = self.parser(None, AllowSelfType::False, AllowSelfValue::False, None);
         let template_parameter_decl_list = parser.try_parse_option();
         let parameter_decl_list =
             parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedParameterDeclList);
@@ -68,8 +53,7 @@ impl<'a> DeclParserFactory<'a> {
         let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
         GnSynNodeDecl::new(
             self.db(),
-            syn_node_path,
-            ast_idx,
+            self.syn_node_path(),
             parser.finish(),
             template_parameter_decl_list,
             parameter_decl_list,

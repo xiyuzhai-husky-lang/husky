@@ -2,7 +2,7 @@ mod explicit_application;
 mod list;
 mod prefix;
 
-use husky_token::{BoolLiteral, FloatLiteral};
+use husky_token_data::{BoolLiteral, FloatLiteral};
 
 use super::*;
 
@@ -49,7 +49,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_expr_term(&mut self, expr_idx: SynExprIdx) -> ExprTermResult<FluffyTerm> {
         match self.expr_region_data[expr_idx] {
-            SynExpr::Literal(token_idx, lit) => {
+            SynExpr::Literal(regional_token_idx, lit) => {
                 Ok(
                     EtherealTerm::Literal(match lit {
                         Literal::Unit => TermLiteral::Unit,
@@ -111,7 +111,7 @@ impl<'a> ExprTypeEngine<'a> {
                                             p!(
                                                 ty.debug(self.db),
                                                 ty.show(self.db, self.fluffy_term_region.terms()),
-                                                token_idx,
+                                                regional_token_idx,
                                                 self.path()
                                             );
                                             todo!();
@@ -213,13 +213,13 @@ impl<'a> ExprTypeEngine<'a> {
             } => todo!(),
             SynExpr::InheritedSymbol {
                 ident,
-                token_idx,
+                regional_token_idx,
                 inherited_symbol_idx,
                 inherited_symbol_kind,
             } => todo!(),
             SynExpr::CurrentSymbol {
                 ident,
-                token_idx,
+                regional_token_idx,
                 current_symbol_idx,
                 current_symbol_kind,
             } => match self
@@ -237,7 +237,7 @@ impl<'a> ExprTypeEngine<'a> {
                 None => todo!(),
             },
             SynExpr::FrameVarDecl {
-                token_idx,
+                regional_token_idx,
                 ident,
                 frame_var_symbol_idx: current_symbol_idx,
                 current_symbol_kind,
@@ -247,25 +247,25 @@ impl<'a> ExprTypeEngine<'a> {
             SynExpr::Binary {
                 lopd,
                 opr,
-                opr_token_idx,
+                opr_regional_token_idx,
                 ropd,
             } => todo!(),
             SynExpr::Be { .. } => todo!(),
             SynExpr::Prefix {
                 opr,
-                opr_token_idx,
+                opr_regional_token_idx,
                 opd,
             } => self.calc_prefix_expr_term(expr_idx, opr, opd),
             SynExpr::Suffix {
                 opd,
                 opr: punctuation,
-                opr_token_idx: punctuation_token_idx,
+                opr_regional_token_idx: punctuation_regional_token_idx,
             } => todo!(),
             SynExpr::FunctionApplicationOrCall { .. } => todo!(),
             SynExpr::FunctionCall { .. } => todo!(),
             SynExpr::Field {
                 owner,
-                dot_token_idx,
+                dot_regional_token_idx,
                 ident_token,
             } => todo!(),
             SynExpr::MethodApplicationOrCall { .. } => todo!(),
@@ -278,9 +278,9 @@ impl<'a> ExprTypeEngine<'a> {
                 self.calc_explicit_application_expr_term(expr_idx, function, argument)
             }
             SynExpr::Bracketed {
-                lpar_token_idx,
+                lpar_regional_token_idx,
                 item,
-                rpar_token_idx,
+                rpar_regional_token_idx,
             } => Err(todo!()),
             SynExpr::NewTuple { .. } => todo!(),
             SynExpr::List { ref items, .. } => self.calc_list_expr_term(expr_idx, items),
@@ -288,31 +288,27 @@ impl<'a> ExprTypeEngine<'a> {
             SynExpr::Block { stmts } => todo!(),
             SynExpr::IndexOrCompositionWithList {
                 owner,
-                lbox_token_idx,
+                lbox_regional_token_idx,
                 ref items,
-                rbox_token_idx,
+                rbox_regional_token_idx,
             } => match self.expr_disambiguation(expr_idx) {
                 Ok(SynExprDisambiguation::IndexOrComposeWithList(_)) => todo!(),
                 Err(e) => Err(DerivedExprTermError::ExprTypeError.into()),
                 Ok(_) => unreachable!(),
             },
             SynExpr::EmptyHtmlTag {
-                empty_html_bra_idx: langle_token_idx,
+                empty_html_bra_idx: langle_regional_token_idx,
                 function_ident,
                 ref arguments,
                 empty_html_ket,
             } => todo!(),
             SynExpr::Unit {
-                lpar_token_idx,
-                rpar_token_idx,
+                lpar_regional_token_idx,
+                rpar_regional_token_idx,
             } => todo!(),
             SynExpr::Ritchie { .. } => todo!(),
-            SynExpr::Sorry {
-                regional_token_idx: token_idx,
-            } => todo!(),
-            SynExpr::Todo {
-                regional_token_idx: token_idx,
-            } => todo!(),
+            SynExpr::Sorry { regional_token_idx } => todo!(),
+            SynExpr::Todo { regional_token_idx } => todo!(),
             SynExpr::Err(_) => Err(DerivedExprTermError::ExprError.into()),
         }
     }

@@ -66,7 +66,7 @@ impl MajorItemSynNodePath {
         // self.path(db).ident(db)
     }
 
-    pub fn node(self, db: &dyn EntitySynTreeDb) -> MajorItemSynNode {
+    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> MajorItemSynNode {
         todo!()
     }
 
@@ -94,7 +94,7 @@ impl HasSynNodePath for MajorItemPath {
 
 // todo: change this to enum and create FugitiveNode etc.
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub struct MajorItemSynNode {
+pub(crate) struct MajorItemSynNode {
     #[id]
     pub syn_node_path: MajorItemSynNodePath,
     pub visibility: Scope,

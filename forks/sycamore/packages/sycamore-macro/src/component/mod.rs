@@ -6,7 +6,7 @@ use syn::parse::{Parse, ParseStream};
 use syn::punctuated::Punctuated;
 use syn::spanned::Spanned;
 use syn::{
-    parse_quote, Expr, FnArg, Item, ItemFn, Pat, Result, ReturnType, Signature, Token, Type,
+    parse_quote, Expr, FnArg, Item, ItemFn, Pat, Result, ReturnType, Signature, TokenData, Type,
     TypeTuple,
 };
 
@@ -58,7 +58,7 @@ impl Parse for ComponentFunction {
                             .clone()
                             .into_iter()
                             .skip(2)
-                            .collect::<Punctuated<_, Token![,]>>()
+                            .collect::<Punctuated<_, TokenData![,]>>()
                             .span(),
                         "component should not take more than 2 arguments",
                     ));

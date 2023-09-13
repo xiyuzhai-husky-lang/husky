@@ -159,11 +159,7 @@ impl<'a> ExprTypeEngine<'a> {
                 },
             )),
             SynExpr::Binary {
-                lopd,
-                opr,
-                ropd,
-                opr_token_idx,
-                ..
+                lopd, opr, ropd, ..
             } => Ok((
                 SynExprDisambiguation::Trivial,
                 self.calc_binary_expr_ty(expr_idx, lopd, opr, ropd),
