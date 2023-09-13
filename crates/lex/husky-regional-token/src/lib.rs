@@ -27,13 +27,13 @@ pub struct RegionalTokenGroupIdx {}
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct RegionalTokenStreamState {
-    next_token_idx: RegionalTokenIdx,
+    next_regional_token_idx: RegionalTokenIdx,
     drained: bool,
 }
 
 impl RegionalTokenStreamState {
     pub fn next_regional_token_idx(self) -> RegionalTokenIdx {
-        self.next_token_idx
+        self.next_regional_token_idx
     }
 
     pub fn drained(self) -> bool {
@@ -55,11 +55,14 @@ impl<'a> HasStreamState for RegionalTokenStream<'a> {
     type State = RegionalTokenStreamState;
 
     fn save_state(&self) -> Self::State {
-        todo!()
+        RegionalTokenStreamState {
+            next_regional_token_idx: self.next_relative.regional_token_idx(self.start),
+            drained: self.next_relative.index() >= self.tokens.len(),
+        }
     }
 
     fn rollback(&mut self, state: Self::State) {
-        todo!()
+        self.rollback_raw(state.next_regional_token_idx)
     }
 }
 
@@ -78,6 +81,14 @@ impl<'a> Iterator for RegionalTokenStream<'a> {
 }
 
 impl<'a> RegionalTokenStream<'a> {
+    pub fn new_decl_regional_token_stream(tokens: &'a [TokenData]) -> Self {
+        Self {
+            start: RegionalTokenGroupStart::from_index(0),
+            tokens,
+            next_relative: Default::default(),
+        }
+    }
+
     pub fn is_empty(&self) -> bool {
         self.next_relative.index() >= self.tokens.len()
     }

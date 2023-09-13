@@ -33,12 +33,12 @@ pub(crate) fn trai_syn_node_decl(
     db: &dyn SynDeclDb,
     syn_node_path: TraitSynNodePath,
 ) -> TraitSynNodeDecl {
-    DeclParserFactory::new(db, syn_node_path).parse_trai_syn_node_decl()
+    DeclParser::new(db, syn_node_path).parse_trai_syn_node_decl()
 }
 
-impl<'a> DeclParserFactory<'a, TraitSynNodePath> {
+impl<'a> DeclParser<'a, TraitSynNodePath> {
     fn parse_trai_syn_node_decl(&self) -> TraitSynNodeDecl {
-        let mut parser = self.parser(None, AllowSelfType::True, AllowSelfValue::False, None);
+        let mut parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::False, None);
         let template_parameters = parser.try_parse_option();
         TraitSynNodeDecl::new(
             self.db(),

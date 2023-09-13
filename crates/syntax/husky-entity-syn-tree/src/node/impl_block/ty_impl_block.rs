@@ -33,7 +33,7 @@ impl TypeImplBlockSynNodePath {
     }
 
     #[inline(always)]
-    pub fn items(
+    pub(crate) fn item_syn_nodes(
         self,
         db: &dyn EntitySynTreeDb,
     ) -> &[(Ident, TypeItemSynNodePath, TypeItemSynNode)] {
@@ -45,7 +45,7 @@ impl TypeImplBlockSynNodePath {
         self,
         db: &'a dyn EntitySynTreeDb,
     ) -> impl Iterator<Item = TypeItemSynNodePath> + 'a {
-        self.items(db)
+        self.item_syn_nodes(db)
             .iter()
             .copied()
             .map(|(_, syn_node_path, _)| syn_node_path)

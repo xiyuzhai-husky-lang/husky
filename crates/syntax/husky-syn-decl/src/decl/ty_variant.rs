@@ -50,13 +50,13 @@ pub(crate) fn ty_variant_syn_node_decl(
     db: &dyn SynDeclDb,
     syn_node_path: TypeVariantSynNodePath,
 ) -> TypeVariantSynNodeDecl {
-    DeclParserFactory::new(db, syn_node_path).parse_ty_variant_syn_node_decl()
+    DeclParser::new(db, syn_node_path).parse_ty_variant_syn_node_decl()
 }
 
-impl<'a> DeclParserFactory<'a, TypeVariantSynNodePath> {
+impl<'a> DeclParser<'a, TypeVariantSynNodePath> {
     fn parse_ty_variant_syn_node_decl(&self) -> TypeVariantSynNodeDecl {
         let db = self.db();
-        let mut parser = self.parser(
+        let mut parser = self.expr_parser(
             Some(
                 self.syn_node_path()
                     .parent_ty_node_path(db)

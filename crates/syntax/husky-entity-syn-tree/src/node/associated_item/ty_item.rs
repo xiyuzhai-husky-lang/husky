@@ -117,7 +117,7 @@ pub(crate) fn ty_item_syn_node(
 ) -> TypeItemSynNode {
     syn_node_path
         .impl_block(db)
-        .items(db)
+        .item_syn_nodes(db)
         .iter()
         .copied()
         .find_map(|(_, node_path1, node)| (node_path1 == syn_node_path).then_some(node))
@@ -206,7 +206,7 @@ pub(crate) fn ty_item_syn_node_paths(
             // todo: guard against two methods with the same ident
             (syn_node_path.ty_path(db) == path).then(|| {
                 syn_node_path
-                    .items(db)
+                    .item_syn_nodes(db)
                     .iter()
                     .copied()
                     .map(|(ident, syn_node_path, node)| (ident, syn_node_path))

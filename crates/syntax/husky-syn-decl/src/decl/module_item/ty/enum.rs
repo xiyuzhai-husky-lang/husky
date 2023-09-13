@@ -28,10 +28,10 @@ impl EnumTypeSynNodeDecl {
     }
 }
 
-impl<'a> DeclParserFactory<'a, TypeSynNodePath> {
+impl<'a> DeclParser<'a, TypeSynNodePath> {
     pub(super) fn parse_enum_ty_node_decl(&self) -> EnumTypeSynNodeDecl {
         let db = self.db();
-        let mut parser = self.parser(None, AllowSelfType::True, AllowSelfValue::False, None);
+        let mut parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::False, None);
         let template_parameters = parser.try_parse_option();
         EnumTypeSynNodeDecl::new(
             db,

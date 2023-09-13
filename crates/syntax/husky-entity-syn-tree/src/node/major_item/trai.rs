@@ -41,7 +41,7 @@ impl TraitSynNodePath {
     }
 
     // todo: make this a trait method
-    pub fn item_nodes<'a>(
+    pub(crate) fn item_nodes<'a>(
         self,
         db: &'a dyn EntitySynTreeDb,
     ) -> &'a [(Ident, TraitItemSynNodePath, TraitItemSynNode)] {

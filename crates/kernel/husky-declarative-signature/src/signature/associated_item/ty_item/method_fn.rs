@@ -1,4 +1,3 @@
-use husky_entity_syn_tree::ImplBlockSynNode;
 use husky_syn_expr::SelfParameterObelisk;
 
 use crate::*;

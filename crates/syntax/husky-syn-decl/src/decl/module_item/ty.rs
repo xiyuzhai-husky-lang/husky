@@ -91,10 +91,10 @@ impl HasSynNodeDecl for TypeSynNodePath {
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_node_decl(db: &dyn SynDeclDb, syn_node_path: TypeSynNodePath) -> TypeSynNodeDecl {
-    DeclParserFactory::new(db, syn_node_path).parse_ty_node_decl()
+    DeclParser::new(db, syn_node_path).parse_ty_node_decl()
 }
 
-impl<'a> DeclParserFactory<'a, TypeSynNodePath> {
+impl<'a> DeclParser<'a, TypeSynNodePath> {
     fn parse_ty_node_decl(&self) -> TypeSynNodeDecl {
         match self.syn_node_path().ty_kind(self.db()) {
             TypeKind::Enum => self.parse_enum_ty_node_decl().into(),
@@ -107,10 +107,10 @@ impl<'a> DeclParserFactory<'a, TypeSynNodePath> {
     }
 }
 
-impl<'a> DeclParserFactory<'a, TypeSynNodePath> {
+impl<'a> DeclParser<'a, TypeSynNodePath> {
     pub(super) fn parse_struct_ty_node_decl(&self) -> TypeSynNodeDecl {
         let db = self.db();
-        let mut parser = self.parser(None, AllowSelfType::True, AllowSelfValue::False, None);
+        let mut parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::False, None);
         let template_parameters = parser.try_parse_option();
         if let Some(lpar) = parser.try_parse_err_as_none::<LparRegionalToken>() {
             let field_comma_list = parser.try_parse();

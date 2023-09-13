@@ -30,17 +30,17 @@ pub(crate) fn ill_formed_impl_block_syn_node_decl(
     db: &dyn SynDeclDb,
     syn_node_path: IllFormedImplBlockSynNodePath,
 ) -> IllFormedImplBlockSynNodeDecl {
-    let parser = DeclParserFactory::new(db, syn_node_path);
+    let parser = DeclParser::new(db, syn_node_path);
     parser.parse_ill_formed_impl_block_syn_node_decl(syn_node_path)
 }
 
-impl<'a> DeclParserFactory<'a, IllFormedImplBlockSynNodePath> {
+impl<'a> DeclParser<'a, IllFormedImplBlockSynNodePath> {
     fn parse_ill_formed_impl_block_syn_node_decl(
         &self,
         syn_node_path: IllFormedImplBlockSynNodePath,
     ) -> IllFormedImplBlockSynNodeDecl {
         let db = self.db();
-        let mut parser = self.parser(None, AllowSelfType::True, AllowSelfValue::False, None);
+        let mut parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::False, None);
         IllFormedImplBlockSynNodeDecl::new(db, self.syn_node_path(), parser.finish())
     }
 }

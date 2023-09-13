@@ -33,8 +33,15 @@ impl DeclTokraRegion {
     }
 }
 
+#[derive(Debug, Clone, Copy)]
 pub struct DeclTokraRegionData<'a> {
     tokens: &'a [TokenData],
+}
+
+impl<'a> DeclTokraRegionData<'a> {
+    pub fn regional_token_stream(self) -> RegionalTokenStream<'a> {
+        RegionalTokenStream::new_decl_regional_token_stream(self.tokens)
+    }
 }
 
 impl<'a> std::ops::Index<RegionalTokenIdx> for DeclTokraRegionData<'a> {
@@ -94,7 +101,9 @@ fn build_decl_tokra_region(
     (decl_tokra_region, decl_tokra_region_source_map)
 }
 
-pub trait HasDeclTokraRegion: for<'a> HasModulePath<dyn EntitySynTreeDb + 'a> + Copy {
+pub trait HasDeclTokraRegion:
+    for<'a> HasModulePath<dyn EntitySynTreeDb + 'a> + Copy + Into<ItemSynNodePath>
+{
     fn decl_tokra_region(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegion;
     // use this only when necessary
     fn decl_tokra_region_source_map(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegionSourceMap;

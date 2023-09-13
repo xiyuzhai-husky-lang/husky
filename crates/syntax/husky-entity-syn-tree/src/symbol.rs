@@ -40,11 +40,9 @@ pub enum EntitySymbol {
     },
     Submodule {
         submodule_path: SubmodulePath,
-        node: SubmoduleSynNode,
     },
     MajorItem {
         module_item_path: MajorItemPath,
-        node: MajorItemSynNode,
     },
     TypeVariant {
         ty_variant_path: TypeVariantPath,
@@ -57,11 +55,9 @@ impl EntitySymbol {
         match node {
             ItemSynNode::Submodule(node) => Some(EntitySymbol::Submodule {
                 submodule_path: node.unambiguous_path(db)?,
-                node,
             }),
             ItemSynNode::MajorItem(node) => Some(EntitySymbol::MajorItem {
                 module_item_path: node.unambiguous_path(db)?,
-                node,
             }),
             ItemSynNode::AssociatedItem(_)
             | ItemSynNode::TypeVariant(_)
@@ -92,12 +88,12 @@ impl EntitySymbol {
         }
     }
 
-    pub fn module_item_node(self) -> Option<MajorItemSynNode> {
-        match self {
-            EntitySymbol::MajorItem { node, .. } => Some(node),
-            _ => None,
-        }
-    }
+    // pub(crate) fn module_item_syn_node(self) -> Option<MajorItemSynNode> {
+    //     match self {
+    //         EntitySymbol::MajorItem { node, .. } => Some(node),
+    //         _ => None,
+    //     }
+    // }
 }
 
 // can only see module symbols

@@ -27,13 +27,13 @@ impl TraitForTypeAssociatedTypeSynNodeDecl {
     }
 }
 
-impl<'a> DeclParserFactory<'a, TraitForTypeItemSynNodePath> {
+impl<'a> DeclParser<'a, TraitForTypeItemSynNodePath> {
     pub(super) fn parse_trai_for_ty_associated_ty_node_decl(
         &self,
     ) -> TraitForTypeAssociatedTypeSynNodeDecl {
         let db = self.db();
         let impl_block_syn_node_decl = self.syn_node_path().impl_block(db).syn_node_decl(db);
-        let mut parser = self.parser(
+        let mut parser = self.expr_parser(
             Some(impl_block_syn_node_decl.syn_expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::False,

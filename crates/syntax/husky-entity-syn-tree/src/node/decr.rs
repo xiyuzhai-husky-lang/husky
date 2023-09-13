@@ -61,7 +61,7 @@ impl HasSynNodePath for DecrPath {
 fn decr_node(db: &dyn EntitySynTreeDb, syn_node_path: DecrSynNodePath) -> DecrSynNode {
     syn_node_path
         .parent_syn_node_path(db)
-        .decrs(db)
+        .decr_syn_nodes(db)
         .get_entry(syn_node_path)
         .expect("todo")
         .1

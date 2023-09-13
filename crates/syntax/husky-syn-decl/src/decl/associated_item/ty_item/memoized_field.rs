@@ -25,11 +25,11 @@ impl TypeMemoizedFieldSynNodeDecl {
     }
 }
 
-impl<'a> DeclParserFactory<'a, TypeItemSynNodePath> {
+impl<'a> DeclParser<'a, TypeItemSynNodePath> {
     pub(super) fn parse_ty_memo_decl(&self) -> TypeMemoizedFieldSynNodeDecl {
         let db = self.db();
         let impl_block_syn_node_decl = self.syn_node_path().impl_block(db).syn_node_decl(db);
-        let mut parser = self.parser(
+        let mut parser = self.expr_parser(
             Some(impl_block_syn_node_decl.syn_expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::True,

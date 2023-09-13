@@ -1,14 +1,14 @@
 mod associated_item;
 mod decr;
 mod impl_block;
-mod module_item;
+mod major_item;
 mod submodule;
 mod ty_variant;
 
 pub use self::associated_item::*;
 pub use self::decr::*;
 pub use self::impl_block::*;
-pub use self::module_item::*;
+pub use self::major_item::*;
 pub use self::submodule::*;
 pub use self::ty_variant::*;
 
@@ -62,7 +62,10 @@ impl ItemSynNodePath {
         self.module_path(db).toolchain(db)
     }
 
-    pub fn decrs(self, db: &dyn EntitySynTreeDb) -> &[(DecrSynNodePath, DecrSynNode)] {
+    pub(crate) fn decr_syn_nodes(
+        self,
+        db: &dyn EntitySynTreeDb,
+    ) -> &[(DecrSynNodePath, DecrSynNode)] {
         // ad hoc
         match self {
             ItemSynNodePath::Submodule(_) => &[],
@@ -143,10 +146,11 @@ impl<P> MaybeAmbiguousPath<P> {
     }
 }
 
+/// this is pub(crate) because it contains AstIdx which affects incremental computation
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 #[enum_class::from_variants]
-pub enum ItemSynNode {
+pub(crate) enum ItemSynNode {
     Submodule(SubmoduleSynNode),
     MajorItem(MajorItemSynNode),
     AssociatedItem(AssociatedItemSynNode),

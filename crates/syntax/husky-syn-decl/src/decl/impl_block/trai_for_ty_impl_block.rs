@@ -52,58 +52,60 @@ pub(crate) fn trai_for_ty_impl_block_syn_node_decl(
     db: &dyn SynDeclDb,
     syn_node_path: TraitForTypeImplBlockSynNodePath,
 ) -> TraitForTypeImplBlockSynNodeDecl {
-    let parser = DeclParserFactory::new(db, syn_node_path);
+    let parser = DeclParser::new(db, syn_node_path);
     parser.parse_trai_for_ty_impl_block_syn_node_decl(syn_node_path)
 }
 
-impl<'a> DeclParserFactory<'a, TraitForTypeImplBlockSynNodePath> {
+impl<'a> DeclParser<'a, TraitForTypeImplBlockSynNodePath> {
     fn parse_trai_for_ty_impl_block_syn_node_decl(
         &self,
         syn_node_path: TraitForTypeImplBlockSynNodePath,
     ) -> TraitForTypeImplBlockSynNodeDecl {
-        // let db = self.db();
-        // let mut parser = self.parser(None, AllowSelfType::True, AllowSelfValue::False, None);
-        // let impl_token = parser.try_parse_option().unwrap().unwrap();
-        // let template_parameter_decl_list = parser.try_parse_option();
-        // // ad hoc
-        // let trai: TraitObelisk = parser.try_parse_option().unwrap().unwrap();
-        // let for_token = parser
-        //     .try_parse_option()
-        //     .expect("guaranteed by parsing")
-        //     .expect("guaranteed by parsing");
-        todo!()
-        // let ty = match node.ty_sketch_expr(db) {
-        //     SelfTypeSketchExpr::Path(_) => SelfTypeDecl::PathLeadingExpr(
-        //         parser
-        //             .try_parse_option()
-        //             .expect("guaranteed")
-        //             .expect("guaranteed"),
-        //     ),
-        //     SelfTypeSketchExpr::DeriveAny {
-        //         at_token,
-        //         derive_token,
-        //         underscore_token,
-        //     } => {
-        //         parser.advance_by(3);
-        //         SelfTypeDecl::DeriveAny {
-        //             at_token,
-        //             derive_token,
-        //             underscore_token,
-        //         }
-        //     }
-        // };
-        // let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
-        // TraitForTypeImplBlockSynNodeDecl::new(
-        //     db,
-        //     syn_node_path,
-        //     impl_token,
-        //     template_parameter_decl_list,
-        //     trai,
-        //     for_token,
-        //     ty,
-        //     eol_colon,
-        //     parser.finish(),
-        // )
+        let db = self.db();
+        let mut parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::False, None);
+        let impl_token = parser.try_parse_option().unwrap().unwrap();
+        let template_parameter_decl_list = parser.try_parse_option();
+        // ad hoc
+        let trai: TraitObelisk = parser.try_parse_option().unwrap().unwrap();
+        let for_token = parser
+            .try_parse_option()
+            .expect("guaranteed by parsing")
+            .expect("guaranteed by parsing");
+
+        let ty = match syn_node_path.ty_sketch(db) {
+            TypeSketch::DeriveAny => todo!(),
+            TypeSketch::Path(_) => todo!(),
+            // SelfTypeSketchExpr::Path(_) => SelfTypeDecl::PathLeadingExpr(
+            //     parser
+            //         .try_parse_option()
+            //         .expect("guaranteed")
+            //         .expect("guaranteed"),
+            // ),
+            // SelfTypeSketchExpr::DeriveAny {
+            //     at_token,
+            //     derive_token,
+            //     underscore_token,
+            // } => {
+            //     parser.advance_by(3);
+            //     SelfTypeDecl::DeriveAny {
+            //         at_token,
+            //         derive_token,
+            //         underscore_token,
+            //     }
+            // }
+        };
+        let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
+        TraitForTypeImplBlockSynNodeDecl::new(
+            db,
+            syn_node_path,
+            impl_token,
+            template_parameter_decl_list,
+            trai,
+            for_token,
+            ty,
+            eol_colon,
+            parser.finish(),
+        )
     }
 }
 

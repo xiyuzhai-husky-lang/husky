@@ -22,7 +22,7 @@ impl TraitForTypeImplBlockSynNodePath {
         self.path.ty_sketch(db)
     }
 
-    pub fn associated_items(
+    pub(crate) fn associated_items(
         self,
         db: &dyn EntitySynTreeDb,
     ) -> &[(Ident, TraitForTypeItemSynNodePath, TraitForTypeItemSynNode)] {
@@ -131,7 +131,7 @@ impl TraitForTypeImplBlockSynNode {
     }
 
     pub fn ty_sketch(self, db: &dyn EntitySynTreeDb) -> TypeSketch {
-        self.syn_node_path(db).path.ty_sketch(db)
+        self.syn_node_path(db).ty_sketch(db)
     }
 
     pub fn trai_path(self, db: &dyn EntitySynTreeDb) -> TraitPath {

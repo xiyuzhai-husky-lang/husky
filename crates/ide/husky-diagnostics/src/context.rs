@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ast::{AstIdx, AstTokenIdxRangeSheet};
+use husky_ast::{AstIdx, AstSheet, AstTokenIdxRangeSheet, HasAstSheet};
 use husky_expr_ty::*;
 use husky_fluffy_term::FluffyTermRegion;
 use husky_regional_token::{RegionalTokenIdx, RegionalTokenStreamState, TokenRegionBase};
@@ -10,6 +10,7 @@ pub(crate) struct SheetDiagnosticsContext<'a> {
     db: &'a dyn DiagnosticsDb,
     token_sheet_data: &'a TokenSheetData,
     ranged_token_sheet: &'a RangedTokenSheet,
+    ast_sheet: &'a AstSheet,
     ast_token_idx_range_sheet: &'a AstTokenIdxRangeSheet,
 }
 
@@ -21,6 +22,7 @@ impl<'a> SheetDiagnosticsContext<'a> {
             db,
             token_sheet_data,
             ranged_token_sheet,
+            ast_sheet: module_path.ast_sheet(db).expect("todo"),
             ast_token_idx_range_sheet: db.ast_token_idx_range_sheet(module_path).unwrap(),
         }
     }
@@ -64,6 +66,10 @@ impl<'a> SheetDiagnosticsContext<'a> {
             .token_sheet_data()
             .token_group_token_idx_range(token_group_idx);
         self.ranged_token_sheet.tokens_text_range(token_idx_range)
+    }
+
+    pub(crate) fn ast_sheet(&self) -> &'a AstSheet {
+        self.ast_sheet
     }
 }
 

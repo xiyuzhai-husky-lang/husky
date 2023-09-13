@@ -1,5 +1,4 @@
 use crate::*;
-use husky_entity_syn_tree::ImplBlockSynNode;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TypeMethodFunctionDeclarativeSignatureTemplate {

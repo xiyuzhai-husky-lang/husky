@@ -21,8 +21,8 @@ pub struct DeriveDecrSynNodeDecl {
 
 impl DeriveDecrSynNodeDecl {
     pub(super) fn new(db: &dyn SynDeclDb, syn_node_path: DecrSynNodePath) -> Self {
-        let parser_factory = DeclParserFactory::new(db, syn_node_path);
-        let mut parser = parser_factory.parser(
+        let parser_factory = DeclParser::new(db, syn_node_path);
+        let mut parser = parser_factory.expr_parser(
             syn_node_path
                 .parent_syn_node_path(db)
                 .syn_node_decl(db)

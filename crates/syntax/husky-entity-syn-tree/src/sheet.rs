@@ -82,7 +82,7 @@ impl EntitySynTreeSheet {
             .filter_map(|syn_node_path| syn_node_path.path(db))
     }
 
-    pub fn major_item_node(&self, syn_node_path: ItemSynNodePath) -> Option<ItemSynNode> {
+    pub(crate) fn major_item_node(&self, syn_node_path: ItemSynNodePath) -> Option<ItemSynNode> {
         self.major_item_node_table.node(syn_node_path)
     }
 
@@ -153,7 +153,7 @@ impl EntitySynTreeSheet {
             })
     }
 
-    pub fn all_ty_impl_block_syn_nodes<'a>(
+    pub(crate) fn all_ty_impl_block_syn_nodes<'a>(
         &'a self,
     ) -> impl Iterator<Item = TypeImplBlockSynNode> + 'a {
         self.impl_block_syn_node_table.iter().copied().filter_map(
@@ -177,7 +177,7 @@ impl EntitySynTreeSheet {
             })
     }
 
-    pub fn all_trai_for_ty_impl_block_syn_nodes<'a>(
+    pub(crate) fn all_trai_for_ty_impl_block_syn_nodes<'a>(
         &'a self,
     ) -> impl Iterator<Item = TraitForTypeImplBlockSynNode> + 'a {
         self.impl_block_syn_node_table.iter().copied().filter_map(

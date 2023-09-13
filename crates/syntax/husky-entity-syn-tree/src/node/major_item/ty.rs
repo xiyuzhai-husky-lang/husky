@@ -29,7 +29,10 @@ impl TypeSynNodePath {
         ty_node(db, self)
     }
 
-    pub fn decrs<'a>(self, db: &'a dyn EntitySynTreeDb) -> &'a [(DecrSynNodePath, DecrSynNode)] {
+    pub(crate) fn decr_syn_nodes<'a>(
+        self,
+        db: &'a dyn EntitySynTreeDb,
+    ) -> &'a [(DecrSynNodePath, DecrSynNode)] {
         ty_decrs(db, self)
     }
 }
@@ -113,7 +116,7 @@ fn ty_decrs(
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 fn ty_decr_paths(db: &dyn EntitySynTreeDb, path: TypePath) -> SmallVec<[DecrPath; 2]> {
     path.syn_node_path(db)
-        .decrs(db)
+        .decr_syn_nodes(db)
         .iter()
         .filter_map(|(decr_syn_node_path, _)| decr_syn_node_path.path(db))
         .collect()

@@ -11,7 +11,7 @@ use husky_print_utils::p;
 use husky_regional_token::*;
 use parsec::*;
 
-pub(crate) struct DeclParserFactory<'a, P>
+pub(crate) struct DeclParser<'a, P>
 where
     P: HasDeclTokraRegion,
 {
@@ -21,7 +21,7 @@ where
     tokra_region_data: DeclTokraRegionData<'a>,
 }
 
-impl<'a, P> DeclParserFactory<'a, P>
+impl<'a, P> DeclParser<'a, P>
 where
     P: HasDeclTokraRegion,
 {
@@ -41,26 +41,22 @@ where
     }
 
     #[inline(always)]
-    pub(crate) fn parser(
+    pub(crate) fn expr_parser(
         &self,
         parent_expr_region: Option<SynExprRegion>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
         env: Option<ExprEnvironment>,
     ) -> SynDeclExprParser<'a> {
-        todo!()
-        // let token_stream = self
-        //     .token_sheet_data
-        //     .token_group_token_stream(token_group_idx, saved_stream_state);
-        // SynExprContext::new(
-        //     self.db,
-        //     RegionPath::Decl(syn_node_path.into()),
-        //     self.module_symbol_context,
-        //     parent_expr_region,
-        //     allow_self_type,
-        //     allow_self_value,
-        // )
-        // .expr_parser(env, token_stream)
+        SynExprContext::new(
+            self.db,
+            RegionPath::Decl(self.syn_node_path.into()),
+            self.module_symbol_context,
+            parent_expr_region,
+            allow_self_type,
+            allow_self_value,
+        )
+        .expr_parser(env, self.tokra_region_data.regional_token_stream())
     }
 
     #[inline(always)]

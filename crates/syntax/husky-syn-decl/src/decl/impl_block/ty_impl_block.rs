@@ -31,14 +31,14 @@ pub(crate) fn ty_impl_block_syn_node_decl(
     db: &dyn SynDeclDb,
     syn_node_path: TypeImplBlockSynNodePath,
 ) -> TypeImplBlockSynNodeDecl {
-    let parser = DeclParserFactory::new(db, syn_node_path);
+    let parser = DeclParser::new(db, syn_node_path);
     parser.parse_ty_impl_block_syn_node_decl()
 }
 
-impl<'a> DeclParserFactory<'a, TypeImplBlockSynNodePath> {
+impl<'a> DeclParser<'a, TypeImplBlockSynNodePath> {
     fn parse_ty_impl_block_syn_node_decl(&self) -> TypeImplBlockSynNodeDecl {
         let db = self.db();
-        let mut parser = self.parser(None, AllowSelfType::True, AllowSelfValue::False, None);
+        let mut parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::False, None);
         let impl_token = parser.try_parse_option().unwrap().unwrap();
         let template_parameter_decl_list = parser.try_parse_option();
         let ty = parser.try_parse_option().unwrap().unwrap();
