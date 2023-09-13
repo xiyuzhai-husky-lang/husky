@@ -1,11 +1,6 @@
 use super::*;
+use husky_decl_ast::DeclAst;
 use husky_token::{TokenGroupIdx, TokenSheetData};
-
-pub enum DeclAst {
-    Identifiable,
-    TypeVariant,
-    ImplBlock,
-}
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct DeclTokraRegionSourceMap {
@@ -13,10 +8,21 @@ pub struct DeclTokraRegionSourceMap {
     ast_idx: AstIdx,
 }
 
+impl DeclTokraRegionSourceMap {
+    pub fn token_region_base(&self) -> TokenRegionBase {
+        self.token_region_base
+    }
+
+    pub fn ast_idx(&self) -> ArenaIdx<Ast> {
+        self.ast_idx
+    }
+}
+
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
 pub struct DeclTokraRegion {
     #[return_ref]
-    tokens: Vec<TokenData>,
+    pub tokens: Vec<TokenData>,
+    pub ast: DeclAst,
 }
 
 impl DeclTokraRegion {
@@ -50,11 +56,11 @@ fn build_decl_tokra_region(
     let ast_sheet = db
         .ast_sheet(module_path)
         .expect("all modules should be valid");
-    let (token_group_idx,) = match ast_sheet[ast_idx] {
+    let (token_group_idx, ast) = match ast_sheet[ast_idx] {
         Ast::Decr {
             token_group_idx,
             ident,
-        } => (token_group_idx,),
+        } => (token_group_idx, DeclAst::Decr),
         Ast::Identifiable {
             token_group_idx,
             ref visibility_expr,
@@ -63,24 +69,24 @@ fn build_decl_tokra_region(
             is_generic,
             saved_stream_state,
             block,
-        } => (token_group_idx,),
+        } => (token_group_idx, DeclAst::Identifiable {}),
         Ast::TypeVariant {
             token_group_idx,
             variant_path,
             vertical_token,
             ident_token,
             state_after,
-        } => (token_group_idx,),
+        } => (token_group_idx, DeclAst::TypeVariant),
         Ast::ImplBlock {
             token_group_idx,
             items,
-        } => (token_group_idx,),
+        } => (token_group_idx, DeclAst::ImplBlock),
         _ => unreachable!(),
     };
     let tokens = token_sheet_data[token_group_idx].to_vec();
     let token_region_base =
         TokenRegionBase::new(token_sheet_data.token_group_base(token_group_idx));
-    let decl_tokra_region = DeclTokraRegion::new_inner(db, tokens);
+    let decl_tokra_region = DeclTokraRegion::new_inner(db, tokens, ast);
     let decl_tokra_region_source_map = DeclTokraRegionSourceMap {
         token_region_base,
         ast_idx,
@@ -92,6 +98,10 @@ pub trait HasDeclTokraRegion: for<'a> HasModulePath<dyn EntitySynTreeDb + 'a> + 
     fn decl_tokra_region(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegion;
     // use this only when necessary
     fn decl_tokra_region_source_map(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegionSourceMap;
+
+    fn decl_ast_idx(self, db: &dyn EntitySynTreeDb) -> AstIdx {
+        self.decl_tokra_region_source_map(db).ast_idx()
+    }
 }
 
 impl HasDeclTokraRegion for ItemSynNodePath {

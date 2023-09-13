@@ -17,26 +17,27 @@ pub(crate) fn expr_diagnostic_sheet(
     db: &dyn DiagnosticsDb,
     module_path: ModulePath,
 ) -> ExprDiagnosticSheet {
-    let mut sheet_collector = ModuleDiagnosticsCollector::new(db, module_path);
-    if let (Ok(ranged_token_sheet), Ok(defns)) =
-        (db.ranged_token_sheet(module_path), module_path.defns(db))
-    {
-        let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
-        for defn in defns.iter().copied() {
-            let decl = defn.syn_decl(db);
-            if let Some(syn_expr_region) = decl.syn_expr_region(db) {
-                sheet_collector.collect_expr_diagnostics(syn_expr_region);
-            }
-            if let Some(syn_expr_region) = defn.syn_expr_region(db) {
-                sheet_collector.collect_expr_diagnostics(syn_expr_region);
-            }
-        }
-    }
-    let diagnostics = sheet_collector.finish();
-    ExprDiagnosticSheet::new(db, diagnostics)
+    todo!()
+    // let mut sheet_collector = ModuleDiagnosticsCollector::new(db, module_path);
+    // if let (Ok(ranged_token_sheet), Ok(defns)) =
+    //     (db.ranged_token_sheet(module_path), module_path.defns(db))
+    // {
+    //     let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
+    //     for defn in defns.iter().copied() {
+    //         let decl = defn.syn_decl(db);
+    //         if let Some(syn_expr_region) = decl.syn_expr_region(db) {
+    //             sheet_collector.collect_expr_diagnostics(syn_expr_region);
+    //         }
+    //         if let Some(syn_expr_region) = defn.syn_expr_region(db) {
+    //             sheet_collector.collect_expr_diagnostics(syn_expr_region);
+    //         }
+    //     }
+    // }
+    // let diagnostics = sheet_collector.finish();
+    // ExprDiagnosticSheet::new(db, diagnostics)
 }
 
-impl<'a> ModuleDiagnosticsCollector<'a> {
+impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
     fn visit_syn_expr_result<T>(&mut self, result: &SynExprResult<T>) {
         if let Err(SynExprError::Original(e)) = result {
             self.visit_atom(e)
@@ -166,7 +167,7 @@ impl<'a> ModuleDiagnosticsCollector<'a> {
 }
 
 impl Diagnose for OriginalSynExprError {
-    type Context<'a> = SheetDiagnosticsContext<'a>;
+    type Context<'a> = RegionDiagnosticsContext<'a>;
 
     fn message(&self, _db: &Self::Context<'_>) -> String {
         match self {
@@ -309,14 +310,15 @@ impl Diagnose for OriginalSynExprError {
 
     fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
         let regional_token_idx_range = self.regional_token_idx_range();
-        ctx.regional_token_idx_range_text_range(regional_token_idx_range)
+        // ctx.tokens_text_range(regional_token_idx_range)
+        todo!()
     }
 }
 
 impl Diagnose for OriginalPrincipalEntityPathExprError {
-    type Context<'a> = SheetDiagnosticsContext<'a>;
+    type Context<'a> = RegionDiagnosticsContext<'a>;
 
-    fn message(&self, ctx: &SheetDiagnosticsContext) -> String {
+    fn message(&self, ctx: &RegionDiagnosticsContext) -> String {
         match self {
             OriginalPrincipalEntityPathExprError::EntityTree {
                 regional_token_idx: _,
@@ -340,12 +342,12 @@ impl Diagnose for OriginalPrincipalEntityPathExprError {
         }
     }
 
-    fn range(&self, ctx: &SheetDiagnosticsContext) -> TextRange {
+    fn range(&self, ctx: &RegionDiagnosticsContext) -> TextRange {
         match self {
             OriginalPrincipalEntityPathExprError::EntityTree {
                 regional_token_idx,
                 error: _,
-            } => ctx.regional_token_idx_text_range(*regional_token_idx),
+            } => ctx.token_text_range(*regional_token_idx),
             OriginalPrincipalEntityPathExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
         }
     }

@@ -24,7 +24,7 @@ where
         let symbols = self
             .pattern_expr_region()
             .pattern_expr_symbols(pattern_expr);
-        let access_start = self.save_state().next_token_idx();
+        let access_start = self.save_state().next_regional_token_idx();
         let symbols = symbols
             .iter()
             .map(|(ident, pattern_symbol)| {

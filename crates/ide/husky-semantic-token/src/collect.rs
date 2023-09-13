@@ -1,6 +1,7 @@
 use husky_entity_syn_tree::OnceUseRuleState;
 use husky_entity_taxonomy::{EntityKind, MajorItemConnectionKind, MajorItemKind, TypeKind};
 use husky_syn_expr::{CurrentSynSymbolKind, InheritedSynSymbolKind};
+use husky_token_data::TokenData;
 
 use crate::*;
 

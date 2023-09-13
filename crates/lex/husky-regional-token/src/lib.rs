@@ -1,10 +1,12 @@
 #![feature(trait_upcasting)]
+mod base;
 #[cfg(test)]
 mod tests;
 mod token;
 mod token_group;
 mod token_idx;
 
+pub use self::base::*;
 pub use self::token::*;
 pub use self::token_group::*;
 pub use self::token_idx::*;
@@ -30,12 +32,16 @@ pub struct RegionalTokenStreamState {
 }
 
 impl RegionalTokenStreamState {
-    pub fn next_token_idx(&self) -> RegionalTokenIdx {
+    pub fn next_regional_token_idx(self) -> RegionalTokenIdx {
         self.next_token_idx
     }
 
-    pub fn drained(&self) -> bool {
+    pub fn drained(self) -> bool {
         self.drained
+    }
+
+    pub fn token_stream_state(self, base: TokenRegionBase) -> TokenStreamState {
+        todo!()
     }
 }
 

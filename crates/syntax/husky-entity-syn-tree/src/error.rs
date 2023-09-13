@@ -8,6 +8,7 @@ use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
+#[deprecated(note = "put this into syntax error")]
 pub enum EntitySynTreeError {
     #[error("original {0}")]
     Original(#[from] OriginalEntityTreeError),

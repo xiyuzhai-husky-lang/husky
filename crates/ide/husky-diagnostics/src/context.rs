@@ -2,6 +2,7 @@ use crate::*;
 use husky_ast::{AstIdx, AstTokenIdxRangeSheet};
 use husky_expr_ty::*;
 use husky_fluffy_term::FluffyTermRegion;
+use husky_regional_token::{RegionalTokenIdx, RegionalTokenStreamState, TokenRegionBase};
 use husky_syn_expr::{ExprRangeRegion, SynExprIdx, SynExprRegion, SynExprRegionData};
 use husky_token::{TokenGroupIdx, TokenIdx, TokenIdxRange, TokenStreamState};
 
@@ -97,6 +98,10 @@ impl<'a> RegionDiagnosticsContext<'a> {
         self.db
     }
 
+    pub(crate) fn token_region_base(&self) -> TokenRegionBase {
+        todo!()
+    }
+
     pub(crate) fn token_sheet_data(&self) -> &TokenSheetData {
         self.token_sheet_data
     }
@@ -127,5 +132,19 @@ impl<'a> RegionDiagnosticsContext<'a> {
             .ranged_token_sheet
             .token_idx_text_range(token_idx_range.end().token_idx() - 1);
         first.join(last)
+    }
+
+    pub(crate) fn token_text_range(&self, regional_token_idx: RegionalTokenIdx) -> TextRange {
+        self.ranged_token_sheet()
+            .token_idx_text_range(regional_token_idx.token_idx(self.token_region_base()))
+    }
+
+    pub(crate) fn token_stream_state_text_range(
+        &self,
+        regional_token_stream_state: RegionalTokenStreamState,
+    ) -> TextRange {
+        self.ranged_token_sheet.token_stream_state_text_range(
+            regional_token_stream_state.token_stream_state(self.token_region_base()),
+        )
     }
 }

@@ -72,7 +72,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
             let symbols = ctx
                 .pattern_expr_region()
                 .pattern_expr_symbols(pattern_expr_idx);
-            let access_start = ctx.save_state().next_token_idx();
+            let access_start = ctx.save_state().next_regional_token_idx();
             let variables = symbols
                 .iter()
                 .map(|(ident, pattern_symbol_idx)| {
@@ -137,7 +137,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
                 }))
             }
         } else if let Some(dot_dot_dot_token) = ctx.try_parse_option::<DotDotDotRegionalToken>()? {
-            let access_start = ctx.save_state().next_token_idx();
+            let access_start = ctx.save_state().next_regional_token_idx();
             let variadic_variant = ctx.try_parse()?;
             let symbol_modifier_keyword_group =
                 ctx.try_parse_option::<EphemSymbolModifierRegionalTokenGroup>()?;

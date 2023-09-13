@@ -1,3 +1,4 @@
+use husky_defn_ast::{DefnAstArena, DefnAstArenaRef};
 use idx_arena::ArenaRef;
 
 use super::*;
@@ -45,13 +46,6 @@ pub(super) fn defn_token_region(
         ItemSynNodePath::Decr(_) => todo!(),
     }
 }
-
-#[derive(Debug, PartialEq, Eq)]
-pub enum DefnAst {}
-
-pub type DefnAstArena = Arena<DefnAst>;
-pub type DefnAstArenaRef<'a> = ArenaRef<'a, DefnAst>;
-pub type DefnAstArenaIdx = ArenaIdx<DefnAst>;
 
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub struct SynDefnTokraRegionSourceMap {

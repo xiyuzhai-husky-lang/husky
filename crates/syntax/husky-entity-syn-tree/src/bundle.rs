@@ -56,21 +56,13 @@ impl EntitySynTreeCrateBundle {
             .flatten()
     }
 
-    pub fn all_ty_impl_block_syn_nodes<'a>(
+    pub fn all_impl_block_ill_forms<'a>(
         &'a self,
-    ) -> impl Iterator<Item = TypeImplBlockSynNode> + 'a {
+        db: &'a dyn EntitySynTreeDb,
+    ) -> impl Iterator<Item = &'a ImplBlockIllForm> + 'a {
         self.sheets
             .iter()
-            .map(|sheet| sheet.all_ty_impl_block_syn_nodes())
-            .flatten()
-    }
-
-    pub fn all_ill_formed_impl_blocks<'a>(
-        &'a self,
-    ) -> impl Iterator<Item = IllFormedImplBlockSynNode> + 'a {
-        self.sheets
-            .iter()
-            .map(|sheet| sheet.all_ill_formed_impl_block_syn_nodes())
+            .map(|sheet| sheet.all_ill_formed_impl_block_syn_nodes(db))
             .flatten()
     }
 

@@ -8,8 +8,8 @@ impl RegionalTokenIdx {
         self.0.get() as usize - 1
     }
 
-    pub fn regional_token_idx(self, base: TokenRegionBase) -> TokenIdx {
-        unsafe { TokenIdx::from_usize_index_ext(self.index() + base.0) }
+    pub fn token_idx(self, base: TokenRegionBase) -> TokenIdx {
+        unsafe { TokenIdx::from_usize_index_ext(self.index() + base.index_base()) }
     }
 
     pub(crate) fn from_index(index: usize) -> Self {
@@ -131,15 +131,5 @@ impl RegionalTokenIdxRangeEnd {
 
     pub fn index(self) -> usize {
         self.0.index()
-    }
-}
-
-/// equal to the value of TokenIdx::index on the starting token
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct TokenRegionBase(usize);
-
-impl TokenRegionBase {
-    pub fn new(token_group_base: TokenGroupStart) -> Self {
-        Self(token_group_base.token_idx().index())
     }
 }

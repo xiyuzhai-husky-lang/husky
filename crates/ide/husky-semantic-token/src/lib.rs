@@ -16,7 +16,7 @@ use collect::*;
 use convert::*;
 use husky_entity_syn_tree::EntitySynTreeResult;
 use husky_token::*;
-use husky_token::{Keyword, StmtKeyword};
+use husky_token_data::{Keyword, StmtKeyword};
 use husky_token_info::*;
 use husky_vfs::*;
 use token::*;

@@ -14,10 +14,14 @@ husky-expr-ty = { path = "../../semantics/husky-expr-ty" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # lex
+husky-token-data = { path = "../../lex/husky-token-data" }
 husky-token = { path = "../../lex/husky-token" }
+husky-regional-token = { path = "../../lex/husky-regional-token" }
 husky-text = { path = "../../lex/husky-text" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
+husky-decl-ast = { path = "../../syntax/husky-decl-ast" }
+husky-defn-ast = { path = "../../syntax/husky-defn-ast" }
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-syn-decl = { path = "../../syntax/husky-syn-decl" }

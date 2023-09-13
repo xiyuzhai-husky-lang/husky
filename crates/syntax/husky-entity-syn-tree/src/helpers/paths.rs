@@ -1,6 +1,6 @@
 use super::*;
 
-// include submodules, module items, associated items
+// include submodules, major items, associated items
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub fn module_item_syn_node_paths(
     db: &dyn EntitySynTreeDb,
