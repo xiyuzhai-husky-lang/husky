@@ -116,7 +116,7 @@ pub struct DeriveRegionalToken {
 
 impl<'a, Context> parsec::TryParseOptionFromStream<Context> for DeriveRegionalToken
 where
-    Context: RegionalTokenStreamParser<'a> + HasTokenDb,
+    Context: RegionalTokenStreamParser<'a> + HasTokenDataDb<'a>,
 {
     type Error = TokenDataError;
 
@@ -125,7 +125,7 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
-                TokenData::Ident(ident) => match ident.data(ctx.token_db()) {
+                TokenData::Ident(ident) => match ident.data(ctx.token_data_db()) {
                     "derive" => Ok(Some(Self { token_idx })),
                     _ => Ok(None),
                 },
@@ -154,7 +154,7 @@ pub struct PhantomRegionalToken {
 
 impl<'a, Context> parsec::TryParseOptionFromStream<Context> for PhantomRegionalToken
 where
-    Context: RegionalTokenStreamParser<'a> + HasTokenDb,
+    Context: RegionalTokenStreamParser<'a> + HasTokenDataDb<'a>,
 {
     type Error = TokenDataError;
 
@@ -163,7 +163,7 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
-                TokenData::Ident(ident) => match ident.data(ctx.token_db()) {
+                TokenData::Ident(ident) => match ident.data(ctx.token_data_db()) {
                     "phantom" => Ok(Some(Self { token_idx })),
                     _ => Ok(None),
                 },
