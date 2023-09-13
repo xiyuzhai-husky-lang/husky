@@ -205,6 +205,7 @@ fn quick_parse<T, Error>(db: &DB, input: &str) -> Result<Option<T>, Error>
 where
     T: for<'a> TryParseOptionFromStream<RegionalTokenStream<'a>, Error = Error>,
 {
+    use husky_vfs::snippet::Snippet;
     use parsec::TryParseOptionFromStream;
 
     let token_sheet = db.snippet_token_sheet_data(Snippet::new(db, input.to_owned()));

@@ -1,5 +1,6 @@
 use crate::*;
 use husky_opr::Bracket;
+use husky_vfs::snippet::Snippet;
 
 #[derive(Debug, Clone)]
 pub struct TokenStream<'a> {

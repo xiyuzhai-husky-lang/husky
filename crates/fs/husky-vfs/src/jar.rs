@@ -24,6 +24,7 @@ pub struct VfsJar(
     PublishedToolchain,
     published_toolchain_library_path,
     current_toolchain,
+    crate::snippet::Snippet,
 );
 
 impl salsa::storage::IngredientsFor for VfsCache {
