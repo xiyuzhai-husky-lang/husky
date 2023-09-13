@@ -1,7 +1,7 @@
 use crate::*;
 
 use husky_token_data::db::TokenDataDb;
-use husky_vfs::*;
+use husky_vfs::{snippet::Snippet, *};
 
 use salsa::DbWithJar;
 
@@ -35,7 +35,6 @@ pub trait HasTokenDb {
 #[salsa::jar(db = TokenDb)]
 pub struct TokenJar(
     TokenSheet,
-    Snippet,
     ranged_token_sheet,
     token_sheet,
     reserved_cowords,

@@ -1,7 +1,6 @@
 use crate::*;
 use husky_entity_syn_tree::{CratePrelude, ModuleSymbolContext, PreludeResult};
-use husky_token::Snippet;
-use husky_vfs::CratePath;
+use husky_vfs::{snippet::Snippet, CratePath};
 
 #[salsa::tracked(jar = SynExprJar, return_ref)]
 pub(crate) fn parse_expr_from_snippet(
@@ -18,8 +17,9 @@ pub(crate) fn parse_expr_from_snippet(
         AllowSelfType::False,
         AllowSelfValue::False,
     );
-    let token_stream = token_sheet_data
-        .token_group_token_stream(token_sheet_data.token_group_iter().next().unwrap().0, None);
+    let token_stream = todo!();
+    //  token_sheet_data
+    // .token_group_token_stream(token_sheet_data.token_group_iter().next().unwrap().0, None);
     let mut expr_parser = expr_context.expr_parser(None, token_stream);
     let expr = expr_parser.parse_expr_root(None, ExprRootKind::Snippet);
     Ok((expr_parser.finish(), expr))
