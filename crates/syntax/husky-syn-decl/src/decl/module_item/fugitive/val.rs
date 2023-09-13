@@ -5,12 +5,11 @@ use husky_print_utils::p;
 pub struct ValSynNodeDecl {
     #[id]
     pub syn_node_path: FugitiveSynNodePath,
-    pub ast_idx: AstIdx,
-    pub colon_token: TokenDataResult<Option<ColonToken>>,
+    pub colon_token: TokenDataResult<Option<ColonRegionalToken>>,
     #[return_ref]
     pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeEqObelisk>>,
     #[return_ref]
-    pub eq_token: SynNodeDeclResult<EqToken>,
+    pub eq_token: SynNodeDeclResult<EqRegionalToken>,
     pub expr: Option<SynExprIdx>,
     pub syn_expr_region: SynExprRegion,
 }
@@ -27,23 +26,9 @@ impl ValSynNodeDecl {
     }
 }
 
-impl<'a> DeclParserFactory<'a> {
-    pub(super) fn parse_val_node_decl(
-        &self,
-        syn_node_path: FugitiveSynNodePath,
-        ast_idx: AstIdx,
-        token_group_idx: TokenGroupIdx,
-        saved_stream_state: TokenStreamState,
-    ) -> ValSynNodeDecl {
-        let mut parser = self.parser(
-            syn_node_path,
-            None,
-            AllowSelfType::False,
-            AllowSelfValue::False,
-            None,
-            token_group_idx,
-            Some(saved_stream_state),
-        );
+impl<'a> DeclParserFactory<'a, FugitiveSynNodePath> {
+    pub(super) fn parse_val_node_decl(&self) -> ValSynNodeDecl {
+        let mut parser = self.parser(None, AllowSelfType::False, AllowSelfValue::False, None);
         let colon_token = parser.try_parse_option();
         let var_ty = if let Ok(Some(_)) = colon_token {
             parser
@@ -57,8 +42,7 @@ impl<'a> DeclParserFactory<'a> {
         let expr = parser.parse_expr_root(None, ExprRootKind::ValExpr);
         ValSynNodeDecl::new(
             self.db(),
-            syn_node_path,
-            ast_idx,
+            self.syn_node_path(),
             colon_token,
             var_ty,
             eq_token,

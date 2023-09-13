@@ -28,7 +28,7 @@ impl TypeImplBlockSynNodePath {
     }
 
     #[inline(always)]
-    pub fn node(self, db: &dyn EntitySynTreeDb) -> TypeImplBlockSynNode {
+    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> TypeImplBlockSynNode {
         ty_impl_block_syn_node(db, self)
     }
 
@@ -72,11 +72,11 @@ impl HasSynNodePath for TypeImplBlockPath {
 }
 
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub struct TypeImplBlockSynNode {
+pub(crate) struct TypeImplBlockSynNode {
     #[id]
     pub syn_node_path: TypeImplBlockSynNodePath,
     pub ast_idx: AstIdx,
-    pub impl_token: ImplToken,
+    pub impl_regional_token: ImplToken,
     pub ty_expr: MajorItemPathExprIdx,
     pub items: TypeItems,
 }

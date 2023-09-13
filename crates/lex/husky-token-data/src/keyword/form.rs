@@ -37,8 +37,8 @@ impl Deref for FugitiveKeyword {
     }
 }
 
-impl From<FugitiveKeyword> for Token {
+impl From<FugitiveKeyword> for TokenData {
     fn from(kw: FugitiveKeyword) -> Self {
-        Token::Keyword(kw.into())
+        TokenData::Keyword(kw.into())
     }
 }

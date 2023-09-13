@@ -52,20 +52,6 @@ impl TypeSynNodeDecl {
         }
     }
 
-    pub fn ast_idx(self, db: &dyn SynDeclDb) -> AstIdx {
-        match self {
-            TypeSynNodeDecl::Enum(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeSynNodeDecl::UnitStruct(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeSynNodeDecl::TupleStruct(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeSynNodeDecl::PropsStruct(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeSynNodeDecl::Record(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeSynNodeDecl::Inductive(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeSynNodeDecl::Structure(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeSynNodeDecl::Extern(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeSynNodeDecl::Union(syn_node_decl) => syn_node_decl.ast_idx(db),
-        }
-    }
-
     pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
             TypeSynNodeDecl::Enum(syn_node_decl) => syn_node_decl.syn_expr_region(db),
@@ -105,123 +91,33 @@ impl HasSynNodeDecl for TypeSynNodePath {
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_node_decl(db: &dyn SynDeclDb, syn_node_path: TypeSynNodePath) -> TypeSynNodeDecl {
-    let ctx = DeclParserFactory::new(db, syn_node_path);
-    ctx.parse_ty_node_decl(syn_node_path)
+    DeclParserFactory::new(db, syn_node_path).parse_ty_node_decl()
 }
 
-impl<'a> DeclParserFactory<'a> {
-    fn parse_ty_node_decl(&self, syn_node_path: TypeSynNodePath) -> TypeSynNodeDecl {
-        let db = self.db();
-        let node = syn_node_path.node(db);
-        let ast_idx: AstIdx = node.ast_idx(db);
-        match self.ast_sheet()[ast_idx] {
-            Ast::Identifiable {
-                token_group_idx,
-                block: DefnBlock::Type { path, variants },
-                item_kind,
-                saved_stream_state,
-                ..
-            } => self.parse_ty_node_decl_aux(
-                syn_node_path,
-                ast_idx,
-                path.ty_kind(self.db()),
-                item_kind,
-                token_group_idx,
-                variants,
-                saved_stream_state,
-            ),
-            _ => unreachable!(),
-        }
-    }
-
-    fn parse_ty_node_decl_aux(
-        &self,
-        syn_node_path: TypeSynNodePath,
-        ast_idx: AstIdx,
-        type_kind: TypeKind,
-        _item_kind: EntityKind,
-        token_group_idx: TokenGroupIdx,
-        variants: Option<TypeVariants>,
-        saved_stream_state: TokenStreamState,
-    ) -> TypeSynNodeDecl {
-        match type_kind {
-            TypeKind::Enum => self
-                .parse_enum_ty_node_decl(
-                    syn_node_path,
-                    ast_idx,
-                    token_group_idx,
-                    variants.expect("guaranteed by `husky-ast`"),
-                    saved_stream_state,
-                )
-                .into(),
-            TypeKind::Inductive => self
-                .parse_inductive_ty_node_decl(
-                    ast_idx,
-                    syn_node_path,
-                    token_group_idx,
-                    variants.expect("guaranteed by `husky-ast`"),
-                    saved_stream_state,
-                )
-                .into(),
+impl<'a> DeclParserFactory<'a, TypeSynNodePath> {
+    fn parse_ty_node_decl(&self) -> TypeSynNodeDecl {
+        match self.syn_node_path().ty_kind(self.db()) {
+            TypeKind::Enum => self.parse_enum_ty_node_decl().into(),
+            TypeKind::Inductive => self.parse_inductive_ty_node_decl().into(),
             TypeKind::Record => todo!(),
-            TypeKind::Struct => {
-                debug_assert!(variants.is_none());
-                self.parse_struct_ty_node_decl(
-                    syn_node_path,
-                    ast_idx,
-                    token_group_idx,
-                    saved_stream_state,
-                )
-            }
-            TypeKind::Structure => {
-                debug_assert!(variants.is_none());
-                self.parse_structure_ty_node_decl(
-                    syn_node_path,
-                    ast_idx,
-                    token_group_idx,
-                    saved_stream_state,
-                )
-            }
-            TypeKind::Extern => {
-                debug_assert!(variants.is_none());
-                self.parse_extern_ty_node_decl(
-                    syn_node_path,
-                    ast_idx,
-                    token_group_idx,
-                    saved_stream_state,
-                )
-                .into()
-            }
+            TypeKind::Struct => self.parse_struct_ty_node_decl(),
+            TypeKind::Structure => self.parse_structure_ty_node_decl(),
+            TypeKind::Extern => self.parse_extern_ty_node_decl().into(),
         }
     }
 }
 
-impl<'a> DeclParserFactory<'a> {
-    pub(super) fn parse_struct_ty_node_decl(
-        &self,
-        syn_node_path: TypeSynNodePath,
-        ast_idx: AstIdx,
-        token_group_idx: TokenGroupIdx,
-        saved_stream_state: TokenStreamState,
-    ) -> TypeSynNodeDecl {
+impl<'a> DeclParserFactory<'a, TypeSynNodePath> {
+    pub(super) fn parse_struct_ty_node_decl(&self) -> TypeSynNodeDecl {
         let db = self.db();
-        let mut parser = self.parser(
-            syn_node_path,
-            None,
-            AllowSelfType::True,
-            AllowSelfValue::False,
-            None,
-            token_group_idx,
-            Some(saved_stream_state),
-        );
+        let mut parser = self.parser(None, AllowSelfType::True, AllowSelfValue::False, None);
         let template_parameters = parser.try_parse_option();
-        if let Some(lpar) = parser.try_parse_err_as_none::<RegionalLparToken>() {
+        if let Some(lpar) = parser.try_parse_err_as_none::<LparRegionalToken>() {
             let field_comma_list = parser.try_parse();
             let rpar = parser.try_parse();
             TupleStructTypeSynNodeDecl::new(
                 db,
-                syn_node_path,
-                ast_idx,
+                self.syn_node_path(),
                 template_parameters,
                 lpar,
                 field_comma_list,
@@ -229,7 +125,7 @@ impl<'a> DeclParserFactory<'a> {
                 parser.finish(),
             )
             .into()
-        } else if let Some(semicolon) = parser.try_parse_err_as_none::<SemiColonToken>() {
+        } else if let Some(semicolon) = parser.try_parse_err_as_none::<SemiColonRegionalToken>() {
             todo!()
             // Err(OriginalDeclError::ExpectedLCurlOrLParOrSemicolon(ctx.save_state()).into())
         } else {
@@ -238,8 +134,7 @@ impl<'a> DeclParserFactory<'a> {
             let rcurl = parser.try_parse();
             PropsStructTypeSynNodeDecl::new(
                 db,
-                syn_node_path,
-                ast_idx,
+                self.syn_node_path(),
                 template_parameters,
                 lcurl,
                 field_comma_list,

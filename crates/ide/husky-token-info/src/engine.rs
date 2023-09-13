@@ -63,9 +63,9 @@ impl<'a> InferEngine<'a> {
         match use_expr {
             UseExpr::All { star_token } => self
                 .sheet
-                .add(star_token.token_idx(), TokenInfo::UseExprStar),
+                .add(star_token.regional_token_idx(), TokenInfo::UseExprStar),
             UseExpr::Leaf { ident_token } => self.sheet.add(
-                ident_token.token_idx(),
+                ident_token.regional_token_idx(),
                 TokenInfo::UseExpr {
                     use_expr_idx,
                     rule_idx,
@@ -75,7 +75,7 @@ impl<'a> InferEngine<'a> {
             UseExpr::Parent(ParentUseExpr {
                 parent_name_token, ..
             }) => self.sheet.add(
-                parent_name_token.token_idx(),
+                parent_name_token.regional_token_idx(),
                 TokenInfo::UseExpr {
                     use_expr_idx,
                     rule_idx,
@@ -102,7 +102,7 @@ impl<'a> InferEngine<'a> {
                 item_kind,
                 ..
             } => self.sheet.add(
-                ident_token.token_idx(),
+                ident_token.regional_token_idx(),
                 TokenInfo::EntityNode(syn_node_decl.syn_node_path(self.db), item_kind),
             ),
             Ast::ImplBlock { .. } => (),
@@ -274,18 +274,18 @@ impl<'a> InferContext<'a> {
     fn visit_expr(&mut self, expr_idx: SynExprIdx, expr: &SynExpr) {
         match expr {
             SynExpr::CurrentSymbol {
-                token_idx,
+                regional_token_idx,
                 current_symbol_idx,
                 current_symbol_kind,
                 ..
             }
             | SynExpr::FrameVarDecl {
-                token_idx,
+                regional_token_idx,
                 frame_var_symbol_idx: current_symbol_idx,
                 current_symbol_kind,
                 ..
             } => self.sheet.add(
-                *token_idx,
+                *regional_token_idx,
                 TokenInfo::CurrentSymbol {
                     current_symbol_idx: *current_symbol_idx,
                     current_symbol_kind: *current_symbol_kind,
@@ -293,26 +293,30 @@ impl<'a> InferContext<'a> {
                 },
             ),
             SynExpr::InheritedSymbol {
-                token_idx,
+                regional_token_idx,
                 inherited_symbol_idx,
                 inherited_symbol_kind,
                 ..
             } => self.sheet.add(
-                *token_idx,
+                *regional_token_idx,
                 TokenInfo::InheritedSymbol {
                     inherited_symbol_idx: *inherited_symbol_idx,
                     syn_expr_region: self.syn_expr_region,
                     inherited_symbol_kind: *inherited_symbol_kind,
                 },
             ),
-            SynExpr::SelfType(token_idx) => self.sheet.add(*token_idx, TokenInfo::SelfType),
-            SynExpr::SelfValue(token_idx) => self.sheet.add(*token_idx, TokenInfo::SelfValue),
+            SynExpr::SelfType(regional_token_idx) => {
+                self.sheet.add(*regional_token_idx, TokenInfo::SelfType)
+            }
+            SynExpr::SelfValue(regional_token_idx) => {
+                self.sheet.add(*regional_token_idx, TokenInfo::SelfValue)
+            }
             SynExpr::Field { ident_token, .. } => self
                 .sheet
-                .add(ident_token.regional_token_idx(), TokenInfo::Field),
+                .add(ident_token.regional_regional_token_idx(), TokenInfo::Field),
             SynExpr::MethodApplicationOrCall { ident_token, .. } => self
                 .sheet
-                .add(ident_token.regional_token_idx(), TokenInfo::Method),
+                .add(ident_token.regional_regional_token_idx(), TokenInfo::Method),
             SynExpr::Literal(_, _)
             | SynExpr::PrincipalEntityPath { .. }
             | SynExpr::ScopeResolution { .. }
@@ -333,30 +337,33 @@ impl<'a> InferContext<'a> {
                 ..
             } => match self.expr_region_data[*function] {
                 SynExpr::List {
-                    lbox_token_idx,
+                    lbox_regional_token_idx,
                     items: _,
-                    rbox_token_idx,
+                    rbox_regional_token_idx,
                 } => {
-                    self.sheet.add(lbox_token_idx, TokenInfo::BoxPrefix);
-                    self.sheet.add(rbox_token_idx, TokenInfo::BoxPrefix)
+                    self.sheet
+                        .add(lbox_regional_token_idx, TokenInfo::BoxPrefix);
+                    self.sheet
+                        .add(rbox_regional_token_idx, TokenInfo::BoxPrefix)
                 }
                 SynExpr::BoxColonList {
-                    lbox_token_idx,
-                    colon_token_idx,
-                    rbox_token_idx,
+                    lbox_regional_token_idx,
+                    colon_regional_token_idx,
+                    rbox_regional_token_idx,
                     ..
                 } => {
-                    self.sheet.add(lbox_token_idx, TokenInfo::BoxColon);
-                    self.sheet.add(colon_token_idx, TokenInfo::BoxColon);
-                    self.sheet.add(rbox_token_idx, TokenInfo::BoxColon)
+                    self.sheet.add(lbox_regional_token_idx, TokenInfo::BoxColon);
+                    self.sheet
+                        .add(colon_regional_token_idx, TokenInfo::BoxColon);
+                    self.sheet.add(rbox_regional_token_idx, TokenInfo::BoxColon)
                 }
                 _ => (),
             },
             SynExpr::IndexOrCompositionWithList {
                 owner: _,
-                lbox_token_idx: _,
+                lbox_regional_token_idx: _,
                 items: _indices,
-                rbox_token_idx: _,
+                rbox_regional_token_idx: _,
             } => {
                 // ad hoc
                 // this should always be some
@@ -376,13 +383,13 @@ impl<'a> InferContext<'a> {
                 }
             }
             SynExpr::Unit {
-                lpar_token_idx,
-                rpar_token_idx,
+                lpar_regional_token_idx,
+                rpar_regional_token_idx,
             } => {
                 self.sheet
-                    .add(*lpar_token_idx, TokenInfo::UnitLeftParenthesis);
+                    .add(*lpar_regional_token_idx, TokenInfo::UnitLeftParenthesis);
                 self.sheet
-                    .add(*rpar_token_idx, TokenInfo::UnitRightParenthesis);
+                    .add(*rpar_regional_token_idx, TokenInfo::UnitRightParenthesis);
             }
             SynExpr::EmptyHtmlTag {
                 empty_html_bra_idx,
@@ -391,14 +398,14 @@ impl<'a> InferContext<'a> {
                 empty_html_ket,
             } => {
                 self.sheet.add(
-                    function_ident.regional_token_idx(),
+                    function_ident.regional_regional_token_idx(),
                     TokenInfo::HtmlFunctionIdent,
                 );
                 for argument in arguments.iter() {
                     match argument {
                         SynHtmlArgumentExpr::Expanded { property_ident, .. }
                         | SynHtmlArgumentExpr::Shortened { property_ident, .. } => self.sheet.add(
-                            property_ident.regional_token_idx(),
+                            property_ident.regional_regional_token_idx(),
                             TokenInfo::HtmlPropertyIdent,
                         ),
                     }
@@ -407,11 +414,11 @@ impl<'a> InferContext<'a> {
             SynExpr::FunctionCall { .. } => (),
             SynExpr::Ritchie { .. } => (),
             SynExpr::Sorry {
-                regional_token_idx: token_idx,
+                regional_regional_token_idx: regional_token_idx,
             } => todo!(),
             SynExpr::Todo {
-                regional_token_idx: token_idx,
-            } => self.sheet.add(*token_idx, TokenInfo::Todo),
+                regional_regional_token_idx: regional_token_idx,
+            } => self.sheet.add(*regional_token_idx, TokenInfo::Todo),
         }
     }
 
@@ -422,7 +429,7 @@ impl<'a> InferContext<'a> {
                 path_name_token,
                 ..
             } => self.sheet.add(
-                path_name_token.token_idx(),
+                path_name_token.regional_token_idx(),
                 TokenInfo::Entity((*principal_entity_path).into()),
             ),
             PrincipalEntityPathExpr::Subitem {
@@ -430,7 +437,7 @@ impl<'a> InferContext<'a> {
                 ident_token: Ok(ident_token),
                 ..
             } => self.sheet.add(
-                ident_token.regional_token_idx(),
+                ident_token.regional_regional_token_idx(),
                 TokenInfo::Entity((*path).into()),
             ),
             PrincipalEntityPathExpr::Subitem { .. } => (),
@@ -456,7 +463,7 @@ impl<'a> InferContext<'a> {
                             ident_token,
                             symbol_modifier_keyword_group: _,
                         } => self.sheet.add(
-                            ident_token.regional_token_idx(),
+                            ident_token.regional_regional_token_idx(),
                             TokenInfo::CurrentSymbol {
                                 current_symbol_idx,
                                 syn_expr_region: self.syn_expr_region,
@@ -472,7 +479,7 @@ impl<'a> InferContext<'a> {
                 template_parameter_kind,
             } => match template_parameter_kind {
                 CurrentImplicitParameterSynSymbolKind::Type { ident_token } => self.sheet.add(
-                    ident_token.regional_token_idx(),
+                    ident_token.regional_regional_token_idx(),
                     TokenInfo::CurrentSymbol {
                         current_symbol_idx,
                         syn_expr_region: self.syn_expr_region,
@@ -480,7 +487,7 @@ impl<'a> InferContext<'a> {
                     },
                 ),
                 CurrentImplicitParameterSynSymbolKind::Lifetime { label_token } => self.sheet.add(
-                    label_token.token_idx(),
+                    label_token.regional_token_idx(),
                     TokenInfo::CurrentSymbol {
                         current_symbol_idx,
                         syn_expr_region: self.syn_expr_region,
@@ -488,7 +495,7 @@ impl<'a> InferContext<'a> {
                     },
                 ),
                 CurrentImplicitParameterSynSymbolKind::Constant { ident_token } => self.sheet.add(
-                    ident_token.regional_token_idx(),
+                    ident_token.regional_regional_token_idx(),
                     TokenInfo::CurrentSymbol {
                         current_symbol_idx,
                         syn_expr_region: self.syn_expr_region,
@@ -497,7 +504,7 @@ impl<'a> InferContext<'a> {
                 ),
             },
             CurrentSynSymbolKind::ExplicitVariadicParameter { ident_token } => self.sheet.add(
-                ident_token.regional_token_idx(),
+                ident_token.regional_regional_token_idx(),
                 TokenInfo::CurrentSymbol {
                     current_symbol_idx,
                     syn_expr_region: self.syn_expr_region,
@@ -505,7 +512,7 @@ impl<'a> InferContext<'a> {
                 },
             ),
             CurrentSynSymbolKind::FieldVariable { ident_token } => self.sheet.add(
-                ident_token.regional_token_idx(),
+                ident_token.regional_regional_token_idx(),
                 TokenInfo::CurrentSymbol {
                     current_symbol_idx,
                     syn_expr_region: self.syn_expr_region,

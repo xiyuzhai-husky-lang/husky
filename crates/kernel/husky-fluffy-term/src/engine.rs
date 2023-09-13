@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_syn_tree::{EntityTreeResultRef, TraitInUseItemsTable};
+use husky_entity_syn_tree::{helpers::TraitInUseItemsTable, EntityTreeResultRef};
 use husky_vfs::VfsPathMenu;
 
 pub trait FluffyTermEngine<'a>: Sized {

@@ -41,7 +41,7 @@ impl RegionalTokenStreamState {
 
 pub struct RegionalTokenStream<'a> {
     start: RegionalTokenGroupStart,
-    tokens: &'a [Token],
+    tokens: &'a [TokenData],
     next_relative: RegionalTokenGroupRelativeTokenIndex,
 }
 
@@ -58,9 +58,9 @@ impl<'a> HasStreamState for RegionalTokenStream<'a> {
 }
 
 impl<'a> Iterator for RegionalTokenStream<'a> {
-    type Item = &'a Token;
+    type Item = &'a TokenData;
 
-    fn next(&mut self) -> Option<&'a Token> {
+    fn next(&mut self) -> Option<&'a TokenData> {
         if self.next_relative.index() < self.tokens.len() {
             let next = self.next_relative;
             self.next_relative += 1;
@@ -82,7 +82,7 @@ impl<'a> RegionalTokenStream<'a> {
 
     pub fn try_get_one_token_with_indexed<S>(
         &mut self,
-        f: impl Fn(&Token) -> Option<S>,
+        f: impl Fn(&TokenData) -> Option<S>,
     ) -> Option<(RegionalTokenIdx, S)> {
         let (token_idx, token) = self.next_indexed()?;
         if let Some(s) = f(&token) {
@@ -93,7 +93,10 @@ impl<'a> RegionalTokenStream<'a> {
         }
     }
 
-    pub fn try_eat_with(&mut self, predicate: impl FnOnce(&Token) -> bool) -> Option<&'a Token> {
+    pub fn try_eat_with(
+        &mut self,
+        predicate: impl FnOnce(&TokenData) -> bool,
+    ) -> Option<&'a TokenData> {
         let token = self.peek()?;
         if predicate(&token) {
             self.next();
@@ -103,8 +106,8 @@ impl<'a> RegionalTokenStream<'a> {
         }
     }
 
-    pub fn try_eat_special(&mut self, punc: Punctuation) -> Option<&'a Token> {
-        self.try_eat_with(|token_kind| token_kind == &Token::Punctuation(punc))
+    pub fn try_eat_special(&mut self, punc: Punctuation) -> Option<&'a TokenData> {
+        self.try_eat_with(|token_kind| token_kind == &TokenData::Punctuation(punc))
     }
 
     pub fn go_back(&mut self) {
@@ -120,7 +123,7 @@ impl<'a> RegionalTokenStream<'a> {
         self.next_relative.regional_token_idx(self.start)
     }
 
-    pub fn next_indexed(&mut self) -> Option<(RegionalTokenIdx, Token)> {
+    pub fn next_indexed(&mut self) -> Option<(RegionalTokenIdx, TokenData)> {
         if self.next_relative.index() < self.tokens.len() {
             let next = self.next_relative;
             self.next_relative += 1;
@@ -138,7 +141,7 @@ impl<'a> RegionalTokenStream<'a> {
         self.next_relative -= 1
     }
 
-    pub fn peek(&self) -> Option<&'a Token> {
+    pub fn peek(&self) -> Option<&'a TokenData> {
         if self.next_relative.index() < self.tokens.len() {
             Some(&self.tokens[self.next_relative.index()])
         } else {
@@ -149,7 +152,7 @@ impl<'a> RegionalTokenStream<'a> {
     pub fn peek_next_bra(&mut self) -> Option<Bracket> {
         if self.next_relative.index() < self.tokens.len() {
             match self.tokens[self.next_relative.index()] {
-                Token::Punctuation(punct) => todo!(),
+                TokenData::Punctuation(punct) => todo!(),
                 //  punct.opt_bra(),
                 _ => None,
             }
@@ -161,14 +164,14 @@ impl<'a> RegionalTokenStream<'a> {
     pub fn is_next_ident(&mut self) -> bool {
         match self.peek() {
             Some(token) => match token {
-                Token::Ident(_) => true,
+                TokenData::Ident(_) => true,
                 _ => false,
             },
             None => false,
         }
     }
 
-    pub fn tokens(&self) -> &[Token] {
+    pub fn tokens(&self) -> &[TokenData] {
         self.tokens
     }
 

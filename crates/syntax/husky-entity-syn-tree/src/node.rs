@@ -226,13 +226,13 @@ impl ItemSynNode {
 }
 
 impl ItemSynNodePath {
-    pub fn node(self, db: &dyn EntitySynTreeDb) -> ItemSynNode {
+    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> ItemSynNode {
         match self {
-            ItemSynNodePath::Submodule(path) => path.node(db).into(),
-            ItemSynNodePath::MajorItem(path) => path.node(db).into(),
-            ItemSynNodePath::AssociatedItem(path) => path.node(db).into(),
+            ItemSynNodePath::Submodule(path) => path.syn_node(db).into(),
+            ItemSynNodePath::MajorItem(path) => path.syn_node(db).into(),
+            ItemSynNodePath::AssociatedItem(path) => path.syn_node(db).into(),
             ItemSynNodePath::TypeVariant(path) => path.syn_node(db).into(),
-            ItemSynNodePath::ImplBlock(path) => path.node(db).into(),
+            ItemSynNodePath::ImplBlock(path) => path.syn_node(db).into(),
             ItemSynNodePath::Decr(_) => todo!(),
         }
     }

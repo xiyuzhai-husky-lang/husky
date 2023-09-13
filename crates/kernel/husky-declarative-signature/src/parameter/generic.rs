@@ -18,9 +18,9 @@ impl DeclarativeTemplateParameter {
             parameter_decl_pattern
                 .annotated_variance_token()
                 .map(|t| match t {
-                    VarianceToken::Covariant(_) => Variance::Covariant,
-                    VarianceToken::Contravariant(_) => Variance::Contravariant,
-                    VarianceToken::Invariant(_) => Variance::Invariant,
+                    VarianceRegionalToken::Covariant(_) => Variance::Covariant,
+                    VarianceRegionalToken::Contravariant(_) => Variance::Contravariant,
+                    VarianceRegionalToken::Invariant(_) => Variance::Invariant,
                 });
         match parameter_decl_pattern.variant() {
             TemplateParameterDeclPatternVariant::Type { .. } => {

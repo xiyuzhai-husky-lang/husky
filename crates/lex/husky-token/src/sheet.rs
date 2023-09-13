@@ -4,7 +4,7 @@ use husky_vfs::VfsError;
 use salsa::DebugWithDb;
 
 impl std::ops::Index<TokenIdx> for TokenSheetData {
-    type Output = Token;
+    type Output = TokenData;
 
     fn index(&self, idx: TokenIdx) -> &Self::Output {
         &self.tokens[idx.index()]
@@ -33,7 +33,7 @@ pub struct TokenSheet {
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
 pub struct TokenSheetData {
-    tokens: Vec<Token>,
+    tokens: Vec<TokenData>,
     token_group_bases: Vec<TokenGroupStart>,
     indents: Vec<u32>,
 }
@@ -77,14 +77,14 @@ impl RangedTokenSheet {
         self.token_ranges.len()
     }
 
-    pub fn tokens<'a>(&self, db: &'a dyn TokenDb) -> &'a [Token] {
+    pub fn tokens<'a>(&self, db: &'a dyn TokenDb) -> &'a [TokenData] {
         &self.token_sheet.data(db).tokens
     }
 
     pub fn ranged_token_iter<'a>(
         &'a self,
         db: &'a dyn TokenDb,
-    ) -> impl Iterator<Item = (&'a TextRange, &'a Token)> + 'a {
+    ) -> impl Iterator<Item = (&'a TextRange, &'a TokenData)> + 'a {
         let tokens = self.tokens(db);
         (0..tokens.len())
             .into_iter()
@@ -94,7 +94,7 @@ impl RangedTokenSheet {
     pub fn indexed_ranged_token_iter<'a>(
         &'a self,
         db: &'a dyn TokenDb,
-    ) -> impl Iterator<Item = (TokenIdx, &'a TextRange, &'a Token)> + 'a {
+    ) -> impl Iterator<Item = (TokenIdx, &'a TextRange, &'a TokenData)> + 'a {
         let tokens = self.tokens(db);
         (0..tokens.len())
             .into_iter()
@@ -165,7 +165,7 @@ impl std::fmt::Display for TokenGroupIdx {
 }
 
 pub struct TokenGroupIter<'a> {
-    tokens: &'a [Token],
+    tokens: &'a [TokenData],
     line_group_starts: &'a [TokenGroupStart],
     indents: &'a [u32],
     current: usize,
@@ -173,7 +173,7 @@ pub struct TokenGroupIter<'a> {
 
 impl<'a> TokenGroupIter<'a> {
     pub(crate) fn new(
-        tokens: &'a [Token],
+        tokens: &'a [TokenData],
         line_group_starts: &'a [TokenGroupStart],
         indents: &'a [u32],
     ) -> Self {
@@ -217,7 +217,7 @@ impl<'a> TokenGroupIter<'a> {
     pub fn peek_token_group_of_exact_indent_with_its_first_token(
         &self,
         indent: u32,
-    ) -> Option<(TokenGroupIdx, TokenGroup<'a>, Token)> {
+    ) -> Option<(TokenGroupIdx, TokenGroup<'a>, TokenData)> {
         let (idx, token_group) = self.peek()?;
         if token_group.indent() != indent {
             return None;
@@ -229,7 +229,7 @@ impl<'a> TokenGroupIter<'a> {
     pub fn next_token_group_of_no_less_indent_with_its_first_token(
         &mut self,
         indent: u32,
-    ) -> Option<(TokenGroupIdx, TokenGroup<'a>, Token)> {
+    ) -> Option<(TokenGroupIdx, TokenGroup<'a>, TokenData)> {
         let (idx, token_group) = self.peek()?;
         if token_group.indent() >= indent {
             self.current += 1;
@@ -253,20 +253,20 @@ impl<'a> Iterator for TokenGroupIter<'a> {
 
 pub struct TokenGroup<'a> {
     base: TokenGroupStart,
-    tokens: &'a [Token],
+    tokens: &'a [TokenData],
     indent: u32,
 }
 
 impl<'a> TokenGroup<'a> {
-    pub fn first(&self) -> Token {
+    pub fn first(&self) -> TokenData {
         *self.tokens.first().unwrap()
     }
 
-    pub fn second(&self) -> Option<Token> {
+    pub fn second(&self) -> Option<TokenData> {
         self.tokens.get(1).copied()
     }
 
-    pub fn last(&self) -> Token {
+    pub fn last(&self) -> TokenData {
         *self.tokens.last().unwrap()
     }
 
@@ -277,7 +277,7 @@ impl<'a> TokenGroup<'a> {
 
 // todo: move this to a root module called group
 pub(crate) fn produce_token_group_starts(
-    tokens: &[Token],
+    tokens: &[TokenData],
     token_ranges: &[TextRange],
 ) -> Vec<TokenGroupStart> {
     let line_starts = produce_line_starts(token_ranges);
@@ -301,30 +301,30 @@ pub(crate) fn produce_token_group_starts(
                 let flag = if line_indent1 > line0_indent {
                     // detect an indentation
                     match tokens[line_start1 - 1] {
-                        Token::Keyword(Keyword::End(_))
-                        | Token::Punctuation(Punctuation::EQ)
-                        | Token::Punctuation(Punctuation::COLON) => Break,
-                        Token::Punctuation(
+                        TokenData::Keyword(Keyword::End(_))
+                        | TokenData::Punctuation(Punctuation::EQ)
+                        | TokenData::Punctuation(Punctuation::COLON) => Break,
+                        TokenData::Punctuation(
                             Punctuation::LPAR
                             | Punctuation::LBOX
                             | Punctuation::LCURL
                             | Punctuation::LA_OR_LT,
                         ) => Continue,
                         _ => match line_start_token {
-                            Token::Keyword(
+                            TokenData::Keyword(
                                 Keyword::Pronoun(_)
                                 | Keyword::Modifier(_)
                                 | Keyword::End(_)
                                 | Keyword::Pub,
                             ) => Continue,
-                            Token::Keyword(kw) => Break,
+                            TokenData::Keyword(kw) => Break,
                             _ => Continue,
                         },
                     }
                 } else {
                     if line_indent1 == line0_indent {
                         match line_start_token {
-                            Token::Punctuation(
+                            TokenData::Punctuation(
                                 Punctuation::RPAR
                                 | Punctuation::RBOX
                                 | Punctuation::RCURL
@@ -371,7 +371,7 @@ fn produce_indents(token_group_starts: &[TokenGroupStart], token_ranges: &[TextR
 impl RangedTokenSheet {
     pub fn new(
         db: &dyn TokenDb,
-        tokens: Vec<Token>,
+        tokens: Vec<TokenData>,
         token_ranges: Vec<TextRange>,
         comments: Vec<Comment>,
     ) -> RangedTokenSheet {
@@ -440,7 +440,7 @@ impl TokenSheetData {
         TokenIdxRange::from_indices(start, end)
     }
 
-    pub fn tokens(&self) -> &[Token] {
+    pub fn tokens(&self) -> &[TokenData] {
         self.tokens.as_ref()
     }
 
@@ -462,7 +462,7 @@ impl TokenSheetData {
 }
 
 impl std::ops::Index<TokenGroupIdx> for TokenSheetData {
-    type Output = [Token];
+    type Output = [TokenData];
 
     fn index(&self, index: TokenGroupIdx) -> &Self::Output {
         let start = self.token_group_bases[index.0].index();

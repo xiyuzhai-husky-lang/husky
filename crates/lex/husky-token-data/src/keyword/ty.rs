@@ -1,6 +1,6 @@
 use std::ops::Deref;
 
-use crate::{Keyword, Token};
+use crate::{Keyword, TokenData};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TypeEntityKeyword {
@@ -33,8 +33,8 @@ impl Deref for TypeEntityKeyword {
     }
 }
 
-impl From<TypeEntityKeyword> for Token {
+impl From<TypeEntityKeyword> for TokenData {
     fn from(val: TypeEntityKeyword) -> Self {
-        Token::Keyword(val.into())
+        TokenData::Keyword(val.into())
     }
 }

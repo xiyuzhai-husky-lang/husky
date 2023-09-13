@@ -57,7 +57,7 @@ where
             return Ok(None);
         };
         match token {
-            Token::Keyword(Keyword::Modifier(kw)) => match kw {
+            TokenData::Keyword(Keyword::Modifier(kw)) => match kw {
                 ModifierKeyword::Mut => Ok(Some(EphemSymbolModifierTokenGroup::Mut(MutToken {
                     token_idx,
                 }))),
@@ -67,7 +67,7 @@ where
                 ModifierKeyword::Ref => todo!(),
                 ModifierKeyword::Le => todo!(),
             },
-            Token::Punctuation(Punctuation::AMBERSAND) => {
+            TokenData::Punctuation(Punctuation::AMBERSAND) => {
                 let lifetime_token = token_stream.try_parse_option::<LifetimeToken>()?;
                 if let Some(mut_token) = token_stream.try_parse_option::<MutToken>()? {
                     Ok(Some(EphemSymbolModifierTokenGroup::AmbersandMut(
@@ -82,10 +82,10 @@ where
                     )))
                 }
             }
-            Token::Punctuation(Punctuation::TILDE) => Ok(Some(
+            TokenData::Punctuation(Punctuation::TILDE) => Ok(Some(
                 EphemSymbolModifierTokenGroup::Tilde(TildeToken(token_idx)),
             )),
-            Token::Error(error) => Err(error)?,
+            TokenData::Error(error) => Err(error)?,
             _ => Ok(None),
         }
     }
@@ -114,16 +114,16 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Modifier(ModifierKeyword::Mut)) => {
+                TokenData::Keyword(Keyword::Modifier(ModifierKeyword::Mut)) => {
                     Ok(Some(MutToken { token_idx }))
                 }
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)

@@ -28,7 +28,7 @@ husky-declarative-term = { path = "../../kernel/husky-declarative-term" }
 husky-declarative-ty = { path = "../../kernel/husky-declarative-ty" }
 husky-scope = { path = "../../kernel/husky-scope" }
 # lex
-husky-token = { path = "../../lex/husky-token" }
+husky-token-data = { path = "../../lex/husky-token-data" }
 # syntax
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 husky-syn-decl = { path = "../../syntax/husky-syn-decl" }

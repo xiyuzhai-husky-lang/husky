@@ -4,7 +4,6 @@ use super::*;
 pub struct RecordTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
-    pub ast_idx: AstIdx,
     #[return_ref]
     template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
     pub syn_expr_region: SynExprRegion,

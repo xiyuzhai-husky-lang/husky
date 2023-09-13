@@ -265,7 +265,7 @@ impl OriginalError for OriginalSynExprError {
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum DerivedSynExprError {
     #[error("token error {0}")]
-    Token(#[from] TokenDataError),
+    TokenData(#[from] TokenDataError),
 }
 
 pub type SynExprResult<T> = Result<T, SynExprError>;

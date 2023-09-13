@@ -6,39 +6,29 @@ use super::*;
 pub struct DeriveDecrSynNodeDecl {
     #[id]
     pub syn_node_path: DecrSynNodePath,
-    pub ast_idx: AstIdx,
-    pub at_token: AtToken,
-    pub derive_token: IdentToken,
+    pub at_token: AtRegionalToken,
+    pub derive_token: IdentRegionalToken,
     #[return_ref]
-    pub lpar_token: SynNodeDeclResult<RegionalLparToken>,
+    pub lpar_token: SynNodeDeclResult<LparRegionalToken>,
     #[return_ref]
-    pub trais:
-        SynNodeDeclResult<PunctuatedSmallList<TraitObelisk, CommaToken, 8, SynNodeDeclError>>,
+    pub trais: SynNodeDeclResult<
+        PunctuatedSmallList<TraitObelisk, CommaRegionalToken, 8, SynNodeDeclError>,
+    >,
     #[return_ref]
-    pub rpar_token: SynNodeDeclResult<RparToken>,
+    pub rpar_token: SynNodeDeclResult<RparRegionalToken>,
     pub syn_expr_region: SynExprRegion,
 }
 
 impl DeriveDecrSynNodeDecl {
-    pub(super) fn new(db: &dyn SynDeclDb, syn_node_path: DecrSynNodePath, ast_idx: AstIdx) -> Self {
+    pub(super) fn new(db: &dyn SynDeclDb, syn_node_path: DecrSynNodePath) -> Self {
         let parser_factory = DeclParserFactory::new(db, syn_node_path);
-        let Ast::Decr {
-            token_group_idx,
-            ident,
-        } = parser_factory.ast_sheet()[ast_idx]
-        else {
-            unreachable!()
-        };
         let mut parser = parser_factory.parser(
-            syn_node_path,
             syn_node_path
                 .parent_syn_node_path(db)
                 .syn_node_decl(db)
                 .syn_expr_region(db),
             AllowSelfType::True,
             AllowSelfValue::False,
-            None,
-            token_group_idx,
             None,
         );
         let at_token = parser
@@ -57,7 +47,6 @@ impl DeriveDecrSynNodeDecl {
         Self::new_inner(
             db,
             syn_node_path,
-            ast_idx,
             at_token,
             derive_token,
             lpar_token,

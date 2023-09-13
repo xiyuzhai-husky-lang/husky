@@ -83,7 +83,7 @@ where
                         }
                     },
                     Err(error) => Err(OriginalPrincipalEntityPathExprError::EntityTree {
-                        token_idx: ident_token.regional_token_idx(),
+                        regional_token_idx: ident_token.regional_token_idx(),
                         error,
                     }
                     .into()),

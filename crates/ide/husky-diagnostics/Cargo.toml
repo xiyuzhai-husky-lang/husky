@@ -20,7 +20,9 @@ husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
 # lex
+husky-token-data = { path = "../../lex/husky-token-data" }
 husky-token = { path = "../../lex/husky-token" }
+husky-regional-token = { path = "../../lex/husky-regional-token" }
 # syntax
 husky-text = { path = "../../lex/husky-text", features = ["lsp_support"] }
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }

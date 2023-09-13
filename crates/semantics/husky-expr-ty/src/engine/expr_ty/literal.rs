@@ -1,16 +1,18 @@
 use super::*;
-use husky_token::FloatLiteral;
+use husky_regional_token::RegionalTokenIdx;
+use husky_token_data::FloatLiteral;
 
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_literal_expr_ty(
         &mut self,
         expr_idx: SynExprIdx,
-        literal_token_idx: TokenIdx,
+        literal_token_idx: RegionalTokenIdx,
         expectation: &impl ExpectFluffyTerm,
     ) -> Result<FluffyTerm, ExprTypeError> {
-        let literal_token = self.token_sheet_data[literal_token_idx];
+        let literal_token: TokenData = todo!();
+        // self.token_data(literal_token_idx);
         match literal_token {
-            Token::Literal(literal) => match literal {
+            TokenData::Literal(literal) => match literal {
                 Literal::Unit => todo!(),
                 Literal::Char(_) => todo!(),
                 Literal::String(_) => Ok(self.term_menu.static_str_ref().into()),

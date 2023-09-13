@@ -130,18 +130,18 @@ impl ToHirLazy for SynExprIdx {
             } => todo!(),
             SynExpr::InheritedSymbol {
                 ident,
-                token_idx,
+                regional_token_idx,
                 inherited_symbol_idx,
                 inherited_symbol_kind,
             } => todo!(),
             SynExpr::CurrentSymbol {
                 ident,
-                token_idx,
+                regional_token_idx,
                 current_symbol_idx,
                 current_symbol_kind,
             } => HirLazyExpr::CurrentSymbol { ident },
             SynExpr::FrameVarDecl {
-                token_idx,
+                regional_token_idx,
                 ident,
                 frame_var_symbol_idx,
                 current_symbol_kind,
@@ -157,7 +157,7 @@ impl ToHirLazy for SynExprIdx {
             },
             SynExpr::Be {
                 src,
-                be_token_idx,
+                be_regional_token_idx,
                 ref target,
             } => HirLazyExpr::Be {
                 src: src.to_hir_lazy(builder),
@@ -177,9 +177,9 @@ impl ToHirLazy for SynExprIdx {
             SynExpr::FunctionApplicationOrCall {
                 function,
                 ref generic_arguments,
-                lpar_token_idx,
+                lpar_regional_token_idx,
                 ref items,
-                rpar_token_idx,
+                rpar_regional_token_idx,
             } => {
                 let SynExprDisambiguation::ApplicationOrFunctionCall(disambiguation) =
                     builder.expr_disambiguation(*self)
@@ -204,20 +204,20 @@ impl ToHirLazy for SynExprIdx {
                 }
             }
             SynExpr::Ritchie {
-                ritchie_kind_token_idx,
+                ritchie_kind_regional_token_idx,
                 ritchie_kind,
                 lpar_token,
                 ref parameter_ty_items,
-                rpar_token_idx,
+                rpar_regional_token_idx,
                 light_arrow_token,
                 return_ty_expr,
             } => todo!(),
             SynExpr::FunctionCall {
                 function,
                 ref generic_arguments,
-                lpar_token_idx,
+                lpar_regional_token_idx,
                 ref items,
-                rpar_token_idx,
+                rpar_regional_token_idx,
             } => {
                 let SynExprDisambiguation::FunctionCall {
                     ritchie_kind,
@@ -249,12 +249,12 @@ impl ToHirLazy for SynExprIdx {
             },
             SynExpr::MethodApplicationOrCall {
                 self_argument,
-                dot_token_idx,
+                dot_regional_token_idx,
                 ident_token,
                 ref generic_arguments,
-                lpar_token_idx,
+                lpar_regional_token_idx,
                 ref items,
-                rpar_token_idx,
+                rpar_regional_token_idx,
             } => {
                 // todo: method application should be ignored
                 let SynExprDisambiguation::MethodCallOrApplication(disambiguation) =
@@ -289,24 +289,24 @@ impl ToHirLazy for SynExprIdx {
                 argument_expr_idx,
             } => todo!(),
             SynExpr::Unit {
-                lpar_token_idx,
-                rpar_token_idx,
+                lpar_regional_token_idx,
+                rpar_regional_token_idx,
             } => todo!(),
             SynExpr::Bracketed {
-                lpar_token_idx,
+                lpar_regional_token_idx,
                 item,
-                rpar_token_idx,
+                rpar_regional_token_idx,
             } => todo!(),
             SynExpr::NewTuple {
-                lpar_token_idx,
+                lpar_regional_token_idx,
                 ref items,
-                rpar_token_idx,
+                rpar_regional_token_idx,
             } => todo!(),
             SynExpr::IndexOrCompositionWithList {
                 owner,
-                lbox_token_idx,
+                lbox_regional_token_idx,
                 ref items,
-                rbox_token_idx,
+                rbox_regional_token_idx,
             } => {
                 let SynExprDisambiguation::IndexOrComposeWithList(disambiguation) =
                     builder.expr_disambiguation(*self)
@@ -327,9 +327,9 @@ impl ToHirLazy for SynExprIdx {
                 }
             }
             SynExpr::List {
-                lbox_token_idx,
+                lbox_regional_token_idx,
                 ref items,
-                rbox_token_idx,
+                rbox_regional_token_idx,
             } => HirLazyExpr::List {
                 items: items
                     .iter()
@@ -337,10 +337,10 @@ impl ToHirLazy for SynExprIdx {
                     .collect(),
             },
             SynExpr::BoxColonList {
-                lbox_token_idx,
-                colon_token_idx,
+                lbox_regional_token_idx,
+                colon_regional_token_idx,
                 ref items,
-                rbox_token_idx,
+                rbox_regional_token_idx,
             } => todo!(),
             SynExpr::Block { stmts } => HirLazyExpr::Block {
                 stmts: stmts.to_hir_lazy(builder),
@@ -351,12 +351,8 @@ impl ToHirLazy for SynExprIdx {
                 ref arguments,
                 empty_html_ket,
             } => todo!(),
-            SynExpr::Sorry {
-                regional_token_idx: token_idx,
-            } => todo!(),
-            SynExpr::Todo {
-                regional_token_idx: token_idx,
-            } => todo!(),
+            SynExpr::Sorry { regional_token_idx } => todo!(),
+            SynExpr::Todo { regional_token_idx } => todo!(),
             SynExpr::Err(_) => todo!(),
         };
         builder.alloc_expr(*self, hir_lazy_expr)

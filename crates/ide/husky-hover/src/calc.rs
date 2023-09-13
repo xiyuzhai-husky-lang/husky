@@ -1,7 +1,7 @@
 use husky_entity_syn_tree::EntitySynTreeResult;
 use husky_text::TextRange;
 
-use husky_token::{Keyword, RangedTokenSheet, Token, TokenGroupIdx, TokenSheetData};
+use husky_token::{Keyword, RangedTokenSheet, TokenData, TokenGroupIdx, TokenSheetData};
 use husky_token_info::TokenInfo;
 
 use crate::*;
@@ -18,7 +18,7 @@ struct HoverResultCalculator<'a> {
     db: &'a dyn HoverDb,
     module_path: ModulePath,
     token_idx: TokenIdx,
-    token: &'a Token,
+    token: &'a TokenData,
     token_range: TextRange,
     token_info: &'a TokenInfo,
     markdown_content: String,
@@ -81,7 +81,7 @@ impl<'a> HoverResultCalculator<'a> {
 
     fn content(&self) -> std::borrow::Cow<'static, str> {
         match self.token {
-            Token::Keyword(kw) => self.gen_keyword_content(*kw).into(),
+            TokenData::Keyword(kw) => self.gen_keyword_content(*kw).into(),
             _ => "".into(),
         }
     }

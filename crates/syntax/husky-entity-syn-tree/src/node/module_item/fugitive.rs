@@ -38,7 +38,7 @@ impl FugitiveSynNodePath {
         self.maybe_ambiguous_path(db).path.fugitive_kind(db)
     }
 
-    pub fn node(self, db: &dyn EntitySynTreeDb) -> MajorItemSynNode {
+    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> MajorItemSynNode {
         fugitive_syn_node(db, self)
     }
 }

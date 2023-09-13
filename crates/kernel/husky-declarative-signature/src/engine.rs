@@ -6,7 +6,7 @@ use crate::*;
 use husky_opr::{BinaryOpr, PrefixOpr};
 use husky_print_utils::p;
 use husky_syn_expr::*;
-use husky_token::{IntegerLikeLiteral, Literal, RangedTokenSheet, TokenSheetData};
+use husky_token_data::{IntegerLikeLiteral, Literal};
 use salsa::DebugWithDb;
 
 pub(super) struct DeclarativeTermEngine<'a> {
@@ -446,11 +446,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 }
             }
             SynExpr::Be { .. } => todo!(),
-            SynExpr::Prefix {
-                opr,
-                opr_token_idx: _,
-                opd,
-            } => {
+            SynExpr::Prefix { opr, opd, .. } => {
                 let Ok(opd) = self.infer_new_expr_term(opd) else {
                     return Err(
                         DerivedDeclarativeTermError2::CannotInferOperandDeclarativeTermInPrefix
@@ -473,16 +469,8 @@ impl<'a> DeclarativeTermEngine<'a> {
                 };
                 Ok(DeclarativeTermExplicitApplication::new(self.db, tmpl, opd).into())
             }
-            SynExpr::Suffix {
-                opd: _,
-                opr: _punctuation,
-                opr_token_idx: _punctuation_token_idx,
-            } => todo!(),
-            SynExpr::Field {
-                owner: _self_expr,
-                dot_token_idx: _,
-                ident_token: _,
-            } => todo!(),
+            SynExpr::Suffix { .. } => todo!(),
+            SynExpr::Field { .. } => todo!(),
             SynExpr::MethodApplicationOrCall { .. } => todo!(),
             SynExpr::TemplateInstantiation { .. } => todo!(),
             SynExpr::FunctionApplicationOrCall {
@@ -505,7 +493,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                     None => vec![],
                 };
                 let extra_comma = match items.last() {
-                    Some(last_item) => last_item.comma_token_idx().is_some(),
+                    Some(last_item) => last_item.comma_regional_token_idx().is_some(),
                     None => false,
                 };
                 let items = items
@@ -556,17 +544,9 @@ impl<'a> DeclarativeTermEngine<'a> {
             },
             SynExpr::Bracketed { item, .. } => self.infer_new_expr_term(item),
             SynExpr::Block { stmts: _ } => todo!(),
-            SynExpr::IndexOrCompositionWithList {
-                owner: _,
-                lbox_token_idx: _,
-                ref items,
-                rbox_token_idx: _,
-            } => todo!(),
+            SynExpr::IndexOrCompositionWithList { .. } => todo!(),
             SynExpr::Err(ref e) => Err(DerivedDeclarativeTermError2::ExprError.into()),
-            SynExpr::Unit {
-                lpar_token_idx,
-                rpar_token_idx,
-            } => Ok(self.declarative_term_menu.unit()),
+            SynExpr::Unit { .. } => Ok(self.declarative_term_menu.unit()),
             SynExpr::EmptyHtmlTag {
                 empty_html_bra_idx: langle_token_idx,
                 function_ident,

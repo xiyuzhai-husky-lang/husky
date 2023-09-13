@@ -59,7 +59,7 @@ impl From<TokenDataError> for MajorPathExprError {
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub enum DerivedMajorPathExprError {
     #[error("token error")]
-    Token(#[from] TokenDataError),
+    TokenData(#[from] TokenDataError),
 }
 
 pub type MajorItemPathExprResult<T> = Result<T, MajorPathExprError>;

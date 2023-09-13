@@ -143,16 +143,16 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Stmt(StmtKeyword::While)) => {
+                TokenData::Keyword(Keyword::Stmt(StmtKeyword::While)) => {
                     Ok(Some(WhileToken { token_idx }))
                 }
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -171,7 +171,7 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Stmt(stmt_keyword)) => match stmt_keyword {
+                TokenData::Keyword(Keyword::Stmt(stmt_keyword)) => match stmt_keyword {
                     StmtKeyword::Let => Ok(Some(LetToken { token_idx }.into())),
                     StmtKeyword::Return => Ok(Some(ReturnToken { token_idx }.into())),
                     StmtKeyword::Require => Ok(Some(RequireToken { token_idx }.into())),
@@ -186,13 +186,13 @@ where
                     StmtKeyword::Else => todo!(),
                     StmtKeyword::Match => todo!(),
                 },
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Keyword(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Keyword(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -223,7 +223,7 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Stmt(StmtKeyword::Match)) => {
+                TokenData::Keyword(Keyword::Stmt(StmtKeyword::Match)) => {
                     Ok(Some(MatchToken { token_idx }))
                 }
                 _ => Ok(None),
@@ -257,14 +257,16 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Stmt(StmtKeyword::If)) => Ok(Some(IfToken { token_idx })),
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Keyword(Keyword::Stmt(StmtKeyword::If)) => {
+                    Ok(Some(IfToken { token_idx }))
+                }
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -295,16 +297,16 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Stmt(StmtKeyword::Elif)) => {
+                TokenData::Keyword(Keyword::Stmt(StmtKeyword::Elif)) => {
                     Ok(Some(ElifToken { token_idx }))
                 }
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -335,16 +337,16 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Stmt(StmtKeyword::Else)) => {
+                TokenData::Keyword(Keyword::Stmt(StmtKeyword::Else)) => {
                     Ok(Some(ElseToken { token_idx }))
                 }
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -377,14 +379,14 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Impl) => Ok(Some(ImplToken { token_idx })),
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Keyword(Keyword::Impl) => Ok(Some(ImplToken { token_idx })),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -417,14 +419,14 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Pub) => Ok(Some(PubToken { token_idx })),
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Keyword(Keyword::Pub) => Ok(Some(PubToken { token_idx })),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -457,14 +459,14 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Use) => Ok(Some(UseToken { token_idx })),
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Keyword(Keyword::Use) => Ok(Some(UseToken { token_idx })),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -512,16 +514,16 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Pronoun(PronounKeyword::SelfValue)) => {
+                TokenData::Keyword(Keyword::Pronoun(PronounKeyword::SelfValue)) => {
                     Ok(Some(SelfValueToken { token_idx }))
                 }
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -568,16 +570,16 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Pronoun(PronounKeyword::SelfType)) => {
+                TokenData::Keyword(Keyword::Pronoun(PronounKeyword::SelfType)) => {
                     Ok(Some(SelfTypeToken { token_idx }))
                 }
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -630,22 +632,22 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Modifier(ModifierKeyword::Covariant)) => {
+                TokenData::Keyword(Keyword::Modifier(ModifierKeyword::Covariant)) => {
                     Ok(Some(CovariantToken { token_idx }.into()))
                 }
-                Token::Keyword(Keyword::Modifier(ModifierKeyword::Contravariant)) => {
+                TokenData::Keyword(Keyword::Modifier(ModifierKeyword::Contravariant)) => {
                     Ok(Some(ContravariantToken { token_idx }.into()))
                 }
-                Token::Keyword(Keyword::Modifier(ModifierKeyword::Invariant)) => {
+                TokenData::Keyword(Keyword::Modifier(ModifierKeyword::Invariant)) => {
                     Ok(Some(InvariantToken { token_idx }.into()))
                 }
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -724,16 +726,16 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Connection(ConnectionKeyword::For)) => {
+                TokenData::Keyword(Keyword::Connection(ConnectionKeyword::For)) => {
                     Ok(Some(ConnectionForToken { token_idx }))
                 }
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)

@@ -32,7 +32,7 @@ impl TraitSynNodePath {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
     }
 
-    pub fn node(self, db: &dyn EntitySynTreeDb) -> MajorItemSynNode {
+    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> MajorItemSynNode {
         trai_node(db, self)
     }
 

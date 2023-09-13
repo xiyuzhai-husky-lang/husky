@@ -24,17 +24,17 @@ pub(crate) fn collect_semantic_tokens(
 fn token_to_semantic_token(
     db: &dyn SemanticTokenDb,
     info: &TokenInfo,
-    token: &Token,
+    token: &TokenData,
     range: &husky_text::TextRange,
 ) -> Option<RangedSemanticToken> {
     let semantic_token = match info {
         TokenInfo::None => match token {
-            Token::Keyword(kw) => SemanticToken::Keyword(*kw),
-            Token::Ident(_) | Token::Label(_) => return None,
-            Token::Punctuation(_) => SemanticToken::Special,
-            Token::WordOpr(_) => SemanticToken::WordOpr,
-            Token::Literal(_) => SemanticToken::Literal,
-            Token::Error(_) => return None,
+            TokenData::Keyword(kw) => SemanticToken::Keyword(*kw),
+            TokenData::Ident(_) | TokenData::Label(_) => return None,
+            TokenData::Punctuation(_) => SemanticToken::Special,
+            TokenData::WordOpr(_) => SemanticToken::WordOpr,
+            TokenData::Literal(_) => SemanticToken::Literal,
+            TokenData::Error(_) => return None,
         },
         TokenInfo::Entity(path) => SemanticToken::Entity(path.item_kind(db)),
         TokenInfo::EntityNode(path, item_kind) => SemanticToken::Entity(*item_kind),

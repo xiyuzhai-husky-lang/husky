@@ -5,7 +5,7 @@ impl HasFluffyTraitMethodDispatch for HollowTerm {
         self,
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
-        ident_token: IdentToken,
+        ident_token: IdentRegionalToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         todo!()

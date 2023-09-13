@@ -26,7 +26,7 @@ impl DecrSynNodePath {
         self.maybe_ambiguous_path(db).unambiguous_path()
     }
 
-    pub fn node(self, db: &dyn EntitySynTreeDb) -> DecrSynNode {
+    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> DecrSynNode {
         decr_node(db, self)
     }
 
@@ -68,7 +68,7 @@ fn decr_node(db: &dyn EntitySynTreeDb, syn_node_path: DecrSynNodePath) -> DecrSy
 }
 
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub struct DecrSynNode {
+pub(crate) struct DecrSynNode {
     #[id]
     pub syn_node_path: DecrSynNodePath,
     pub ast_idx: AstIdx,

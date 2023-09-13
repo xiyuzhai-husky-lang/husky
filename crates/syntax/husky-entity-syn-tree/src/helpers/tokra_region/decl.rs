@@ -16,7 +16,7 @@ pub struct DeclTokraRegionSourceMap {
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
 pub struct DeclTokraRegion {
     #[return_ref]
-    tokens: Vec<Token>,
+    tokens: Vec<TokenData>,
 }
 
 impl DeclTokraRegion {
@@ -28,11 +28,11 @@ impl DeclTokraRegion {
 }
 
 pub struct DeclTokraRegionData<'a> {
-    tokens: &'a [Token],
+    tokens: &'a [TokenData],
 }
 
 impl<'a> std::ops::Index<RegionalTokenIdx> for DeclTokraRegionData<'a> {
-    type Output = Token;
+    type Output = TokenData;
 
     fn index(&self, idx: RegionalTokenIdx) -> &Self::Output {
         &self.tokens[idx.index()]
@@ -179,7 +179,7 @@ fn trai_decl_tokra_region_with_source_map(
 ) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
     build_decl_tokra_region(
         syn_node_path.module_path(db),
-        syn_node_path.node(db).ast_idx(db),
+        syn_node_path.syn_node(db).ast_idx(db),
         db,
     )
 }
@@ -209,7 +209,7 @@ fn ty_decl_tokra_region_with_source_map(
 ) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
     build_decl_tokra_region(
         syn_node_path.module_path(db),
-        syn_node_path.node(db).ast_idx(db),
+        syn_node_path.syn_node(db).ast_idx(db),
         db,
     )
 }
@@ -247,7 +247,7 @@ fn fugitive_decl_tokra_region_with_source_map(
 ) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
     build_decl_tokra_region(
         syn_node_path.module_path(db),
-        syn_node_path.node(db).ast_idx(db),
+        syn_node_path.syn_node(db).ast_idx(db),
         db,
     )
 }
@@ -337,7 +337,7 @@ fn ty_impl_block_decl_tokra_region_with_source_map(
 ) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
     build_decl_tokra_region(
         syn_node_path.module_path(db),
-        syn_node_path.node(db).ast_idx(db),
+        syn_node_path.syn_node(db).ast_idx(db),
         db,
     )
 }
@@ -359,7 +359,7 @@ fn trai_for_ty_impl_block_decl_tokra_region_with_source_map(
 ) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
     build_decl_tokra_region(
         syn_node_path.module_path(db),
-        syn_node_path.node(db).ast_idx(db),
+        syn_node_path.syn_node(db).ast_idx(db),
         db,
     )
 }
@@ -389,7 +389,7 @@ fn ill_formed_impl_block_decl_tokra_region_with_source_map(
 ) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
     build_decl_tokra_region(
         syn_node_path.module_path(db),
-        syn_node_path.node(db).ast_idx(db),
+        syn_node_path.syn_node(db).ast_idx(db),
         db,
     )
 }
@@ -455,7 +455,7 @@ fn ty_item_decl_tokra_region_with_source_map(
 ) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
     build_decl_tokra_region(
         syn_node_path.module_path(db),
-        syn_node_path.node(db).ast_idx(db),
+        syn_node_path.syn_node(db).ast_idx(db),
         db,
     )
 }
@@ -516,7 +516,7 @@ fn trai_for_ty_item_decl_tokra_region_with_source_map(
 ) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
     build_decl_tokra_region(
         syn_node_path.module_path(db),
-        syn_node_path.node(db).ast_idx(db),
+        syn_node_path.syn_node(db).ast_idx(db),
         db,
     )
 }
@@ -577,7 +577,7 @@ fn decr_decl_tokra_region_with_source_map(
 ) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
     build_decl_tokra_region(
         syn_node_path.module_path(db),
-        syn_node_path.node(db).ast_idx(db),
+        syn_node_path.syn_node(db).ast_idx(db),
         db,
     )
 }

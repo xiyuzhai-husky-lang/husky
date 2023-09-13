@@ -41,16 +41,16 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((regional_token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
-                Token::Ident(ident) => Ok(Some(IdentRegionalToken {
+                TokenData::Ident(ident) => Ok(Some(IdentRegionalToken {
                     ident,
                     regional_token_idx,
                 })),
-                Token::Error(error) => Err(error)?,
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error)?,
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -79,16 +79,16 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
-                Token::Ident(ident) => match ident.data(ctx.token_data_db()) {
+                TokenData::Ident(ident) => match ident.data(ctx.token_data_db()) {
                     "_" => Ok(Some(Self { token_idx })),
                     _ => Ok(None),
                 },
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -103,20 +103,20 @@ fn underscore_token_works() {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub enum DecrIdentToken {
-    Derive(DeriveToken),
+pub enum DecrIdentRegionalToken {
+    Derive(DeriveRegionalToken),
 }
 
 // "derive"
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct DeriveToken {
-    token_idx: TokenIdx,
+pub struct DeriveRegionalToken {
+    token_idx: RegionalTokenIdx,
 }
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for DeriveToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for DeriveRegionalToken
 where
-    Context: TokenStreamParser<'a> + HasTokenDb,
+    Context: RegionalTokenStreamParser<'a> + HasTokenDb,
 {
     type Error = TokenDataError;
 
@@ -125,16 +125,16 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
-                Token::Ident(ident) => match ident.data(ctx.token_db()) {
+                TokenData::Ident(ident) => match ident.data(ctx.token_db()) {
                     "derive" => Ok(Some(Self { token_idx })),
                     _ => Ok(None),
                 },
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -143,7 +143,7 @@ where
 }
 
 #[test]
-fn derive_token_works() {
+fn derive_regional_token_works() {
     // todo
 }
 
@@ -163,16 +163,16 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
-                Token::Ident(ident) => match ident.data(ctx.token_db()) {
+                TokenData::Ident(ident) => match ident.data(ctx.token_db()) {
                     "phantom" => Ok(Some(Self { token_idx })),
                     _ => Ok(None),
                 },
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)

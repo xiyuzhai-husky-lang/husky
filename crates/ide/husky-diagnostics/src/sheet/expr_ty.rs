@@ -190,10 +190,10 @@ impl Diagnose for (SynExprIdx, &'_ OriginalExprTypeError) {
         match self.1 {
             OriginalExprTypeError::NoSuchField { ident_token, .. } => ctx
                 .ranged_token_sheet()
-                .token_idx_text_range(ident_token.token_idx()),
+                .regional_token_idx_text_range(ident_token.regional_token_idx()),
             OriginalExprTypeError::NoMethodForType { ident_token, .. } => ctx
                 .ranged_token_sheet()
-                .token_idx_text_range(ident_token.token_idx()),
+                .regional_token_idx_text_range(ident_token.regional_token_idx()),
             _ => ctx.expr_text_range(self.0),
         }
     }

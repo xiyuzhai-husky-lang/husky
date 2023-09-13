@@ -237,7 +237,7 @@ impl<'a> SynStmtContext<'a> {
         for_token: StmtForRegionalToken,
         expr: SynExprIdx,
         eol_colon: SynExprResult<EolRegionalToken>,
-        body: FugitiveBody,
+        body: DefnAstIdxRange,
     ) -> SynStmt {
         match self.syn_expr_arena()[expr] {
             SynExpr::Binary {
@@ -253,12 +253,10 @@ impl<'a> SynStmtContext<'a> {
                 };
                 let current_symbol_kind = current_symbol_variant.kind();
                 let access_start = self
-                    .regional_ast(body.ast_idx_range().start())
+                    .regional_ast_token_idx_range(body.start())
                     .start()
                     .regional_token_idx();
-                let access_end = self
-                    .regional_ast_token_idx_range(body.ast_idx_range().end() - 1)
-                    .end();
+                let access_end = self.regional_ast_token_idx_range(body.end() - 1).end();
                 let frame_var_symbol = CurrentSynSymbol::new(
                     self.syn_pattern_expr_region(),
                     access_start,
@@ -381,7 +379,7 @@ impl<'a> SynStmtContext<'a> {
         forext_token: ForextRegionalToken,
         expr: SynExprIdx,
         eol_colon: SynExprResult<EolRegionalToken>,
-        body: FugitiveBody,
+        body: DefnAstIdxRange,
     ) -> SynStmt {
         let SynExpr::Binary {
             lopd: forext_loop_var_expr_idx,

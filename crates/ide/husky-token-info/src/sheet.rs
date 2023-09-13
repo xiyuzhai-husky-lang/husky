@@ -35,7 +35,7 @@ impl TokenInfoSheet {
         &'a self,
         ranged_token_sheet: &'a RangedTokenSheet,
         db: &'a dyn TokenInfoDb,
-    ) -> impl Iterator<Item = (&'a TokenInfo, (&'a TextRange, &'a Token))> + 'a {
+    ) -> impl Iterator<Item = (&'a TokenInfo, (&'a TextRange, &'a TokenData))> + 'a {
         std::iter::zip(
             self.token_infos.iter(),
             ranged_token_sheet.ranged_token_iter(db),

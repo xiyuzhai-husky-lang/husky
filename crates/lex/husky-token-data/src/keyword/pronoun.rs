@@ -1,4 +1,4 @@
-use crate::{Keyword, Token};
+use crate::{Keyword, TokenData};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum PronounKeyword {
@@ -19,8 +19,8 @@ impl PronounKeyword {
     }
 }
 
-impl From<PronounKeyword> for Token {
+impl From<PronounKeyword> for TokenData {
     fn from(val: PronounKeyword) -> Self {
-        Token::Keyword(val.into())
+        TokenData::Keyword(val.into())
     }
 }

@@ -40,15 +40,6 @@ impl AssociatedItemSynNodeDecl {
         }
     }
 
-    pub fn ast_idx(self, db: &dyn SynDeclDb) -> AstIdx {
-        match self {
-            AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => syn_node_decl.ast_idx(db),
-            AssociatedItemSynNodeDecl::TraitItem(syn_node_decl) => syn_node_decl.ast_idx(db),
-            AssociatedItemSynNodeDecl::TraitForTypeItem(syn_node_decl) => syn_node_decl.ast_idx(db),
-            AssociatedItemSynNodeDecl::IllFormedItem(_) => todo!(),
-        }
-    }
-
     pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateParameterObelisk] {
         match self {
             AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => {
@@ -125,58 +116,7 @@ impl HasSynDecl for AssociatedItemPath {
 
     fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
         todo!()
-        // associated_item_syn_decl(db, self).as_ref().copied()
     }
-}
-
-// #[salsa::tracked(jar = SynDeclJar, return_ref)]
-// pub(crate) fn associated_item_syn_decl(
-//     db: &dyn SynDeclDb,
-//     node: AssociatedItemNode,
-// ) -> DeclResult<AssociatedItemDecl> {
-//     let parser = DeclParseContext::new(db, node.module_path(db))?;
-//     parser.parse_associated_item_syn_decl(node)
-// }
-
-impl<'a> DeclParserFactory<'a> {
-    // fn parse_associated_item_syn_decl(
-    //     &self,
-    //     node: AssociatedItemNode,
-    // ) -> DeclResult<AssociatedItemDecl> {
-    //     let ast_idx = node.ast_idx(self.db());
-    //     Ok(match self.ast_sheet()[ast_idx] {
-    //         Ast::Defn {
-    //             token_group_idx,
-    //             item_kind:
-    //                 EntityKind::AssociatedItem {
-    //                     associated_item_kind,
-    //                 },
-    //             saved_stream_state,
-    //             ..
-    //         } => match associated_item_kind {
-    //             AssociatedItemKind::TraitItem(_) => todo!(),
-    //             AssociatedItemKind::TypeItem(ty_item_kind) => self
-    //                 .parse_ty_item_syn_decl(
-    //                     ty_item_kind,
-    //                     ast_idx,
-    //                     token_group_idx,
-    //                     node,
-    //                     saved_stream_state,
-    //                 )?
-    //                 .into(),
-    //             AssociatedItemKind::TraitForTypeItem(trai_item_kind) => self
-    //                 .parse_trai_for_ty_item_syn_decl(
-    //                     trai_item_kind,
-    //                     ast_idx,
-    //                     token_group_idx,
-    //                     node,
-    //                     saved_stream_state,
-    //                 )?
-    //                 .into(),
-    //         },
-    //         _ => unreachable!(),
-    //     })
-    // }
 }
 
 pub trait HasItemDeclsMap {

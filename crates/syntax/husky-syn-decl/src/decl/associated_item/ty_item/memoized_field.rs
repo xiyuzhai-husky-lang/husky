@@ -4,12 +4,11 @@ use super::*;
 pub struct TypeMemoizedFieldSynNodeDecl {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
-    pub ast_idx: AstIdx,
-    pub colon_token: TokenDataResult<Option<ColonToken>>,
+    pub colon_token: TokenDataResult<Option<ColonRegionalToken>>,
     #[return_ref]
     pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeEqObelisk>>,
     #[return_ref]
-    pub eq_token: SynNodeDeclResult<EqToken>,
+    pub eq_token: SynNodeDeclResult<EqRegionalToken>,
     pub expr: Option<SynExprIdx>,
     pub syn_expr_region: SynExprRegion,
 }
@@ -26,25 +25,15 @@ impl TypeMemoizedFieldSynNodeDecl {
     }
 }
 
-impl<'a> DeclParserFactory<'a> {
-    pub(super) fn parse_ty_memo_decl(
-        &self,
-        ast_idx: AstIdx,
-        token_group_idx: TokenGroupIdx,
-        node: TypeItemSynNode,
-        saved_stream_state: TokenStreamState,
-    ) -> TypeMemoizedFieldSynNodeDecl {
+impl<'a> DeclParserFactory<'a, TypeItemSynNodePath> {
+    pub(super) fn parse_ty_memo_decl(&self) -> TypeMemoizedFieldSynNodeDecl {
         let db = self.db();
-        let syn_node_path = node.syn_node_path(db);
-        let impl_block_syn_node_decl = syn_node_path.impl_block(db).syn_node_decl(db);
+        let impl_block_syn_node_decl = self.syn_node_path().impl_block(db).syn_node_decl(db);
         let mut parser = self.parser(
-            syn_node_path,
             Some(impl_block_syn_node_decl.syn_expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::True,
             None,
-            token_group_idx,
-            saved_stream_state,
         );
         let colon_token = parser.try_parse_option();
         let form_ty = if let Ok(Some(_)) = colon_token {
@@ -59,8 +48,7 @@ impl<'a> DeclParserFactory<'a> {
         let expr = parser.parse_expr_root(None, ExprRootKind::ValExpr);
         TypeMemoizedFieldSynNodeDecl::new(
             db,
-            syn_node_path,
-            ast_idx,
+            self.syn_node_path(),
             colon_token,
             form_ty,
             eq_token,

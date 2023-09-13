@@ -24,9 +24,9 @@ pub enum ModifierKeyword {
 //     IllFormedLiteral(LiteralToken),
 // }
 
-impl From<ModifierKeyword> for Token {
+impl From<ModifierKeyword> for TokenData {
     fn from(val: ModifierKeyword) -> Self {
-        Token::Keyword(val.into())
+        TokenData::Keyword(val.into())
     }
 }
 

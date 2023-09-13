@@ -6,15 +6,15 @@ pub(crate) type ImplicitParameterDeclPatterns = SmallVec<[TemplateParameterObeli
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynDeclDb)]
 pub struct Generics {
-    langle: LaOrLtToken,
+    langle: LaOrLtRegionalToken,
     template_parameters: ImplicitParameterDeclPatterns,
-    commas: CommaTokens,
+    commas: CommaRegionalTokens,
     decl_list_result: Result<(), SynNodeDeclError>,
-    rangle: RaOrGtToken,
+    rangle: RaOrGtRegionalToken,
 }
 
 impl Generics {
-    pub fn lcurl(&self) -> LaOrLtToken {
+    pub fn lcurl(&self) -> LaOrLtRegionalToken {
         self.langle
     }
 
@@ -22,7 +22,7 @@ impl Generics {
         &self.template_parameters
     }
 
-    pub fn commas(&self) -> &[CommaToken] {
+    pub fn commas(&self) -> &[CommaRegionalToken] {
         self.commas.as_ref()
     }
 }
@@ -33,7 +33,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for Generics {
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
     ) -> SynNodeDeclResult<Option<Self>> {
-        let Some(langle) = ctx.try_parse_option::<LaOrLtToken>()? else {
+        let Some(langle) = ctx.try_parse_option::<LaOrLtRegionalToken>()? else {
             return Ok(None);
         };
         let (template_parameters, commas, decl_list_result) = parse_separated_small2_list_expected(
@@ -46,10 +46,10 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for Generics {
             template_parameters,
             commas,
             decl_list_result,
-            rangle: ctx.try_parse_expected(|token_stream_state| {
+            rangle: ctx.try_parse_expected(|regional_token_stream_state| {
                 OriginalSynNodeDeclError::ExpectedRightAngleBracketForImplicitParameterDeclList {
-                    langle_token_idx: langle.token_idx(),
-                    token_stream_state,
+                    langle_regional_token_idx: langle.regional_token_idx(),
+                    regional_token_stream_state,
                 }
             })?,
         }))

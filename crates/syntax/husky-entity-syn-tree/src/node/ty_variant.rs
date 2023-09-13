@@ -22,7 +22,7 @@ impl TypeVariantSynNodePath {
         )
     }
 
-    pub fn syn_node(self, db: &dyn EntitySynTreeDb) -> TypeVariantSynNode {
+    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> TypeVariantSynNode {
         ty_variant_syn_node(db, self)
     }
 
@@ -103,7 +103,7 @@ pub(crate) fn ty_variant_syn_nodes(
     let Ast::Identifiable {
         block: DefnBlock::Type { variants, .. },
         ..
-    } = ast_sheet[ty_node_path.node(db).ast_idx(db)]
+    } = ast_sheet[ty_node_path.syn_node(db).ast_idx(db)]
     else {
         unreachable!()
     };

@@ -1,6 +1,6 @@
 use super::*;
 use husky_coword::Ident;
-use husky_token::IdentToken;
+use husky_regional_token::IdentRegionalToken;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
@@ -51,7 +51,7 @@ pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     ty_path: TypePath,
     ty_template_arguments: &[Term],
     method_template_arguments: &[FluffyTerm],
-    ident_token: IdentToken,
+    ident_token: IdentRegionalToken,
 ) -> FluffyTermMaybeResult<MethodFluffySignature> {
     let ident = ident_token.ident();
     match ty_path.ty_item_ethereal_signature_templates(engine.db(), ident)? {

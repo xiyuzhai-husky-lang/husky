@@ -2,7 +2,7 @@ use proc_macro2::TokenStream;
 use quote::{quote, quote_spanned, ToTokens};
 use syn::punctuated::Punctuated;
 use syn::spanned::Spanned;
-use syn::{DeriveInput, Fields, Ident, LitStr, Token, Variant};
+use syn::{DeriveInput, Fields, Ident, LitStr, TokenData, Variant};
 
 use crate::parser::{route, RoutePathAst, SegmentAst};
 
@@ -173,7 +173,7 @@ fn impl_to(
                     }
                 }
             }
-            let named: Punctuated<&Option<Ident>, Token![,]> =
+            let named: Punctuated<&Option<Ident>, TokenData![,]> =
                 f.named.iter().map(|x| &x.ident).collect();
             quote_spanned! {variant.span()=>
                 #[allow(clippy::never_loop)]

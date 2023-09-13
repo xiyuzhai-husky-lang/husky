@@ -35,7 +35,7 @@ impl TraitItemSynNodePath {
         self.maybe_ambiguous_path(db).path.item_kind(db)
     }
 
-    pub fn syn_node(self, db: &dyn EntitySynTreeDb) -> TraitItemSynNode {
+    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> TraitItemSynNode {
         trai_item_syn_node(db, self)
     }
 }
@@ -63,7 +63,7 @@ impl HasSynNodePath for TraitItemPath {
 }
 
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub struct TraitItemSynNode {
+pub(crate) struct TraitItemSynNode {
     #[id]
     pub syn_node_path: TraitItemSynNodePath,
     pub ast_idx: AstIdx,
@@ -115,7 +115,7 @@ pub(crate) fn trai_item_syn_nodes(
     [(Ident, TraitItemSynNodePath, TraitItemSynNode);
         APPROXIMATE_UPPER_BOUND_ON_NUMBER_OF_TRAIT_ITEMS],
 > {
-    let trai_node = trai_node_path.node(db);
+    let trai_node = trai_node_path.syn_node(db);
     let module_path = trai_node_path.module_path(db);
     let ast_sheet = db.ast_sheet(module_path).unwrap();
     let DefnBlock::Trait { path, items } = trai_node.block(db) else {

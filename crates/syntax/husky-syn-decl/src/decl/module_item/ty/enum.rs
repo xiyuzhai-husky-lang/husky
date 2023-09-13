@@ -4,7 +4,6 @@ use super::*;
 pub struct EnumTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
-    pub ast_idx: AstIdx,
     #[return_ref]
     template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
     pub syn_expr_region: SynExprRegion,
@@ -29,30 +28,14 @@ impl EnumTypeSynNodeDecl {
     }
 }
 
-impl<'a> DeclParserFactory<'a> {
-    pub(super) fn parse_enum_ty_node_decl(
-        &self,
-        syn_node_path: TypeSynNodePath,
-        ast_idx: AstIdx,
-        token_group_idx: TokenGroupIdx,
-        children: TypeVariants,
-        saved_stream_state: TokenStreamState,
-    ) -> EnumTypeSynNodeDecl {
+impl<'a> DeclParserFactory<'a, TypeSynNodePath> {
+    pub(super) fn parse_enum_ty_node_decl(&self) -> EnumTypeSynNodeDecl {
         let db = self.db();
-        let mut parser = self.parser(
-            syn_node_path,
-            None,
-            AllowSelfType::True,
-            AllowSelfValue::False,
-            None,
-            token_group_idx,
-            Some(saved_stream_state),
-        );
+        let mut parser = self.parser(None, AllowSelfType::True, AllowSelfValue::False, None);
         let template_parameters = parser.try_parse_option();
         EnumTypeSynNodeDecl::new(
             db,
-            syn_node_path,
-            ast_idx,
+            self.syn_node_path(),
             template_parameters,
             parser.finish(),
         )

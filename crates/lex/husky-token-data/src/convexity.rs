@@ -1,4 +1,4 @@
-use crate::{Punctuation, Token, WordOpr};
+use crate::{Punctuation, TokenData, WordOpr};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Convexity {
@@ -24,32 +24,32 @@ impl Convexity {
     }
 }
 
-impl Token {
+impl TokenData {
     // pub fn left_convexity(&self) -> Option<Convexity> {
     //     match self {
-    //         Token::Attr(_) => todo!(),
-    //         Token::Keyword(_) => todo!(),
-    //         Token::Ident(_) | Token::Label(_) => Some(Convexity::Convex),
-    //         Token::Punctuation(punc) => punc.left_convexity(),
-    //         Token::WordOpr(_) => todo!(),
-    //         Token::Literal(_) => Some(Convexity::Convex),
-    //         Token::Error(_) => unreachable!(),
+    //         TokenData::Attr(_) => todo!(),
+    //         TokenData::Keyword(_) => todo!(),
+    //         TokenData::Ident(_) | TokenData::Label(_) => Some(Convexity::Convex),
+    //         TokenData::Punctuation(punc) => punc.left_convexity(),
+    //         TokenData::WordOpr(_) => todo!(),
+    //         TokenData::Literal(_) => Some(Convexity::Convex),
+    //         TokenData::Error(_) => unreachable!(),
     //     }
     // }
 
     pub fn right_convexity(&self) -> Convexity {
         match self {
-            Token::Keyword(_) => Convexity::Concave,
-            Token::Ident(_) | Token::Label(_) => Convexity::Convex,
-            Token::Punctuation(punctuation) => punctuation.right_convexity(),
-            Token::WordOpr(opr) => match opr {
+            TokenData::Keyword(_) => Convexity::Concave,
+            TokenData::Ident(_) | TokenData::Label(_) => Convexity::Convex,
+            TokenData::Punctuation(punctuation) => punctuation.right_convexity(),
+            TokenData::WordOpr(opr) => match opr {
                 WordOpr::And => Convexity::Concave,
                 WordOpr::Or => Convexity::Concave,
                 WordOpr::As => Convexity::Concave,
                 WordOpr::Be => Convexity::Concave,
             },
-            Token::Literal(_) => Convexity::Convex,
-            Token::Error(_) => Convexity::Any,
+            TokenData::Literal(_) => Convexity::Convex,
+            TokenData::Error(_) => Convexity::Any,
         }
     }
 }

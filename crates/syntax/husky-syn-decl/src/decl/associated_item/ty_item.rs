@@ -11,7 +11,6 @@ pub use self::memoized_field::*;
 pub use self::method_fn::*;
 
 use super::*;
-use husky_ast::*;
 use husky_coword::{Ident, IdentPairMap};
 use husky_entity_taxonomy::TypeItemKind;
 use vec_like::VecMapGetEntry;
@@ -41,16 +40,6 @@ impl TypeItemSynNodeDecl {
             TypeItemSynNodeDecl::AssociatedType(_) => todo!(),
             TypeItemSynNodeDecl::AssociatedVal(_) => todo!(),
             TypeItemSynNodeDecl::MemoizedField(syn_node_decl) => syn_node_decl.syn_node_path(db),
-        }
-    }
-
-    pub fn ast_idx(self, db: &dyn SynDeclDb) -> AstIdx {
-        match self {
-            TypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeItemSynNodeDecl::AssociatedType(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeItemSynNodeDecl::AssociatedVal(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeItemSynNodeDecl::MemoizedField(syn_node_decl) => syn_node_decl.ast_idx(db),
         }
     }
 
@@ -93,82 +82,21 @@ impl HasSynNodeDecl for TypeItemSynNodePath {
     }
 }
 
-impl HasSynNodeDecl for TypeItemSynNode {
-    type NodeDecl = TypeItemSynNodeDecl;
-
-    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
-        todo!()
-    }
-}
-
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_item_syn_node_decl(
     db: &dyn SynDeclDb,
     syn_node_path: TypeItemSynNodePath,
 ) -> TypeItemSynNodeDecl {
     let ctx = DeclParserFactory::new(db, syn_node_path);
-    ctx.parse_ty_item_syn_node_decl(syn_node_path)
+    ctx.parse_ty_item_syn_node_decl()
 }
 
-impl<'a> DeclParserFactory<'a> {
-    fn parse_ty_item_syn_node_decl(
-        &self,
-        syn_node_path: TypeItemSynNodePath,
-    ) -> TypeItemSynNodeDecl {
-        let db = self.db();
-        let node = syn_node_path.node(db);
-        let ast_idx = node.ast_idx(db);
-        match self.ast_sheet()[ast_idx] {
-            Ast::Identifiable {
-                token_group_idx,
-                item_kind:
-                    EntityKind::AssociatedItem {
-                        associated_item_kind: AssociatedItemKind::TypeItem(item_kind),
-                    },
-                saved_stream_state,
-                ..
-            } => self.parse_ty_item_syn_node_decl_aux(
-                syn_node_path,
-                node,
-                ast_idx,
-                token_group_idx,
-                item_kind,
-                saved_stream_state,
-            ),
-            _ => unreachable!(),
-        }
-    }
-
-    fn parse_ty_item_syn_node_decl_aux(
-        &self,
-        syn_node_path: TypeItemSynNodePath,
-        node: TypeItemSynNode,
-        ast_idx: AstIdx,
-        token_group_idx: TokenGroupIdx,
-        ty_item_kind: TypeItemKind,
-        saved_stream_state: TokenStreamState,
-    ) -> TypeItemSynNodeDecl {
-        match ty_item_kind {
-            TypeItemKind::MethodFn => self
-                .parse_ty_method_node_decl(
-                    syn_node_path,
-                    node,
-                    ast_idx,
-                    token_group_idx,
-                    saved_stream_state,
-                )
-                .into(),
-            TypeItemKind::AssociatedFn => self
-                .parse_ty_associated_fn_node_decl(
-                    syn_node_path,
-                    ast_idx,
-                    token_group_idx,
-                    saved_stream_state,
-                )
-                .into(),
-            TypeItemKind::MemoizedField => self
-                .parse_ty_memo_decl(ast_idx, token_group_idx, node, saved_stream_state)
-                .into(),
+impl<'a> DeclParserFactory<'a, TypeItemSynNodePath> {
+    fn parse_ty_item_syn_node_decl(&self) -> TypeItemSynNodeDecl {
+        match self.syn_node_path().item_kind(self.db()) {
+            TypeItemKind::MethodFn => self.parse_ty_method_node_decl().into(),
+            TypeItemKind::AssociatedFn => self.parse_ty_associated_fn_node_decl().into(),
+            TypeItemKind::MemoizedField => self.parse_ty_memo_decl().into(),
             TypeItemKind::AssociatedVal => todo!(),
             TypeItemKind::AssociatedType => todo!(),
         }

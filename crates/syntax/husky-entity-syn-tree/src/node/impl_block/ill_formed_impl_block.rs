@@ -15,7 +15,7 @@ impl IllFormedImplBlockSynNodePath {
         &[]
     }
 
-    pub fn node(self, db: &dyn EntitySynTreeDb) -> IllFormedImplBlockSynNode {
+    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> IllFormedImplBlockSynNode {
         ill_formed_impl_block_syn_node(db, self)
     }
 }
@@ -45,7 +45,7 @@ impl HasSynNodePath for IllFormedImplBlockPath {
 }
 
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub struct IllFormedImplBlockSynNode {
+pub(crate) struct IllFormedImplBlockSynNode {
     #[id]
     pub syn_node_path: IllFormedImplBlockSynNodePath,
     pub impl_token: ImplToken,
@@ -84,7 +84,7 @@ pub enum ImplBlockIllForm {
     #[error("unmatched angle bras")]
     UnmatchedAngleBras,
     #[error("token error")]
-    Token(#[from] TokenDataError),
+    TokenData(#[from] TokenDataError),
     #[error("principal path expr error")]
     MajorPath(#[from] MajorPathExprError),
     #[error("MissingFor")]

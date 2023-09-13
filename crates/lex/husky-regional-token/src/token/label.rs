@@ -30,16 +30,16 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
-                Token::Label(label) if label.is_valid_lifetime_label() => {
+                TokenData::Label(label) if label.is_valid_lifetime_label() => {
                     Ok(Some(LifetimeRegionalToken { label, token_idx }))
                 }
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Ident(_)
-                | Token::Punctuation(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Ident(_)
+                | TokenData::Punctuation(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -80,19 +80,19 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((regional_token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
-                Token::Label(label) if label.is_valid_place_label() => {
+                TokenData::Label(label) if label.is_valid_place_label() => {
                     Ok(Some(PlaceLabelRegionalToken {
                         label,
                         regional_token_idx,
                     }))
                 }
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Ident(_)
-                | Token::Punctuation(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Ident(_)
+                | TokenData::Punctuation(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -133,13 +133,13 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
-                Token::Label(label) => Ok(Some(BlockLabelRegionalToken { label, token_idx })),
-                Token::Error(error) => Err(error),
-                Token::Ident(_)
-                | Token::Punctuation(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Label(label) => Ok(Some(BlockLabelRegionalToken { label, token_idx })),
+                TokenData::Error(error) => Err(error),
+                TokenData::Ident(_)
+                | TokenData::Punctuation(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)

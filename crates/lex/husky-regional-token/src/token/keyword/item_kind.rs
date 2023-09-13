@@ -24,8 +24,10 @@ where
             return Ok(None);
         };
         match token {
-            Token::Keyword(Keyword::Const) => Ok(Some(ConstRegionalToken { regional_token_idx })),
-            Token::Error(error) => Err(error)?,
+            TokenData::Keyword(Keyword::Const) => {
+                Ok(Some(ConstRegionalToken { regional_token_idx }))
+            }
+            TokenData::Error(error) => Err(error)?,
             _ => Ok(None),
         }
     }

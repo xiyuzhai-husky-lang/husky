@@ -167,7 +167,7 @@ impl OriginalError for OriginalUseExprError {
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub enum DerivedUseExprError {
     #[error("token error")]
-    Token(#[from] TokenDataError),
+    TokenData(#[from] TokenDataError),
 }
 
 impl From<TokenDataError> for UseExprError {
@@ -307,7 +307,7 @@ impl<'a, 'b> TryParseOptionFromStream<UseExprParser<'a, 'b>> for UseExpr {
             }))),
             PathNameToken::SelfMod(self_mod_token) => {
                 // differentiate betwee self one and self children
-                if ctx.peek() == Some(&Token::Punctuation(Punctuation::COLON_COLON)) {
+                if ctx.peek() == Some(&TokenData::Punctuation(Punctuation::COLON_COLON)) {
                     Ok(Some(UseExpr::Parent(ParentUseExpr {
                         parent_name_token: self_mod_token.into(),
                         colon_colon_token: Ok(ctx

@@ -4,8 +4,6 @@ use super::*;
 pub struct TypeAssociatedTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
-    pub node: TypeItemSynNode,
-    pub ast_idx: AstIdx,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -21,5 +19,3 @@ pub struct TypeAssociatedTypeSynDecl {
     pub path: TypeItemPath,
     pub syn_expr_region: SynExprRegion,
 }
-
-impl<'a> DeclParserFactory<'a> {}

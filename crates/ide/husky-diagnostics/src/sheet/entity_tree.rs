@@ -1,7 +1,7 @@
 use super::*;
 use husky_entity_syn_tree::{
-    EntitySynTreeError, IllFormedImplBlockSynNode, ImplBlockIllForm, MajorPathExprError,
-    OnceUseRuleState, OriginalEntityTreeError, OriginalMajorPathExprError,
+    EntitySynTreeError, ImplBlockIllForm, MajorPathExprError, OnceUseRuleState,
+    OriginalEntityTreeError, OriginalMajorPathExprError,
 };
 use salsa::DebugWithDb;
 
@@ -75,7 +75,7 @@ impl Diagnose for IllFormedImplBlockSynNode {
     fn message(&self, ctx: &Self::Context<'_>) -> String {
         match self.ill_form(ctx.db()) {
             ImplBlockIllForm::UnmatchedAngleBras => todo!(),
-            ImplBlockIllForm::Token(_) => todo!(),
+            ImplBlockIllForm::TokenData(_) => todo!(),
             ImplBlockIllForm::MajorPath(e) => match e {
                 MajorPathExprError::Original(e) => match e {
                     OriginalMajorPathExprError::UnrecognizedIdent(ident_token) => {
@@ -104,7 +104,7 @@ impl Diagnose for IllFormedImplBlockSynNode {
     fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
         match self.ill_form(ctx.db()) {
             ImplBlockIllForm::UnmatchedAngleBras => todo!(),
-            ImplBlockIllForm::Token(_) => todo!(),
+            ImplBlockIllForm::TokenData(_) => todo!(),
             ImplBlockIllForm::MajorPath(e) => match e {
                 MajorPathExprError::Original(e) => match e {
                     OriginalMajorPathExprError::UnrecognizedIdent(ident_token) => {

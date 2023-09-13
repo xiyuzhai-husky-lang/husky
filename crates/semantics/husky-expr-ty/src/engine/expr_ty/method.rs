@@ -1,12 +1,12 @@
 use super::*;
-use husky_token::IdentToken;
+use husky_regional_token::IdentRegionalToken;
 
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_method_application_or_call_ty(
         &mut self,
         expr_idx: SynExprIdx,
         self_argument: SynExprIdx,
-        ident_token: IdentToken,
+        ident_token: IdentRegionalToken,
         generic_arguments: Option<&SynGenericArgumentList>,
         explicit_arguments: &[SynCommaListItem],
     ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {

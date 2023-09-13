@@ -20,7 +20,7 @@ use husky_term_prelude::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = TokenDataDb)]
 #[enum_class::from_variants]
-pub enum Token {
+pub enum TokenData {
     Keyword(Keyword),
     Ident(Ident),
     Label(Label),
@@ -30,7 +30,7 @@ pub enum Token {
     Error(TokenDataError),
 }
 
-impl std::hash::Hash for Token {
+impl std::hash::Hash for TokenData {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         core::mem::discriminant(self).hash(state);
     }

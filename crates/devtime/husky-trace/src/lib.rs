@@ -21,7 +21,7 @@ use husky_vm::{History, HistoryEntry, Instructions, LoopFrameData, VMConditionBr
 use serde::Serialize;
 use std::sync::Arc;
 
-// ts: { idx: number; parent: number | null; tokens: Token[] }
+// ts: { idx: number; parent: number | null; tokens: TokenData[] }
 #[derive(Debug)]
 pub struct Trace {
     pub variant: TraceVariant,

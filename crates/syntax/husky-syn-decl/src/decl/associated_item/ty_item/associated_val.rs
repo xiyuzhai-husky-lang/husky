@@ -3,9 +3,7 @@ use super::*;
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TypeAssociatedValSynNodeDecl {
     #[id]
-    pub id: TypeItemSynNodePath,
-    pub node: TypeItemSynNode,
-    pub ast_idx: AstIdx,
+    pub syn_node_path: TypeItemSynNodePath,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -16,7 +14,7 @@ impl TypeAssociatedValSynNodeDecl {
     }
 }
 
-impl<'a> DeclParserFactory<'a> {}
+impl<'a> DeclParserFactory<'a, TypeItemSynNodePath> {}
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TypeAssociatedValSynDecl {

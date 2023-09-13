@@ -18,7 +18,7 @@ impl SubmoduleSynNodePath {
         self.maybe_ambiguous_path(db).unambiguous_path()
     }
 
-    pub fn node(self, db: &dyn EntitySynTreeDb) -> SubmoduleSynNode {
+    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> SubmoduleSynNode {
         submodule_syn_node(db, self)
     }
 }

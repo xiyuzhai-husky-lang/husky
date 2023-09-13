@@ -14,7 +14,7 @@ pub use self::ty_variant::*;
 
 use crate::*;
 use husky_ast::AstIdx;
-use husky_entity_syn_tree::paths::{module_item_paths, module_item_syn_node_paths};
+use husky_entity_syn_tree::helpers::paths::{module_item_paths, module_item_syn_node_paths};
 use husky_syn_expr::helpers::block_expr::parse_defn_block_expr;
 use salsa::debug::ExpectWithDb;
 
@@ -40,10 +40,6 @@ impl SynNodeDefn {
             SynNodeDefn::AssociatedItem(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
             SynNodeDefn::Decr(syn_node_defn) => syn_node_defn.syn_node_decl().into(),
         }
-    }
-
-    pub fn ast_idx(self, db: &dyn SynDefnDb) -> AstIdx {
-        self.syn_node_decl(db).ast_idx(db)
     }
 
     pub fn body_with_syn_expr_region(

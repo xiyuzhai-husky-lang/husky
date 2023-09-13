@@ -112,10 +112,10 @@ impl<'a> AstParser<'a> {
         &mut self,
         token_group_idx: TokenGroupIdx,
         token_group: TokenGroup,
-        first_token: Token,
+        first_token: TokenData,
     ) -> AstResult<Ast> {
         Ok(match first_token {
-            Token::Keyword(kw) => match kw {
+            TokenData::Keyword(kw) => match kw {
                 Keyword::Stmt(kw) => self.try_parse_stmt_after_keyword::<C>(token_group_idx, kw)?,
                 Keyword::Todo | Keyword::Sorry | Keyword::Pronoun(_) => {
                     self.try_parse_stmt::<C>(token_group_idx)?
@@ -159,20 +159,20 @@ impl<'a> AstParser<'a> {
                 }
                 Keyword::Async => todo!(),
             },
-            Token::Punctuation(Punctuation::POUND) => Ast::Sorc { token_group_idx },
-            Token::Punctuation(Punctuation::AT) => match token_group.second() {
-                Some(Token::Ident(ident)) => Ast::Decr {
+            TokenData::Punctuation(Punctuation::POUND) => Ast::Sorc { token_group_idx },
+            TokenData::Punctuation(Punctuation::AT) => match token_group.second() {
+                Some(TokenData::Ident(ident)) => Ast::Decr {
                     token_group_idx,
                     ident,
                 },
                 _ => todo!(),
             },
-            Token::Punctuation(_)
-            | Token::Ident(_)
-            | Token::Label(_)
-            | Token::WordOpr(_)
-            | Token::Literal(_) => self.try_parse_stmt::<C>(token_group_idx)?,
-            Token::Error(e) => Err(DerivedAstError::Token(e))?,
+            TokenData::Punctuation(_)
+            | TokenData::Ident(_)
+            | TokenData::Label(_)
+            | TokenData::WordOpr(_)
+            | TokenData::Literal(_) => self.try_parse_stmt::<C>(token_group_idx)?,
+            TokenData::Error(e) => Err(DerivedAstError::TokenData(e))?,
         })
     }
 
@@ -202,12 +202,12 @@ impl<'a> AstParser<'a> {
             }
         };
         match aux_parser.peek() {
-            Some(Token::Keyword(Keyword::Use)) => self.parse_use_ast(
+            Some(TokenData::Keyword(Keyword::Use)) => self.parse_use_ast(
                 token_group_idx,
                 visibility_expr,
                 Some(aux_parser.finish_with_saved_stream_state()),
             ),
-            Some(Token::Keyword(_)) => self.parse_defn::<C>(
+            Some(TokenData::Keyword(_)) => self.parse_defn::<C>(
                 token_group_idx,
                 visibility_expr,
                 Some(aux_parser.finish_with_saved_stream_state()),

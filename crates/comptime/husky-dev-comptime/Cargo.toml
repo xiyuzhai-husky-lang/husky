@@ -24,6 +24,7 @@ husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-task = { path = "../../kernel/husky-task" }
 # lex
+husky-token-data = { path = "../../lex/husky-token-data" }
 husky-token = { path = "../../lex/husky-token" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 husky-text = { path = "../../lex/husky-text" }

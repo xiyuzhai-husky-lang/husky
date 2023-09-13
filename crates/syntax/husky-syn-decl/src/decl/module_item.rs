@@ -18,14 +18,6 @@ pub enum MajorItemSynNodeDecl {
 }
 
 impl MajorItemSynNodeDecl {
-    pub fn ast_idx(self, db: &dyn SynDeclDb) -> AstIdx {
-        match self {
-            MajorItemSynNodeDecl::Type(syn_node_decl) => syn_node_decl.ast_idx(db),
-            MajorItemSynNodeDecl::Fugitive(syn_node_decl) => syn_node_decl.ast_idx(db),
-            MajorItemSynNodeDecl::Trait(syn_node_decl) => syn_node_decl.ast_idx(db),
-        }
-    }
-
     pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
             MajorItemSynNodeDecl::Type(syn_node_decl) => syn_node_decl.syn_expr_region(db).into(),

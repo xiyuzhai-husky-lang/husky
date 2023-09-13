@@ -1,5 +1,5 @@
 use super::*;
-use husky_token::IdentToken;
+use husky_regional_token::IdentRegionalToken;
 use maybe_result::*;
 
 impl<'a> ExprTypeEngine<'a> {
@@ -7,7 +7,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: SynExprIdx,
         parent_expr_idx: SynExprIdx,
-        ident_token: IdentToken,
+        ident_token: IdentRegionalToken,
     ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         self.infer_new_expr_ty_discarded(parent_expr_idx, ExpectEqsCategory::new_any_sort());
         let parent_term = self

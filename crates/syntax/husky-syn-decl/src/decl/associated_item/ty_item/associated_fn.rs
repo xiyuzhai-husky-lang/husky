@@ -4,16 +4,15 @@ use super::*;
 pub struct TypeAssociatedFnSynNodeDecl {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
-    pub ast_idx: AstIdx,
     #[return_ref]
     pub template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
     #[return_ref]
     pub parenate_parameter_decl_list: SynNodeDeclResult<RitchieParameters<false>>,
-    pub light_arrow_token: TokenDataResult<Option<RegionalLightArrowToken>>,
+    pub light_arrow_token: TokenDataResult<Option<LightArrowRegionalToken>>,
     #[return_ref]
     pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
     #[return_ref]
-    pub eol_colon: SynNodeDeclResult<EolToken>,
+    pub eol_colon: SynNodeDeclResult<EolRegionalToken>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -36,19 +35,12 @@ impl TypeAssociatedFnSynNodeDecl {
     }
 }
 
-impl<'a> DeclParserFactory<'a> {
-    pub(super) fn parse_ty_associated_fn_node_decl(
-        &self,
-        syn_node_path: TypeItemSynNodePath,
-        ast_idx: AstIdx,
-        token_group_idx: TokenGroupIdx,
-        saved_stream_state: TokenStreamState,
-    ) -> TypeAssociatedFnSynNodeDecl {
+impl<'a> DeclParserFactory<'a, TypeItemSynNodePath> {
+    pub(super) fn parse_ty_associated_fn_node_decl(&self) -> TypeAssociatedFnSynNodeDecl {
         let db = self.db();
         let mut parser = self.parser(
-            syn_node_path,
             Some(
-                syn_node_path
+                self.syn_node_path()
                     .impl_block(db)
                     .syn_node_decl(db)
                     .syn_expr_region(db),
@@ -56,8 +48,6 @@ impl<'a> DeclParserFactory<'a> {
             AllowSelfType::True,
             AllowSelfValue::True,
             None,
-            token_group_idx,
-            saved_stream_state,
         );
         let template_parameter_decl_list = parser.try_parse_option();
         let parameter_decl_list =
@@ -73,8 +63,7 @@ impl<'a> DeclParserFactory<'a> {
         let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
         TypeAssociatedFnSynNodeDecl::new(
             db,
-            syn_node_path,
-            ast_idx,
+            self.syn_node_path(),
             template_parameter_decl_list,
             parameter_decl_list,
             light_arrow_token,

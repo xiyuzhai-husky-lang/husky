@@ -22,7 +22,7 @@ impl RangedPretoken {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) enum Pretoken {
-    Certain(Token),
+    Certain(TokenData),
     Literal(Literal),
     NewLine,
     Ambiguous(AmbiguousPretoken),
@@ -38,13 +38,13 @@ impl From<AmbiguousPretoken> for Pretoken {
 
 impl From<IntegerLikeLiteral> for Pretoken {
     fn from(val: IntegerLikeLiteral) -> Self {
-        Pretoken::Certain(Token::Literal(Literal::Integer(val)))
+        Pretoken::Certain(TokenData::Literal(Literal::Integer(val)))
     }
 }
 
 impl From<FloatLiteral> for Pretoken {
     fn from(val: FloatLiteral) -> Self {
-        Pretoken::Certain(Token::Literal(Literal::Float(val)))
+        Pretoken::Certain(TokenData::Literal(Literal::Float(val)))
     }
 }
 
@@ -69,8 +69,8 @@ impl AmbiguousPretoken {
     }
 }
 
-impl From<Token> for Pretoken {
-    fn from(kind: Token) -> Self {
+impl From<TokenData> for Pretoken {
+    fn from(kind: TokenData) -> Self {
         Pretoken::Certain(kind)
     }
 }
@@ -229,7 +229,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
         assert!(self.buffer.len() > 0);
         let word = &self.buffer;
         let pretoken = match self.db.it_auxiliary_ident_borrowed(word) {
-            Some(identifier) => Token::Label(identifier).into(),
+            Some(identifier) => TokenData::Label(identifier).into(),
             None => Pretoken::Err(TokenDataError::InvalidIdent),
         };
         self.buffer.clear();
@@ -256,7 +256,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
             pretoken
         } else {
             match self.db.it_ident_borrowed(word) {
-                Some(identifier) => Token::Ident(identifier).into(),
+                Some(identifier) => TokenData::Ident(identifier).into(),
                 None => Pretoken::Err(TokenDataError::InvalidIdent),
             }
         };

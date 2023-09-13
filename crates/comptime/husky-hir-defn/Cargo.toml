@@ -31,15 +31,16 @@ husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 # infer
 husky-manifest = { path = "../../semantics/husky-manifest" }
 husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
-# lex
-husky-token = { path = "../../lex/husky-token" }
-husky-toml-token = { path = "../../lex/husky-toml-token" }
 # kernel
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-declarative-term = { path = "../../kernel/husky-declarative-term" }
 husky-declarative-ty = { path = "../../kernel/husky-declarative-ty" }
 husky-declarative-signature = { path = "../../kernel/husky-declarative-signature" }
 husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
+# lex
+husky-token-data = { path = "../../lex/husky-token-data" }
+husky-token = { path = "../../lex/husky-token" }
+husky-toml-token = { path = "../../lex/husky-toml-token" }
 # semantics
 husky-expr-ty = { path = "../../semantics/husky-expr-ty" }
 # syntax

@@ -135,18 +135,18 @@ impl ToHirEager for SynExprIdx {
             }
             SynExpr::InheritedSymbol {
                 ident,
-                token_idx,
+                regional_token_idx,
                 inherited_symbol_idx,
                 inherited_symbol_kind,
             } => HirEagerExpr::InheritedSymbol { ident },
             SynExpr::CurrentSymbol {
                 ident,
-                token_idx,
+                regional_token_idx,
                 current_symbol_idx,
                 current_symbol_kind,
             } => HirEagerExpr::CurrentSymbol { ident },
             SynExpr::FrameVarDecl {
-                token_idx,
+                regional_token_idx,
                 ident,
                 frame_var_symbol_idx,
                 current_symbol_kind,
@@ -156,7 +156,7 @@ impl ToHirEager for SynExprIdx {
             SynExpr::Binary {
                 lopd,
                 opr,
-                opr_token_idx,
+                opr_regional_token_idx,
                 ropd,
             } => HirEagerExpr::Binary {
                 lopd: lopd.to_hir_eager(builder),
@@ -165,7 +165,7 @@ impl ToHirEager for SynExprIdx {
             },
             SynExpr::Be {
                 src,
-                be_token_idx,
+                be_regional_token_idx,
                 ref target,
             } => HirEagerExpr::Be {
                 src: src.to_hir_eager(builder),
@@ -176,7 +176,7 @@ impl ToHirEager for SynExprIdx {
             },
             SynExpr::Prefix {
                 opr,
-                opr_token_idx,
+                opr_regional_token_idx,
                 opd,
             } => HirEagerExpr::Prefix {
                 opr,
@@ -185,7 +185,7 @@ impl ToHirEager for SynExprIdx {
             SynExpr::Suffix {
                 opd,
                 opr,
-                opr_token_idx,
+                opr_regional_token_idx,
             } => HirEagerExpr::Suffix {
                 opr,
                 opd: opd.to_hir_eager(builder),
@@ -193,9 +193,9 @@ impl ToHirEager for SynExprIdx {
             SynExpr::FunctionApplicationOrCall {
                 function,
                 ref generic_arguments,
-                lpar_token_idx,
+                lpar_regional_token_idx,
                 ref items,
-                rpar_token_idx,
+                rpar_regional_token_idx,
             } => {
                 let SynExprDisambiguation::ApplicationOrFunctionCall(disambiguation) =
                     builder.expr_disambiguation(*self)
@@ -220,24 +220,24 @@ impl ToHirEager for SynExprIdx {
                 }
             }
             SynExpr::Ritchie {
-                ritchie_kind_token_idx,
+                ritchie_kind_regional_token_idx,
                 ritchie_kind,
                 lpar_token,
                 ref parameter_ty_items,
-                rpar_token_idx,
+                rpar_regional_token_idx,
                 light_arrow_token,
                 return_ty_expr,
             } => todo!(),
             SynExpr::FunctionCall {
                 function,
                 ref generic_arguments,
-                lpar_token_idx,
+                lpar_regional_token_idx,
                 ref items,
-                rpar_token_idx,
+                rpar_regional_token_idx,
             } => todo!(),
             SynExpr::Field {
                 owner,
-                dot_token_idx,
+                dot_regional_token_idx,
                 ident_token,
             } => HirEagerExpr::Field {
                 owner: owner.to_hir_eager(builder),
@@ -245,12 +245,12 @@ impl ToHirEager for SynExprIdx {
             },
             SynExpr::MethodApplicationOrCall {
                 self_argument,
-                dot_token_idx,
+                dot_regional_token_idx,
                 ident_token,
                 ref generic_arguments,
-                lpar_token_idx,
+                lpar_regional_token_idx,
                 ref items,
-                rpar_token_idx,
+                rpar_regional_token_idx,
             } => {
                 // todo: method application should be ignored
                 let SynExprDisambiguation::MethodCallOrApplication(disambiguation) =
@@ -285,22 +285,22 @@ impl ToHirEager for SynExprIdx {
                 argument_expr_idx,
             } => todo!(),
             SynExpr::Unit {
-                lpar_token_idx,
-                rpar_token_idx,
+                lpar_regional_token_idx,
+                rpar_regional_token_idx,
             } => todo!(),
             SynExpr::Bracketed {
-                lpar_token_idx,
+                lpar_regional_token_idx,
                 item,
-                rpar_token_idx,
+                rpar_regional_token_idx,
             } => return item.to_hir_eager(builder),
             SynExpr::NewTuple {
-                lpar_token_idx,
+                lpar_regional_token_idx,
                 ref items,
-                rpar_token_idx,
+                rpar_regional_token_idx,
             } => todo!(),
             SynExpr::IndexOrCompositionWithList {
                 owner,
-                lbox_token_idx,
+                lbox_regional_token_idx,
                 ref items,
                 ..
             } => {
@@ -323,9 +323,9 @@ impl ToHirEager for SynExprIdx {
                 }
             }
             SynExpr::List {
-                lbox_token_idx,
+                lbox_regional_token_idx,
                 ref items,
-                rbox_token_idx,
+                rbox_regional_token_idx,
             } => HirEagerExpr::List {
                 items: items
                     .iter()
@@ -333,10 +333,10 @@ impl ToHirEager for SynExprIdx {
                     .collect(),
             },
             SynExpr::BoxColonList {
-                lbox_token_idx,
-                colon_token_idx,
+                lbox_regional_token_idx,
+                colon_regional_token_idx,
                 ref items,
-                rbox_token_idx,
+                rbox_regional_token_idx,
             } => todo!(),
             SynExpr::Block { stmts } => HirEagerExpr::Block {
                 stmts: stmts.to_hir_eager(builder),
@@ -356,12 +356,8 @@ impl ToHirEager for SynExprIdx {
                     )
                 },
             },
-            SynExpr::Sorry {
-                regional_token_idx: token_idx,
-            } => todo!(),
-            SynExpr::Todo {
-                regional_token_idx: token_idx,
-            } => HirEagerExpr::Todo,
+            SynExpr::Sorry { regional_token_idx } => todo!(),
+            SynExpr::Todo { regional_token_idx } => HirEagerExpr::Todo,
             SynExpr::Err(ref e) => {
                 unreachable!(
                     "e = {:?}, path = {:?}",

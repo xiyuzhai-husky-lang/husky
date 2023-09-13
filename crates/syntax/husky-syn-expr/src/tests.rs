@@ -370,7 +370,7 @@ fn parse_expr_works() {
                     data: [
                         Err(
                             Derived(
-                                Token(
+                                TokenData(
                                     ParseIntError,
                                 ),
                             ),

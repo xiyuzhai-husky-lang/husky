@@ -22,7 +22,7 @@ pub enum Cfg {
 }
 
 #[derive(PartialEq)]
-enum Token<'a> {
+enum CfgToken<'a> {
     LeftParen,
     RightParen,
     Ident(&'a str),
@@ -32,13 +32,13 @@ enum Token<'a> {
 }
 
 #[derive(Clone)]
-struct Tokenizer<'a> {
+struct CfgTokenizer<'a> {
     s: iter::Peekable<str::CharIndices<'a>>,
     orig: &'a str,
 }
 
 struct Parser<'a> {
-    t: Tokenizer<'a>,
+    t: CfgTokenizer<'a>,
 }
 
 impl FromStr for Cfg {
@@ -135,7 +135,7 @@ impl<'a, T: fmt::Display> fmt::Display for CommaSep<'a, T> {
 impl<'a> Parser<'a> {
     fn new(s: &'a str) -> Parser<'a> {
         Parser {
-            t: Tokenizer {
+            t: CfgTokenizer {
                 s: s.char_indices().peekable(),
                 orig: s,
             },
@@ -144,14 +144,14 @@ impl<'a> Parser<'a> {
 
     fn expr(&mut self) -> Result<CfgExpr, ParseError> {
         match self.peek() {
-            Some(Ok(Token::Ident(op @ "all"))) | Some(Ok(Token::Ident(op @ "any"))) => {
+            Some(Ok(CfgToken::Ident(op @ "all"))) | Some(Ok(CfgToken::Ident(op @ "any"))) => {
                 self.t.next();
                 let mut e = Vec::new();
-                self.eat(&Token::LeftParen)?;
-                while !self.r#try(&Token::RightParen) {
+                self.eat(&CfgToken::LeftParen)?;
+                while !self.r#try(&CfgToken::RightParen) {
                     e.push(self.expr()?);
-                    if !self.r#try(&Token::Comma) {
-                        self.eat(&Token::RightParen)?;
+                    if !self.r#try(&CfgToken::Comma) {
+                        self.eat(&CfgToken::RightParen)?;
                         break;
                     }
                 }
@@ -161,11 +161,11 @@ impl<'a> Parser<'a> {
                     Ok(CfgExpr::Any(e))
                 }
             }
-            Some(Ok(Token::Ident("not"))) => {
+            Some(Ok(CfgToken::Ident("not"))) => {
                 self.t.next();
-                self.eat(&Token::LeftParen)?;
+                self.eat(&CfgToken::LeftParen)?;
                 let e = self.expr()?;
-                self.eat(&Token::RightParen)?;
+                self.eat(&CfgToken::RightParen)?;
                 Ok(CfgExpr::Not(Box::new(e)))
             }
             Some(Ok(..)) => self.cfg().map(CfgExpr::Value),
@@ -179,10 +179,10 @@ impl<'a> Parser<'a> {
 
     fn cfg(&mut self) -> Result<Cfg, ParseError> {
         match self.t.next() {
-            Some(Ok(Token::Ident(name))) => {
-                let e = if self.r#try(&Token::Equals) {
+            Some(Ok(CfgToken::Ident(name))) => {
+                let e = if self.r#try(&CfgToken::Equals) {
                     let val = match self.t.next() {
-                        Some(Ok(Token::String(s))) => s,
+                        Some(Ok(CfgToken::String(s))) => s,
                         Some(Ok(t)) => {
                             return Err(ParseError::new(
                                 self.t.orig,
@@ -215,11 +215,11 @@ impl<'a> Parser<'a> {
         }
     }
 
-    fn peek(&mut self) -> Option<Result<Token<'a>, ParseError>> {
+    fn peek(&mut self) -> Option<Result<CfgToken<'a>, ParseError>> {
         self.t.clone().next()
     }
 
-    fn r#try(&mut self, token: &Token<'a>) -> bool {
+    fn r#try(&mut self, token: &CfgToken<'a>) -> bool {
         match self.peek() {
             Some(Ok(ref t)) if token == t => {}
             _ => return false,
@@ -228,7 +228,7 @@ impl<'a> Parser<'a> {
         true
     }
 
-    fn eat(&mut self, token: &Token<'a>) -> Result<(), ParseError> {
+    fn eat(&mut self, token: &CfgToken<'a>) -> Result<(), ParseError> {
         match self.t.next() {
             Some(Ok(ref t)) if token == t => Ok(()),
             Some(Ok(t)) => Err(ParseError::new(
@@ -259,21 +259,21 @@ impl<'a> Parser<'a> {
     }
 }
 
-impl<'a> Iterator for Tokenizer<'a> {
-    type Item = Result<Token<'a>, ParseError>;
+impl<'a> Iterator for CfgTokenizer<'a> {
+    type Item = Result<CfgToken<'a>, ParseError>;
 
-    fn next(&mut self) -> Option<Result<Token<'a>, ParseError>> {
+    fn next(&mut self) -> Option<Result<CfgToken<'a>, ParseError>> {
         loop {
             match self.s.next() {
                 Some((_, ' ')) => {}
-                Some((_, '(')) => return Some(Ok(Token::LeftParen)),
-                Some((_, ')')) => return Some(Ok(Token::RightParen)),
-                Some((_, ',')) => return Some(Ok(Token::Comma)),
-                Some((_, '=')) => return Some(Ok(Token::Equals)),
+                Some((_, '(')) => return Some(Ok(CfgToken::LeftParen)),
+                Some((_, ')')) => return Some(Ok(CfgToken::RightParen)),
+                Some((_, ',')) => return Some(Ok(CfgToken::Comma)),
+                Some((_, '=')) => return Some(Ok(CfgToken::Equals)),
                 Some((start, '"')) => {
                     while let Some((end, ch)) = self.s.next() {
                         if ch == '"' {
-                            return Some(Ok(Token::String(&self.orig[start + 1..end])));
+                            return Some(Ok(CfgToken::String(&self.orig[start + 1..end])));
                         }
                     }
                     return Some(Err(ParseError::new(self.orig, UnterminatedString)));
@@ -281,12 +281,12 @@ impl<'a> Iterator for Tokenizer<'a> {
                 Some((start, ch)) if is_ident_start(ch) => {
                     while let Some(&(end, ch)) = self.s.peek() {
                         if !is_ident_rest(ch) {
-                            return Some(Ok(Token::Ident(&self.orig[start..end])));
+                            return Some(Ok(CfgToken::Ident(&self.orig[start..end])));
                         } else {
                             self.s.next();
                         }
                     }
-                    return Some(Ok(Token::Ident(&self.orig[start..])));
+                    return Some(Ok(CfgToken::Ident(&self.orig[start..])));
                 }
                 Some((_, ch)) => {
                     return Some(Err(ParseError::new(self.orig, UnexpectedChar(ch))));
@@ -305,15 +305,15 @@ fn is_ident_rest(ch: char) -> bool {
     is_ident_start(ch) || ch.is_ascii_digit()
 }
 
-impl<'a> Token<'a> {
+impl<'a> CfgToken<'a> {
     fn classify(&self) -> &'static str {
         match *self {
-            Token::LeftParen => "`(`",
-            Token::RightParen => "`)`",
-            Token::Ident(..) => "an identifier",
-            Token::Comma => "`,`",
-            Token::Equals => "`=`",
-            Token::String(..) => "a string",
+            CfgToken::LeftParen => "`(`",
+            CfgToken::RightParen => "`)`",
+            CfgToken::Ident(..) => "an identifier",
+            CfgToken::Comma => "`,`",
+            CfgToken::Equals => "`=`",
+            CfgToken::String(..) => "a string",
         }
     }
 }

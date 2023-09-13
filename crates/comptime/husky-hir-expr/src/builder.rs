@@ -49,12 +49,12 @@ fn expr_region_contains_gn(db: &dyn HirExprDb, syn_expr_region: SynExprRegion) -
             } => todo!(),
             SynExpr::MethodApplicationOrCall {
                 self_argument,
-                dot_token_idx,
+                dot_regional_token_idx,
                 ident_token,
                 generic_arguments,
-                lpar_token_idx,
+                lpar_regional_token_idx,
                 items,
-                rpar_token_idx,
+                rpar_regional_token_idx,
             } => {
                 let SynExprDisambiguation::MethodCallOrApplication(disambiguation) =
                     expr_ty_region.expr_disambiguation_unwrapped(syn_expr_idx)

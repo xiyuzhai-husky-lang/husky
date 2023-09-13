@@ -7,7 +7,7 @@ use proc_macro2::{Span, TokenStream, TokenTree};
 use quote::ToTokens;
 use syn::punctuated::Punctuated;
 use syn::token::Brace;
-use syn::{Expr, Ident, LitStr, Path, Token};
+use syn::{Expr, Ident, LitStr, Path, TokenData};
 
 pub struct ViewRoot(pub Vec<ViewNode>);
 
@@ -134,7 +134,7 @@ pub enum Component {
 
 pub struct FnLikeComponent {
     pub ident: Path,
-    pub args: Punctuated<Expr, Token![,]>,
+    pub args: Punctuated<Expr, TokenData![,]>,
 }
 
 pub struct ElementLikeComponent {

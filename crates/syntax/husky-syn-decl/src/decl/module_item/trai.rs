@@ -4,7 +4,6 @@ use super::*;
 pub struct TraitSynNodeDecl {
     #[id]
     pub syn_node_path: TraitSynNodePath,
-    pub ast_idx: AstIdx,
     #[return_ref]
     template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
     pub syn_expr_region: SynExprRegion,
@@ -34,48 +33,19 @@ pub(crate) fn trai_syn_node_decl(
     db: &dyn SynDeclDb,
     syn_node_path: TraitSynNodePath,
 ) -> TraitSynNodeDecl {
-    let parser = DeclParserFactory::new(db, syn_node_path);
-    parser.parse_trai_syn_node_decl(syn_node_path)
+    DeclParserFactory::new(db, syn_node_path).parse_trai_syn_node_decl()
 }
 
-impl<'a> DeclParserFactory<'a> {
-    fn parse_trai_syn_node_decl(&self, syn_node_path: TraitSynNodePath) -> TraitSynNodeDecl {
-        let db = self.db();
-        let node = syn_node_path.node(db);
-        let ast_idx: AstIdx = node.ast_idx(db);
-        match self.ast_sheet()[ast_idx] {
-            Ast::Identifiable {
-                token_group_idx,
-                saved_stream_state,
-                ..
-            } => self.parse_trai_syn_decl_aux(
-                ast_idx,
-                syn_node_path,
-                token_group_idx,
-                saved_stream_state,
-            ),
-            _ => unreachable!(),
-        }
-    }
-
-    fn parse_trai_syn_decl_aux(
-        &self,
-        ast_idx: AstIdx,
-        id: TraitSynNodePath,
-        token_group_idx: TokenGroupIdx,
-        saved_stream_state: TokenStreamState,
-    ) -> TraitSynNodeDecl {
-        let mut parser = self.parser(
-            id,
-            None,
-            AllowSelfType::True,
-            AllowSelfValue::False,
-            None,
-            token_group_idx,
-            Some(saved_stream_state),
-        );
+impl<'a> DeclParserFactory<'a, TraitSynNodePath> {
+    fn parse_trai_syn_node_decl(&self) -> TraitSynNodeDecl {
+        let mut parser = self.parser(None, AllowSelfType::True, AllowSelfValue::False, None);
         let template_parameters = parser.try_parse_option();
-        TraitSynNodeDecl::new(self.db(), id, ast_idx, template_parameters, parser.finish())
+        TraitSynNodeDecl::new(
+            self.db(),
+            self.syn_node_path(),
+            template_parameters,
+            parser.finish(),
+        )
     }
 }
 
@@ -83,7 +53,6 @@ impl<'a> DeclParserFactory<'a> {
 pub struct TraitSynDecl {
     #[id]
     pub path: TraitPath,
-    pub ast_idx: AstIdx,
     #[return_ref]
     pub template_parameters: ImplicitParameterDeclPatterns,
     pub syn_expr_region: SynExprRegion,
@@ -95,7 +64,6 @@ impl TraitSynDecl {
         path: TraitPath,
         syn_node_decl: TraitSynNodeDecl,
     ) -> DeclResult<TraitSynDecl> {
-        let ast_idx = syn_node_decl.ast_idx(db);
         let template_parameters = syn_node_decl
             .template_parameter_decl_list(db)
             .as_ref()?
@@ -106,7 +74,6 @@ impl TraitSynDecl {
         Ok(TraitSynDecl::new(
             db,
             path,
-            ast_idx,
             template_parameters,
             syn_expr_region,
         ))

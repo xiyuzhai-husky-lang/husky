@@ -22,13 +22,13 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Punctuation(punc) => Ok(Some(PunctuationToken { punc, token_idx })),
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Punctuation(punc) => Ok(Some(PunctuationToken { punc, token_idx })),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -84,14 +84,14 @@ where
 {
     if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
         match token {
-            Token::Punctuation(punc) if punc == target => Ok(Some(f(token_idx))),
-            Token::Error(error) => Err(error),
-            Token::Label(_)
-            | Token::Punctuation(_)
-            | Token::Ident(_)
-            | Token::WordOpr(_)
-            | Token::Literal(_)
-            | Token::Keyword(_) => Ok(None),
+            TokenData::Punctuation(punc) if punc == target => Ok(Some(f(token_idx))),
+            TokenData::Error(error) => Err(error),
+            TokenData::Label(_)
+            | TokenData::Punctuation(_)
+            | TokenData::Ident(_)
+            | TokenData::WordOpr(_)
+            | TokenData::Literal(_)
+            | TokenData::Keyword(_) => Ok(None),
         }
     } else {
         Ok(None)
@@ -211,21 +211,21 @@ where
         let token_stream = ctx.token_stream_mut();
         if let Some((token_idx, token)) = token_stream.next_indexed() {
             match token {
-                Token::Punctuation(Punctuation::COLON) => match token_stream.peek() {
+                TokenData::Punctuation(Punctuation::COLON) => match token_stream.peek() {
                     Some(_) => Ok(None),
                     None => Ok(Some(EolToken::Colon(EolColonToken { token_idx }))),
                 },
-                Token::Punctuation(Punctuation::SEMICOLON) => match token_stream.peek() {
+                TokenData::Punctuation(Punctuation::SEMICOLON) => match token_stream.peek() {
                     Some(_) => Ok(None),
                     None => Ok(Some(EolToken::Semicolon(EolSemicolonToken { token_idx }))),
                 },
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -245,17 +245,17 @@ where
         let token_stream = ctx.token_stream_mut();
         if let Some((token_idx, token)) = token_stream.next_indexed() {
             match token {
-                Token::Punctuation(Punctuation::SEMICOLON) => match token_stream.peek() {
+                TokenData::Punctuation(Punctuation::SEMICOLON) => match token_stream.peek() {
                     Some(_) => Ok(None),
                     None => Ok(Some(EolSemicolonToken { token_idx })),
                 },
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)

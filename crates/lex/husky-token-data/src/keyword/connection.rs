@@ -17,8 +17,8 @@ impl ConnectionKeyword {
     }
 }
 
-impl From<ConnectionKeyword> for Token {
+impl From<ConnectionKeyword> for TokenData {
     fn from(kw: ConnectionKeyword) -> Self {
-        Token::Keyword(kw.into())
+        TokenData::Keyword(kw.into())
     }
 }

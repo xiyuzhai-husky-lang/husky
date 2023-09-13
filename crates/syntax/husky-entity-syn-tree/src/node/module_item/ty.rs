@@ -25,7 +25,7 @@ impl TypeSynNodePath {
         self.maybe_ambiguous_path(db).path.ty_kind(db)
     }
 
-    pub fn node<'a>(self, db: &'a dyn EntitySynTreeDb) -> MajorItemSynNode {
+    pub(crate) fn syn_node<'a>(self, db: &'a dyn EntitySynTreeDb) -> MajorItemSynNode {
         ty_node(db, self)
     }
 
@@ -96,7 +96,7 @@ fn ty_decrs(
     let mut registry = ItemSynNodePathRegistry::default();
     ast_sheet.procure_decrs(
         ty_syn_node_path.maybe_ambiguous_path(db).path.into(),
-        ty_syn_node_path.node(db).ast_idx(db),
+        ty_syn_node_path.syn_node(db).ast_idx(db),
         move |decr_ast_idx, _, path| {
             DecrSynNode::new(
                 ty_syn_node_path.into(),

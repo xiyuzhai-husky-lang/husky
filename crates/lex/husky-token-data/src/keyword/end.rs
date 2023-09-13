@@ -1,4 +1,4 @@
-use crate::{Keyword, Token};
+use crate::{Keyword, TokenData};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum EndKeyword {
@@ -15,8 +15,8 @@ impl EndKeyword {
     }
 }
 
-impl From<EndKeyword> for Token {
+impl From<EndKeyword> for TokenData {
     fn from(kw: EndKeyword) -> Self {
-        Token::Keyword(kw.into())
+        TokenData::Keyword(kw.into())
     }
 }

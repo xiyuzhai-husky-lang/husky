@@ -44,7 +44,7 @@ impl Diagnose for OriginalSynNodeDeclError {
             OriginalSynNodeDeclError::ExpectedEolColon(_e) => {
                 format!("Syntax Error: expect end-of-line colon",)
             }
-            OriginalSynNodeDeclError::ExpectedRightCurlyBrace(_) => {
+            OriginalSynNodeDeclError::ExpectedRcurl(_) => {
                 format!("Syntax Error: expect `}}`",)
             }
             OriginalSynNodeDeclError::ExpectedRightAngleBracketForImplicitParameterDeclList {
@@ -70,9 +70,7 @@ impl Diagnose for OriginalSynNodeDeclError {
             OriginalSynNodeDeclError::ExpectEqTokenForVariable(_) => {
                 format!("Syntax Error: ExpectEqTokenForVariable",)
             }
-            OriginalSynNodeDeclError::ExpectedLeftCurlyBraceOrLeftParenthesisOrSemicolonForStruct(
-                _,
-            ) => {
+            OriginalSynNodeDeclError::ExpectedLcurlOrLparOrSemicolonForStruct(_) => {
                 format!("Syntax Error: expected `{{` `(` or `;` for struct",)
             }
             OriginalSynNodeDeclError::ExpectedEqForAssociatedType(_) => todo!(),
@@ -88,25 +86,29 @@ impl Diagnose for OriginalSynNodeDeclError {
     fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
         match self {
             OriginalSynNodeDeclError::Expr(error) => error.range(ctx),
-            OriginalSynNodeDeclError::ExpectedOutputType(token_stream_state)
-            | OriginalSynNodeDeclError::ExpectedCurry(token_stream_state)
-            | OriginalSynNodeDeclError::ExpectedEolColon(token_stream_state)
-            | OriginalSynNodeDeclError::ExpectedRightCurlyBrace(token_stream_state)
+            OriginalSynNodeDeclError::ExpectedOutputType(regional_token_stream_state)
+            | OriginalSynNodeDeclError::ExpectedCurry(regional_token_stream_state)
+            | OriginalSynNodeDeclError::ExpectedEolColon(regional_token_stream_state)
+            | OriginalSynNodeDeclError::ExpectedRcurl(regional_token_stream_state)
             | OriginalSynNodeDeclError::ExpectedRightAngleBracketForImplicitParameterDeclList {
-                token_stream_state,
+                regional_token_stream_state,
                 ..
             }
-            | OriginalSynNodeDeclError::ExpectedParameterDeclList(token_stream_state)
-            | OriginalSynNodeDeclError::ExpectedImplicitParameterDecl(token_stream_state)
-            | OriginalSynNodeDeclError::ExpectedRightParenthesisInParameterList(token_stream_state)
-            | OriginalSynNodeDeclError::ExpectedRightParenthesisInTupleStructFieldTypeList(
-                token_stream_state,
+            | OriginalSynNodeDeclError::ExpectedParameterDeclList(regional_token_stream_state)
+            | OriginalSynNodeDeclError::ExpectedImplicitParameterDecl(
+                regional_token_stream_state,
             )
-            | OriginalSynNodeDeclError::ExpectedVariableType(token_stream_state)
-            | OriginalSynNodeDeclError::ExpectEqTokenForVariable(token_stream_state)
-            | OriginalSynNodeDeclError::ExpectedLeftCurlyBraceOrLeftParenthesisOrSemicolonForStruct(
-                token_stream_state,
-            ) => ctx.token_stream_state_text_range(*token_stream_state),
+            | OriginalSynNodeDeclError::ExpectedRightParenthesisInParameterList(
+                regional_token_stream_state,
+            )
+            | OriginalSynNodeDeclError::ExpectedRightParenthesisInTupleStructFieldTypeList(
+                regional_token_stream_state,
+            )
+            | OriginalSynNodeDeclError::ExpectedVariableType(regional_token_stream_state)
+            | OriginalSynNodeDeclError::ExpectEqTokenForVariable(regional_token_stream_state)
+            | OriginalSynNodeDeclError::ExpectedLcurlOrLparOrSemicolonForStruct(
+                regional_token_stream_state,
+            ) => ctx.regional_token_stream_state_text_range(regional_token_stream_state),
             OriginalSynNodeDeclError::ExpectedEqForAssociatedType(_) => todo!(),
             OriginalSynNodeDeclError::ExpectLeftBracketInDerive(_) => todo!(),
             OriginalSynNodeDeclError::ExpectRightBracketInDerive(_) => todo!(),

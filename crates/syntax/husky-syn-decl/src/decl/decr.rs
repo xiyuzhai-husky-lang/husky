@@ -2,7 +2,7 @@ mod derive;
 
 pub use self::derive::*;
 
-use crate::*;
+use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
@@ -11,12 +11,6 @@ pub enum DecrSynNodeDecl {
 }
 
 impl DecrSynNodeDecl {
-    pub fn ast_idx(self, db: &dyn SynDeclDb) -> AstIdx {
-        match self {
-            DecrSynNodeDecl::Derive(syn_node_decl) => syn_node_decl.ast_idx(db),
-        }
-    }
-
     pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
             DecrSynNodeDecl::Derive(syn_node_decl) => syn_node_decl.syn_expr_region(db),
@@ -37,13 +31,8 @@ fn decr_syn_node_decl(db: &dyn SynDeclDb, syn_node_path: DecrSynNodePath) -> Dec
     // ad hoc
     let coword_menu = db.coword_menu();
     let decr_ident = syn_node_path.ident(db);
-    let node = syn_node_path.node(db);
     if decr_ident == coword_menu.derive_ident() {
-        DecrSynNodeDecl::Derive(DeriveDecrSynNodeDecl::new(
-            db,
-            syn_node_path,
-            node.ast_idx(db),
-        ))
+        DecrSynNodeDecl::Derive(DeriveDecrSynNodeDecl::new(db, syn_node_path))
     } else {
         todo!()
     }

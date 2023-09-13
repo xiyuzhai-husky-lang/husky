@@ -4,18 +4,16 @@ use super::*;
 pub struct TraitForTypeMethodFnSynNodeDecl {
     #[id]
     pub syn_node_path: TraitForTypeItemSynNodePath,
-    pub node: TraitForTypeItemSynNode,
-    pub ast_idx: AstIdx,
     #[return_ref]
     pub template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
     #[return_ref]
     pub parenate_parameter_decl_list: SynNodeDeclResult<RitchieParameters<true>>,
     #[return_ref]
-    pub light_arrow_token: TokenDataResult<Option<RegionalLightArrowToken>>,
+    pub light_arrow_token: TokenDataResult<Option<LightArrowRegionalToken>>,
     #[return_ref]
     pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
     #[return_ref]
-    pub eol_colon: SynNodeDeclResult<EolToken>,
+    pub eol_colon: SynNodeDeclResult<EolRegionalToken>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -38,25 +36,15 @@ impl TraitForTypeMethodFnSynNodeDecl {
     }
 }
 
-impl<'a> DeclParserFactory<'a> {
-    pub(super) fn parse_trai_for_ty_method_fn_node_decl(
-        &self,
-        syn_node_path: TraitForTypeItemSynNodePath,
-        node: TraitForTypeItemSynNode,
-        ast_idx: AstIdx,
-        token_group_idx: TokenGroupIdx,
-        saved_stream_state: TokenStreamState,
-    ) -> TraitForTypeMethodFnSynNodeDecl {
+impl<'a> DeclParserFactory<'a, TraitForTypeItemSynNodePath> {
+    pub(super) fn parse_trai_for_ty_method_fn_node_decl(&self) -> TraitForTypeMethodFnSynNodeDecl {
         let db = self.db();
-        let impl_block_syn_node_decl = syn_node_path.impl_block(db).syn_node_decl(db);
+        let impl_block_syn_node_decl = self.syn_node_path().impl_block(db).syn_node_decl(db);
         let mut parser = self.parser(
-            node.syn_node_path(db),
             Some(impl_block_syn_node_decl.syn_expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::True,
             None,
-            token_group_idx,
-            saved_stream_state,
         );
         let template_parameter_decl_list = parser.try_parse_option();
         let parenate_parameter_decl_list =
@@ -72,9 +60,7 @@ impl<'a> DeclParserFactory<'a> {
         let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
         TraitForTypeMethodFnSynNodeDecl::new(
             db,
-            node.syn_node_path(db),
-            node,
-            ast_idx,
+            self.syn_node_path(),
             template_parameter_decl_list,
             parenate_parameter_decl_list,
             light_arrow_token,

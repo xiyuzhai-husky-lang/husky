@@ -36,7 +36,7 @@ impl<'a> TryParseOptionFromStreamWithContext<AstParser<'a>> for TypeVariants {
 //             .peek_token_group_of_exact_indent_with_its_first_token(ctx.indent())
 //         {
 //             Some((_, _, first_noncomment_token)) => match first_noncomment_token {
-//                 Token::Punctuation(Punctuation::VERTICAL) => (
+//                 TokenData::Punctuation(Punctuation::VERTICAL) => (
 //                     self.parse_ty_variants(ctx.subcontext(
 //                         AstContextKind::ExpectTypeVariants { ty_path: todo!() },
 //                     )),

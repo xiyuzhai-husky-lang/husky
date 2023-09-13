@@ -33,7 +33,8 @@ husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-opr = { path = "../../kernel/husky-opr" }
 # syntax
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
-husky-regional-ast = { path = "../../syntax/husky-regional-ast" }
+husky-decl-ast = { path = "../../syntax/husky-decl-ast" }
+husky-defn-ast = { path = "../../syntax/husky-defn-ast" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }

@@ -6,17 +6,15 @@ use super::*;
 pub struct TypeMethodFnSynNodeDecl {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
-    pub node: TypeItemSynNode,
-    pub ast_idx: AstIdx,
     #[return_ref]
     template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
     #[return_ref]
     pub ritchie_parameter_decl_list: SynNodeDeclResult<RitchieParameters<true>>,
-    pub light_arrow_token: TokenDataResult<Option<RegionalLightArrowToken>>,
+    pub light_arrow_token: TokenDataResult<Option<LightArrowRegionalToken>>,
     #[return_ref]
     pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
     #[return_ref]
-    pub eol_colon: SynNodeDeclResult<EolToken>,
+    pub eol_colon: SynNodeDeclResult<EolRegionalToken>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -39,25 +37,15 @@ impl TypeMethodFnSynNodeDecl {
     }
 }
 
-impl<'a> DeclParserFactory<'a> {
-    pub(super) fn parse_ty_method_node_decl(
-        &self,
-        syn_node_path: TypeItemSynNodePath,
-        node: TypeItemSynNode,
-        ast_idx: AstIdx,
-        token_group_idx: TokenGroupIdx,
-        saved_stream_state: TokenStreamState,
-    ) -> TypeMethodFnSynNodeDecl {
+impl<'a> DeclParserFactory<'a, TypeItemSynNodePath> {
+    pub(super) fn parse_ty_method_node_decl(&self) -> TypeMethodFnSynNodeDecl {
         let db = self.db();
-        let impl_block_syn_node_decl = syn_node_path.impl_block(db).syn_node_decl(db);
+        let impl_block_syn_node_decl = self.syn_node_path().impl_block(db).syn_node_decl(db);
         let mut parser = self.parser(
-            node.syn_node_path(db),
             Some(impl_block_syn_node_decl.syn_expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::True,
             None,
-            token_group_idx,
-            saved_stream_state,
         );
         let template_parameter_decl_list = parser.try_parse_option();
         let parameter_decl_list =
@@ -73,9 +61,7 @@ impl<'a> DeclParserFactory<'a> {
         let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
         TypeMethodFnSynNodeDecl::new(
             db,
-            syn_node_path,
-            node,
-            ast_idx,
+            self.syn_node_path(),
             template_parameter_decl_list,
             parameter_decl_list,
             light_arrow_token,

@@ -5,7 +5,7 @@ impl HasFluffyTypeMethodDispatch for EtherealTerm {
         self,
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
-        ident_token: IdentToken,
+        ident_token: IdentRegionalToken,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         // todo: check scope
         match self {
@@ -24,7 +24,7 @@ fn ethereal_ty_ontology_path_ty_method_dispatch(
     engine: &mut impl FluffyTermEngine,
     expr_idx: SynExprIdx,
     ty_path: TypePath,
-    ident_token: IdentToken,
+    ident_token: IdentRegionalToken,
 ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
     ethereal_ty_method_dispatch_aux(engine, expr_idx, ty_path, &[], ident_token, smallvec![])
 }
@@ -33,7 +33,7 @@ fn ethereal_term_application_ty_method_dispatch(
     engine: &mut impl FluffyTermEngine,
     expr_idx: SynExprIdx,
     ty_term: EtherealTermApplication,
-    ident_token: IdentToken,
+    ident_token: IdentRegionalToken,
 ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
     let application_expansion = ty_term.application_expansion(engine.db());
     match application_expansion.function() {
@@ -54,7 +54,7 @@ fn ethereal_ty_method_dispatch_aux(
     expr_idx: SynExprIdx,
     ty_path: TypePath,
     arguments: &[EtherealTerm],
-    ident_token: IdentToken,
+    ident_token: IdentRegionalToken,
     mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
 ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
     match ty_path.refine(engine.db()) {
