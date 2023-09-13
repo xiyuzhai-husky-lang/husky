@@ -1,14 +1,10 @@
 use super::*;
-use husky_ast::{AstIdx, AstSheet, AstTokenIdxRangeSheet, FugitiveBody};
 use husky_entity_syn_tree::helpers::tokra_region::{HasSynDefnTokraRegion, SynDefnTokraRegionData};
 use husky_print_utils::p;
+use husky_regional_ast::RegionalAstArenaRef;
 
 pub struct SynStmtContext<'a> {
     expr_context: SynExprContext<'a>,
-    #[deprecated(note = "remove this")]
-    ast_sheet: &'a AstSheet,
-    #[deprecated(note = "remove this")]
-    ast_token_idx_range_sheet: &'a AstTokenIdxRangeSheet,
     defn_tokra_region_data: SynDefnTokraRegionData<'a>,
 }
 
@@ -50,14 +46,8 @@ impl<'a> SynStmtContext<'a> {
         p!(syn_node_path.into().debug(db));
         Some(Self {
             expr_context,
-            ast_sheet: db.ast_sheet(module_path).unwrap(),
-            ast_token_idx_range_sheet: db.ast_token_idx_range_sheet(module_path).unwrap(),
             defn_tokra_region_data: syn_node_path.syn_defn_tokra_region(db)?.data(db),
         })
-    }
-
-    pub fn ast_sheet(&self) -> &'a AstSheet {
-        self.ast_sheet
     }
 
     pub(crate) fn expr_parser<'b>(
@@ -71,10 +61,6 @@ impl<'a> SynStmtContext<'a> {
         SynExprParser::new(self, None, token_stream)
     }
 
-    pub fn ast_token_idx_range_sheet(&self) -> &'a AstTokenIdxRangeSheet {
-        self.ast_token_idx_range_sheet
-    }
-
     pub fn finish(self) -> SynExprRegion {
         self.expr_context.finish()
     }
@@ -86,6 +72,10 @@ impl<'a> SynStmtContext<'a> {
     ) -> RegionalTokenStream<'a> {
         // self.token_sheet_data
         //     .token_group_token_stream(token_group_idx, saved_stream_state)
+        todo!()
+    }
+
+    pub(crate) fn regional_ast_arena(&self) -> RegionalAstArenaRef<'a> {
         todo!()
     }
 }

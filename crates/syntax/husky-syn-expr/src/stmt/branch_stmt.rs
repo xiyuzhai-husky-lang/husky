@@ -59,7 +59,7 @@ impl SynElseBranch {
 
 impl<'a> SynStmtContext<'a> {
     pub(super) fn parse_if_branch(&mut self, if_branch: RegionalAstIdx) -> SynIfBranch {
-        match self.ast_sheet()[if_branch] {
+        match self.region_ast_arena()[if_branch] {
             RegionalAst::BasicStmtOrBranch {
                 token_group_idx,
                 body,
