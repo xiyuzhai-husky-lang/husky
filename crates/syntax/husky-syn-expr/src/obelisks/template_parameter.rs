@@ -54,7 +54,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
         let syn_attrs = ctx.try_parse()?;
         let annotated_variance_token = ctx.try_parse_err_as_none();
         if let Some(ident_token) = ctx.try_parse_option::<IdentRegionalToken>()? {
-            let access_start = ctx.save_state().next_token_idx();
+            let access_start = ctx.save_state().next_regional_token_idx();
             let parameter_symbol = CurrentSynSymbol::new(
                 ctx.pattern_expr_region(),
                 access_start,
@@ -94,7 +94,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
                 },
             }))
         } else if let Some(label_token) = ctx.try_parse_option::<LifetimeRegionalToken>()? {
-            let access_start = ctx.save_state().next_token_idx();
+            let access_start = ctx.save_state().next_regional_token_idx();
             let symbols = ctx.define_symbols(
                 [CurrentSynSymbol::new(
                     ctx.pattern_expr_region(),
@@ -131,7 +131,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
                 ExprRootKind::ConstantImplicitParameterType,
                 OriginalSynExprError::ExpectedConstantImplicitParameterType,
             );
-            let access_start = ctx.save_state().next_token_idx();
+            let access_start = ctx.save_state().next_regional_token_idx();
             let syn_attrs = ctx.try_parse()?;
             let symbol = ctx
                 .define_symbols(

@@ -191,12 +191,13 @@ impl EntitySynTreeSheet {
 
     pub fn all_ill_formed_impl_block_syn_nodes<'a>(
         &'a self,
-    ) -> impl Iterator<Item = IllFormedImplBlockSynNode> + 'a {
+        db: &'a dyn EntitySynTreeDb,
+    ) -> impl Iterator<Item = &'a ImplBlockIllForm> + 'a {
         self.impl_block_syn_node_table.iter().copied().filter_map(
             |(_, impl_block)| match impl_block {
                 ImplBlockSynNode::TypeImplBlock(_) => None,
                 ImplBlockSynNode::TraitForTypeImplBlock(_) => None,
-                ImplBlockSynNode::IllFormedImplBlock(impl_block) => Some(impl_block),
+                ImplBlockSynNode::IllFormedImplBlock(impl_block) => Some(impl_block.ill_form(db)),
             },
         )
     }

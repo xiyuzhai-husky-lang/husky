@@ -1,7 +1,8 @@
 use husky_entity_syn_tree::EntitySynTreeResult;
 use husky_text::TextRange;
 
-use husky_token::{Keyword, RangedTokenSheet, TokenData, TokenGroupIdx, TokenSheetData};
+use husky_token::{RangedTokenSheet, TokenGroupIdx, TokenSheetData};
+use husky_token_data::{Keyword, TokenData};
 use husky_token_info::TokenInfo;
 
 use crate::*;

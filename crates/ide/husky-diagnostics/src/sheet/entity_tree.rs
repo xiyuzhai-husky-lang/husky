@@ -25,8 +25,8 @@ pub(crate) fn item_tree_diagnostic_sheet(
                 EntitySynTreeError::Derived(_) => (),
             }
         }
-        for ill_formed_impl_block in item_tree_sheet.all_ill_formed_impl_block_syn_nodes() {
-            diagnostics.push(ill_formed_impl_block.to_diagnostic(&ctx))
+        for impl_block_ill_form in item_tree_sheet.all_ill_formed_impl_block_syn_nodes(db) {
+            diagnostics.push(impl_block_ill_form.to_diagnostic(&ctx))
         }
     }
     // todo
@@ -69,11 +69,11 @@ impl Diagnose for OriginalEntityTreeError {
     }
 }
 
-impl Diagnose for IllFormedImplBlockSynNode {
+impl Diagnose for ImplBlockIllForm {
     type Context<'a> = SheetDiagnosticsContext<'a>;
 
     fn message(&self, ctx: &Self::Context<'_>) -> String {
-        match self.ill_form(ctx.db()) {
+        match self {
             ImplBlockIllForm::UnmatchedAngleBras => todo!(),
             ImplBlockIllForm::TokenData(_) => todo!(),
             ImplBlockIllForm::MajorPath(e) => match e {
@@ -102,7 +102,7 @@ impl Diagnose for IllFormedImplBlockSynNode {
     }
 
     fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
-        match self.ill_form(ctx.db()) {
+        match self {
             ImplBlockIllForm::UnmatchedAngleBras => todo!(),
             ImplBlockIllForm::TokenData(_) => todo!(),
             ImplBlockIllForm::MajorPath(e) => match e {

@@ -21,7 +21,7 @@ impl<'a, 'b> SynDefnExprParser<'a, 'b> {
             Err(OriginalSynExprError::ExpectedLetVariableDecls(state))?
         };
         let symbols = self.pattern_expr_region().pattern_expr_symbols(pattern);
-        let access_start = self.save_state().next_token_idx();
+        let access_start = self.save_state().next_regional_token_idx();
         let symbols = symbols
             .iter()
             .map(|(ident, pattern_symbol)| {

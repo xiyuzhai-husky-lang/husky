@@ -37,6 +37,8 @@ husky-scope = { path = "../../kernel/husky-scope" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-opr = { path = "../../kernel/husky-opr" }
 husky-scope-expr = { path = "../../syntax/husky-scope-expr" }
+husky-decl-ast = { path = "../../syntax/husky-decl-ast" }
+husky-defn-ast = { path = "../../syntax/husky-defn-ast" }
 # infer
 husky-manifest = { path = "../../semantics/husky-manifest" }
 # utils

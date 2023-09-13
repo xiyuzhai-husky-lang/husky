@@ -1,4 +1,6 @@
+use husky_regional_token::RegionalTokenIdx;
 use husky_text::TextRange;
+use husky_token_data::TokenData;
 
 use crate::*;
 
@@ -27,8 +29,9 @@ impl TokenInfoSheet {
     }
 
     pub(crate) fn add(&mut self, token_idx: TokenIdx, token_info: TokenInfo) {
-        assert_eq!(self.token_infos[token_idx.index()], TokenInfo::None);
-        self.token_infos[token_idx.index()] = token_info
+        todo!()
+        // assert_eq!(self.token_infos[token_idx.index()], TokenInfo::None);
+        // self.token_infos[token_idx.index()] = token_info
     }
 
     pub fn informative_ranged_token_iter<'a>(

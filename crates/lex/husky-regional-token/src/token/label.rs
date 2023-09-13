@@ -14,7 +14,7 @@ impl LifetimeRegionalToken {
         self.label
     }
 
-    pub fn token_idx(&self) -> RegionalTokenIdx {
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
         self.token_idx
     }
 }

@@ -17,6 +17,7 @@ husky-documentation = { path = "../../ide/husky-documentation" }
 # infer
 husky-token-info = { path = "../../ide/husky-token-info" }
 # lex
+husky-token-data = { path = "../../lex/husky-token-data" }
 husky-token = { path = "../../lex/husky-token" }
 husky-text = { path = "../../lex/husky-text" }
 # kernel

@@ -75,7 +75,7 @@ impl<'a> DeclParserFactory<'a, TypeVariantSynNodePath> {
                 TupleTypeVariantSynNodeDecl::new(
                     db,
                     self.syn_node_path(),
-                    state.next_token_idx(),
+                    state.next_regional_token_idx(),
                     field_comma_list,
                     rpar,
                     parser.finish(),

@@ -16,6 +16,7 @@ use dashmap::DashMap;
     husky_ethereal_signature::EtherealSignatureJar,
     husky_fluffy_term::FluffyTermJar,
     // lex
+    husky_token_data::db::TokenDataJar,
     husky_token::TokenJar,
     husky_toml_token::TomlTokenJar,
     // syntax
