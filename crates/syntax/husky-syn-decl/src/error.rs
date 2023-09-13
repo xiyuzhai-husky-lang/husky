@@ -109,6 +109,7 @@ pub enum DeclError {
 pub type DeclResult<T> = Result<T, DeclError>;
 
 impl From<&SynNodeDeclError> for DeclError {
+    #[track_caller]
     fn from(value: &SynNodeDeclError) -> Self {
         todo!();
         DeclError::NodeDecl

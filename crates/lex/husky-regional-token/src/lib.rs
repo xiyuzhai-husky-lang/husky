@@ -81,9 +81,13 @@ impl<'a> Iterator for RegionalTokenStream<'a> {
 }
 
 impl<'a> RegionalTokenStream<'a> {
-    pub fn new_decl_regional_token_stream(tokens: &'a [TokenData]) -> Self {
+    pub fn new_decl_regional_token_stream(
+        tokens: &'a [TokenData],
+        saved_regional_token_stream_state: Option<RegionalTokenStreamState>,
+    ) -> Self {
         Self {
-            start: RegionalTokenGroupStart::from_index(0),
+            start: saved_regional_token_stream_state
+                .unwrap_or(RegionalTokenGroupStart::from_index(0)),
             tokens,
             next_relative: Default::default(),
         }

@@ -1,3 +1,5 @@
+use husky_token_data::db::HasTokenDataDb;
+
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -62,7 +64,7 @@ pub struct UnderscoreToken {
 
 impl<'a, Context> parsec::TryParseOptionFromStream<Context> for UnderscoreToken
 where
-    Context: TokenStreamParser<'a> + HasTokenDb,
+    Context: TokenStreamParser<'a> + HasTokenDataDb<'a>,
 {
     type Error = TokenDataError;
 
@@ -71,7 +73,7 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
-                TokenData::Ident(ident) => match ident.data(ctx.token_db()) {
+                TokenData::Ident(ident) => match ident.data(ctx.token_data_db()) {
                     "_" => Ok(Some(Self { token_idx })),
                     _ => Ok(None),
                 },
@@ -108,7 +110,7 @@ pub struct DeriveToken {
 
 impl<'a, Context> parsec::TryParseOptionFromStream<Context> for DeriveToken
 where
-    Context: TokenStreamParser<'a> + HasTokenDb,
+    Context: TokenStreamParser<'a> + HasTokenDataDb<'a>,
 {
     type Error = TokenDataError;
 
@@ -117,7 +119,7 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
-                TokenData::Ident(ident) => match ident.data(ctx.token_db()) {
+                TokenData::Ident(ident) => match ident.data(ctx.token_data_db()) {
                     "derive" => Ok(Some(Self { token_idx })),
                     _ => Ok(None),
                 },
@@ -146,7 +148,7 @@ pub struct PhantomToken {
 
 impl<'a, Context> parsec::TryParseOptionFromStream<Context> for PhantomToken
 where
-    Context: TokenStreamParser<'a> + HasTokenDb,
+    Context: TokenStreamParser<'a> + HasTokenDataDb<'a>,
 {
     type Error = TokenDataError;
 
@@ -155,7 +157,7 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
-                TokenData::Ident(ident) => match ident.data(ctx.token_db()) {
+                TokenData::Ident(ident) => match ident.data(ctx.token_data_db()) {
                     "phantom" => Ok(Some(Self { token_idx })),
                     _ => Ok(None),
                 },

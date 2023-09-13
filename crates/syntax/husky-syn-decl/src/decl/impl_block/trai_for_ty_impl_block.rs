@@ -73,26 +73,26 @@ impl<'a> DeclParser<'a, TraitForTypeImplBlockSynNodePath> {
             .expect("guaranteed by parsing");
 
         let ty = match syn_node_path.ty_sketch(db) {
-            TypeSketch::DeriveAny => todo!(),
-            TypeSketch::Path(_) => todo!(),
-            // SelfTypeSketchExpr::Path(_) => SelfTypeDecl::PathLeadingExpr(
-            //     parser
-            //         .try_parse_option()
-            //         .expect("guaranteed")
-            //         .expect("guaranteed"),
-            // ),
-            // SelfTypeSketchExpr::DeriveAny {
-            //     at_token,
-            //     derive_token,
-            //     underscore_token,
-            // } => {
-            //     parser.advance_by(3);
-            //     SelfTypeDecl::DeriveAny {
-            //         at_token,
-            //         derive_token,
-            //         underscore_token,
-            //     }
-            // }
+            TypeSketch::DeriveAny => SelfTypeDecl::DeriveAny {
+                at_token: parser
+                    .try_parse_option()
+                    .expect("guaranteed")
+                    .expect("guaranteed"),
+                derive_token: parser
+                    .try_parse_option()
+                    .expect("guaranteed")
+                    .expect("guaranteed"),
+                underscore_token: parser
+                    .try_parse_option()
+                    .expect("guaranteed")
+                    .expect("guaranteed"),
+            },
+            TypeSketch::Path(_) => SelfTypeDecl::PathLeadingExpr(
+                parser
+                    .try_parse_option()
+                    .expect("guaranteed")
+                    .expect("guaranteed"),
+            ),
         };
         let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
         TraitForTypeImplBlockSynNodeDecl::new(

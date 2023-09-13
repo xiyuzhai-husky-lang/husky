@@ -28,10 +28,6 @@ where
     }
 }
 
-pub trait HasTokenDb {
-    fn token_db(&self) -> &dyn TokenDb;
-}
-
 #[salsa::jar(db = TokenDb)]
 pub struct TokenJar(
     TokenSheet,

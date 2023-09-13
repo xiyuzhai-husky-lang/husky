@@ -1,6 +1,7 @@
 use super::*;
 use husky_print_utils::p;
 use husky_token::*;
+use husky_token_data::db::{HasTokenDataDb, TokenDataDb};
 use maybe_result::*;
 use original_error::*;
 use parsec::*;
@@ -66,22 +67,22 @@ pub type MajorItemPathExprResult<T> = Result<T, MajorPathExprError>;
 pub type MajorItemPathExprMaybeResult<T> = MaybeResult<T, MajorPathExprError>;
 
 pub(crate) struct MajorItemPathExprParser<'a, 'b> {
-    db: &'b dyn EntitySynTreeDb,
+    db: &'a dyn EntitySynTreeDb,
     crate_root_path: ModulePath,
     token_stream: TokenStream<'a>,
     major_path_expr_arena: &'b mut MajorPathExprArena,
     item_tree_symbol_context: EntityTreeSymbolContext<'a, 'b>,
 }
 
-impl<'a, 'b> HasTokenDb for MajorItemPathExprParser<'a, 'b> {
-    fn token_db(&self) -> &dyn TokenDb {
+impl<'a, 'b> HasTokenDataDb<'a> for MajorItemPathExprParser<'a, 'b> {
+    fn token_data_db(&self) -> &'a dyn TokenDataDb {
         self.db
     }
 }
 
 impl<'a, 'b> MajorItemPathExprParser<'a, 'b> {
     pub(crate) fn new(
-        db: &'b dyn EntitySynTreeDb,
+        db: &'a dyn EntitySynTreeDb,
         crate_root_path: ModulePath,
         token_stream: TokenStream<'a>,
         major_path_expr_arena: &'b mut MajorPathExprArena,
