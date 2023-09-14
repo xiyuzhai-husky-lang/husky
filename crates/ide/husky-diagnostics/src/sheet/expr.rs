@@ -17,24 +17,27 @@ pub(crate) fn expr_diagnostic_sheet(
     db: &dyn DiagnosticsDb,
     module_path: ModulePath,
 ) -> ExprDiagnosticSheet {
-    todo!()
-    // let mut sheet_collector = ModuleDiagnosticsCollector::new(db, module_path);
-    // if let (Ok(ranged_token_sheet), Ok(defns)) =
-    //     (db.ranged_token_sheet(module_path), module_path.defns(db))
-    // {
-    //     let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
-    //     for defn in defns.iter().copied() {
-    //         let decl = defn.syn_decl(db);
-    //         if let Some(syn_expr_region) = decl.syn_expr_region(db) {
-    //             sheet_collector.collect_expr_diagnostics(syn_expr_region);
-    //         }
-    //         if let Some(syn_expr_region) = defn.syn_expr_region(db) {
-    //             sheet_collector.collect_expr_diagnostics(syn_expr_region);
-    //         }
-    //     }
-    // }
-    // let diagnostics = sheet_collector.finish();
-    // ExprDiagnosticSheet::new(db, diagnostics)
+    let mut sheet_collector = ModuleDiagnosticsCollector::new(db, module_path);
+    if let (Ok(ranged_token_sheet), Ok(defns)) =
+        (db.ranged_token_sheet(module_path), module_path.defns(db))
+    {
+        let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
+        for defn in defns.iter().copied() {
+            let decl = defn.syn_decl(db);
+            if let Some(syn_expr_region) = decl.syn_expr_region(db) {
+                sheet_collector
+                    .region_collector(syn_expr_region)
+                    .collect_expr_diagnostics(syn_expr_region);
+            }
+            if let Some(syn_expr_region) = defn.syn_expr_region(db) {
+                sheet_collector
+                    .region_collector(syn_expr_region)
+                    .collect_expr_diagnostics(syn_expr_region);
+            }
+        }
+    }
+    let diagnostics = sheet_collector.finish();
+    ExprDiagnosticSheet::new(db, diagnostics)
 }
 
 impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {

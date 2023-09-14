@@ -98,11 +98,17 @@ impl<'a> RegionalTokenStream<'a> {
         tokens: &'a [TokenData],
         saved_regional_token_stream_state: Option<RegionalTokenStreamState>,
     ) -> Self {
+        let start = RegionalTokenGroupStart::from_index(0);
         Self {
-            start: RegionalTokenGroupStart::from_index(0),
+            start,
             tokens,
             next_relative: saved_regional_token_stream_state
-                .map(|_| todo!())
+                .map(|regional_token_stream_state| {
+                    RegionalTokenGroupRelativeTokenIndex::new(
+                        start,
+                        regional_token_stream_state.next_regional_token_idx(),
+                    )
+                })
                 .unwrap_or_default(),
         }
     }

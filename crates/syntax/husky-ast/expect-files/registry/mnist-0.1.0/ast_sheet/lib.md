@@ -21,7 +21,7 @@ Ok(
                             5,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             6,
                         ),
@@ -47,7 +47,7 @@ Ok(
                             7,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             8,
                         ),
@@ -73,7 +73,7 @@ Ok(
                             9,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             10,
                         ),
@@ -99,7 +99,7 @@ Ok(
                             11,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             12,
                         ),
@@ -125,7 +125,7 @@ Ok(
                             13,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             14,
                         ),
@@ -151,7 +151,7 @@ Ok(
                             15,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             16,
                         ),
@@ -177,7 +177,7 @@ Ok(
                             17,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             18,
                         ),
@@ -203,7 +203,7 @@ Ok(
                             19,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             20,
                         ),
@@ -229,7 +229,7 @@ Ok(
                             21,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             22,
                         ),
@@ -255,7 +255,7 @@ Ok(
                             23,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             24,
                         ),

@@ -1,9 +1,17 @@
 use crate::*;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, PartialEq, Eq, Hash)]
 pub struct ArenaRef<'a, T> {
     data: &'a [T],
 }
+
+impl<'a, T> Clone for ArenaRef<'a, T> {
+    fn clone(&self) -> Self {
+        Self { data: self.data }
+    }
+}
+
+impl<'a, T> Copy for ArenaRef<'a, T> {}
 
 impl<T> Arena<T> {
     pub fn to_ref<'a>(&'a self) -> ArenaRef<'a, T> {

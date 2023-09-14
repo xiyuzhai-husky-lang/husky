@@ -1029,7 +1029,7 @@ Ok(
                             455,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             456,
                         ),
@@ -1055,7 +1055,7 @@ Ok(
                             460,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             461,
                         ),

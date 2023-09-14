@@ -21,7 +21,7 @@ Ok(
                             44,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             45,
                         ),
@@ -47,7 +47,7 @@ Ok(
                             49,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             50,
                         ),

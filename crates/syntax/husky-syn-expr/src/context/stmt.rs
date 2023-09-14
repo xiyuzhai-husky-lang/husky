@@ -31,7 +31,7 @@ impl<'a> SynStmtContext<'a> {
         db: &'a dyn SynExprDb,
     ) -> Option<Self>
     where
-        P: HasSynDefnTokraRegion + Into<ItemSynNodePath>,
+        P: HasSynDefnTokraRegion,
     {
         let module_path = syn_node_path.module_path(db);
         let expr_context = SynExprContext::new(
@@ -59,6 +59,11 @@ impl<'a> SynStmtContext<'a> {
     {
         let token_stream = self.token_group_token_stream(token_group_idx, None);
         SynExprParser::new(self, None, token_stream)
+    }
+
+    pub(crate) fn parse_root_body(&mut self) -> Option<SynStmtIdxRange> {
+        let body = self.defn_tokra_region_data.root_body();
+        todo!()
     }
 
     pub fn finish(self) -> SynExprRegion {
