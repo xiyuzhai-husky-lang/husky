@@ -16,6 +16,13 @@ impl RegionalTokenIdx {
         debug_assert!(index < (u32::MAX - 1) as usize);
         unsafe { Self(NonZeroU32::new_unchecked((index + 1) as u32)) }
     }
+
+    pub(crate) fn from_token_idx(
+        next_token_idx: TokenIdx,
+        token_region_base: TokenRegionBase,
+    ) -> RegionalTokenIdx {
+        Self::from_index(next_token_idx.index() - token_region_base.index_base())
+    }
 }
 
 impl std::ops::Add<usize> for RegionalTokenIdx {

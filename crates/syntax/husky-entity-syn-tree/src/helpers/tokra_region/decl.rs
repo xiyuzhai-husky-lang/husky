@@ -73,7 +73,7 @@ fn build_decl_tokra_region(
         Ast::Decr {
             token_group_idx,
             ident,
-        } => (token_group_idx, DeclAst::Decr),
+        } => (token_group_idx, DeclAst::Decr, None),
         Ast::Identifiable {
             token_group_idx,
             ref visibility_expr,
@@ -85,26 +85,31 @@ fn build_decl_tokra_region(
         } => (
             token_group_idx,
             DeclAst::Identifiable {},
-            saved_stream_state,
+            Some(saved_stream_state),
         ),
         Ast::TypeVariant {
             token_group_idx,
             variant_path,
             vertical_token,
             ident_token,
-            state_after,
-        } => (token_group_idx, DeclAst::TypeVariant),
+            saved_stream_state,
+        } => (
+            token_group_idx,
+            DeclAst::TypeVariant,
+            Some(saved_stream_state),
+        ),
         Ast::ImplBlock {
             token_group_idx,
             items,
-        } => (token_group_idx, DeclAst::ImplBlock),
+        } => (token_group_idx, DeclAst::ImplBlock, None),
         _ => unreachable!(),
     };
     let tokens = token_sheet_data[token_group_idx].to_vec();
     let token_region_base =
         TokenRegionBase::new(token_sheet_data.token_group_base(token_group_idx));
+    let saved_regional_stream_state = saved_regional_stream_state.map(|state| todo!());
     let decl_tokra_region =
-        DeclTokraRegion::new_inner(db, tokens, ast, saved_regional_stream_state);
+        DeclTokraRegion::new_inner(db, tokens, saved_regional_stream_state, ast);
     let decl_tokra_region_source_map = DeclTokraRegionSourceMap {
         token_region_base,
         ast_idx,

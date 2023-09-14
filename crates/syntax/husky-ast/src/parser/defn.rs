@@ -146,7 +146,7 @@ impl<'a> AstParser<'a> {
                         variant_path: TypeVariantPath::new(self.db, path, ident_token.ident()),
                         vertical_token,
                         ident_token,
-                        state_after: aux_parser.save_state(),
+                        saved_stream_state: aux_parser.save_state(),
                     },
                     Err(error) => Ast::Err {
                         token_group_idx,
