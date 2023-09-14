@@ -21,7 +21,7 @@ Ok(
                             17,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             18,
                         ),
@@ -47,7 +47,7 @@ Ok(
                             22,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             23,
                         ),
@@ -73,7 +73,7 @@ Ok(
                             44,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             45,
                         ),
@@ -99,7 +99,7 @@ Ok(
                             46,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             47,
                         ),
@@ -161,7 +161,7 @@ Ok(
                             94,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             95,
                         ),
@@ -187,7 +187,7 @@ Ok(
                             96,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             97,
                         ),
@@ -213,7 +213,7 @@ Ok(
                             98,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             99,
                         ),

@@ -1,4 +1,4 @@
-use husky_defn_ast::{DefnAstArena, DefnAstArenaRef};
+use husky_defn_ast::{DefnAst, DefnAstArena, DefnAstArenaRef, DefnAstIdxRange};
 use idx_arena::ArenaRef;
 
 use super::*;
@@ -20,9 +20,17 @@ impl DefnTokraRegion {
     }
 }
 
+#[derive(Debug, Clone, Copy)]
 pub struct DefnTokraRegionData<'a> {
     tokens: &'a [TokenData],
     ast_arena: DefnAstArenaRef<'a>,
+}
+
+impl<'a> DefnTokraRegionData<'a> {
+    #[inline(always)]
+    pub fn root_body(self) -> DefnAstIdxRange {
+        todo!()
+    }
 }
 
 impl<'a> std::ops::Index<RegionalTokenIdx> for DefnTokraRegionData<'a> {
@@ -52,7 +60,9 @@ pub struct SynDefnTokraRegionSourceMap {
     token_region_base: TokenRegionBase,
 }
 
-pub trait HasSynDefnTokraRegion: for<'a> HasModulePath<dyn EntitySynTreeDb + 'a> + Copy {
+pub trait HasSynDefnTokraRegion:
+    for<'a> HasModulePath<dyn EntitySynTreeDb + 'a> + Copy + Into<ItemSynNodePath>
+{
     fn syn_defn_tokra_region(self, db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion>;
     // use this only when necessary
     fn syn_defn_tokra_region_source_map(
@@ -147,7 +157,7 @@ impl HasSynDefnTokraRegion for MajorItemSynNodePath {
 struct SynDefnTokraRegionBuilder<'a> {
     db: &'a dyn EntitySynTreeDb,
     ast_sheet: &'a AstSheet,
-    syn_defn_ast_arena: DefnAstArena,
+    defn_ast_arena: DefnAstArena,
 }
 
 impl<'a> SynDefnTokraRegionBuilder<'a> {
@@ -155,19 +165,63 @@ impl<'a> SynDefnTokraRegionBuilder<'a> {
         Self {
             db,
             ast_sheet: module_path.ast_sheet(db).expect("modules should be valid"),
-            syn_defn_ast_arena: Default::default(),
+            defn_ast_arena: Default::default(),
         }
     }
 
-    fn build(self, ast_idx: AstIdx) -> Option<(DefnTokraRegion, SynDefnTokraRegionSourceMap)> {
+    fn build(mut self, ast_idx: AstIdx) -> Option<(DefnTokraRegion, SynDefnTokraRegionSourceMap)> {
         let children = match self.ast_sheet[ast_idx] {
             Ast::Identifiable { block, .. } => block.children()?,
             _ => unreachable!(),
         };
-        todo!()
+        let root_body = self.build_body(children);
+        Some(self.finish(root_body))
     }
 
-    fn finish(self) -> Option<(DefnTokraRegion, SynDefnTokraRegionSourceMap)> {
+    fn build_body(&mut self, ast_idx_range: AstIdxRange) -> DefnAstIdxRange {
+        let regional_asts: Vec<_> = ast_idx_range
+            .into_iter()
+            .filter_map(|ast_idx| self.build_ast(ast_idx))
+            .collect();
+        self.defn_ast_arena.alloc_batch(regional_asts)
+    }
+
+    fn build_ast(&mut self, ast_idx: AstIdx) -> Option<DefnAst> {
+        match self.ast_sheet[ast_idx] {
+            Ast::Err {
+                token_group_idx,
+                ref error,
+            } => Some(DefnAst::Err),
+            Ast::BasicStmtOrBranch {
+                token_group_idx,
+                body,
+            } => Some(DefnAst::BasicStmtOrBranch {
+                regional_token_group_idx: todo!(),
+                body: todo!(),
+            }),
+            Ast::IfElseStmts {
+                if_branch,
+                elif_branches,
+                else_branch,
+            } => Some(DefnAst::IfElseStmts {
+                if_branch: todo!(),
+                elif_branches: todo!(),
+                else_branch: todo!(),
+            }),
+            Ast::MatchStmts {
+                token_group_idx,
+                pattern_stmt,
+                case_stmts,
+            } => Some(DefnAst::MatchStmts {
+                token_group_idx: todo!(),
+                pattern_stmt: todo!(),
+                case_stmts: todo!(),
+            }),
+            _ => None,
+        }
+    }
+
+    fn finish(self, root_body: DefnAstIdxRange) -> (DefnTokraRegion, SynDefnTokraRegionSourceMap) {
         todo!()
     }
 }

@@ -8,7 +8,15 @@ pub fn parse_defn_block_expr<P>(
     db: &dyn SynExprDb,
 ) -> Option<(SynExprIdx, SynExprRegion)>
 where
-    P: HasSynDefnTokraRegion + Into<ItemSynNodePath>,
+    P: HasSynDefnTokraRegion,
 {
+    let mut stmt_context = SynStmtContext::new(
+        syn_node_path,
+        decl_expr_region,
+        allow_self_type,
+        allow_self_value,
+        db,
+    )?;
+    stmt_context.parse_root_body();
     todo!()
 }

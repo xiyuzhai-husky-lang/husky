@@ -107,7 +107,9 @@ fn build_decl_tokra_region(
     let tokens = token_sheet_data[token_group_idx].to_vec();
     let token_region_base =
         TokenRegionBase::new(token_sheet_data.token_group_base(token_group_idx));
-    let saved_regional_stream_state = saved_regional_stream_state.map(|state| todo!());
+    let saved_regional_stream_state = saved_regional_stream_state.map(|token_stream_state| {
+        RegionalTokenStreamState::from_token_stream_state(token_stream_state, token_region_base)
+    });
     let decl_tokra_region =
         DeclTokraRegion::new_inner(db, tokens, saved_regional_stream_state, ast);
     let decl_tokra_region_source_map = DeclTokraRegionSourceMap {

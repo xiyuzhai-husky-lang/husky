@@ -62,7 +62,7 @@ impl<'a> SynStmtContext<'a> {
     pub(super) fn parse_if_branch(&mut self, if_branch: DefnAstIdx) -> SynIfBranch {
         match self.regional_asts()[if_branch] {
             DefnAst::BasicStmtOrBranch {
-                token_group_idx,
+                regional_token_group_idx: token_group_idx,
                 body,
             } => {
                 let body_end =
@@ -98,7 +98,7 @@ impl<'a> SynStmtContext<'a> {
     fn parse_elif_branch(&mut self, elif_branch: DefnAstIdx) -> SynElifBranch {
         match self.regional_asts()[elif_branch] {
             DefnAst::BasicStmtOrBranch {
-                token_group_idx,
+                regional_token_group_idx: token_group_idx,
                 body,
             } => {
                 let body = body.expect("should be checked in `husky_ast`");
@@ -124,7 +124,7 @@ impl<'a> SynStmtContext<'a> {
     ) -> Option<SynElseBranch> {
         match self.regional_asts()[else_branch?] {
             DefnAst::BasicStmtOrBranch {
-                token_group_idx,
+                regional_token_group_idx: token_group_idx,
                 body,
             } => {
                 let mut parser = self.expr_parser(token_group_idx);

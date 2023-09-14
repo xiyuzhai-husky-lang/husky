@@ -13,21 +13,24 @@ pub(crate) fn decl_diagnostic_sheet(
     db: &dyn DiagnosticsDb,
     module_path: ModulePath,
 ) -> DeclDiagnosticSheet {
-    todo!()
-    // let mut collector = ModuleDiagnosticsCollector::new(db, module_path);
-    // if let (Ok(ranged_token_sheet), Ok(syn_node_decl_sheet)) = (
-    //     db.ranged_token_sheet(module_path),
-    //     db.syn_node_decl_sheet(module_path),
-    // ) {
-    //     for (_, syn_node_decl) in syn_node_decl_sheet.decls(db).iter().copied() {
-    //         for error in syn_node_decl.node_decl_errors(db) {
-    //             if let SynNodeDeclError::Original(error) = error {
-    //                 collector.visit_atom(error)
-    //             }
-    //         }
-    //     }
-    // }
-    // DeclDiagnosticSheet::new(db, collector.finish())
+    let mut collector = ModuleDiagnosticsCollector::new(db, module_path);
+    if let (Ok(ranged_token_sheet), Ok(syn_node_decl_sheet)) = (
+        db.ranged_token_sheet(module_path),
+        db.syn_node_decl_sheet(module_path),
+    ) {
+        for (_, syn_node_decl) in syn_node_decl_sheet.decls(db).iter().copied() {
+            if let Some(syn_expr_region) = syn_node_decl.syn_expr_region(db) {
+                for error in syn_node_decl.node_decl_errors(db) {
+                    if let SynNodeDeclError::Original(error) = error {
+                        collector
+                            .region_collector(syn_expr_region)
+                            .visit_atom(error)
+                    }
+                }
+            }
+        }
+    }
+    DeclDiagnosticSheet::new(db, collector.finish())
 }
 
 impl Diagnose for OriginalSynNodeDeclError {

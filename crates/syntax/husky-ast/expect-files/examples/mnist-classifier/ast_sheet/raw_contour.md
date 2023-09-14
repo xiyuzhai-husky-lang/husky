@@ -453,7 +453,7 @@ Ok(
                             404,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             405,
                         ),
@@ -479,7 +479,7 @@ Ok(
                             406,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             407,
                         ),
@@ -505,7 +505,7 @@ Ok(
                             408,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             409,
                         ),
@@ -531,7 +531,7 @@ Ok(
                             410,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             411,
                         ),

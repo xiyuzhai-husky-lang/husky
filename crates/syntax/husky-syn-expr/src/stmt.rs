@@ -97,7 +97,7 @@ impl<'a> SynStmtContext<'a> {
         }
     }
 
-    pub fn parse_stmts(&mut self, body: DefnAstIdxRange) -> Option<SynStmtIdxRange> {
+    pub(crate) fn parse_stmts(&mut self, body: DefnAstIdxRange) -> Option<SynStmtIdxRange> {
         let block_end = self.fugitive_body_end(body);
         if body.len() == 0 {
             return None;
@@ -122,7 +122,7 @@ impl<'a> SynStmtContext<'a> {
         let ast = todo!();
         match ast {
             DefnAst::BasicStmtOrBranch {
-                token_group_idx,
+                regional_token_group_idx: token_group_idx,
                 body,
             } => self.parse_basic_stmt(token_group_idx, block_end, body),
             DefnAst::IfElseStmts {

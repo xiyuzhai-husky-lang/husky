@@ -12,7 +12,7 @@ use std::num::NonZeroU32;
 pub enum DefnAst {
     Err,
     BasicStmtOrBranch {
-        token_group_idx: RegionalTokenGroupIdx,
+        regional_token_group_idx: RegionalTokenGroupIdx,
         body: Option<DefnAstIdxRange>,
     },
     IfElseStmts {

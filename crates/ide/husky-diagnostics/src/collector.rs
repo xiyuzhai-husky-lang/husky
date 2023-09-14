@@ -15,6 +15,14 @@ impl<'a> ModuleDiagnosticsCollector<'a> {
         }
     }
 
+    pub(crate) fn region_collector<'b>(
+        &'b mut self,
+        syn_expr_region: SynExprRegion,
+    ) -> RegionDiagnosticsCollector<'a, 'b> {
+        let db = self.context.db();
+        RegionDiagnosticsCollector::new(db, syn_expr_region, self)
+    }
+
     pub(crate) fn visit_atom(
         &mut self,
         atom: &impl Diagnose<Context<'a> = SheetDiagnosticsContext<'a>>,
