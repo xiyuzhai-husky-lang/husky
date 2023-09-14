@@ -32,6 +32,19 @@ pub struct RegionalTokenStreamState {
 }
 
 impl RegionalTokenStreamState {
+    pub fn from_token_stream_state(
+        token_stream_state: TokenStreamState,
+        token_region_base: TokenRegionBase,
+    ) -> Self {
+        Self {
+            next_regional_token_idx: RegionalTokenIdx::from_token_idx(
+                token_stream_state.next_token_idx(),
+                token_region_base,
+            ),
+            drained: token_stream_state.drained(),
+        }
+    }
+
     pub fn next_regional_token_idx(self) -> RegionalTokenIdx {
         self.next_regional_token_idx
     }
@@ -86,10 +99,11 @@ impl<'a> RegionalTokenStream<'a> {
         saved_regional_token_stream_state: Option<RegionalTokenStreamState>,
     ) -> Self {
         Self {
-            start: saved_regional_token_stream_state
-                .unwrap_or(RegionalTokenGroupStart::from_index(0)),
+            start: RegionalTokenGroupStart::from_index(0),
             tokens,
-            next_relative: Default::default(),
+            next_relative: saved_regional_token_stream_state
+                .map(|_| todo!())
+                .unwrap_or_default(),
         }
     }
 

@@ -50,7 +50,7 @@ pub enum Ast {
         variant_path: TypeVariantPath,
         vertical_token: VerticalToken,
         ident_token: IdentToken,
-        state_after: TokenStreamState,
+        saved_stream_state: TokenStreamState,
     },
     ImplBlock {
         token_group_idx: TokenGroupIdx,
