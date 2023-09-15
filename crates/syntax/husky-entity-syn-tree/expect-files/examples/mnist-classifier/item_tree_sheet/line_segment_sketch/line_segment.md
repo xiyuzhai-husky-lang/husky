@@ -56,32 +56,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 17,
-                            ident_token: IdentToken {
-                                ident: `LineSegment`,
-                                token_idx: TokenIdx(
-                                    9,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 59,
-                                    },
-                                ),
-                                variants: None,
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -95,32 +69,6 @@ Ok(
                                 module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Type(
-                                        TypeSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 80,
-                                    ident_token: IdentToken {
-                                        ident: `Point2d`,
-                                        token_idx: TokenIdx(
-                                            12,
-                                        ),
-                                    },
-                                    block: Type {
-                                        path: TypePath(
-                                            Id {
-                                                value: 49,
-                                            },
-                                        ),
-                                        variants: None,
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
@@ -146,32 +94,6 @@ Ok(
                                 module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Type(
-                                        TypeSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 82,
-                                    ident_token: IdentToken {
-                                        ident: `RelativePoint2d`,
-                                        token_idx: TokenIdx(
-                                            154,
-                                        ),
-                                    },
-                                    block: Type {
-                                        path: TypePath(
-                                            Id {
-                                                value: 50,
-                                            },
-                                        ),
-                                        variants: None,
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
@@ -197,32 +119,6 @@ Ok(
                                 module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Type(
-                                        TypeSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 83,
-                                    ident_token: IdentToken {
-                                        ident: `Vector2d`,
-                                        token_idx: TokenIdx(
-                                            167,
-                                        ),
-                                    },
-                                    block: Type {
-                                        path: TypePath(
-                                            Id {
-                                                value: 51,
-                                            },
-                                        ),
-                                        variants: None,
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
@@ -248,32 +144,6 @@ Ok(
                                 module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Type(
-                                        TypeSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 85,
-                                    ident_token: IdentToken {
-                                        ident: `ClosedRange`,
-                                        token_idx: TokenIdx(
-                                            496,
-                                        ),
-                                    },
-                                    block: Type {
-                                        path: TypePath(
-                                            Id {
-                                                value: 52,
-                                            },
-                                        ),
-                                        variants: None,
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
@@ -299,32 +169,6 @@ Ok(
                                 module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Type(
-                                        TypeSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 87,
-                                    ident_token: IdentToken {
-                                        ident: `BoundingBox`,
-                                        token_idx: TokenIdx(
-                                            604,
-                                        ),
-                                    },
-                                    block: Type {
-                                        path: TypePath(
-                                            Id {
-                                                value: 53,
-                                            },
-                                        ),
-                                        variants: None,
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
@@ -350,32 +194,6 @@ Ok(
                                 module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Type(
-                                        TypeSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 89,
-                                    ident_token: IdentToken {
-                                        ident: `RelativeBoundingBox`,
-                                        token_idx: TokenIdx(
-                                            740,
-                                        ),
-                                    },
-                                    block: Type {
-                                        path: TypePath(
-                                            Id {
-                                                value: 54,
-                                            },
-                                        ),
-                                        variants: None,
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
@@ -413,7 +231,7 @@ Ok(
                             },
                         },
                         ast_idx: 18,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 20,
                             ),
@@ -487,26 +305,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `mnist_classifier::geom2d`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `mnist_classifier::geom2d`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::PubUnder(
-                                        `mnist_classifier`,
-                                    ),
-                                    ast_idx: 13,
-                                    ident_token: IdentToken {
-                                        ident: `geom2d`,
-                                        token_idx: TokenIdx(
-                                            6,
-                                        ),
-                                    },
-                                },
                             },
                         ),
                     },

@@ -214,7 +214,7 @@ impl<'a> SynDefnTokraRegionBuilder<'a> {
         for ast_idx in ast_idx_range {
             if let Some(regional_ast) = self.build_ast(ast_idx) {
                 ast_idxs.push(ast_idx);
-                regional_token_idx_ranges.push(RegionalTokenIdxRange::from_ast_idx_range(
+                regional_token_idx_ranges.push(RegionalTokenIdxRange::from_token_idx_range(
                     self.ast_token_idx_range_sheet[ast_idx],
                     self.regional_token_idx_base,
                 ));
@@ -283,7 +283,7 @@ impl<'a> SynDefnTokraRegionBuilder<'a> {
         let regional_ast_idx = self.defn_ast_arena.alloc_one(regional_ast);
         self.ast_idx_map.push(ast_idx);
         self.regional_token_idx_range_map
-            .push(RegionalTokenIdxRange::from_ast_idx_range(
+            .push(RegionalTokenIdxRange::from_token_idx_range(
                 self.ast_token_idx_range_sheet[ast_idx],
                 self.regional_token_idx_base,
             ));
@@ -346,6 +346,16 @@ pub trait HasSynDefnTokraRegion:
         self,
         db: &dyn EntitySynTreeDb,
     ) -> Option<SynDefnTokraRegionSourceMap>;
+
+    fn defn_regional_token_idx_base(
+        self,
+        db: &dyn EntitySynTreeDb,
+    ) -> Option<RegionalTokenIdxBase> {
+        Some(
+            self.defn_tokra_region_source_map(db)?
+                .regional_token_idx_base(db),
+        )
+    }
 }
 
 impl HasSynDefnTokraRegion for ItemSynNodePath {

@@ -136,6 +136,11 @@ pub trait HasDeclTokraRegion:
     fn decl_ast_idx(self, db: &dyn EntitySynTreeDb) -> AstIdx {
         self.decl_tokra_region_source_map(db).ast_idx()
     }
+
+    fn decl_regional_token_idx_base(self, db: &dyn EntitySynTreeDb) -> RegionalTokenIdxBase {
+        self.decl_tokra_region_source_map(db)
+            .regional_token_idx_base
+    }
 }
 
 impl HasDeclTokraRegion for ItemSynNodePath {

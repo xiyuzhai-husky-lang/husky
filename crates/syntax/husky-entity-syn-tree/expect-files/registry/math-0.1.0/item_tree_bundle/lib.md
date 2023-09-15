@@ -208,26 +208,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `math::algebra`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `math::algebra`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::PubUnder(
-                                        `math`,
-                                    ),
-                                    ast_idx: 1,
-                                    ident_token: IdentToken {
-                                        ident: `algebra`,
-                                        token_idx: TokenIdx(
-                                            2,
-                                        ),
-                                    },
-                                },
                             },
                         },
                         EntitySymbolEntry {
@@ -239,26 +219,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `math::algebraic_geometry`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `math::algebraic_geometry`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::PubUnder(
-                                        `math`,
-                                    ),
-                                    ast_idx: 2,
-                                    ident_token: IdentToken {
-                                        ident: `algebraic_geometry`,
-                                        token_idx: TokenIdx(
-                                            4,
-                                        ),
-                                    },
-                                },
                             },
                         },
                         EntitySymbolEntry {
@@ -270,26 +230,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `math::algebraic_topology`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `math::algebraic_topology`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::PubUnder(
-                                        `math`,
-                                    ),
-                                    ast_idx: 3,
-                                    ident_token: IdentToken {
-                                        ident: `algebraic_topology`,
-                                        token_idx: TokenIdx(
-                                            6,
-                                        ),
-                                    },
-                                },
                             },
                         },
                         EntitySymbolEntry {
@@ -301,26 +241,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `math::category_theory`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `math::category_theory`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::PubUnder(
-                                        `math`,
-                                    ),
-                                    ast_idx: 4,
-                                    ident_token: IdentToken {
-                                        ident: `category_theory`,
-                                        token_idx: TokenIdx(
-                                            8,
-                                        ),
-                                    },
-                                },
                             },
                         },
                         EntitySymbolEntry {
@@ -332,26 +252,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `math::probability`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `math::probability`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::PubUnder(
-                                        `math`,
-                                    ),
-                                    ast_idx: 5,
-                                    ident_token: IdentToken {
-                                        ident: `probability`,
-                                        token_idx: TokenIdx(
-                                            10,
-                                        ),
-                                    },
-                                },
                             },
                         },
                     ],

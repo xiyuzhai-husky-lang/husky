@@ -270,38 +270,6 @@ Ok(
                         module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`quick_sort::quick_sort`, `Fn`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 27,
-                            ident_token: IdentToken {
-                                ident: `quick_sort`,
-                                token_idx: TokenIdx(
-                                    3,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            1..3,
-                                        ),
-                                    },
-                                ),
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -313,40 +281,6 @@ Ok(
                         module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::PubUnder(
-                                `quick_sort`,
-                            ),
-                            ast_idx: 28,
-                            ident_token: IdentToken {
-                                ident: `quick_sort_aux`,
-                                token_idx: TokenIdx(
-                                    42,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            7..8,
-                                        ),
-                                    },
-                                ),
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -358,40 +292,6 @@ Ok(
                         module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`quick_sort::partition`, `Fn`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`quick_sort::partition`, `Fn`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::PubUnder(
-                                `quick_sort`,
-                            ),
-                            ast_idx: 29,
-                            ident_token: IdentToken {
-                                ident: `partition`,
-                                token_idx: TokenIdx(
-                                    103,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 3,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            19..25,
-                                        ),
-                                    },
-                                ),
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -403,40 +303,6 @@ Ok(
                         module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::PubUnder(
-                                `quick_sort`,
-                            ),
-                            ast_idx: 31,
-                            ident_token: IdentToken {
-                                ident: `quick_sort_works_for_integers`,
-                                token_idx: TokenIdx(
-                                    228,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 4,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            25..26,
-                                        ),
-                                    },
-                                ),
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -448,40 +314,6 @@ Ok(
                         module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::PubUnder(
-                                `quick_sort`,
-                            ),
-                            ast_idx: 33,
-                            ident_token: IdentToken {
-                                ident: `quick_sort_works_for_strs`,
-                                token_idx: TokenIdx(
-                                    265,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            26..27,
-                                        ),
-                                    },
-                                ),
-                            },
-                        },
                     },
                 },
             ],

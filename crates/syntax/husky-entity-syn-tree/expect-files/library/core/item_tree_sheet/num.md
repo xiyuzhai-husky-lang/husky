@@ -602,32 +602,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::i8`, `Extern`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::num::i8`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 45,
-                            ident_token: IdentToken {
-                                ident: `i8`,
-                                token_idx: TokenIdx(
-                                    33,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 13,
-                                    },
-                                ),
-                                variants: None,
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -637,32 +611,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::i16`, `Extern`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::num::i16`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 50,
-                            ident_token: IdentToken {
-                                ident: `i16`,
-                                token_idx: TokenIdx(
-                                    96,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
-                                variants: None,
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -672,32 +620,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::i32`, `Extern`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::num::i32`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 55,
-                            ident_token: IdentToken {
-                                ident: `i32`,
-                                token_idx: TokenIdx(
-                                    159,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 15,
-                                    },
-                                ),
-                                variants: None,
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -707,32 +629,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::i64`, `Extern`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::num::i64`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 60,
-                            ident_token: IdentToken {
-                                ident: `i64`,
-                                token_idx: TokenIdx(
-                                    232,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 16,
-                                    },
-                                ),
-                                variants: None,
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -742,32 +638,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::i128`, `Extern`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::num::i128`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 65,
-                            ident_token: IdentToken {
-                                ident: `i128`,
-                                token_idx: TokenIdx(
-                                    284,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                                variants: None,
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -777,32 +647,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::isize`, `Extern`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::num::isize`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 70,
-                            ident_token: IdentToken {
-                                ident: `isize`,
-                                token_idx: TokenIdx(
-                                    336,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
-                                variants: None,
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -812,32 +656,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::u8`, `Extern`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::num::u8`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 75,
-                            ident_token: IdentToken {
-                                ident: `u8`,
-                                token_idx: TokenIdx(
-                                    388,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                                variants: None,
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -847,32 +665,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::u16`, `Extern`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::num::u16`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 80,
-                            ident_token: IdentToken {
-                                ident: `u16`,
-                                token_idx: TokenIdx(
-                                    440,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                                variants: None,
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -882,32 +674,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::u32`, `Extern`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::num::u32`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 85,
-                            ident_token: IdentToken {
-                                ident: `u32`,
-                                token_idx: TokenIdx(
-                                    492,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 21,
-                                    },
-                                ),
-                                variants: None,
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -917,32 +683,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::u64`, `Extern`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::num::u64`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 90,
-                            ident_token: IdentToken {
-                                ident: `u64`,
-                                token_idx: TokenIdx(
-                                    544,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 22,
-                                    },
-                                ),
-                                variants: None,
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -952,32 +692,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::u128`, `Extern`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::num::u128`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 95,
-                            ident_token: IdentToken {
-                                ident: `u128`,
-                                token_idx: TokenIdx(
-                                    596,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 23,
-                                    },
-                                ),
-                                variants: None,
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -987,32 +701,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::usize`, `Extern`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::num::usize`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 100,
-                            ident_token: IdentToken {
-                                ident: `usize`,
-                                token_idx: TokenIdx(
-                                    648,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 24,
-                                    },
-                                ),
-                                variants: None,
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -1022,32 +710,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::f32`, `Extern`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::num::f32`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 105,
-                            ident_token: IdentToken {
-                                ident: `f32`,
-                                token_idx: TokenIdx(
-                                    700,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 25,
-                                    },
-                                ),
-                                variants: None,
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -1057,32 +719,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::f64`, `Extern`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::num::f64`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 110,
-                            ident_token: IdentToken {
-                                ident: `f64`,
-                                token_idx: TokenIdx(
-                                    813,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 26,
-                                    },
-                                ),
-                                variants: None,
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -1096,24 +732,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `core::array`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `core::array`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::Pub,
-                                    ast_idx: 1,
-                                    ident_token: IdentToken {
-                                        ident: `array`,
-                                        token_idx: TokenIdx(
-                                            3,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `core::array`,
@@ -1137,24 +755,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `core::basic`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `core::basic`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::Pub,
-                                    ast_idx: 2,
-                                    ident_token: IdentToken {
-                                        ident: `basic`,
-                                        token_idx: TokenIdx(
-                                            6,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `core::basic`,
@@ -1178,24 +778,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `core::clone`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `core::clone`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::Pub,
-                                    ast_idx: 3,
-                                    ident_token: IdentToken {
-                                        ident: `clone`,
-                                        token_idx: TokenIdx(
-                                            9,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `core::clone`,
@@ -1219,24 +801,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `core::cmp`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `core::cmp`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::Pub,
-                                    ast_idx: 4,
-                                    ident_token: IdentToken {
-                                        ident: `cmp`,
-                                        token_idx: TokenIdx(
-                                            12,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `core::cmp`,
@@ -1260,24 +824,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `core::default`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `core::default`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::Pub,
-                                    ast_idx: 5,
-                                    ident_token: IdentToken {
-                                        ident: `default`,
-                                        token_idx: TokenIdx(
-                                            15,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `core::default`,
@@ -1301,24 +847,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `core::fmt`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `core::fmt`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::Pub,
-                                    ast_idx: 6,
-                                    ident_token: IdentToken {
-                                        ident: `fmt`,
-                                        token_idx: TokenIdx(
-                                            18,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `core::fmt`,
@@ -1342,24 +870,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `core::logic`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `core::logic`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::Pub,
-                                    ast_idx: 7,
-                                    ident_token: IdentToken {
-                                        ident: `logic`,
-                                        token_idx: TokenIdx(
-                                            21,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `core::logic`,
@@ -1383,24 +893,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `core::marker`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `core::marker`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::Pub,
-                                    ast_idx: 8,
-                                    ident_token: IdentToken {
-                                        ident: `marker`,
-                                        token_idx: TokenIdx(
-                                            24,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `core::marker`,
@@ -1424,24 +916,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `core::mem`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `core::mem`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::Pub,
-                                    ast_idx: 9,
-                                    ident_token: IdentToken {
-                                        ident: `mem`,
-                                        token_idx: TokenIdx(
-                                            27,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `core::mem`,
@@ -1465,24 +939,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `core::num`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `core::num`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::Pub,
-                                    ast_idx: 10,
-                                    ident_token: IdentToken {
-                                        ident: `num`,
-                                        token_idx: TokenIdx(
-                                            30,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `core::num`,
@@ -1506,24 +962,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `core::ops`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `core::ops`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::Pub,
-                                    ast_idx: 11,
-                                    ident_token: IdentToken {
-                                        ident: `ops`,
-                                        token_idx: TokenIdx(
-                                            33,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `core::ops`,
@@ -1547,24 +985,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `core::option`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `core::option`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::Pub,
-                                    ast_idx: 12,
-                                    ident_token: IdentToken {
-                                        ident: `option`,
-                                        token_idx: TokenIdx(
-                                            36,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `core::option`,
@@ -1588,24 +1008,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `core::prelude`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `core::prelude`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::Pub,
-                                    ast_idx: 13,
-                                    ident_token: IdentToken {
-                                        ident: `prelude`,
-                                        token_idx: TokenIdx(
-                                            39,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `core::prelude`,
@@ -1629,24 +1031,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `core::raw_bits`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `core::raw_bits`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::Pub,
-                                    ast_idx: 14,
-                                    ident_token: IdentToken {
-                                        ident: `raw_bits`,
-                                        token_idx: TokenIdx(
-                                            42,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `core::raw_bits`,
@@ -1670,24 +1054,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `core::result`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `core::result`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::Pub,
-                                    ast_idx: 15,
-                                    ident_token: IdentToken {
-                                        ident: `result`,
-                                        token_idx: TokenIdx(
-                                            45,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `core::result`,
@@ -1711,24 +1077,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `core::vec`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `core::vec`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::Pub,
-                                    ast_idx: 16,
-                                    ident_token: IdentToken {
-                                        ident: `vec`,
-                                        token_idx: TokenIdx(
-                                            48,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `core::vec`,
@@ -1752,24 +1100,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `core::slice`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `core::slice`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::Pub,
-                                    ast_idx: 17,
-                                    ident_token: IdentToken {
-                                        ident: `slice`,
-                                        token_idx: TokenIdx(
-                                            51,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `core::slice`,
@@ -1793,24 +1123,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `core::str`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `core::str`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::Pub,
-                                    ast_idx: 18,
-                                    ident_token: IdentToken {
-                                        ident: `str`,
-                                        token_idx: TokenIdx(
-                                            54,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `core::str`,
@@ -1834,24 +1146,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `core::visual`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `core::visual`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::Pub,
-                                    ast_idx: 19,
-                                    ident_token: IdentToken {
-                                        ident: `visual`,
-                                        token_idx: TokenIdx(
-                                            57,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `core::visual`,
@@ -1875,38 +1169,6 @@ Ok(
                                 module_item_path: MajorItemPath::Trait(
                                     TraitPath(`core::ops::Add`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Trait(
-                                        TraitSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::ops::Add`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 33,
-                                    ident_token: IdentToken {
-                                        ident: `Add`,
-                                        token_idx: TokenIdx(
-                                            14,
-                                        ),
-                                    },
-                                    block: Trait {
-                                        path: TraitPath(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                        items: Some(
-                                            TraitItems {
-                                                ast_idx_range: ArenaIdxRange(
-                                                    1..3,
-                                                ),
-                                            },
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Trait(
@@ -1936,32 +1198,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::basic::bool`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::basic::bool`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 2,
-                                                    ident_token: IdentToken {
-                                                        ident: `bool`,
-                                                        token_idx: TokenIdx(
-                                                            7,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 2,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -2013,32 +1249,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::basic::never`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::basic::never`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 3,
-                                                    ident_token: IdentToken {
-                                                        ident: `never`,
-                                                        token_idx: TokenIdx(
-                                                            11,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 3,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -2090,32 +1300,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::basic::unit`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::basic::unit`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 4,
-                                                    ident_token: IdentToken {
-                                                        ident: `unit`,
-                                                        token_idx: TokenIdx(
-                                                            15,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 4,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -2167,32 +1351,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::basic::Trait`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::basic::Trait`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 5,
-                                                    ident_token: IdentToken {
-                                                        ident: `Trait`,
-                                                        token_idx: TokenIdx(
-                                                            19,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 5,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -2244,32 +1402,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::basic::Module`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::basic::Module`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 6,
-                                                    ident_token: IdentToken {
-                                                        ident: `Module`,
-                                                        token_idx: TokenIdx(
-                                                            23,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 6,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -2321,32 +1453,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::num::i8`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::num::i8`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 45,
-                                                    ident_token: IdentToken {
-                                                        ident: `i8`,
-                                                        token_idx: TokenIdx(
-                                                            33,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 13,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -2398,32 +1504,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::num::i16`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::num::i16`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 50,
-                                                    ident_token: IdentToken {
-                                                        ident: `i16`,
-                                                        token_idx: TokenIdx(
-                                                            96,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 14,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -2475,32 +1555,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::num::i32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 55,
-                                                    ident_token: IdentToken {
-                                                        ident: `i32`,
-                                                        token_idx: TokenIdx(
-                                                            159,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 15,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -2552,32 +1606,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::num::i64`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::num::i64`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 60,
-                                                    ident_token: IdentToken {
-                                                        ident: `i64`,
-                                                        token_idx: TokenIdx(
-                                                            232,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 16,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -2629,32 +1657,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::num::i128`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::num::i128`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 65,
-                                                    ident_token: IdentToken {
-                                                        ident: `i128`,
-                                                        token_idx: TokenIdx(
-                                                            284,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 17,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -2706,32 +1708,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::num::isize`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::num::isize`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 70,
-                                                    ident_token: IdentToken {
-                                                        ident: `isize`,
-                                                        token_idx: TokenIdx(
-                                                            336,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 18,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -2783,32 +1759,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::num::u8`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::num::u8`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 75,
-                                                    ident_token: IdentToken {
-                                                        ident: `u8`,
-                                                        token_idx: TokenIdx(
-                                                            388,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 19,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -2860,32 +1810,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::num::u16`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::num::u16`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 80,
-                                                    ident_token: IdentToken {
-                                                        ident: `u16`,
-                                                        token_idx: TokenIdx(
-                                                            440,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 20,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -2937,32 +1861,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::num::u32`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::num::u32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 85,
-                                                    ident_token: IdentToken {
-                                                        ident: `u32`,
-                                                        token_idx: TokenIdx(
-                                                            492,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -3014,32 +1912,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::num::u64`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::num::u64`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 90,
-                                                    ident_token: IdentToken {
-                                                        ident: `u64`,
-                                                        token_idx: TokenIdx(
-                                                            544,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 22,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -3091,32 +1963,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::num::u128`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::num::u128`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 95,
-                                                    ident_token: IdentToken {
-                                                        ident: `u128`,
-                                                        token_idx: TokenIdx(
-                                                            596,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 23,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -3168,32 +2014,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::num::usize`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::num::usize`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 100,
-                                                    ident_token: IdentToken {
-                                                        ident: `usize`,
-                                                        token_idx: TokenIdx(
-                                                            648,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 24,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -3245,32 +2065,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::num::f32`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::num::f32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 105,
-                                                    ident_token: IdentToken {
-                                                        ident: `f32`,
-                                                        token_idx: TokenIdx(
-                                                            700,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 25,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -3322,32 +2116,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::num::f64`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::num::f64`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 110,
-                                                    ident_token: IdentToken {
-                                                        ident: `f64`,
-                                                        token_idx: TokenIdx(
-                                                            813,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 26,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -3399,32 +2167,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::raw_bits::r32`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 9,
-                                                    ident_token: IdentToken {
-                                                        ident: `r32`,
-                                                        token_idx: TokenIdx(
-                                                            27,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 29,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -3476,32 +2218,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Trait(
                                                     TraitPath(`core::fmt::Debug`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Trait(
-                                                        TraitSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TraitPath(`core::fmt::Debug`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 2,
-                                                    ident_token: IdentToken {
-                                                        ident: `Debug`,
-                                                        token_idx: TokenIdx(
-                                                            7,
-                                                        ),
-                                                    },
-                                                    block: Trait {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 6,
-                                                            },
-                                                        ),
-                                                        items: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Trait(
@@ -3553,38 +2269,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Trait(
                                                     TraitPath(`core::visual::Visualize`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Trait(
-                                                        TraitSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TraitPath(`core::visual::Visualize`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 4,
-                                                    ident_token: IdentToken {
-                                                        ident: `Visualize`,
-                                                        token_idx: TokenIdx(
-                                                            7,
-                                                        ),
-                                                    },
-                                                    block: Trait {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 26,
-                                                            },
-                                                        ),
-                                                        items: Some(
-                                                            TraitItems {
-                                                                ast_idx_range: ArenaIdxRange(
-                                                                    1..2,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Trait(
@@ -3636,32 +2320,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::visual::Html`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::visual::Html`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 5,
-                                                    ident_token: IdentToken {
-                                                        ident: `Html`,
-                                                        token_idx: TokenIdx(
-                                                            18,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 36,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -3713,32 +2371,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Trait(
                                                     TraitPath(`core::marker::Copy`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Trait(
-                                                        TraitSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TraitPath(`core::marker::Copy`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 2,
-                                                    ident_token: IdentToken {
-                                                        ident: `Copy`,
-                                                        token_idx: TokenIdx(
-                                                            7,
-                                                        ),
-                                                    },
-                                                    block: Trait {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 7,
-                                                            },
-                                                        ),
-                                                        items: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Trait(
@@ -3790,32 +2422,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Trait(
                                                     TraitPath(`core::marker::Sized`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Trait(
-                                                        TraitSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TraitPath(`core::marker::Sized`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 3,
-                                                    ident_token: IdentToken {
-                                                        ident: `Sized`,
-                                                        token_idx: TokenIdx(
-                                                            11,
-                                                        ),
-                                                    },
-                                                    block: Trait {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 8,
-                                                            },
-                                                        ),
-                                                        items: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Trait(
@@ -3867,38 +2473,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Trait(
                                                     TraitPath(`core::clone::Clone`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Trait(
-                                                        TraitSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TraitPath(`core::clone::Clone`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 4,
-                                                    ident_token: IdentToken {
-                                                        ident: `Clone`,
-                                                        token_idx: TokenIdx(
-                                                            7,
-                                                        ),
-                                                    },
-                                                    block: Trait {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                        items: Some(
-                                                            TraitItems {
-                                                                ast_idx_range: ArenaIdxRange(
-                                                                    1..2,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Trait(
@@ -3950,38 +2524,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::option::Option`, `Enum`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::option::Option`, `Enum`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 5,
-                                                    ident_token: IdentToken {
-                                                        ident: `Option`,
-                                                        token_idx: TokenIdx(
-                                                            12,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 28,
-                                                            },
-                                                        ),
-                                                        variants: Some(
-                                                            TypeVariants {
-                                                                ast_idx_range: ArenaIdxRange(
-                                                                    1..3,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -4169,32 +2711,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Trait(
                                                     TraitPath(`core::cmp::PartialEq`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Trait(
-                                                        TraitSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TraitPath(`core::cmp::PartialEq`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 2,
-                                                    ident_token: IdentToken {
-                                                        ident: `PartialEq`,
-                                                        token_idx: TokenIdx(
-                                                            7,
-                                                        ),
-                                                    },
-                                                    block: Trait {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 2,
-                                                            },
-                                                        ),
-                                                        items: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Trait(
@@ -4246,32 +2762,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Trait(
                                                     TraitPath(`core::cmp::Eq`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Trait(
-                                                        TraitSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TraitPath(`core::cmp::Eq`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 3,
-                                                    ident_token: IdentToken {
-                                                        ident: `Eq`,
-                                                        token_idx: TokenIdx(
-                                                            11,
-                                                        ),
-                                                    },
-                                                    block: Trait {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 3,
-                                                            },
-                                                        ),
-                                                        items: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Trait(
@@ -4323,32 +2813,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Trait(
                                                     TraitPath(`core::cmp::PartialOrd`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Trait(
-                                                        TraitSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TraitPath(`core::cmp::PartialOrd`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 4,
-                                                    ident_token: IdentToken {
-                                                        ident: `PartialOrd`,
-                                                        token_idx: TokenIdx(
-                                                            15,
-                                                        ),
-                                                    },
-                                                    block: Trait {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 4,
-                                                            },
-                                                        ),
-                                                        items: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Trait(
@@ -4400,32 +2864,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Trait(
                                                     TraitPath(`core::cmp::Ord`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Trait(
-                                                        TraitSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TraitPath(`core::cmp::Ord`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 5,
-                                                    ident_token: IdentToken {
-                                                        ident: `Ord`,
-                                                        token_idx: TokenIdx(
-                                                            19,
-                                                        ),
-                                                    },
-                                                    block: Trait {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 5,
-                                                            },
-                                                        ),
-                                                        items: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Trait(
@@ -4477,32 +2915,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::slice::Slice`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::slice::Slice`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 10,
-                                                    ident_token: IdentToken {
-                                                        ident: `Slice`,
-                                                        token_idx: TokenIdx(
-                                                            7,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 32,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -4554,32 +2966,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::slice::CyclicSlice`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 13,
-                                                    ident_token: IdentToken {
-                                                        ident: `CyclicSlice`,
-                                                        token_idx: TokenIdx(
-                                                            54,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 33,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -4631,32 +3017,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`core::vec::Vec`, `Extern`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 11,
-                                                    ident_token: IdentToken {
-                                                        ident: `Vec`,
-                                                        token_idx: TokenIdx(
-                                                            16,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 31,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -4716,7 +3076,7 @@ Ok(
                             },
                         },
                         ast_idx: 46,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 35,
                             ),
@@ -4756,7 +3116,7 @@ Ok(
                             },
                         },
                         ast_idx: 47,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 57,
                             ),
@@ -4800,7 +3160,7 @@ Ok(
                             },
                         },
                         ast_idx: 51,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 98,
                             ),
@@ -4840,7 +3200,7 @@ Ok(
                             },
                         },
                         ast_idx: 52,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 120,
                             ),
@@ -4884,7 +3244,7 @@ Ok(
                             },
                         },
                         ast_idx: 56,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 161,
                             ),
@@ -4924,7 +3284,7 @@ Ok(
                             },
                         },
                         ast_idx: 57,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 194,
                             ),
@@ -4968,7 +3328,7 @@ Ok(
                             },
                         },
                         ast_idx: 61,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 234,
                             ),
@@ -5008,7 +3368,7 @@ Ok(
                             },
                         },
                         ast_idx: 62,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 245,
                             ),
@@ -5052,7 +3412,7 @@ Ok(
                             },
                         },
                         ast_idx: 66,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 286,
                             ),
@@ -5092,7 +3452,7 @@ Ok(
                             },
                         },
                         ast_idx: 67,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 297,
                             ),
@@ -5136,7 +3496,7 @@ Ok(
                             },
                         },
                         ast_idx: 71,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 338,
                             ),
@@ -5176,7 +3536,7 @@ Ok(
                             },
                         },
                         ast_idx: 72,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 349,
                             ),
@@ -5220,7 +3580,7 @@ Ok(
                             },
                         },
                         ast_idx: 76,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 390,
                             ),
@@ -5260,7 +3620,7 @@ Ok(
                             },
                         },
                         ast_idx: 77,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 401,
                             ),
@@ -5304,7 +3664,7 @@ Ok(
                             },
                         },
                         ast_idx: 81,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 442,
                             ),
@@ -5344,7 +3704,7 @@ Ok(
                             },
                         },
                         ast_idx: 82,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 453,
                             ),
@@ -5388,7 +3748,7 @@ Ok(
                             },
                         },
                         ast_idx: 86,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 494,
                             ),
@@ -5428,7 +3788,7 @@ Ok(
                             },
                         },
                         ast_idx: 87,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 505,
                             ),
@@ -5472,7 +3832,7 @@ Ok(
                             },
                         },
                         ast_idx: 91,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 546,
                             ),
@@ -5512,7 +3872,7 @@ Ok(
                             },
                         },
                         ast_idx: 92,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 557,
                             ),
@@ -5556,7 +3916,7 @@ Ok(
                             },
                         },
                         ast_idx: 96,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 598,
                             ),
@@ -5596,7 +3956,7 @@ Ok(
                             },
                         },
                         ast_idx: 97,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 609,
                             ),
@@ -5640,7 +4000,7 @@ Ok(
                             },
                         },
                         ast_idx: 101,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 650,
                             ),
@@ -5680,7 +4040,7 @@ Ok(
                             },
                         },
                         ast_idx: 102,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 661,
                             ),
@@ -5724,7 +4084,7 @@ Ok(
                             },
                         },
                         ast_idx: 106,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 702,
                             ),
@@ -5764,7 +4124,7 @@ Ok(
                             },
                         },
                         ast_idx: 107,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 775,
                             ),
@@ -5808,7 +4168,7 @@ Ok(
                             },
                         },
                         ast_idx: 111,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 815,
                             ),
@@ -5848,7 +4208,7 @@ Ok(
                             },
                         },
                         ast_idx: 112,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 834,
                             ),
@@ -5959,24 +4319,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `core::ops`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `core::ops`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::Pub,
-                                    ast_idx: 11,
-                                    ident_token: IdentToken {
-                                        ident: `ops`,
-                                        token_idx: TokenIdx(
-                                            33,
-                                        ),
-                                    },
-                                },
                             },
                         ),
                     },
@@ -6006,38 +4348,6 @@ Ok(
                                 module_item_path: MajorItemPath::Trait(
                                     TraitPath(`core::ops::Add`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Trait(
-                                        TraitSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::ops::Add`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 33,
-                                    ident_token: IdentToken {
-                                        ident: `Add`,
-                                        token_idx: TokenIdx(
-                                            14,
-                                        ),
-                                    },
-                                    block: Trait {
-                                        path: TraitPath(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                        items: Some(
-                                            TraitItems {
-                                                ast_idx_range: ArenaIdxRange(
-                                                    1..3,
-                                                ),
-                                            },
-                                        ),
-                                    },
-                                },
                             },
                         ),
                     },

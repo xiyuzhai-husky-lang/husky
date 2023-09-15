@@ -200,38 +200,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`malamute::Class`, `Enum`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`malamute::Class`, `Enum`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 11,
-                            ident_token: IdentToken {
-                                ident: `Class`,
-                                token_idx: TokenIdx(
-                                    12,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 70,
-                                    },
-                                ),
-                                variants: Some(
-                                    TypeVariants {
-                                        ast_idx_range: ArenaIdxRange(
-                                            1..3,
-                                        ),
-                                    },
-                                ),
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -241,38 +209,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`malamute::OneVsAll`, `Enum`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 13,
-                            ident_token: IdentToken {
-                                ident: `OneVsAll`,
-                                token_idx: TokenIdx(
-                                    34,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 71,
-                                    },
-                                ),
-                                variants: Some(
-                                    TypeVariants {
-                                        ast_idx_range: ArenaIdxRange(
-                                            3..5,
-                                        ),
-                                    },
-                                ),
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -282,38 +218,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`malamute::OneVsAllResult`, `Enum`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 16,
-                            ident_token: IdentToken {
-                                ident: `OneVsAllResult`,
-                                token_idx: TokenIdx(
-                                    84,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 72,
-                                    },
-                                ),
-                                variants: Some(
-                                    TypeVariants {
-                                        ast_idx_range: ArenaIdxRange(
-                                            6..9,
-                                        ),
-                                    },
-                                ),
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -323,32 +227,6 @@ Ok(
                         module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`malamute::narrow_down`, `Gn`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`malamute::narrow_down`, `Gn`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 18,
-                            ident_token: IdentToken {
-                                ident: `narrow_down`,
-                                token_idx: TokenIdx(
-                                    128,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 80,
-                                    },
-                                ),
-                                body: None,
-                            },
-                        },
                     },
                 },
             ],
@@ -380,7 +258,7 @@ Ok(
                             },
                         },
                         ast_idx: 14,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 47,
                             ),
@@ -430,7 +308,7 @@ Ok(
                             },
                         },
                         ast_idx: 17,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 99,
                             ),

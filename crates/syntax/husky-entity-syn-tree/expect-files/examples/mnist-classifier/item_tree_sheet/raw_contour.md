@@ -566,32 +566,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 204,
-                            ident_token: IdentToken {
-                                ident: `RawContour`,
-                                token_idx: TokenIdx(
-                                    25,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 46,
-                                    },
-                                ),
-                                variants: None,
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -603,40 +577,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                            ast_idx: 207,
-                            ident_token: IdentToken {
-                                ident: `Direction`,
-                                token_idx: TokenIdx(
-                                    402,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 47,
-                                    },
-                                ),
-                                variants: Some(
-                                    TypeVariants {
-                                        ast_idx_range: ArenaIdxRange(
-                                            35..39,
-                                        ),
-                                    },
-                                ),
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -648,40 +588,6 @@ Ok(
                         module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                            ast_idx: 208,
-                            ident_token: IdentToken {
-                                ident: `get_pixel_pair`,
-                                token_idx: TokenIdx(
-                                    412,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 10,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            39..40,
-                                        ),
-                                    },
-                                ),
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -693,40 +599,6 @@ Ok(
                         module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                            ast_idx: 209,
-                            ident_token: IdentToken {
-                                ident: `get_pixel_to_the_left`,
-                                token_idx: TokenIdx(
-                                    437,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 11,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            40..41,
-                                        ),
-                                    },
-                                ),
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -738,40 +610,6 @@ Ok(
                         module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                            ast_idx: 210,
-                            ident_token: IdentToken {
-                                ident: `get_pixel_to_the_right`,
-                                token_idx: TokenIdx(
-                                    458,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 12,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            41..42,
-                                        ),
-                                    },
-                                ),
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -783,40 +621,6 @@ Ok(
                         module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                            ast_idx: 211,
-                            ident_token: IdentToken {
-                                ident: `get_inward_direction`,
-                                token_idx: TokenIdx(
-                                    483,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 13,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            67..70,
-                                        ),
-                                    },
-                                ),
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -828,40 +632,6 @@ Ok(
                         module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                            ast_idx: 212,
-                            ident_token: IdentToken {
-                                ident: `get_angle_change`,
-                                token_idx: TokenIdx(
-                                    614,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            76..78,
-                                        ),
-                                    },
-                                ),
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -873,40 +643,6 @@ Ok(
                         module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                            ast_idx: 213,
-                            ident_token: IdentToken {
-                                ident: `get_outward_direction`,
-                                token_idx: TokenIdx(
-                                    675,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 15,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            120..123,
-                                        ),
-                                    },
-                                ),
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -918,34 +654,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                            ast_idx: 214,
-                            ident_token: IdentToken {
-                                ident: `StreakCache`,
-                                token_idx: TokenIdx(
-                                    877,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 48,
-                                    },
-                                ),
-                                variants: None,
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -957,40 +665,6 @@ Ok(
                         module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                            ast_idx: 215,
-                            ident_token: IdentToken {
-                                ident: `get_concave_middle_point`,
-                                token_idx: TokenIdx(
-                                    889,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 16,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            123..127,
-                                        ),
-                                    },
-                                ),
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -1000,38 +674,6 @@ Ok(
                         module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 216,
-                            ident_token: IdentToken {
-                                ident: `find_raw_contours`,
-                                token_idx: TokenIdx(
-                                    955,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            195..200,
-                                        ),
-                                    },
-                                ),
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -1045,26 +687,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `mnist_classifier::connected_component`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `mnist_classifier::connected_component`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::PubUnder(
-                                        `mnist_classifier`,
-                                    ),
-                                    ast_idx: 11,
-                                    ident_token: IdentToken {
-                                        ident: `connected_component`,
-                                        token_idx: TokenIdx(
-                                            2,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `mnist_classifier::connected_component`,
@@ -1088,26 +710,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `mnist_classifier::raw_contour`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `mnist_classifier::raw_contour`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::PubUnder(
-                                        `mnist_classifier`,
-                                    ),
-                                    ast_idx: 12,
-                                    ident_token: IdentToken {
-                                        ident: `raw_contour`,
-                                        token_idx: TokenIdx(
-                                            4,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `mnist_classifier::raw_contour`,
@@ -1131,26 +733,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `mnist_classifier::geom2d`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `mnist_classifier::geom2d`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::PubUnder(
-                                        `mnist_classifier`,
-                                    ),
-                                    ast_idx: 13,
-                                    ident_token: IdentToken {
-                                        ident: `geom2d`,
-                                        token_idx: TokenIdx(
-                                            6,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `mnist_classifier::geom2d`,
@@ -1174,26 +756,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::PubUnder(
-                                        `mnist_classifier`,
-                                    ),
-                                    ast_idx: 14,
-                                    ident_token: IdentToken {
-                                        ident: `line_segment_sketch`,
-                                        token_idx: TokenIdx(
-                                            8,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `mnist_classifier::line_segment_sketch`,
@@ -1217,26 +779,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `mnist_classifier::fermi`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `mnist_classifier::fermi`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::PubUnder(
-                                        `mnist_classifier`,
-                                    ),
-                                    ast_idx: 15,
-                                    ident_token: IdentToken {
-                                        ident: `fermi`,
-                                        token_idx: TokenIdx(
-                                            10,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `mnist_classifier::fermi`,
@@ -1260,26 +802,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `mnist_classifier::digits`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `mnist_classifier::digits`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::PubUnder(
-                                        `mnist_classifier`,
-                                    ),
-                                    ast_idx: 16,
-                                    ident_token: IdentToken {
-                                        ident: `digits`,
-                                        token_idx: TokenIdx(
-                                            12,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `mnist_classifier::digits`,
@@ -1303,26 +825,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `mnist_classifier::major`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `mnist_classifier::major`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::PubUnder(
-                                        `mnist_classifier`,
-                                    ),
-                                    ast_idx: 17,
-                                    ident_token: IdentToken {
-                                        ident: `major`,
-                                        token_idx: TokenIdx(
-                                            14,
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::Module(
                                 `mnist_classifier::major`,
@@ -1346,40 +848,6 @@ Ok(
                                 module_item_path: MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::main`, `Val`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Fugitive(
-                                        FugitiveSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::main`, `Val`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::PubUnder(
-                                        `mnist_classifier`,
-                                    ),
-                                    ast_idx: 26,
-                                    ident_token: IdentToken {
-                                        ident: `main`,
-                                        token_idx: TokenIdx(
-                                            61,
-                                        ),
-                                    },
-                                    block: Fugitive {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
-                                        body: Some(
-                                            FugitiveBody {
-                                                ast_idx_range: ArenaIdxRange(
-                                                    1..11,
-                                                ),
-                                            },
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Fugitive(
@@ -1407,38 +875,6 @@ Ok(
                                         module_item_path: MajorItemPath::Type(
                                             TypePath(`malamute::Class`, `Enum`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`malamute::Class`, `Enum`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 11,
-                                            ident_token: IdentToken {
-                                                ident: `Class`,
-                                                token_idx: TokenIdx(
-                                                    12,
-                                                ),
-                                            },
-                                            block: Type {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 61,
-                                                    },
-                                                ),
-                                                variants: Some(
-                                                    TypeVariants {
-                                                        ast_idx_range: ArenaIdxRange(
-                                                            1..3,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
@@ -1478,38 +914,6 @@ Ok(
                                         module_item_path: MajorItemPath::Type(
                                             TypePath(`malamute::OneVsAll`, `Enum`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 13,
-                                            ident_token: IdentToken {
-                                                ident: `OneVsAll`,
-                                                token_idx: TokenIdx(
-                                                    34,
-                                                ),
-                                            },
-                                            block: Type {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 62,
-                                                    },
-                                                ),
-                                                variants: Some(
-                                                    TypeVariants {
-                                                        ast_idx_range: ArenaIdxRange(
-                                                            3..5,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
@@ -1549,38 +953,6 @@ Ok(
                                         module_item_path: MajorItemPath::Type(
                                             TypePath(`malamute::OneVsAllResult`, `Enum`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 16,
-                                            ident_token: IdentToken {
-                                                ident: `OneVsAllResult`,
-                                                token_idx: TokenIdx(
-                                                    84,
-                                                ),
-                                            },
-                                            block: Type {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 63,
-                                                    },
-                                                ),
-                                                variants: Some(
-                                                    TypeVariants {
-                                                        ast_idx_range: ArenaIdxRange(
-                                                            6..9,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
@@ -1620,32 +992,6 @@ Ok(
                                         module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`malamute::narrow_down`, `Gn`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`malamute::narrow_down`, `Gn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 18,
-                                            ident_token: IdentToken {
-                                                ident: `narrow_down`,
-                                                token_idx: TokenIdx(
-                                                    128,
-                                                ),
-                                            },
-                                            block: Fugitive {
-                                                path: FugitivePath(
-                                                    Id {
-                                                        value: 78,
-                                                    },
-                                                ),
-                                                body: None,
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
@@ -1685,38 +1031,6 @@ Ok(
                                         module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist::MnistLabel`, `Enum`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 17,
-                                            ident_token: IdentToken {
-                                                ident: `MnistLabel`,
-                                                token_idx: TokenIdx(
-                                                    3,
-                                                ),
-                                            },
-                                            block: Type {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 64,
-                                                    },
-                                                ),
-                                                variants: Some(
-                                                    TypeVariants {
-                                                        ast_idx_range: ArenaIdxRange(
-                                                            1..11,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
@@ -1756,32 +1070,6 @@ Ok(
                                         module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist::BinaryImage28`, `Struct`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 19,
-                                            ident_token: IdentToken {
-                                                ident: `BinaryImage28`,
-                                                token_idx: TokenIdx(
-                                                    33,
-                                                ),
-                                            },
-                                            block: Type {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 65,
-                                                    },
-                                                ),
-                                                variants: None,
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
@@ -1821,32 +1109,6 @@ Ok(
                                         module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist::BinaryGrid28`, `Struct`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist::BinaryGrid28`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 23,
-                                            ident_token: IdentToken {
-                                                ident: `BinaryGrid28`,
-                                                token_idx: TokenIdx(
-                                                    79,
-                                                ),
-                                            },
-                                            block: Type {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 66,
-                                                    },
-                                                ),
-                                                variants: None,
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
@@ -1886,32 +1148,6 @@ Ok(
                                         module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist::input`, `Val`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist::input`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 27,
-                                            ident_token: IdentToken {
-                                                ident: `input`,
-                                                token_idx: TokenIdx(
-                                                    125,
-                                                ),
-                                            },
-                                            block: Fugitive {
-                                                path: FugitivePath(
-                                                    Id {
-                                                        value: 79,
-                                                    },
-                                                ),
-                                                body: None,
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
@@ -1949,32 +1185,6 @@ Ok(
                                 module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Type(
-                                        TypeSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 80,
-                                    ident_token: IdentToken {
-                                        ident: `Point2d`,
-                                        token_idx: TokenIdx(
-                                            12,
-                                        ),
-                                    },
-                                    block: Type {
-                                        path: TypePath(
-                                            Id {
-                                                value: 49,
-                                            },
-                                        ),
-                                        variants: None,
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
@@ -2000,32 +1210,6 @@ Ok(
                                 module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Type(
-                                        TypeSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 82,
-                                    ident_token: IdentToken {
-                                        ident: `RelativePoint2d`,
-                                        token_idx: TokenIdx(
-                                            154,
-                                        ),
-                                    },
-                                    block: Type {
-                                        path: TypePath(
-                                            Id {
-                                                value: 50,
-                                            },
-                                        ),
-                                        variants: None,
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
@@ -2051,32 +1235,6 @@ Ok(
                                 module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Type(
-                                        TypeSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 83,
-                                    ident_token: IdentToken {
-                                        ident: `Vector2d`,
-                                        token_idx: TokenIdx(
-                                            167,
-                                        ),
-                                    },
-                                    block: Type {
-                                        path: TypePath(
-                                            Id {
-                                                value: 51,
-                                            },
-                                        ),
-                                        variants: None,
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
@@ -2102,32 +1260,6 @@ Ok(
                                 module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Type(
-                                        TypeSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 85,
-                                    ident_token: IdentToken {
-                                        ident: `ClosedRange`,
-                                        token_idx: TokenIdx(
-                                            496,
-                                        ),
-                                    },
-                                    block: Type {
-                                        path: TypePath(
-                                            Id {
-                                                value: 52,
-                                            },
-                                        ),
-                                        variants: None,
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
@@ -2153,32 +1285,6 @@ Ok(
                                 module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Type(
-                                        TypeSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 87,
-                                    ident_token: IdentToken {
-                                        ident: `BoundingBox`,
-                                        token_idx: TokenIdx(
-                                            604,
-                                        ),
-                                    },
-                                    block: Type {
-                                        path: TypePath(
-                                            Id {
-                                                value: 53,
-                                            },
-                                        ),
-                                        variants: None,
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
@@ -2204,32 +1310,6 @@ Ok(
                                 module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Type(
-                                        TypeSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 89,
-                                    ident_token: IdentToken {
-                                        ident: `RelativeBoundingBox`,
-                                        token_idx: TokenIdx(
-                                            740,
-                                        ),
-                                    },
-                                    block: Type {
-                                        path: TypePath(
-                                            Id {
-                                                value: 54,
-                                            },
-                                        ),
-                                        variants: None,
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
@@ -2255,32 +1335,6 @@ Ok(
                                 module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Type(
-                                        TypeSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 121,
-                                    ident_token: IdentToken {
-                                        ident: `ConnectedComponentDistribution`,
-                                        token_idx: TokenIdx(
-                                            13,
-                                        ),
-                                    },
-                                    block: Type {
-                                        path: TypePath(
-                                            Id {
-                                                value: 43,
-                                            },
-                                        ),
-                                        variants: None,
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
@@ -2306,32 +1360,6 @@ Ok(
                                 module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Type(
-                                        TypeSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 122,
-                                    ident_token: IdentToken {
-                                        ident: `EffHoles`,
-                                        token_idx: TokenIdx(
-                                            34,
-                                        ),
-                                    },
-                                    block: Type {
-                                        path: TypePath(
-                                            Id {
-                                                value: 44,
-                                            },
-                                        ),
-                                        variants: None,
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
@@ -2357,32 +1385,6 @@ Ok(
                                 module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Type(
-                                        TypeSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 124,
-                                    ident_token: IdentToken {
-                                        ident: `ConnectedComponent`,
-                                        token_idx: TokenIdx(
-                                            72,
-                                        ),
-                                    },
-                                    block: Type {
-                                        path: TypePath(
-                                            Id {
-                                                value: 45,
-                                            },
-                                        ),
-                                        variants: None,
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
@@ -2408,38 +1410,6 @@ Ok(
                                 module_item_path: MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Fugitive(
-                                        FugitiveSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 128,
-                                    ident_token: IdentToken {
-                                        ident: `find_connected_components`,
-                                        token_idx: TokenIdx(
-                                            657,
-                                        ),
-                                    },
-                                    block: Fugitive {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                        body: Some(
-                                            FugitiveBody {
-                                                ast_idx_range: ArenaIdxRange(
-                                                    115..119,
-                                                ),
-                                            },
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Fugitive(
@@ -2465,32 +1435,6 @@ Ok(
                                 module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Type(
-                                        TypeSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 170,
-                                    ident_token: IdentToken {
-                                        ident: `LineSegmentStroke`,
-                                        token_idx: TokenIdx(
-                                            42,
-                                        ),
-                                    },
-                                    block: Type {
-                                        path: TypePath(
-                                            Id {
-                                                value: 55,
-                                            },
-                                        ),
-                                        variants: None,
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
@@ -2516,32 +1460,6 @@ Ok(
                                 module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Type(
-                                        TypeSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 173,
-                                    ident_token: IdentToken {
-                                        ident: `LineSegmentSketch`,
-                                        token_idx: TokenIdx(
-                                            171,
-                                        ),
-                                    },
-                                    block: Type {
-                                        path: TypePath(
-                                            Id {
-                                                value: 56,
-                                            },
-                                        ),
-                                        variants: None,
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
@@ -2569,32 +1487,6 @@ Ok(
                                         module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 75,
-                                            ident_token: IdentToken {
-                                                ident: `ConcaveComponent`,
-                                                token_idx: TokenIdx(
-                                                    35,
-                                                ),
-                                            },
-                                            block: Type {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 57,
-                                                    },
-                                                ),
-                                                variants: None,
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
@@ -2632,38 +1524,6 @@ Ok(
                                         module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 78,
-                                            ident_token: IdentToken {
-                                                ident: `find_concave_components`,
-                                                token_idx: TokenIdx(
-                                                    554,
-                                                ),
-                                            },
-                                            block: Fugitive {
-                                                path: FugitivePath(
-                                                    Id {
-                                                        value: 23,
-                                                    },
-                                                ),
-                                                body: Some(
-                                                    FugitiveBody {
-                                                        ast_idx_range: ArenaIdxRange(
-                                                            62..70,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
@@ -2701,32 +1561,6 @@ Ok(
                                         module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 17,
-                                            ident_token: IdentToken {
-                                                ident: `LineSegment`,
-                                                token_idx: TokenIdx(
-                                                    9,
-                                                ),
-                                            },
-                                            block: Type {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 59,
-                                                    },
-                                                ),
-                                                variants: None,
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
@@ -2764,38 +1598,6 @@ Ok(
                                         module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 20,
-                                            ident_token: IdentToken {
-                                                ident: `connected_components`,
-                                                token_idx: TokenIdx(
-                                                    7,
-                                                ),
-                                            },
-                                            block: Fugitive {
-                                                path: FugitivePath(
-                                                    Id {
-                                                        value: 71,
-                                                    },
-                                                ),
-                                                body: Some(
-                                                    FugitiveBody {
-                                                        ast_idx_range: ArenaIdxRange(
-                                                            1..2,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
@@ -2835,38 +1637,6 @@ Ok(
                                         module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 21,
-                                            ident_token: IdentToken {
-                                                ident: `major_connected_component`,
-                                                token_idx: TokenIdx(
-                                                    19,
-                                                ),
-                                            },
-                                            block: Fugitive {
-                                                path: FugitivePath(
-                                                    Id {
-                                                        value: 72,
-                                                    },
-                                                ),
-                                                body: Some(
-                                                    FugitiveBody {
-                                                        ast_idx_range: ArenaIdxRange(
-                                                            7..11,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
@@ -2906,38 +1676,6 @@ Ok(
                                         module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 22,
-                                            ident_token: IdentToken {
-                                                ident: `ignored_connected_components_row_span_sum_sum`,
-                                                token_idx: TokenIdx(
-                                                    70,
-                                                ),
-                                            },
-                                            block: Fugitive {
-                                                path: FugitivePath(
-                                                    Id {
-                                                        value: 73,
-                                                    },
-                                                ),
-                                                body: Some(
-                                                    FugitiveBody {
-                                                        ast_idx_range: ArenaIdxRange(
-                                                            12..15,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
@@ -2977,38 +1715,6 @@ Ok(
                                         module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 23,
-                                            ident_token: IdentToken {
-                                                ident: `major_raw_contours`,
-                                                token_idx: TokenIdx(
-                                                    104,
-                                                ),
-                                            },
-                                            block: Fugitive {
-                                                path: FugitivePath(
-                                                    Id {
-                                                        value: 74,
-                                                    },
-                                                ),
-                                                body: Some(
-                                                    FugitiveBody {
-                                                        ast_idx_range: ArenaIdxRange(
-                                                            15..16,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
@@ -3048,38 +1754,6 @@ Ok(
                                         module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 24,
-                                            ident_token: IdentToken {
-                                                ident: `major_raw_contour`,
-                                                token_idx: TokenIdx(
-                                                    116,
-                                                ),
-                                            },
-                                            block: Fugitive {
-                                                path: FugitivePath(
-                                                    Id {
-                                                        value: 75,
-                                                    },
-                                                ),
-                                                body: Some(
-                                                    FugitiveBody {
-                                                        ast_idx_range: ArenaIdxRange(
-                                                            16..17,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
@@ -3119,38 +1793,6 @@ Ok(
                                         module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 25,
-                                            ident_token: IdentToken {
-                                                ident: `major_line_segment_sketch`,
-                                                token_idx: TokenIdx(
-                                                    129,
-                                                ),
-                                            },
-                                            block: Fugitive {
-                                                path: FugitivePath(
-                                                    Id {
-                                                        value: 76,
-                                                    },
-                                                ),
-                                                body: Some(
-                                                    FugitiveBody {
-                                                        ast_idx_range: ArenaIdxRange(
-                                                            17..18,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
@@ -3190,38 +1832,6 @@ Ok(
                                         module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 26,
-                                            ident_token: IdentToken {
-                                                ident: `major_concave_components`,
-                                                token_idx: TokenIdx(
-                                                    139,
-                                                ),
-                                            },
-                                            block: Fugitive {
-                                                path: FugitivePath(
-                                                    Id {
-                                                        value: 77,
-                                                    },
-                                                ),
-                                                body: Some(
-                                                    FugitiveBody {
-                                                        ast_idx_range: ArenaIdxRange(
-                                                            18..19,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
@@ -3263,38 +1873,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Fugitive(
-                                                        FugitiveSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 64,
-                                                    ident_token: IdentToken {
-                                                        ident: `is_one`,
-                                                        token_idx: TokenIdx(
-                                                            24,
-                                                        ),
-                                                    },
-                                                    block: Fugitive {
-                                                        path: FugitivePath(
-                                                            Id {
-                                                                value: 30,
-                                                            },
-                                                        ),
-                                                        body: Some(
-                                                            FugitiveBody {
-                                                                ast_idx_range: ArenaIdxRange(
-                                                                    49..52,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
@@ -3344,32 +1922,6 @@ Ok(
                                         module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 23,
-                                            ident_token: IdentToken {
-                                                ident: `FermiMatchResult`,
-                                                token_idx: TokenIdx(
-                                                    7,
-                                                ),
-                                            },
-                                            block: Type {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 60,
-                                                    },
-                                                ),
-                                                variants: None,
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
@@ -3409,38 +1961,6 @@ Ok(
                                         module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 25,
-                                            ident_token: IdentToken {
-                                                ident: `fermi_match`,
-                                                token_idx: TokenIdx(
-                                                    154,
-                                                ),
-                                            },
-                                            block: Fugitive {
-                                                path: FugitivePath(
-                                                    Id {
-                                                        value: 25,
-                                                    },
-                                                ),
-                                                body: Some(
-                                                    FugitiveBody {
-                                                        ast_idx_range: ArenaIdxRange(
-                                                            18..22,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
@@ -3480,32 +2000,6 @@ Ok(
                                         module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 204,
-                                            ident_token: IdentToken {
-                                                ident: `RawContour`,
-                                                token_idx: TokenIdx(
-                                                    25,
-                                                ),
-                                            },
-                                            block: Type {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 46,
-                                                    },
-                                                ),
-                                                variants: None,
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
@@ -3545,38 +2039,6 @@ Ok(
                                         module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 216,
-                                            ident_token: IdentToken {
-                                                ident: `find_raw_contours`,
-                                                token_idx: TokenIdx(
-                                                    955,
-                                                ),
-                                            },
-                                            block: Fugitive {
-                                                path: FugitivePath(
-                                                    Id {
-                                                        value: 17,
-                                                    },
-                                                ),
-                                                body: Some(
-                                                    FugitiveBody {
-                                                        ast_idx_range: ArenaIdxRange(
-                                                            195..200,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
@@ -3616,32 +2078,6 @@ Ok(
                                         module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 170,
-                                            ident_token: IdentToken {
-                                                ident: `LineSegmentStroke`,
-                                                token_idx: TokenIdx(
-                                                    42,
-                                                ),
-                                            },
-                                            block: Type {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 55,
-                                                    },
-                                                ),
-                                                variants: None,
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
@@ -3681,32 +2117,6 @@ Ok(
                                         module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 173,
-                                            ident_token: IdentToken {
-                                                ident: `LineSegmentSketch`,
-                                                token_idx: TokenIdx(
-                                                    171,
-                                                ),
-                                            },
-                                            block: Type {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 56,
-                                                    },
-                                                ),
-                                                variants: None,
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
@@ -3748,32 +2158,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 75,
-                                                    ident_token: IdentToken {
-                                                        ident: `ConcaveComponent`,
-                                                        token_idx: TokenIdx(
-                                                            35,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 57,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -3825,38 +2209,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Fugitive(
-                                                        FugitiveSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 78,
-                                                    ident_token: IdentToken {
-                                                        ident: `find_concave_components`,
-                                                        token_idx: TokenIdx(
-                                                            554,
-                                                        ),
-                                                    },
-                                                    block: Fugitive {
-                                                        path: FugitivePath(
-                                                            Id {
-                                                                value: 23,
-                                                            },
-                                                        ),
-                                                        body: Some(
-                                                            FugitiveBody {
-                                                                ast_idx_range: ArenaIdxRange(
-                                                                    62..70,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
@@ -3908,32 +2260,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Type(
                                                     TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Type(
-                                                        TypeSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::Pub,
-                                                    ast_idx: 17,
-                                                    ident_token: IdentToken {
-                                                        ident: `LineSegment`,
-                                                        token_idx: TokenIdx(
-                                                            9,
-                                                        ),
-                                                    },
-                                                    block: Type {
-                                                        path: TypePath(
-                                                            Id {
-                                                                value: 59,
-                                                            },
-                                                        ),
-                                                        variants: None,
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -3983,32 +2309,6 @@ Ok(
                                         module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 121,
-                                            ident_token: IdentToken {
-                                                ident: `ConnectedComponentDistribution`,
-                                                token_idx: TokenIdx(
-                                                    13,
-                                                ),
-                                            },
-                                            block: Type {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 43,
-                                                    },
-                                                ),
-                                                variants: None,
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
@@ -4048,32 +2348,6 @@ Ok(
                                         module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 122,
-                                            ident_token: IdentToken {
-                                                ident: `EffHoles`,
-                                                token_idx: TokenIdx(
-                                                    34,
-                                                ),
-                                            },
-                                            block: Type {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 44,
-                                                    },
-                                                ),
-                                                variants: None,
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
@@ -4113,32 +2387,6 @@ Ok(
                                         module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 124,
-                                            ident_token: IdentToken {
-                                                ident: `ConnectedComponent`,
-                                                token_idx: TokenIdx(
-                                                    72,
-                                                ),
-                                            },
-                                            block: Type {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 45,
-                                                    },
-                                                ),
-                                                variants: None,
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
@@ -4178,38 +2426,6 @@ Ok(
                                         module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 128,
-                                            ident_token: IdentToken {
-                                                ident: `find_connected_components`,
-                                                token_idx: TokenIdx(
-                                                    657,
-                                                ),
-                                            },
-                                            block: Fugitive {
-                                                path: FugitivePath(
-                                                    Id {
-                                                        value: 9,
-                                                    },
-                                                ),
-                                                body: Some(
-                                                    FugitiveBody {
-                                                        ast_idx_range: ArenaIdxRange(
-                                                            115..119,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
@@ -4251,40 +2467,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Fugitive(
-                                                        FugitiveSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::PubUnder(
-                                                        `mnist_classifier::digits`,
-                                                    ),
-                                                    ast_idx: 53,
-                                                    ident_token: IdentToken {
-                                                        ident: `is_six`,
-                                                        token_idx: TokenIdx(
-                                                            38,
-                                                        ),
-                                                    },
-                                                    block: Fugitive {
-                                                        path: FugitivePath(
-                                                            Id {
-                                                                value: 36,
-                                                            },
-                                                        ),
-                                                        body: Some(
-                                                            FugitiveBody {
-                                                                ast_idx_range: ArenaIdxRange(
-                                                                    27..39,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
@@ -4336,40 +2518,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Fugitive(
-                                                        FugitiveSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::PubUnder(
-                                                        `mnist_classifier::digits`,
-                                                    ),
-                                                    ast_idx: 29,
-                                                    ident_token: IdentToken {
-                                                        ident: `is_zero`,
-                                                        token_idx: TokenIdx(
-                                                            50,
-                                                        ),
-                                                    },
-                                                    block: Fugitive {
-                                                        path: FugitivePath(
-                                                            Id {
-                                                                value: 28,
-                                                            },
-                                                        ),
-                                                        body: Some(
-                                                            FugitiveBody {
-                                                                ast_idx_range: ArenaIdxRange(
-                                                                    12..26,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
@@ -4421,40 +2569,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Fugitive(
-                                                        FugitiveSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::PubUnder(
-                                                        `mnist_classifier::digits`,
-                                                    ),
-                                                    ast_idx: 55,
-                                                    ident_token: IdentToken {
-                                                        ident: `is_two`,
-                                                        token_idx: TokenIdx(
-                                                            114,
-                                                        ),
-                                                    },
-                                                    block: Fugitive {
-                                                        path: FugitivePath(
-                                                            Id {
-                                                                value: 70,
-                                                            },
-                                                        ),
-                                                        body: Some(
-                                                            FugitiveBody {
-                                                                ast_idx_range: ArenaIdxRange(
-                                                                    32..50,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
@@ -4506,40 +2620,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Fugitive(
-                                                        FugitiveSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::PubUnder(
-                                                        `mnist_classifier::digits`,
-                                                    ),
-                                                    ast_idx: 30,
-                                                    ident_token: IdentToken {
-                                                        ident: `is_three`,
-                                                        token_idx: TokenIdx(
-                                                            27,
-                                                        ),
-                                                    },
-                                                    block: Fugitive {
-                                                        path: FugitivePath(
-                                                            Id {
-                                                                value: 40,
-                                                            },
-                                                        ),
-                                                        body: Some(
-                                                            FugitiveBody {
-                                                                ast_idx_range: ArenaIdxRange(
-                                                                    2..19,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
@@ -4591,40 +2671,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Fugitive(
-                                                        FugitiveSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::PubUnder(
-                                                        `mnist_classifier::digits`,
-                                                    ),
-                                                    ast_idx: 3,
-                                                    ident_token: IdentToken {
-                                                        ident: `is_five`,
-                                                        token_idx: TokenIdx(
-                                                            10,
-                                                        ),
-                                                    },
-                                                    block: Fugitive {
-                                                        path: FugitivePath(
-                                                            Id {
-                                                                value: 51,
-                                                            },
-                                                        ),
-                                                        body: Some(
-                                                            FugitiveBody {
-                                                                ast_idx_range: ArenaIdxRange(
-                                                                    1..2,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
@@ -4676,40 +2722,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Fugitive(
-                                                        FugitiveSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::PubUnder(
-                                                        `mnist_classifier::digits`,
-                                                    ),
-                                                    ast_idx: 45,
-                                                    ident_token: IdentToken {
-                                                        ident: `is_seven`,
-                                                        token_idx: TokenIdx(
-                                                            165,
-                                                        ),
-                                                    },
-                                                    block: Fugitive {
-                                                        path: FugitivePath(
-                                                            Id {
-                                                                value: 57,
-                                                            },
-                                                        ),
-                                                        body: Some(
-                                                            FugitiveBody {
-                                                                ast_idx_range: ArenaIdxRange(
-                                                                    29..39,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
@@ -4761,40 +2773,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Fugitive(
-                                                        FugitiveSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::PubUnder(
-                                                        `mnist_classifier::digits`,
-                                                    ),
-                                                    ast_idx: 20,
-                                                    ident_token: IdentToken {
-                                                        ident: `is_eight`,
-                                                        token_idx: TokenIdx(
-                                                            23,
-                                                        ),
-                                                    },
-                                                    block: Fugitive {
-                                                        path: FugitivePath(
-                                                            Id {
-                                                                value: 59,
-                                                            },
-                                                        ),
-                                                        body: Some(
-                                                            FugitiveBody {
-                                                                ast_idx_range: ArenaIdxRange(
-                                                                    7..14,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
@@ -4846,40 +2824,6 @@ Ok(
                                                 module_item_path: MajorItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                                 ),
-                                                node: MajorItemSynNode {
-                                                    syn_node_path: MajorItemSynNodePath::Fugitive(
-                                                        FugitiveSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                    visibility: Scope::PubUnder(
-                                                        `mnist_classifier::digits`,
-                                                    ),
-                                                    ast_idx: 39,
-                                                    ident_token: IdentToken {
-                                                        ident: `is_nine`,
-                                                        token_idx: TokenIdx(
-                                                            36,
-                                                        ),
-                                                    },
-                                                    block: Fugitive {
-                                                        path: FugitivePath(
-                                                            Id {
-                                                                value: 63,
-                                                            },
-                                                        ),
-                                                        body: Some(
-                                                            FugitiveBody {
-                                                                ast_idx_range: ArenaIdxRange(
-                                                                    18..29,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
@@ -4945,7 +2889,7 @@ Ok(
                             },
                         },
                         ast_idx: 205,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 39,
                             ),
@@ -4989,7 +2933,7 @@ Ok(
                             },
                         },
                         ast_idx: 206,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 61,
                             ),
@@ -5144,26 +3088,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `mnist_classifier::geom2d`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `mnist_classifier::geom2d`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::PubUnder(
-                                        `mnist_classifier`,
-                                    ),
-                                    ast_idx: 13,
-                                    ident_token: IdentToken {
-                                        ident: `geom2d`,
-                                        token_idx: TokenIdx(
-                                            6,
-                                        ),
-                                    },
-                                },
                             },
                         ),
                     },
@@ -5198,26 +3122,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `mnist_classifier::connected_component`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `mnist_classifier::connected_component`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::PubUnder(
-                                        `mnist_classifier`,
-                                    ),
-                                    ast_idx: 11,
-                                    ident_token: IdentToken {
-                                        ident: `connected_component`,
-                                        token_idx: TokenIdx(
-                                            2,
-                                        ),
-                                    },
-                                },
                             },
                         ),
                     },
@@ -5252,26 +3156,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::PubUnder(
-                                        `mnist_classifier`,
-                                    ),
-                                    ast_idx: 14,
-                                    ident_token: IdentToken {
-                                        ident: `line_segment_sketch`,
-                                        token_idx: TokenIdx(
-                                            8,
-                                        ),
-                                    },
-                                },
                             },
                         ),
                     },

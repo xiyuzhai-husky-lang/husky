@@ -68,40 +68,6 @@ Ok(
                         module_item_path: MajorItemPath::Trait(
                             TraitPath(`std::ops::Add`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Trait(
-                                TraitSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitPath(`std::ops::Add`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::PubUnder(
-                                `std::ops`,
-                            ),
-                            ast_idx: 4,
-                            ident_token: IdentToken {
-                                ident: `Add`,
-                                token_idx: TokenIdx(
-                                    8,
-                                ),
-                            },
-                            block: Trait {
-                                path: TraitPath(
-                                    Id {
-                                        value: 27,
-                                    },
-                                ),
-                                items: Some(
-                                    TraitItems {
-                                        ast_idx_range: ArenaIdxRange(
-                                            1..3,
-                                        ),
-                                    },
-                                ),
-                            },
-                        },
                     },
                 },
             ],

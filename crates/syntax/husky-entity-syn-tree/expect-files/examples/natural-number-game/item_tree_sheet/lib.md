@@ -160,40 +160,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`natural_number_game::Nat`, `Inductive`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`natural_number_game::Nat`, `Inductive`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::PubUnder(
-                                `natural_number_game`,
-                            ),
-                            ast_idx: 6,
-                            ident_token: IdentToken {
-                                ident: `Nat`,
-                                token_idx: TokenIdx(
-                                    2,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 67,
-                                    },
-                                ),
-                                variants: Some(
-                                    TypeVariants {
-                                        ast_idx_range: ArenaIdxRange(
-                                            1..3,
-                                        ),
-                                    },
-                                ),
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -205,34 +171,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`natural_number_game::OddNat`, `Structure`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`natural_number_game::OddNat`, `Structure`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::PubUnder(
-                                `natural_number_game`,
-                            ),
-                            ast_idx: 10,
-                            ident_token: IdentToken {
-                                ident: `OddNat`,
-                                token_idx: TokenIdx(
-                                    84,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 68,
-                                    },
-                                ),
-                                variants: None,
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -244,34 +182,6 @@ Ok(
                         module_item_path: MajorItemPath::Type(
                             TypePath(`natural_number_game::EvenNat`, `Structure`),
                         ),
-                        node: MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`natural_number_game::EvenNat`, `Structure`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::PubUnder(
-                                `natural_number_game`,
-                            ),
-                            ast_idx: 11,
-                            ident_token: IdentToken {
-                                ident: `EvenNat`,
-                                token_idx: TokenIdx(
-                                    113,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 69,
-                                    },
-                                ),
-                                variants: None,
-                            },
-                        },
                     },
                 },
             ],
@@ -297,7 +207,7 @@ Ok(
                             },
                         },
                         ast_idx: 7,
-                        impl_token: ImplToken {
+                        impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 10,
                             ),

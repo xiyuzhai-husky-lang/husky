@@ -7,7 +7,7 @@ pub struct RegionalTokenIdxRange {
 }
 
 impl RegionalTokenIdxRange {
-    pub fn from_ast_idx_range(
+    pub fn from_token_idx_range(
         token_idx_range: TokenIdxRange,
         regional_token_idx_base: RegionalTokenIdxBase,
     ) -> Self {
@@ -21,6 +21,12 @@ impl RegionalTokenIdxRange {
                 regional_token_idx_base,
             )),
         }
+    }
+
+    pub fn token_idx_range(self, base: RegionalTokenIdxBase) -> TokenIdxRange {
+        let start = self.start.regional_token_idx().token_idx(base);
+        let end = self.end.regional_token_idx().token_idx(base);
+        unsafe { TokenIdxRange::new(start, end) }
     }
 
     #[inline(always)]

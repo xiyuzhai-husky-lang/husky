@@ -91,7 +91,7 @@ impl RegionalTokenStreamState {
     }
 
     pub fn token_stream_state(self, base: RegionalTokenIdxBase) -> TokenStreamState {
-        todo!()
+        unsafe { TokenStreamState::new(self.next_regional_token_idx.token_idx(base), self.drained) }
     }
 }
 

@@ -190,38 +190,6 @@ Ok(
                                 module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist::MnistLabel`, `Enum`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Type(
-                                        TypeSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 17,
-                                    ident_token: IdentToken {
-                                        ident: `MnistLabel`,
-                                        token_idx: TokenIdx(
-                                            3,
-                                        ),
-                                    },
-                                    block: Type {
-                                        path: TypePath(
-                                            Id {
-                                                value: 73,
-                                            },
-                                        ),
-                                        variants: Some(
-                                            TypeVariants {
-                                                ast_idx_range: ArenaIdxRange(
-                                                    1..11,
-                                                ),
-                                            },
-                                        ),
-                                    },
-                                },
                             },
                         },
                         EntitySymbolEntry {
@@ -231,32 +199,6 @@ Ok(
                                 module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist::BinaryImage28`, `Struct`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Type(
-                                        TypeSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 19,
-                                    ident_token: IdentToken {
-                                        ident: `BinaryImage28`,
-                                        token_idx: TokenIdx(
-                                            33,
-                                        ),
-                                    },
-                                    block: Type {
-                                        path: TypePath(
-                                            Id {
-                                                value: 74,
-                                            },
-                                        ),
-                                        variants: None,
-                                    },
-                                },
                             },
                         },
                         EntitySymbolEntry {
@@ -266,32 +208,6 @@ Ok(
                                 module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist::BinaryGrid28`, `Struct`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Type(
-                                        TypeSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist::BinaryGrid28`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 23,
-                                    ident_token: IdentToken {
-                                        ident: `BinaryGrid28`,
-                                        token_idx: TokenIdx(
-                                            79,
-                                        ),
-                                    },
-                                    block: Type {
-                                        path: TypePath(
-                                            Id {
-                                                value: 75,
-                                            },
-                                        ),
-                                        variants: None,
-                                    },
-                                },
                             },
                         },
                         EntitySymbolEntry {
@@ -301,32 +217,6 @@ Ok(
                                 module_item_path: MajorItemPath::Fugitive(
                                     FugitivePath(`mnist::input`, `Val`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Fugitive(
-                                        FugitiveSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist::input`, `Val`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 27,
-                                    ident_token: IdentToken {
-                                        ident: `input`,
-                                        token_idx: TokenIdx(
-                                            125,
-                                        ),
-                                    },
-                                    block: Fugitive {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 81,
-                                            },
-                                        ),
-                                        body: None,
-                                    },
-                                },
                             },
                         },
                     ],
@@ -358,7 +248,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 20,
-                                impl_token: ImplToken {
+                                impl_regional_token: ImplToken {
                                     token_idx: TokenIdx(
                                         40,
                                     ),
@@ -402,7 +292,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 21,
-                                impl_token: ImplToken {
+                                impl_regional_token: ImplToken {
                                     token_idx: TokenIdx(
                                         52,
                                     ),
@@ -442,7 +332,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 22,
-                                impl_token: ImplToken {
+                                impl_regional_token: ImplToken {
                                     token_idx: TokenIdx(
                                         64,
                                     ),
@@ -492,7 +382,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 24,
-                                impl_token: ImplToken {
+                                impl_regional_token: ImplToken {
                                     token_idx: TokenIdx(
                                         86,
                                     ),
@@ -536,7 +426,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 25,
-                                impl_token: ImplToken {
+                                impl_regional_token: ImplToken {
                                     token_idx: TokenIdx(
                                         98,
                                     ),
@@ -576,7 +466,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 26,
-                                impl_token: ImplToken {
+                                impl_regional_token: ImplToken {
                                     token_idx: TokenIdx(
                                         110,
                                     ),
@@ -681,7 +571,7 @@ Ok(
                             ),
                         },
                     ),
-                    scope_resolution_token: ScopeResolutionToken(
+                    colon_colon_token: ColonColonToken(
                         TokenIdx(
                             68,
                         ),
@@ -697,7 +587,7 @@ Ok(
                             ),
                         },
                     ),
-                    scope_resolution_token: ScopeResolutionToken(
+                    colon_colon_token: ColonColonToken(
                         TokenIdx(
                             66,
                         ),
@@ -788,7 +678,7 @@ Ok(
                             ),
                         },
                     ),
-                    scope_resolution_token: ScopeResolutionToken(
+                    colon_colon_token: ColonColonToken(
                         TokenIdx(
                             114,
                         ),
@@ -804,7 +694,7 @@ Ok(
                             ),
                         },
                     ),
-                    scope_resolution_token: ScopeResolutionToken(
+                    colon_colon_token: ColonColonToken(
                         TokenIdx(
                             112,
                         ),

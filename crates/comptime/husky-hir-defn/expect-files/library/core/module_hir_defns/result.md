@@ -233,31 +233,33 @@
                             ),
                         ),
                     },
-                    body: Some(
-                        2,
+                    eager_body_with_hir_eager_expr_region: Some(
+                        (
+                            2,
+                            HirEagerExprRegion {
+                                expr_arena: Arena {
+                                    data: [
+                                        Todo,
+                                        Block {
+                                            stmts: ArenaIdxRange(
+                                                1..2,
+                                            ),
+                                        },
+                                    ],
+                                },
+                                stmt_arena: Arena {
+                                    data: [
+                                        Eval {
+                                            expr_idx: 1,
+                                        },
+                                    ],
+                                },
+                                pattern_expr_arena: Arena {
+                                    data: [],
+                                },
+                            },
+                        ),
                     ),
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [
-                                Todo,
-                                Block {
-                                    stmts: ArenaIdxRange(
-                                        1..2,
-                                    ),
-                                },
-                            ],
-                        },
-                        stmt_arena: Arena {
-                            data: [
-                                Eval {
-                                    expr_idx: 1,
-                                },
-                            ],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
                 },
             ),
         ),

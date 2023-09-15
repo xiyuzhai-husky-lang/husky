@@ -15,32 +15,6 @@ Ok(
                                 module_item_path: MajorItemPath::Type(
                                     TypePath(`core::logic::Prop`, `Extern`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Type(
-                                        TypeSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::logic::Prop`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 4,
-                                    ident_token: IdentToken {
-                                        ident: `Prop`,
-                                        token_idx: TokenIdx(
-                                            7,
-                                        ),
-                                    },
-                                    block: Type {
-                                        path: TypePath(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                        variants: None,
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
@@ -62,32 +36,6 @@ Ok(
                                 module_item_path: MajorItemPath::Type(
                                     TypePath(`core::logic::LogicAnd`, `Structure`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Type(
-                                        TypeSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::logic::LogicAnd`, `Structure`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 5,
-                                    ident_token: IdentToken {
-                                        ident: `LogicAnd`,
-                                        token_idx: TokenIdx(
-                                            11,
-                                        ),
-                                    },
-                                    block: Type {
-                                        path: TypePath(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                        variants: None,
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
@@ -109,38 +57,6 @@ Ok(
                                 module_item_path: MajorItemPath::Type(
                                     TypePath(`core::logic::LogicOr`, `Inductive`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Type(
-                                        TypeSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::logic::LogicOr`, `Inductive`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 6,
-                                    ident_token: IdentToken {
-                                        ident: `LogicOr`,
-                                        token_idx: TokenIdx(
-                                            33,
-                                        ),
-                                    },
-                                    block: Type {
-                                        path: TypePath(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                        variants: Some(
-                                            TypeVariants {
-                                                ast_idx_range: ArenaIdxRange(
-                                                    1..3,
-                                                ),
-                                            },
-                                        ),
-                                    },
-                                },
                             },
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(

@@ -190,6 +190,13 @@ pub struct TokenStreamState {
 }
 
 impl TokenStreamState {
+    pub unsafe fn new(next_token_idx: TokenIdx, drained: bool) -> Self {
+        Self {
+            next_token_idx,
+            drained,
+        }
+    }
+
     pub fn next_token_idx(&self) -> TokenIdx {
         self.next_token_idx
     }

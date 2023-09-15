@@ -1,5 +1,9 @@
 use crate::*;
 use husky_ast::{AstIdx, AstSheet, AstTokenIdxRangeSheet, HasAstSheet};
+use husky_entity_syn_tree::{
+    helpers::tokra_region::{HasDeclTokraRegion, HasSynDefnTokraRegion},
+    RegionPath,
+};
 use husky_expr_ty::*;
 use husky_fluffy_term::FluffyTermRegion;
 use husky_regional_token::{RegionalTokenIdx, RegionalTokenIdxBase, RegionalTokenStreamState};
@@ -77,35 +81,38 @@ pub(crate) struct RegionDiagnosticsContext<'a> {
     db: &'a dyn DiagnosticsDb,
     token_sheet_data: &'a TokenSheetData,
     ranged_token_sheet: &'a RangedTokenSheet,
-    expr_region_data: &'a SynExprRegionData,
+    syn_expr_region_data: &'a SynExprRegionData,
     expr_ty_region: &'a ExprTypeRegion,
     expr_range_region: &'a ExprRangeRegion,
+    regional_token_idx_base: RegionalTokenIdxBase,
 }
 
 impl<'a> RegionDiagnosticsContext<'a> {
     pub(crate) fn new(db: &'a dyn DiagnosticsDb, syn_expr_region: SynExprRegion) -> Self {
-        let expr_region_data = &syn_expr_region.data(db);
-        let module_path = expr_region_data.path().module_path(db);
+        let syn_expr_region_data = &syn_expr_region.data(db);
+        let module_path = syn_expr_region_data.path().module_path(db);
         let ranged_token_sheet = db.ranged_token_sheet(module_path).unwrap();
         let token_sheet_data = ranged_token_sheet.token_sheet_data(db);
         let expr_ty_region = db.expr_ty_region(syn_expr_region);
         let expr_range_region = db.expr_range_region(syn_expr_region);
+        let regional_token_idx_base = match syn_expr_region_data.path() {
+            RegionPath::Snippet(_) => todo!(),
+            RegionPath::Decl(path) => path.decl_regional_token_idx_base(db),
+            RegionPath::Defn(path) => path.defn_regional_token_idx_base(db).expect("todo"),
+        };
         Self {
             db,
             token_sheet_data,
             ranged_token_sheet,
-            expr_region_data,
+            syn_expr_region_data,
             expr_ty_region,
             expr_range_region,
+            regional_token_idx_base,
         }
     }
 
     pub(crate) fn db(&self) -> &'a dyn DiagnosticsDb {
         self.db
-    }
-
-    pub(crate) fn regional_token_idx_base(&self) -> RegionalTokenIdxBase {
-        todo!()
     }
 
     pub(crate) fn token_sheet_data(&self) -> &TokenSheetData {
@@ -125,8 +132,9 @@ impl<'a> RegionDiagnosticsContext<'a> {
     }
 
     pub(crate) fn expr_text_range(&self, expr_idx: SynExprIdx) -> TextRange {
-        todo!()
-        // self.text_range(self.expr_range_region[expr_idx])
+        self.text_range(
+            self.expr_range_region[expr_idx].token_idx_range(self.regional_token_idx_base),
+        )
     }
 
     fn text_range(&self, token_idx_range: TokenIdxRange) -> TextRange {
@@ -142,7 +150,7 @@ impl<'a> RegionDiagnosticsContext<'a> {
 
     pub(crate) fn token_text_range(&self, regional_token_idx: RegionalTokenIdx) -> TextRange {
         self.ranged_token_sheet()
-            .token_idx_text_range(regional_token_idx.token_idx(self.regional_token_idx_base()))
+            .token_idx_text_range(regional_token_idx.token_idx(self.regional_token_idx_base))
     }
 
     pub(crate) fn token_stream_state_text_range(
@@ -150,7 +158,7 @@ impl<'a> RegionDiagnosticsContext<'a> {
         regional_token_stream_state: RegionalTokenStreamState,
     ) -> TextRange {
         self.ranged_token_sheet.token_stream_state_text_range(
-            regional_token_stream_state.token_stream_state(self.regional_token_idx_base()),
+            regional_token_stream_state.token_stream_state(self.regional_token_idx_base),
         )
     }
 }
