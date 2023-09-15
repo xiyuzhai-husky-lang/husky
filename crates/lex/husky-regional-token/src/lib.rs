@@ -5,11 +5,13 @@ mod tests;
 mod token;
 mod token_group;
 mod token_idx;
+mod token_idx_range;
 
 pub use self::base::*;
 pub use self::token::*;
 pub use self::token_group::*;
 pub use self::token_idx::*;
+pub use self::token_idx_range::*;
 
 #[cfg(test)]
 use crate::tests::*;

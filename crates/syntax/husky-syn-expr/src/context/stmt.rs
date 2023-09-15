@@ -1,5 +1,5 @@
 use super::*;
-use husky_defn_ast::{DefnAstArenaRef, DefnAstIdx};
+use husky_defn_ast::{DefnAstArenaRef, DefnAstIdx, DefnAstIdxRange};
 use husky_entity_syn_tree::helpers::tokra_region::{DefnTokraRegionData, HasSynDefnTokraRegion};
 use husky_print_utils::p;
 
@@ -88,5 +88,15 @@ impl<'a> SynStmtContext<'a> {
         defn_ast_idx: DefnAstIdx,
     ) -> RegionalTokenIdxRange {
         todo!()
+    }
+
+    pub(crate) fn fugitive_body_end(&self, body: DefnAstIdxRange) -> RegionalTokenIdxRangeEnd {
+        self.defn_tokra_region_data
+            .ast_token_idx_range(body.end() - 1)
+            .end()
+    }
+
+    pub fn defn_tokra_region_data(&self) -> DefnTokraRegionData<'a> {
+        self.defn_tokra_region_data
     }
 }
