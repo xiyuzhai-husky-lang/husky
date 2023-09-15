@@ -5,11 +5,11 @@ use crate::*;
 pub struct RegionalTokenIdxBase(usize);
 
 impl RegionalTokenIdxBase {
-    pub fn new(token_group_base: TokenGroupTokenIdxBase) -> Self {
+    pub fn new(token_group_base: TokenGroupStart) -> Self {
         Self(token_group_base.token_idx().index())
     }
 
-    pub(crate) fn index_base(&self) -> usize {
+    pub fn index_base(&self) -> usize {
         self.0
     }
 }

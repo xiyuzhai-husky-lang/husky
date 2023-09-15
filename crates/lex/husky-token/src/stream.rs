@@ -4,7 +4,7 @@ use husky_vfs::snippet::Snippet;
 
 #[derive(Debug, Clone)]
 pub struct TokenStream<'a> {
-    base: TokenGroupTokenIdxBase,
+    base: TokenGroupStart,
     tokens: &'a [TokenData],
     next_relative: TokenGroupRelativeTokenIndex,
 }
@@ -16,7 +16,7 @@ impl TokenSheetData {
         saved_stream_state: impl Into<Option<TokenStreamState>>,
     ) -> TokenStream<'a> {
         let state: Option<TokenStreamState> = saved_stream_state.into();
-        let base = self.token_group_base(token_group_idx);
+        let base = self.token_group_start(token_group_idx);
         let next_relative = state
             .map(|state| TokenGroupRelativeTokenIndex::new(base, state.next_token_idx))
             .unwrap_or_default();

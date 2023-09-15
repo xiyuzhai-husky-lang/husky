@@ -4,6 +4,14 @@ use crate::*;
 pub struct RegionalTokenGroupStart(RegionalTokenIdx);
 
 impl RegionalTokenGroupStart {
+    pub fn from_token_group_start(
+        token_group_start: TokenGroupStart,
+        regional_token_idx_base: RegionalTokenIdxBase,
+    ) -> Self {
+        let index = token_group_start.index() - regional_token_idx_base.index_base();
+        Self::from_index(index)
+    }
+
     pub(crate) fn from_index(index: usize) -> Self {
         Self(RegionalTokenIdx::from_index(index))
     }

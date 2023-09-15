@@ -21,7 +21,7 @@ pub enum DefnAst {
         else_branch: Option<DefnAstIdx>,
     },
     MatchStmts {
-        token_group_idx: RegionalTokenGroupIdx,
+        regional_token_group_idx: RegionalTokenGroupIdx,
         pattern_stmt: DefnAstIdx,
         case_stmts: DefnAstIdxRange,
     },

@@ -253,10 +253,10 @@ impl<'a> SynStmtContext<'a> {
                 };
                 let current_symbol_kind = current_symbol_variant.kind();
                 let access_start = self
-                    .regional_ast_token_idx_range(body.start())
+                    .ast_token_idx_range(body.start())
                     .start()
                     .regional_token_idx();
-                let access_end = self.regional_ast_token_idx_range(body.end() - 1).end();
+                let access_end = self.ast_token_idx_range(body.end() - 1).end();
                 let frame_var_symbol = CurrentSynSymbol::new(
                     self.syn_pattern_expr_region(),
                     access_start,
