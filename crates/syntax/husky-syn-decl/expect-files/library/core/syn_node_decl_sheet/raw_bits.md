@@ -23,7 +23,6 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 9,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
@@ -108,31 +107,9 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 10,
-                            impl_block: TypeImplBlockSynNode {
-                                syn_node_path: TypeImplBlockSynNodePath {
-                                    path: TypeImplBlockPath {
-                                        module_path: `core::raw_bits`,
-                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ast_idx: 10,
-                                impl_token: ImplToken {
-                                    token_idx: TokenIdx(
-                                        29,
-                                    ),
-                                },
-                                ty_expr: 46,
-                                items: TypeItems {
-                                    ast_idx_range: ArenaIdxRange(
-                                        1..6,
-                                    ),
-                                },
-                            },
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    29,
+                            impl_regional_token: ImplRegionalToken {
+                                regional_token_idx: RegionalTokenIdx(
+                                    1,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -142,10 +119,10 @@ Ok(
                                 expr: 1,
                             },
                             eol_colon: Ok(
-                                EolToken::Colon(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
-                                            31,
+                                EolRegionalToken::Colon(
+                                    EolColonRegionalToken {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            3,
                                         ),
                                     },
                                 ),
@@ -183,11 +160,11 @@ Ok(
                                     principal_item_path_expr_arena: Arena {
                                         data: [
                                             PrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameToken::Ident(
-                                                    IdentToken {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
                                                         ident: `r32`,
-                                                        token_idx: TokenIdx(
-                                                            30,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            2,
                                                         ),
                                                     },
                                                 ),
@@ -278,36 +255,14 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                node: TypeItemSynNode {
-                                    syn_node_path: TypeItemSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath {
-                                                impl_block: TypeImplBlockPath {
-                                                    module_path: `core::raw_bits`,
-                                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                                ident: `last_bits`,
-                                                item_kind: MethodFn,
-                                            },
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ast_idx: 1,
-                                    ident: `last_bits`,
-                                    item_kind: MethodFn,
-                                    visibility: Scope::Pub,
-                                    is_generic: false,
-                                },
-                                ast_idx: 1,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 ritchie_parameter_decl_list: Ok(
                                     RitchieParameters {
-                                        lpar: LparToken(
-                                            TokenIdx(
-                                                35,
+                                        lpar: LparRegionalToken(
+                                            RegionalTokenIdx(
+                                                4,
                                             ),
                                         ),
                                         self_value_parameter: None,
@@ -318,27 +273,27 @@ Ok(
                                                 variables: ArenaIdxRange(
                                                     1..2,
                                                 ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        37,
+                                                colon: ColonRegionalToken(
+                                                    RegionalTokenIdx(
+                                                        6,
                                                     ),
                                                 ),
                                                 ty: 1,
                                             },
                                         ],
                                         commas: [],
-                                        rpar: RparToken(
-                                            TokenIdx(
-                                                39,
+                                        rpar: RparRegionalToken(
+                                            RegionalTokenIdx(
+                                                8,
                                             ),
                                         ),
                                     },
                                 ),
-                                curry_token: Ok(
+                                light_arrow_token: Ok(
                                     Some(
-                                        CurryToken(
-                                            TokenIdx(
-                                                40,
+                                        LightArrowRegionalToken(
+                                            RegionalTokenIdx(
+                                                9,
                                             ),
                                         ),
                                     ),
@@ -351,10 +306,10 @@ Ok(
                                     ),
                                 ),
                                 eol_colon: Ok(
-                                    EolToken::Semicolon(
-                                        EolSemicolonToken {
-                                            token_idx: TokenIdx(
-                                                42,
+                                    EolRegionalToken::Semicolon(
+                                        EolSemicolonRegionalToken {
+                                            regional_token_idx: RegionalTokenIdx(
+                                                11,
                                             ),
                                         },
                                     ),
@@ -395,11 +350,11 @@ Ok(
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
                                                             PrincipalEntityPathExpr::Root {
-                                                                path_name_token: PathNameToken::Ident(
-                                                                    IdentToken {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
                                                                         ident: `r32`,
-                                                                        token_idx: TokenIdx(
-                                                                            30,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            2,
                                                                         ),
                                                                     },
                                                                 ),
@@ -497,11 +452,11 @@ Ok(
                                         principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `i32`,
-                                                            token_idx: TokenIdx(
-                                                                38,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                7,
                                                             ),
                                                         },
                                                     ),
@@ -512,11 +467,11 @@ Ok(
                                                     ),
                                                 },
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `r32`,
-                                                            token_idx: TokenIdx(
-                                                                41,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                10,
                                                             ),
                                                         },
                                                     ),
@@ -536,10 +491,10 @@ Ok(
                                                 data: [
                                                     SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
-                                                        ident_token: IdentToken {
+                                                        ident_token: IdentRegionalToken {
                                                             ident: `k`,
-                                                            token_idx: TokenIdx(
-                                                                36,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                5,
                                                             ),
                                                         },
                                                     },
@@ -582,8 +537,8 @@ Ok(
                                                 data: [
                                                     CurrentSynSymbol {
                                                         modifier: None,
-                                                        access_start: TokenIdx(
-                                                            37,
+                                                        access_start: RegionalTokenIdx(
+                                                            6,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -661,54 +616,32 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                node: TypeItemSynNode {
-                                    syn_node_path: TypeItemSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath {
-                                                impl_block: TypeImplBlockPath {
-                                                    module_path: `core::raw_bits`,
-                                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                                ident: `ctz`,
-                                                item_kind: MethodFn,
-                                            },
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ast_idx: 2,
-                                    ident: `ctz`,
-                                    item_kind: MethodFn,
-                                    visibility: Scope::Pub,
-                                    is_generic: false,
-                                },
-                                ast_idx: 2,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 ritchie_parameter_decl_list: Ok(
                                     RitchieParameters {
-                                        lpar: LparToken(
-                                            TokenIdx(
-                                                46,
+                                        lpar: LparRegionalToken(
+                                            RegionalTokenIdx(
+                                                4,
                                             ),
                                         ),
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [],
                                         commas: [],
-                                        rpar: RparToken(
-                                            TokenIdx(
-                                                47,
+                                        rpar: RparRegionalToken(
+                                            RegionalTokenIdx(
+                                                5,
                                             ),
                                         ),
                                     },
                                 ),
-                                curry_token: Ok(
+                                light_arrow_token: Ok(
                                     Some(
-                                        CurryToken(
-                                            TokenIdx(
-                                                48,
+                                        LightArrowRegionalToken(
+                                            RegionalTokenIdx(
+                                                6,
                                             ),
                                         ),
                                     ),
@@ -721,10 +654,10 @@ Ok(
                                     ),
                                 ),
                                 eol_colon: Ok(
-                                    EolToken::Semicolon(
-                                        EolSemicolonToken {
-                                            token_idx: TokenIdx(
-                                                50,
+                                    EolRegionalToken::Semicolon(
+                                        EolSemicolonRegionalToken {
+                                            regional_token_idx: RegionalTokenIdx(
+                                                8,
                                             ),
                                         },
                                     ),
@@ -765,11 +698,11 @@ Ok(
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
                                                             PrincipalEntityPathExpr::Root {
-                                                                path_name_token: PathNameToken::Ident(
-                                                                    IdentToken {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
                                                                         ident: `r32`,
-                                                                        token_idx: TokenIdx(
-                                                                            30,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            2,
                                                                         ),
                                                                     },
                                                                 ),
@@ -857,11 +790,11 @@ Ok(
                                         principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `i32`,
-                                                            token_idx: TokenIdx(
-                                                                49,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                7,
                                                             ),
                                                         },
                                                     ),
@@ -953,54 +886,32 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                node: TypeItemSynNode {
-                                    syn_node_path: TypeItemSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath {
-                                                impl_block: TypeImplBlockPath {
-                                                    module_path: `core::raw_bits`,
-                                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                                ident: `co`,
-                                                item_kind: MethodFn,
-                                            },
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ast_idx: 3,
-                                    ident: `co`,
-                                    item_kind: MethodFn,
-                                    visibility: Scope::Pub,
-                                    is_generic: false,
-                                },
-                                ast_idx: 3,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 ritchie_parameter_decl_list: Ok(
                                     RitchieParameters {
-                                        lpar: LparToken(
-                                            TokenIdx(
-                                                54,
+                                        lpar: LparRegionalToken(
+                                            RegionalTokenIdx(
+                                                4,
                                             ),
                                         ),
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [],
                                         commas: [],
-                                        rpar: RparToken(
-                                            TokenIdx(
-                                                55,
+                                        rpar: RparRegionalToken(
+                                            RegionalTokenIdx(
+                                                5,
                                             ),
                                         ),
                                     },
                                 ),
-                                curry_token: Ok(
+                                light_arrow_token: Ok(
                                     Some(
-                                        CurryToken(
-                                            TokenIdx(
-                                                56,
+                                        LightArrowRegionalToken(
+                                            RegionalTokenIdx(
+                                                6,
                                             ),
                                         ),
                                     ),
@@ -1013,10 +924,10 @@ Ok(
                                     ),
                                 ),
                                 eol_colon: Ok(
-                                    EolToken::Semicolon(
-                                        EolSemicolonToken {
-                                            token_idx: TokenIdx(
-                                                58,
+                                    EolRegionalToken::Semicolon(
+                                        EolSemicolonRegionalToken {
+                                            regional_token_idx: RegionalTokenIdx(
+                                                8,
                                             ),
                                         },
                                     ),
@@ -1057,11 +968,11 @@ Ok(
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
                                                             PrincipalEntityPathExpr::Root {
-                                                                path_name_token: PathNameToken::Ident(
-                                                                    IdentToken {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
                                                                         ident: `r32`,
-                                                                        token_idx: TokenIdx(
-                                                                            30,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            2,
                                                                         ),
                                                                     },
                                                                 ),
@@ -1149,11 +1060,11 @@ Ok(
                                         principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `i32`,
-                                                            token_idx: TokenIdx(
-                                                                57,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                7,
                                                             ),
                                                         },
                                                     ),
@@ -1245,54 +1156,32 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                node: TypeItemSynNode {
-                                    syn_node_path: TypeItemSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath {
-                                                impl_block: TypeImplBlockPath {
-                                                    module_path: `core::raw_bits`,
-                                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                                ident: `span`,
-                                                item_kind: MethodFn,
-                                            },
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ast_idx: 4,
-                                    ident: `span`,
-                                    item_kind: MethodFn,
-                                    visibility: Scope::Pub,
-                                    is_generic: false,
-                                },
-                                ast_idx: 4,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 ritchie_parameter_decl_list: Ok(
                                     RitchieParameters {
-                                        lpar: LparToken(
-                                            TokenIdx(
-                                                62,
+                                        lpar: LparRegionalToken(
+                                            RegionalTokenIdx(
+                                                4,
                                             ),
                                         ),
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [],
                                         commas: [],
-                                        rpar: RparToken(
-                                            TokenIdx(
-                                                63,
+                                        rpar: RparRegionalToken(
+                                            RegionalTokenIdx(
+                                                5,
                                             ),
                                         ),
                                     },
                                 ),
-                                curry_token: Ok(
+                                light_arrow_token: Ok(
                                     Some(
-                                        CurryToken(
-                                            TokenIdx(
-                                                64,
+                                        LightArrowRegionalToken(
+                                            RegionalTokenIdx(
+                                                6,
                                             ),
                                         ),
                                     ),
@@ -1305,10 +1194,10 @@ Ok(
                                     ),
                                 ),
                                 eol_colon: Ok(
-                                    EolToken::Semicolon(
-                                        EolSemicolonToken {
-                                            token_idx: TokenIdx(
-                                                66,
+                                    EolRegionalToken::Semicolon(
+                                        EolSemicolonRegionalToken {
+                                            regional_token_idx: RegionalTokenIdx(
+                                                8,
                                             ),
                                         },
                                     ),
@@ -1349,11 +1238,11 @@ Ok(
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
                                                             PrincipalEntityPathExpr::Root {
-                                                                path_name_token: PathNameToken::Ident(
-                                                                    IdentToken {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
                                                                         ident: `r32`,
-                                                                        token_idx: TokenIdx(
-                                                                            30,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            2,
                                                                         ),
                                                                     },
                                                                 ),
@@ -1441,11 +1330,11 @@ Ok(
                                         principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `i32`,
-                                                            token_idx: TokenIdx(
-                                                                65,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                7,
                                                             ),
                                                         },
                                                     ),
@@ -1537,54 +1426,32 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                node: TypeItemSynNode {
-                                    syn_node_path: TypeItemSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath {
-                                                impl_block: TypeImplBlockPath {
-                                                    module_path: `core::raw_bits`,
-                                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                                ident: `right_mass`,
-                                                item_kind: MethodFn,
-                                            },
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ast_idx: 5,
-                                    ident: `right_mass`,
-                                    item_kind: MethodFn,
-                                    visibility: Scope::Pub,
-                                    is_generic: false,
-                                },
-                                ast_idx: 5,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 ritchie_parameter_decl_list: Ok(
                                     RitchieParameters {
-                                        lpar: LparToken(
-                                            TokenIdx(
-                                                70,
+                                        lpar: LparRegionalToken(
+                                            RegionalTokenIdx(
+                                                4,
                                             ),
                                         ),
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [],
                                         commas: [],
-                                        rpar: RparToken(
-                                            TokenIdx(
-                                                71,
+                                        rpar: RparRegionalToken(
+                                            RegionalTokenIdx(
+                                                5,
                                             ),
                                         ),
                                     },
                                 ),
-                                curry_token: Ok(
+                                light_arrow_token: Ok(
                                     Some(
-                                        CurryToken(
-                                            TokenIdx(
-                                                72,
+                                        LightArrowRegionalToken(
+                                            RegionalTokenIdx(
+                                                6,
                                             ),
                                         ),
                                     ),
@@ -1597,10 +1464,10 @@ Ok(
                                     ),
                                 ),
                                 eol_colon: Ok(
-                                    EolToken::Semicolon(
-                                        EolSemicolonToken {
-                                            token_idx: TokenIdx(
-                                                74,
+                                    EolRegionalToken::Semicolon(
+                                        EolSemicolonRegionalToken {
+                                            regional_token_idx: RegionalTokenIdx(
+                                                8,
                                             ),
                                         },
                                     ),
@@ -1641,11 +1508,11 @@ Ok(
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
                                                             PrincipalEntityPathExpr::Root {
-                                                                path_name_token: PathNameToken::Ident(
-                                                                    IdentToken {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
                                                                         ident: `r32`,
-                                                                        token_idx: TokenIdx(
-                                                                            30,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            2,
                                                                         ),
                                                                     },
                                                                 ),
@@ -1733,11 +1600,11 @@ Ok(
                                         principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `i32`,
-                                                            token_idx: TokenIdx(
-                                                                73,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                7,
                                                             ),
                                                         },
                                                     ),

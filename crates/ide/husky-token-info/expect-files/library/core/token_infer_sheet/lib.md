@@ -312,24 +312,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `core::prelude`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `core::prelude`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::Pub,
-                                ast_idx: 13,
-                                ident_token: IdentToken {
-                                    ident: `prelude`,
-                                    token_idx: TokenIdx(
-                                        39,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },

@@ -26,9 +26,9 @@ Ok(
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `T`,
-                            token_idx: TokenIdx(
+                            regional_token_idx: RegionalTokenIdx(
                                 5,
                             ),
                         },
@@ -62,9 +62,9 @@ Ok(
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `T`,
-                            token_idx: TokenIdx(
+                            regional_token_idx: RegionalTokenIdx(
                                 5,
                             ),
                         },
@@ -156,10 +156,10 @@ Ok(
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `T`,
-                            token_idx: TokenIdx(
-                                44,
+                            regional_token_idx: RegionalTokenIdx(
+                                4,
                             ),
                         },
                     },
@@ -192,10 +192,10 @@ Ok(
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `T`,
-                            token_idx: TokenIdx(
-                                44,
+                            regional_token_idx: RegionalTokenIdx(
+                                4,
                             ),
                         },
                     },
@@ -386,10 +386,10 @@ Ok(
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `T`,
-                            token_idx: TokenIdx(
-                                105,
+                            regional_token_idx: RegionalTokenIdx(
+                                4,
                             ),
                         },
                     },
@@ -422,10 +422,10 @@ Ok(
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `T`,
-                            token_idx: TokenIdx(
-                                105,
+                            regional_token_idx: RegionalTokenIdx(
+                                4,
                             ),
                         },
                     },

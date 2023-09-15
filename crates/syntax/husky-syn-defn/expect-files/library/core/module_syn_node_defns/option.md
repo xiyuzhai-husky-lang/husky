@@ -17,13 +17,12 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 5,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
-                                        langle: LaOrLtToken(
-                                            TokenIdx(
-                                                13,
+                                        langle: LaOrLtRegionalToken(
+                                            RegionalTokenIdx(
+                                                4,
                                             ),
                                         ),
                                         template_parameters: [
@@ -31,10 +30,10 @@ Ok(
                                                 annotated_variance_token: None,
                                                 symbol: 1,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
-                                                    ident_token: IdentToken {
+                                                    ident_token: IdentRegionalToken {
                                                         ident: `T`,
-                                                        token_idx: TokenIdx(
-                                                            14,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            5,
                                                         ),
                                                     },
                                                     traits: None,
@@ -45,9 +44,9 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RaOrGtToken(
-                                            TokenIdx(
-                                                15,
+                                        rangle: RaOrGtRegionalToken(
+                                            RegionalTokenIdx(
+                                                6,
                                             ),
                                         ),
                                     },
@@ -101,8 +100,8 @@ Ok(
                                             data: [
                                                 CurrentSynSymbol {
                                                     modifier: Const,
-                                                    access_start: TokenIdx(
-                                                        15,
+                                                    access_start: RegionalTokenIdx(
+                                                        6,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -111,10 +110,10 @@ Ok(
                                                         },
                                                         annotated_variance_token: None,
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `T`,
-                                                                token_idx: TokenIdx(
-                                                                    14,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    5,
                                                                 ),
                                                             },
                                                         },

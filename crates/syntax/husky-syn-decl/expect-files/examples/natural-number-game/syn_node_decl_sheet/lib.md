@@ -23,7 +23,6 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 6,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
@@ -107,7 +106,6 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 10,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
@@ -191,7 +189,6 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 11,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
@@ -276,31 +273,9 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 7,
-                            impl_block: TypeImplBlockSynNode {
-                                syn_node_path: TypeImplBlockSynNodePath {
-                                    path: TypeImplBlockPath {
-                                        module_path: `natural_number_game`,
-                                        ty_path: TypePath(`natural_number_game::Nat`, `Inductive`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ast_idx: 7,
-                                impl_token: ImplToken {
-                                    token_idx: TokenIdx(
-                                        10,
-                                    ),
-                                },
-                                ty_expr: 1,
-                                items: TypeItems {
-                                    ast_idx_range: ArenaIdxRange(
-                                        3..6,
-                                    ),
-                                },
-                            },
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    10,
+                            impl_regional_token: ImplRegionalToken {
+                                regional_token_idx: RegionalTokenIdx(
+                                    1,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -310,10 +285,10 @@ Ok(
                                 expr: 1,
                             },
                             eol_colon: Ok(
-                                EolToken::Colon(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
-                                            12,
+                                EolRegionalToken::Colon(
+                                    EolColonRegionalToken {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            3,
                                         ),
                                     },
                                 ),
@@ -351,11 +326,11 @@ Ok(
                                     principal_item_path_expr_arena: Arena {
                                         data: [
                                             PrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameToken::Ident(
-                                                    IdentToken {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
                                                         ident: `Nat`,
-                                                        token_idx: TokenIdx(
-                                                            11,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            2,
                                                         ),
                                                     },
                                                 ),

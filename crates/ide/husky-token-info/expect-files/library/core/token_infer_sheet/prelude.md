@@ -28,24 +28,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `core::basic`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `core::basic`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::Pub,
-                                ast_idx: 2,
-                                ident_token: IdentToken {
-                                    ident: `basic`,
-                                    token_idx: TokenIdx(
-                                        6,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -79,24 +61,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `core::num`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `core::num`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::Pub,
-                                ast_idx: 10,
-                                ident_token: IdentToken {
-                                    ident: `num`,
-                                    token_idx: TokenIdx(
-                                        30,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -130,24 +94,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `core::raw_bits`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `core::raw_bits`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::Pub,
-                                ast_idx: 14,
-                                ident_token: IdentToken {
-                                    ident: `raw_bits`,
-                                    token_idx: TokenIdx(
-                                        42,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -181,24 +127,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `core::fmt`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `core::fmt`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::Pub,
-                                ast_idx: 6,
-                                ident_token: IdentToken {
-                                    ident: `fmt`,
-                                    token_idx: TokenIdx(
-                                        18,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -232,24 +160,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `core::visual`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `core::visual`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::Pub,
-                                ast_idx: 19,
-                                ident_token: IdentToken {
-                                    ident: `visual`,
-                                    token_idx: TokenIdx(
-                                        57,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -283,24 +193,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `core::marker`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `core::marker`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::Pub,
-                                ast_idx: 8,
-                                ident_token: IdentToken {
-                                    ident: `marker`,
-                                    token_idx: TokenIdx(
-                                        24,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -334,24 +226,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `core::clone`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `core::clone`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::Pub,
-                                ast_idx: 3,
-                                ident_token: IdentToken {
-                                    ident: `clone`,
-                                    token_idx: TokenIdx(
-                                        9,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -385,24 +259,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `core::option`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `core::option`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::Pub,
-                                ast_idx: 12,
-                                ident_token: IdentToken {
-                                    ident: `option`,
-                                    token_idx: TokenIdx(
-                                        36,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -436,24 +292,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `core::cmp`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `core::cmp`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::Pub,
-                                ast_idx: 4,
-                                ident_token: IdentToken {
-                                    ident: `cmp`,
-                                    token_idx: TokenIdx(
-                                        12,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -487,24 +325,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `core::slice`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `core::slice`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::Pub,
-                                ast_idx: 17,
-                                ident_token: IdentToken {
-                                    ident: `slice`,
-                                    token_idx: TokenIdx(
-                                        51,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -538,24 +358,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `core::vec`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `core::vec`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::Pub,
-                                ast_idx: 16,
-                                ident_token: IdentToken {
-                                    ident: `vec`,
-                                    token_idx: TokenIdx(
-                                        48,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },

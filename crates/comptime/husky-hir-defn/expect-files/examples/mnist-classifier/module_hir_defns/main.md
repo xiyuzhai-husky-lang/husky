@@ -63,16 +63,18 @@
                             ),
                         ),
                     },
-                    body: Some(
-                        Eager(
-                            22,
-                        ),
-                    ),
-                    hir_expr_region: Eager(
-                        HirEagerExprRegion(
-                            Id {
-                                value: 8,
-                            },
+                    body_with_hir_expr_region: Some(
+                        (
+                            Eager(
+                                22,
+                            ),
+                            Eager(
+                                HirEagerExprRegion(
+                                    Id {
+                                        value: 8,
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                 },

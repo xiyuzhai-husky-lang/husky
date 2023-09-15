@@ -13,14 +13,14 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Error(
-            TokenError::UnexpectedCharAfterBackslash(
+        TokenData::Error(
+            TokenDataError::UnexpectedCharAfterBackslash(
                 'a',
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),

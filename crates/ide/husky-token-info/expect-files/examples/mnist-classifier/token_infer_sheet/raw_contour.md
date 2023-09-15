@@ -27,26 +27,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::geom2d`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::geom2d`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier`,
-                                ),
-                                ast_idx: 13,
-                                ident_token: IdentToken {
-                                    ident: `geom2d`,
-                                    token_idx: TokenIdx(
-                                        6,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -79,26 +59,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::connected_component`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::connected_component`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier`,
-                                ),
-                                ast_idx: 11,
-                                ident_token: IdentToken {
-                                    ident: `connected_component`,
-                                    token_idx: TokenIdx(
-                                        2,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -131,26 +91,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::line_segment_sketch`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier`,
-                                ),
-                                ast_idx: 14,
-                                ident_token: IdentToken {
-                                    ident: `line_segment_sketch`,
-                                    token_idx: TokenIdx(
-                                        8,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -197,10 +137,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `cc`,
-                        token_idx: TokenIdx(
-                            27,
+                        regional_token_idx: RegionalTokenIdx(
+                            5,
                         ),
                     },
                 },
@@ -219,10 +159,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `points`,
-                        token_idx: TokenIdx(
-                            32,
+                        regional_token_idx: RegionalTokenIdx(
+                            10,
                         ),
                     },
                 },
@@ -2188,10 +2128,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `prev1`,
-                        token_idx: TokenIdx(
-                            879,
+                        regional_token_idx: RegionalTokenIdx(
+                            4,
                         ),
                     },
                 },
@@ -2209,10 +2149,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `prev2`,
-                        token_idx: TokenIdx(
-                            883,
+                        regional_token_idx: RegionalTokenIdx(
+                            8,
                         ),
                     },
                 },

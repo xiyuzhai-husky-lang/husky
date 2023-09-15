@@ -29,10 +29,10 @@ Ok(
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `B`,
-                            token_idx: TokenIdx(
-                                10,
+                            regional_token_idx: RegionalTokenIdx(
+                                4,
                             ),
                         },
                     },

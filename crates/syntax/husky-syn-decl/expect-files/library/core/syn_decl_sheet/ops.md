@@ -12,16 +12,15 @@ Ok(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Add`),
-                            ast_idx: 33,
                             template_parameters: [
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
+                                        ident_token: IdentRegionalToken {
                                             ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                16,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                5,
                                             ),
                                         },
                                         traits: None,
@@ -76,8 +75,8 @@ Ok(
                                             data: [
                                                 CurrentSynSymbol {
                                                     modifier: Const,
-                                                    access_start: TokenIdx(
-                                                        17,
+                                                    access_start: RegionalTokenIdx(
+                                                        6,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -86,10 +85,10 @@ Ok(
                                                         },
                                                         annotated_variance_token: None,
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `Rhs`,
-                                                                token_idx: TokenIdx(
-                                                                    16,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    5,
                                                                 ),
                                                             },
                                                         },
@@ -125,16 +124,15 @@ Ok(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::AddAssign`),
-                            ast_idx: 35,
                             template_parameters: [
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
+                                        ident_token: IdentRegionalToken {
                                             ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                45,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                5,
                                             ),
                                         },
                                         traits: None,
@@ -189,8 +187,8 @@ Ok(
                                             data: [
                                                 CurrentSynSymbol {
                                                     modifier: Const,
-                                                    access_start: TokenIdx(
-                                                        46,
+                                                    access_start: RegionalTokenIdx(
+                                                        6,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -199,10 +197,10 @@ Ok(
                                                         },
                                                         annotated_variance_token: None,
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `Rhs`,
-                                                                token_idx: TokenIdx(
-                                                                    45,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    5,
                                                                 ),
                                                             },
                                                         },
@@ -238,16 +236,15 @@ Ok(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitAnd`),
-                            ast_idx: 37,
                             template_parameters: [
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
+                                        ident_token: IdentRegionalToken {
                                             ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                74,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                5,
                                             ),
                                         },
                                         traits: None,
@@ -302,8 +299,8 @@ Ok(
                                             data: [
                                                 CurrentSynSymbol {
                                                     modifier: Const,
-                                                    access_start: TokenIdx(
-                                                        75,
+                                                    access_start: RegionalTokenIdx(
+                                                        6,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -312,10 +309,10 @@ Ok(
                                                         },
                                                         annotated_variance_token: None,
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `Rhs`,
-                                                                token_idx: TokenIdx(
-                                                                    74,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    5,
                                                                 ),
                                                             },
                                                         },
@@ -351,16 +348,15 @@ Ok(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitAndAssign`),
-                            ast_idx: 39,
                             template_parameters: [
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
+                                        ident_token: IdentRegionalToken {
                                             ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                103,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                5,
                                             ),
                                         },
                                         traits: None,
@@ -415,8 +411,8 @@ Ok(
                                             data: [
                                                 CurrentSynSymbol {
                                                     modifier: Const,
-                                                    access_start: TokenIdx(
-                                                        104,
+                                                    access_start: RegionalTokenIdx(
+                                                        6,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -425,10 +421,10 @@ Ok(
                                                         },
                                                         annotated_variance_token: None,
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `Rhs`,
-                                                                token_idx: TokenIdx(
-                                                                    103,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    5,
                                                                 ),
                                                             },
                                                         },
@@ -464,16 +460,15 @@ Ok(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitOr`),
-                            ast_idx: 41,
                             template_parameters: [
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
+                                        ident_token: IdentRegionalToken {
                                             ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                128,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                5,
                                             ),
                                         },
                                         traits: None,
@@ -528,8 +523,8 @@ Ok(
                                             data: [
                                                 CurrentSynSymbol {
                                                     modifier: Const,
-                                                    access_start: TokenIdx(
-                                                        129,
+                                                    access_start: RegionalTokenIdx(
+                                                        6,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -538,10 +533,10 @@ Ok(
                                                         },
                                                         annotated_variance_token: None,
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `Rhs`,
-                                                                token_idx: TokenIdx(
-                                                                    128,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    5,
                                                                 ),
                                                             },
                                                         },
@@ -577,16 +572,15 @@ Ok(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitOrAssign`),
-                            ast_idx: 43,
                             template_parameters: [
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
+                                        ident_token: IdentRegionalToken {
                                             ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                157,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                5,
                                             ),
                                         },
                                         traits: None,
@@ -641,8 +635,8 @@ Ok(
                                             data: [
                                                 CurrentSynSymbol {
                                                     modifier: Const,
-                                                    access_start: TokenIdx(
-                                                        158,
+                                                    access_start: RegionalTokenIdx(
+                                                        6,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -651,10 +645,10 @@ Ok(
                                                         },
                                                         annotated_variance_token: None,
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `Rhs`,
-                                                                token_idx: TokenIdx(
-                                                                    157,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    5,
                                                                 ),
                                                             },
                                                         },
@@ -690,16 +684,15 @@ Ok(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitXor`),
-                            ast_idx: 45,
                             template_parameters: [
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
+                                        ident_token: IdentRegionalToken {
                                             ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                182,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                5,
                                             ),
                                         },
                                         traits: None,
@@ -754,8 +747,8 @@ Ok(
                                             data: [
                                                 CurrentSynSymbol {
                                                     modifier: Const,
-                                                    access_start: TokenIdx(
-                                                        183,
+                                                    access_start: RegionalTokenIdx(
+                                                        6,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -764,10 +757,10 @@ Ok(
                                                         },
                                                         annotated_variance_token: None,
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `Rhs`,
-                                                                token_idx: TokenIdx(
-                                                                    182,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    5,
                                                                 ),
                                                             },
                                                         },
@@ -803,16 +796,15 @@ Ok(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitXorAssign`),
-                            ast_idx: 47,
                             template_parameters: [
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
+                                        ident_token: IdentRegionalToken {
                                             ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                211,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                5,
                                             ),
                                         },
                                         traits: None,
@@ -867,8 +859,8 @@ Ok(
                                             data: [
                                                 CurrentSynSymbol {
                                                     modifier: Const,
-                                                    access_start: TokenIdx(
-                                                        212,
+                                                    access_start: RegionalTokenIdx(
+                                                        6,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -877,10 +869,10 @@ Ok(
                                                         },
                                                         annotated_variance_token: None,
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `Rhs`,
-                                                                token_idx: TokenIdx(
-                                                                    211,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    5,
                                                                 ),
                                                             },
                                                         },
@@ -916,16 +908,15 @@ Ok(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Div`),
-                            ast_idx: 49,
                             template_parameters: [
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
+                                        ident_token: IdentRegionalToken {
                                             ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                236,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                5,
                                             ),
                                         },
                                         traits: None,
@@ -980,8 +971,8 @@ Ok(
                                             data: [
                                                 CurrentSynSymbol {
                                                     modifier: Const,
-                                                    access_start: TokenIdx(
-                                                        237,
+                                                    access_start: RegionalTokenIdx(
+                                                        6,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -990,10 +981,10 @@ Ok(
                                                         },
                                                         annotated_variance_token: None,
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `Rhs`,
-                                                                token_idx: TokenIdx(
-                                                                    236,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    5,
                                                                 ),
                                                             },
                                                         },
@@ -1029,16 +1020,15 @@ Ok(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::DivAssign`),
-                            ast_idx: 51,
                             template_parameters: [
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
+                                        ident_token: IdentRegionalToken {
                                             ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                265,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                5,
                                             ),
                                         },
                                         traits: None,
@@ -1093,8 +1083,8 @@ Ok(
                                             data: [
                                                 CurrentSynSymbol {
                                                     modifier: Const,
-                                                    access_start: TokenIdx(
-                                                        266,
+                                                    access_start: RegionalTokenIdx(
+                                                        6,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1103,10 +1093,10 @@ Ok(
                                                         },
                                                         annotated_variance_token: None,
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `Rhs`,
-                                                                token_idx: TokenIdx(
-                                                                    265,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    5,
                                                                 ),
                                                             },
                                                         },
@@ -1142,7 +1132,6 @@ Ok(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::IntIndex`),
-                            ast_idx: 52,
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -1212,16 +1201,15 @@ Ok(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Mul`),
-                            ast_idx: 54,
                             template_parameters: [
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
+                                        ident_token: IdentRegionalToken {
                                             ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                297,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                5,
                                             ),
                                         },
                                         traits: None,
@@ -1276,8 +1264,8 @@ Ok(
                                             data: [
                                                 CurrentSynSymbol {
                                                     modifier: Const,
-                                                    access_start: TokenIdx(
-                                                        298,
+                                                    access_start: RegionalTokenIdx(
+                                                        6,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1286,10 +1274,10 @@ Ok(
                                                         },
                                                         annotated_variance_token: None,
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `Rhs`,
-                                                                token_idx: TokenIdx(
-                                                                    297,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    5,
                                                                 ),
                                                             },
                                                         },
@@ -1325,16 +1313,15 @@ Ok(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::MulAssign`),
-                            ast_idx: 56,
                             template_parameters: [
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
+                                        ident_token: IdentRegionalToken {
                                             ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                326,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                5,
                                             ),
                                         },
                                         traits: None,
@@ -1389,8 +1376,8 @@ Ok(
                                             data: [
                                                 CurrentSynSymbol {
                                                     modifier: Const,
-                                                    access_start: TokenIdx(
-                                                        327,
+                                                    access_start: RegionalTokenIdx(
+                                                        6,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1399,10 +1386,10 @@ Ok(
                                                         },
                                                         annotated_variance_token: None,
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `Rhs`,
-                                                                token_idx: TokenIdx(
-                                                                    326,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    5,
                                                                 ),
                                                             },
                                                         },
@@ -1438,7 +1425,6 @@ Ok(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Neg`),
-                            ast_idx: 58,
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -1508,7 +1494,6 @@ Ok(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Not`),
-                            ast_idx: 60,
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -1578,16 +1563,15 @@ Ok(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Sub`),
-                            ast_idx: 62,
                             template_parameters: [
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
+                                        ident_token: IdentRegionalToken {
                                             ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                399,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                5,
                                             ),
                                         },
                                         traits: None,
@@ -1642,8 +1626,8 @@ Ok(
                                             data: [
                                                 CurrentSynSymbol {
                                                     modifier: Const,
-                                                    access_start: TokenIdx(
-                                                        400,
+                                                    access_start: RegionalTokenIdx(
+                                                        6,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1652,10 +1636,10 @@ Ok(
                                                         },
                                                         annotated_variance_token: None,
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `Rhs`,
-                                                                token_idx: TokenIdx(
-                                                                    399,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    5,
                                                                 ),
                                                             },
                                                         },
@@ -1691,16 +1675,15 @@ Ok(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Unveil`),
-                            ast_idx: 63,
                             template_parameters: [
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
+                                        ident_token: IdentRegionalToken {
                                             ident: `T`,
-                                            token_idx: TokenIdx(
-                                                421,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                5,
                                             ),
                                         },
                                         traits: None,
@@ -1755,8 +1738,8 @@ Ok(
                                             data: [
                                                 CurrentSynSymbol {
                                                     modifier: Const,
-                                                    access_start: TokenIdx(
-                                                        422,
+                                                    access_start: RegionalTokenIdx(
+                                                        6,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1765,10 +1748,10 @@ Ok(
                                                         },
                                                         annotated_variance_token: None,
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `T`,
-                                                                token_idx: TokenIdx(
-                                                                    421,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    5,
                                                                 ),
                                                             },
                                                         },
@@ -1810,10 +1793,10 @@ Ok(
                                         annotated_variance_token: None,
                                         symbol: 1,
                                         variant: TemplateParameterDeclPatternVariant::Type {
-                                            ident_token: IdentToken {
+                                            ident_token: IdentRegionalToken {
                                                 ident: `R`,
-                                                token_idx: TokenIdx(
-                                                    450,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    5,
                                                 ),
                                             },
                                             traits: None,
@@ -1823,10 +1806,10 @@ Ok(
                                         annotated_variance_token: None,
                                         symbol: 2,
                                         variant: TemplateParameterDeclPatternVariant::Type {
-                                            ident_token: IdentToken {
+                                            ident_token: IdentRegionalToken {
                                                 ident: `C`,
-                                                token_idx: TokenIdx(
-                                                    452,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    7,
                                                 ),
                                             },
                                             traits: None,
@@ -1881,8 +1864,8 @@ Ok(
                                                 data: [
                                                     CurrentSynSymbol {
                                                         modifier: Const,
-                                                        access_start: TokenIdx(
-                                                            451,
+                                                        access_start: RegionalTokenIdx(
+                                                            6,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1891,10 +1874,10 @@ Ok(
                                                             },
                                                             annotated_variance_token: None,
                                                             template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                                ident_token: IdentToken {
+                                                                ident_token: IdentRegionalToken {
                                                                     ident: `R`,
-                                                                    token_idx: TokenIdx(
-                                                                        450,
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        5,
                                                                     ),
                                                                 },
                                                             },
@@ -1902,8 +1885,8 @@ Ok(
                                                     },
                                                     CurrentSynSymbol {
                                                         modifier: Const,
-                                                        access_start: TokenIdx(
-                                                            453,
+                                                        access_start: RegionalTokenIdx(
+                                                            8,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1912,10 +1895,10 @@ Ok(
                                                             },
                                                             annotated_variance_token: None,
                                                             template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                                ident_token: IdentToken {
+                                                                ident_token: IdentRegionalToken {
                                                                     ident: `C`,
-                                                                    token_idx: TokenIdx(
-                                                                        452,
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        7,
                                                                     ),
                                                                 },
                                                             },

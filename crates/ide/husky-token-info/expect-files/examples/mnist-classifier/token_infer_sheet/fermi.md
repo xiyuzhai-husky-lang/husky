@@ -41,10 +41,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `matches`,
-                        token_idx: TokenIdx(
-                            9,
+                        regional_token_idx: RegionalTokenIdx(
+                            5,
                         ),
                     },
                 },
@@ -66,10 +66,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `others`,
-                        token_idx: TokenIdx(
-                            17,
+                        regional_token_idx: RegionalTokenIdx(
+                            13,
                         ),
                     },
                 },

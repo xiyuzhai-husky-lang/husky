@@ -14,16 +14,18 @@
                             ),
                         ),
                     },
-                    body: Some(
-                        Eager(
-                            2,
-                        ),
-                    ),
-                    hir_expr_region: Eager(
-                        HirEagerExprRegion(
-                            Id {
-                                value: 26,
-                            },
+                    body_with_hir_expr_region: Some(
+                        (
+                            Eager(
+                                2,
+                            ),
+                            Eager(
+                                HirEagerExprRegion(
+                                    Id {
+                                        value: 26,
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                 },

@@ -52,10 +52,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `x`,
-                        token_idx: TokenIdx(
-                            14,
+                        regional_token_idx: RegionalTokenIdx(
+                            5,
                         ),
                     },
                 },
@@ -73,10 +73,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `y`,
-                        token_idx: TokenIdx(
-                            18,
+                        regional_token_idx: RegionalTokenIdx(
+                            9,
                         ),
                     },
                 },
@@ -509,10 +509,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `x`,
-                        token_idx: TokenIdx(
-                            156,
+                        regional_token_idx: RegionalTokenIdx(
+                            5,
                         ),
                     },
                 },
@@ -530,10 +530,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `y`,
-                        token_idx: TokenIdx(
-                            160,
+                        regional_token_idx: RegionalTokenIdx(
+                            9,
                         ),
                     },
                 },
@@ -573,10 +573,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `x`,
-                        token_idx: TokenIdx(
-                            169,
+                        regional_token_idx: RegionalTokenIdx(
+                            5,
                         ),
                     },
                 },
@@ -594,10 +594,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `y`,
-                        token_idx: TokenIdx(
-                            173,
+                        regional_token_idx: RegionalTokenIdx(
+                            9,
                         ),
                     },
                 },
@@ -1463,10 +1463,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `min`,
-                        token_idx: TokenIdx(
-                            498,
+                        regional_token_idx: RegionalTokenIdx(
+                            5,
                         ),
                     },
                 },
@@ -1484,10 +1484,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `max`,
-                        token_idx: TokenIdx(
-                            502,
+                        regional_token_idx: RegionalTokenIdx(
+                            9,
                         ),
                     },
                 },
@@ -1791,10 +1791,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `xrange`,
-                        token_idx: TokenIdx(
-                            607,
+                        regional_token_idx: RegionalTokenIdx(
+                            6,
                         ),
                     },
                 },
@@ -1813,10 +1813,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `yrange`,
-                        token_idx: TokenIdx(
-                            612,
+                        regional_token_idx: RegionalTokenIdx(
+                            11,
                         ),
                     },
                 },
@@ -2223,10 +2223,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `xrange`,
-                        token_idx: TokenIdx(
-                            742,
+                        regional_token_idx: RegionalTokenIdx(
+                            5,
                         ),
                     },
                 },
@@ -2244,10 +2244,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `yrange`,
-                        token_idx: TokenIdx(
-                            746,
+                        regional_token_idx: RegionalTokenIdx(
+                            9,
                         ),
                     },
                 },

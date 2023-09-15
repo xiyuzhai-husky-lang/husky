@@ -63,10 +63,10 @@ Ok(
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `P`,
-                            token_idx: TokenIdx(
-                                13,
+                            regional_token_idx: RegionalTokenIdx(
+                                5,
                             ),
                         },
                     },
@@ -86,10 +86,10 @@ Ok(
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `Q`,
-                            token_idx: TokenIdx(
-                                17,
+                            regional_token_idx: RegionalTokenIdx(
+                                9,
                             ),
                         },
                     },
@@ -140,10 +140,10 @@ Ok(
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `P`,
-                            token_idx: TokenIdx(
-                                35,
+                            regional_token_idx: RegionalTokenIdx(
+                                5,
                             ),
                         },
                     },
@@ -163,10 +163,10 @@ Ok(
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `Q`,
-                            token_idx: TokenIdx(
-                                39,
+                            regional_token_idx: RegionalTokenIdx(
+                                9,
                             ),
                         },
                     },

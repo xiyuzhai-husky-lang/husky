@@ -13,7 +13,6 @@ Ok(
                         path: SubmodulePath(
                             `mnist_classifier::connected_component`,
                         ),
-                        ast_idx: 11,
                     },
                 ),
             ),
@@ -28,7 +27,6 @@ Ok(
                         path: SubmodulePath(
                             `mnist_classifier::raw_contour`,
                         ),
-                        ast_idx: 12,
                     },
                 ),
             ),
@@ -43,7 +41,6 @@ Ok(
                         path: SubmodulePath(
                             `mnist_classifier::geom2d`,
                         ),
-                        ast_idx: 13,
                     },
                 ),
             ),
@@ -58,7 +55,6 @@ Ok(
                         path: SubmodulePath(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 14,
                     },
                 ),
             ),
@@ -73,7 +69,6 @@ Ok(
                         path: SubmodulePath(
                             `mnist_classifier::fermi`,
                         ),
-                        ast_idx: 15,
                     },
                 ),
             ),
@@ -88,7 +83,6 @@ Ok(
                         path: SubmodulePath(
                             `mnist_classifier::digits`,
                         ),
-                        ast_idx: 16,
                     },
                 ),
             ),
@@ -103,7 +97,6 @@ Ok(
                         path: SubmodulePath(
                             `mnist_classifier::major`,
                         ),
-                        ast_idx: 17,
                     },
                 ),
             ),
@@ -170,11 +163,11 @@ Ok(
                                         principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `Class`,
-                                                            token_idx: TokenIdx(
-                                                                63,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                4,
                                                             ),
                                                         },
                                                     ),
@@ -185,11 +178,11 @@ Ok(
                                                     ),
                                                 },
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `MnistLabel`,
-                                                            token_idx: TokenIdx(
-                                                                64,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                5,
                                                             ),
                                                         },
                                                     ),

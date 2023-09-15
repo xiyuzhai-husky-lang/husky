@@ -159,7 +159,7 @@ define_specific_punctuation_token!(StarToken, STAR, star_token_works, "*");
 
 define_specific_punctuation_token!(LightArrowToken, LIGHT_ARROW, light_arrow_token_works, "->");
 
-define_specific_punctuation_token!(HeavyArrowToken, HEAVY_ARROW, heavy_arrow_token_works, "->");
+define_specific_punctuation_token!(HeavyArrowToken, HEAVY_ARROW, heavy_arrow_token_works, "=>");
 
 define_specific_punctuation_token!(
     DoubleExclamationToken,

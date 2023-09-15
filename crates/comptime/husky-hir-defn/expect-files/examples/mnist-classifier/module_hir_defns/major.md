@@ -14,16 +14,18 @@
                             ),
                         ),
                     },
-                    body: Some(
-                        Eager(
-                            4,
-                        ),
-                    ),
-                    hir_expr_region: Eager(
-                        HirEagerExprRegion(
-                            Id {
-                                value: 110,
-                            },
+                    body_with_hir_expr_region: Some(
+                        (
+                            Eager(
+                                4,
+                            ),
+                            Eager(
+                                HirEagerExprRegion(
+                                    Id {
+                                        value: 110,
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                 },
@@ -45,16 +47,18 @@
                             ),
                         ),
                     },
-                    body: Some(
-                        Eager(
-                            21,
-                        ),
-                    ),
-                    hir_expr_region: Eager(
-                        HirEagerExprRegion(
-                            Id {
-                                value: 111,
-                            },
+                    body_with_hir_expr_region: Some(
+                        (
+                            Eager(
+                                21,
+                            ),
+                            Eager(
+                                HirEagerExprRegion(
+                                    Id {
+                                        value: 111,
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                 },
@@ -76,16 +80,18 @@
                             ),
                         ),
                     },
-                    body: Some(
-                        Eager(
-                            14,
-                        ),
-                    ),
-                    hir_expr_region: Eager(
-                        HirEagerExprRegion(
-                            Id {
-                                value: 112,
-                            },
+                    body_with_hir_expr_region: Some(
+                        (
+                            Eager(
+                                14,
+                            ),
+                            Eager(
+                                HirEagerExprRegion(
+                                    Id {
+                                        value: 112,
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                 },
@@ -107,16 +113,18 @@
                             ),
                         ),
                     },
-                    body: Some(
-                        Eager(
-                            3,
-                        ),
-                    ),
-                    hir_expr_region: Eager(
-                        HirEagerExprRegion(
-                            Id {
-                                value: 113,
-                            },
+                    body_with_hir_expr_region: Some(
+                        (
+                            Eager(
+                                3,
+                            ),
+                            Eager(
+                                HirEagerExprRegion(
+                                    Id {
+                                        value: 113,
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                 },
@@ -138,16 +146,18 @@
                             ),
                         ),
                     },
-                    body: Some(
-                        Eager(
-                            5,
-                        ),
-                    ),
-                    hir_expr_region: Eager(
-                        HirEagerExprRegion(
-                            Id {
-                                value: 114,
-                            },
+                    body_with_hir_expr_region: Some(
+                        (
+                            Eager(
+                                5,
+                            ),
+                            Eager(
+                                HirEagerExprRegion(
+                                    Id {
+                                        value: 114,
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                 },
@@ -169,16 +179,18 @@
                             ),
                         ),
                     },
-                    body: Some(
-                        Eager(
-                            3,
-                        ),
-                    ),
-                    hir_expr_region: Eager(
-                        HirEagerExprRegion(
-                            Id {
-                                value: 115,
-                            },
+                    body_with_hir_expr_region: Some(
+                        (
+                            Eager(
+                                3,
+                            ),
+                            Eager(
+                                HirEagerExprRegion(
+                                    Id {
+                                        value: 115,
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                 },
@@ -200,16 +212,18 @@
                             ),
                         ),
                     },
-                    body: Some(
-                        Eager(
-                            3,
-                        ),
-                    ),
-                    hir_expr_region: Eager(
-                        HirEagerExprRegion(
-                            Id {
-                                value: 116,
-                            },
+                    body_with_hir_expr_region: Some(
+                        (
+                            Eager(
+                                3,
+                            ),
+                            Eager(
+                                HirEagerExprRegion(
+                                    Id {
+                                        value: 116,
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                 },

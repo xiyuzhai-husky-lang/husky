@@ -13,7 +13,7 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Punctuation(
+        TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
                     Closed(
@@ -23,8 +23,8 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),
@@ -49,14 +49,14 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Punctuation(
+        TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Minus,
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),
@@ -81,14 +81,14 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Punctuation(
+        TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Star,
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),
@@ -113,7 +113,7 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Punctuation(
+        TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
                     Closed(
@@ -123,8 +123,8 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),
@@ -149,7 +149,7 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Punctuation(
+        TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
                     Closed(
@@ -159,8 +159,8 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),
@@ -185,14 +185,14 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Punctuation(
+        TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Vertical,
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),
@@ -217,14 +217,14 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Punctuation(
+        TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::DoubleVertical,
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),
@@ -249,7 +249,7 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Punctuation(
+        TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
                     ShortCircuitLogic(
@@ -259,8 +259,8 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),
@@ -285,7 +285,7 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Punctuation(
+        TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
                     Comparison(
@@ -295,8 +295,8 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),
@@ -321,7 +321,7 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Punctuation(
+        TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
                     Comparison(
@@ -331,8 +331,8 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),
@@ -357,14 +357,14 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Punctuation(
+        TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::RaOrGt,
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),
@@ -389,7 +389,7 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Punctuation(
+        TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
                     Comparison(
@@ -399,8 +399,8 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),
@@ -425,14 +425,14 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Punctuation(
+        TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::LaOrLt,
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),
@@ -457,7 +457,7 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Punctuation(
+        TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
                     Comparison(
@@ -467,8 +467,8 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),

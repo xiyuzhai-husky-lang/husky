@@ -17,9 +17,8 @@ pub(crate) fn parse_expr_from_snippet(
         AllowSelfType::False,
         AllowSelfValue::False,
     );
-    let token_stream = todo!();
-    //  token_sheet_data
-    // .token_group_token_stream(token_sheet_data.token_group_iter().next().unwrap().0, None);
+    let token_stream =
+        RegionalTokenStream::new_snippet_regional_token_stream(token_sheet_data.tokens());
     let mut expr_parser = expr_context.expr_parser(None, token_stream);
     let expr = expr_parser.parse_expr_root(None, ExprRootKind::Snippet);
     Ok((expr_parser.finish(), expr))

@@ -70,26 +70,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::line_segment_sketch::concave_component`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::line_segment_sketch`,
-                                ),
-                                ast_idx: 160,
-                                ident_token: IdentToken {
-                                    ident: `concave_component`,
-                                    token_idx: TokenIdx(
-                                        2,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -109,26 +89,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::line_segment_sketch::convex_component`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::line_segment_sketch`,
-                                ),
-                                ast_idx: 161,
-                                ident_token: IdentToken {
-                                    ident: `convex_component`,
-                                    token_idx: TokenIdx(
-                                        4,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -148,26 +108,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::line_segment_sketch::line_segment`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::line_segment_sketch`,
-                                ),
-                                ast_idx: 163,
-                                ident_token: IdentToken {
-                                    ident: `line_segment`,
-                                    token_idx: TokenIdx(
-                                        8,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -200,26 +140,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::geom2d`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::geom2d`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier`,
-                                ),
-                                ast_idx: 13,
-                                ident_token: IdentToken {
-                                    ident: `geom2d`,
-                                    token_idx: TokenIdx(
-                                        6,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -252,26 +172,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::raw_contour`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier`,
-                                ),
-                                ast_idx: 12,
-                                ident_token: IdentToken {
-                                    ident: `raw_contour`,
-                                    token_idx: TokenIdx(
-                                        4,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -288,32 +188,6 @@ Ok(
                             module_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                             ),
-                            node: MajorItemSynNode {
-                                syn_node_path: MajorItemSynNodePath::Type(
-                                    TypeSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                                visibility: Scope::Pub,
-                                ast_idx: 204,
-                                ident_token: IdentToken {
-                                    ident: `RawContour`,
-                                    token_idx: TokenIdx(
-                                        25,
-                                    ),
-                                },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 46,
-                                        },
-                                    ),
-                                    variants: None,
-                                },
-                            },
                         },
                     ),
                 },
@@ -330,26 +204,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::line_segment_sketch::line_segment`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::line_segment_sketch`,
-                                ),
-                                ast_idx: 163,
-                                ident_token: IdentToken {
-                                    ident: `line_segment`,
-                                    token_idx: TokenIdx(
-                                        8,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -380,10 +234,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `points`,
-                        token_idx: TokenIdx(
-                            44,
+                        regional_token_idx: RegionalTokenIdx(
+                            5,
                         ),
                     },
                 },
@@ -409,10 +263,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `start`,
-                        token_idx: TokenIdx(
-                            50,
+                        regional_token_idx: RegionalTokenIdx(
+                            11,
                         ),
                     },
                 },
@@ -430,10 +284,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `points`,
-                        token_idx: TokenIdx(
-                            44,
+                        regional_token_idx: RegionalTokenIdx(
+                            5,
                         ),
                     },
                 },
@@ -452,10 +306,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `end`,
-                        token_idx: TokenIdx(
-                            65,
+                        regional_token_idx: RegionalTokenIdx(
+                            26,
                         ),
                     },
                 },
@@ -473,10 +327,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `points`,
-                        token_idx: TokenIdx(
-                            44,
+                        regional_token_idx: RegionalTokenIdx(
+                            5,
                         ),
                     },
                 },
@@ -788,10 +642,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `contour`,
-                        token_idx: TokenIdx(
-                            173,
+                        regional_token_idx: RegionalTokenIdx(
+                            5,
                         ),
                     },
                 },
@@ -810,10 +664,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `strokes`,
-                        token_idx: TokenIdx(
-                            178,
+                        regional_token_idx: RegionalTokenIdx(
+                            10,
                         ),
                     },
                 },

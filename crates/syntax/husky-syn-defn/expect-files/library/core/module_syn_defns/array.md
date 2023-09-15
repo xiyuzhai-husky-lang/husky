@@ -12,20 +12,20 @@ Ok(
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Constant {
-                                        const_token: ConstToken {
-                                            token_idx: TokenIdx(
-                                                9,
+                                        const_token: ConstRegionalToken {
+                                            regional_token_idx: RegionalTokenIdx(
+                                                5,
                                             ),
                                         },
-                                        ident_token: IdentToken {
+                                        ident_token: IdentRegionalToken {
                                             ident: `L`,
-                                            token_idx: TokenIdx(
-                                                10,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                6,
                                             ),
                                         },
-                                        colon_token: ColonToken(
-                                            TokenIdx(
-                                                11,
+                                        colon_token: ColonRegionalToken(
+                                            RegionalTokenIdx(
+                                                7,
                                             ),
                                         ),
                                         ty_expr: 1,
@@ -33,20 +33,20 @@ Ok(
                                 },
                                 TemplateParameterObelisk {
                                     annotated_variance_token: Some(
-                                        VarianceToken::Covariant(
-                                            CovariantToken {
-                                                token_idx: TokenIdx(
-                                                    14,
+                                        VarianceRegionalToken::Covariant(
+                                            CovariantRegionalToken {
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    10,
                                                 ),
                                             },
                                         ),
                                     ),
                                     symbol: 2,
                                     variant: TemplateParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
+                                        ident_token: IdentRegionalToken {
                                             ident: `E`,
-                                            token_idx: TokenIdx(
-                                                15,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                11,
                                             ),
                                         },
                                         traits: None,
@@ -85,11 +85,11 @@ Ok(
                                     principal_item_path_expr_arena: Arena {
                                         data: [
                                             PrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameToken::Ident(
-                                                    IdentToken {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
                                                         ident: `usize`,
-                                                        token_idx: TokenIdx(
-                                                            12,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            8,
                                                         ),
                                                     },
                                                 ),
@@ -128,8 +128,8 @@ Ok(
                                             data: [
                                                 CurrentSynSymbol {
                                                     modifier: Const,
-                                                    access_start: TokenIdx(
-                                                        13,
+                                                    access_start: RegionalTokenIdx(
+                                                        9,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -138,10 +138,10 @@ Ok(
                                                         },
                                                         annotated_variance_token: None,
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `L`,
-                                                                token_idx: TokenIdx(
-                                                                    10,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    6,
                                                                 ),
                                                             },
                                                             ty_expr_idx: 1,
@@ -150,8 +150,8 @@ Ok(
                                                 },
                                                 CurrentSynSymbol {
                                                     modifier: Const,
-                                                    access_start: TokenIdx(
-                                                        16,
+                                                    access_start: RegionalTokenIdx(
+                                                        12,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -159,19 +159,19 @@ Ok(
                                                             syn_attrs: [],
                                                         },
                                                         annotated_variance_token: Some(
-                                                            VarianceToken::Covariant(
-                                                                CovariantToken {
-                                                                    token_idx: TokenIdx(
-                                                                        14,
+                                                            VarianceRegionalToken::Covariant(
+                                                                CovariantRegionalToken {
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        10,
                                                                     ),
                                                                 },
                                                             ),
                                                         ),
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `E`,
-                                                                token_idx: TokenIdx(
-                                                                    15,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    11,
                                                                 ),
                                                             },
                                                         },

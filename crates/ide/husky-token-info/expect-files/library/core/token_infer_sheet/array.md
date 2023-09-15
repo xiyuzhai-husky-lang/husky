@@ -43,10 +43,10 @@ Ok(
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `L`,
-                            token_idx: TokenIdx(
-                                10,
+                            regional_token_idx: RegionalTokenIdx(
+                                6,
                             ),
                         },
                     },
@@ -67,10 +67,10 @@ Ok(
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `E`,
-                            token_idx: TokenIdx(
-                                15,
+                            regional_token_idx: RegionalTokenIdx(
+                                11,
                             ),
                         },
                     },

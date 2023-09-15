@@ -27,26 +27,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::line_segment_sketch`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier`,
-                                ),
-                                ast_idx: 14,
-                                ident_token: IdentToken {
-                                    ident: `line_segment_sketch`,
-                                    token_idx: TokenIdx(
-                                        8,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -76,10 +56,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `line_segment_sketch`,
-                        token_idx: TokenIdx(
-                            10,
+                        regional_token_idx: RegionalTokenIdx(
+                            4,
                         ),
                     },
                 },
@@ -98,10 +78,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `line_segments`,
-                        token_idx: TokenIdx(
-                            15,
+                        regional_token_idx: RegionalTokenIdx(
+                            9,
                         ),
                     },
                 },

@@ -12,16 +12,15 @@ Ok(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`std::ops::Add`),
-                            ast_idx: 4,
                             template_parameters: [
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
+                                        ident_token: IdentRegionalToken {
                                             ident: `B`,
-                                            token_idx: TokenIdx(
-                                                10,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                4,
                                             ),
                                         },
                                         traits: None,
@@ -76,8 +75,8 @@ Ok(
                                             data: [
                                                 CurrentSynSymbol {
                                                     modifier: Const,
-                                                    access_start: TokenIdx(
-                                                        11,
+                                                    access_start: RegionalTokenIdx(
+                                                        5,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -86,10 +85,10 @@ Ok(
                                                         },
                                                         annotated_variance_token: None,
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `B`,
-                                                                token_idx: TokenIdx(
-                                                                    10,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    4,
                                                                 ),
                                                             },
                                                         },

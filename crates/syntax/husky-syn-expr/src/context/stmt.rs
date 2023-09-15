@@ -64,7 +64,10 @@ impl<'a> SynStmtContext<'a> {
         let body = self.defn_tokra_region_data.root_body();
         let stmts = self.parse_stmts(body);
         let expr = SynExpr::Block { stmts };
-        self.alloc_expr(expr)
+        let expr = self.alloc_expr(expr);
+        self.expr_context
+            .add_expr_root(ExprRootKind::BlockExpr, expr);
+        expr
     }
 
     pub fn finish(self) -> SynExprRegion {
