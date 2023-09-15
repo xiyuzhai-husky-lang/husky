@@ -1,305 +1,305 @@
 Ok(
     TokenSheetData {
         tokens: [
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `array`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `basic`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `clone`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `cmp`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `default`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `fmt`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `logic`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `marker`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `mem`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `num`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `ops`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `option`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `prelude`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `raw_bits`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `result`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `vec`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `slice`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `str`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `visual`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Use,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `prelude`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Star,
                 ),
             ),
         ],
-        token_group_bases: [
-            TokenGroupStartingTokenIdx(
+        token_group_starts: [
+            TokenGroupStart(
                 TokenIdx(
                     1,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     4,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     7,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     10,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     13,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     16,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     19,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     22,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     25,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     28,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     31,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     34,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     37,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     40,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     43,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     46,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     49,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     52,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     55,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     58,
                 ),

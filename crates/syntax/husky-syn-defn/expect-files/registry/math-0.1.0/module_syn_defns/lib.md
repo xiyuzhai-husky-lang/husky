@@ -6,7 +6,6 @@ Ok(
                     path: SubmodulePath(
                         `math::algebra`,
                     ),
-                    ast_idx: 1,
                 },
             },
         ),
@@ -16,7 +15,6 @@ Ok(
                     path: SubmodulePath(
                         `math::algebraic_geometry`,
                     ),
-                    ast_idx: 2,
                 },
             },
         ),
@@ -26,7 +24,6 @@ Ok(
                     path: SubmodulePath(
                         `math::algebraic_topology`,
                     ),
-                    ast_idx: 3,
                 },
             },
         ),
@@ -36,7 +33,6 @@ Ok(
                     path: SubmodulePath(
                         `math::category_theory`,
                     ),
-                    ast_idx: 4,
                 },
             },
         ),
@@ -46,7 +42,6 @@ Ok(
                     path: SubmodulePath(
                         `math::probability`,
                     ),
-                    ast_idx: 5,
                 },
             },
         ),

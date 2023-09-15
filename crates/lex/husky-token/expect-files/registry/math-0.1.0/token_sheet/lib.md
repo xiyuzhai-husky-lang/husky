@@ -1,59 +1,59 @@
 Ok(
     TokenSheetData {
         tokens: [
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `algebra`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `algebraic_geometry`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `algebraic_topology`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `category_theory`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `probability`,
             ),
         ],
-        token_group_bases: [
-            TokenGroupStartingTokenIdx(
+        token_group_starts: [
+            TokenGroupStart(
                 TokenIdx(
                     1,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     3,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     5,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     7,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     9,
                 ),

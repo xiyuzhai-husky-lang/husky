@@ -1,29 +1,29 @@
 Ok(
     TokenSheetData {
         tokens: [
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Use,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pronoun(
                     Crate,
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Star,
                 ),
             ),
         ],
-        token_group_bases: [
-            TokenGroupStartingTokenIdx(
+        token_group_starts: [
+            TokenGroupStart(
                 TokenIdx(
                     1,
                 ),

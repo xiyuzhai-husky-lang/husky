@@ -18,10 +18,10 @@ Ok(
                                         annotated_variance_token: None,
                                         symbol: 1,
                                         variant: TemplateParameterDeclPatternVariant::Type {
-                                            ident_token: IdentToken {
+                                            ident_token: IdentRegionalToken {
                                                 ident: `T`,
-                                                token_idx: TokenIdx(
-                                                    14,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    5,
                                                 ),
                                             },
                                             traits: None,
@@ -76,8 +76,8 @@ Ok(
                                                 data: [
                                                     CurrentSynSymbol {
                                                         modifier: Const,
-                                                        access_start: TokenIdx(
-                                                            15,
+                                                        access_start: RegionalTokenIdx(
+                                                            6,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -86,10 +86,10 @@ Ok(
                                                             },
                                                             annotated_variance_token: None,
                                                             template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                                ident_token: IdentToken {
+                                                                ident_token: IdentRegionalToken {
                                                                     ident: `T`,
-                                                                    token_idx: TokenIdx(
-                                                                        14,
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        5,
                                                                     ),
                                                                 },
                                                             },

@@ -154,26 +154,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::digits::one`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::digits::one`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                                ast_idx: 2,
-                                ident_token: IdentToken {
-                                    ident: `one`,
-                                    token_idx: TokenIdx(
-                                        4,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -190,38 +170,6 @@ Ok(
                             module_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                             ),
-                            node: MajorItemSynNode {
-                                syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                                visibility: Scope::Pub,
-                                ast_idx: 64,
-                                ident_token: IdentToken {
-                                    ident: `is_one`,
-                                    token_idx: TokenIdx(
-                                        24,
-                                    ),
-                                },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 30,
-                                        },
-                                    ),
-                                    body: Some(
-                                        FugitiveBody {
-                                            ast_idx_range: ArenaIdxRange(
-                                                49..52,
-                                            ),
-                                        },
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -253,26 +201,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::digits::six`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::digits::six`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                                ast_idx: 3,
-                                ident_token: IdentToken {
-                                    ident: `six`,
-                                    token_idx: TokenIdx(
-                                        6,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -289,40 +217,6 @@ Ok(
                             module_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                             ),
-                            node: MajorItemSynNode {
-                                syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                                ast_idx: 53,
-                                ident_token: IdentToken {
-                                    ident: `is_six`,
-                                    token_idx: TokenIdx(
-                                        38,
-                                    ),
-                                },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 36,
-                                        },
-                                    ),
-                                    body: Some(
-                                        FugitiveBody {
-                                            ast_idx_range: ArenaIdxRange(
-                                                27..39,
-                                            ),
-                                        },
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -354,26 +248,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::digits::zero`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::digits::zero`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                                ast_idx: 1,
-                                ident_token: IdentToken {
-                                    ident: `zero`,
-                                    token_idx: TokenIdx(
-                                        2,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -390,40 +264,6 @@ Ok(
                             module_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                             ),
-                            node: MajorItemSynNode {
-                                syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                                ast_idx: 29,
-                                ident_token: IdentToken {
-                                    ident: `is_zero`,
-                                    token_idx: TokenIdx(
-                                        50,
-                                    ),
-                                },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 28,
-                                        },
-                                    ),
-                                    body: Some(
-                                        FugitiveBody {
-                                            ast_idx_range: ArenaIdxRange(
-                                                12..26,
-                                            ),
-                                        },
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -455,26 +295,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::digits::two`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::digits::two`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                                ast_idx: 10,
-                                ident_token: IdentToken {
-                                    ident: `two`,
-                                    token_idx: TokenIdx(
-                                        20,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -491,40 +311,6 @@ Ok(
                             module_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                             ),
-                            node: MajorItemSynNode {
-                                syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                                ast_idx: 55,
-                                ident_token: IdentToken {
-                                    ident: `is_two`,
-                                    token_idx: TokenIdx(
-                                        114,
-                                    ),
-                                },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 70,
-                                        },
-                                    ),
-                                    body: Some(
-                                        FugitiveBody {
-                                            ast_idx_range: ArenaIdxRange(
-                                                32..50,
-                                            ),
-                                        },
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -556,26 +342,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::digits::three`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::digits::three`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                                ast_idx: 4,
-                                ident_token: IdentToken {
-                                    ident: `three`,
-                                    token_idx: TokenIdx(
-                                        8,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -592,40 +358,6 @@ Ok(
                             module_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                             ),
-                            node: MajorItemSynNode {
-                                syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                                ast_idx: 30,
-                                ident_token: IdentToken {
-                                    ident: `is_three`,
-                                    token_idx: TokenIdx(
-                                        27,
-                                    ),
-                                },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                    body: Some(
-                                        FugitiveBody {
-                                            ast_idx_range: ArenaIdxRange(
-                                                2..19,
-                                            ),
-                                        },
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -657,26 +389,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::digits::five`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::digits::five`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                                ast_idx: 6,
-                                ident_token: IdentToken {
-                                    ident: `five`,
-                                    token_idx: TokenIdx(
-                                        12,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -693,40 +405,6 @@ Ok(
                             module_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                             ),
-                            node: MajorItemSynNode {
-                                syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                                ast_idx: 3,
-                                ident_token: IdentToken {
-                                    ident: `is_five`,
-                                    token_idx: TokenIdx(
-                                        10,
-                                    ),
-                                },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 51,
-                                        },
-                                    ),
-                                    body: Some(
-                                        FugitiveBody {
-                                            ast_idx_range: ArenaIdxRange(
-                                                1..2,
-                                            ),
-                                        },
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -758,26 +436,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::digits::seven`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                                ast_idx: 7,
-                                ident_token: IdentToken {
-                                    ident: `seven`,
-                                    token_idx: TokenIdx(
-                                        14,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -794,40 +452,6 @@ Ok(
                             module_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                             ),
-                            node: MajorItemSynNode {
-                                syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                                ast_idx: 45,
-                                ident_token: IdentToken {
-                                    ident: `is_seven`,
-                                    token_idx: TokenIdx(
-                                        165,
-                                    ),
-                                },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 57,
-                                        },
-                                    ),
-                                    body: Some(
-                                        FugitiveBody {
-                                            ast_idx_range: ArenaIdxRange(
-                                                29..39,
-                                            ),
-                                        },
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -859,26 +483,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::digits::eight`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::digits::eight`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                                ast_idx: 8,
-                                ident_token: IdentToken {
-                                    ident: `eight`,
-                                    token_idx: TokenIdx(
-                                        16,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -895,40 +499,6 @@ Ok(
                             module_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                             ),
-                            node: MajorItemSynNode {
-                                syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                                ast_idx: 20,
-                                ident_token: IdentToken {
-                                    ident: `is_eight`,
-                                    token_idx: TokenIdx(
-                                        23,
-                                    ),
-                                },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 59,
-                                        },
-                                    ),
-                                    body: Some(
-                                        FugitiveBody {
-                                            ast_idx_range: ArenaIdxRange(
-                                                7..14,
-                                            ),
-                                        },
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -960,26 +530,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::digits::nine`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                                ast_idx: 9,
-                                ident_token: IdentToken {
-                                    ident: `nine`,
-                                    token_idx: TokenIdx(
-                                        18,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -996,40 +546,6 @@ Ok(
                             module_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                             ),
-                            node: MajorItemSynNode {
-                                syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                                ast_idx: 39,
-                                ident_token: IdentToken {
-                                    ident: `is_nine`,
-                                    token_idx: TokenIdx(
-                                        36,
-                                    ),
-                                },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 63,
-                                        },
-                                    ),
-                                    body: Some(
-                                        FugitiveBody {
-                                            ast_idx_range: ArenaIdxRange(
-                                                18..29,
-                                            ),
-                                        },
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },

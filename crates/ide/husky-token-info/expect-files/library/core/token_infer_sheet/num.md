@@ -43,24 +43,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `core::ops`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `core::ops`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::Pub,
-                                ast_idx: 11,
-                                ident_token: IdentToken {
-                                    ident: `ops`,
-                                    token_idx: TokenIdx(
-                                        33,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -77,38 +59,6 @@ Ok(
                             module_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::ops::Add`),
                             ),
-                            node: MajorItemSynNode {
-                                syn_node_path: MajorItemSynNodePath::Trait(
-                                    TraitSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitPath(`core::ops::Add`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                                visibility: Scope::Pub,
-                                ast_idx: 33,
-                                ident_token: IdentToken {
-                                    ident: `Add`,
-                                    token_idx: TokenIdx(
-                                        14,
-                                    ),
-                                },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 9,
-                                        },
-                                    ),
-                                    items: Some(
-                                        TraitItems {
-                                            ast_idx_range: ArenaIdxRange(
-                                                1..3,
-                                            ),
-                                        },
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },

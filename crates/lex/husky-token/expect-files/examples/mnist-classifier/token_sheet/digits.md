@@ -1,451 +1,451 @@
 Ok(
     TokenSheetData {
         tokens: [
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `zero`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `one`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `six`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `three`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `four`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `five`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `seven`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `eight`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `nine`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Mod,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `two`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Use,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `one`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `is_one`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Use,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `six`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `is_six`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Use,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `zero`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `is_zero`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Use,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `two`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `is_two`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Use,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `three`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `is_three`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Use,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `five`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `is_five`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Use,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `seven`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `is_seven`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Use,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `eight`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `is_eight`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Use,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `nine`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `is_nine`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Use,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pronoun(
                     Crate,
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Star,
                 ),
             ),
         ],
-        token_group_bases: [
-            TokenGroupStartingTokenIdx(
+        token_group_starts: [
+            TokenGroupStart(
                 TokenIdx(
                     1,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     3,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     5,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     7,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     9,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     11,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     13,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     15,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     17,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     19,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     21,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     26,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     33,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     40,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     47,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     54,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     61,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     68,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     75,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     82,
                 ),

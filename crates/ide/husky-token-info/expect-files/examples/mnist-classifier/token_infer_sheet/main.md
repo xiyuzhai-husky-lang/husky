@@ -125,26 +125,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::major`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::major`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier`,
-                                ),
-                                ast_idx: 17,
-                                ident_token: IdentToken {
-                                    ident: `major`,
-                                    token_idx: TokenIdx(
-                                        14,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -177,26 +157,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::digits`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::digits`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier`,
-                                ),
-                                ast_idx: 16,
-                                ident_token: IdentToken {
-                                    ident: `digits`,
-                                    token_idx: TokenIdx(
-                                        12,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -229,26 +189,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::fermi`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::fermi`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier`,
-                                ),
-                                ast_idx: 15,
-                                ident_token: IdentToken {
-                                    ident: `fermi`,
-                                    token_idx: TokenIdx(
-                                        10,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -282,26 +222,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::raw_contour`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier`,
-                                ),
-                                ast_idx: 12,
-                                ident_token: IdentToken {
-                                    ident: `raw_contour`,
-                                    token_idx: TokenIdx(
-                                        4,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -334,26 +254,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::line_segment_sketch`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier`,
-                                ),
-                                ast_idx: 14,
-                                ident_token: IdentToken {
-                                    ident: `line_segment_sketch`,
-                                    token_idx: TokenIdx(
-                                        8,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -386,26 +286,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::connected_component`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::connected_component`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier`,
-                                ),
-                                ast_idx: 11,
-                                ident_token: IdentToken {
-                                    ident: `connected_component`,
-                                    token_idx: TokenIdx(
-                                        2,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },

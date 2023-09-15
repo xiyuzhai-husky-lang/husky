@@ -1,229 +1,229 @@
 Ok(
     TokenSheetData {
         tokens: [
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Use,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pronoun(
                     Super,
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Star,
                 ),
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Fugitive(
                     Val,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `upper_mouth_match`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Colon,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `FermiMatchResult`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Eq,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `fermi_match`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Bra(
                         Par,
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `major_concave_components`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Comma,
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Bra(
                         Box,
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `big_mouth`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Ket(
                         Box,
                     ),
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Ket(
                         Par,
                     ),
                 ),
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pub,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Bra(
                         Par,
                     ),
                 ),
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Pronoun(
                     Super,
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Ket(
                         Par,
                     ),
                 ),
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Fugitive(
                     Val,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `is_eight`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Colon,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `OneVsAll`,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `MnistLabel`,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `MnistLabel`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `Eight`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Eq,
                 ),
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Stmt(
                     Require,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `is_one`,
             ),
-            Token::WordOpr(
+            TokenData::WordOpr(
                 WordOpr::Be,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `none`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Stmt(
                     Require,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `is_six`,
             ),
-            Token::WordOpr(
+            TokenData::WordOpr(
                 WordOpr::Be,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `none`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Stmt(
                     Require,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `is_zero`,
             ),
-            Token::WordOpr(
+            TokenData::WordOpr(
                 WordOpr::Be,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `none`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Stmt(
                     Require,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `is_seven`,
             ),
-            Token::WordOpr(
+            TokenData::WordOpr(
                 WordOpr::Be,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `none`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Stmt(
                     Let,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `upper_excess`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Eq,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `major_connected_component`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Dot,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `upper_mass`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         Closed(
@@ -232,264 +232,264 @@ Ok(
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `major_connected_component`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Dot,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `lower_mass`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Stmt(
                     If,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `major_connected_component`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Dot,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `eff_holes`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Dot,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `matches`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Bra(
                         Box,
                     ),
                 ),
             ),
-            Token::Literal(
+            TokenData::Literal(
                 Literal::Integer(
                     UnspecifiedRegular(
                         1,
                     ),
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Ket(
                         Box,
                     ),
                 ),
             ),
-            Token::WordOpr(
+            TokenData::WordOpr(
                 WordOpr::Be,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `none`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Colon,
                 ),
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Stmt(
                     If,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `major_connected_component`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Dot,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `eff_holes`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Dot,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `matches`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Bra(
                         Box,
                     ),
                 ),
             ),
-            Token::Literal(
+            TokenData::Literal(
                 Literal::Integer(
                     UnspecifiedRegular(
                         0,
                     ),
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Ket(
                         Box,
                     ),
                 ),
             ),
-            Token::WordOpr(
+            TokenData::WordOpr(
                 WordOpr::Be,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `none`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Colon,
                 ),
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Stmt(
                     Require,
                 ),
             ),
-            Token::Literal(
+            TokenData::Literal(
                 Literal::Bool(
                     False,
                 ),
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Stmt(
                     Require,
                 ),
             ),
-            Token::Literal(
+            TokenData::Literal(
                 Literal::Bool(
                     False,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `OneVsAll`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         ScopeResolution,
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `Yes`,
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Fugitive(
                     Fn,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `big_mouth`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Bra(
                         Par,
                     ),
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `cc`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Colon,
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Tilde,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `ConcaveComponent`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Ket(
                         Par,
                     ),
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
                         Curry,
                     ),
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Question,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `f32`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Colon,
                 ),
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Stmt(
                     If,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `cc`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Dot,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `relative_bounding_box`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Dot,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `ymax`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Bra(
                         Par,
                     ),
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Ket(
                         Par,
                     ),
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::RaOrGt,
                 ),
             ),
-            Token::Literal(
+            TokenData::Literal(
                 Literal::Float(
                     Unspecified(
                         UnspecifiedFloatLiteral(
@@ -500,156 +500,156 @@ Ok(
                     ),
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Colon,
                 ),
             ),
-            Token::Keyword(
+            TokenData::Keyword(
                 Keyword::Stmt(
                     Require,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `cc`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Dot,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `strokes`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Dot,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `first`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Bra(
                         Par,
                     ),
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Ket(
                         Par,
                     ),
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Exclamation,
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Dot,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `start`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Dot,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `x`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::RaOrGt,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `cc`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Dot,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `strokes`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Dot,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `first`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Bra(
                         Par,
                     ),
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Ket(
                         Par,
                     ),
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Exclamation,
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Dot,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `end`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Dot,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `x`,
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `cc`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Dot,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `relative_bounding_box`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Dot,
                 ),
             ),
-            Token::Ident(
+            TokenData::Ident(
                 `ymax`,
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Bra(
                         Par,
                     ),
                 ),
             ),
-            Token::Punctuation(
+            TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Ket(
                         Par,
@@ -657,93 +657,93 @@ Ok(
                 ),
             ),
         ],
-        token_group_bases: [
-            TokenGroupStartingTokenIdx(
+        token_group_starts: [
+            TokenGroupStart(
                 TokenIdx(
                     1,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     5,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     10,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     18,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     31,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     35,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     39,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     43,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     47,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     57,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     69,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     81,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     83,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     85,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     88,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     100,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     111,
                 ),
             ),
-            TokenGroupStartingTokenIdx(
+            TokenGroupStart(
                 TokenIdx(
                     137,
                 ),

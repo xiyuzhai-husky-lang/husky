@@ -27,26 +27,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::geom2d`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::geom2d`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier`,
-                                ),
-                                ast_idx: 13,
-                                ident_token: IdentToken {
-                                    ident: `geom2d`,
-                                    token_idx: TokenIdx(
-                                        6,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -77,10 +57,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `start`,
-                        token_idx: TokenIdx(
-                            11,
+                        regional_token_idx: RegionalTokenIdx(
+                            5,
                         ),
                     },
                 },
@@ -98,10 +78,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `end`,
-                        token_idx: TokenIdx(
-                            15,
+                        regional_token_idx: RegionalTokenIdx(
+                            9,
                         ),
                     },
                 },

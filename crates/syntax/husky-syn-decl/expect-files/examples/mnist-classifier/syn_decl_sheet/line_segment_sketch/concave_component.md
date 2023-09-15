@@ -18,15 +18,15 @@ Ok(
                                     PropsFieldDeclPattern {
                                         decorators: [],
                                         visibility: None,
-                                        ident_token: IdentToken {
+                                        ident_token: IdentRegionalToken {
                                             ident: `line_segment_sketch`,
-                                            token_idx: TokenIdx(
-                                                37,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                5,
                                             ),
                                         },
-                                        colon: ColonToken(
-                                            TokenIdx(
-                                                38,
+                                        colon: ColonRegionalToken(
+                                            RegionalTokenIdx(
+                                                6,
                                             ),
                                         ),
                                         ty_expr_idx: 2,
@@ -36,15 +36,15 @@ Ok(
                                     PropsFieldDeclPattern {
                                         decorators: [],
                                         visibility: None,
-                                        ident_token: IdentToken {
+                                        ident_token: IdentRegionalToken {
                                             ident: `strokes`,
-                                            token_idx: TokenIdx(
-                                                42,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                10,
                                             ),
                                         },
-                                        colon: ColonToken(
-                                            TokenIdx(
-                                                43,
+                                        colon: ColonRegionalToken(
+                                            RegionalTokenIdx(
+                                                11,
                                             ),
                                         ),
                                         ty_expr_idx: 6,
@@ -81,8 +81,8 @@ Ok(
                                                 },
                                                 SynExpr::Prefix {
                                                     opr: Tilde,
-                                                    opr_token_idx: TokenIdx(
-                                                        39,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        7,
                                                     ),
                                                     opd: 1,
                                                 },
@@ -98,8 +98,8 @@ Ok(
                                                 },
                                                 SynExpr::Prefix {
                                                     opr: Tilde,
-                                                    opr_token_idx: TokenIdx(
-                                                        44,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        12,
                                                     ),
                                                     opd: 3,
                                                 },
@@ -122,11 +122,11 @@ Ok(
                                         principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `LineSegmentSketch`,
-                                                            token_idx: TokenIdx(
-                                                                40,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                8,
                                                             ),
                                                         },
                                                     ),
@@ -137,11 +137,11 @@ Ok(
                                                     ),
                                                 },
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `CyclicSlice`,
-                                                            token_idx: TokenIdx(
-                                                                45,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                13,
                                                             ),
                                                         },
                                                     ),
@@ -152,11 +152,11 @@ Ok(
                                                     ),
                                                 },
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `LineSegmentStroke`,
-                                                            token_idx: TokenIdx(
-                                                                46,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                14,
                                                             ),
                                                         },
                                                     ),
@@ -195,30 +195,30 @@ Ok(
                                                 data: [
                                                     CurrentSynSymbol {
                                                         modifier: None,
-                                                        access_start: TokenIdx(
-                                                            41,
+                                                        access_start: RegionalTokenIdx(
+                                                            9,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::FieldVariable {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `line_segment_sketch`,
-                                                                token_idx: TokenIdx(
-                                                                    37,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    5,
                                                                 ),
                                                             },
                                                         },
                                                     },
                                                     CurrentSynSymbol {
                                                         modifier: None,
-                                                        access_start: TokenIdx(
-                                                            47,
+                                                        access_start: RegionalTokenIdx(
+                                                            15,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::FieldVariable {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `strokes`,
-                                                                token_idx: TokenIdx(
-                                                                    42,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    10,
                                                                 ),
                                                             },
                                                         },
@@ -230,7 +230,7 @@ Ok(
                                             pattern_ty_constraints: [
                                                 (
                                                     FieldVariable {
-                                                        ident_token: IdentToken {
+                                                        ident_token: IdentRegionalToken {
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
@@ -238,8 +238,8 @@ Ok(
                                                                     },
                                                                 ),
                                                             ),
-                                                            token_idx: TokenIdx(
-                                                                37,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                5,
                                                             ),
                                                         },
                                                         ty_expr_idx: 2,
@@ -250,7 +250,7 @@ Ok(
                                                 ),
                                                 (
                                                     FieldVariable {
-                                                        ident_token: IdentToken {
+                                                        ident_token: IdentRegionalToken {
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
@@ -258,8 +258,8 @@ Ok(
                                                                     },
                                                                 ),
                                                             ),
-                                                            token_idx: TokenIdx(
-                                                                42,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                10,
                                                             ),
                                                         },
                                                         ty_expr_idx: 6,
@@ -273,7 +273,7 @@ Ok(
                                         roots: [
                                             SynExprRoot {
                                                 kind: PropsStructFieldType {
-                                                    ident_token: IdentToken {
+                                                    ident_token: IdentRegionalToken {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
@@ -281,8 +281,8 @@ Ok(
                                                                 },
                                                             ),
                                                         ),
-                                                        token_idx: TokenIdx(
-                                                            37,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            5,
                                                         ),
                                                     },
                                                 },
@@ -290,7 +290,7 @@ Ok(
                                             },
                                             SynExprRoot {
                                                 kind: PropsStructFieldType {
-                                                    ident_token: IdentToken {
+                                                    ident_token: IdentRegionalToken {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
@@ -298,8 +298,8 @@ Ok(
                                                                 },
                                                             ),
                                                         ),
-                                                        token_idx: TokenIdx(
-                                                            42,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            10,
                                                         ),
                                                     },
                                                 },
@@ -331,9 +331,9 @@ Ok(
                                         variables: ArenaIdxRange(
                                             1..2,
                                         ),
-                                        colon: ColonToken(
-                                            TokenIdx(
-                                                557,
+                                        colon: ColonRegionalToken(
+                                            RegionalTokenIdx(
+                                                6,
                                             ),
                                         ),
                                         ty: 2,
@@ -373,18 +373,18 @@ Ok(
                                                 },
                                                 SynExpr::Prefix {
                                                     opr: Tilde,
-                                                    opr_token_idx: TokenIdx(
-                                                        558,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        7,
                                                     ),
                                                     opd: 1,
                                                 },
                                                 SynExpr::List {
-                                                    lbox_token_idx: TokenIdx(
-                                                        562,
+                                                    lbox_regional_token_idx: RegionalTokenIdx(
+                                                        11,
                                                     ),
                                                     items: [],
-                                                    rbox_token_idx: TokenIdx(
-                                                        563,
+                                                    rbox_regional_token_idx: RegionalTokenIdx(
+                                                        12,
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
@@ -406,11 +406,11 @@ Ok(
                                         principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `LineSegmentSketch`,
-                                                            token_idx: TokenIdx(
-                                                                559,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                8,
                                                             ),
                                                         },
                                                     ),
@@ -421,11 +421,11 @@ Ok(
                                                     ),
                                                 },
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `ConcaveComponent`,
-                                                            token_idx: TokenIdx(
-                                                                564,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                13,
                                                             ),
                                                         },
                                                     ),
@@ -445,10 +445,10 @@ Ok(
                                                 data: [
                                                     SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
-                                                        ident_token: IdentToken {
+                                                        ident_token: IdentRegionalToken {
                                                             ident: `line_segment_sketch`,
-                                                            token_idx: TokenIdx(
-                                                                556,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                5,
                                                             ),
                                                         },
                                                     },
@@ -491,8 +491,8 @@ Ok(
                                                 data: [
                                                     CurrentSynSymbol {
                                                         modifier: None,
-                                                        access_start: TokenIdx(
-                                                            557,
+                                                        access_start: RegionalTokenIdx(
+                                                            6,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -612,11 +612,11 @@ Ok(
                                     principal_item_path_expr_arena: Arena {
                                         data: [
                                             PrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameToken::Ident(
-                                                    IdentToken {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
                                                         ident: `Visualize`,
-                                                        token_idx: TokenIdx(
-                                                            50,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            2,
                                                         ),
                                                     },
                                                 ),
@@ -627,11 +627,11 @@ Ok(
                                                 ),
                                             },
                                             PrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameToken::Ident(
-                                                    IdentToken {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
                                                         ident: `ConcaveComponent`,
-                                                        token_idx: TokenIdx(
-                                                            52,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            4,
                                                         ),
                                                     },
                                                 ),
@@ -779,11 +779,11 @@ Ok(
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
                                                             PrincipalEntityPathExpr::Root {
-                                                                path_name_token: PathNameToken::Ident(
-                                                                    IdentToken {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
                                                                         ident: `Visualize`,
-                                                                        token_idx: TokenIdx(
-                                                                            50,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            2,
                                                                         ),
                                                                     },
                                                                 ),
@@ -794,11 +794,11 @@ Ok(
                                                                 ),
                                                             },
                                                             PrincipalEntityPathExpr::Root {
-                                                                path_name_token: PathNameToken::Ident(
-                                                                    IdentToken {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
                                                                         ident: `ConcaveComponent`,
-                                                                        token_idx: TokenIdx(
-                                                                            52,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            4,
                                                                         ),
                                                                     },
                                                                 ),
@@ -893,11 +893,11 @@ Ok(
                                         principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `Html`,
-                                                            token_idx: TokenIdx(
-                                                                59,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                6,
                                                             ),
                                                         },
                                                     ),
@@ -1007,11 +1007,11 @@ Ok(
                                     principal_item_path_expr_arena: Arena {
                                         data: [
                                             PrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameToken::Ident(
-                                                    IdentToken {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
                                                         ident: `ConcaveComponent`,
-                                                        token_idx: TokenIdx(
-                                                            69,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            2,
                                                         ),
                                                     },
                                                 ),
@@ -1134,11 +1134,11 @@ Ok(
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
                                                             PrincipalEntityPathExpr::Root {
-                                                                path_name_token: PathNameToken::Ident(
-                                                                    IdentToken {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
                                                                         ident: `ConcaveComponent`,
-                                                                        token_idx: TokenIdx(
-                                                                            69,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            2,
                                                                         ),
                                                                     },
                                                                 ),
@@ -1226,11 +1226,11 @@ Ok(
                                         principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `f32`,
-                                                            token_idx: TokenIdx(
-                                                                74,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                4,
                                                             ),
                                                         },
                                                     ),
@@ -1354,11 +1354,11 @@ Ok(
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
                                                             PrincipalEntityPathExpr::Root {
-                                                                path_name_token: PathNameToken::Ident(
-                                                                    IdentToken {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
                                                                         ident: `ConcaveComponent`,
-                                                                        token_idx: TokenIdx(
-                                                                            69,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            2,
                                                                         ),
                                                                     },
                                                                 ),
@@ -1446,11 +1446,11 @@ Ok(
                                         principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `f32`,
-                                                            token_idx: TokenIdx(
-                                                                82,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                4,
                                                             ),
                                                         },
                                                     ),
@@ -1574,11 +1574,11 @@ Ok(
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
                                                             PrincipalEntityPathExpr::Root {
-                                                                path_name_token: PathNameToken::Ident(
-                                                                    IdentToken {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
                                                                         ident: `ConcaveComponent`,
-                                                                        token_idx: TokenIdx(
-                                                                            69,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            2,
                                                                         ),
                                                                     },
                                                                 ),
@@ -1666,11 +1666,11 @@ Ok(
                                         principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `f32`,
-                                                            token_idx: TokenIdx(
-                                                                100,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                4,
                                                             ),
                                                         },
                                                     ),
@@ -1794,11 +1794,11 @@ Ok(
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
                                                             PrincipalEntityPathExpr::Root {
-                                                                path_name_token: PathNameToken::Ident(
-                                                                    IdentToken {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
                                                                         ident: `ConcaveComponent`,
-                                                                        token_idx: TokenIdx(
-                                                                            69,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            2,
                                                                         ),
                                                                     },
                                                                 ),
@@ -1886,11 +1886,11 @@ Ok(
                                         principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `f32`,
-                                                            token_idx: TokenIdx(
-                                                                192,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                4,
                                                             ),
                                                         },
                                                     ),
@@ -2014,11 +2014,11 @@ Ok(
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
                                                             PrincipalEntityPathExpr::Root {
-                                                                path_name_token: PathNameToken::Ident(
-                                                                    IdentToken {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
                                                                         ident: `ConcaveComponent`,
-                                                                        token_idx: TokenIdx(
-                                                                            69,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            2,
                                                                         ),
                                                                     },
                                                                 ),
@@ -2106,11 +2106,11 @@ Ok(
                                         principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `BoundingBox`,
-                                                            token_idx: TokenIdx(
-                                                                269,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                4,
                                                             ),
                                                         },
                                                     ),
@@ -2234,11 +2234,11 @@ Ok(
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
                                                             PrincipalEntityPathExpr::Root {
-                                                                path_name_token: PathNameToken::Ident(
-                                                                    IdentToken {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
                                                                         ident: `ConcaveComponent`,
-                                                                        token_idx: TokenIdx(
-                                                                            69,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            2,
                                                                         ),
                                                                     },
                                                                 ),
@@ -2326,11 +2326,11 @@ Ok(
                                         principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `RelativeBoundingBox`,
-                                                            token_idx: TokenIdx(
-                                                                403,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                4,
                                                             ),
                                                         },
                                                     ),
@@ -2456,11 +2456,11 @@ Ok(
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
                                                             PrincipalEntityPathExpr::Root {
-                                                                path_name_token: PathNameToken::Ident(
-                                                                    IdentToken {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
                                                                         ident: `ConcaveComponent`,
-                                                                        token_idx: TokenIdx(
-                                                                            69,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            2,
                                                                         ),
                                                                     },
                                                                 ),
@@ -2548,11 +2548,11 @@ Ok(
                                         principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `LineSegment`,
-                                                            token_idx: TokenIdx(
-                                                                422,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                6,
                                                             ),
                                                         },
                                                     ),
@@ -2678,11 +2678,11 @@ Ok(
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
                                                             PrincipalEntityPathExpr::Root {
-                                                                path_name_token: PathNameToken::Ident(
-                                                                    IdentToken {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
                                                                         ident: `ConcaveComponent`,
-                                                                        token_idx: TokenIdx(
-                                                                            69,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            2,
                                                                         ),
                                                                     },
                                                                 ),
@@ -2770,11 +2770,11 @@ Ok(
                                         principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `Point2d`,
-                                                            token_idx: TokenIdx(
-                                                                461,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                6,
                                                             ),
                                                         },
                                                     ),
@@ -2900,11 +2900,11 @@ Ok(
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
                                                             PrincipalEntityPathExpr::Root {
-                                                                path_name_token: PathNameToken::Ident(
-                                                                    IdentToken {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
                                                                         ident: `ConcaveComponent`,
-                                                                        token_idx: TokenIdx(
-                                                                            69,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            2,
                                                                         ),
                                                                     },
                                                                 ),
@@ -2992,11 +2992,11 @@ Ok(
                                         principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `Point2d`,
-                                                            token_idx: TokenIdx(
-                                                                482,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                6,
                                                             ),
                                                         },
                                                     ),
@@ -3122,11 +3122,11 @@ Ok(
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
                                                             PrincipalEntityPathExpr::Root {
-                                                                path_name_token: PathNameToken::Ident(
-                                                                    IdentToken {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
                                                                         ident: `ConcaveComponent`,
-                                                                        token_idx: TokenIdx(
-                                                                            69,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            2,
                                                                         ),
                                                                     },
                                                                 ),
@@ -3214,11 +3214,11 @@ Ok(
                                         principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `Vector2d`,
-                                                            token_idx: TokenIdx(
-                                                                503,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                6,
                                                             ),
                                                         },
                                                     ),
@@ -3344,11 +3344,11 @@ Ok(
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
                                                             PrincipalEntityPathExpr::Root {
-                                                                path_name_token: PathNameToken::Ident(
-                                                                    IdentToken {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
                                                                         ident: `ConcaveComponent`,
-                                                                        token_idx: TokenIdx(
-                                                                            69,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            2,
                                                                         ),
                                                                     },
                                                                 ),
@@ -3436,11 +3436,11 @@ Ok(
                                         principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `Vector2d`,
-                                                            token_idx: TokenIdx(
-                                                                519,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                6,
                                                             ),
                                                         },
                                                     ),
@@ -3566,11 +3566,11 @@ Ok(
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
                                                             PrincipalEntityPathExpr::Root {
-                                                                path_name_token: PathNameToken::Ident(
-                                                                    IdentToken {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
                                                                         ident: `ConcaveComponent`,
-                                                                        token_idx: TokenIdx(
-                                                                            69,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            2,
                                                                         ),
                                                                     },
                                                                 ),
@@ -3658,11 +3658,11 @@ Ok(
                                         principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `Vector2d`,
-                                                            token_idx: TokenIdx(
-                                                                538,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                6,
                                                             ),
                                                         },
                                                     ),

@@ -13,14 +13,14 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Keyword(
+        TokenData::Keyword(
             Keyword::Fugitive(
                 Def,
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),
@@ -45,12 +45,12 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Ident(
+        TokenData::Ident(
             `func`,
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),
@@ -75,12 +75,12 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Ident(
+        TokenData::Ident(
             `proc`,
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),
@@ -105,12 +105,12 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Keyword(
+        TokenData::Keyword(
             Keyword::Trait,
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),

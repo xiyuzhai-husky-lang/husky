@@ -45,11 +45,11 @@ Ok(
                                     principal_item_path_expr_arena: Arena {
                                         data: [
                                             PrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameToken::Ident(
-                                                    IdentToken {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
                                                         ident: `FermiMatchResult`,
-                                                        token_idx: TokenIdx(
-                                                            8,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            4,
                                                         ),
                                                     },
                                                 ),
@@ -100,286 +100,288 @@ Ok(
                                 },
                             },
                         },
-                        body: Some(
-                            6,
-                        ),
-                        syn_expr_region: SynExprRegion {
-                            data: SynExprRegionData {
-                                parent: Some(
-                                    SynExprRegion {
-                                        data: SynExprRegionData {
-                                            parent: None,
-                                            path: RegionPath::Decl(
-                                                ItemSynNodePath::MajorItem(
-                                                    MajorItemSynNodePath::Fugitive(
-                                                        FugitiveSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
+                        body_with_syn_expr_region: Some(
+                            (
+                                6,
+                                SynExprRegion {
+                                    data: SynExprRegionData {
+                                        parent: Some(
+                                            SynExprRegion {
+                                                data: SynExprRegionData {
+                                                    parent: None,
+                                                    path: RegionPath::Decl(
+                                                        ItemSynNodePath::MajorItem(
+                                                            MajorItemSynNodePath::Fugitive(
+                                                                FugitiveSynNodePath {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     ),
-                                                ),
-                                            ),
-                                            expr_arena: Arena {
-                                                data: [
-                                                    SynExpr::PrincipalEntityPath {
-                                                        item_path_expr: 1,
-                                                        opt_path: Some(
-                                                            PrincipalEntityPath::MajorItem(
-                                                                MajorItemPath::Type(
-                                                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ],
-                                            },
-                                            principal_item_path_expr_arena: Arena {
-                                                data: [
-                                                    PrincipalEntityPathExpr::Root {
-                                                        path_name_token: PathNameToken::Ident(
-                                                            IdentToken {
-                                                                ident: `FermiMatchResult`,
-                                                                token_idx: TokenIdx(
-                                                                    8,
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            SynExpr::PrincipalEntityPath {
+                                                                item_path_expr: 1,
+                                                                opt_path: Some(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
-                                                        ),
-                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                            MajorItemPath::Type(
-                                                                TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                            ),
-                                                        ),
+                                                        ],
                                                     },
-                                                ],
-                                            },
-                                            stmt_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_expr_region: SynPatternExprRegion {
-                                                pattern_expr_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_expr_contracts: ArenaMap {
-                                                    data: [],
-                                                },
-                                                pattern_infos: [],
-                                                pattern_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_symbol_maps: [],
-                                                pattern_symbol_modifiers: ArenaMap {
-                                                    data: [],
-                                                },
-                                            },
-                                            symbol_region: SynSymbolRegion {
-                                                inherited_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                current_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                allow_self_type: False,
-                                                allow_self_value: False,
-                                                pattern_ty_constraints: [],
-                                            },
-                                            roots: [
-                                                SynExprRoot {
-                                                    kind: ReturnType,
-                                                    expr_idx: 1,
-                                                },
-                                            ],
-                                        },
-                                    },
-                                ),
-                                path: RegionPath::Defn(
-                                    ItemSynNodePath::MajorItem(
-                                        MajorItemSynNodePath::Fugitive(
-                                            FugitiveSynNodePath {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
-                                                    disambiguator: 0,
+                                                    principal_item_path_expr_arena: Arena {
+                                                        data: [
+                                                            PrincipalEntityPathExpr::Root {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
+                                                                        ident: `FermiMatchResult`,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            4,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: SynPatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_contracts: ArenaMap {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_modifiers: ArenaMap {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SynSymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: False,
+                                                        allow_self_value: False,
+                                                        pattern_ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        SynExprRoot {
+                                                            kind: ReturnType,
+                                                            expr_idx: 1,
+                                                        },
+                                                    ],
                                                 },
                                             },
                                         ),
-                                    ),
-                                ),
-                                expr_arena: Arena {
-                                    data: [
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 1,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
-                                                    ),
+                                        path: RegionPath::Defn(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
                                                 ),
                                             ),
-                                        },
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 2,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 3,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                        SynExpr::List {
-                                            lbox_token_idx: TokenIdx(
-                                                14,
-                                            ),
-                                            items: [
-                                                SynCommaListItem {
-                                                    expr_idx: 3,
-                                                    comma_token_idx: None,
-                                                },
-                                            ],
-                                            rbox_token_idx: TokenIdx(
-                                                16,
-                                            ),
-                                        },
-                                        SynExpr::FunctionApplicationOrCall {
-                                            function: 1,
-                                            generic_arguments: None,
-                                            lpar_token_idx: TokenIdx(
-                                                11,
-                                            ),
-                                            items: [
-                                                SynCommaListItem {
-                                                    expr_idx: 2,
-                                                    comma_token_idx: Some(
-                                                        TokenIdx(
-                                                            13,
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 1,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Fugitive(
+                                                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
-                                                SynCommaListItem {
-                                                    expr_idx: 4,
-                                                    comma_token_idx: None,
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 2,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Fugitive(
+                                                                FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 3,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Fugitive(
+                                                                FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                SynExpr::List {
+                                                    lbox_regional_token_idx: RegionalTokenIdx(
+                                                        5,
+                                                    ),
+                                                    items: [
+                                                        SynCommaListItem {
+                                                            expr_idx: 3,
+                                                            comma_regional_token_idx: None,
+                                                        },
+                                                    ],
+                                                    rbox_regional_token_idx: RegionalTokenIdx(
+                                                        7,
+                                                    ),
+                                                },
+                                                SynExpr::FunctionApplicationOrCall {
+                                                    function: 1,
+                                                    generic_arguments: None,
+                                                    lpar_regional_token_idx: RegionalTokenIdx(
+                                                        2,
+                                                    ),
+                                                    items: [
+                                                        SynCommaListItem {
+                                                            expr_idx: 2,
+                                                            comma_regional_token_idx: Some(
+                                                                RegionalTokenIdx(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynCommaListItem {
+                                                            expr_idx: 4,
+                                                            comma_regional_token_idx: None,
+                                                        },
+                                                    ],
+                                                    rpar_regional_token_idx: RegionalTokenIdx(
+                                                        8,
+                                                    ),
+                                                },
+                                                SynExpr::Block {
+                                                    stmts: ArenaIdxRange(
+                                                        1..2,
+                                                    ),
                                                 },
                                             ],
-                                            rpar_token_idx: TokenIdx(
-                                                17,
-                                            ),
                                         },
-                                        SynExpr::Block {
-                                            stmts: ArenaIdxRange(
-                                                1..2,
-                                            ),
-                                        },
-                                    ],
-                                },
-                                principal_item_path_expr_arena: Arena {
-                                    data: [
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `fermi_match`,
-                                                    token_idx: TokenIdx(
-                                                        10,
+                                        principal_item_path_expr_arena: Arena {
+                                            data: [
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `fermi_match`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Fugitive(
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                        ),
                                                     ),
                                                 },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
-                                                ),
-                                            ),
-                                        },
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `major_concave_components`,
-                                                    token_idx: TokenIdx(
-                                                        12,
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `major_concave_components`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                3,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Fugitive(
+                                                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                        ),
                                                     ),
                                                 },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                                                ),
-                                            ),
-                                        },
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `big_mouth`,
-                                                    token_idx: TokenIdx(
-                                                        15,
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `big_mouth`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                6,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Fugitive(
+                                                            FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
+                                                        ),
                                                     ),
                                                 },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
-                                                ),
-                                            ),
+                                            ],
                                         },
-                                    ],
-                                },
-                                stmt_arena: Arena {
-                                    data: [
-                                        SynStmt::Eval {
-                                            expr_idx: 5,
-                                            eol_semicolon: Ok(
-                                                None,
-                                            ),
+                                        stmt_arena: Arena {
+                                            data: [
+                                                SynStmt::Eval {
+                                                    expr_idx: 5,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                            ],
                                         },
-                                    ],
+                                        pattern_expr_region: SynPatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_modifiers: ArenaMap {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SynSymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: False,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 5,
+                                            },
+                                            SynExprRoot {
+                                                kind: BlockExpr,
+                                                expr_idx: 6,
+                                            },
+                                        ],
+                                    },
                                 },
-                                pattern_expr_region: SynPatternExprRegion {
-                                    pattern_expr_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_expr_contracts: ArenaMap {
-                                        data: [],
-                                    },
-                                    pattern_infos: [],
-                                    pattern_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_symbol_maps: [],
-                                    pattern_symbol_modifiers: ArenaMap {
-                                        data: [],
-                                    },
-                                },
-                                symbol_region: SynSymbolRegion {
-                                    inherited_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    current_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    allow_self_type: False,
-                                    allow_self_value: False,
-                                    pattern_ty_constraints: [],
-                                },
-                                roots: [
-                                    SynExprRoot {
-                                        kind: EvalExpr,
-                                        expr_idx: 5,
-                                    },
-                                    SynExprRoot {
-                                        kind: BlockExpr,
-                                        expr_idx: 6,
-                                    },
-                                ],
-                            },
-                        },
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -458,11 +460,11 @@ Ok(
                                     principal_item_path_expr_arena: Arena {
                                         data: [
                                             PrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameToken::Ident(
-                                                    IdentToken {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
                                                         ident: `OneVsAll`,
-                                                        token_idx: TokenIdx(
-                                                            25,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            8,
                                                         ),
                                                     },
                                                 ),
@@ -473,11 +475,11 @@ Ok(
                                                 ),
                                             },
                                             PrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameToken::Ident(
-                                                    IdentToken {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
                                                         ident: `MnistLabel`,
-                                                        token_idx: TokenIdx(
-                                                            26,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            9,
                                                         ),
                                                     },
                                                 ),
@@ -488,11 +490,11 @@ Ok(
                                                 ),
                                             },
                                             PrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameToken::Ident(
-                                                    IdentToken {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
                                                         ident: `MnistLabel`,
-                                                        token_idx: TokenIdx(
-                                                            27,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            10,
                                                         ),
                                                     },
                                                 ),
@@ -504,16 +506,16 @@ Ok(
                                             },
                                             PrincipalEntityPathExpr::Subitem {
                                                 parent: 3,
-                                                scope_resolution_token: ScopeResolutionToken(
-                                                    TokenIdx(
-                                                        28,
+                                                colon_colon_token: ColonColonRegionalToken(
+                                                    RegionalTokenIdx(
+                                                        11,
                                                     ),
                                                 ),
                                                 ident_token: Ok(
-                                                    IdentToken {
+                                                    IdentRegionalToken {
                                                         ident: `Eight`,
-                                                        token_idx: TokenIdx(
-                                                            29,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            12,
                                                         ),
                                                     },
                                                 ),
@@ -567,1170 +569,1168 @@ Ok(
                                 },
                             },
                         },
-                        body: Some(
-                            29,
-                        ),
-                        syn_expr_region: SynExprRegion {
-                            data: SynExprRegionData {
-                                parent: Some(
-                                    SynExprRegion {
-                                        data: SynExprRegionData {
-                                            parent: None,
-                                            path: RegionPath::Decl(
-                                                ItemSynNodePath::MajorItem(
-                                                    MajorItemSynNodePath::Fugitive(
-                                                        FugitiveSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                            expr_arena: Arena {
-                                                data: [
-                                                    SynExpr::PrincipalEntityPath {
-                                                        item_path_expr: 1,
-                                                        opt_path: Some(
-                                                            PrincipalEntityPath::MajorItem(
-                                                                MajorItemPath::Type(
-                                                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                    SynExpr::PrincipalEntityPath {
-                                                        item_path_expr: 2,
-                                                        opt_path: Some(
-                                                            PrincipalEntityPath::MajorItem(
-                                                                MajorItemPath::Type(
-                                                                    TypePath(`mnist::MnistLabel`, `Enum`),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                    SynExpr::ExplicitApplication {
-                                                        function_expr_idx: 1,
-                                                        argument_expr_idx: 2,
-                                                    },
-                                                    SynExpr::PrincipalEntityPath {
-                                                        item_path_expr: 4,
-                                                        opt_path: Some(
-                                                            PrincipalEntityPath::TypeVariant(
-                                                                TypeVariantPath {
-                                                                    parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                                    ident: `Eight`,
+                        body_with_syn_expr_region: Some(
+                            (
+                                29,
+                                SynExprRegion {
+                                    data: SynExprRegionData {
+                                        parent: Some(
+                                            SynExprRegion {
+                                                data: SynExprRegionData {
+                                                    parent: None,
+                                                    path: RegionPath::Decl(
+                                                        ItemSynNodePath::MajorItem(
+                                                            MajorItemSynNodePath::Fugitive(
+                                                                FugitiveSynNodePath {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                                                        disambiguator: 0,
+                                                                    },
                                                                 },
                                                             ),
                                                         ),
-                                                    },
-                                                    SynExpr::ExplicitApplication {
-                                                        function_expr_idx: 3,
-                                                        argument_expr_idx: 4,
-                                                    },
-                                                ],
-                                            },
-                                            principal_item_path_expr_arena: Arena {
-                                                data: [
-                                                    PrincipalEntityPathExpr::Root {
-                                                        path_name_token: PathNameToken::Ident(
-                                                            IdentToken {
-                                                                ident: `OneVsAll`,
-                                                                token_idx: TokenIdx(
-                                                                    25,
+                                                    ),
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            SynExpr::PrincipalEntityPath {
+                                                                item_path_expr: 1,
+                                                                opt_path: Some(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
-                                                        ),
-                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                            MajorItemPath::Type(
-                                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                                            ),
-                                                        ),
-                                                    },
-                                                    PrincipalEntityPathExpr::Root {
-                                                        path_name_token: PathNameToken::Ident(
-                                                            IdentToken {
-                                                                ident: `MnistLabel`,
-                                                                token_idx: TokenIdx(
-                                                                    26,
+                                                            SynExpr::PrincipalEntityPath {
+                                                                item_path_expr: 2,
+                                                                opt_path: Some(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
-                                                        ),
-                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                            MajorItemPath::Type(
-                                                                TypePath(`mnist::MnistLabel`, `Enum`),
-                                                            ),
-                                                        ),
-                                                    },
-                                                    PrincipalEntityPathExpr::Root {
-                                                        path_name_token: PathNameToken::Ident(
-                                                            IdentToken {
-                                                                ident: `MnistLabel`,
-                                                                token_idx: TokenIdx(
-                                                                    27,
+                                                            SynExpr::ExplicitApplication {
+                                                                function_expr_idx: 1,
+                                                                argument_expr_idx: 2,
+                                                            },
+                                                            SynExpr::PrincipalEntityPath {
+                                                                item_path_expr: 4,
+                                                                opt_path: Some(
+                                                                    PrincipalEntityPath::TypeVariant(
+                                                                        TypeVariantPath {
+                                                                            parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                            ident: `Eight`,
+                                                                        },
+                                                                    ),
                                                                 ),
                                                             },
-                                                        ),
-                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                            MajorItemPath::Type(
-                                                                TypePath(`mnist::MnistLabel`, `Enum`),
-                                                            ),
-                                                        ),
+                                                            SynExpr::ExplicitApplication {
+                                                                function_expr_idx: 3,
+                                                                argument_expr_idx: 4,
+                                                            },
+                                                        ],
                                                     },
-                                                    PrincipalEntityPathExpr::Subitem {
-                                                        parent: 3,
-                                                        scope_resolution_token: ScopeResolutionToken(
-                                                            TokenIdx(
-                                                                28,
-                                                            ),
-                                                        ),
-                                                        ident_token: Ok(
-                                                            IdentToken {
-                                                                ident: `Eight`,
-                                                                token_idx: TokenIdx(
-                                                                    29,
+                                                    principal_item_path_expr_arena: Arena {
+                                                        data: [
+                                                            PrincipalEntityPathExpr::Root {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
+                                                                        ident: `OneVsAll`,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            8,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                    ),
                                                                 ),
                                                             },
-                                                        ),
-                                                        path: Ok(
-                                                            PrincipalEntityPath::TypeVariant(
-                                                                TypeVariantPath {
-                                                                    parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                                    ident: `Eight`,
-                                                                },
+                                                            PrincipalEntityPathExpr::Root {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
+                                                                        ident: `MnistLabel`,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            9,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            PrincipalEntityPathExpr::Root {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
+                                                                        ident: `MnistLabel`,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            10,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            PrincipalEntityPathExpr::Subitem {
+                                                                parent: 3,
+                                                                colon_colon_token: ColonColonRegionalToken(
+                                                                    RegionalTokenIdx(
+                                                                        11,
+                                                                    ),
+                                                                ),
+                                                                ident_token: Ok(
+                                                                    IdentRegionalToken {
+                                                                        ident: `Eight`,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            12,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                                path: Ok(
+                                                                    PrincipalEntityPath::TypeVariant(
+                                                                        TypeVariantPath {
+                                                                            parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                            ident: `Eight`,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: SynPatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_contracts: ArenaMap {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_modifiers: ArenaMap {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SynSymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: False,
+                                                        allow_self_value: False,
+                                                        pattern_ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        SynExprRoot {
+                                                            kind: ReturnType,
+                                                            expr_idx: 5,
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ),
+                                        path: RegionPath::Defn(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 1,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Fugitive(
+                                                                FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                                             ),
                                                         ),
-                                                    },
-                                                ],
-                                            },
-                                            stmt_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_expr_region: SynPatternExprRegion {
-                                                pattern_expr_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_expr_contracts: ArenaMap {
-                                                    data: [],
-                                                },
-                                                pattern_infos: [],
-                                                pattern_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_symbol_maps: [],
-                                                pattern_symbol_modifiers: ArenaMap {
-                                                    data: [],
-                                                },
-                                            },
-                                            symbol_region: SynSymbolRegion {
-                                                inherited_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                current_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                allow_self_type: False,
-                                                allow_self_value: False,
-                                                pattern_ty_constraints: [],
-                                            },
-                                            roots: [
-                                                SynExprRoot {
-                                                    kind: ReturnType,
-                                                    expr_idx: 5,
-                                                },
-                                            ],
-                                        },
-                                    },
-                                ),
-                                path: RegionPath::Defn(
-                                    ItemSynNodePath::MajorItem(
-                                        MajorItemSynNodePath::Fugitive(
-                                            FugitiveSynNodePath {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                expr_arena: Arena {
-                                    data: [
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 1,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                        SynExpr::Be {
-                                            src: 1,
-                                            be_token_idx: TokenIdx(
-                                                33,
-                                            ),
-                                            target: Ok(
-                                                BeVariablesObelisk {
-                                                    pattern_expr: 1,
-                                                    variables: ArenaIdxRange(
-                                                        1..2,
                                                     ),
                                                 },
-                                            ),
-                                        },
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 2,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                SynExpr::Be {
+                                                    src: 1,
+                                                    be_regional_token_idx: RegionalTokenIdx(
+                                                        3,
                                                     ),
-                                                ),
-                                            ),
-                                        },
-                                        SynExpr::Be {
-                                            src: 3,
-                                            be_token_idx: TokenIdx(
-                                                37,
-                                            ),
-                                            target: Ok(
-                                                BeVariablesObelisk {
-                                                    pattern_expr: 2,
-                                                    variables: ArenaIdxRange(
-                                                        2..3,
-                                                    ),
-                                                },
-                                            ),
-                                        },
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 3,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                        SynExpr::Be {
-                                            src: 5,
-                                            be_token_idx: TokenIdx(
-                                                41,
-                                            ),
-                                            target: Ok(
-                                                BeVariablesObelisk {
-                                                    pattern_expr: 3,
-                                                    variables: ArenaIdxRange(
-                                                        3..4,
-                                                    ),
-                                                },
-                                            ),
-                                        },
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 4,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                        SynExpr::Be {
-                                            src: 7,
-                                            be_token_idx: TokenIdx(
-                                                45,
-                                            ),
-                                            target: Ok(
-                                                BeVariablesObelisk {
-                                                    pattern_expr: 4,
-                                                    variables: ArenaIdxRange(
-                                                        4..5,
-                                                    ),
-                                                },
-                                            ),
-                                        },
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 5,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 6,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                        SynExpr::Field {
-                                            owner: 9,
-                                            dot_token_idx: TokenIdx(
-                                                51,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `upper_mass`,
-                                                token_idx: TokenIdx(
-                                                    52,
-                                                ),
-                                            },
-                                        },
-                                        SynExpr::Field {
-                                            owner: 10,
-                                            dot_token_idx: TokenIdx(
-                                                55,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `lower_mass`,
-                                                token_idx: TokenIdx(
-                                                    56,
-                                                ),
-                                            },
-                                        },
-                                        SynExpr::Binary {
-                                            lopd: 11,
-                                            opr: Closed(
-                                                Sub,
-                                            ),
-                                            opr_token_idx: TokenIdx(
-                                                53,
-                                            ),
-                                            ropd: 12,
-                                        },
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 7,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                        SynExpr::Field {
-                                            owner: 14,
-                                            dot_token_idx: TokenIdx(
-                                                59,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `eff_holes`,
-                                                token_idx: TokenIdx(
-                                                    60,
-                                                ),
-                                            },
-                                        },
-                                        SynExpr::Field {
-                                            owner: 15,
-                                            dot_token_idx: TokenIdx(
-                                                61,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `matches`,
-                                                token_idx: TokenIdx(
-                                                    62,
-                                                ),
-                                            },
-                                        },
-                                        SynExpr::Literal(
-                                            TokenIdx(
-                                                64,
-                                            ),
-                                            Literal::Integer(
-                                                UnspecifiedRegular(
-                                                    1,
-                                                ),
-                                            ),
-                                        ),
-                                        SynExpr::IndexOrCompositionWithList {
-                                            owner: 16,
-                                            lbox_token_idx: TokenIdx(
-                                                63,
-                                            ),
-                                            items: [
-                                                SynCommaListItem {
-                                                    expr_idx: 17,
-                                                    comma_token_idx: None,
-                                                },
-                                            ],
-                                            rbox_token_idx: TokenIdx(
-                                                65,
-                                            ),
-                                        },
-                                        SynExpr::Be {
-                                            src: 18,
-                                            be_token_idx: TokenIdx(
-                                                66,
-                                            ),
-                                            target: Ok(
-                                                BeVariablesObelisk {
-                                                    pattern_expr: 6,
-                                                    variables: ArenaIdxRange(
-                                                        6..7,
-                                                    ),
-                                                },
-                                            ),
-                                        },
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 8,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                        SynExpr::Field {
-                                            owner: 20,
-                                            dot_token_idx: TokenIdx(
-                                                71,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `eff_holes`,
-                                                token_idx: TokenIdx(
-                                                    72,
-                                                ),
-                                            },
-                                        },
-                                        SynExpr::Field {
-                                            owner: 21,
-                                            dot_token_idx: TokenIdx(
-                                                73,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `matches`,
-                                                token_idx: TokenIdx(
-                                                    74,
-                                                ),
-                                            },
-                                        },
-                                        SynExpr::Literal(
-                                            TokenIdx(
-                                                76,
-                                            ),
-                                            Literal::Integer(
-                                                UnspecifiedRegular(
-                                                    0,
-                                                ),
-                                            ),
-                                        ),
-                                        SynExpr::IndexOrCompositionWithList {
-                                            owner: 22,
-                                            lbox_token_idx: TokenIdx(
-                                                75,
-                                            ),
-                                            items: [
-                                                SynCommaListItem {
-                                                    expr_idx: 23,
-                                                    comma_token_idx: None,
-                                                },
-                                            ],
-                                            rbox_token_idx: TokenIdx(
-                                                77,
-                                            ),
-                                        },
-                                        SynExpr::Be {
-                                            src: 24,
-                                            be_token_idx: TokenIdx(
-                                                78,
-                                            ),
-                                            target: Ok(
-                                                BeVariablesObelisk {
-                                                    pattern_expr: 7,
-                                                    variables: ArenaIdxRange(
-                                                        7..8,
-                                                    ),
-                                                },
-                                            ),
-                                        },
-                                        SynExpr::Literal(
-                                            TokenIdx(
-                                                82,
-                                            ),
-                                            Literal::Bool(
-                                                False,
-                                            ),
-                                        ),
-                                        SynExpr::Literal(
-                                            TokenIdx(
-                                                84,
-                                            ),
-                                            Literal::Bool(
-                                                False,
-                                            ),
-                                        ),
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 10,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                        ident: `Yes`,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        SynExpr::Block {
-                                            stmts: ArenaIdxRange(
-                                                4..11,
-                                            ),
-                                        },
-                                    ],
-                                },
-                                principal_item_path_expr_arena: Arena {
-                                    data: [
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `is_one`,
-                                                    token_idx: TokenIdx(
-                                                        32,
-                                                    ),
-                                                },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
-                                                ),
-                                            ),
-                                        },
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `is_six`,
-                                                    token_idx: TokenIdx(
-                                                        36,
-                                                    ),
-                                                },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
-                                                ),
-                                            ),
-                                        },
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `is_zero`,
-                                                    token_idx: TokenIdx(
-                                                        40,
-                                                    ),
-                                                },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
-                                                ),
-                                            ),
-                                        },
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `is_seven`,
-                                                    token_idx: TokenIdx(
-                                                        44,
-                                                    ),
-                                                },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
-                                                ),
-                                            ),
-                                        },
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `major_connected_component`,
-                                                    token_idx: TokenIdx(
-                                                        50,
-                                                    ),
-                                                },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                                ),
-                                            ),
-                                        },
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `major_connected_component`,
-                                                    token_idx: TokenIdx(
-                                                        54,
-                                                    ),
-                                                },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                                ),
-                                            ),
-                                        },
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `major_connected_component`,
-                                                    token_idx: TokenIdx(
-                                                        58,
-                                                    ),
-                                                },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                                ),
-                                            ),
-                                        },
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `major_connected_component`,
-                                                    token_idx: TokenIdx(
-                                                        70,
-                                                    ),
-                                                },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                                ),
-                                            ),
-                                        },
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `OneVsAll`,
-                                                    token_idx: TokenIdx(
-                                                        85,
-                                                    ),
-                                                },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                                ),
-                                            ),
-                                        },
-                                        PrincipalEntityPathExpr::Subitem {
-                                            parent: 9,
-                                            scope_resolution_token: ScopeResolutionToken(
-                                                TokenIdx(
-                                                    86,
-                                                ),
-                                            ),
-                                            ident_token: Ok(
-                                                IdentToken {
-                                                    ident: `Yes`,
-                                                    token_idx: TokenIdx(
-                                                        87,
-                                                    ),
-                                                },
-                                            ),
-                                            path: Ok(
-                                                PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                        ident: `Yes`,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ],
-                                },
-                                stmt_arena: Arena {
-                                    data: [
-                                        SynStmt::Require {
-                                            require_token: RequireToken {
-                                                token_idx: TokenIdx(
-                                                    81,
-                                                ),
-                                            },
-                                            condition: 26,
-                                        },
-                                        SynStmt::IfElse {
-                                            if_branch: SynIfBranch {
-                                                if_token: IfToken {
-                                                    token_idx: TokenIdx(
-                                                        69,
-                                                    ),
-                                                },
-                                                condition: Ok(
-                                                    25,
-                                                ),
-                                                eol_colon: Ok(
-                                                    Colon(
-                                                        EolColonToken {
-                                                            token_idx: TokenIdx(
-                                                                80,
+                                                    target: Ok(
+                                                        BeVariablesObelisk {
+                                                            pattern_expr: 1,
+                                                            variables: ArenaIdxRange(
+                                                                1..2,
                                                             ),
                                                         },
                                                     ),
-                                                ),
-                                                stmts: Ok(
-                                                    ArenaIdxRange(
-                                                        1..2,
-                                                    ),
-                                                ),
-                                            },
-                                            elif_branches: [],
-                                            else_branch: None,
-                                        },
-                                        SynStmt::Require {
-                                            require_token: RequireToken {
-                                                token_idx: TokenIdx(
-                                                    83,
-                                                ),
-                                            },
-                                            condition: 27,
-                                        },
-                                        SynStmt::Require {
-                                            require_token: RequireToken {
-                                                token_idx: TokenIdx(
-                                                    31,
-                                                ),
-                                            },
-                                            condition: 2,
-                                        },
-                                        SynStmt::Require {
-                                            require_token: RequireToken {
-                                                token_idx: TokenIdx(
-                                                    35,
-                                                ),
-                                            },
-                                            condition: 4,
-                                        },
-                                        SynStmt::Require {
-                                            require_token: RequireToken {
-                                                token_idx: TokenIdx(
-                                                    39,
-                                                ),
-                                            },
-                                            condition: 6,
-                                        },
-                                        SynStmt::Require {
-                                            require_token: RequireToken {
-                                                token_idx: TokenIdx(
-                                                    43,
-                                                ),
-                                            },
-                                            condition: 8,
-                                        },
-                                        SynStmt::Let {
-                                            let_token: LetToken {
-                                                token_idx: TokenIdx(
-                                                    47,
-                                                ),
-                                            },
-                                            let_variables_pattern: Ok(
-                                                LetVariableObelisk {
-                                                    pattern_expr_idx: 5,
-                                                    variables: ArenaIdxRange(
-                                                        5..6,
-                                                    ),
-                                                    colon_token: Ok(
-                                                        None,
-                                                    ),
-                                                    ty: None,
                                                 },
-                                            ),
-                                            assign_token: Ok(
-                                                EqToken(
-                                                    TokenIdx(
-                                                        49,
-                                                    ),
-                                                ),
-                                            ),
-                                            initial_value: 13,
-                                        },
-                                        SynStmt::IfElse {
-                                            if_branch: SynIfBranch {
-                                                if_token: IfToken {
-                                                    token_idx: TokenIdx(
-                                                        57,
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 2,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Fugitive(
+                                                                FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
-                                                condition: Ok(
-                                                    19,
-                                                ),
-                                                eol_colon: Ok(
-                                                    Colon(
-                                                        EolColonToken {
-                                                            token_idx: TokenIdx(
-                                                                68,
+                                                SynExpr::Be {
+                                                    src: 3,
+                                                    be_regional_token_idx: RegionalTokenIdx(
+                                                        7,
+                                                    ),
+                                                    target: Ok(
+                                                        BeVariablesObelisk {
+                                                            pattern_expr: 2,
+                                                            variables: ArenaIdxRange(
+                                                                2..3,
                                                             ),
                                                         },
                                                     ),
-                                                ),
-                                                stmts: Ok(
-                                                    ArenaIdxRange(
-                                                        2..4,
+                                                },
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 3,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Fugitive(
+                                                                FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                            ),
+                                                        ),
                                                     ),
-                                                ),
-                                            },
-                                            elif_branches: [],
-                                            else_branch: None,
-                                        },
-                                        SynStmt::Eval {
-                                            expr_idx: 28,
-                                            eol_semicolon: Ok(
-                                                None,
-                                            ),
-                                        },
-                                    ],
-                                },
-                                pattern_expr_region: SynPatternExprRegion {
-                                    pattern_expr_arena: Arena {
-                                        data: [
-                                            SynPatternExpr::Ident {
-                                                symbol_modifier_keyword_group: None,
-                                                ident_token: IdentToken {
-                                                    ident: `none`,
-                                                    token_idx: TokenIdx(
+                                                },
+                                                SynExpr::Be {
+                                                    src: 5,
+                                                    be_regional_token_idx: RegionalTokenIdx(
+                                                        11,
+                                                    ),
+                                                    target: Ok(
+                                                        BeVariablesObelisk {
+                                                            pattern_expr: 3,
+                                                            variables: ArenaIdxRange(
+                                                                3..4,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 4,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Fugitive(
+                                                                FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                SynExpr::Be {
+                                                    src: 7,
+                                                    be_regional_token_idx: RegionalTokenIdx(
+                                                        15,
+                                                    ),
+                                                    target: Ok(
+                                                        BeVariablesObelisk {
+                                                            pattern_expr: 4,
+                                                            variables: ArenaIdxRange(
+                                                                4..5,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 5,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Fugitive(
+                                                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 6,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Fugitive(
+                                                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                SynExpr::Field {
+                                                    owner: 9,
+                                                    dot_regional_token_idx: RegionalTokenIdx(
+                                                        21,
+                                                    ),
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `upper_mass`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            22,
+                                                        ),
+                                                    },
+                                                },
+                                                SynExpr::Field {
+                                                    owner: 10,
+                                                    dot_regional_token_idx: RegionalTokenIdx(
+                                                        25,
+                                                    ),
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `lower_mass`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            26,
+                                                        ),
+                                                    },
+                                                },
+                                                SynExpr::Binary {
+                                                    lopd: 11,
+                                                    opr: Closed(
+                                                        Sub,
+                                                    ),
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        23,
+                                                    ),
+                                                    ropd: 12,
+                                                },
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 7,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Fugitive(
+                                                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                SynExpr::Field {
+                                                    owner: 14,
+                                                    dot_regional_token_idx: RegionalTokenIdx(
+                                                        29,
+                                                    ),
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `eff_holes`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            30,
+                                                        ),
+                                                    },
+                                                },
+                                                SynExpr::Field {
+                                                    owner: 15,
+                                                    dot_regional_token_idx: RegionalTokenIdx(
+                                                        31,
+                                                    ),
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `matches`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            32,
+                                                        ),
+                                                    },
+                                                },
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
                                                         34,
                                                     ),
-                                                },
-                                            },
-                                            SynPatternExpr::Ident {
-                                                symbol_modifier_keyword_group: None,
-                                                ident_token: IdentToken {
-                                                    ident: `none`,
-                                                    token_idx: TokenIdx(
-                                                        38,
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::IndexOrCompositionWithList {
+                                                    owner: 16,
+                                                    lbox_regional_token_idx: RegionalTokenIdx(
+                                                        33,
+                                                    ),
+                                                    items: [
+                                                        SynCommaListItem {
+                                                            expr_idx: 17,
+                                                            comma_regional_token_idx: None,
+                                                        },
+                                                    ],
+                                                    rbox_regional_token_idx: RegionalTokenIdx(
+                                                        35,
                                                     ),
                                                 },
-                                            },
-                                            SynPatternExpr::Ident {
-                                                symbol_modifier_keyword_group: None,
-                                                ident_token: IdentToken {
-                                                    ident: `none`,
-                                                    token_idx: TokenIdx(
-                                                        42,
+                                                SynExpr::Be {
+                                                    src: 18,
+                                                    be_regional_token_idx: RegionalTokenIdx(
+                                                        36,
+                                                    ),
+                                                    target: Ok(
+                                                        BeVariablesObelisk {
+                                                            pattern_expr: 6,
+                                                            variables: ArenaIdxRange(
+                                                                6..7,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
-                                            },
-                                            SynPatternExpr::Ident {
-                                                symbol_modifier_keyword_group: None,
-                                                ident_token: IdentToken {
-                                                    ident: `none`,
-                                                    token_idx: TokenIdx(
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 8,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Fugitive(
+                                                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                SynExpr::Field {
+                                                    owner: 20,
+                                                    dot_regional_token_idx: RegionalTokenIdx(
+                                                        41,
+                                                    ),
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `eff_holes`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            42,
+                                                        ),
+                                                    },
+                                                },
+                                                SynExpr::Field {
+                                                    owner: 21,
+                                                    dot_regional_token_idx: RegionalTokenIdx(
+                                                        43,
+                                                    ),
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `matches`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            44,
+                                                        ),
+                                                    },
+                                                },
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
                                                         46,
                                                     ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            0,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::IndexOrCompositionWithList {
+                                                    owner: 22,
+                                                    lbox_regional_token_idx: RegionalTokenIdx(
+                                                        45,
+                                                    ),
+                                                    items: [
+                                                        SynCommaListItem {
+                                                            expr_idx: 23,
+                                                            comma_regional_token_idx: None,
+                                                        },
+                                                    ],
+                                                    rbox_regional_token_idx: RegionalTokenIdx(
+                                                        47,
+                                                    ),
                                                 },
-                                            },
-                                            SynPatternExpr::Ident {
-                                                symbol_modifier_keyword_group: None,
-                                                ident_token: IdentToken {
-                                                    ident: `upper_excess`,
-                                                    token_idx: TokenIdx(
+                                                SynExpr::Be {
+                                                    src: 24,
+                                                    be_regional_token_idx: RegionalTokenIdx(
                                                         48,
                                                     ),
-                                                },
-                                            },
-                                            SynPatternExpr::Ident {
-                                                symbol_modifier_keyword_group: None,
-                                                ident_token: IdentToken {
-                                                    ident: `none`,
-                                                    token_idx: TokenIdx(
-                                                        67,
+                                                    target: Ok(
+                                                        BeVariablesObelisk {
+                                                            pattern_expr: 7,
+                                                            variables: ArenaIdxRange(
+                                                                7..8,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
-                                            },
-                                            SynPatternExpr::Ident {
-                                                symbol_modifier_keyword_group: None,
-                                                ident_token: IdentToken {
-                                                    ident: `none`,
-                                                    token_idx: TokenIdx(
-                                                        79,
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        52,
+                                                    ),
+                                                    Literal::Bool(
+                                                        False,
+                                                    ),
+                                                ),
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        54,
+                                                    ),
+                                                    Literal::Bool(
+                                                        False,
+                                                    ),
+                                                ),
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 10,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                ident: `Yes`,
+                                                            },
+                                                        ),
                                                     ),
                                                 },
+                                                SynExpr::Block {
+                                                    stmts: ArenaIdxRange(
+                                                        4..11,
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        principal_item_path_expr_arena: Arena {
+                                            data: [
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `is_one`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                2,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Fugitive(
+                                                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `is_six`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                6,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Fugitive(
+                                                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `is_zero`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                10,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Fugitive(
+                                                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `is_seven`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                14,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Fugitive(
+                                                            FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `major_connected_component`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                20,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Fugitive(
+                                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `major_connected_component`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                24,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Fugitive(
+                                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `major_connected_component`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                28,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Fugitive(
+                                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `major_connected_component`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                40,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Fugitive(
+                                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `OneVsAll`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                55,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Subitem {
+                                                    parent: 9,
+                                                    colon_colon_token: ColonColonRegionalToken(
+                                                        RegionalTokenIdx(
+                                                            56,
+                                                        ),
+                                                    ),
+                                                    ident_token: Ok(
+                                                        IdentRegionalToken {
+                                                            ident: `Yes`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                57,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    path: Ok(
+                                                        PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                ident: `Yes`,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [
+                                                SynStmt::Require {
+                                                    require_token: RequireRegionalToken {
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            51,
+                                                        ),
+                                                    },
+                                                    condition: 26,
+                                                },
+                                                SynStmt::IfElse {
+                                                    if_branch: SynIfBranch {
+                                                        if_token: IfRegionalToken {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                39,
+                                                            ),
+                                                        },
+                                                        condition: Ok(
+                                                            25,
+                                                        ),
+                                                        eol_colon: Ok(
+                                                            Colon(
+                                                                EolColonRegionalToken {
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        50,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                        stmts: ArenaIdxRange(
+                                                            1..2,
+                                                        ),
+                                                    },
+                                                    elif_branches: [],
+                                                    else_branch: None,
+                                                },
+                                                SynStmt::Require {
+                                                    require_token: RequireRegionalToken {
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            53,
+                                                        ),
+                                                    },
+                                                    condition: 27,
+                                                },
+                                                SynStmt::Require {
+                                                    require_token: RequireRegionalToken {
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            1,
+                                                        ),
+                                                    },
+                                                    condition: 2,
+                                                },
+                                                SynStmt::Require {
+                                                    require_token: RequireRegionalToken {
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            5,
+                                                        ),
+                                                    },
+                                                    condition: 4,
+                                                },
+                                                SynStmt::Require {
+                                                    require_token: RequireRegionalToken {
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            9,
+                                                        ),
+                                                    },
+                                                    condition: 6,
+                                                },
+                                                SynStmt::Require {
+                                                    require_token: RequireRegionalToken {
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            13,
+                                                        ),
+                                                    },
+                                                    condition: 8,
+                                                },
+                                                SynStmt::Let {
+                                                    let_token: LetRegionalToken {
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            17,
+                                                        ),
+                                                    },
+                                                    let_variables_pattern: Ok(
+                                                        LetVariableObelisk {
+                                                            pattern_expr_idx: 5,
+                                                            variables: ArenaIdxRange(
+                                                                5..6,
+                                                            ),
+                                                            colon_token: Ok(
+                                                                None,
+                                                            ),
+                                                            ty: None,
+                                                        },
+                                                    ),
+                                                    assign_token: Ok(
+                                                        RegionalEqToken(
+                                                            RegionalTokenIdx(
+                                                                19,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    initial_value: 13,
+                                                },
+                                                SynStmt::IfElse {
+                                                    if_branch: SynIfBranch {
+                                                        if_token: IfRegionalToken {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                27,
+                                                            ),
+                                                        },
+                                                        condition: Ok(
+                                                            19,
+                                                        ),
+                                                        eol_colon: Ok(
+                                                            Colon(
+                                                                EolColonRegionalToken {
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        38,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                        stmts: ArenaIdxRange(
+                                                            2..4,
+                                                        ),
+                                                    },
+                                                    elif_branches: [],
+                                                    else_branch: None,
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 28,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        pattern_expr_region: SynPatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `none`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                4,
+                                                            ),
+                                                        },
+                                                    },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `none`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                8,
+                                                            ),
+                                                        },
+                                                    },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `none`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                12,
+                                                            ),
+                                                        },
+                                                    },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `none`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                16,
+                                                            ),
+                                                        },
+                                                    },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `upper_excess`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                18,
+                                                            ),
+                                                        },
+                                                    },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `none`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                37,
+                                                            ),
+                                                        },
+                                                    },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `none`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                49,
+                                                            ),
+                                                        },
+                                                    },
+                                                ],
                                             },
-                                        ],
-                                    },
-                                    pattern_expr_contracts: ArenaMap {
-                                        data: [
-                                            None,
-                                            None,
-                                            None,
-                                            None,
-                                            None,
-                                            None,
-                                            None,
-                                        ],
-                                    },
-                                    pattern_infos: [
-                                        Let,
-                                        Let,
-                                        Let,
-                                        Let,
-                                        Let,
-                                        Let,
-                                        Let,
-                                    ],
-                                    pattern_symbol_arena: Arena {
-                                        data: [
-                                            SynPatternSymbol::Atom(
-                                                1,
-                                            ),
-                                            SynPatternSymbol::Atom(
-                                                2,
-                                            ),
-                                            SynPatternSymbol::Atom(
-                                                3,
-                                            ),
-                                            SynPatternSymbol::Atom(
-                                                4,
-                                            ),
-                                            SynPatternSymbol::Atom(
-                                                5,
-                                            ),
-                                            SynPatternSymbol::Atom(
-                                                6,
-                                            ),
-                                            SynPatternSymbol::Atom(
-                                                7,
-                                            ),
-                                        ],
-                                    },
-                                    pattern_symbol_maps: [
-                                        [
-                                            (
-                                                `none`,
-                                                1,
-                                            ),
-                                        ],
-                                        [
-                                            (
-                                                `none`,
-                                                2,
-                                            ),
-                                        ],
-                                        [
-                                            (
-                                                `none`,
-                                                3,
-                                            ),
-                                        ],
-                                        [
-                                            (
-                                                `none`,
-                                                4,
-                                            ),
-                                        ],
-                                        [
-                                            (
-                                                `upper_excess`,
-                                                5,
-                                            ),
-                                        ],
-                                        [
-                                            (
-                                                `none`,
-                                                6,
-                                            ),
-                                        ],
-                                        [
-                                            (
-                                                `none`,
-                                                7,
-                                            ),
-                                        ],
-                                    ],
-                                    pattern_symbol_modifiers: ArenaMap {
-                                        data: [
-                                            None,
-                                            None,
-                                            None,
-                                            None,
-                                            None,
-                                            None,
-                                            None,
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                ],
+                                            },
+                                            pattern_infos: [
+                                                Let,
+                                                Let,
+                                                Let,
+                                                Let,
+                                                Let,
+                                                Let,
+                                                Let,
+                                            ],
+                                            pattern_symbol_arena: Arena {
+                                                data: [
+                                                    SynPatternSymbol::Atom(
+                                                        1,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        2,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        3,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        4,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        5,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        6,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        7,
+                                                    ),
+                                                ],
+                                            },
+                                            pattern_symbol_maps: [
+                                                [
+                                                    (
+                                                        `none`,
+                                                        1,
+                                                    ),
+                                                ],
+                                                [
+                                                    (
+                                                        `none`,
+                                                        2,
+                                                    ),
+                                                ],
+                                                [
+                                                    (
+                                                        `none`,
+                                                        3,
+                                                    ),
+                                                ],
+                                                [
+                                                    (
+                                                        `none`,
+                                                        4,
+                                                    ),
+                                                ],
+                                                [
+                                                    (
+                                                        `upper_excess`,
+                                                        5,
+                                                    ),
+                                                ],
+                                                [
+                                                    (
+                                                        `none`,
+                                                        6,
+                                                    ),
+                                                ],
+                                                [
+                                                    (
+                                                        `none`,
+                                                        7,
+                                                    ),
+                                                ],
+                                            ],
+                                            pattern_symbol_modifiers: ArenaMap {
+                                                data: [
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                ],
+                                            },
+                                        },
+                                        symbol_region: SynSymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            5,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    58,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                            ident: `none`,
+                                                            pattern_symbol_idx: 1,
+                                                        },
+                                                    },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            9,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    58,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                            ident: `none`,
+                                                            pattern_symbol_idx: 2,
+                                                        },
+                                                    },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            13,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    58,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                            ident: `none`,
+                                                            pattern_symbol_idx: 3,
+                                                        },
+                                                    },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            17,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    58,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                            ident: `none`,
+                                                            pattern_symbol_idx: 4,
+                                                        },
+                                                    },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            19,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    58,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                            ident: `upper_excess`,
+                                                            pattern_symbol_idx: 5,
+                                                        },
+                                                    },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            38,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    55,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                            ident: `none`,
+                                                            pattern_symbol_idx: 6,
+                                                        },
+                                                    },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            50,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    53,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                            ident: `none`,
+                                                            pattern_symbol_idx: 7,
+                                                        },
+                                                    },
+                                                ],
+                                            },
+                                            allow_self_type: False,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            SynExprRoot {
+                                                kind: Condition,
+                                                expr_idx: 2,
+                                            },
+                                            SynExprRoot {
+                                                kind: Condition,
+                                                expr_idx: 4,
+                                            },
+                                            SynExprRoot {
+                                                kind: Condition,
+                                                expr_idx: 6,
+                                            },
+                                            SynExprRoot {
+                                                kind: Condition,
+                                                expr_idx: 8,
+                                            },
+                                            SynExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 13,
+                                            },
+                                            SynExprRoot {
+                                                kind: Condition,
+                                                expr_idx: 26,
+                                            },
+                                            SynExprRoot {
+                                                kind: Condition,
+                                                expr_idx: 27,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 28,
+                                            },
+                                            SynExprRoot {
+                                                kind: BlockExpr,
+                                                expr_idx: 29,
+                                            },
                                         ],
                                     },
                                 },
-                                symbol_region: SynSymbolRegion {
-                                    inherited_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    current_symbol_arena: Arena {
-                                        data: [
-                                            CurrentSynSymbol {
-                                                modifier: None,
-                                                access_start: TokenIdx(
-                                                    35,
-                                                ),
-                                                access_end: Some(
-                                                    TokenIdxRangeEnd(
-                                                        TokenIdx(
-                                                            88,
-                                                        ),
-                                                    ),
-                                                ),
-                                                variant: CurrentSynSymbolVariant::LetVariable {
-                                                    ident: `none`,
-                                                    pattern_symbol_idx: 1,
-                                                },
-                                            },
-                                            CurrentSynSymbol {
-                                                modifier: None,
-                                                access_start: TokenIdx(
-                                                    39,
-                                                ),
-                                                access_end: Some(
-                                                    TokenIdxRangeEnd(
-                                                        TokenIdx(
-                                                            88,
-                                                        ),
-                                                    ),
-                                                ),
-                                                variant: CurrentSynSymbolVariant::LetVariable {
-                                                    ident: `none`,
-                                                    pattern_symbol_idx: 2,
-                                                },
-                                            },
-                                            CurrentSynSymbol {
-                                                modifier: None,
-                                                access_start: TokenIdx(
-                                                    43,
-                                                ),
-                                                access_end: Some(
-                                                    TokenIdxRangeEnd(
-                                                        TokenIdx(
-                                                            88,
-                                                        ),
-                                                    ),
-                                                ),
-                                                variant: CurrentSynSymbolVariant::LetVariable {
-                                                    ident: `none`,
-                                                    pattern_symbol_idx: 3,
-                                                },
-                                            },
-                                            CurrentSynSymbol {
-                                                modifier: None,
-                                                access_start: TokenIdx(
-                                                    47,
-                                                ),
-                                                access_end: Some(
-                                                    TokenIdxRangeEnd(
-                                                        TokenIdx(
-                                                            88,
-                                                        ),
-                                                    ),
-                                                ),
-                                                variant: CurrentSynSymbolVariant::LetVariable {
-                                                    ident: `none`,
-                                                    pattern_symbol_idx: 4,
-                                                },
-                                            },
-                                            CurrentSynSymbol {
-                                                modifier: None,
-                                                access_start: TokenIdx(
-                                                    49,
-                                                ),
-                                                access_end: Some(
-                                                    TokenIdxRangeEnd(
-                                                        TokenIdx(
-                                                            88,
-                                                        ),
-                                                    ),
-                                                ),
-                                                variant: CurrentSynSymbolVariant::LetVariable {
-                                                    ident: `upper_excess`,
-                                                    pattern_symbol_idx: 5,
-                                                },
-                                            },
-                                            CurrentSynSymbol {
-                                                modifier: None,
-                                                access_start: TokenIdx(
-                                                    68,
-                                                ),
-                                                access_end: Some(
-                                                    TokenIdxRangeEnd(
-                                                        TokenIdx(
-                                                            85,
-                                                        ),
-                                                    ),
-                                                ),
-                                                variant: CurrentSynSymbolVariant::LetVariable {
-                                                    ident: `none`,
-                                                    pattern_symbol_idx: 6,
-                                                },
-                                            },
-                                            CurrentSynSymbol {
-                                                modifier: None,
-                                                access_start: TokenIdx(
-                                                    80,
-                                                ),
-                                                access_end: Some(
-                                                    TokenIdxRangeEnd(
-                                                        TokenIdx(
-                                                            83,
-                                                        ),
-                                                    ),
-                                                ),
-                                                variant: CurrentSynSymbolVariant::LetVariable {
-                                                    ident: `none`,
-                                                    pattern_symbol_idx: 7,
-                                                },
-                                            },
-                                        ],
-                                    },
-                                    allow_self_type: False,
-                                    allow_self_value: False,
-                                    pattern_ty_constraints: [],
-                                },
-                                roots: [
-                                    SynExprRoot {
-                                        kind: Condition,
-                                        expr_idx: 2,
-                                    },
-                                    SynExprRoot {
-                                        kind: Condition,
-                                        expr_idx: 4,
-                                    },
-                                    SynExprRoot {
-                                        kind: Condition,
-                                        expr_idx: 6,
-                                    },
-                                    SynExprRoot {
-                                        kind: Condition,
-                                        expr_idx: 8,
-                                    },
-                                    SynExprRoot {
-                                        kind: LetStmtInitialValue,
-                                        expr_idx: 13,
-                                    },
-                                    SynExprRoot {
-                                        kind: Condition,
-                                        expr_idx: 26,
-                                    },
-                                    SynExprRoot {
-                                        kind: Condition,
-                                        expr_idx: 27,
-                                    },
-                                    SynExprRoot {
-                                        kind: EvalExpr,
-                                        expr_idx: 28,
-                                    },
-                                    SynExprRoot {
-                                        kind: BlockExpr,
-                                        expr_idx: 29,
-                                    },
-                                ],
-                            },
-                        },
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -1749,9 +1749,9 @@ Ok(
                                     variables: ArenaIdxRange(
                                         1..2,
                                     ),
-                                    colon: ColonToken(
-                                        TokenIdx(
-                                            92,
+                                    colon: ColonRegionalToken(
+                                        RegionalTokenIdx(
+                                            5,
                                         ),
                                     ),
                                     ty: 2,
@@ -1791,8 +1791,8 @@ Ok(
                                             },
                                             SynExpr::Prefix {
                                                 opr: Tilde,
-                                                opr_token_idx: TokenIdx(
-                                                    93,
+                                                opr_regional_token_idx: RegionalTokenIdx(
+                                                    6,
                                                 ),
                                                 opd: 1,
                                             },
@@ -1808,8 +1808,8 @@ Ok(
                                             },
                                             SynExpr::Prefix {
                                                 opr: Option,
-                                                opr_token_idx: TokenIdx(
-                                                    97,
+                                                opr_regional_token_idx: RegionalTokenIdx(
+                                                    10,
                                                 ),
                                                 opd: 3,
                                             },
@@ -1818,11 +1818,11 @@ Ok(
                                     principal_item_path_expr_arena: Arena {
                                         data: [
                                             PrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameToken::Ident(
-                                                    IdentToken {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
                                                         ident: `ConcaveComponent`,
-                                                        token_idx: TokenIdx(
-                                                            94,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            7,
                                                         ),
                                                     },
                                                 ),
@@ -1833,11 +1833,11 @@ Ok(
                                                 ),
                                             },
                                             PrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameToken::Ident(
-                                                    IdentToken {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
                                                         ident: `f32`,
-                                                        token_idx: TokenIdx(
-                                                            98,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            11,
                                                         ),
                                                     },
                                                 ),
@@ -1857,10 +1857,10 @@ Ok(
                                             data: [
                                                 SynPatternExpr::Ident {
                                                     symbol_modifier_keyword_group: None,
-                                                    ident_token: IdentToken {
+                                                    ident_token: IdentRegionalToken {
                                                         ident: `cc`,
-                                                        token_idx: TokenIdx(
-                                                            91,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            4,
                                                         ),
                                                     },
                                                 },
@@ -1903,8 +1903,8 @@ Ok(
                                             data: [
                                                 CurrentSynSymbol {
                                                     modifier: None,
-                                                    access_start: TokenIdx(
-                                                        92,
+                                                    access_start: RegionalTokenIdx(
+                                                        5,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -1941,578 +1941,578 @@ Ok(
                                 },
                             },
                         },
-                        body: Some(
-                            22,
-                        ),
-                        syn_expr_region: SynExprRegion {
-                            data: SynExprRegionData {
-                                parent: Some(
-                                    SynExprRegion {
-                                        data: SynExprRegionData {
-                                            parent: None,
-                                            path: RegionPath::Decl(
-                                                ItemSynNodePath::MajorItem(
-                                                    MajorItemSynNodePath::Fugitive(
-                                                        FugitiveSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
+                        body_with_syn_expr_region: Some(
+                            (
+                                22,
+                                SynExprRegion {
+                                    data: SynExprRegionData {
+                                        parent: Some(
+                                            SynExprRegion {
+                                                data: SynExprRegionData {
+                                                    parent: None,
+                                                    path: RegionPath::Decl(
+                                                        ItemSynNodePath::MajorItem(
+                                                            MajorItemSynNodePath::Fugitive(
+                                                                FugitiveSynNodePath {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     ),
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            SynExpr::PrincipalEntityPath {
+                                                                item_path_expr: 1,
+                                                                opt_path: Some(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            SynExpr::Prefix {
+                                                                opr: Tilde,
+                                                                opr_regional_token_idx: RegionalTokenIdx(
+                                                                    6,
+                                                                ),
+                                                                opd: 1,
+                                                            },
+                                                            SynExpr::PrincipalEntityPath {
+                                                                item_path_expr: 2,
+                                                                opt_path: Some(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`core::num::f32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            SynExpr::Prefix {
+                                                                opr: Option,
+                                                                opr_regional_token_idx: RegionalTokenIdx(
+                                                                    10,
+                                                                ),
+                                                                opd: 3,
+                                                            },
+                                                        ],
+                                                    },
+                                                    principal_item_path_expr_arena: Arena {
+                                                        data: [
+                                                            PrincipalEntityPathExpr::Root {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
+                                                                        ident: `ConcaveComponent`,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            7,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            PrincipalEntityPathExpr::Root {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
+                                                                        ident: `f32`,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            11,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Extern`),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: SynPatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [
+                                                                SynPatternExpr::Ident {
+                                                                    symbol_modifier_keyword_group: None,
+                                                                    ident_token: IdentRegionalToken {
+                                                                        ident: `cc`,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            4,
+                                                                        ),
+                                                                    },
+                                                                },
+                                                            ],
+                                                        },
+                                                        pattern_expr_contracts: ArenaMap {
+                                                            data: [
+                                                                None,
+                                                            ],
+                                                        },
+                                                        pattern_infos: [
+                                                            Parameter,
+                                                        ],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [
+                                                                SynPatternSymbol::Atom(
+                                                                    1,
+                                                                ),
+                                                            ],
+                                                        },
+                                                        pattern_symbol_maps: [
+                                                            [
+                                                                (
+                                                                    `cc`,
+                                                                    1,
+                                                                ),
+                                                            ],
+                                                        ],
+                                                        pattern_symbol_modifiers: ArenaMap {
+                                                            data: [
+                                                                None,
+                                                            ],
+                                                        },
+                                                    },
+                                                    symbol_region: SynSymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [
+                                                                CurrentSynSymbol {
+                                                                    modifier: None,
+                                                                    access_start: RegionalTokenIdx(
+                                                                        5,
+                                                                    ),
+                                                                    access_end: None,
+                                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                                        ident: `cc`,
+                                                                        pattern_symbol_idx: 1,
+                                                                    },
+                                                                },
+                                                            ],
+                                                        },
+                                                        allow_self_type: False,
+                                                        allow_self_value: False,
+                                                        pattern_ty_constraints: [
+                                                            (
+                                                                ExplicitRegularParameter {
+                                                                    pattern_expr_idx: 1,
+                                                                    ty_expr_idx: 2,
+                                                                },
+                                                                ArenaIdxRange(
+                                                                    1..2,
+                                                                ),
+                                                            ),
+                                                        ],
+                                                    },
+                                                    roots: [
+                                                        SynExprRoot {
+                                                            kind: ExplicitParameterType,
+                                                            expr_idx: 2,
+                                                        },
+                                                        SynExprRoot {
+                                                            kind: ReturnType,
+                                                            expr_idx: 4,
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ),
+                                        path: RegionPath::Defn(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
                                                 ),
                                             ),
-                                            expr_arena: Arena {
-                                                data: [
-                                                    SynExpr::PrincipalEntityPath {
-                                                        item_path_expr: 1,
-                                                        opt_path: Some(
-                                                            PrincipalEntityPath::MajorItem(
-                                                                MajorItemPath::Type(
-                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                SynExpr::InheritedSymbol {
+                                                    ident: `cc`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        2,
+                                                    ),
+                                                    inherited_symbol_idx: 1,
+                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                        ident: `cc`,
+                                                    },
+                                                },
+                                                SynExpr::Field {
+                                                    owner: 1,
+                                                    dot_regional_token_idx: RegionalTokenIdx(
+                                                        3,
+                                                    ),
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `relative_bounding_box`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            4,
+                                                        ),
+                                                    },
+                                                },
+                                                SynExpr::MethodApplicationOrCall {
+                                                    self_argument: 2,
+                                                    dot_regional_token_idx: RegionalTokenIdx(
+                                                        5,
+                                                    ),
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `ymax`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            6,
+                                                        ),
+                                                    },
+                                                    generic_arguments: None,
+                                                    lpar_regional_token_idx: RegionalTokenIdx(
+                                                        7,
+                                                    ),
+                                                    items: [],
+                                                    rpar_regional_token_idx: RegionalTokenIdx(
+                                                        8,
+                                                    ),
+                                                },
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        10,
+                                                    ),
+                                                    Literal::Float(
+                                                        Unspecified(
+                                                            UnspecifiedFloatLiteral(
+                                                                Id {
+                                                                    value: 108,
+                                                                },
                                                             ),
-                                                        ),
-                                                    },
-                                                    SynExpr::Prefix {
-                                                        opr: Tilde,
-                                                        opr_token_idx: TokenIdx(
-                                                            93,
-                                                        ),
-                                                        opd: 1,
-                                                    },
-                                                    SynExpr::PrincipalEntityPath {
-                                                        item_path_expr: 2,
-                                                        opt_path: Some(
-                                                            PrincipalEntityPath::MajorItem(
-                                                                MajorItemPath::Type(
-                                                                    TypePath(`core::num::f32`, `Extern`),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                    SynExpr::Prefix {
-                                                        opr: Option,
-                                                        opr_token_idx: TokenIdx(
-                                                            97,
-                                                        ),
-                                                        opd: 3,
-                                                    },
-                                                ],
-                                            },
-                                            principal_item_path_expr_arena: Arena {
-                                                data: [
-                                                    PrincipalEntityPathExpr::Root {
-                                                        path_name_token: PathNameToken::Ident(
-                                                            IdentToken {
-                                                                ident: `ConcaveComponent`,
-                                                                token_idx: TokenIdx(
-                                                                    94,
-                                                                ),
-                                                            },
-                                                        ),
-                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                            MajorItemPath::Type(
-                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                            ),
-                                                        ),
-                                                    },
-                                                    PrincipalEntityPathExpr::Root {
-                                                        path_name_token: PathNameToken::Ident(
-                                                            IdentToken {
-                                                                ident: `f32`,
-                                                                token_idx: TokenIdx(
-                                                                    98,
-                                                                ),
-                                                            },
-                                                        ),
-                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                            MajorItemPath::Type(
-                                                                TypePath(`core::num::f32`, `Extern`),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ],
-                                            },
-                                            stmt_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_expr_region: SynPatternExprRegion {
-                                                pattern_expr_arena: Arena {
-                                                    data: [
-                                                        SynPatternExpr::Ident {
-                                                            symbol_modifier_keyword_group: None,
-                                                            ident_token: IdentToken {
-                                                                ident: `cc`,
-                                                                token_idx: TokenIdx(
-                                                                    91,
-                                                                ),
-                                                            },
-                                                        },
-                                                    ],
-                                                },
-                                                pattern_expr_contracts: ArenaMap {
-                                                    data: [
-                                                        None,
-                                                    ],
-                                                },
-                                                pattern_infos: [
-                                                    Parameter,
-                                                ],
-                                                pattern_symbol_arena: Arena {
-                                                    data: [
-                                                        SynPatternSymbol::Atom(
-                                                            1,
-                                                        ),
-                                                    ],
-                                                },
-                                                pattern_symbol_maps: [
-                                                    [
-                                                        (
-                                                            `cc`,
-                                                            1,
-                                                        ),
-                                                    ],
-                                                ],
-                                                pattern_symbol_modifiers: ArenaMap {
-                                                    data: [
-                                                        None,
-                                                    ],
-                                                },
-                                            },
-                                            symbol_region: SynSymbolRegion {
-                                                inherited_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                current_symbol_arena: Arena {
-                                                    data: [
-                                                        CurrentSynSymbol {
-                                                            modifier: None,
-                                                            access_start: TokenIdx(
-                                                                92,
-                                                            ),
-                                                            access_end: None,
-                                                            variant: CurrentSynSymbolVariant::ParenateRegularParameter {
-                                                                ident: `cc`,
-                                                                pattern_symbol_idx: 1,
-                                                            },
-                                                        },
-                                                    ],
-                                                },
-                                                allow_self_type: False,
-                                                allow_self_value: False,
-                                                pattern_ty_constraints: [
-                                                    (
-                                                        ExplicitRegularParameter {
-                                                            pattern_expr_idx: 1,
-                                                            ty_expr_idx: 2,
-                                                        },
-                                                        ArenaIdxRange(
-                                                            1..2,
                                                         ),
                                                     ),
-                                                ],
-                                            },
-                                            roots: [
-                                                SynExprRoot {
-                                                    kind: ExplicitParameterType,
-                                                    expr_idx: 2,
+                                                ),
+                                                SynExpr::Binary {
+                                                    lopd: 3,
+                                                    opr: Comparison(
+                                                        Greater,
+                                                    ),
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        9,
+                                                    ),
+                                                    ropd: 4,
                                                 },
-                                                SynExprRoot {
-                                                    kind: ReturnType,
-                                                    expr_idx: 4,
+                                                SynExpr::InheritedSymbol {
+                                                    ident: `cc`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        13,
+                                                    ),
+                                                    inherited_symbol_idx: 1,
+                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                        ident: `cc`,
+                                                    },
+                                                },
+                                                SynExpr::Field {
+                                                    owner: 6,
+                                                    dot_regional_token_idx: RegionalTokenIdx(
+                                                        14,
+                                                    ),
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `strokes`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            15,
+                                                        ),
+                                                    },
+                                                },
+                                                SynExpr::MethodApplicationOrCall {
+                                                    self_argument: 7,
+                                                    dot_regional_token_idx: RegionalTokenIdx(
+                                                        16,
+                                                    ),
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `first`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            17,
+                                                        ),
+                                                    },
+                                                    generic_arguments: None,
+                                                    lpar_regional_token_idx: RegionalTokenIdx(
+                                                        18,
+                                                    ),
+                                                    items: [],
+                                                    rpar_regional_token_idx: RegionalTokenIdx(
+                                                        19,
+                                                    ),
+                                                },
+                                                SynExpr::Suffix {
+                                                    opd: 8,
+                                                    opr: UnwrapOrComposeWithNot,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        20,
+                                                    ),
+                                                },
+                                                SynExpr::Field {
+                                                    owner: 9,
+                                                    dot_regional_token_idx: RegionalTokenIdx(
+                                                        21,
+                                                    ),
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `start`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            22,
+                                                        ),
+                                                    },
+                                                },
+                                                SynExpr::InheritedSymbol {
+                                                    ident: `cc`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        26,
+                                                    ),
+                                                    inherited_symbol_idx: 1,
+                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                        ident: `cc`,
+                                                    },
+                                                },
+                                                SynExpr::Field {
+                                                    owner: 11,
+                                                    dot_regional_token_idx: RegionalTokenIdx(
+                                                        27,
+                                                    ),
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `strokes`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            28,
+                                                        ),
+                                                    },
+                                                },
+                                                SynExpr::MethodApplicationOrCall {
+                                                    self_argument: 12,
+                                                    dot_regional_token_idx: RegionalTokenIdx(
+                                                        29,
+                                                    ),
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `first`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            30,
+                                                        ),
+                                                    },
+                                                    generic_arguments: None,
+                                                    lpar_regional_token_idx: RegionalTokenIdx(
+                                                        31,
+                                                    ),
+                                                    items: [],
+                                                    rpar_regional_token_idx: RegionalTokenIdx(
+                                                        32,
+                                                    ),
+                                                },
+                                                SynExpr::Suffix {
+                                                    opd: 13,
+                                                    opr: UnwrapOrComposeWithNot,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        33,
+                                                    ),
+                                                },
+                                                SynExpr::Field {
+                                                    owner: 14,
+                                                    dot_regional_token_idx: RegionalTokenIdx(
+                                                        34,
+                                                    ),
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `end`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            35,
+                                                        ),
+                                                    },
+                                                },
+                                                SynExpr::Field {
+                                                    owner: 10,
+                                                    dot_regional_token_idx: RegionalTokenIdx(
+                                                        23,
+                                                    ),
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `x`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            24,
+                                                        ),
+                                                    },
+                                                },
+                                                SynExpr::Field {
+                                                    owner: 15,
+                                                    dot_regional_token_idx: RegionalTokenIdx(
+                                                        36,
+                                                    ),
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `x`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            37,
+                                                        ),
+                                                    },
+                                                },
+                                                SynExpr::Binary {
+                                                    lopd: 16,
+                                                    opr: Comparison(
+                                                        Greater,
+                                                    ),
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        25,
+                                                    ),
+                                                    ropd: 17,
+                                                },
+                                                SynExpr::InheritedSymbol {
+                                                    ident: `cc`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        38,
+                                                    ),
+                                                    inherited_symbol_idx: 1,
+                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                        ident: `cc`,
+                                                    },
+                                                },
+                                                SynExpr::Field {
+                                                    owner: 19,
+                                                    dot_regional_token_idx: RegionalTokenIdx(
+                                                        39,
+                                                    ),
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `relative_bounding_box`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            40,
+                                                        ),
+                                                    },
+                                                },
+                                                SynExpr::MethodApplicationOrCall {
+                                                    self_argument: 20,
+                                                    dot_regional_token_idx: RegionalTokenIdx(
+                                                        41,
+                                                    ),
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `ymax`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            42,
+                                                        ),
+                                                    },
+                                                    generic_arguments: None,
+                                                    lpar_regional_token_idx: RegionalTokenIdx(
+                                                        43,
+                                                    ),
+                                                    items: [],
+                                                    rpar_regional_token_idx: RegionalTokenIdx(
+                                                        44,
+                                                    ),
+                                                },
+                                                SynExpr::Block {
+                                                    stmts: ArenaIdxRange(
+                                                        2..4,
+                                                    ),
                                                 },
                                             ],
                                         },
-                                    },
-                                ),
-                                path: RegionPath::Defn(
-                                    ItemSynNodePath::MajorItem(
-                                        MajorItemSynNodePath::Fugitive(
-                                            FugitiveSynNodePath {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
-                                                    disambiguator: 0,
+                                        principal_item_path_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [
+                                                SynStmt::Require {
+                                                    require_token: RequireRegionalToken {
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            12,
+                                                        ),
+                                                    },
+                                                    condition: 18,
                                                 },
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                expr_arena: Arena {
-                                    data: [
-                                        SynExpr::InheritedSymbol {
-                                            ident: `cc`,
-                                            token_idx: TokenIdx(
-                                                101,
-                                            ),
-                                            inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                                                ident: `cc`,
-                                            },
-                                        },
-                                        SynExpr::Field {
-                                            owner: 1,
-                                            dot_token_idx: TokenIdx(
-                                                102,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `relative_bounding_box`,
-                                                token_idx: TokenIdx(
-                                                    103,
-                                                ),
-                                            },
-                                        },
-                                        SynExpr::MethodApplicationOrCall {
-                                            self_argument: 2,
-                                            dot_token_idx: TokenIdx(
-                                                104,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `ymax`,
-                                                token_idx: TokenIdx(
-                                                    105,
-                                                ),
-                                            },
-                                            generic_arguments: None,
-                                            lpar_token_idx: TokenIdx(
-                                                106,
-                                            ),
-                                            items: [],
-                                            rpar_token_idx: TokenIdx(
-                                                107,
-                                            ),
-                                        },
-                                        SynExpr::Literal(
-                                            TokenIdx(
-                                                109,
-                                            ),
-                                            Literal::Float(
-                                                Unspecified(
-                                                    UnspecifiedFloatLiteral(
-                                                        Id {
-                                                            value: 108,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                        SynExpr::Binary {
-                                            lopd: 3,
-                                            opr: Comparison(
-                                                Greater,
-                                            ),
-                                            opr_token_idx: TokenIdx(
-                                                108,
-                                            ),
-                                            ropd: 4,
-                                        },
-                                        SynExpr::InheritedSymbol {
-                                            ident: `cc`,
-                                            token_idx: TokenIdx(
-                                                112,
-                                            ),
-                                            inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                                                ident: `cc`,
-                                            },
-                                        },
-                                        SynExpr::Field {
-                                            owner: 6,
-                                            dot_token_idx: TokenIdx(
-                                                113,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `strokes`,
-                                                token_idx: TokenIdx(
-                                                    114,
-                                                ),
-                                            },
-                                        },
-                                        SynExpr::MethodApplicationOrCall {
-                                            self_argument: 7,
-                                            dot_token_idx: TokenIdx(
-                                                115,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `first`,
-                                                token_idx: TokenIdx(
-                                                    116,
-                                                ),
-                                            },
-                                            generic_arguments: None,
-                                            lpar_token_idx: TokenIdx(
-                                                117,
-                                            ),
-                                            items: [],
-                                            rpar_token_idx: TokenIdx(
-                                                118,
-                                            ),
-                                        },
-                                        SynExpr::Suffix {
-                                            opd: 8,
-                                            opr: UnwrapOrComposeWithNot,
-                                            opr_token_idx: TokenIdx(
-                                                119,
-                                            ),
-                                        },
-                                        SynExpr::Field {
-                                            owner: 9,
-                                            dot_token_idx: TokenIdx(
-                                                120,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `start`,
-                                                token_idx: TokenIdx(
-                                                    121,
-                                                ),
-                                            },
-                                        },
-                                        SynExpr::InheritedSymbol {
-                                            ident: `cc`,
-                                            token_idx: TokenIdx(
-                                                125,
-                                            ),
-                                            inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                                                ident: `cc`,
-                                            },
-                                        },
-                                        SynExpr::Field {
-                                            owner: 11,
-                                            dot_token_idx: TokenIdx(
-                                                126,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `strokes`,
-                                                token_idx: TokenIdx(
-                                                    127,
-                                                ),
-                                            },
-                                        },
-                                        SynExpr::MethodApplicationOrCall {
-                                            self_argument: 12,
-                                            dot_token_idx: TokenIdx(
-                                                128,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `first`,
-                                                token_idx: TokenIdx(
-                                                    129,
-                                                ),
-                                            },
-                                            generic_arguments: None,
-                                            lpar_token_idx: TokenIdx(
-                                                130,
-                                            ),
-                                            items: [],
-                                            rpar_token_idx: TokenIdx(
-                                                131,
-                                            ),
-                                        },
-                                        SynExpr::Suffix {
-                                            opd: 13,
-                                            opr: UnwrapOrComposeWithNot,
-                                            opr_token_idx: TokenIdx(
-                                                132,
-                                            ),
-                                        },
-                                        SynExpr::Field {
-                                            owner: 14,
-                                            dot_token_idx: TokenIdx(
-                                                133,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `end`,
-                                                token_idx: TokenIdx(
-                                                    134,
-                                                ),
-                                            },
-                                        },
-                                        SynExpr::Field {
-                                            owner: 10,
-                                            dot_token_idx: TokenIdx(
-                                                122,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `x`,
-                                                token_idx: TokenIdx(
-                                                    123,
-                                                ),
-                                            },
-                                        },
-                                        SynExpr::Field {
-                                            owner: 15,
-                                            dot_token_idx: TokenIdx(
-                                                135,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `x`,
-                                                token_idx: TokenIdx(
-                                                    136,
-                                                ),
-                                            },
-                                        },
-                                        SynExpr::Binary {
-                                            lopd: 16,
-                                            opr: Comparison(
-                                                Greater,
-                                            ),
-                                            opr_token_idx: TokenIdx(
-                                                124,
-                                            ),
-                                            ropd: 17,
-                                        },
-                                        SynExpr::InheritedSymbol {
-                                            ident: `cc`,
-                                            token_idx: TokenIdx(
-                                                137,
-                                            ),
-                                            inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                                                ident: `cc`,
-                                            },
-                                        },
-                                        SynExpr::Field {
-                                            owner: 19,
-                                            dot_token_idx: TokenIdx(
-                                                138,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `relative_bounding_box`,
-                                                token_idx: TokenIdx(
-                                                    139,
-                                                ),
-                                            },
-                                        },
-                                        SynExpr::MethodApplicationOrCall {
-                                            self_argument: 20,
-                                            dot_token_idx: TokenIdx(
-                                                140,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `ymax`,
-                                                token_idx: TokenIdx(
-                                                    141,
-                                                ),
-                                            },
-                                            generic_arguments: None,
-                                            lpar_token_idx: TokenIdx(
-                                                142,
-                                            ),
-                                            items: [],
-                                            rpar_token_idx: TokenIdx(
-                                                143,
-                                            ),
-                                        },
-                                        SynExpr::Block {
-                                            stmts: ArenaIdxRange(
-                                                2..4,
-                                            ),
-                                        },
-                                    ],
-                                },
-                                principal_item_path_expr_arena: Arena {
-                                    data: [],
-                                },
-                                stmt_arena: Arena {
-                                    data: [
-                                        SynStmt::Require {
-                                            require_token: RequireToken {
-                                                token_idx: TokenIdx(
-                                                    111,
-                                                ),
-                                            },
-                                            condition: 18,
-                                        },
-                                        SynStmt::IfElse {
-                                            if_branch: SynIfBranch {
-                                                if_token: IfToken {
-                                                    token_idx: TokenIdx(
-                                                        100,
-                                                    ),
-                                                },
-                                                condition: Ok(
-                                                    5,
-                                                ),
-                                                eol_colon: Ok(
-                                                    Colon(
-                                                        EolColonToken {
-                                                            token_idx: TokenIdx(
-                                                                110,
+                                                SynStmt::IfElse {
+                                                    if_branch: SynIfBranch {
+                                                        if_token: IfRegionalToken {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                1,
                                                             ),
                                                         },
-                                                    ),
-                                                ),
-                                                stmts: Ok(
-                                                    ArenaIdxRange(
-                                                        1..2,
-                                                    ),
-                                                ),
-                                            },
-                                            elif_branches: [],
-                                            else_branch: None,
-                                        },
-                                        SynStmt::Eval {
-                                            expr_idx: 21,
-                                            eol_semicolon: Ok(
-                                                None,
-                                            ),
-                                        },
-                                    ],
-                                },
-                                pattern_expr_region: SynPatternExprRegion {
-                                    pattern_expr_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_expr_contracts: ArenaMap {
-                                        data: [],
-                                    },
-                                    pattern_infos: [],
-                                    pattern_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_symbol_maps: [],
-                                    pattern_symbol_modifiers: ArenaMap {
-                                        data: [],
-                                    },
-                                },
-                                symbol_region: SynSymbolRegion {
-                                    inherited_symbol_arena: Arena {
-                                        data: [
-                                            InheritedSynSymbol {
-                                                parent_symbol_idx: Current(
-                                                    1,
-                                                ),
-                                                modifier: None,
-                                                kind: InheritedSynSymbolKind::ParenateParameter {
-                                                    ident: `cc`,
+                                                        condition: Ok(
+                                                            5,
+                                                        ),
+                                                        eol_colon: Ok(
+                                                            Colon(
+                                                                EolColonRegionalToken {
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        11,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                        stmts: ArenaIdxRange(
+                                                            1..2,
+                                                        ),
+                                                    },
+                                                    elif_branches: [],
+                                                    else_branch: None,
                                                 },
+                                                SynStmt::Eval {
+                                                    expr_idx: 21,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        pattern_expr_region: SynPatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_modifiers: ArenaMap {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SynSymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [
+                                                    InheritedSynSymbol {
+                                                        parent_symbol_idx: Current(
+                                                            1,
+                                                        ),
+                                                        modifier: None,
+                                                        kind: InheritedSynSymbolKind::ParenateParameter {
+                                                            ident: `cc`,
+                                                        },
+                                                    },
+                                                ],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: False,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            SynExprRoot {
+                                                kind: Condition,
+                                                expr_idx: 18,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 21,
+                                            },
+                                            SynExprRoot {
+                                                kind: BlockExpr,
+                                                expr_idx: 22,
                                             },
                                         ],
                                     },
-                                    current_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    allow_self_type: False,
-                                    allow_self_value: False,
-                                    pattern_ty_constraints: [],
                                 },
-                                roots: [
-                                    SynExprRoot {
-                                        kind: Condition,
-                                        expr_idx: 18,
-                                    },
-                                    SynExprRoot {
-                                        kind: EvalExpr,
-                                        expr_idx: 21,
-                                    },
-                                    SynExprRoot {
-                                        kind: BlockExpr,
-                                        expr_idx: 22,
-                                    },
-                                ],
-                            },
-                        },
+                            ),
+                        ),
                     },
                 ),
             ),

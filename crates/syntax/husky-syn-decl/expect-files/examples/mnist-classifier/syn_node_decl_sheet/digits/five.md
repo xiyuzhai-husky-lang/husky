@@ -23,12 +23,11 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 3,
                                 colon_token: Ok(
                                     Some(
-                                        ColonToken(
-                                            TokenIdx(
-                                                11,
+                                        ColonRegionalToken(
+                                            RegionalTokenIdx(
+                                                7,
                                             ),
                                         ),
                                     ),
@@ -41,9 +40,9 @@ Ok(
                                     ),
                                 ),
                                 eq_token: Ok(
-                                    EqToken(
-                                        TokenIdx(
-                                            17,
+                                    EqRegionalToken(
+                                        RegionalTokenIdx(
+                                            13,
                                         ),
                                     ),
                                 ),
@@ -109,11 +108,11 @@ Ok(
                                         principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `OneVsAll`,
-                                                            token_idx: TokenIdx(
-                                                                12,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                8,
                                                             ),
                                                         },
                                                     ),
@@ -124,11 +123,11 @@ Ok(
                                                     ),
                                                 },
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `MnistLabel`,
-                                                            token_idx: TokenIdx(
-                                                                13,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                9,
                                                             ),
                                                         },
                                                     ),
@@ -139,11 +138,11 @@ Ok(
                                                     ),
                                                 },
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `MnistLabel`,
-                                                            token_idx: TokenIdx(
-                                                                14,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                10,
                                                             ),
                                                         },
                                                     ),
@@ -155,16 +154,16 @@ Ok(
                                                 },
                                                 PrincipalEntityPathExpr::Subitem {
                                                     parent: 3,
-                                                    scope_resolution_token: ScopeResolutionToken(
-                                                        TokenIdx(
-                                                            15,
+                                                    colon_colon_token: ColonColonRegionalToken(
+                                                        RegionalTokenIdx(
+                                                            11,
                                                         ),
                                                     ),
                                                     ident_token: Ok(
-                                                        IdentToken {
+                                                        IdentRegionalToken {
                                                             ident: `Five`,
-                                                            token_idx: TokenIdx(
-                                                                16,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                12,
                                                             ),
                                                         },
                                                     ),

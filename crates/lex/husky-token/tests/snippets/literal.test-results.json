@@ -1,26 +1,26 @@
 [
   {
     "input": "\"haha\"",
-    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Literal(\n            Literal::String(\n                StringLiteral {\n                    data: \"haha\",\n                },\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Literal(\n            Literal::String(\n                StringLiteral {\n                    data: \"haha\",\n                },\n            ),\n        ),\n    ],\n    token_group_starts: [\n        TokenGroupStart(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "\"\\n\"",
-    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Literal(\n            Literal::String(\n                StringLiteral {\n                    data: \"\\n\",\n                },\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Literal(\n            Literal::String(\n                StringLiteral {\n                    data: \"\\n\",\n                },\n            ),\n        ),\n    ],\n    token_group_starts: [\n        TokenGroupStart(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "\"\\t\"",
-    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Literal(\n            Literal::String(\n                StringLiteral {\n                    data: \"\\t\",\n                },\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Literal(\n            Literal::String(\n                StringLiteral {\n                    data: \"\\t\",\n                },\n            ),\n        ),\n    ],\n    token_group_starts: [\n        TokenGroupStart(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "\"\\\\\"",
-    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Literal(\n            Literal::String(\n                StringLiteral {\n                    data: \"\\\\\",\n                },\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Literal(\n            Literal::String(\n                StringLiteral {\n                    data: \"\\\\\",\n                },\n            ),\n        ),\n    ],\n    token_group_starts: [\n        TokenGroupStart(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "\"\\\"\"",
-    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Literal(\n            Literal::String(\n                StringLiteral {\n                    data: \"\\\"\",\n                },\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Literal(\n            Literal::String(\n                StringLiteral {\n                    data: \"\\\"\",\n                },\n            ),\n        ),\n    ],\n    token_group_starts: [\n        TokenGroupStart(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "\"\\r\"",
-    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Literal(\n            Literal::String(\n                StringLiteral {\n                    data: \"\\r\",\n                },\n            ),\n        ),\n    ],\n    token_group_bases: [\n        TokenGroupStartingTokenIdx(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Literal(\n            Literal::String(\n                StringLiteral {\n                    data: \"\\r\",\n                },\n            ),\n        ),\n    ],\n    token_group_starts: [\n        TokenGroupStart(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   }
 ]

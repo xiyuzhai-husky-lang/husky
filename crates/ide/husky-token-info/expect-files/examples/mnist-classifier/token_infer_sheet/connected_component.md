@@ -27,26 +27,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::raw_contour`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier`,
-                                ),
-                                ast_idx: 12,
-                                ident_token: IdentToken {
-                                    ident: `raw_contour`,
-                                    token_idx: TokenIdx(
-                                        4,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -93,10 +73,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `row_start`,
-                        token_idx: TokenIdx(
-                            15,
+                        regional_token_idx: RegionalTokenIdx(
+                            5,
                         ),
                     },
                 },
@@ -114,10 +94,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `row_end`,
-                        token_idx: TokenIdx(
-                            19,
+                        regional_token_idx: RegionalTokenIdx(
+                            9,
                         ),
                     },
                 },
@@ -135,10 +115,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `upper_mass`,
-                        token_idx: TokenIdx(
-                            23,
+                        regional_token_idx: RegionalTokenIdx(
+                            13,
                         ),
                     },
                 },
@@ -156,10 +136,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 4,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `lower_mass`,
-                        token_idx: TokenIdx(
-                            27,
+                        regional_token_idx: RegionalTokenIdx(
+                            17,
                         ),
                     },
                 },
@@ -199,10 +179,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `matches`,
-                        token_idx: TokenIdx(
-                            36,
+                        regional_token_idx: RegionalTokenIdx(
+                            5,
                         ),
                     },
                 },
@@ -330,10 +310,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `mask`,
-                        token_idx: TokenIdx(
-                            74,
+                        regional_token_idx: RegionalTokenIdx(
+                            5,
                         ),
                     },
                 },

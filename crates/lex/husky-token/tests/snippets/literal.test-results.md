@@ -13,7 +13,7 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Literal(
+        TokenData::Literal(
             Literal::String(
                 StringLiteral {
                     data: "haha",
@@ -21,8 +21,8 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),
@@ -47,7 +47,7 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Literal(
+        TokenData::Literal(
             Literal::String(
                 StringLiteral {
                     data: "\n",
@@ -55,8 +55,8 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),
@@ -81,7 +81,7 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Literal(
+        TokenData::Literal(
             Literal::String(
                 StringLiteral {
                     data: "\t",
@@ -89,8 +89,8 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),
@@ -115,7 +115,7 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Literal(
+        TokenData::Literal(
             Literal::String(
                 StringLiteral {
                     data: "\\",
@@ -123,8 +123,8 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),
@@ -149,7 +149,7 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Literal(
+        TokenData::Literal(
             Literal::String(
                 StringLiteral {
                     data: "\"",
@@ -157,8 +157,8 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),
@@ -183,7 +183,7 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Literal(
+        TokenData::Literal(
             Literal::String(
                 StringLiteral {
                     data: "\r",
@@ -191,8 +191,8 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),

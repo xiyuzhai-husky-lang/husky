@@ -131,6 +131,15 @@ impl<'a> Iterator for RegionalTokenStream<'a> {
 }
 
 impl<'a> RegionalTokenStream<'a> {
+    pub fn new_snippet_regional_token_stream(tokens: &'a [TokenData]) -> Self {
+        let start = RegionalTokenGroupStart::from_index(0);
+        Self {
+            start,
+            tokens,
+            next_relative: Default::default(),
+        }
+    }
+
     pub fn new_decl_regional_token_stream(
         tokens: &'a [TokenData],
         saved_regional_token_stream_state: Option<RegionalTokenStreamState>,
@@ -301,8 +310,5 @@ where
     use parsec::TryParseOptionFromStream;
 
     let token_sheet = db.snippet_token_sheet_data(Snippet::new(db, input.to_owned()));
-    todo!("get regional token stream")
-    // let mut stream = token_sheet
-    //     .token_group_token_stream(token_sheet.token_group_iter().next().unwrap().0, None);
-    // stream.try_parse_option()
+    RegionalTokenStream::new_snippet_regional_token_stream(token_sheet.tokens()).try_parse_option()
 }

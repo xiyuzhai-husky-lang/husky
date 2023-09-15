@@ -30,38 +30,6 @@ Ok(
                             module_item_path: MajorItemPath::Type(
                                 TypePath(`core::result::Result`, `Enum`),
                             ),
-                            node: MajorItemSynNode {
-                                syn_node_path: MajorItemSynNodePath::Type(
-                                    TypeSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypePath(`core::result::Result`, `Enum`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                                visibility: Scope::Pub,
-                                ast_idx: 8,
-                                ident_token: IdentToken {
-                                    ident: `Result`,
-                                    token_idx: TokenIdx(
-                                        12,
-                                    ),
-                                },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 30,
-                                        },
-                                    ),
-                                    variants: Some(
-                                        TypeVariants {
-                                            ast_idx_range: ArenaIdxRange(
-                                                1..3,
-                                            ),
-                                        },
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -93,10 +61,10 @@ Ok(
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `T`,
-                            token_idx: TokenIdx(
-                                14,
+                            regional_token_idx: RegionalTokenIdx(
+                                5,
                             ),
                         },
                     },
@@ -108,10 +76,10 @@ Ok(
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `E`,
-                            token_idx: TokenIdx(
-                                16,
+                            regional_token_idx: RegionalTokenIdx(
+                                7,
                             ),
                         },
                     },
@@ -135,10 +103,10 @@ Ok(
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `T1`,
-                            token_idx: TokenIdx(
-                                30,
+                            regional_token_idx: RegionalTokenIdx(
+                                3,
                             ),
                         },
                     },
@@ -150,10 +118,10 @@ Ok(
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `T2`,
-                            token_idx: TokenIdx(
-                                32,
+                            regional_token_idx: RegionalTokenIdx(
+                                5,
                             ),
                         },
                     },
@@ -165,10 +133,10 @@ Ok(
                 current_symbol_idx: 3,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `E1`,
-                            token_idx: TokenIdx(
-                                34,
+                            regional_token_idx: RegionalTokenIdx(
+                                7,
                             ),
                         },
                     },
@@ -180,10 +148,10 @@ Ok(
                 current_symbol_idx: 4,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `E2`,
-                            token_idx: TokenIdx(
-                                36,
+                            regional_token_idx: RegionalTokenIdx(
+                                9,
                             ),
                         },
                     },
@@ -221,10 +189,10 @@ Ok(
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `T2`,
-                            token_idx: TokenIdx(
-                                32,
+                            regional_token_idx: RegionalTokenIdx(
+                                5,
                             ),
                         },
                     },
@@ -235,10 +203,10 @@ Ok(
                 current_symbol_idx: 4,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `E2`,
-                            token_idx: TokenIdx(
-                                36,
+                            regional_token_idx: RegionalTokenIdx(
+                                9,
                             ),
                         },
                     },
@@ -257,10 +225,10 @@ Ok(
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `T1`,
-                            token_idx: TokenIdx(
-                                30,
+                            regional_token_idx: RegionalTokenIdx(
+                                3,
                             ),
                         },
                     },
@@ -271,10 +239,10 @@ Ok(
                 current_symbol_idx: 3,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `E1`,
-                            token_idx: TokenIdx(
-                                34,
+                            regional_token_idx: RegionalTokenIdx(
+                                7,
                             ),
                         },
                     },

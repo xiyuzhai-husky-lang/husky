@@ -27,26 +27,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::line_segment_sketch`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier`,
-                                ),
-                                ast_idx: 14,
-                                ident_token: IdentToken {
-                                    ident: `line_segment_sketch`,
-                                    token_idx: TokenIdx(
-                                        8,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -79,26 +59,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::line_segment_sketch`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier`,
-                                ),
-                                ast_idx: 14,
-                                ident_token: IdentToken {
-                                    ident: `line_segment_sketch`,
-                                    token_idx: TokenIdx(
-                                        8,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -115,26 +75,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::line_segment_sketch::line_segment`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::line_segment_sketch`,
-                                ),
-                                ast_idx: 163,
-                                ident_token: IdentToken {
-                                    ident: `line_segment`,
-                                    token_idx: TokenIdx(
-                                        8,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -167,26 +107,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::line_segment_sketch`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier`,
-                                ),
-                                ast_idx: 14,
-                                ident_token: IdentToken {
-                                    ident: `line_segment_sketch`,
-                                    token_idx: TokenIdx(
-                                        8,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -203,26 +123,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::line_segment_sketch::convexity`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::line_segment_sketch`,
-                                ),
-                                ast_idx: 162,
-                                ident_token: IdentToken {
-                                    ident: `convexity`,
-                                    token_idx: TokenIdx(
-                                        6,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -255,26 +155,6 @@ Ok(
                             submodule_path: SubmodulePath(
                                 `mnist_classifier::geom2d`,
                             ),
-                            node: SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::geom2d`,
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier`,
-                                ),
-                                ast_idx: 13,
-                                ident_token: IdentToken {
-                                    ident: `geom2d`,
-                                    token_idx: TokenIdx(
-                                        6,
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -321,10 +201,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `line_segment_sketch`,
-                        token_idx: TokenIdx(
-                            37,
+                        regional_token_idx: RegionalTokenIdx(
+                            5,
                         ),
                     },
                 },
@@ -343,10 +223,10 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
-                    ident_token: IdentToken {
+                    ident_token: IdentRegionalToken {
                         ident: `strokes`,
-                        token_idx: TokenIdx(
-                            42,
+                        regional_token_idx: RegionalTokenIdx(
+                            10,
                         ),
                     },
                 },

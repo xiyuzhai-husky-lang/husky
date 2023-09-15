@@ -22,7 +22,6 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 4,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
@@ -108,10 +107,9 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 5,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    16,
+                            impl_regional_token: ImplRegionalToken {
+                                regional_token_idx: RegionalTokenIdx(
+                                    1,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -120,33 +118,33 @@ Ok(
                             trai_expr: TraitObelisk {
                                 expr: 1,
                             },
-                            for_token: ConnectionForToken {
-                                token_idx: TokenIdx(
-                                    18,
+                            for_token: ConnectionForRegionalToken {
+                                regional_token_idx: RegionalTokenIdx(
+                                    3,
                                 ),
                             },
                             self_ty_decl: DeriveAny {
-                                at_token: AtToken(
-                                    TokenIdx(
-                                        19,
+                                at_token: AtRegionalToken(
+                                    RegionalTokenIdx(
+                                        4,
                                     ),
                                 ),
-                                derive_token: DeriveToken {
-                                    token_idx: TokenIdx(
-                                        20,
+                                derive_token: DeriveRegionalToken {
+                                    token_idx: RegionalTokenIdx(
+                                        5,
                                     ),
                                 },
-                                underscore_token: UnderscoreToken {
-                                    token_idx: TokenIdx(
-                                        21,
+                                underscore_token: UnderscoreRegionalToken {
+                                    token_idx: RegionalTokenIdx(
+                                        6,
                                     ),
                                 },
                             },
                             eol_colon: Ok(
-                                EolToken::Colon(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
-                                            22,
+                                EolRegionalToken::Colon(
+                                    EolColonRegionalToken {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            7,
                                         ),
                                     },
                                 ),
@@ -185,11 +183,11 @@ Ok(
                                     principal_item_path_expr_arena: Arena {
                                         data: [
                                             PrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameToken::Ident(
-                                                    IdentToken {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
                                                         ident: `Clone`,
-                                                        token_idx: TokenIdx(
-                                                            17,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            2,
                                                         ),
                                                     },
                                                 ),
@@ -282,57 +280,32 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                node: TraitForTypeItemSynNode {
-                                    syn_node_path: TraitForTypeItemSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath {
-                                                impl_block: TraitForTypeImplBlockPath {
-                                                    module_path: `core::clone`,
-                                                    trai_path: TraitPath(`core::clone::Clone`),
-                                                    ty_sketch: TypeSketch::DeriveAny,
-                                                    disambiguator: 0,
-                                                },
-                                                ident: `clone`,
-                                                item_kind: MethodFn,
-                                            },
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ast_idx: 2,
-                                    ident: `clone`,
-                                    item_kind: MethodFn,
-                                    visibility: Scope::PubUnder(
-                                        `core::clone`,
-                                    ),
-                                    is_generic: false,
-                                },
-                                ast_idx: 2,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenate_parameter_decl_list: Ok(
                                     RitchieParameters {
-                                        lpar: LparToken(
-                                            TokenIdx(
-                                                25,
+                                        lpar: LparRegionalToken(
+                                            RegionalTokenIdx(
+                                                3,
                                             ),
                                         ),
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [],
                                         commas: [],
-                                        rpar: RparToken(
-                                            TokenIdx(
-                                                26,
+                                        rpar: RparRegionalToken(
+                                            RegionalTokenIdx(
+                                                4,
                                             ),
                                         ),
                                     },
                                 ),
-                                curry_token: Ok(
+                                light_arrow_token: Ok(
                                     Some(
-                                        CurryToken(
-                                            TokenIdx(
-                                                27,
+                                        LightArrowRegionalToken(
+                                            RegionalTokenIdx(
+                                                5,
                                             ),
                                         ),
                                     ),
@@ -345,10 +318,10 @@ Ok(
                                     ),
                                 ),
                                 eol_colon: Ok(
-                                    EolToken::Semicolon(
-                                        EolSemicolonToken {
-                                            token_idx: TokenIdx(
-                                                29,
+                                    EolRegionalToken::Semicolon(
+                                        EolSemicolonRegionalToken {
+                                            regional_token_idx: RegionalTokenIdx(
+                                                7,
                                             ),
                                         },
                                     ),
@@ -390,11 +363,11 @@ Ok(
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
                                                             PrincipalEntityPathExpr::Root {
-                                                                path_name_token: PathNameToken::Ident(
-                                                                    IdentToken {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
                                                                         ident: `Clone`,
-                                                                        token_idx: TokenIdx(
-                                                                            17,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            2,
                                                                         ),
                                                                     },
                                                                 ),
@@ -469,8 +442,8 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::SelfType(
-                                                    TokenIdx(
-                                                        28,
+                                                    RegionalTokenIdx(
+                                                        6,
                                                     ),
                                                 ),
                                             ],

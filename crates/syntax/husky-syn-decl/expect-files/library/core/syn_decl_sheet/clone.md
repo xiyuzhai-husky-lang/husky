@@ -12,7 +12,6 @@ Ok(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::clone::Clone`),
-                            ast_idx: 4,
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -97,19 +96,19 @@ Ok(
                                 expr: 1,
                             },
                             self_ty_decl: DeriveAny {
-                                at_token: AtToken(
-                                    TokenIdx(
-                                        19,
+                                at_token: AtRegionalToken(
+                                    RegionalTokenIdx(
+                                        4,
                                     ),
                                 ),
-                                derive_token: DeriveToken {
-                                    token_idx: TokenIdx(
-                                        20,
+                                derive_token: DeriveRegionalToken {
+                                    token_idx: RegionalTokenIdx(
+                                        5,
                                     ),
                                 },
-                                underscore_token: UnderscoreToken {
-                                    token_idx: TokenIdx(
-                                        21,
+                                underscore_token: UnderscoreRegionalToken {
+                                    token_idx: RegionalTokenIdx(
+                                        6,
                                     ),
                                 },
                             },
@@ -147,11 +146,11 @@ Ok(
                                     principal_item_path_expr_arena: Arena {
                                         data: [
                                             PrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameToken::Ident(
-                                                    IdentToken {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
                                                         ident: `Clone`,
-                                                        token_idx: TokenIdx(
-                                                            17,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            2,
                                                         ),
                                                     },
                                                 ),
@@ -279,11 +278,11 @@ Ok(
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
                                                             PrincipalEntityPathExpr::Root {
-                                                                path_name_token: PathNameToken::Ident(
-                                                                    IdentToken {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
                                                                         ident: `Clone`,
-                                                                        token_idx: TokenIdx(
-                                                                            17,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            2,
                                                                         ),
                                                                     },
                                                                 ),
@@ -358,8 +357,8 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::SelfType(
-                                                    TokenIdx(
-                                                        28,
+                                                    RegionalTokenIdx(
+                                                        6,
                                                     ),
                                                 ),
                                             ],

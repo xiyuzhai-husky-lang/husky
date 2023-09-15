@@ -128,53 +128,55 @@
                             ),
                         ),
                     },
-                    body: Some(
-                        4,
+                    eager_body_with_hir_eager_expr_region: Some(
+                        (
+                            4,
+                            HirEagerExprRegion {
+                                expr_arena: Arena {
+                                    data: [
+                                        SelfValue,
+                                        Field {
+                                            owner: 1,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 398,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        MethodCall {
+                                            self_argument: 2,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 156,
+                                                    },
+                                                ),
+                                            ),
+                                            generic_arguments: None,
+                                            item_groups: [],
+                                        },
+                                        Block {
+                                            stmts: ArenaIdxRange(
+                                                1..2,
+                                            ),
+                                        },
+                                    ],
+                                },
+                                stmt_arena: Arena {
+                                    data: [
+                                        Eval {
+                                            expr_idx: 3,
+                                        },
+                                    ],
+                                },
+                                pattern_expr_arena: Arena {
+                                    data: [],
+                                },
+                            },
+                        ),
                     ),
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [
-                                SelfValue,
-                                Field {
-                                    owner: 1,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 398,
-                                            },
-                                        ),
-                                    ),
-                                },
-                                MethodCall {
-                                    self_argument: 2,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 156,
-                                            },
-                                        ),
-                                    ),
-                                    generic_arguments: None,
-                                    item_groups: [],
-                                },
-                                Block {
-                                    stmts: ArenaIdxRange(
-                                        1..2,
-                                    ),
-                                },
-                            ],
-                        },
-                        stmt_arena: Arena {
-                            data: [
-                                Eval {
-                                    expr_idx: 3,
-                                },
-                            ],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
                 },
             ),
         ),

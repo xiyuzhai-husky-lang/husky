@@ -30,38 +30,6 @@ Ok(
                             module_item_path: MajorItemPath::Type(
                                 TypePath(`core::option::Option`, `Enum`),
                             ),
-                            node: MajorItemSynNode {
-                                syn_node_path: MajorItemSynNodePath::Type(
-                                    TypeSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypePath(`core::option::Option`, `Enum`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                                visibility: Scope::Pub,
-                                ast_idx: 5,
-                                ident_token: IdentToken {
-                                    ident: `Option`,
-                                    token_idx: TokenIdx(
-                                        12,
-                                    ),
-                                },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 28,
-                                        },
-                                    ),
-                                    variants: Some(
-                                        TypeVariants {
-                                            ast_idx_range: ArenaIdxRange(
-                                                1..3,
-                                            ),
-                                        },
-                                    ),
-                                },
-                            },
                         },
                     ),
                 },
@@ -93,10 +61,10 @@ Ok(
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentToken {
+                        ident_token: IdentRegionalToken {
                             ident: `T`,
-                            token_idx: TokenIdx(
-                                14,
+                            regional_token_idx: RegionalTokenIdx(
+                                5,
                             ),
                         },
                     },

@@ -16,13 +16,12 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 33,
                         template_parameter_decl_list: Ok(
                             Some(
                                 Generics {
-                                    langle: LaOrLtToken(
-                                        TokenIdx(
-                                            15,
+                                    langle: LaOrLtRegionalToken(
+                                        RegionalTokenIdx(
+                                            4,
                                         ),
                                     ),
                                     template_parameters: [
@@ -30,10 +29,10 @@ Ok(
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             variant: TemplateParameterDeclPatternVariant::Type {
-                                                ident_token: IdentToken {
+                                                ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
-                                                    token_idx: TokenIdx(
-                                                        16,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        5,
                                                     ),
                                                 },
                                                 traits: None,
@@ -44,9 +43,9 @@ Ok(
                                     decl_list_result: Ok(
                                         (),
                                     ),
-                                    rangle: RaOrGtToken(
-                                        TokenIdx(
-                                            17,
+                                    rangle: RaOrGtRegionalToken(
+                                        RegionalTokenIdx(
+                                            6,
                                         ),
                                     ),
                                 },
@@ -100,8 +99,8 @@ Ok(
                                         data: [
                                             CurrentSynSymbol {
                                                 modifier: Const,
-                                                access_start: TokenIdx(
-                                                    17,
+                                                access_start: RegionalTokenIdx(
+                                                    6,
                                                 ),
                                                 access_end: None,
                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -110,10 +109,10 @@ Ok(
                                                     },
                                                     annotated_variance_token: None,
                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                        ident_token: IdentToken {
+                                                        ident_token: IdentRegionalToken {
                                                             ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                16,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                5,
                                                             ),
                                                         },
                                                     },
@@ -155,13 +154,12 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 35,
                         template_parameter_decl_list: Ok(
                             Some(
                                 Generics {
-                                    langle: LaOrLtToken(
-                                        TokenIdx(
-                                            44,
+                                    langle: LaOrLtRegionalToken(
+                                        RegionalTokenIdx(
+                                            4,
                                         ),
                                     ),
                                     template_parameters: [
@@ -169,10 +167,10 @@ Ok(
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             variant: TemplateParameterDeclPatternVariant::Type {
-                                                ident_token: IdentToken {
+                                                ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
-                                                    token_idx: TokenIdx(
-                                                        45,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        5,
                                                     ),
                                                 },
                                                 traits: None,
@@ -183,9 +181,9 @@ Ok(
                                     decl_list_result: Ok(
                                         (),
                                     ),
-                                    rangle: RaOrGtToken(
-                                        TokenIdx(
-                                            46,
+                                    rangle: RaOrGtRegionalToken(
+                                        RegionalTokenIdx(
+                                            6,
                                         ),
                                     ),
                                 },
@@ -239,8 +237,8 @@ Ok(
                                         data: [
                                             CurrentSynSymbol {
                                                 modifier: Const,
-                                                access_start: TokenIdx(
-                                                    46,
+                                                access_start: RegionalTokenIdx(
+                                                    6,
                                                 ),
                                                 access_end: None,
                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -249,10 +247,10 @@ Ok(
                                                     },
                                                     annotated_variance_token: None,
                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                        ident_token: IdentToken {
+                                                        ident_token: IdentRegionalToken {
                                                             ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                45,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                5,
                                                             ),
                                                         },
                                                     },
@@ -294,13 +292,12 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 37,
                         template_parameter_decl_list: Ok(
                             Some(
                                 Generics {
-                                    langle: LaOrLtToken(
-                                        TokenIdx(
-                                            73,
+                                    langle: LaOrLtRegionalToken(
+                                        RegionalTokenIdx(
+                                            4,
                                         ),
                                     ),
                                     template_parameters: [
@@ -308,10 +305,10 @@ Ok(
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             variant: TemplateParameterDeclPatternVariant::Type {
-                                                ident_token: IdentToken {
+                                                ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
-                                                    token_idx: TokenIdx(
-                                                        74,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        5,
                                                     ),
                                                 },
                                                 traits: None,
@@ -322,9 +319,9 @@ Ok(
                                     decl_list_result: Ok(
                                         (),
                                     ),
-                                    rangle: RaOrGtToken(
-                                        TokenIdx(
-                                            75,
+                                    rangle: RaOrGtRegionalToken(
+                                        RegionalTokenIdx(
+                                            6,
                                         ),
                                     ),
                                 },
@@ -378,8 +375,8 @@ Ok(
                                         data: [
                                             CurrentSynSymbol {
                                                 modifier: Const,
-                                                access_start: TokenIdx(
-                                                    75,
+                                                access_start: RegionalTokenIdx(
+                                                    6,
                                                 ),
                                                 access_end: None,
                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -388,10 +385,10 @@ Ok(
                                                     },
                                                     annotated_variance_token: None,
                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                        ident_token: IdentToken {
+                                                        ident_token: IdentRegionalToken {
                                                             ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                74,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                5,
                                                             ),
                                                         },
                                                     },
@@ -433,13 +430,12 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 39,
                         template_parameter_decl_list: Ok(
                             Some(
                                 Generics {
-                                    langle: LaOrLtToken(
-                                        TokenIdx(
-                                            102,
+                                    langle: LaOrLtRegionalToken(
+                                        RegionalTokenIdx(
+                                            4,
                                         ),
                                     ),
                                     template_parameters: [
@@ -447,10 +443,10 @@ Ok(
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             variant: TemplateParameterDeclPatternVariant::Type {
-                                                ident_token: IdentToken {
+                                                ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
-                                                    token_idx: TokenIdx(
-                                                        103,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        5,
                                                     ),
                                                 },
                                                 traits: None,
@@ -461,9 +457,9 @@ Ok(
                                     decl_list_result: Ok(
                                         (),
                                     ),
-                                    rangle: RaOrGtToken(
-                                        TokenIdx(
-                                            104,
+                                    rangle: RaOrGtRegionalToken(
+                                        RegionalTokenIdx(
+                                            6,
                                         ),
                                     ),
                                 },
@@ -517,8 +513,8 @@ Ok(
                                         data: [
                                             CurrentSynSymbol {
                                                 modifier: Const,
-                                                access_start: TokenIdx(
-                                                    104,
+                                                access_start: RegionalTokenIdx(
+                                                    6,
                                                 ),
                                                 access_end: None,
                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -527,10 +523,10 @@ Ok(
                                                     },
                                                     annotated_variance_token: None,
                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                        ident_token: IdentToken {
+                                                        ident_token: IdentRegionalToken {
                                                             ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                103,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                5,
                                                             ),
                                                         },
                                                     },
@@ -572,13 +568,12 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 41,
                         template_parameter_decl_list: Ok(
                             Some(
                                 Generics {
-                                    langle: LaOrLtToken(
-                                        TokenIdx(
-                                            127,
+                                    langle: LaOrLtRegionalToken(
+                                        RegionalTokenIdx(
+                                            4,
                                         ),
                                     ),
                                     template_parameters: [
@@ -586,10 +581,10 @@ Ok(
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             variant: TemplateParameterDeclPatternVariant::Type {
-                                                ident_token: IdentToken {
+                                                ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
-                                                    token_idx: TokenIdx(
-                                                        128,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        5,
                                                     ),
                                                 },
                                                 traits: None,
@@ -600,9 +595,9 @@ Ok(
                                     decl_list_result: Ok(
                                         (),
                                     ),
-                                    rangle: RaOrGtToken(
-                                        TokenIdx(
-                                            129,
+                                    rangle: RaOrGtRegionalToken(
+                                        RegionalTokenIdx(
+                                            6,
                                         ),
                                     ),
                                 },
@@ -656,8 +651,8 @@ Ok(
                                         data: [
                                             CurrentSynSymbol {
                                                 modifier: Const,
-                                                access_start: TokenIdx(
-                                                    129,
+                                                access_start: RegionalTokenIdx(
+                                                    6,
                                                 ),
                                                 access_end: None,
                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -666,10 +661,10 @@ Ok(
                                                     },
                                                     annotated_variance_token: None,
                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                        ident_token: IdentToken {
+                                                        ident_token: IdentRegionalToken {
                                                             ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                128,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                5,
                                                             ),
                                                         },
                                                     },
@@ -711,13 +706,12 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 43,
                         template_parameter_decl_list: Ok(
                             Some(
                                 Generics {
-                                    langle: LaOrLtToken(
-                                        TokenIdx(
-                                            156,
+                                    langle: LaOrLtRegionalToken(
+                                        RegionalTokenIdx(
+                                            4,
                                         ),
                                     ),
                                     template_parameters: [
@@ -725,10 +719,10 @@ Ok(
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             variant: TemplateParameterDeclPatternVariant::Type {
-                                                ident_token: IdentToken {
+                                                ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
-                                                    token_idx: TokenIdx(
-                                                        157,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        5,
                                                     ),
                                                 },
                                                 traits: None,
@@ -739,9 +733,9 @@ Ok(
                                     decl_list_result: Ok(
                                         (),
                                     ),
-                                    rangle: RaOrGtToken(
-                                        TokenIdx(
-                                            158,
+                                    rangle: RaOrGtRegionalToken(
+                                        RegionalTokenIdx(
+                                            6,
                                         ),
                                     ),
                                 },
@@ -795,8 +789,8 @@ Ok(
                                         data: [
                                             CurrentSynSymbol {
                                                 modifier: Const,
-                                                access_start: TokenIdx(
-                                                    158,
+                                                access_start: RegionalTokenIdx(
+                                                    6,
                                                 ),
                                                 access_end: None,
                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -805,10 +799,10 @@ Ok(
                                                     },
                                                     annotated_variance_token: None,
                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                        ident_token: IdentToken {
+                                                        ident_token: IdentRegionalToken {
                                                             ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                157,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                5,
                                                             ),
                                                         },
                                                     },
@@ -850,13 +844,12 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 45,
                         template_parameter_decl_list: Ok(
                             Some(
                                 Generics {
-                                    langle: LaOrLtToken(
-                                        TokenIdx(
-                                            181,
+                                    langle: LaOrLtRegionalToken(
+                                        RegionalTokenIdx(
+                                            4,
                                         ),
                                     ),
                                     template_parameters: [
@@ -864,10 +857,10 @@ Ok(
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             variant: TemplateParameterDeclPatternVariant::Type {
-                                                ident_token: IdentToken {
+                                                ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
-                                                    token_idx: TokenIdx(
-                                                        182,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        5,
                                                     ),
                                                 },
                                                 traits: None,
@@ -878,9 +871,9 @@ Ok(
                                     decl_list_result: Ok(
                                         (),
                                     ),
-                                    rangle: RaOrGtToken(
-                                        TokenIdx(
-                                            183,
+                                    rangle: RaOrGtRegionalToken(
+                                        RegionalTokenIdx(
+                                            6,
                                         ),
                                     ),
                                 },
@@ -934,8 +927,8 @@ Ok(
                                         data: [
                                             CurrentSynSymbol {
                                                 modifier: Const,
-                                                access_start: TokenIdx(
-                                                    183,
+                                                access_start: RegionalTokenIdx(
+                                                    6,
                                                 ),
                                                 access_end: None,
                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -944,10 +937,10 @@ Ok(
                                                     },
                                                     annotated_variance_token: None,
                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                        ident_token: IdentToken {
+                                                        ident_token: IdentRegionalToken {
                                                             ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                182,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                5,
                                                             ),
                                                         },
                                                     },
@@ -989,13 +982,12 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 47,
                         template_parameter_decl_list: Ok(
                             Some(
                                 Generics {
-                                    langle: LaOrLtToken(
-                                        TokenIdx(
-                                            210,
+                                    langle: LaOrLtRegionalToken(
+                                        RegionalTokenIdx(
+                                            4,
                                         ),
                                     ),
                                     template_parameters: [
@@ -1003,10 +995,10 @@ Ok(
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             variant: TemplateParameterDeclPatternVariant::Type {
-                                                ident_token: IdentToken {
+                                                ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
-                                                    token_idx: TokenIdx(
-                                                        211,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        5,
                                                     ),
                                                 },
                                                 traits: None,
@@ -1017,9 +1009,9 @@ Ok(
                                     decl_list_result: Ok(
                                         (),
                                     ),
-                                    rangle: RaOrGtToken(
-                                        TokenIdx(
-                                            212,
+                                    rangle: RaOrGtRegionalToken(
+                                        RegionalTokenIdx(
+                                            6,
                                         ),
                                     ),
                                 },
@@ -1073,8 +1065,8 @@ Ok(
                                         data: [
                                             CurrentSynSymbol {
                                                 modifier: Const,
-                                                access_start: TokenIdx(
-                                                    212,
+                                                access_start: RegionalTokenIdx(
+                                                    6,
                                                 ),
                                                 access_end: None,
                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1083,10 +1075,10 @@ Ok(
                                                     },
                                                     annotated_variance_token: None,
                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                        ident_token: IdentToken {
+                                                        ident_token: IdentRegionalToken {
                                                             ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                211,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                5,
                                                             ),
                                                         },
                                                     },
@@ -1128,13 +1120,12 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 49,
                         template_parameter_decl_list: Ok(
                             Some(
                                 Generics {
-                                    langle: LaOrLtToken(
-                                        TokenIdx(
-                                            235,
+                                    langle: LaOrLtRegionalToken(
+                                        RegionalTokenIdx(
+                                            4,
                                         ),
                                     ),
                                     template_parameters: [
@@ -1142,10 +1133,10 @@ Ok(
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             variant: TemplateParameterDeclPatternVariant::Type {
-                                                ident_token: IdentToken {
+                                                ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
-                                                    token_idx: TokenIdx(
-                                                        236,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        5,
                                                     ),
                                                 },
                                                 traits: None,
@@ -1156,9 +1147,9 @@ Ok(
                                     decl_list_result: Ok(
                                         (),
                                     ),
-                                    rangle: RaOrGtToken(
-                                        TokenIdx(
-                                            237,
+                                    rangle: RaOrGtRegionalToken(
+                                        RegionalTokenIdx(
+                                            6,
                                         ),
                                     ),
                                 },
@@ -1212,8 +1203,8 @@ Ok(
                                         data: [
                                             CurrentSynSymbol {
                                                 modifier: Const,
-                                                access_start: TokenIdx(
-                                                    237,
+                                                access_start: RegionalTokenIdx(
+                                                    6,
                                                 ),
                                                 access_end: None,
                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1222,10 +1213,10 @@ Ok(
                                                     },
                                                     annotated_variance_token: None,
                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                        ident_token: IdentToken {
+                                                        ident_token: IdentRegionalToken {
                                                             ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                236,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                5,
                                                             ),
                                                         },
                                                     },
@@ -1267,13 +1258,12 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 51,
                         template_parameter_decl_list: Ok(
                             Some(
                                 Generics {
-                                    langle: LaOrLtToken(
-                                        TokenIdx(
-                                            264,
+                                    langle: LaOrLtRegionalToken(
+                                        RegionalTokenIdx(
+                                            4,
                                         ),
                                     ),
                                     template_parameters: [
@@ -1281,10 +1271,10 @@ Ok(
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             variant: TemplateParameterDeclPatternVariant::Type {
-                                                ident_token: IdentToken {
+                                                ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
-                                                    token_idx: TokenIdx(
-                                                        265,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        5,
                                                     ),
                                                 },
                                                 traits: None,
@@ -1295,9 +1285,9 @@ Ok(
                                     decl_list_result: Ok(
                                         (),
                                     ),
-                                    rangle: RaOrGtToken(
-                                        TokenIdx(
-                                            266,
+                                    rangle: RaOrGtRegionalToken(
+                                        RegionalTokenIdx(
+                                            6,
                                         ),
                                     ),
                                 },
@@ -1351,8 +1341,8 @@ Ok(
                                         data: [
                                             CurrentSynSymbol {
                                                 modifier: Const,
-                                                access_start: TokenIdx(
-                                                    266,
+                                                access_start: RegionalTokenIdx(
+                                                    6,
                                                 ),
                                                 access_end: None,
                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1361,10 +1351,10 @@ Ok(
                                                     },
                                                     annotated_variance_token: None,
                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                        ident_token: IdentToken {
+                                                        ident_token: IdentRegionalToken {
                                                             ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                265,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                5,
                                                             ),
                                                         },
                                                     },
@@ -1406,7 +1396,6 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 52,
                         template_parameter_decl_list: Ok(
                             None,
                         ),
@@ -1484,13 +1473,12 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 54,
                         template_parameter_decl_list: Ok(
                             Some(
                                 Generics {
-                                    langle: LaOrLtToken(
-                                        TokenIdx(
-                                            296,
+                                    langle: LaOrLtRegionalToken(
+                                        RegionalTokenIdx(
+                                            4,
                                         ),
                                     ),
                                     template_parameters: [
@@ -1498,10 +1486,10 @@ Ok(
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             variant: TemplateParameterDeclPatternVariant::Type {
-                                                ident_token: IdentToken {
+                                                ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
-                                                    token_idx: TokenIdx(
-                                                        297,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        5,
                                                     ),
                                                 },
                                                 traits: None,
@@ -1512,9 +1500,9 @@ Ok(
                                     decl_list_result: Ok(
                                         (),
                                     ),
-                                    rangle: RaOrGtToken(
-                                        TokenIdx(
-                                            298,
+                                    rangle: RaOrGtRegionalToken(
+                                        RegionalTokenIdx(
+                                            6,
                                         ),
                                     ),
                                 },
@@ -1568,8 +1556,8 @@ Ok(
                                         data: [
                                             CurrentSynSymbol {
                                                 modifier: Const,
-                                                access_start: TokenIdx(
-                                                    298,
+                                                access_start: RegionalTokenIdx(
+                                                    6,
                                                 ),
                                                 access_end: None,
                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1578,10 +1566,10 @@ Ok(
                                                     },
                                                     annotated_variance_token: None,
                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                        ident_token: IdentToken {
+                                                        ident_token: IdentRegionalToken {
                                                             ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                297,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                5,
                                                             ),
                                                         },
                                                     },
@@ -1623,13 +1611,12 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 56,
                         template_parameter_decl_list: Ok(
                             Some(
                                 Generics {
-                                    langle: LaOrLtToken(
-                                        TokenIdx(
-                                            325,
+                                    langle: LaOrLtRegionalToken(
+                                        RegionalTokenIdx(
+                                            4,
                                         ),
                                     ),
                                     template_parameters: [
@@ -1637,10 +1624,10 @@ Ok(
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             variant: TemplateParameterDeclPatternVariant::Type {
-                                                ident_token: IdentToken {
+                                                ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
-                                                    token_idx: TokenIdx(
-                                                        326,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        5,
                                                     ),
                                                 },
                                                 traits: None,
@@ -1651,9 +1638,9 @@ Ok(
                                     decl_list_result: Ok(
                                         (),
                                     ),
-                                    rangle: RaOrGtToken(
-                                        TokenIdx(
-                                            327,
+                                    rangle: RaOrGtRegionalToken(
+                                        RegionalTokenIdx(
+                                            6,
                                         ),
                                     ),
                                 },
@@ -1707,8 +1694,8 @@ Ok(
                                         data: [
                                             CurrentSynSymbol {
                                                 modifier: Const,
-                                                access_start: TokenIdx(
-                                                    327,
+                                                access_start: RegionalTokenIdx(
+                                                    6,
                                                 ),
                                                 access_end: None,
                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1717,10 +1704,10 @@ Ok(
                                                     },
                                                     annotated_variance_token: None,
                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                        ident_token: IdentToken {
+                                                        ident_token: IdentRegionalToken {
                                                             ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                326,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                5,
                                                             ),
                                                         },
                                                     },
@@ -1762,7 +1749,6 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 58,
                         template_parameter_decl_list: Ok(
                             None,
                         ),
@@ -1840,7 +1826,6 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 60,
                         template_parameter_decl_list: Ok(
                             None,
                         ),
@@ -1918,13 +1903,12 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 62,
                         template_parameter_decl_list: Ok(
                             Some(
                                 Generics {
-                                    langle: LaOrLtToken(
-                                        TokenIdx(
-                                            398,
+                                    langle: LaOrLtRegionalToken(
+                                        RegionalTokenIdx(
+                                            4,
                                         ),
                                     ),
                                     template_parameters: [
@@ -1932,10 +1916,10 @@ Ok(
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             variant: TemplateParameterDeclPatternVariant::Type {
-                                                ident_token: IdentToken {
+                                                ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
-                                                    token_idx: TokenIdx(
-                                                        399,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        5,
                                                     ),
                                                 },
                                                 traits: None,
@@ -1946,9 +1930,9 @@ Ok(
                                     decl_list_result: Ok(
                                         (),
                                     ),
-                                    rangle: RaOrGtToken(
-                                        TokenIdx(
-                                            400,
+                                    rangle: RaOrGtRegionalToken(
+                                        RegionalTokenIdx(
+                                            6,
                                         ),
                                     ),
                                 },
@@ -2002,8 +1986,8 @@ Ok(
                                         data: [
                                             CurrentSynSymbol {
                                                 modifier: Const,
-                                                access_start: TokenIdx(
-                                                    400,
+                                                access_start: RegionalTokenIdx(
+                                                    6,
                                                 ),
                                                 access_end: None,
                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -2012,10 +1996,10 @@ Ok(
                                                     },
                                                     annotated_variance_token: None,
                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                        ident_token: IdentToken {
+                                                        ident_token: IdentRegionalToken {
                                                             ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                399,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                5,
                                                             ),
                                                         },
                                                     },
@@ -2057,13 +2041,12 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 63,
                         template_parameter_decl_list: Ok(
                             Some(
                                 Generics {
-                                    langle: LaOrLtToken(
-                                        TokenIdx(
-                                            420,
+                                    langle: LaOrLtRegionalToken(
+                                        RegionalTokenIdx(
+                                            4,
                                         ),
                                     ),
                                     template_parameters: [
@@ -2071,10 +2054,10 @@ Ok(
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             variant: TemplateParameterDeclPatternVariant::Type {
-                                                ident_token: IdentToken {
+                                                ident_token: IdentRegionalToken {
                                                     ident: `T`,
-                                                    token_idx: TokenIdx(
-                                                        421,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        5,
                                                     ),
                                                 },
                                                 traits: None,
@@ -2085,9 +2068,9 @@ Ok(
                                     decl_list_result: Ok(
                                         (),
                                     ),
-                                    rangle: RaOrGtToken(
-                                        TokenIdx(
-                                            422,
+                                    rangle: RaOrGtRegionalToken(
+                                        RegionalTokenIdx(
+                                            6,
                                         ),
                                     ),
                                 },
@@ -2141,8 +2124,8 @@ Ok(
                                         data: [
                                             CurrentSynSymbol {
                                                 modifier: Const,
-                                                access_start: TokenIdx(
-                                                    422,
+                                                access_start: RegionalTokenIdx(
+                                                    6,
                                                 ),
                                                 access_end: None,
                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -2151,10 +2134,10 @@ Ok(
                                                     },
                                                     annotated_variance_token: None,
                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                        ident_token: IdentToken {
+                                                        ident_token: IdentRegionalToken {
                                                             ident: `T`,
-                                                            token_idx: TokenIdx(
-                                                                421,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                5,
                                                             ),
                                                         },
                                                     },
@@ -2197,13 +2180,12 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 64,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
-                                        langle: LaOrLtToken(
-                                            TokenIdx(
-                                                449,
+                                        langle: LaOrLtRegionalToken(
+                                            RegionalTokenIdx(
+                                                4,
                                             ),
                                         ),
                                         template_parameters: [
@@ -2211,10 +2193,10 @@ Ok(
                                                 annotated_variance_token: None,
                                                 symbol: 1,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
-                                                    ident_token: IdentToken {
+                                                    ident_token: IdentRegionalToken {
                                                         ident: `R`,
-                                                        token_idx: TokenIdx(
-                                                            450,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            5,
                                                         ),
                                                     },
                                                     traits: None,
@@ -2224,10 +2206,10 @@ Ok(
                                                 annotated_variance_token: None,
                                                 symbol: 2,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
-                                                    ident_token: IdentToken {
+                                                    ident_token: IdentRegionalToken {
                                                         ident: `C`,
-                                                        token_idx: TokenIdx(
-                                                            452,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            7,
                                                         ),
                                                     },
                                                     traits: None,
@@ -2235,18 +2217,18 @@ Ok(
                                             },
                                         ],
                                         commas: [
-                                            CommaToken(
-                                                TokenIdx(
-                                                    451,
+                                            CommaRegionalToken(
+                                                RegionalTokenIdx(
+                                                    6,
                                                 ),
                                             ),
                                         ],
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RaOrGtToken(
-                                            TokenIdx(
-                                                453,
+                                        rangle: RaOrGtRegionalToken(
+                                            RegionalTokenIdx(
+                                                8,
                                             ),
                                         ),
                                     },
@@ -2300,8 +2282,8 @@ Ok(
                                             data: [
                                                 CurrentSynSymbol {
                                                     modifier: Const,
-                                                    access_start: TokenIdx(
-                                                        451,
+                                                    access_start: RegionalTokenIdx(
+                                                        6,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -2310,10 +2292,10 @@ Ok(
                                                         },
                                                         annotated_variance_token: None,
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `R`,
-                                                                token_idx: TokenIdx(
-                                                                    450,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    5,
                                                                 ),
                                                             },
                                                         },
@@ -2321,8 +2303,8 @@ Ok(
                                                 },
                                                 CurrentSynSymbol {
                                                     modifier: Const,
-                                                    access_start: TokenIdx(
-                                                        453,
+                                                    access_start: RegionalTokenIdx(
+                                                        8,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -2331,10 +2313,10 @@ Ok(
                                                         },
                                                         annotated_variance_token: None,
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `C`,
-                                                                token_idx: TokenIdx(
-                                                                    452,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    7,
                                                                 ),
                                                             },
                                                         },

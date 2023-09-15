@@ -162,18 +162,7 @@
                             ],
                         },
                     },
-                    body: None,
-                    hir_expr_region: HirLazyExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    lazy_body_with_hir_lazy_expr_region: None,
                 },
             ),
         ),

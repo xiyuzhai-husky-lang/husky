@@ -13,14 +13,14 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Keyword(
+        TokenData::Keyword(
             Keyword::Pronoun(
                 SelfValue,
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),
@@ -45,14 +45,14 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Keyword(
+        TokenData::Keyword(
             Keyword::Pronoun(
                 SelfType,
             ),
         ),
     ],
-    token_group_bases: [
-        TokenGroupStartingTokenIdx(
+    token_group_starts: [
+        TokenGroupStart(
             TokenIdx(
                 1,
             ),

@@ -17,32 +17,31 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 10,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
-                                        langle: LaOrLtToken(
-                                            TokenIdx(
-                                                8,
+                                        langle: LaOrLtRegionalToken(
+                                            RegionalTokenIdx(
+                                                4,
                                             ),
                                         ),
                                         template_parameters: [
                                             TemplateParameterObelisk {
                                                 annotated_variance_token: Some(
-                                                    VarianceToken::Covariant(
-                                                        CovariantToken {
-                                                            token_idx: TokenIdx(
-                                                                9,
+                                                    VarianceRegionalToken::Covariant(
+                                                        CovariantRegionalToken {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                5,
                                                             ),
                                                         },
                                                     ),
                                                 ),
                                                 symbol: 1,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
-                                                    ident_token: IdentToken {
+                                                    ident_token: IdentRegionalToken {
                                                         ident: `E`,
-                                                        token_idx: TokenIdx(
-                                                            10,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            6,
                                                         ),
                                                     },
                                                     traits: None,
@@ -53,9 +52,9 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RaOrGtToken(
-                                            TokenIdx(
-                                                11,
+                                        rangle: RaOrGtRegionalToken(
+                                            RegionalTokenIdx(
+                                                7,
                                             ),
                                         ),
                                     },
@@ -109,8 +108,8 @@ Ok(
                                             data: [
                                                 CurrentSynSymbol {
                                                     modifier: Const,
-                                                    access_start: TokenIdx(
-                                                        11,
+                                                    access_start: RegionalTokenIdx(
+                                                        7,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -118,19 +117,19 @@ Ok(
                                                             syn_attrs: [],
                                                         },
                                                         annotated_variance_token: Some(
-                                                            VarianceToken::Covariant(
-                                                                CovariantToken {
-                                                                    token_idx: TokenIdx(
-                                                                        9,
+                                                            VarianceRegionalToken::Covariant(
+                                                                CovariantRegionalToken {
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        5,
                                                                     ),
                                                                 },
                                                             ),
                                                         ),
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `E`,
-                                                                token_idx: TokenIdx(
-                                                                    10,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    6,
                                                                 ),
                                                             },
                                                         },
@@ -174,32 +173,31 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 13,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
-                                        langle: LaOrLtToken(
-                                            TokenIdx(
-                                                55,
+                                        langle: LaOrLtRegionalToken(
+                                            RegionalTokenIdx(
+                                                4,
                                             ),
                                         ),
                                         template_parameters: [
                                             TemplateParameterObelisk {
                                                 annotated_variance_token: Some(
-                                                    VarianceToken::Covariant(
-                                                        CovariantToken {
-                                                            token_idx: TokenIdx(
-                                                                56,
+                                                    VarianceRegionalToken::Covariant(
+                                                        CovariantRegionalToken {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                5,
                                                             ),
                                                         },
                                                     ),
                                                 ),
                                                 symbol: 1,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
-                                                    ident_token: IdentToken {
+                                                    ident_token: IdentRegionalToken {
                                                         ident: `E`,
-                                                        token_idx: TokenIdx(
-                                                            57,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            6,
                                                         ),
                                                     },
                                                     traits: None,
@@ -210,9 +208,9 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RaOrGtToken(
-                                            TokenIdx(
-                                                58,
+                                        rangle: RaOrGtRegionalToken(
+                                            RegionalTokenIdx(
+                                                7,
                                             ),
                                         ),
                                     },
@@ -266,8 +264,8 @@ Ok(
                                             data: [
                                                 CurrentSynSymbol {
                                                     modifier: Const,
-                                                    access_start: TokenIdx(
-                                                        58,
+                                                    access_start: RegionalTokenIdx(
+                                                        7,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -275,19 +273,19 @@ Ok(
                                                             syn_attrs: [],
                                                         },
                                                         annotated_variance_token: Some(
-                                                            VarianceToken::Covariant(
-                                                                CovariantToken {
-                                                                    token_idx: TokenIdx(
-                                                                        56,
+                                                            VarianceRegionalToken::Covariant(
+                                                                CovariantRegionalToken {
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        5,
                                                                     ),
                                                                 },
                                                             ),
                                                         ),
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                            ident_token: IdentToken {
+                                                            ident_token: IdentRegionalToken {
                                                                 ident: `E`,
-                                                                token_idx: TokenIdx(
-                                                                    57,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    6,
                                                                 ),
                                                             },
                                                         },
@@ -335,39 +333,17 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    ast_idx: 11,
-                    impl_block: TypeImplBlockSynNode {
-                        syn_node_path: TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `core::slice`,
-                                ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                disambiguator: 0,
-                            },
-                        },
-                        ast_idx: 11,
-                        impl_token: ImplToken {
-                            token_idx: TokenIdx(
-                                13,
-                            ),
-                        },
-                        ty_expr: 52,
-                        items: TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                1..3,
-                            ),
-                        },
-                    },
-                    impl_token: ImplToken {
-                        token_idx: TokenIdx(
-                            13,
+                    impl_regional_token: ImplRegionalToken {
+                        regional_token_idx: RegionalTokenIdx(
+                            1,
                         ),
                     },
                     template_parameter_decl_list: Ok(
                         Some(
                             Generics {
-                                langle: LaOrLtToken(
-                                    TokenIdx(
-                                        14,
+                                langle: LaOrLtRegionalToken(
+                                    RegionalTokenIdx(
+                                        2,
                                     ),
                                 ),
                                 template_parameters: [
@@ -375,10 +351,10 @@ Ok(
                                         annotated_variance_token: None,
                                         symbol: 1,
                                         variant: TemplateParameterDeclPatternVariant::Type {
-                                            ident_token: IdentToken {
+                                            ident_token: IdentRegionalToken {
                                                 ident: `E`,
-                                                token_idx: TokenIdx(
-                                                    15,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    3,
                                                 ),
                                             },
                                             traits: None,
@@ -389,9 +365,9 @@ Ok(
                                 decl_list_result: Ok(
                                     (),
                                 ),
-                                rangle: RaOrGtToken(
-                                    TokenIdx(
-                                        16,
+                                rangle: RaOrGtRegionalToken(
+                                    RegionalTokenIdx(
+                                        4,
                                     ),
                                 ),
                             },
@@ -401,10 +377,10 @@ Ok(
                         expr: 3,
                     },
                     eol_colon: Ok(
-                        EolToken::Colon(
-                            EolColonToken {
-                                token_idx: TokenIdx(
-                                    19,
+                        EolRegionalToken::Colon(
+                            EolColonRegionalToken {
+                                regional_token_idx: RegionalTokenIdx(
+                                    7,
                                 ),
                             },
                         ),
@@ -439,16 +415,16 @@ Ok(
                                     },
                                     SynExpr::CurrentSymbol {
                                         ident: `E`,
-                                        token_idx: TokenIdx(
-                                            18,
+                                        regional_token_idx: RegionalTokenIdx(
+                                            6,
                                         ),
                                         current_symbol_idx: 1,
                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                ident_token: IdentToken {
+                                                ident_token: IdentRegionalToken {
                                                     ident: `E`,
-                                                    token_idx: TokenIdx(
-                                                        15,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        3,
                                                     ),
                                                 },
                                             },
@@ -463,11 +439,11 @@ Ok(
                             principal_item_path_expr_arena: Arena {
                                 data: [
                                     PrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameToken::Ident(
-                                            IdentToken {
+                                        path_name_token: PathNameRegionalToken::Ident(
+                                            IdentRegionalToken {
                                                 ident: `Slice`,
-                                                token_idx: TokenIdx(
-                                                    17,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    5,
                                                 ),
                                             },
                                         ),
@@ -506,8 +482,8 @@ Ok(
                                     data: [
                                         CurrentSynSymbol {
                                             modifier: Const,
-                                            access_start: TokenIdx(
-                                                16,
+                                            access_start: RegionalTokenIdx(
+                                                4,
                                             ),
                                             access_end: None,
                                             variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -516,10 +492,10 @@ Ok(
                                                 },
                                                 annotated_variance_token: None,
                                                 template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                    ident_token: IdentToken {
+                                                    ident_token: IdentRegionalToken {
                                                         ident: `E`,
-                                                        token_idx: TokenIdx(
-                                                            15,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            3,
                                                         ),
                                                     },
                                                 },
@@ -582,54 +558,32 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            node: TypeItemSynNode {
-                                syn_node_path: TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::slice`,
-                                                ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `len`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ast_idx: 1,
-                                ident: `len`,
-                                item_kind: MethodFn,
-                                visibility: Scope::Pub,
-                                is_generic: false,
-                            },
-                            ast_idx: 1,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
                             ritchie_parameter_decl_list: Ok(
                                 RitchieParameters {
-                                    lpar: LparToken(
-                                        TokenIdx(
-                                            23,
+                                    lpar: LparRegionalToken(
+                                        RegionalTokenIdx(
+                                            4,
                                         ),
                                     ),
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [],
                                     commas: [],
-                                    rpar: RparToken(
-                                        TokenIdx(
-                                            24,
+                                    rpar: RparRegionalToken(
+                                        RegionalTokenIdx(
+                                            5,
                                         ),
                                     ),
                                 },
                             ),
-                            curry_token: Ok(
+                            light_arrow_token: Ok(
                                 Some(
-                                    CurryToken(
-                                        TokenIdx(
-                                            25,
+                                    LightArrowRegionalToken(
+                                        RegionalTokenIdx(
+                                            6,
                                         ),
                                     ),
                                 ),
@@ -642,10 +596,10 @@ Ok(
                                 ),
                             ),
                             eol_colon: Ok(
-                                EolToken::Semicolon(
-                                    EolSemicolonToken {
-                                        token_idx: TokenIdx(
-                                            27,
+                                EolRegionalToken::Semicolon(
+                                    EolSemicolonRegionalToken {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            8,
                                         ),
                                     },
                                 ),
@@ -683,16 +637,16 @@ Ok(
                                                         },
                                                         SynExpr::CurrentSymbol {
                                                             ident: `E`,
-                                                            token_idx: TokenIdx(
-                                                                18,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                6,
                                                             ),
                                                             current_symbol_idx: 1,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                                    ident_token: IdentToken {
+                                                                    ident_token: IdentRegionalToken {
                                                                         ident: `E`,
-                                                                        token_idx: TokenIdx(
-                                                                            15,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            3,
                                                                         ),
                                                                     },
                                                                 },
@@ -707,11 +661,11 @@ Ok(
                                                 principal_item_path_expr_arena: Arena {
                                                     data: [
                                                         PrincipalEntityPathExpr::Root {
-                                                            path_name_token: PathNameToken::Ident(
-                                                                IdentToken {
+                                                            path_name_token: PathNameRegionalToken::Ident(
+                                                                IdentRegionalToken {
                                                                     ident: `Slice`,
-                                                                    token_idx: TokenIdx(
-                                                                        17,
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        5,
                                                                     ),
                                                                 },
                                                             ),
@@ -750,8 +704,8 @@ Ok(
                                                         data: [
                                                             CurrentSynSymbol {
                                                                 modifier: Const,
-                                                                access_start: TokenIdx(
-                                                                    16,
+                                                                access_start: RegionalTokenIdx(
+                                                                    4,
                                                                 ),
                                                                 access_end: None,
                                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -760,10 +714,10 @@ Ok(
                                                                     },
                                                                     annotated_variance_token: None,
                                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                                        ident_token: IdentToken {
+                                                                        ident_token: IdentRegionalToken {
                                                                             ident: `E`,
-                                                                            token_idx: TokenIdx(
-                                                                                15,
+                                                                            regional_token_idx: RegionalTokenIdx(
+                                                                                3,
                                                                             ),
                                                                         },
                                                                     },
@@ -828,11 +782,11 @@ Ok(
                                     principal_item_path_expr_arena: Arena {
                                         data: [
                                             PrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameToken::Ident(
-                                                    IdentToken {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
                                                         ident: `usize`,
-                                                        token_idx: TokenIdx(
-                                                            26,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            7,
                                                         ),
                                                     },
                                                 ),
@@ -895,326 +849,7 @@ Ok(
                                 },
                             },
                         },
-                        body: None,
-                        syn_expr_region: SynExprRegion {
-                            data: SynExprRegionData {
-                                parent: Some(
-                                    SynExprRegion {
-                                        data: SynExprRegionData {
-                                            parent: Some(
-                                                SynExprRegion {
-                                                    data: SynExprRegionData {
-                                                        parent: None,
-                                                        path: RegionPath::Decl(
-                                                            ItemSynNodePath::ImplBlock(
-                                                                ImplBlockSynNodePath::TypeImplBlock(
-                                                                    TypeImplBlockSynNodePath {
-                                                                        path: TypeImplBlockPath {
-                                                                            module_path: `core::slice`,
-                                                                            ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        expr_arena: Arena {
-                                                            data: [
-                                                                SynExpr::PrincipalEntityPath {
-                                                                    item_path_expr: 1,
-                                                                    opt_path: Some(
-                                                                        PrincipalEntityPath::MajorItem(
-                                                                            MajorItemPath::Type(
-                                                                                TypePath(`core::slice::Slice`, `Extern`),
-                                                                            ),
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                                SynExpr::CurrentSymbol {
-                                                                    ident: `E`,
-                                                                    token_idx: TokenIdx(
-                                                                        18,
-                                                                    ),
-                                                                    current_symbol_idx: 1,
-                                                                    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                                            ident_token: IdentToken {
-                                                                                ident: `E`,
-                                                                                token_idx: TokenIdx(
-                                                                                    15,
-                                                                                ),
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                },
-                                                                SynExpr::ExplicitApplication {
-                                                                    function_expr_idx: 1,
-                                                                    argument_expr_idx: 2,
-                                                                },
-                                                            ],
-                                                        },
-                                                        principal_item_path_expr_arena: Arena {
-                                                            data: [
-                                                                PrincipalEntityPathExpr::Root {
-                                                                    path_name_token: PathNameToken::Ident(
-                                                                        IdentToken {
-                                                                            ident: `Slice`,
-                                                                            token_idx: TokenIdx(
-                                                                                17,
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                                        MajorItemPath::Type(
-                                                                            TypePath(`core::slice::Slice`, `Extern`),
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ],
-                                                        },
-                                                        stmt_arena: Arena {
-                                                            data: [],
-                                                        },
-                                                        pattern_expr_region: SynPatternExprRegion {
-                                                            pattern_expr_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            pattern_expr_contracts: ArenaMap {
-                                                                data: [],
-                                                            },
-                                                            pattern_infos: [],
-                                                            pattern_symbol_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            pattern_symbol_maps: [],
-                                                            pattern_symbol_modifiers: ArenaMap {
-                                                                data: [],
-                                                            },
-                                                        },
-                                                        symbol_region: SynSymbolRegion {
-                                                            inherited_symbol_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            current_symbol_arena: Arena {
-                                                                data: [
-                                                                    CurrentSynSymbol {
-                                                                        modifier: Const,
-                                                                        access_start: TokenIdx(
-                                                                            16,
-                                                                        ),
-                                                                        access_end: None,
-                                                                        variant: CurrentSynSymbolVariant::TemplateParameter {
-                                                                            syn_attrs: TemplateParameterSynAttrs {
-                                                                                syn_attrs: [],
-                                                                            },
-                                                                            annotated_variance_token: None,
-                                                                            template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                                                ident_token: IdentToken {
-                                                                                    ident: `E`,
-                                                                                    token_idx: TokenIdx(
-                                                                                        15,
-                                                                                    ),
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                ],
-                                                            },
-                                                            allow_self_type: True,
-                                                            allow_self_value: False,
-                                                            pattern_ty_constraints: [
-                                                                (
-                                                                    TemplateTypeParameter,
-                                                                    ArenaIdxRange(
-                                                                        1..2,
-                                                                    ),
-                                                                ),
-                                                            ],
-                                                        },
-                                                        roots: [
-                                                            SynExprRoot {
-                                                                kind: SelfType,
-                                                                expr_idx: 3,
-                                                            },
-                                                        ],
-                                                    },
-                                                },
-                                            ),
-                                            path: RegionPath::Decl(
-                                                ItemSynNodePath::AssociatedItem(
-                                                    AssociatedItemSynNodePath::TypeItem(
-                                                        TypeItemSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypeItemPath {
-                                                                    impl_block: TypeImplBlockPath {
-                                                                        module_path: `core::slice`,
-                                                                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                    ident: `len`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                            expr_arena: Arena {
-                                                data: [
-                                                    SynExpr::PrincipalEntityPath {
-                                                        item_path_expr: 1,
-                                                        opt_path: Some(
-                                                            PrincipalEntityPath::MajorItem(
-                                                                MajorItemPath::Type(
-                                                                    TypePath(`core::num::usize`, `Extern`),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ],
-                                            },
-                                            principal_item_path_expr_arena: Arena {
-                                                data: [
-                                                    PrincipalEntityPathExpr::Root {
-                                                        path_name_token: PathNameToken::Ident(
-                                                            IdentToken {
-                                                                ident: `usize`,
-                                                                token_idx: TokenIdx(
-                                                                    26,
-                                                                ),
-                                                            },
-                                                        ),
-                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                            MajorItemPath::Type(
-                                                                TypePath(`core::num::usize`, `Extern`),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ],
-                                            },
-                                            stmt_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_expr_region: SynPatternExprRegion {
-                                                pattern_expr_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_expr_contracts: ArenaMap {
-                                                    data: [],
-                                                },
-                                                pattern_infos: [],
-                                                pattern_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_symbol_maps: [],
-                                                pattern_symbol_modifiers: ArenaMap {
-                                                    data: [],
-                                                },
-                                            },
-                                            symbol_region: SynSymbolRegion {
-                                                inherited_symbol_arena: Arena {
-                                                    data: [
-                                                        InheritedSynSymbol {
-                                                            parent_symbol_idx: Current(
-                                                                1,
-                                                            ),
-                                                            modifier: Const,
-                                                            kind: InheritedSynSymbolKind::TemplateParameter(
-                                                                InheritedTemplateParameterSynSymbol::Type {
-                                                                    ident: `E`,
-                                                                },
-                                                            ),
-                                                        },
-                                                    ],
-                                                },
-                                                current_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                allow_self_type: True,
-                                                allow_self_value: True,
-                                                pattern_ty_constraints: [],
-                                            },
-                                            roots: [
-                                                SynExprRoot {
-                                                    kind: ReturnType,
-                                                    expr_idx: 1,
-                                                },
-                                            ],
-                                        },
-                                    },
-                                ),
-                                path: RegionPath::Defn(
-                                    ItemSynNodePath::AssociatedItem(
-                                        AssociatedItemSynNodePath::TypeItem(
-                                            TypeItemSynNodePath {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath {
-                                                        impl_block: TypeImplBlockPath {
-                                                            module_path: `core::slice`,
-                                                            ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                        ident: `len`,
-                                                        item_kind: MethodFn,
-                                                    },
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                expr_arena: Arena {
-                                    data: [],
-                                },
-                                principal_item_path_expr_arena: Arena {
-                                    data: [],
-                                },
-                                stmt_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_expr_region: SynPatternExprRegion {
-                                    pattern_expr_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_expr_contracts: ArenaMap {
-                                        data: [],
-                                    },
-                                    pattern_infos: [],
-                                    pattern_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_symbol_maps: [],
-                                    pattern_symbol_modifiers: ArenaMap {
-                                        data: [],
-                                    },
-                                },
-                                symbol_region: SynSymbolRegion {
-                                    inherited_symbol_arena: Arena {
-                                        data: [
-                                            InheritedSynSymbol {
-                                                parent_symbol_idx: Current(
-                                                    1,
-                                                ),
-                                                modifier: Const,
-                                                kind: InheritedSynSymbolKind::TemplateParameter(
-                                                    InheritedTemplateParameterSynSymbol::Type {
-                                                        ident: `E`,
-                                                    },
-                                                ),
-                                            },
-                                        ],
-                                    },
-                                    current_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    allow_self_type: True,
-                                    allow_self_value: True,
-                                    pattern_ty_constraints: [],
-                                },
-                                roots: [],
-                            },
-                        },
+                        body_with_syn_expr_region: None,
                     },
                 ),
             ),
@@ -1252,66 +887,44 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            node: TypeItemSynNode {
-                                syn_node_path: TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::slice`,
-                                                ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `swap`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ast_idx: 2,
-                                ident: `swap`,
-                                item_kind: MethodFn,
-                                visibility: Scope::Pub,
-                                is_generic: false,
-                            },
-                            ast_idx: 2,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
                             ritchie_parameter_decl_list: Ok(
                                 RitchieParameters {
-                                    lpar: LparToken(
-                                        TokenIdx(
-                                            31,
+                                    lpar: LparRegionalToken(
+                                        RegionalTokenIdx(
+                                            4,
                                         ),
                                     ),
                                     self_value_parameter: Some(
                                         SelfParameterObelisk {
                                             ephem_symbol_modifier_token_group: Some(
                                                 AmbersandMut(
-                                                    AmbersandToken(
-                                                        TokenIdx(
-                                                            32,
+                                                    AmbersandRegionalToken(
+                                                        RegionalTokenIdx(
+                                                            5,
                                                         ),
                                                     ),
                                                     None,
-                                                    MutToken {
-                                                        token_idx: TokenIdx(
-                                                            33,
+                                                    MutRegionalToken {
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            6,
                                                         ),
                                                     },
                                                 ),
                                             ),
-                                            self_value_token: SelfValueToken {
-                                                token_idx: TokenIdx(
-                                                    34,
+                                            self_value_token: SelfValueRegionalToken {
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    7,
                                                 ),
                                             },
                                         },
                                     ),
                                     comma_after_self_parameter: Some(
-                                        CommaToken(
-                                            TokenIdx(
-                                                35,
+                                        CommaRegionalToken(
+                                            RegionalTokenIdx(
+                                                8,
                                             ),
                                         ),
                                     ),
@@ -1321,9 +934,9 @@ Ok(
                                             variables: ArenaIdxRange(
                                                 1..2,
                                             ),
-                                            colon: ColonToken(
-                                                TokenIdx(
-                                                    37,
+                                            colon: ColonRegionalToken(
+                                                RegionalTokenIdx(
+                                                    10,
                                                 ),
                                             ),
                                             ty: 1,
@@ -1333,39 +946,39 @@ Ok(
                                             variables: ArenaIdxRange(
                                                 2..3,
                                             ),
-                                            colon: ColonToken(
-                                                TokenIdx(
-                                                    41,
+                                            colon: ColonRegionalToken(
+                                                RegionalTokenIdx(
+                                                    14,
                                                 ),
                                             ),
                                             ty: 2,
                                         },
                                     ],
                                     commas: [
-                                        CommaToken(
-                                            TokenIdx(
-                                                39,
+                                        CommaRegionalToken(
+                                            RegionalTokenIdx(
+                                                12,
                                             ),
                                         ),
                                     ],
-                                    rpar: RparToken(
-                                        TokenIdx(
-                                            43,
+                                    rpar: RparRegionalToken(
+                                        RegionalTokenIdx(
+                                            16,
                                         ),
                                     ),
                                 },
                             ),
-                            curry_token: Ok(
+                            light_arrow_token: Ok(
                                 None,
                             ),
                             return_ty: Ok(
                                 None,
                             ),
                             eol_colon: Ok(
-                                EolToken::Semicolon(
-                                    EolSemicolonToken {
-                                        token_idx: TokenIdx(
-                                            44,
+                                EolRegionalToken::Semicolon(
+                                    EolSemicolonRegionalToken {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            17,
                                         ),
                                     },
                                 ),
@@ -1403,16 +1016,16 @@ Ok(
                                                         },
                                                         SynExpr::CurrentSymbol {
                                                             ident: `E`,
-                                                            token_idx: TokenIdx(
-                                                                18,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                6,
                                                             ),
                                                             current_symbol_idx: 1,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                                    ident_token: IdentToken {
+                                                                    ident_token: IdentRegionalToken {
                                                                         ident: `E`,
-                                                                        token_idx: TokenIdx(
-                                                                            15,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            3,
                                                                         ),
                                                                     },
                                                                 },
@@ -1427,11 +1040,11 @@ Ok(
                                                 principal_item_path_expr_arena: Arena {
                                                     data: [
                                                         PrincipalEntityPathExpr::Root {
-                                                            path_name_token: PathNameToken::Ident(
-                                                                IdentToken {
+                                                            path_name_token: PathNameRegionalToken::Ident(
+                                                                IdentRegionalToken {
                                                                     ident: `Slice`,
-                                                                    token_idx: TokenIdx(
-                                                                        17,
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        5,
                                                                     ),
                                                                 },
                                                             ),
@@ -1470,8 +1083,8 @@ Ok(
                                                         data: [
                                                             CurrentSynSymbol {
                                                                 modifier: Const,
-                                                                access_start: TokenIdx(
-                                                                    16,
+                                                                access_start: RegionalTokenIdx(
+                                                                    4,
                                                                 ),
                                                                 access_end: None,
                                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1480,10 +1093,10 @@ Ok(
                                                                     },
                                                                     annotated_variance_token: None,
                                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                                        ident_token: IdentToken {
+                                                                        ident_token: IdentRegionalToken {
                                                                             ident: `E`,
-                                                                            token_idx: TokenIdx(
-                                                                                15,
+                                                                            regional_token_idx: RegionalTokenIdx(
+                                                                                3,
                                                                             ),
                                                                         },
                                                                     },
@@ -1558,11 +1171,11 @@ Ok(
                                     principal_item_path_expr_arena: Arena {
                                         data: [
                                             PrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameToken::Ident(
-                                                    IdentToken {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
                                                         ident: `usize`,
-                                                        token_idx: TokenIdx(
-                                                            38,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            11,
                                                         ),
                                                     },
                                                 ),
@@ -1573,11 +1186,11 @@ Ok(
                                                 ),
                                             },
                                             PrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameToken::Ident(
-                                                    IdentToken {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
                                                         ident: `usize`,
-                                                        token_idx: TokenIdx(
-                                                            42,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            15,
                                                         ),
                                                     },
                                                 ),
@@ -1597,19 +1210,19 @@ Ok(
                                             data: [
                                                 SynPatternExpr::Ident {
                                                     symbol_modifier_keyword_group: None,
-                                                    ident_token: IdentToken {
+                                                    ident_token: IdentRegionalToken {
                                                         ident: `a`,
-                                                        token_idx: TokenIdx(
-                                                            36,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            9,
                                                         ),
                                                     },
                                                 },
                                                 SynPatternExpr::Ident {
                                                     symbol_modifier_keyword_group: None,
-                                                    ident_token: IdentToken {
+                                                    ident_token: IdentRegionalToken {
                                                         ident: `b`,
-                                                        token_idx: TokenIdx(
-                                                            40,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            13,
                                                         ),
                                                     },
                                                 },
@@ -1676,8 +1289,8 @@ Ok(
                                             data: [
                                                 CurrentSynSymbol {
                                                     modifier: None,
-                                                    access_start: TokenIdx(
-                                                        37,
+                                                    access_start: RegionalTokenIdx(
+                                                        10,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -1687,8 +1300,8 @@ Ok(
                                                 },
                                                 CurrentSynSymbol {
                                                     modifier: None,
-                                                    access_start: TokenIdx(
-                                                        41,
+                                                    access_start: RegionalTokenIdx(
+                                                        14,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -1734,463 +1347,7 @@ Ok(
                                 },
                             },
                         },
-                        body: None,
-                        syn_expr_region: SynExprRegion {
-                            data: SynExprRegionData {
-                                parent: Some(
-                                    SynExprRegion {
-                                        data: SynExprRegionData {
-                                            parent: Some(
-                                                SynExprRegion {
-                                                    data: SynExprRegionData {
-                                                        parent: None,
-                                                        path: RegionPath::Decl(
-                                                            ItemSynNodePath::ImplBlock(
-                                                                ImplBlockSynNodePath::TypeImplBlock(
-                                                                    TypeImplBlockSynNodePath {
-                                                                        path: TypeImplBlockPath {
-                                                                            module_path: `core::slice`,
-                                                                            ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        expr_arena: Arena {
-                                                            data: [
-                                                                SynExpr::PrincipalEntityPath {
-                                                                    item_path_expr: 1,
-                                                                    opt_path: Some(
-                                                                        PrincipalEntityPath::MajorItem(
-                                                                            MajorItemPath::Type(
-                                                                                TypePath(`core::slice::Slice`, `Extern`),
-                                                                            ),
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                                SynExpr::CurrentSymbol {
-                                                                    ident: `E`,
-                                                                    token_idx: TokenIdx(
-                                                                        18,
-                                                                    ),
-                                                                    current_symbol_idx: 1,
-                                                                    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                                            ident_token: IdentToken {
-                                                                                ident: `E`,
-                                                                                token_idx: TokenIdx(
-                                                                                    15,
-                                                                                ),
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                },
-                                                                SynExpr::ExplicitApplication {
-                                                                    function_expr_idx: 1,
-                                                                    argument_expr_idx: 2,
-                                                                },
-                                                            ],
-                                                        },
-                                                        principal_item_path_expr_arena: Arena {
-                                                            data: [
-                                                                PrincipalEntityPathExpr::Root {
-                                                                    path_name_token: PathNameToken::Ident(
-                                                                        IdentToken {
-                                                                            ident: `Slice`,
-                                                                            token_idx: TokenIdx(
-                                                                                17,
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                                        MajorItemPath::Type(
-                                                                            TypePath(`core::slice::Slice`, `Extern`),
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ],
-                                                        },
-                                                        stmt_arena: Arena {
-                                                            data: [],
-                                                        },
-                                                        pattern_expr_region: SynPatternExprRegion {
-                                                            pattern_expr_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            pattern_expr_contracts: ArenaMap {
-                                                                data: [],
-                                                            },
-                                                            pattern_infos: [],
-                                                            pattern_symbol_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            pattern_symbol_maps: [],
-                                                            pattern_symbol_modifiers: ArenaMap {
-                                                                data: [],
-                                                            },
-                                                        },
-                                                        symbol_region: SynSymbolRegion {
-                                                            inherited_symbol_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            current_symbol_arena: Arena {
-                                                                data: [
-                                                                    CurrentSynSymbol {
-                                                                        modifier: Const,
-                                                                        access_start: TokenIdx(
-                                                                            16,
-                                                                        ),
-                                                                        access_end: None,
-                                                                        variant: CurrentSynSymbolVariant::TemplateParameter {
-                                                                            syn_attrs: TemplateParameterSynAttrs {
-                                                                                syn_attrs: [],
-                                                                            },
-                                                                            annotated_variance_token: None,
-                                                                            template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                                                ident_token: IdentToken {
-                                                                                    ident: `E`,
-                                                                                    token_idx: TokenIdx(
-                                                                                        15,
-                                                                                    ),
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                ],
-                                                            },
-                                                            allow_self_type: True,
-                                                            allow_self_value: False,
-                                                            pattern_ty_constraints: [
-                                                                (
-                                                                    TemplateTypeParameter,
-                                                                    ArenaIdxRange(
-                                                                        1..2,
-                                                                    ),
-                                                                ),
-                                                            ],
-                                                        },
-                                                        roots: [
-                                                            SynExprRoot {
-                                                                kind: SelfType,
-                                                                expr_idx: 3,
-                                                            },
-                                                        ],
-                                                    },
-                                                },
-                                            ),
-                                            path: RegionPath::Decl(
-                                                ItemSynNodePath::AssociatedItem(
-                                                    AssociatedItemSynNodePath::TypeItem(
-                                                        TypeItemSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypeItemPath {
-                                                                    impl_block: TypeImplBlockPath {
-                                                                        module_path: `core::slice`,
-                                                                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                    ident: `swap`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                            expr_arena: Arena {
-                                                data: [
-                                                    SynExpr::PrincipalEntityPath {
-                                                        item_path_expr: 1,
-                                                        opt_path: Some(
-                                                            PrincipalEntityPath::MajorItem(
-                                                                MajorItemPath::Type(
-                                                                    TypePath(`core::num::usize`, `Extern`),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                    SynExpr::PrincipalEntityPath {
-                                                        item_path_expr: 2,
-                                                        opt_path: Some(
-                                                            PrincipalEntityPath::MajorItem(
-                                                                MajorItemPath::Type(
-                                                                    TypePath(`core::num::usize`, `Extern`),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ],
-                                            },
-                                            principal_item_path_expr_arena: Arena {
-                                                data: [
-                                                    PrincipalEntityPathExpr::Root {
-                                                        path_name_token: PathNameToken::Ident(
-                                                            IdentToken {
-                                                                ident: `usize`,
-                                                                token_idx: TokenIdx(
-                                                                    38,
-                                                                ),
-                                                            },
-                                                        ),
-                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                            MajorItemPath::Type(
-                                                                TypePath(`core::num::usize`, `Extern`),
-                                                            ),
-                                                        ),
-                                                    },
-                                                    PrincipalEntityPathExpr::Root {
-                                                        path_name_token: PathNameToken::Ident(
-                                                            IdentToken {
-                                                                ident: `usize`,
-                                                                token_idx: TokenIdx(
-                                                                    42,
-                                                                ),
-                                                            },
-                                                        ),
-                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                            MajorItemPath::Type(
-                                                                TypePath(`core::num::usize`, `Extern`),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ],
-                                            },
-                                            stmt_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_expr_region: SynPatternExprRegion {
-                                                pattern_expr_arena: Arena {
-                                                    data: [
-                                                        SynPatternExpr::Ident {
-                                                            symbol_modifier_keyword_group: None,
-                                                            ident_token: IdentToken {
-                                                                ident: `a`,
-                                                                token_idx: TokenIdx(
-                                                                    36,
-                                                                ),
-                                                            },
-                                                        },
-                                                        SynPatternExpr::Ident {
-                                                            symbol_modifier_keyword_group: None,
-                                                            ident_token: IdentToken {
-                                                                ident: `b`,
-                                                                token_idx: TokenIdx(
-                                                                    40,
-                                                                ),
-                                                            },
-                                                        },
-                                                    ],
-                                                },
-                                                pattern_expr_contracts: ArenaMap {
-                                                    data: [
-                                                        None,
-                                                        None,
-                                                    ],
-                                                },
-                                                pattern_infos: [
-                                                    Parameter,
-                                                    Parameter,
-                                                ],
-                                                pattern_symbol_arena: Arena {
-                                                    data: [
-                                                        SynPatternSymbol::Atom(
-                                                            1,
-                                                        ),
-                                                        SynPatternSymbol::Atom(
-                                                            2,
-                                                        ),
-                                                    ],
-                                                },
-                                                pattern_symbol_maps: [
-                                                    [
-                                                        (
-                                                            `a`,
-                                                            1,
-                                                        ),
-                                                    ],
-                                                    [
-                                                        (
-                                                            `b`,
-                                                            2,
-                                                        ),
-                                                    ],
-                                                ],
-                                                pattern_symbol_modifiers: ArenaMap {
-                                                    data: [
-                                                        None,
-                                                        None,
-                                                    ],
-                                                },
-                                            },
-                                            symbol_region: SynSymbolRegion {
-                                                inherited_symbol_arena: Arena {
-                                                    data: [
-                                                        InheritedSynSymbol {
-                                                            parent_symbol_idx: Current(
-                                                                1,
-                                                            ),
-                                                            modifier: Const,
-                                                            kind: InheritedSynSymbolKind::TemplateParameter(
-                                                                InheritedTemplateParameterSynSymbol::Type {
-                                                                    ident: `E`,
-                                                                },
-                                                            ),
-                                                        },
-                                                    ],
-                                                },
-                                                current_symbol_arena: Arena {
-                                                    data: [
-                                                        CurrentSynSymbol {
-                                                            modifier: None,
-                                                            access_start: TokenIdx(
-                                                                37,
-                                                            ),
-                                                            access_end: None,
-                                                            variant: CurrentSynSymbolVariant::ParenateRegularParameter {
-                                                                ident: `a`,
-                                                                pattern_symbol_idx: 1,
-                                                            },
-                                                        },
-                                                        CurrentSynSymbol {
-                                                            modifier: None,
-                                                            access_start: TokenIdx(
-                                                                41,
-                                                            ),
-                                                            access_end: None,
-                                                            variant: CurrentSynSymbolVariant::ParenateRegularParameter {
-                                                                ident: `b`,
-                                                                pattern_symbol_idx: 2,
-                                                            },
-                                                        },
-                                                    ],
-                                                },
-                                                allow_self_type: True,
-                                                allow_self_value: True,
-                                                pattern_ty_constraints: [
-                                                    (
-                                                        ExplicitRegularParameter {
-                                                            pattern_expr_idx: 1,
-                                                            ty_expr_idx: 1,
-                                                        },
-                                                        ArenaIdxRange(
-                                                            1..2,
-                                                        ),
-                                                    ),
-                                                    (
-                                                        ExplicitRegularParameter {
-                                                            pattern_expr_idx: 2,
-                                                            ty_expr_idx: 2,
-                                                        },
-                                                        ArenaIdxRange(
-                                                            2..3,
-                                                        ),
-                                                    ),
-                                                ],
-                                            },
-                                            roots: [
-                                                SynExprRoot {
-                                                    kind: ExplicitParameterType,
-                                                    expr_idx: 1,
-                                                },
-                                                SynExprRoot {
-                                                    kind: ExplicitParameterType,
-                                                    expr_idx: 2,
-                                                },
-                                            ],
-                                        },
-                                    },
-                                ),
-                                path: RegionPath::Defn(
-                                    ItemSynNodePath::AssociatedItem(
-                                        AssociatedItemSynNodePath::TypeItem(
-                                            TypeItemSynNodePath {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath {
-                                                        impl_block: TypeImplBlockPath {
-                                                            module_path: `core::slice`,
-                                                            ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                        ident: `swap`,
-                                                        item_kind: MethodFn,
-                                                    },
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                expr_arena: Arena {
-                                    data: [],
-                                },
-                                principal_item_path_expr_arena: Arena {
-                                    data: [],
-                                },
-                                stmt_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_expr_region: SynPatternExprRegion {
-                                    pattern_expr_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_expr_contracts: ArenaMap {
-                                        data: [],
-                                    },
-                                    pattern_infos: [],
-                                    pattern_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_symbol_maps: [],
-                                    pattern_symbol_modifiers: ArenaMap {
-                                        data: [],
-                                    },
-                                },
-                                symbol_region: SynSymbolRegion {
-                                    inherited_symbol_arena: Arena {
-                                        data: [
-                                            InheritedSynSymbol {
-                                                parent_symbol_idx: Current(
-                                                    1,
-                                                ),
-                                                modifier: Const,
-                                                kind: InheritedSynSymbolKind::TemplateParameter(
-                                                    InheritedTemplateParameterSynSymbol::Type {
-                                                        ident: `E`,
-                                                    },
-                                                ),
-                                            },
-                                            InheritedSynSymbol {
-                                                parent_symbol_idx: Current(
-                                                    1,
-                                                ),
-                                                modifier: None,
-                                                kind: InheritedSynSymbolKind::ParenateParameter {
-                                                    ident: `a`,
-                                                },
-                                            },
-                                            InheritedSynSymbol {
-                                                parent_symbol_idx: Current(
-                                                    2,
-                                                ),
-                                                modifier: None,
-                                                kind: InheritedSynSymbolKind::ParenateParameter {
-                                                    ident: `b`,
-                                                },
-                                            },
-                                        ],
-                                    },
-                                    current_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    allow_self_type: True,
-                                    allow_self_value: True,
-                                    pattern_ty_constraints: [],
-                                },
-                                roots: [],
-                            },
-                        },
+                        body_with_syn_expr_region: None,
                     },
                 ),
             ),
@@ -2208,18 +1365,17 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    ast_idx: 14,
-                    impl_token: ImplToken {
-                        token_idx: TokenIdx(
-                            60,
+                    impl_regional_token: ImplRegionalToken {
+                        regional_token_idx: RegionalTokenIdx(
+                            1,
                         ),
                     },
                     template_parameter_decl_list: Ok(
                         Some(
                             Generics {
-                                langle: LaOrLtToken(
-                                    TokenIdx(
-                                        61,
+                                langle: LaOrLtRegionalToken(
+                                    RegionalTokenIdx(
+                                        2,
                                     ),
                                 ),
                                 template_parameters: [
@@ -2227,10 +1383,10 @@ Ok(
                                         annotated_variance_token: None,
                                         symbol: 1,
                                         variant: TemplateParameterDeclPatternVariant::Type {
-                                            ident_token: IdentToken {
+                                            ident_token: IdentRegionalToken {
                                                 ident: `E`,
-                                                token_idx: TokenIdx(
-                                                    62,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    3,
                                                 ),
                                             },
                                             traits: None,
@@ -2241,9 +1397,9 @@ Ok(
                                 decl_list_result: Ok(
                                     (),
                                 ),
-                                rangle: RaOrGtToken(
-                                    TokenIdx(
-                                        63,
+                                rangle: RaOrGtRegionalToken(
+                                    RegionalTokenIdx(
+                                        4,
                                     ),
                                 ),
                             },
@@ -2252,9 +1408,9 @@ Ok(
                     trai_expr: TraitObelisk {
                         expr: 1,
                     },
-                    for_token: ConnectionForToken {
-                        token_idx: TokenIdx(
-                            69,
+                    for_token: ConnectionForRegionalToken {
+                        regional_token_idx: RegionalTokenIdx(
+                            10,
                         ),
                     },
                     self_ty_decl: PathLeadingExpr(
@@ -2263,10 +1419,10 @@ Ok(
                         },
                     ),
                     eol_colon: Ok(
-                        EolToken::Colon(
-                            EolColonToken {
-                                token_idx: TokenIdx(
-                                    72,
+                        EolRegionalToken::Colon(
+                            EolColonRegionalToken {
+                                regional_token_idx: RegionalTokenIdx(
+                                    13,
                                 ),
                             },
                         ),
@@ -2314,16 +1470,16 @@ Ok(
                                     },
                                     SynExpr::CurrentSymbol {
                                         ident: `E`,
-                                        token_idx: TokenIdx(
-                                            71,
+                                        regional_token_idx: RegionalTokenIdx(
+                                            12,
                                         ),
                                         current_symbol_idx: 1,
                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                ident_token: IdentToken {
+                                                ident_token: IdentRegionalToken {
                                                     ident: `E`,
-                                                    token_idx: TokenIdx(
-                                                        62,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        3,
                                                     ),
                                                 },
                                             },
@@ -2338,10 +1494,10 @@ Ok(
                             principal_item_path_expr_arena: Arena {
                                 data: [
                                     PrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameToken::CrateRoot(
-                                            CrateToken {
-                                                token_idx: TokenIdx(
-                                                    64,
+                                        path_name_token: PathNameRegionalToken::CrateRoot(
+                                            CrateRegionalToken {
+                                                token_idx: RegionalTokenIdx(
+                                                    5,
                                                 ),
                                             },
                                         ),
@@ -2351,16 +1507,16 @@ Ok(
                                     },
                                     PrincipalEntityPathExpr::Subitem {
                                         parent: 1,
-                                        scope_resolution_token: ScopeResolutionToken(
-                                            TokenIdx(
-                                                65,
+                                        colon_colon_token: ColonColonRegionalToken(
+                                            RegionalTokenIdx(
+                                                6,
                                             ),
                                         ),
                                         ident_token: Ok(
-                                            IdentToken {
+                                            IdentRegionalToken {
                                                 ident: `ops`,
-                                                token_idx: TokenIdx(
-                                                    66,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    7,
                                                 ),
                                             },
                                         ),
@@ -2372,16 +1528,16 @@ Ok(
                                     },
                                     PrincipalEntityPathExpr::Subitem {
                                         parent: 2,
-                                        scope_resolution_token: ScopeResolutionToken(
-                                            TokenIdx(
-                                                67,
+                                        colon_colon_token: ColonColonRegionalToken(
+                                            RegionalTokenIdx(
+                                                8,
                                             ),
                                         ),
                                         ident_token: Ok(
-                                            IdentToken {
+                                            IdentRegionalToken {
                                                 ident: `IntIndex`,
-                                                token_idx: TokenIdx(
-                                                    68,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    9,
                                                 ),
                                             },
                                         ),
@@ -2394,11 +1550,11 @@ Ok(
                                         ),
                                     },
                                     PrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameToken::Ident(
-                                            IdentToken {
+                                        path_name_token: PathNameRegionalToken::Ident(
+                                            IdentRegionalToken {
                                                 ident: `CyclicSlice`,
-                                                token_idx: TokenIdx(
-                                                    70,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    11,
                                                 ),
                                             },
                                         ),
@@ -2437,8 +1593,8 @@ Ok(
                                     data: [
                                         CurrentSynSymbol {
                                             modifier: Const,
-                                            access_start: TokenIdx(
-                                                63,
+                                            access_start: RegionalTokenIdx(
+                                                4,
                                             ),
                                             access_end: None,
                                             variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -2447,10 +1603,10 @@ Ok(
                                                 },
                                                 annotated_variance_token: None,
                                                 template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                    ident_token: IdentToken {
+                                                    ident_token: IdentRegionalToken {
                                                         ident: `E`,
-                                                        token_idx: TokenIdx(
-                                                            62,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            3,
                                                         ),
                                                     },
                                                 },
@@ -2523,40 +1679,13 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            syn_node: TraitForTypeItemSynNode {
-                                syn_node_path: TraitForTypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath {
-                                            impl_block: TraitForTypeImplBlockPath {
-                                                module_path: `core::slice`,
-                                                trai_path: TraitPath(`core::ops::IntIndex`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `Output`,
-                                            item_kind: AssociatedType,
-                                        },
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ast_idx: 3,
-                                ident: `Output`,
-                                item_kind: AssociatedType,
-                                visibility: Scope::PubUnder(
-                                    `core::slice`,
-                                ),
-                                is_generic: false,
-                            },
-                            ast_idx: 3,
                             generics: Ok(
                                 None,
                             ),
                             eq_token: Ok(
-                                EqToken(
-                                    TokenIdx(
-                                        75,
+                                EqRegionalToken(
+                                    RegionalTokenIdx(
+                                        3,
                                     ),
                                 ),
                             ),
@@ -2607,16 +1736,16 @@ Ok(
                                                         },
                                                         SynExpr::CurrentSymbol {
                                                             ident: `E`,
-                                                            token_idx: TokenIdx(
-                                                                71,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                12,
                                                             ),
                                                             current_symbol_idx: 1,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                                    ident_token: IdentToken {
+                                                                    ident_token: IdentRegionalToken {
                                                                         ident: `E`,
-                                                                        token_idx: TokenIdx(
-                                                                            62,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            3,
                                                                         ),
                                                                     },
                                                                 },
@@ -2631,10 +1760,10 @@ Ok(
                                                 principal_item_path_expr_arena: Arena {
                                                     data: [
                                                         PrincipalEntityPathExpr::Root {
-                                                            path_name_token: PathNameToken::CrateRoot(
-                                                                CrateToken {
-                                                                    token_idx: TokenIdx(
-                                                                        64,
+                                                            path_name_token: PathNameRegionalToken::CrateRoot(
+                                                                CrateRegionalToken {
+                                                                    token_idx: RegionalTokenIdx(
+                                                                        5,
                                                                     ),
                                                                 },
                                                             ),
@@ -2644,16 +1773,16 @@ Ok(
                                                         },
                                                         PrincipalEntityPathExpr::Subitem {
                                                             parent: 1,
-                                                            scope_resolution_token: ScopeResolutionToken(
-                                                                TokenIdx(
-                                                                    65,
+                                                            colon_colon_token: ColonColonRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    6,
                                                                 ),
                                                             ),
                                                             ident_token: Ok(
-                                                                IdentToken {
+                                                                IdentRegionalToken {
                                                                     ident: `ops`,
-                                                                    token_idx: TokenIdx(
-                                                                        66,
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        7,
                                                                     ),
                                                                 },
                                                             ),
@@ -2665,16 +1794,16 @@ Ok(
                                                         },
                                                         PrincipalEntityPathExpr::Subitem {
                                                             parent: 2,
-                                                            scope_resolution_token: ScopeResolutionToken(
-                                                                TokenIdx(
-                                                                    67,
+                                                            colon_colon_token: ColonColonRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    8,
                                                                 ),
                                                             ),
                                                             ident_token: Ok(
-                                                                IdentToken {
+                                                                IdentRegionalToken {
                                                                     ident: `IntIndex`,
-                                                                    token_idx: TokenIdx(
-                                                                        68,
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        9,
                                                                     ),
                                                                 },
                                                             ),
@@ -2687,11 +1816,11 @@ Ok(
                                                             ),
                                                         },
                                                         PrincipalEntityPathExpr::Root {
-                                                            path_name_token: PathNameToken::Ident(
-                                                                IdentToken {
+                                                            path_name_token: PathNameRegionalToken::Ident(
+                                                                IdentRegionalToken {
                                                                     ident: `CyclicSlice`,
-                                                                    token_idx: TokenIdx(
-                                                                        70,
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        11,
                                                                     ),
                                                                 },
                                                             ),
@@ -2730,8 +1859,8 @@ Ok(
                                                         data: [
                                                             CurrentSynSymbol {
                                                                 modifier: Const,
-                                                                access_start: TokenIdx(
-                                                                    63,
+                                                                access_start: RegionalTokenIdx(
+                                                                    4,
                                                                 ),
                                                                 access_end: None,
                                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -2740,10 +1869,10 @@ Ok(
                                                                     },
                                                                     annotated_variance_token: None,
                                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                                        ident_token: IdentToken {
+                                                                        ident_token: IdentRegionalToken {
                                                                             ident: `E`,
-                                                                            token_idx: TokenIdx(
-                                                                                62,
+                                                                            regional_token_idx: RegionalTokenIdx(
+                                                                                3,
                                                                             ),
                                                                         },
                                                                     },
@@ -2802,8 +1931,8 @@ Ok(
                                         data: [
                                             SynExpr::InheritedSymbol {
                                                 ident: `E`,
-                                                token_idx: TokenIdx(
-                                                    76,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    4,
                                                 ),
                                                 inherited_symbol_idx: 1,
                                                 inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
@@ -2868,391 +1997,7 @@ Ok(
                                 },
                             },
                         },
-                        body: None,
-                        syn_expr_region: SynExprRegion {
-                            data: SynExprRegionData {
-                                parent: Some(
-                                    SynExprRegion {
-                                        data: SynExprRegionData {
-                                            parent: Some(
-                                                SynExprRegion {
-                                                    data: SynExprRegionData {
-                                                        parent: None,
-                                                        path: RegionPath::Decl(
-                                                            ItemSynNodePath::ImplBlock(
-                                                                ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                                                    TraitForTypeImplBlockSynNodePath {
-                                                                        path: TraitForTypeImplBlockPath {
-                                                                            module_path: `core::slice`,
-                                                                            trai_path: TraitPath(`core::ops::IntIndex`),
-                                                                            ty_sketch: TypeSketch::Path(
-                                                                                TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                            ),
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        expr_arena: Arena {
-                                                            data: [
-                                                                SynExpr::PrincipalEntityPath {
-                                                                    item_path_expr: 3,
-                                                                    opt_path: Some(
-                                                                        PrincipalEntityPath::MajorItem(
-                                                                            MajorItemPath::Trait(
-                                                                                TraitPath(`core::ops::IntIndex`),
-                                                                            ),
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                                SynExpr::PrincipalEntityPath {
-                                                                    item_path_expr: 4,
-                                                                    opt_path: Some(
-                                                                        PrincipalEntityPath::MajorItem(
-                                                                            MajorItemPath::Type(
-                                                                                TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                            ),
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                                SynExpr::CurrentSymbol {
-                                                                    ident: `E`,
-                                                                    token_idx: TokenIdx(
-                                                                        71,
-                                                                    ),
-                                                                    current_symbol_idx: 1,
-                                                                    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                                            ident_token: IdentToken {
-                                                                                ident: `E`,
-                                                                                token_idx: TokenIdx(
-                                                                                    62,
-                                                                                ),
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                },
-                                                                SynExpr::ExplicitApplication {
-                                                                    function_expr_idx: 2,
-                                                                    argument_expr_idx: 3,
-                                                                },
-                                                            ],
-                                                        },
-                                                        principal_item_path_expr_arena: Arena {
-                                                            data: [
-                                                                PrincipalEntityPathExpr::Root {
-                                                                    path_name_token: PathNameToken::CrateRoot(
-                                                                        CrateToken {
-                                                                            token_idx: TokenIdx(
-                                                                                64,
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    principal_entity_path: PrincipalEntityPath::Module(
-                                                                        `core`,
-                                                                    ),
-                                                                },
-                                                                PrincipalEntityPathExpr::Subitem {
-                                                                    parent: 1,
-                                                                    scope_resolution_token: ScopeResolutionToken(
-                                                                        TokenIdx(
-                                                                            65,
-                                                                        ),
-                                                                    ),
-                                                                    ident_token: Ok(
-                                                                        IdentToken {
-                                                                            ident: `ops`,
-                                                                            token_idx: TokenIdx(
-                                                                                66,
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    path: Ok(
-                                                                        PrincipalEntityPath::Module(
-                                                                            `core::ops`,
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                                PrincipalEntityPathExpr::Subitem {
-                                                                    parent: 2,
-                                                                    scope_resolution_token: ScopeResolutionToken(
-                                                                        TokenIdx(
-                                                                            67,
-                                                                        ),
-                                                                    ),
-                                                                    ident_token: Ok(
-                                                                        IdentToken {
-                                                                            ident: `IntIndex`,
-                                                                            token_idx: TokenIdx(
-                                                                                68,
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    path: Ok(
-                                                                        PrincipalEntityPath::MajorItem(
-                                                                            MajorItemPath::Trait(
-                                                                                TraitPath(`core::ops::IntIndex`),
-                                                                            ),
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                                PrincipalEntityPathExpr::Root {
-                                                                    path_name_token: PathNameToken::Ident(
-                                                                        IdentToken {
-                                                                            ident: `CyclicSlice`,
-                                                                            token_idx: TokenIdx(
-                                                                                70,
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                                        MajorItemPath::Type(
-                                                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ],
-                                                        },
-                                                        stmt_arena: Arena {
-                                                            data: [],
-                                                        },
-                                                        pattern_expr_region: SynPatternExprRegion {
-                                                            pattern_expr_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            pattern_expr_contracts: ArenaMap {
-                                                                data: [],
-                                                            },
-                                                            pattern_infos: [],
-                                                            pattern_symbol_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            pattern_symbol_maps: [],
-                                                            pattern_symbol_modifiers: ArenaMap {
-                                                                data: [],
-                                                            },
-                                                        },
-                                                        symbol_region: SynSymbolRegion {
-                                                            inherited_symbol_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            current_symbol_arena: Arena {
-                                                                data: [
-                                                                    CurrentSynSymbol {
-                                                                        modifier: Const,
-                                                                        access_start: TokenIdx(
-                                                                            63,
-                                                                        ),
-                                                                        access_end: None,
-                                                                        variant: CurrentSynSymbolVariant::TemplateParameter {
-                                                                            syn_attrs: TemplateParameterSynAttrs {
-                                                                                syn_attrs: [],
-                                                                            },
-                                                                            annotated_variance_token: None,
-                                                                            template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                                                ident_token: IdentToken {
-                                                                                    ident: `E`,
-                                                                                    token_idx: TokenIdx(
-                                                                                        62,
-                                                                                    ),
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                ],
-                                                            },
-                                                            allow_self_type: True,
-                                                            allow_self_value: False,
-                                                            pattern_ty_constraints: [
-                                                                (
-                                                                    TemplateTypeParameter,
-                                                                    ArenaIdxRange(
-                                                                        1..2,
-                                                                    ),
-                                                                ),
-                                                            ],
-                                                        },
-                                                        roots: [
-                                                            SynExprRoot {
-                                                                kind: Trait,
-                                                                expr_idx: 1,
-                                                            },
-                                                            SynExprRoot {
-                                                                kind: SelfType,
-                                                                expr_idx: 4,
-                                                            },
-                                                        ],
-                                                    },
-                                                },
-                                            ),
-                                            path: RegionPath::Decl(
-                                                ItemSynNodePath::AssociatedItem(
-                                                    AssociatedItemSynNodePath::TraitForTypeItem(
-                                                        TraitForTypeItemSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TraitForTypeItemPath {
-                                                                    impl_block: TraitForTypeImplBlockPath {
-                                                                        module_path: `core::slice`,
-                                                                        trai_path: TraitPath(`core::ops::IntIndex`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                    ident: `Output`,
-                                                                    item_kind: AssociatedType,
-                                                                },
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                            expr_arena: Arena {
-                                                data: [
-                                                    SynExpr::InheritedSymbol {
-                                                        ident: `E`,
-                                                        token_idx: TokenIdx(
-                                                            76,
-                                                        ),
-                                                        inherited_symbol_idx: 1,
-                                                        inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
-                                                            InheritedTemplateParameterSynSymbol::Type {
-                                                                ident: `E`,
-                                                            },
-                                                        ),
-                                                    },
-                                                ],
-                                            },
-                                            principal_item_path_expr_arena: Arena {
-                                                data: [],
-                                            },
-                                            stmt_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_expr_region: SynPatternExprRegion {
-                                                pattern_expr_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_expr_contracts: ArenaMap {
-                                                    data: [],
-                                                },
-                                                pattern_infos: [],
-                                                pattern_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_symbol_maps: [],
-                                                pattern_symbol_modifiers: ArenaMap {
-                                                    data: [],
-                                                },
-                                            },
-                                            symbol_region: SynSymbolRegion {
-                                                inherited_symbol_arena: Arena {
-                                                    data: [
-                                                        InheritedSynSymbol {
-                                                            parent_symbol_idx: Current(
-                                                                1,
-                                                            ),
-                                                            modifier: Const,
-                                                            kind: InheritedSynSymbolKind::TemplateParameter(
-                                                                InheritedTemplateParameterSynSymbol::Type {
-                                                                    ident: `E`,
-                                                                },
-                                                            ),
-                                                        },
-                                                    ],
-                                                },
-                                                current_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                allow_self_type: True,
-                                                allow_self_value: False,
-                                                pattern_ty_constraints: [],
-                                            },
-                                            roots: [
-                                                SynExprRoot {
-                                                    kind: AssociatedTypeTerm,
-                                                    expr_idx: 1,
-                                                },
-                                            ],
-                                        },
-                                    },
-                                ),
-                                path: RegionPath::Defn(
-                                    ItemSynNodePath::AssociatedItem(
-                                        AssociatedItemSynNodePath::TraitForTypeItem(
-                                            TraitForTypeItemSynNodePath {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath {
-                                                        impl_block: TraitForTypeImplBlockPath {
-                                                            module_path: `core::slice`,
-                                                            trai_path: TraitPath(`core::ops::IntIndex`),
-                                                            ty_sketch: TypeSketch::Path(
-                                                                TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                            ),
-                                                            disambiguator: 0,
-                                                        },
-                                                        ident: `Output`,
-                                                        item_kind: AssociatedType,
-                                                    },
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                expr_arena: Arena {
-                                    data: [],
-                                },
-                                principal_item_path_expr_arena: Arena {
-                                    data: [],
-                                },
-                                stmt_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_expr_region: SynPatternExprRegion {
-                                    pattern_expr_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_expr_contracts: ArenaMap {
-                                        data: [],
-                                    },
-                                    pattern_infos: [],
-                                    pattern_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_symbol_maps: [],
-                                    pattern_symbol_modifiers: ArenaMap {
-                                        data: [],
-                                    },
-                                },
-                                symbol_region: SynSymbolRegion {
-                                    inherited_symbol_arena: Arena {
-                                        data: [
-                                            InheritedSynSymbol {
-                                                parent_symbol_idx: Current(
-                                                    1,
-                                                ),
-                                                modifier: Const,
-                                                kind: InheritedSynSymbolKind::TemplateParameter(
-                                                    InheritedTemplateParameterSynSymbol::Type {
-                                                        ident: `E`,
-                                                    },
-                                                ),
-                                            },
-                                        ],
-                                    },
-                                    current_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    allow_self_type: True,
-                                    allow_self_value: False,
-                                    pattern_ty_constraints: [],
-                                },
-                                roots: [],
-                            },
-                        },
+                        body_with_syn_expr_region: None,
                     },
                 ),
             ),
@@ -3267,39 +2012,17 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    ast_idx: 15,
-                    impl_block: TypeImplBlockSynNode {
-                        syn_node_path: TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `core::slice`,
-                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                disambiguator: 0,
-                            },
-                        },
-                        ast_idx: 15,
-                        impl_token: ImplToken {
-                            token_idx: TokenIdx(
-                                77,
-                            ),
-                        },
-                        ty_expr: 57,
-                        items: TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                4..9,
-                            ),
-                        },
-                    },
-                    impl_token: ImplToken {
-                        token_idx: TokenIdx(
-                            77,
+                    impl_regional_token: ImplRegionalToken {
+                        regional_token_idx: RegionalTokenIdx(
+                            1,
                         ),
                     },
                     template_parameter_decl_list: Ok(
                         Some(
                             Generics {
-                                langle: LaOrLtToken(
-                                    TokenIdx(
-                                        78,
+                                langle: LaOrLtRegionalToken(
+                                    RegionalTokenIdx(
+                                        2,
                                     ),
                                 ),
                                 template_parameters: [
@@ -3307,10 +2030,10 @@ Ok(
                                         annotated_variance_token: None,
                                         symbol: 1,
                                         variant: TemplateParameterDeclPatternVariant::Type {
-                                            ident_token: IdentToken {
+                                            ident_token: IdentRegionalToken {
                                                 ident: `E`,
-                                                token_idx: TokenIdx(
-                                                    79,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    3,
                                                 ),
                                             },
                                             traits: None,
@@ -3321,9 +2044,9 @@ Ok(
                                 decl_list_result: Ok(
                                     (),
                                 ),
-                                rangle: RaOrGtToken(
-                                    TokenIdx(
-                                        80,
+                                rangle: RaOrGtRegionalToken(
+                                    RegionalTokenIdx(
+                                        4,
                                     ),
                                 ),
                             },
@@ -3333,10 +2056,10 @@ Ok(
                         expr: 3,
                     },
                     eol_colon: Ok(
-                        EolToken::Colon(
-                            EolColonToken {
-                                token_idx: TokenIdx(
-                                    83,
+                        EolRegionalToken::Colon(
+                            EolColonRegionalToken {
+                                regional_token_idx: RegionalTokenIdx(
+                                    7,
                                 ),
                             },
                         ),
@@ -3371,16 +2094,16 @@ Ok(
                                     },
                                     SynExpr::CurrentSymbol {
                                         ident: `E`,
-                                        token_idx: TokenIdx(
-                                            82,
+                                        regional_token_idx: RegionalTokenIdx(
+                                            6,
                                         ),
                                         current_symbol_idx: 1,
                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                ident_token: IdentToken {
+                                                ident_token: IdentRegionalToken {
                                                     ident: `E`,
-                                                    token_idx: TokenIdx(
-                                                        79,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        3,
                                                     ),
                                                 },
                                             },
@@ -3395,11 +2118,11 @@ Ok(
                             principal_item_path_expr_arena: Arena {
                                 data: [
                                     PrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameToken::Ident(
-                                            IdentToken {
+                                        path_name_token: PathNameRegionalToken::Ident(
+                                            IdentRegionalToken {
                                                 ident: `CyclicSlice`,
-                                                token_idx: TokenIdx(
-                                                    81,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    5,
                                                 ),
                                             },
                                         ),
@@ -3438,8 +2161,8 @@ Ok(
                                     data: [
                                         CurrentSynSymbol {
                                             modifier: Const,
-                                            access_start: TokenIdx(
-                                                80,
+                                            access_start: RegionalTokenIdx(
+                                                4,
                                             ),
                                             access_end: None,
                                             variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -3448,10 +2171,10 @@ Ok(
                                                 },
                                                 annotated_variance_token: None,
                                                 template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                    ident_token: IdentToken {
+                                                    ident_token: IdentRegionalToken {
                                                         ident: `E`,
-                                                        token_idx: TokenIdx(
-                                                            79,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            3,
                                                         ),
                                                     },
                                                 },
@@ -3514,54 +2237,32 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            node: TypeItemSynNode {
-                                syn_node_path: TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::slice`,
-                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `ilen`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ast_idx: 4,
-                                ident: `ilen`,
-                                item_kind: MethodFn,
-                                visibility: Scope::Pub,
-                                is_generic: false,
-                            },
-                            ast_idx: 4,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
                             ritchie_parameter_decl_list: Ok(
                                 RitchieParameters {
-                                    lpar: LparToken(
-                                        TokenIdx(
-                                            87,
+                                    lpar: LparRegionalToken(
+                                        RegionalTokenIdx(
+                                            4,
                                         ),
                                     ),
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [],
                                     commas: [],
-                                    rpar: RparToken(
-                                        TokenIdx(
-                                            88,
+                                    rpar: RparRegionalToken(
+                                        RegionalTokenIdx(
+                                            5,
                                         ),
                                     ),
                                 },
                             ),
-                            curry_token: Ok(
+                            light_arrow_token: Ok(
                                 Some(
-                                    CurryToken(
-                                        TokenIdx(
-                                            89,
+                                    LightArrowRegionalToken(
+                                        RegionalTokenIdx(
+                                            6,
                                         ),
                                     ),
                                 ),
@@ -3574,10 +2275,10 @@ Ok(
                                 ),
                             ),
                             eol_colon: Ok(
-                                EolToken::Semicolon(
-                                    EolSemicolonToken {
-                                        token_idx: TokenIdx(
-                                            91,
+                                EolRegionalToken::Semicolon(
+                                    EolSemicolonRegionalToken {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            8,
                                         ),
                                     },
                                 ),
@@ -3615,16 +2316,16 @@ Ok(
                                                         },
                                                         SynExpr::CurrentSymbol {
                                                             ident: `E`,
-                                                            token_idx: TokenIdx(
-                                                                82,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                6,
                                                             ),
                                                             current_symbol_idx: 1,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                                    ident_token: IdentToken {
+                                                                    ident_token: IdentRegionalToken {
                                                                         ident: `E`,
-                                                                        token_idx: TokenIdx(
-                                                                            79,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            3,
                                                                         ),
                                                                     },
                                                                 },
@@ -3639,11 +2340,11 @@ Ok(
                                                 principal_item_path_expr_arena: Arena {
                                                     data: [
                                                         PrincipalEntityPathExpr::Root {
-                                                            path_name_token: PathNameToken::Ident(
-                                                                IdentToken {
+                                                            path_name_token: PathNameRegionalToken::Ident(
+                                                                IdentRegionalToken {
                                                                     ident: `CyclicSlice`,
-                                                                    token_idx: TokenIdx(
-                                                                        81,
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        5,
                                                                     ),
                                                                 },
                                                             ),
@@ -3682,8 +2383,8 @@ Ok(
                                                         data: [
                                                             CurrentSynSymbol {
                                                                 modifier: Const,
-                                                                access_start: TokenIdx(
-                                                                    80,
+                                                                access_start: RegionalTokenIdx(
+                                                                    4,
                                                                 ),
                                                                 access_end: None,
                                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -3692,10 +2393,10 @@ Ok(
                                                                     },
                                                                     annotated_variance_token: None,
                                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                                        ident_token: IdentToken {
+                                                                        ident_token: IdentRegionalToken {
                                                                             ident: `E`,
-                                                                            token_idx: TokenIdx(
-                                                                                79,
+                                                                            regional_token_idx: RegionalTokenIdx(
+                                                                                3,
                                                                             ),
                                                                         },
                                                                     },
@@ -3760,11 +2461,11 @@ Ok(
                                     principal_item_path_expr_arena: Arena {
                                         data: [
                                             PrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameToken::Ident(
-                                                    IdentToken {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
                                                         ident: `i32`,
-                                                        token_idx: TokenIdx(
-                                                            90,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            7,
                                                         ),
                                                     },
                                                 ),
@@ -3827,326 +2528,7 @@ Ok(
                                 },
                             },
                         },
-                        body: None,
-                        syn_expr_region: SynExprRegion {
-                            data: SynExprRegionData {
-                                parent: Some(
-                                    SynExprRegion {
-                                        data: SynExprRegionData {
-                                            parent: Some(
-                                                SynExprRegion {
-                                                    data: SynExprRegionData {
-                                                        parent: None,
-                                                        path: RegionPath::Decl(
-                                                            ItemSynNodePath::ImplBlock(
-                                                                ImplBlockSynNodePath::TypeImplBlock(
-                                                                    TypeImplBlockSynNodePath {
-                                                                        path: TypeImplBlockPath {
-                                                                            module_path: `core::slice`,
-                                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        expr_arena: Arena {
-                                                            data: [
-                                                                SynExpr::PrincipalEntityPath {
-                                                                    item_path_expr: 1,
-                                                                    opt_path: Some(
-                                                                        PrincipalEntityPath::MajorItem(
-                                                                            MajorItemPath::Type(
-                                                                                TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                            ),
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                                SynExpr::CurrentSymbol {
-                                                                    ident: `E`,
-                                                                    token_idx: TokenIdx(
-                                                                        82,
-                                                                    ),
-                                                                    current_symbol_idx: 1,
-                                                                    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                                            ident_token: IdentToken {
-                                                                                ident: `E`,
-                                                                                token_idx: TokenIdx(
-                                                                                    79,
-                                                                                ),
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                },
-                                                                SynExpr::ExplicitApplication {
-                                                                    function_expr_idx: 1,
-                                                                    argument_expr_idx: 2,
-                                                                },
-                                                            ],
-                                                        },
-                                                        principal_item_path_expr_arena: Arena {
-                                                            data: [
-                                                                PrincipalEntityPathExpr::Root {
-                                                                    path_name_token: PathNameToken::Ident(
-                                                                        IdentToken {
-                                                                            ident: `CyclicSlice`,
-                                                                            token_idx: TokenIdx(
-                                                                                81,
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                                        MajorItemPath::Type(
-                                                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ],
-                                                        },
-                                                        stmt_arena: Arena {
-                                                            data: [],
-                                                        },
-                                                        pattern_expr_region: SynPatternExprRegion {
-                                                            pattern_expr_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            pattern_expr_contracts: ArenaMap {
-                                                                data: [],
-                                                            },
-                                                            pattern_infos: [],
-                                                            pattern_symbol_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            pattern_symbol_maps: [],
-                                                            pattern_symbol_modifiers: ArenaMap {
-                                                                data: [],
-                                                            },
-                                                        },
-                                                        symbol_region: SynSymbolRegion {
-                                                            inherited_symbol_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            current_symbol_arena: Arena {
-                                                                data: [
-                                                                    CurrentSynSymbol {
-                                                                        modifier: Const,
-                                                                        access_start: TokenIdx(
-                                                                            80,
-                                                                        ),
-                                                                        access_end: None,
-                                                                        variant: CurrentSynSymbolVariant::TemplateParameter {
-                                                                            syn_attrs: TemplateParameterSynAttrs {
-                                                                                syn_attrs: [],
-                                                                            },
-                                                                            annotated_variance_token: None,
-                                                                            template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                                                ident_token: IdentToken {
-                                                                                    ident: `E`,
-                                                                                    token_idx: TokenIdx(
-                                                                                        79,
-                                                                                    ),
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                ],
-                                                            },
-                                                            allow_self_type: True,
-                                                            allow_self_value: False,
-                                                            pattern_ty_constraints: [
-                                                                (
-                                                                    TemplateTypeParameter,
-                                                                    ArenaIdxRange(
-                                                                        1..2,
-                                                                    ),
-                                                                ),
-                                                            ],
-                                                        },
-                                                        roots: [
-                                                            SynExprRoot {
-                                                                kind: SelfType,
-                                                                expr_idx: 3,
-                                                            },
-                                                        ],
-                                                    },
-                                                },
-                                            ),
-                                            path: RegionPath::Decl(
-                                                ItemSynNodePath::AssociatedItem(
-                                                    AssociatedItemSynNodePath::TypeItem(
-                                                        TypeItemSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypeItemPath {
-                                                                    impl_block: TypeImplBlockPath {
-                                                                        module_path: `core::slice`,
-                                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                    ident: `ilen`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                            expr_arena: Arena {
-                                                data: [
-                                                    SynExpr::PrincipalEntityPath {
-                                                        item_path_expr: 1,
-                                                        opt_path: Some(
-                                                            PrincipalEntityPath::MajorItem(
-                                                                MajorItemPath::Type(
-                                                                    TypePath(`core::num::i32`, `Extern`),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ],
-                                            },
-                                            principal_item_path_expr_arena: Arena {
-                                                data: [
-                                                    PrincipalEntityPathExpr::Root {
-                                                        path_name_token: PathNameToken::Ident(
-                                                            IdentToken {
-                                                                ident: `i32`,
-                                                                token_idx: TokenIdx(
-                                                                    90,
-                                                                ),
-                                                            },
-                                                        ),
-                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                            MajorItemPath::Type(
-                                                                TypePath(`core::num::i32`, `Extern`),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ],
-                                            },
-                                            stmt_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_expr_region: SynPatternExprRegion {
-                                                pattern_expr_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_expr_contracts: ArenaMap {
-                                                    data: [],
-                                                },
-                                                pattern_infos: [],
-                                                pattern_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_symbol_maps: [],
-                                                pattern_symbol_modifiers: ArenaMap {
-                                                    data: [],
-                                                },
-                                            },
-                                            symbol_region: SynSymbolRegion {
-                                                inherited_symbol_arena: Arena {
-                                                    data: [
-                                                        InheritedSynSymbol {
-                                                            parent_symbol_idx: Current(
-                                                                1,
-                                                            ),
-                                                            modifier: Const,
-                                                            kind: InheritedSynSymbolKind::TemplateParameter(
-                                                                InheritedTemplateParameterSynSymbol::Type {
-                                                                    ident: `E`,
-                                                                },
-                                                            ),
-                                                        },
-                                                    ],
-                                                },
-                                                current_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                allow_self_type: True,
-                                                allow_self_value: True,
-                                                pattern_ty_constraints: [],
-                                            },
-                                            roots: [
-                                                SynExprRoot {
-                                                    kind: ReturnType,
-                                                    expr_idx: 1,
-                                                },
-                                            ],
-                                        },
-                                    },
-                                ),
-                                path: RegionPath::Defn(
-                                    ItemSynNodePath::AssociatedItem(
-                                        AssociatedItemSynNodePath::TypeItem(
-                                            TypeItemSynNodePath {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath {
-                                                        impl_block: TypeImplBlockPath {
-                                                            module_path: `core::slice`,
-                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                        ident: `ilen`,
-                                                        item_kind: MethodFn,
-                                                    },
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                expr_arena: Arena {
-                                    data: [],
-                                },
-                                principal_item_path_expr_arena: Arena {
-                                    data: [],
-                                },
-                                stmt_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_expr_region: SynPatternExprRegion {
-                                    pattern_expr_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_expr_contracts: ArenaMap {
-                                        data: [],
-                                    },
-                                    pattern_infos: [],
-                                    pattern_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_symbol_maps: [],
-                                    pattern_symbol_modifiers: ArenaMap {
-                                        data: [],
-                                    },
-                                },
-                                symbol_region: SynSymbolRegion {
-                                    inherited_symbol_arena: Arena {
-                                        data: [
-                                            InheritedSynSymbol {
-                                                parent_symbol_idx: Current(
-                                                    1,
-                                                ),
-                                                modifier: Const,
-                                                kind: InheritedSynSymbolKind::TemplateParameter(
-                                                    InheritedTemplateParameterSynSymbol::Type {
-                                                        ident: `E`,
-                                                    },
-                                                ),
-                                            },
-                                        ],
-                                    },
-                                    current_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    allow_self_type: True,
-                                    allow_self_value: True,
-                                    pattern_ty_constraints: [],
-                                },
-                                roots: [],
-                            },
-                        },
+                        body_with_syn_expr_region: None,
                     },
                 ),
             ),
@@ -4184,54 +2566,32 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            node: TypeItemSynNode {
-                                syn_node_path: TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::slice`,
-                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `start`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ast_idx: 5,
-                                ident: `start`,
-                                item_kind: MethodFn,
-                                visibility: Scope::Pub,
-                                is_generic: false,
-                            },
-                            ast_idx: 5,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
                             ritchie_parameter_decl_list: Ok(
                                 RitchieParameters {
-                                    lpar: LparToken(
-                                        TokenIdx(
-                                            95,
+                                    lpar: LparRegionalToken(
+                                        RegionalTokenIdx(
+                                            4,
                                         ),
                                     ),
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [],
                                     commas: [],
-                                    rpar: RparToken(
-                                        TokenIdx(
-                                            96,
+                                    rpar: RparRegionalToken(
+                                        RegionalTokenIdx(
+                                            5,
                                         ),
                                     ),
                                 },
                             ),
-                            curry_token: Ok(
+                            light_arrow_token: Ok(
                                 Some(
-                                    CurryToken(
-                                        TokenIdx(
-                                            97,
+                                    LightArrowRegionalToken(
+                                        RegionalTokenIdx(
+                                            6,
                                         ),
                                     ),
                                 ),
@@ -4244,10 +2604,10 @@ Ok(
                                 ),
                             ),
                             eol_colon: Ok(
-                                EolToken::Semicolon(
-                                    EolSemicolonToken {
-                                        token_idx: TokenIdx(
-                                            99,
+                                EolRegionalToken::Semicolon(
+                                    EolSemicolonRegionalToken {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            8,
                                         ),
                                     },
                                 ),
@@ -4285,16 +2645,16 @@ Ok(
                                                         },
                                                         SynExpr::CurrentSymbol {
                                                             ident: `E`,
-                                                            token_idx: TokenIdx(
-                                                                82,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                6,
                                                             ),
                                                             current_symbol_idx: 1,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                                    ident_token: IdentToken {
+                                                                    ident_token: IdentRegionalToken {
                                                                         ident: `E`,
-                                                                        token_idx: TokenIdx(
-                                                                            79,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            3,
                                                                         ),
                                                                     },
                                                                 },
@@ -4309,11 +2669,11 @@ Ok(
                                                 principal_item_path_expr_arena: Arena {
                                                     data: [
                                                         PrincipalEntityPathExpr::Root {
-                                                            path_name_token: PathNameToken::Ident(
-                                                                IdentToken {
+                                                            path_name_token: PathNameRegionalToken::Ident(
+                                                                IdentRegionalToken {
                                                                     ident: `CyclicSlice`,
-                                                                    token_idx: TokenIdx(
-                                                                        81,
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        5,
                                                                     ),
                                                                 },
                                                             ),
@@ -4352,8 +2712,8 @@ Ok(
                                                         data: [
                                                             CurrentSynSymbol {
                                                                 modifier: Const,
-                                                                access_start: TokenIdx(
-                                                                    80,
+                                                                access_start: RegionalTokenIdx(
+                                                                    4,
                                                                 ),
                                                                 access_end: None,
                                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -4362,10 +2722,10 @@ Ok(
                                                                     },
                                                                     annotated_variance_token: None,
                                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                                        ident_token: IdentToken {
+                                                                        ident_token: IdentRegionalToken {
                                                                             ident: `E`,
-                                                                            token_idx: TokenIdx(
-                                                                                79,
+                                                                            regional_token_idx: RegionalTokenIdx(
+                                                                                3,
                                                                             ),
                                                                         },
                                                                     },
@@ -4430,11 +2790,11 @@ Ok(
                                     principal_item_path_expr_arena: Arena {
                                         data: [
                                             PrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameToken::Ident(
-                                                    IdentToken {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
                                                         ident: `i32`,
-                                                        token_idx: TokenIdx(
-                                                            98,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            7,
                                                         ),
                                                     },
                                                 ),
@@ -4497,326 +2857,7 @@ Ok(
                                 },
                             },
                         },
-                        body: None,
-                        syn_expr_region: SynExprRegion {
-                            data: SynExprRegionData {
-                                parent: Some(
-                                    SynExprRegion {
-                                        data: SynExprRegionData {
-                                            parent: Some(
-                                                SynExprRegion {
-                                                    data: SynExprRegionData {
-                                                        parent: None,
-                                                        path: RegionPath::Decl(
-                                                            ItemSynNodePath::ImplBlock(
-                                                                ImplBlockSynNodePath::TypeImplBlock(
-                                                                    TypeImplBlockSynNodePath {
-                                                                        path: TypeImplBlockPath {
-                                                                            module_path: `core::slice`,
-                                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        expr_arena: Arena {
-                                                            data: [
-                                                                SynExpr::PrincipalEntityPath {
-                                                                    item_path_expr: 1,
-                                                                    opt_path: Some(
-                                                                        PrincipalEntityPath::MajorItem(
-                                                                            MajorItemPath::Type(
-                                                                                TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                            ),
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                                SynExpr::CurrentSymbol {
-                                                                    ident: `E`,
-                                                                    token_idx: TokenIdx(
-                                                                        82,
-                                                                    ),
-                                                                    current_symbol_idx: 1,
-                                                                    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                                            ident_token: IdentToken {
-                                                                                ident: `E`,
-                                                                                token_idx: TokenIdx(
-                                                                                    79,
-                                                                                ),
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                },
-                                                                SynExpr::ExplicitApplication {
-                                                                    function_expr_idx: 1,
-                                                                    argument_expr_idx: 2,
-                                                                },
-                                                            ],
-                                                        },
-                                                        principal_item_path_expr_arena: Arena {
-                                                            data: [
-                                                                PrincipalEntityPathExpr::Root {
-                                                                    path_name_token: PathNameToken::Ident(
-                                                                        IdentToken {
-                                                                            ident: `CyclicSlice`,
-                                                                            token_idx: TokenIdx(
-                                                                                81,
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                                        MajorItemPath::Type(
-                                                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ],
-                                                        },
-                                                        stmt_arena: Arena {
-                                                            data: [],
-                                                        },
-                                                        pattern_expr_region: SynPatternExprRegion {
-                                                            pattern_expr_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            pattern_expr_contracts: ArenaMap {
-                                                                data: [],
-                                                            },
-                                                            pattern_infos: [],
-                                                            pattern_symbol_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            pattern_symbol_maps: [],
-                                                            pattern_symbol_modifiers: ArenaMap {
-                                                                data: [],
-                                                            },
-                                                        },
-                                                        symbol_region: SynSymbolRegion {
-                                                            inherited_symbol_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            current_symbol_arena: Arena {
-                                                                data: [
-                                                                    CurrentSynSymbol {
-                                                                        modifier: Const,
-                                                                        access_start: TokenIdx(
-                                                                            80,
-                                                                        ),
-                                                                        access_end: None,
-                                                                        variant: CurrentSynSymbolVariant::TemplateParameter {
-                                                                            syn_attrs: TemplateParameterSynAttrs {
-                                                                                syn_attrs: [],
-                                                                            },
-                                                                            annotated_variance_token: None,
-                                                                            template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                                                ident_token: IdentToken {
-                                                                                    ident: `E`,
-                                                                                    token_idx: TokenIdx(
-                                                                                        79,
-                                                                                    ),
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                ],
-                                                            },
-                                                            allow_self_type: True,
-                                                            allow_self_value: False,
-                                                            pattern_ty_constraints: [
-                                                                (
-                                                                    TemplateTypeParameter,
-                                                                    ArenaIdxRange(
-                                                                        1..2,
-                                                                    ),
-                                                                ),
-                                                            ],
-                                                        },
-                                                        roots: [
-                                                            SynExprRoot {
-                                                                kind: SelfType,
-                                                                expr_idx: 3,
-                                                            },
-                                                        ],
-                                                    },
-                                                },
-                                            ),
-                                            path: RegionPath::Decl(
-                                                ItemSynNodePath::AssociatedItem(
-                                                    AssociatedItemSynNodePath::TypeItem(
-                                                        TypeItemSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypeItemPath {
-                                                                    impl_block: TypeImplBlockPath {
-                                                                        module_path: `core::slice`,
-                                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                    ident: `start`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                            expr_arena: Arena {
-                                                data: [
-                                                    SynExpr::PrincipalEntityPath {
-                                                        item_path_expr: 1,
-                                                        opt_path: Some(
-                                                            PrincipalEntityPath::MajorItem(
-                                                                MajorItemPath::Type(
-                                                                    TypePath(`core::num::i32`, `Extern`),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ],
-                                            },
-                                            principal_item_path_expr_arena: Arena {
-                                                data: [
-                                                    PrincipalEntityPathExpr::Root {
-                                                        path_name_token: PathNameToken::Ident(
-                                                            IdentToken {
-                                                                ident: `i32`,
-                                                                token_idx: TokenIdx(
-                                                                    98,
-                                                                ),
-                                                            },
-                                                        ),
-                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                            MajorItemPath::Type(
-                                                                TypePath(`core::num::i32`, `Extern`),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ],
-                                            },
-                                            stmt_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_expr_region: SynPatternExprRegion {
-                                                pattern_expr_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_expr_contracts: ArenaMap {
-                                                    data: [],
-                                                },
-                                                pattern_infos: [],
-                                                pattern_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_symbol_maps: [],
-                                                pattern_symbol_modifiers: ArenaMap {
-                                                    data: [],
-                                                },
-                                            },
-                                            symbol_region: SynSymbolRegion {
-                                                inherited_symbol_arena: Arena {
-                                                    data: [
-                                                        InheritedSynSymbol {
-                                                            parent_symbol_idx: Current(
-                                                                1,
-                                                            ),
-                                                            modifier: Const,
-                                                            kind: InheritedSynSymbolKind::TemplateParameter(
-                                                                InheritedTemplateParameterSynSymbol::Type {
-                                                                    ident: `E`,
-                                                                },
-                                                            ),
-                                                        },
-                                                    ],
-                                                },
-                                                current_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                allow_self_type: True,
-                                                allow_self_value: True,
-                                                pattern_ty_constraints: [],
-                                            },
-                                            roots: [
-                                                SynExprRoot {
-                                                    kind: ReturnType,
-                                                    expr_idx: 1,
-                                                },
-                                            ],
-                                        },
-                                    },
-                                ),
-                                path: RegionPath::Defn(
-                                    ItemSynNodePath::AssociatedItem(
-                                        AssociatedItemSynNodePath::TypeItem(
-                                            TypeItemSynNodePath {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath {
-                                                        impl_block: TypeImplBlockPath {
-                                                            module_path: `core::slice`,
-                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                        ident: `start`,
-                                                        item_kind: MethodFn,
-                                                    },
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                expr_arena: Arena {
-                                    data: [],
-                                },
-                                principal_item_path_expr_arena: Arena {
-                                    data: [],
-                                },
-                                stmt_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_expr_region: SynPatternExprRegion {
-                                    pattern_expr_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_expr_contracts: ArenaMap {
-                                        data: [],
-                                    },
-                                    pattern_infos: [],
-                                    pattern_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_symbol_maps: [],
-                                    pattern_symbol_modifiers: ArenaMap {
-                                        data: [],
-                                    },
-                                },
-                                symbol_region: SynSymbolRegion {
-                                    inherited_symbol_arena: Arena {
-                                        data: [
-                                            InheritedSynSymbol {
-                                                parent_symbol_idx: Current(
-                                                    1,
-                                                ),
-                                                modifier: Const,
-                                                kind: InheritedSynSymbolKind::TemplateParameter(
-                                                    InheritedTemplateParameterSynSymbol::Type {
-                                                        ident: `E`,
-                                                    },
-                                                ),
-                                            },
-                                        ],
-                                    },
-                                    current_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    allow_self_type: True,
-                                    allow_self_value: True,
-                                    pattern_ty_constraints: [],
-                                },
-                                roots: [],
-                            },
-                        },
+                        body_with_syn_expr_region: None,
                     },
                 ),
             ),
@@ -4854,54 +2895,32 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            node: TypeItemSynNode {
-                                syn_node_path: TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::slice`,
-                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `end`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ast_idx: 6,
-                                ident: `end`,
-                                item_kind: MethodFn,
-                                visibility: Scope::Pub,
-                                is_generic: false,
-                            },
-                            ast_idx: 6,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
                             ritchie_parameter_decl_list: Ok(
                                 RitchieParameters {
-                                    lpar: LparToken(
-                                        TokenIdx(
-                                            103,
+                                    lpar: LparRegionalToken(
+                                        RegionalTokenIdx(
+                                            4,
                                         ),
                                     ),
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [],
                                     commas: [],
-                                    rpar: RparToken(
-                                        TokenIdx(
-                                            104,
+                                    rpar: RparRegionalToken(
+                                        RegionalTokenIdx(
+                                            5,
                                         ),
                                     ),
                                 },
                             ),
-                            curry_token: Ok(
+                            light_arrow_token: Ok(
                                 Some(
-                                    CurryToken(
-                                        TokenIdx(
-                                            105,
+                                    LightArrowRegionalToken(
+                                        RegionalTokenIdx(
+                                            6,
                                         ),
                                     ),
                                 ),
@@ -4914,10 +2933,10 @@ Ok(
                                 ),
                             ),
                             eol_colon: Ok(
-                                EolToken::Semicolon(
-                                    EolSemicolonToken {
-                                        token_idx: TokenIdx(
-                                            107,
+                                EolRegionalToken::Semicolon(
+                                    EolSemicolonRegionalToken {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            8,
                                         ),
                                     },
                                 ),
@@ -4955,16 +2974,16 @@ Ok(
                                                         },
                                                         SynExpr::CurrentSymbol {
                                                             ident: `E`,
-                                                            token_idx: TokenIdx(
-                                                                82,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                6,
                                                             ),
                                                             current_symbol_idx: 1,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                                    ident_token: IdentToken {
+                                                                    ident_token: IdentRegionalToken {
                                                                         ident: `E`,
-                                                                        token_idx: TokenIdx(
-                                                                            79,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            3,
                                                                         ),
                                                                     },
                                                                 },
@@ -4979,11 +2998,11 @@ Ok(
                                                 principal_item_path_expr_arena: Arena {
                                                     data: [
                                                         PrincipalEntityPathExpr::Root {
-                                                            path_name_token: PathNameToken::Ident(
-                                                                IdentToken {
+                                                            path_name_token: PathNameRegionalToken::Ident(
+                                                                IdentRegionalToken {
                                                                     ident: `CyclicSlice`,
-                                                                    token_idx: TokenIdx(
-                                                                        81,
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        5,
                                                                     ),
                                                                 },
                                                             ),
@@ -5022,8 +3041,8 @@ Ok(
                                                         data: [
                                                             CurrentSynSymbol {
                                                                 modifier: Const,
-                                                                access_start: TokenIdx(
-                                                                    80,
+                                                                access_start: RegionalTokenIdx(
+                                                                    4,
                                                                 ),
                                                                 access_end: None,
                                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -5032,10 +3051,10 @@ Ok(
                                                                     },
                                                                     annotated_variance_token: None,
                                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                                        ident_token: IdentToken {
+                                                                        ident_token: IdentRegionalToken {
                                                                             ident: `E`,
-                                                                            token_idx: TokenIdx(
-                                                                                79,
+                                                                            regional_token_idx: RegionalTokenIdx(
+                                                                                3,
                                                                             ),
                                                                         },
                                                                     },
@@ -5100,11 +3119,11 @@ Ok(
                                     principal_item_path_expr_arena: Arena {
                                         data: [
                                             PrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameToken::Ident(
-                                                    IdentToken {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
                                                         ident: `i32`,
-                                                        token_idx: TokenIdx(
-                                                            106,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            7,
                                                         ),
                                                     },
                                                 ),
@@ -5167,326 +3186,7 @@ Ok(
                                 },
                             },
                         },
-                        body: None,
-                        syn_expr_region: SynExprRegion {
-                            data: SynExprRegionData {
-                                parent: Some(
-                                    SynExprRegion {
-                                        data: SynExprRegionData {
-                                            parent: Some(
-                                                SynExprRegion {
-                                                    data: SynExprRegionData {
-                                                        parent: None,
-                                                        path: RegionPath::Decl(
-                                                            ItemSynNodePath::ImplBlock(
-                                                                ImplBlockSynNodePath::TypeImplBlock(
-                                                                    TypeImplBlockSynNodePath {
-                                                                        path: TypeImplBlockPath {
-                                                                            module_path: `core::slice`,
-                                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        expr_arena: Arena {
-                                                            data: [
-                                                                SynExpr::PrincipalEntityPath {
-                                                                    item_path_expr: 1,
-                                                                    opt_path: Some(
-                                                                        PrincipalEntityPath::MajorItem(
-                                                                            MajorItemPath::Type(
-                                                                                TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                            ),
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                                SynExpr::CurrentSymbol {
-                                                                    ident: `E`,
-                                                                    token_idx: TokenIdx(
-                                                                        82,
-                                                                    ),
-                                                                    current_symbol_idx: 1,
-                                                                    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                                            ident_token: IdentToken {
-                                                                                ident: `E`,
-                                                                                token_idx: TokenIdx(
-                                                                                    79,
-                                                                                ),
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                },
-                                                                SynExpr::ExplicitApplication {
-                                                                    function_expr_idx: 1,
-                                                                    argument_expr_idx: 2,
-                                                                },
-                                                            ],
-                                                        },
-                                                        principal_item_path_expr_arena: Arena {
-                                                            data: [
-                                                                PrincipalEntityPathExpr::Root {
-                                                                    path_name_token: PathNameToken::Ident(
-                                                                        IdentToken {
-                                                                            ident: `CyclicSlice`,
-                                                                            token_idx: TokenIdx(
-                                                                                81,
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                                        MajorItemPath::Type(
-                                                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ],
-                                                        },
-                                                        stmt_arena: Arena {
-                                                            data: [],
-                                                        },
-                                                        pattern_expr_region: SynPatternExprRegion {
-                                                            pattern_expr_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            pattern_expr_contracts: ArenaMap {
-                                                                data: [],
-                                                            },
-                                                            pattern_infos: [],
-                                                            pattern_symbol_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            pattern_symbol_maps: [],
-                                                            pattern_symbol_modifiers: ArenaMap {
-                                                                data: [],
-                                                            },
-                                                        },
-                                                        symbol_region: SynSymbolRegion {
-                                                            inherited_symbol_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            current_symbol_arena: Arena {
-                                                                data: [
-                                                                    CurrentSynSymbol {
-                                                                        modifier: Const,
-                                                                        access_start: TokenIdx(
-                                                                            80,
-                                                                        ),
-                                                                        access_end: None,
-                                                                        variant: CurrentSynSymbolVariant::TemplateParameter {
-                                                                            syn_attrs: TemplateParameterSynAttrs {
-                                                                                syn_attrs: [],
-                                                                            },
-                                                                            annotated_variance_token: None,
-                                                                            template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                                                ident_token: IdentToken {
-                                                                                    ident: `E`,
-                                                                                    token_idx: TokenIdx(
-                                                                                        79,
-                                                                                    ),
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                ],
-                                                            },
-                                                            allow_self_type: True,
-                                                            allow_self_value: False,
-                                                            pattern_ty_constraints: [
-                                                                (
-                                                                    TemplateTypeParameter,
-                                                                    ArenaIdxRange(
-                                                                        1..2,
-                                                                    ),
-                                                                ),
-                                                            ],
-                                                        },
-                                                        roots: [
-                                                            SynExprRoot {
-                                                                kind: SelfType,
-                                                                expr_idx: 3,
-                                                            },
-                                                        ],
-                                                    },
-                                                },
-                                            ),
-                                            path: RegionPath::Decl(
-                                                ItemSynNodePath::AssociatedItem(
-                                                    AssociatedItemSynNodePath::TypeItem(
-                                                        TypeItemSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypeItemPath {
-                                                                    impl_block: TypeImplBlockPath {
-                                                                        module_path: `core::slice`,
-                                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                    ident: `end`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                            expr_arena: Arena {
-                                                data: [
-                                                    SynExpr::PrincipalEntityPath {
-                                                        item_path_expr: 1,
-                                                        opt_path: Some(
-                                                            PrincipalEntityPath::MajorItem(
-                                                                MajorItemPath::Type(
-                                                                    TypePath(`core::num::i32`, `Extern`),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ],
-                                            },
-                                            principal_item_path_expr_arena: Arena {
-                                                data: [
-                                                    PrincipalEntityPathExpr::Root {
-                                                        path_name_token: PathNameToken::Ident(
-                                                            IdentToken {
-                                                                ident: `i32`,
-                                                                token_idx: TokenIdx(
-                                                                    106,
-                                                                ),
-                                                            },
-                                                        ),
-                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                            MajorItemPath::Type(
-                                                                TypePath(`core::num::i32`, `Extern`),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ],
-                                            },
-                                            stmt_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_expr_region: SynPatternExprRegion {
-                                                pattern_expr_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_expr_contracts: ArenaMap {
-                                                    data: [],
-                                                },
-                                                pattern_infos: [],
-                                                pattern_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_symbol_maps: [],
-                                                pattern_symbol_modifiers: ArenaMap {
-                                                    data: [],
-                                                },
-                                            },
-                                            symbol_region: SynSymbolRegion {
-                                                inherited_symbol_arena: Arena {
-                                                    data: [
-                                                        InheritedSynSymbol {
-                                                            parent_symbol_idx: Current(
-                                                                1,
-                                                            ),
-                                                            modifier: Const,
-                                                            kind: InheritedSynSymbolKind::TemplateParameter(
-                                                                InheritedTemplateParameterSynSymbol::Type {
-                                                                    ident: `E`,
-                                                                },
-                                                            ),
-                                                        },
-                                                    ],
-                                                },
-                                                current_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                allow_self_type: True,
-                                                allow_self_value: True,
-                                                pattern_ty_constraints: [],
-                                            },
-                                            roots: [
-                                                SynExprRoot {
-                                                    kind: ReturnType,
-                                                    expr_idx: 1,
-                                                },
-                                            ],
-                                        },
-                                    },
-                                ),
-                                path: RegionPath::Defn(
-                                    ItemSynNodePath::AssociatedItem(
-                                        AssociatedItemSynNodePath::TypeItem(
-                                            TypeItemSynNodePath {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath {
-                                                        impl_block: TypeImplBlockPath {
-                                                            module_path: `core::slice`,
-                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                        ident: `end`,
-                                                        item_kind: MethodFn,
-                                                    },
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                expr_arena: Arena {
-                                    data: [],
-                                },
-                                principal_item_path_expr_arena: Arena {
-                                    data: [],
-                                },
-                                stmt_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_expr_region: SynPatternExprRegion {
-                                    pattern_expr_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_expr_contracts: ArenaMap {
-                                        data: [],
-                                    },
-                                    pattern_infos: [],
-                                    pattern_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_symbol_maps: [],
-                                    pattern_symbol_modifiers: ArenaMap {
-                                        data: [],
-                                    },
-                                },
-                                symbol_region: SynSymbolRegion {
-                                    inherited_symbol_arena: Arena {
-                                        data: [
-                                            InheritedSynSymbol {
-                                                parent_symbol_idx: Current(
-                                                    1,
-                                                ),
-                                                modifier: Const,
-                                                kind: InheritedSynSymbolKind::TemplateParameter(
-                                                    InheritedTemplateParameterSynSymbol::Type {
-                                                        ident: `E`,
-                                                    },
-                                                ),
-                                            },
-                                        ],
-                                    },
-                                    current_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    allow_self_type: True,
-                                    allow_self_value: True,
-                                    pattern_ty_constraints: [],
-                                },
-                                roots: [],
-                            },
-                        },
+                        body_with_syn_expr_region: None,
                     },
                 ),
             ),
@@ -5524,54 +3224,32 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            node: TypeItemSynNode {
-                                syn_node_path: TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::slice`,
-                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `first`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ast_idx: 7,
-                                ident: `first`,
-                                item_kind: MethodFn,
-                                visibility: Scope::Pub,
-                                is_generic: false,
-                            },
-                            ast_idx: 7,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
                             ritchie_parameter_decl_list: Ok(
                                 RitchieParameters {
-                                    lpar: LparToken(
-                                        TokenIdx(
-                                            111,
+                                    lpar: LparRegionalToken(
+                                        RegionalTokenIdx(
+                                            4,
                                         ),
                                     ),
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [],
                                     commas: [],
-                                    rpar: RparToken(
-                                        TokenIdx(
-                                            112,
+                                    rpar: RparRegionalToken(
+                                        RegionalTokenIdx(
+                                            5,
                                         ),
                                     ),
                                 },
                             ),
-                            curry_token: Ok(
+                            light_arrow_token: Ok(
                                 Some(
-                                    CurryToken(
-                                        TokenIdx(
-                                            113,
+                                    LightArrowRegionalToken(
+                                        RegionalTokenIdx(
+                                            6,
                                         ),
                                     ),
                                 ),
@@ -5584,10 +3262,10 @@ Ok(
                                 ),
                             ),
                             eol_colon: Ok(
-                                EolToken::Semicolon(
-                                    EolSemicolonToken {
-                                        token_idx: TokenIdx(
-                                            117,
+                                EolRegionalToken::Semicolon(
+                                    EolSemicolonRegionalToken {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            10,
                                         ),
                                     },
                                 ),
@@ -5625,16 +3303,16 @@ Ok(
                                                         },
                                                         SynExpr::CurrentSymbol {
                                                             ident: `E`,
-                                                            token_idx: TokenIdx(
-                                                                82,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                6,
                                                             ),
                                                             current_symbol_idx: 1,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                                    ident_token: IdentToken {
+                                                                    ident_token: IdentRegionalToken {
                                                                         ident: `E`,
-                                                                        token_idx: TokenIdx(
-                                                                            79,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            3,
                                                                         ),
                                                                     },
                                                                 },
@@ -5649,11 +3327,11 @@ Ok(
                                                 principal_item_path_expr_arena: Arena {
                                                     data: [
                                                         PrincipalEntityPathExpr::Root {
-                                                            path_name_token: PathNameToken::Ident(
-                                                                IdentToken {
+                                                            path_name_token: PathNameRegionalToken::Ident(
+                                                                IdentRegionalToken {
                                                                     ident: `CyclicSlice`,
-                                                                    token_idx: TokenIdx(
-                                                                        81,
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        5,
                                                                     ),
                                                                 },
                                                             ),
@@ -5692,8 +3370,8 @@ Ok(
                                                         data: [
                                                             CurrentSynSymbol {
                                                                 modifier: Const,
-                                                                access_start: TokenIdx(
-                                                                    80,
+                                                                access_start: RegionalTokenIdx(
+                                                                    4,
                                                                 ),
                                                                 access_end: None,
                                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -5702,10 +3380,10 @@ Ok(
                                                                     },
                                                                     annotated_variance_token: None,
                                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                                        ident_token: IdentToken {
+                                                                        ident_token: IdentRegionalToken {
                                                                             ident: `E`,
-                                                                            token_idx: TokenIdx(
-                                                                                79,
+                                                                            regional_token_idx: RegionalTokenIdx(
+                                                                                3,
                                                                             ),
                                                                         },
                                                                     },
@@ -5757,8 +3435,8 @@ Ok(
                                         data: [
                                             SynExpr::InheritedSymbol {
                                                 ident: `E`,
-                                                token_idx: TokenIdx(
-                                                    116,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    9,
                                                 ),
                                                 inherited_symbol_idx: 1,
                                                 inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
@@ -5769,15 +3447,15 @@ Ok(
                                             },
                                             SynExpr::Prefix {
                                                 opr: Tilde,
-                                                opr_token_idx: TokenIdx(
-                                                    115,
+                                                opr_regional_token_idx: RegionalTokenIdx(
+                                                    8,
                                                 ),
                                                 opd: 1,
                                             },
                                             SynExpr::Prefix {
                                                 opr: Option,
-                                                opr_token_idx: TokenIdx(
-                                                    114,
+                                                opr_regional_token_idx: RegionalTokenIdx(
+                                                    7,
                                                 ),
                                                 opd: 2,
                                             },
@@ -5837,326 +3515,7 @@ Ok(
                                 },
                             },
                         },
-                        body: None,
-                        syn_expr_region: SynExprRegion {
-                            data: SynExprRegionData {
-                                parent: Some(
-                                    SynExprRegion {
-                                        data: SynExprRegionData {
-                                            parent: Some(
-                                                SynExprRegion {
-                                                    data: SynExprRegionData {
-                                                        parent: None,
-                                                        path: RegionPath::Decl(
-                                                            ItemSynNodePath::ImplBlock(
-                                                                ImplBlockSynNodePath::TypeImplBlock(
-                                                                    TypeImplBlockSynNodePath {
-                                                                        path: TypeImplBlockPath {
-                                                                            module_path: `core::slice`,
-                                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        expr_arena: Arena {
-                                                            data: [
-                                                                SynExpr::PrincipalEntityPath {
-                                                                    item_path_expr: 1,
-                                                                    opt_path: Some(
-                                                                        PrincipalEntityPath::MajorItem(
-                                                                            MajorItemPath::Type(
-                                                                                TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                            ),
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                                SynExpr::CurrentSymbol {
-                                                                    ident: `E`,
-                                                                    token_idx: TokenIdx(
-                                                                        82,
-                                                                    ),
-                                                                    current_symbol_idx: 1,
-                                                                    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                                            ident_token: IdentToken {
-                                                                                ident: `E`,
-                                                                                token_idx: TokenIdx(
-                                                                                    79,
-                                                                                ),
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                },
-                                                                SynExpr::ExplicitApplication {
-                                                                    function_expr_idx: 1,
-                                                                    argument_expr_idx: 2,
-                                                                },
-                                                            ],
-                                                        },
-                                                        principal_item_path_expr_arena: Arena {
-                                                            data: [
-                                                                PrincipalEntityPathExpr::Root {
-                                                                    path_name_token: PathNameToken::Ident(
-                                                                        IdentToken {
-                                                                            ident: `CyclicSlice`,
-                                                                            token_idx: TokenIdx(
-                                                                                81,
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                                        MajorItemPath::Type(
-                                                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ],
-                                                        },
-                                                        stmt_arena: Arena {
-                                                            data: [],
-                                                        },
-                                                        pattern_expr_region: SynPatternExprRegion {
-                                                            pattern_expr_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            pattern_expr_contracts: ArenaMap {
-                                                                data: [],
-                                                            },
-                                                            pattern_infos: [],
-                                                            pattern_symbol_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            pattern_symbol_maps: [],
-                                                            pattern_symbol_modifiers: ArenaMap {
-                                                                data: [],
-                                                            },
-                                                        },
-                                                        symbol_region: SynSymbolRegion {
-                                                            inherited_symbol_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            current_symbol_arena: Arena {
-                                                                data: [
-                                                                    CurrentSynSymbol {
-                                                                        modifier: Const,
-                                                                        access_start: TokenIdx(
-                                                                            80,
-                                                                        ),
-                                                                        access_end: None,
-                                                                        variant: CurrentSynSymbolVariant::TemplateParameter {
-                                                                            syn_attrs: TemplateParameterSynAttrs {
-                                                                                syn_attrs: [],
-                                                                            },
-                                                                            annotated_variance_token: None,
-                                                                            template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                                                ident_token: IdentToken {
-                                                                                    ident: `E`,
-                                                                                    token_idx: TokenIdx(
-                                                                                        79,
-                                                                                    ),
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                ],
-                                                            },
-                                                            allow_self_type: True,
-                                                            allow_self_value: False,
-                                                            pattern_ty_constraints: [
-                                                                (
-                                                                    TemplateTypeParameter,
-                                                                    ArenaIdxRange(
-                                                                        1..2,
-                                                                    ),
-                                                                ),
-                                                            ],
-                                                        },
-                                                        roots: [
-                                                            SynExprRoot {
-                                                                kind: SelfType,
-                                                                expr_idx: 3,
-                                                            },
-                                                        ],
-                                                    },
-                                                },
-                                            ),
-                                            path: RegionPath::Decl(
-                                                ItemSynNodePath::AssociatedItem(
-                                                    AssociatedItemSynNodePath::TypeItem(
-                                                        TypeItemSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypeItemPath {
-                                                                    impl_block: TypeImplBlockPath {
-                                                                        module_path: `core::slice`,
-                                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                    ident: `first`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                            expr_arena: Arena {
-                                                data: [
-                                                    SynExpr::InheritedSymbol {
-                                                        ident: `E`,
-                                                        token_idx: TokenIdx(
-                                                            116,
-                                                        ),
-                                                        inherited_symbol_idx: 1,
-                                                        inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
-                                                            InheritedTemplateParameterSynSymbol::Type {
-                                                                ident: `E`,
-                                                            },
-                                                        ),
-                                                    },
-                                                    SynExpr::Prefix {
-                                                        opr: Tilde,
-                                                        opr_token_idx: TokenIdx(
-                                                            115,
-                                                        ),
-                                                        opd: 1,
-                                                    },
-                                                    SynExpr::Prefix {
-                                                        opr: Option,
-                                                        opr_token_idx: TokenIdx(
-                                                            114,
-                                                        ),
-                                                        opd: 2,
-                                                    },
-                                                ],
-                                            },
-                                            principal_item_path_expr_arena: Arena {
-                                                data: [],
-                                            },
-                                            stmt_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_expr_region: SynPatternExprRegion {
-                                                pattern_expr_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_expr_contracts: ArenaMap {
-                                                    data: [],
-                                                },
-                                                pattern_infos: [],
-                                                pattern_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_symbol_maps: [],
-                                                pattern_symbol_modifiers: ArenaMap {
-                                                    data: [],
-                                                },
-                                            },
-                                            symbol_region: SynSymbolRegion {
-                                                inherited_symbol_arena: Arena {
-                                                    data: [
-                                                        InheritedSynSymbol {
-                                                            parent_symbol_idx: Current(
-                                                                1,
-                                                            ),
-                                                            modifier: Const,
-                                                            kind: InheritedSynSymbolKind::TemplateParameter(
-                                                                InheritedTemplateParameterSynSymbol::Type {
-                                                                    ident: `E`,
-                                                                },
-                                                            ),
-                                                        },
-                                                    ],
-                                                },
-                                                current_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                allow_self_type: True,
-                                                allow_self_value: True,
-                                                pattern_ty_constraints: [],
-                                            },
-                                            roots: [
-                                                SynExprRoot {
-                                                    kind: ReturnType,
-                                                    expr_idx: 3,
-                                                },
-                                            ],
-                                        },
-                                    },
-                                ),
-                                path: RegionPath::Defn(
-                                    ItemSynNodePath::AssociatedItem(
-                                        AssociatedItemSynNodePath::TypeItem(
-                                            TypeItemSynNodePath {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath {
-                                                        impl_block: TypeImplBlockPath {
-                                                            module_path: `core::slice`,
-                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                        ident: `first`,
-                                                        item_kind: MethodFn,
-                                                    },
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                expr_arena: Arena {
-                                    data: [],
-                                },
-                                principal_item_path_expr_arena: Arena {
-                                    data: [],
-                                },
-                                stmt_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_expr_region: SynPatternExprRegion {
-                                    pattern_expr_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_expr_contracts: ArenaMap {
-                                        data: [],
-                                    },
-                                    pattern_infos: [],
-                                    pattern_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_symbol_maps: [],
-                                    pattern_symbol_modifiers: ArenaMap {
-                                        data: [],
-                                    },
-                                },
-                                symbol_region: SynSymbolRegion {
-                                    inherited_symbol_arena: Arena {
-                                        data: [
-                                            InheritedSynSymbol {
-                                                parent_symbol_idx: Current(
-                                                    1,
-                                                ),
-                                                modifier: Const,
-                                                kind: InheritedSynSymbolKind::TemplateParameter(
-                                                    InheritedTemplateParameterSynSymbol::Type {
-                                                        ident: `E`,
-                                                    },
-                                                ),
-                                            },
-                                        ],
-                                    },
-                                    current_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    allow_self_type: True,
-                                    allow_self_value: True,
-                                    pattern_ty_constraints: [],
-                                },
-                                roots: [],
-                            },
-                        },
+                        body_with_syn_expr_region: None,
                     },
                 ),
             ),
@@ -6194,54 +3553,32 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            node: TypeItemSynNode {
-                                syn_node_path: TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::slice`,
-                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `last`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ast_idx: 8,
-                                ident: `last`,
-                                item_kind: MethodFn,
-                                visibility: Scope::Pub,
-                                is_generic: false,
-                            },
-                            ast_idx: 8,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
                             ritchie_parameter_decl_list: Ok(
                                 RitchieParameters {
-                                    lpar: LparToken(
-                                        TokenIdx(
-                                            121,
+                                    lpar: LparRegionalToken(
+                                        RegionalTokenIdx(
+                                            4,
                                         ),
                                     ),
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [],
                                     commas: [],
-                                    rpar: RparToken(
-                                        TokenIdx(
-                                            122,
+                                    rpar: RparRegionalToken(
+                                        RegionalTokenIdx(
+                                            5,
                                         ),
                                     ),
                                 },
                             ),
-                            curry_token: Ok(
+                            light_arrow_token: Ok(
                                 Some(
-                                    CurryToken(
-                                        TokenIdx(
-                                            123,
+                                    LightArrowRegionalToken(
+                                        RegionalTokenIdx(
+                                            6,
                                         ),
                                     ),
                                 ),
@@ -6254,10 +3591,10 @@ Ok(
                                 ),
                             ),
                             eol_colon: Ok(
-                                EolToken::Semicolon(
-                                    EolSemicolonToken {
-                                        token_idx: TokenIdx(
-                                            127,
+                                EolRegionalToken::Semicolon(
+                                    EolSemicolonRegionalToken {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            10,
                                         ),
                                     },
                                 ),
@@ -6295,16 +3632,16 @@ Ok(
                                                         },
                                                         SynExpr::CurrentSymbol {
                                                             ident: `E`,
-                                                            token_idx: TokenIdx(
-                                                                82,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                6,
                                                             ),
                                                             current_symbol_idx: 1,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                                    ident_token: IdentToken {
+                                                                    ident_token: IdentRegionalToken {
                                                                         ident: `E`,
-                                                                        token_idx: TokenIdx(
-                                                                            79,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            3,
                                                                         ),
                                                                     },
                                                                 },
@@ -6319,11 +3656,11 @@ Ok(
                                                 principal_item_path_expr_arena: Arena {
                                                     data: [
                                                         PrincipalEntityPathExpr::Root {
-                                                            path_name_token: PathNameToken::Ident(
-                                                                IdentToken {
+                                                            path_name_token: PathNameRegionalToken::Ident(
+                                                                IdentRegionalToken {
                                                                     ident: `CyclicSlice`,
-                                                                    token_idx: TokenIdx(
-                                                                        81,
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        5,
                                                                     ),
                                                                 },
                                                             ),
@@ -6362,8 +3699,8 @@ Ok(
                                                         data: [
                                                             CurrentSynSymbol {
                                                                 modifier: Const,
-                                                                access_start: TokenIdx(
-                                                                    80,
+                                                                access_start: RegionalTokenIdx(
+                                                                    4,
                                                                 ),
                                                                 access_end: None,
                                                                 variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -6372,10 +3709,10 @@ Ok(
                                                                     },
                                                                     annotated_variance_token: None,
                                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                                        ident_token: IdentToken {
+                                                                        ident_token: IdentRegionalToken {
                                                                             ident: `E`,
-                                                                            token_idx: TokenIdx(
-                                                                                79,
+                                                                            regional_token_idx: RegionalTokenIdx(
+                                                                                3,
                                                                             ),
                                                                         },
                                                                     },
@@ -6427,8 +3764,8 @@ Ok(
                                         data: [
                                             SynExpr::InheritedSymbol {
                                                 ident: `E`,
-                                                token_idx: TokenIdx(
-                                                    126,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    9,
                                                 ),
                                                 inherited_symbol_idx: 1,
                                                 inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
@@ -6439,15 +3776,15 @@ Ok(
                                             },
                                             SynExpr::Prefix {
                                                 opr: Tilde,
-                                                opr_token_idx: TokenIdx(
-                                                    125,
+                                                opr_regional_token_idx: RegionalTokenIdx(
+                                                    8,
                                                 ),
                                                 opd: 1,
                                             },
                                             SynExpr::Prefix {
                                                 opr: Option,
-                                                opr_token_idx: TokenIdx(
-                                                    124,
+                                                opr_regional_token_idx: RegionalTokenIdx(
+                                                    7,
                                                 ),
                                                 opd: 2,
                                             },
@@ -6507,326 +3844,7 @@ Ok(
                                 },
                             },
                         },
-                        body: None,
-                        syn_expr_region: SynExprRegion {
-                            data: SynExprRegionData {
-                                parent: Some(
-                                    SynExprRegion {
-                                        data: SynExprRegionData {
-                                            parent: Some(
-                                                SynExprRegion {
-                                                    data: SynExprRegionData {
-                                                        parent: None,
-                                                        path: RegionPath::Decl(
-                                                            ItemSynNodePath::ImplBlock(
-                                                                ImplBlockSynNodePath::TypeImplBlock(
-                                                                    TypeImplBlockSynNodePath {
-                                                                        path: TypeImplBlockPath {
-                                                                            module_path: `core::slice`,
-                                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        expr_arena: Arena {
-                                                            data: [
-                                                                SynExpr::PrincipalEntityPath {
-                                                                    item_path_expr: 1,
-                                                                    opt_path: Some(
-                                                                        PrincipalEntityPath::MajorItem(
-                                                                            MajorItemPath::Type(
-                                                                                TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                            ),
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                                SynExpr::CurrentSymbol {
-                                                                    ident: `E`,
-                                                                    token_idx: TokenIdx(
-                                                                        82,
-                                                                    ),
-                                                                    current_symbol_idx: 1,
-                                                                    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                                            ident_token: IdentToken {
-                                                                                ident: `E`,
-                                                                                token_idx: TokenIdx(
-                                                                                    79,
-                                                                                ),
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                },
-                                                                SynExpr::ExplicitApplication {
-                                                                    function_expr_idx: 1,
-                                                                    argument_expr_idx: 2,
-                                                                },
-                                                            ],
-                                                        },
-                                                        principal_item_path_expr_arena: Arena {
-                                                            data: [
-                                                                PrincipalEntityPathExpr::Root {
-                                                                    path_name_token: PathNameToken::Ident(
-                                                                        IdentToken {
-                                                                            ident: `CyclicSlice`,
-                                                                            token_idx: TokenIdx(
-                                                                                81,
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                                        MajorItemPath::Type(
-                                                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ],
-                                                        },
-                                                        stmt_arena: Arena {
-                                                            data: [],
-                                                        },
-                                                        pattern_expr_region: SynPatternExprRegion {
-                                                            pattern_expr_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            pattern_expr_contracts: ArenaMap {
-                                                                data: [],
-                                                            },
-                                                            pattern_infos: [],
-                                                            pattern_symbol_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            pattern_symbol_maps: [],
-                                                            pattern_symbol_modifiers: ArenaMap {
-                                                                data: [],
-                                                            },
-                                                        },
-                                                        symbol_region: SynSymbolRegion {
-                                                            inherited_symbol_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            current_symbol_arena: Arena {
-                                                                data: [
-                                                                    CurrentSynSymbol {
-                                                                        modifier: Const,
-                                                                        access_start: TokenIdx(
-                                                                            80,
-                                                                        ),
-                                                                        access_end: None,
-                                                                        variant: CurrentSynSymbolVariant::TemplateParameter {
-                                                                            syn_attrs: TemplateParameterSynAttrs {
-                                                                                syn_attrs: [],
-                                                                            },
-                                                                            annotated_variance_token: None,
-                                                                            template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                                                ident_token: IdentToken {
-                                                                                    ident: `E`,
-                                                                                    token_idx: TokenIdx(
-                                                                                        79,
-                                                                                    ),
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                ],
-                                                            },
-                                                            allow_self_type: True,
-                                                            allow_self_value: False,
-                                                            pattern_ty_constraints: [
-                                                                (
-                                                                    TemplateTypeParameter,
-                                                                    ArenaIdxRange(
-                                                                        1..2,
-                                                                    ),
-                                                                ),
-                                                            ],
-                                                        },
-                                                        roots: [
-                                                            SynExprRoot {
-                                                                kind: SelfType,
-                                                                expr_idx: 3,
-                                                            },
-                                                        ],
-                                                    },
-                                                },
-                                            ),
-                                            path: RegionPath::Decl(
-                                                ItemSynNodePath::AssociatedItem(
-                                                    AssociatedItemSynNodePath::TypeItem(
-                                                        TypeItemSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypeItemPath {
-                                                                    impl_block: TypeImplBlockPath {
-                                                                        module_path: `core::slice`,
-                                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                    ident: `last`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                            expr_arena: Arena {
-                                                data: [
-                                                    SynExpr::InheritedSymbol {
-                                                        ident: `E`,
-                                                        token_idx: TokenIdx(
-                                                            126,
-                                                        ),
-                                                        inherited_symbol_idx: 1,
-                                                        inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
-                                                            InheritedTemplateParameterSynSymbol::Type {
-                                                                ident: `E`,
-                                                            },
-                                                        ),
-                                                    },
-                                                    SynExpr::Prefix {
-                                                        opr: Tilde,
-                                                        opr_token_idx: TokenIdx(
-                                                            125,
-                                                        ),
-                                                        opd: 1,
-                                                    },
-                                                    SynExpr::Prefix {
-                                                        opr: Option,
-                                                        opr_token_idx: TokenIdx(
-                                                            124,
-                                                        ),
-                                                        opd: 2,
-                                                    },
-                                                ],
-                                            },
-                                            principal_item_path_expr_arena: Arena {
-                                                data: [],
-                                            },
-                                            stmt_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_expr_region: SynPatternExprRegion {
-                                                pattern_expr_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_expr_contracts: ArenaMap {
-                                                    data: [],
-                                                },
-                                                pattern_infos: [],
-                                                pattern_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_symbol_maps: [],
-                                                pattern_symbol_modifiers: ArenaMap {
-                                                    data: [],
-                                                },
-                                            },
-                                            symbol_region: SynSymbolRegion {
-                                                inherited_symbol_arena: Arena {
-                                                    data: [
-                                                        InheritedSynSymbol {
-                                                            parent_symbol_idx: Current(
-                                                                1,
-                                                            ),
-                                                            modifier: Const,
-                                                            kind: InheritedSynSymbolKind::TemplateParameter(
-                                                                InheritedTemplateParameterSynSymbol::Type {
-                                                                    ident: `E`,
-                                                                },
-                                                            ),
-                                                        },
-                                                    ],
-                                                },
-                                                current_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                allow_self_type: True,
-                                                allow_self_value: True,
-                                                pattern_ty_constraints: [],
-                                            },
-                                            roots: [
-                                                SynExprRoot {
-                                                    kind: ReturnType,
-                                                    expr_idx: 3,
-                                                },
-                                            ],
-                                        },
-                                    },
-                                ),
-                                path: RegionPath::Defn(
-                                    ItemSynNodePath::AssociatedItem(
-                                        AssociatedItemSynNodePath::TypeItem(
-                                            TypeItemSynNodePath {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath {
-                                                        impl_block: TypeImplBlockPath {
-                                                            module_path: `core::slice`,
-                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                        ident: `last`,
-                                                        item_kind: MethodFn,
-                                                    },
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                expr_arena: Arena {
-                                    data: [],
-                                },
-                                principal_item_path_expr_arena: Arena {
-                                    data: [],
-                                },
-                                stmt_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_expr_region: SynPatternExprRegion {
-                                    pattern_expr_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_expr_contracts: ArenaMap {
-                                        data: [],
-                                    },
-                                    pattern_infos: [],
-                                    pattern_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_symbol_maps: [],
-                                    pattern_symbol_modifiers: ArenaMap {
-                                        data: [],
-                                    },
-                                },
-                                symbol_region: SynSymbolRegion {
-                                    inherited_symbol_arena: Arena {
-                                        data: [
-                                            InheritedSynSymbol {
-                                                parent_symbol_idx: Current(
-                                                    1,
-                                                ),
-                                                modifier: Const,
-                                                kind: InheritedSynSymbolKind::TemplateParameter(
-                                                    InheritedTemplateParameterSynSymbol::Type {
-                                                        ident: `E`,
-                                                    },
-                                                ),
-                                            },
-                                        ],
-                                    },
-                                    current_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    allow_self_type: True,
-                                    allow_self_value: True,
-                                    pattern_ty_constraints: [],
-                                },
-                                roots: [],
-                            },
-                        },
+                        body_with_syn_expr_region: None,
                     },
                 ),
             ),

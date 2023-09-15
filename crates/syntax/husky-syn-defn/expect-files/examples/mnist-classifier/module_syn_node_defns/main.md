@@ -11,7 +11,6 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    ast_idx: 11,
                 },
             },
         ),
@@ -26,7 +25,6 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    ast_idx: 12,
                 },
             },
         ),
@@ -41,7 +39,6 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    ast_idx: 13,
                 },
             },
         ),
@@ -56,7 +53,6 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    ast_idx: 14,
                 },
             },
         ),
@@ -71,7 +67,6 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    ast_idx: 15,
                 },
             },
         ),
@@ -86,7 +81,6 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    ast_idx: 16,
                 },
             },
         ),
@@ -101,7 +95,6 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    ast_idx: 17,
                 },
             },
         ),
@@ -122,12 +115,11 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 26,
                             colon_token: Ok(
                                 Some(
-                                    ColonToken(
-                                        TokenIdx(
-                                            62,
+                                    ColonRegionalToken(
+                                        RegionalTokenIdx(
+                                            3,
                                         ),
                                     ),
                                 ),
@@ -140,9 +132,9 @@ Ok(
                                 ),
                             ),
                             eq_token: Ok(
-                                EqToken(
-                                    TokenIdx(
-                                        65,
+                                EqRegionalToken(
+                                    RegionalTokenIdx(
+                                        6,
                                     ),
                                 ),
                             ),
@@ -193,11 +185,11 @@ Ok(
                                     principal_item_path_expr_arena: Arena {
                                         data: [
                                             PrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameToken::Ident(
-                                                    IdentToken {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
                                                         ident: `Class`,
-                                                        token_idx: TokenIdx(
-                                                            63,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            4,
                                                         ),
                                                     },
                                                 ),
@@ -208,11 +200,11 @@ Ok(
                                                 ),
                                             },
                                             PrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameToken::Ident(
-                                                    IdentToken {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
                                                         ident: `MnistLabel`,
-                                                        token_idx: TokenIdx(
-                                                            64,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            5,
                                                         ),
                                                     },
                                                 ),
@@ -263,696 +255,698 @@ Ok(
                                 },
                             },
                         },
-                        body: Some(
-                            22,
-                        ),
-                        syn_expr_region: SynExprRegion {
-                            data: SynExprRegionData {
-                                parent: Some(
-                                    SynExprRegion {
-                                        data: SynExprRegionData {
-                                            parent: None,
-                                            path: RegionPath::Decl(
-                                                ItemSynNodePath::MajorItem(
-                                                    MajorItemSynNodePath::Fugitive(
-                                                        FugitiveSynNodePath {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: FugitivePath(`mnist_classifier::main`, `Val`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
+                        body_with_syn_expr_region: Some(
+                            (
+                                22,
+                                SynExprRegion {
+                                    data: SynExprRegionData {
+                                        parent: Some(
+                                            SynExprRegion {
+                                                data: SynExprRegionData {
+                                                    parent: None,
+                                                    path: RegionPath::Decl(
+                                                        ItemSynNodePath::MajorItem(
+                                                            MajorItemSynNodePath::Fugitive(
+                                                                FugitiveSynNodePath {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: FugitivePath(`mnist_classifier::main`, `Val`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     ),
-                                                ),
-                                            ),
-                                            expr_arena: Arena {
-                                                data: [
-                                                    SynExpr::PrincipalEntityPath {
-                                                        item_path_expr: 1,
-                                                        opt_path: Some(
-                                                            PrincipalEntityPath::MajorItem(
-                                                                MajorItemPath::Type(
-                                                                    TypePath(`malamute::Class`, `Enum`),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                    SynExpr::PrincipalEntityPath {
-                                                        item_path_expr: 2,
-                                                        opt_path: Some(
-                                                            PrincipalEntityPath::MajorItem(
-                                                                MajorItemPath::Type(
-                                                                    TypePath(`mnist::MnistLabel`, `Enum`),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                    SynExpr::ExplicitApplication {
-                                                        function_expr_idx: 1,
-                                                        argument_expr_idx: 2,
-                                                    },
-                                                ],
-                                            },
-                                            principal_item_path_expr_arena: Arena {
-                                                data: [
-                                                    PrincipalEntityPathExpr::Root {
-                                                        path_name_token: PathNameToken::Ident(
-                                                            IdentToken {
-                                                                ident: `Class`,
-                                                                token_idx: TokenIdx(
-                                                                    63,
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            SynExpr::PrincipalEntityPath {
+                                                                item_path_expr: 1,
+                                                                opt_path: Some(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`malamute::Class`, `Enum`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
-                                                        ),
-                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                            MajorItemPath::Type(
-                                                                TypePath(`malamute::Class`, `Enum`),
-                                                            ),
-                                                        ),
-                                                    },
-                                                    PrincipalEntityPathExpr::Root {
-                                                        path_name_token: PathNameToken::Ident(
-                                                            IdentToken {
-                                                                ident: `MnistLabel`,
-                                                                token_idx: TokenIdx(
-                                                                    64,
+                                                            SynExpr::PrincipalEntityPath {
+                                                                item_path_expr: 2,
+                                                                opt_path: Some(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
-                                                        ),
-                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                            MajorItemPath::Type(
-                                                                TypePath(`mnist::MnistLabel`, `Enum`),
-                                                            ),
-                                                        ),
+                                                            SynExpr::ExplicitApplication {
+                                                                function_expr_idx: 1,
+                                                                argument_expr_idx: 2,
+                                                            },
+                                                        ],
                                                     },
-                                                ],
-                                            },
-                                            stmt_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_expr_region: SynPatternExprRegion {
-                                                pattern_expr_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_expr_contracts: ArenaMap {
-                                                    data: [],
-                                                },
-                                                pattern_infos: [],
-                                                pattern_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_symbol_maps: [],
-                                                pattern_symbol_modifiers: ArenaMap {
-                                                    data: [],
-                                                },
-                                            },
-                                            symbol_region: SynSymbolRegion {
-                                                inherited_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                current_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                allow_self_type: False,
-                                                allow_self_value: False,
-                                                pattern_ty_constraints: [],
-                                            },
-                                            roots: [
-                                                SynExprRoot {
-                                                    kind: ReturnType,
-                                                    expr_idx: 3,
-                                                },
-                                            ],
-                                        },
-                                    },
-                                ),
-                                path: RegionPath::Defn(
-                                    ItemSynNodePath::MajorItem(
-                                        MajorItemSynNodePath::Fugitive(
-                                            FugitiveSynNodePath {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::main`, `Val`),
-                                                    disambiguator: 0,
+                                                    principal_item_path_expr_arena: Arena {
+                                                        data: [
+                                                            PrincipalEntityPathExpr::Root {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
+                                                                        ident: `Class`,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            4,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`malamute::Class`, `Enum`),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            PrincipalEntityPathExpr::Root {
+                                                                path_name_token: PathNameRegionalToken::Ident(
+                                                                    IdentRegionalToken {
+                                                                        ident: `MnistLabel`,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            5,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: SynPatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_contracts: ArenaMap {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_modifiers: ArenaMap {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SynSymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: False,
+                                                        allow_self_value: False,
+                                                        pattern_ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        SynExprRoot {
+                                                            kind: ReturnType,
+                                                            expr_idx: 3,
+                                                        },
+                                                    ],
                                                 },
                                             },
                                         ),
-                                    ),
-                                ),
-                                expr_arena: Arena {
-                                    data: [
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 1,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                        SynExpr::Suffix {
-                                            opd: 1,
-                                            opr: UnveilOrComposeWithOption,
-                                            opr_token_idx: TokenIdx(
-                                                67,
-                                            ),
-                                        },
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 2,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                        SynExpr::Suffix {
-                                            opd: 3,
-                                            opr: UnveilOrComposeWithOption,
-                                            opr_token_idx: TokenIdx(
-                                                69,
-                                            ),
-                                        },
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 3,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                        SynExpr::Suffix {
-                                            opd: 5,
-                                            opr: UnveilOrComposeWithOption,
-                                            opr_token_idx: TokenIdx(
-                                                71,
-                                            ),
-                                        },
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 4,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                        SynExpr::Suffix {
-                                            opd: 7,
-                                            opr: UnveilOrComposeWithOption,
-                                            opr_token_idx: TokenIdx(
-                                                73,
-                                            ),
-                                        },
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 5,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                        SynExpr::Suffix {
-                                            opd: 9,
-                                            opr: UnveilOrComposeWithOption,
-                                            opr_token_idx: TokenIdx(
-                                                75,
-                                            ),
-                                        },
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 6,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                        SynExpr::Suffix {
-                                            opd: 11,
-                                            opr: UnveilOrComposeWithOption,
-                                            opr_token_idx: TokenIdx(
-                                                77,
-                                            ),
-                                        },
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 7,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                        SynExpr::Suffix {
-                                            opd: 13,
-                                            opr: UnveilOrComposeWithOption,
-                                            opr_token_idx: TokenIdx(
-                                                79,
-                                            ),
-                                        },
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 8,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                        SynExpr::Suffix {
-                                            opd: 15,
-                                            opr: UnveilOrComposeWithOption,
-                                            opr_token_idx: TokenIdx(
-                                                81,
-                                            ),
-                                        },
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 9,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                        SynExpr::Suffix {
-                                            opd: 17,
-                                            opr: UnveilOrComposeWithOption,
-                                            opr_token_idx: TokenIdx(
-                                                83,
-                                            ),
-                                        },
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 11,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`malamute::Class`, `Enum`),
-                                                        ident: `Known`,
+                                        path: RegionPath::Defn(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: FugitivePath(`mnist_classifier::main`, `Val`),
+                                                            disambiguator: 0,
+                                                        },
                                                     },
                                                 ),
                                             ),
-                                        },
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 13,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                        ident: `Four`,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        SynExpr::FunctionApplicationOrCall {
-                                            function: 19,
-                                            generic_arguments: None,
-                                            lpar_token_idx: TokenIdx(
-                                                87,
-                                            ),
-                                            items: [
-                                                SynCommaListItem {
-                                                    expr_idx: 20,
-                                                    comma_token_idx: None,
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 1,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Fugitive(
+                                                                FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                SynExpr::Suffix {
+                                                    opd: 1,
+                                                    opr: UnveilOrComposeWithOption,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        2,
+                                                    ),
+                                                },
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 2,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Fugitive(
+                                                                FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                SynExpr::Suffix {
+                                                    opd: 3,
+                                                    opr: UnveilOrComposeWithOption,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        4,
+                                                    ),
+                                                },
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 3,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Fugitive(
+                                                                FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                SynExpr::Suffix {
+                                                    opd: 5,
+                                                    opr: UnveilOrComposeWithOption,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        6,
+                                                    ),
+                                                },
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 4,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Fugitive(
+                                                                FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                SynExpr::Suffix {
+                                                    opd: 7,
+                                                    opr: UnveilOrComposeWithOption,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        8,
+                                                    ),
+                                                },
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 5,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Fugitive(
+                                                                FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                SynExpr::Suffix {
+                                                    opd: 9,
+                                                    opr: UnveilOrComposeWithOption,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        10,
+                                                    ),
+                                                },
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 6,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Fugitive(
+                                                                FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                SynExpr::Suffix {
+                                                    opd: 11,
+                                                    opr: UnveilOrComposeWithOption,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        12,
+                                                    ),
+                                                },
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 7,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Fugitive(
+                                                                FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                SynExpr::Suffix {
+                                                    opd: 13,
+                                                    opr: UnveilOrComposeWithOption,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        14,
+                                                    ),
+                                                },
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 8,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Fugitive(
+                                                                FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                SynExpr::Suffix {
+                                                    opd: 15,
+                                                    opr: UnveilOrComposeWithOption,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        16,
+                                                    ),
+                                                },
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 9,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Fugitive(
+                                                                FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                SynExpr::Suffix {
+                                                    opd: 17,
+                                                    opr: UnveilOrComposeWithOption,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        18,
+                                                    ),
+                                                },
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 11,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                parent_ty_path: TypePath(`malamute::Class`, `Enum`),
+                                                                ident: `Known`,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 13,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `Four`,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                SynExpr::FunctionApplicationOrCall {
+                                                    function: 19,
+                                                    generic_arguments: None,
+                                                    lpar_regional_token_idx: RegionalTokenIdx(
+                                                        22,
+                                                    ),
+                                                    items: [
+                                                        SynCommaListItem {
+                                                            expr_idx: 20,
+                                                            comma_regional_token_idx: None,
+                                                        },
+                                                    ],
+                                                    rpar_regional_token_idx: RegionalTokenIdx(
+                                                        26,
+                                                    ),
+                                                },
+                                                SynExpr::Block {
+                                                    stmts: ArenaIdxRange(
+                                                        1..11,
+                                                    ),
                                                 },
                                             ],
-                                            rpar_token_idx: TokenIdx(
-                                                91,
-                                            ),
                                         },
-                                        SynExpr::Block {
-                                            stmts: ArenaIdxRange(
-                                                1..11,
-                                            ),
+                                        principal_item_path_expr_arena: Arena {
+                                            data: [
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `is_one`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Fugitive(
+                                                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `is_six`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                3,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Fugitive(
+                                                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `is_zero`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                5,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Fugitive(
+                                                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `is_seven`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                7,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Fugitive(
+                                                            FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `is_eight`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                9,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Fugitive(
+                                                            FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `is_three`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                11,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Fugitive(
+                                                            FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `is_nine`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                13,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Fugitive(
+                                                            FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `is_five`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                15,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Fugitive(
+                                                            FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `is_two`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                17,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Fugitive(
+                                                            FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `Class`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                19,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`malamute::Class`, `Enum`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Subitem {
+                                                    parent: 10,
+                                                    colon_colon_token: ColonColonRegionalToken(
+                                                        RegionalTokenIdx(
+                                                            20,
+                                                        ),
+                                                    ),
+                                                    ident_token: Ok(
+                                                        IdentRegionalToken {
+                                                            ident: `Known`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                21,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    path: Ok(
+                                                        PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                parent_ty_path: TypePath(`malamute::Class`, `Enum`),
+                                                                ident: `Known`,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `MnistLabel`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                23,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Subitem {
+                                                    parent: 12,
+                                                    colon_colon_token: ColonColonRegionalToken(
+                                                        RegionalTokenIdx(
+                                                            24,
+                                                        ),
+                                                    ),
+                                                    ident_token: Ok(
+                                                        IdentRegionalToken {
+                                                            ident: `Four`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                25,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    path: Ok(
+                                                        PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `Four`,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
                                         },
-                                    ],
+                                        stmt_arena: Arena {
+                                            data: [
+                                                SynStmt::Eval {
+                                                    expr_idx: 2,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 4,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 6,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 8,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 10,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 12,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 14,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 16,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 18,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 21,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        pattern_expr_region: SynPatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_modifiers: ArenaMap {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SynSymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: False,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 2,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 4,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 6,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 8,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 10,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 12,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 14,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 16,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 18,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 21,
+                                            },
+                                            SynExprRoot {
+                                                kind: BlockExpr,
+                                                expr_idx: 22,
+                                            },
+                                        ],
+                                    },
                                 },
-                                principal_item_path_expr_arena: Arena {
-                                    data: [
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `is_one`,
-                                                    token_idx: TokenIdx(
-                                                        66,
-                                                    ),
-                                                },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
-                                                ),
-                                            ),
-                                        },
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `is_six`,
-                                                    token_idx: TokenIdx(
-                                                        68,
-                                                    ),
-                                                },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
-                                                ),
-                                            ),
-                                        },
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `is_zero`,
-                                                    token_idx: TokenIdx(
-                                                        70,
-                                                    ),
-                                                },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
-                                                ),
-                                            ),
-                                        },
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `is_seven`,
-                                                    token_idx: TokenIdx(
-                                                        72,
-                                                    ),
-                                                },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
-                                                ),
-                                            ),
-                                        },
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `is_eight`,
-                                                    token_idx: TokenIdx(
-                                                        74,
-                                                    ),
-                                                },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
-                                                ),
-                                            ),
-                                        },
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `is_three`,
-                                                    token_idx: TokenIdx(
-                                                        76,
-                                                    ),
-                                                },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
-                                                ),
-                                            ),
-                                        },
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `is_nine`,
-                                                    token_idx: TokenIdx(
-                                                        78,
-                                                    ),
-                                                },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
-                                                ),
-                                            ),
-                                        },
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `is_five`,
-                                                    token_idx: TokenIdx(
-                                                        80,
-                                                    ),
-                                                },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
-                                                ),
-                                            ),
-                                        },
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `is_two`,
-                                                    token_idx: TokenIdx(
-                                                        82,
-                                                    ),
-                                                },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
-                                                ),
-                                            ),
-                                        },
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `Class`,
-                                                    token_idx: TokenIdx(
-                                                        84,
-                                                    ),
-                                                },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`malamute::Class`, `Enum`),
-                                                ),
-                                            ),
-                                        },
-                                        PrincipalEntityPathExpr::Subitem {
-                                            parent: 10,
-                                            scope_resolution_token: ScopeResolutionToken(
-                                                TokenIdx(
-                                                    85,
-                                                ),
-                                            ),
-                                            ident_token: Ok(
-                                                IdentToken {
-                                                    ident: `Known`,
-                                                    token_idx: TokenIdx(
-                                                        86,
-                                                    ),
-                                                },
-                                            ),
-                                            path: Ok(
-                                                PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`malamute::Class`, `Enum`),
-                                                        ident: `Known`,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `MnistLabel`,
-                                                    token_idx: TokenIdx(
-                                                        88,
-                                                    ),
-                                                },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist::MnistLabel`, `Enum`),
-                                                ),
-                                            ),
-                                        },
-                                        PrincipalEntityPathExpr::Subitem {
-                                            parent: 12,
-                                            scope_resolution_token: ScopeResolutionToken(
-                                                TokenIdx(
-                                                    89,
-                                                ),
-                                            ),
-                                            ident_token: Ok(
-                                                IdentToken {
-                                                    ident: `Four`,
-                                                    token_idx: TokenIdx(
-                                                        90,
-                                                    ),
-                                                },
-                                            ),
-                                            path: Ok(
-                                                PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                        ident: `Four`,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ],
-                                },
-                                stmt_arena: Arena {
-                                    data: [
-                                        SynStmt::Eval {
-                                            expr_idx: 2,
-                                            eol_semicolon: Ok(
-                                                None,
-                                            ),
-                                        },
-                                        SynStmt::Eval {
-                                            expr_idx: 4,
-                                            eol_semicolon: Ok(
-                                                None,
-                                            ),
-                                        },
-                                        SynStmt::Eval {
-                                            expr_idx: 6,
-                                            eol_semicolon: Ok(
-                                                None,
-                                            ),
-                                        },
-                                        SynStmt::Eval {
-                                            expr_idx: 8,
-                                            eol_semicolon: Ok(
-                                                None,
-                                            ),
-                                        },
-                                        SynStmt::Eval {
-                                            expr_idx: 10,
-                                            eol_semicolon: Ok(
-                                                None,
-                                            ),
-                                        },
-                                        SynStmt::Eval {
-                                            expr_idx: 12,
-                                            eol_semicolon: Ok(
-                                                None,
-                                            ),
-                                        },
-                                        SynStmt::Eval {
-                                            expr_idx: 14,
-                                            eol_semicolon: Ok(
-                                                None,
-                                            ),
-                                        },
-                                        SynStmt::Eval {
-                                            expr_idx: 16,
-                                            eol_semicolon: Ok(
-                                                None,
-                                            ),
-                                        },
-                                        SynStmt::Eval {
-                                            expr_idx: 18,
-                                            eol_semicolon: Ok(
-                                                None,
-                                            ),
-                                        },
-                                        SynStmt::Eval {
-                                            expr_idx: 21,
-                                            eol_semicolon: Ok(
-                                                None,
-                                            ),
-                                        },
-                                    ],
-                                },
-                                pattern_expr_region: SynPatternExprRegion {
-                                    pattern_expr_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_expr_contracts: ArenaMap {
-                                        data: [],
-                                    },
-                                    pattern_infos: [],
-                                    pattern_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_symbol_maps: [],
-                                    pattern_symbol_modifiers: ArenaMap {
-                                        data: [],
-                                    },
-                                },
-                                symbol_region: SynSymbolRegion {
-                                    inherited_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    current_symbol_arena: Arena {
-                                        data: [],
-                                    },
-                                    allow_self_type: False,
-                                    allow_self_value: False,
-                                    pattern_ty_constraints: [],
-                                },
-                                roots: [
-                                    SynExprRoot {
-                                        kind: EvalExpr,
-                                        expr_idx: 2,
-                                    },
-                                    SynExprRoot {
-                                        kind: EvalExpr,
-                                        expr_idx: 4,
-                                    },
-                                    SynExprRoot {
-                                        kind: EvalExpr,
-                                        expr_idx: 6,
-                                    },
-                                    SynExprRoot {
-                                        kind: EvalExpr,
-                                        expr_idx: 8,
-                                    },
-                                    SynExprRoot {
-                                        kind: EvalExpr,
-                                        expr_idx: 10,
-                                    },
-                                    SynExprRoot {
-                                        kind: EvalExpr,
-                                        expr_idx: 12,
-                                    },
-                                    SynExprRoot {
-                                        kind: EvalExpr,
-                                        expr_idx: 14,
-                                    },
-                                    SynExprRoot {
-                                        kind: EvalExpr,
-                                        expr_idx: 16,
-                                    },
-                                    SynExprRoot {
-                                        kind: EvalExpr,
-                                        expr_idx: 18,
-                                    },
-                                    SynExprRoot {
-                                        kind: EvalExpr,
-                                        expr_idx: 21,
-                                    },
-                                    SynExprRoot {
-                                        kind: BlockExpr,
-                                        expr_idx: 22,
-                                    },
-                                ],
-                            },
-                        },
+                            ),
+                        ),
                     },
                 ),
             ),

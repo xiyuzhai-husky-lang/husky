@@ -201,14 +201,14 @@ define_specific_punctuation_regional_token!(
     LightArrowRegionalToken,
     LIGHT_ARROW,
     light_arrow_regional_token_works,
-    "~"
+    "->"
 );
 
 define_specific_punctuation_regional_token!(
     HeavyArrowRegionalToken,
     HEAVY_ARROW,
     heavy_arrow_regional_token_works,
-    "->"
+    "=>"
 );
 
 define_specific_punctuation_regional_token!(

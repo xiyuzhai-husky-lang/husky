@@ -6,7 +6,6 @@ Ok(
                     path: TraitPath(`core::marker::Copy`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::marker::Copy`),
-                        ast_idx: 2,
                         template_parameters: [],
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
@@ -72,7 +71,6 @@ Ok(
                     path: TraitPath(`core::marker::Sized`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::marker::Sized`),
-                        ast_idx: 3,
                         template_parameters: [],
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {

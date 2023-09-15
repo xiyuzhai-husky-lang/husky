@@ -23,7 +23,6 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 11,
                     },
                 ),
             ),
@@ -48,7 +47,6 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 12,
                     },
                 ),
             ),
@@ -73,7 +71,6 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 13,
                     },
                 ),
             ),
@@ -98,7 +95,6 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 14,
                     },
                 ),
             ),
@@ -123,7 +119,6 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 15,
                     },
                 ),
             ),
@@ -148,7 +143,6 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 16,
                     },
                 ),
             ),
@@ -173,7 +167,6 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 17,
                     },
                 ),
             ),
@@ -198,12 +191,11 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 26,
                                 colon_token: Ok(
                                     Some(
-                                        ColonToken(
-                                            TokenIdx(
-                                                62,
+                                        ColonRegionalToken(
+                                            RegionalTokenIdx(
+                                                3,
                                             ),
                                         ),
                                     ),
@@ -216,9 +208,9 @@ Ok(
                                     ),
                                 ),
                                 eq_token: Ok(
-                                    EqToken(
-                                        TokenIdx(
-                                            65,
+                                    EqRegionalToken(
+                                        RegionalTokenIdx(
+                                            6,
                                         ),
                                     ),
                                 ),
@@ -269,11 +261,11 @@ Ok(
                                         principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `Class`,
-                                                            token_idx: TokenIdx(
-                                                                63,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                4,
                                                             ),
                                                         },
                                                     ),
@@ -284,11 +276,11 @@ Ok(
                                                     ),
                                                 },
                                                 PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
                                                             ident: `MnistLabel`,
-                                                            token_idx: TokenIdx(
-                                                                64,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                5,
                                                             ),
                                                         },
                                                     ),
