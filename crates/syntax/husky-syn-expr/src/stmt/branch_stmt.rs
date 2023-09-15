@@ -6,7 +6,7 @@ pub struct SynIfBranch {
     pub if_token: IfRegionalToken,
     pub condition: SynExprResult<SynExprIdx>,
     pub eol_colon: SynExprResult<EolRegionalToken>,
-    pub stmts: SynExprResult<SynStmtIdxRange>,
+    pub stmts: SynStmtIdxRange,
 }
 
 impl SynIfBranch {
@@ -18,8 +18,8 @@ impl SynIfBranch {
         self.eol_colon.as_ref().copied()
     }
 
-    pub fn stmts(&self) -> Result<SynStmtIdxRange, &SynExprError> {
-        self.stmts.as_ref().copied()
+    pub fn stmts(&self) -> SynStmtIdxRange {
+        self.stmts
     }
 }
 
@@ -28,7 +28,7 @@ pub struct SynElifBranch {
     pub elif_token: ElifRegionalToken,
     pub condition: SynExprResult<SynExprIdx>,
     pub eol_colon: SynExprResult<EolRegionalToken>,
-    pub stmts: SynExprResult<SynStmtIdxRange>,
+    pub stmts: SynStmtIdxRange,
 }
 
 impl SynElifBranch {
@@ -40,8 +40,8 @@ impl SynElifBranch {
         self.eol_colon.as_ref().copied()
     }
 
-    pub fn stmts(&self) -> Result<SynStmtIdxRange, &SynExprError> {
-        self.stmts.as_ref().copied()
+    pub fn stmts(&self) -> SynStmtIdxRange {
+        self.stmts
     }
 }
 
@@ -49,12 +49,12 @@ impl SynElifBranch {
 pub struct SynElseBranch {
     pub else_token: ElseRegionalToken,
     pub eol_colon: SynExprResult<EolRegionalToken>,
-    pub stmts: SynExprResult<SynStmtIdxRange>,
+    pub stmts: SynStmtIdxRange,
 }
 
 impl SynElseBranch {
-    pub fn stmts(&self) -> Result<SynStmtIdxRange, &SynExprError> {
-        self.stmts.as_ref().copied()
+    pub fn stmts(&self) -> SynStmtIdxRange {
+        self.stmts
     }
 }
 
@@ -75,10 +75,7 @@ impl<'a> SynStmtContext<'a> {
                         OriginalSynExprError::ExpectedCondition,
                     ),
                     eol_colon: parser.try_parse_expected(OriginalSynExprError::ExpectedEolColon),
-                    stmts: self.parse_stmts_expected(
-                        body.expect("should be checked in `husky_ast`"),
-                        token_group_idx,
-                    ),
+                    stmts: self.parse_stmts(body.expect("should be checked in `husky_ast`")),
                 }
             }
             _ => unreachable!(),
@@ -111,7 +108,7 @@ impl<'a> SynStmtContext<'a> {
                         OriginalSynExprError::ExpectedCondition,
                     ),
                     eol_colon: parser.try_parse_expected(OriginalSynExprError::ExpectedEolColon),
-                    stmts: self.parse_stmts_expected(body, token_group_idx),
+                    stmts: self.parse_stmts(body),
                 }
             }
             _ => unreachable!(),
@@ -131,10 +128,7 @@ impl<'a> SynStmtContext<'a> {
                 Some(SynElseBranch {
                     else_token: parser.try_parse_option().unwrap().unwrap(),
                     eol_colon: parser.try_parse_expected(OriginalSynExprError::ExpectedEolColon),
-                    stmts: self.parse_stmts_expected(
-                        body.expect("should be checked in `husky_ast`"),
-                        token_group_idx,
-                    ),
+                    stmts: self.parse_stmts(body.expect("should be checked in `husky_ast`")),
                 })
             }
             _ => unreachable!(),

@@ -2,10 +2,10 @@ use crate::*;
 
 /// equal to the value of TokenIdx::index on the starting token
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct TokenRegionBase(usize);
+pub struct RegionalTokenIdxBase(usize);
 
-impl TokenRegionBase {
-    pub fn new(token_group_base: TokenGroupStart) -> Self {
+impl RegionalTokenIdxBase {
+    pub fn new(token_group_base: TokenGroupTokenIdxBase) -> Self {
         Self(token_group_base.token_idx().index())
     }
 

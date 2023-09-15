@@ -15,7 +15,7 @@ pub use self::token_idx::*;
 use crate::tests::*;
 use husky_coword::Ident;
 use husky_opr::Bracket;
-use husky_token::TokenGroupStart;
+use husky_token::TokenGroupTokenIdxBase;
 use husky_token::*;
 use husky_token_data::{db::TokenDataDb, *};
 use parsec::{HasStreamState, StreamParser, TryParseOptionFromStream};
@@ -23,7 +23,40 @@ use std::num::NonZeroU32;
 use thiserror::Error;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct RegionalTokenGroupIdx {}
+pub struct RegionalTokenGroupIdxBase(u32);
+
+impl RegionalTokenGroupIdxBase {
+    fn index(self) -> usize {
+        self.0 as usize
+    }
+
+    fn from_index(index: usize) -> Self {
+        debug_assert!(index <= u32::MAX as usize);
+        Self(index as u32)
+    }
+
+    pub fn from_token_group_idx(token_group_idx: TokenGroupIdx) -> Self {
+        Self::from_index(token_group_idx.index())
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct RegionalTokenGroupIdx(NonZeroU32);
+
+impl RegionalTokenGroupIdx {
+    pub fn new(token_group_idx: TokenGroupIdx, base: RegionalTokenGroupIdxBase) -> Self {
+        Self::from_index(token_group_idx.index() - base.index())
+    }
+
+    fn index(self) -> usize {
+        (self.0.get() - 1) as usize
+    }
+
+    fn from_index(index: usize) -> Self {
+        debug_assert!(index <= u32::MAX as usize);
+        Self(unsafe { NonZeroU32::new_unchecked(index as u32 + 1) })
+    }
+}
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct RegionalTokenStreamState {
@@ -34,12 +67,12 @@ pub struct RegionalTokenStreamState {
 impl RegionalTokenStreamState {
     pub fn from_token_stream_state(
         token_stream_state: TokenStreamState,
-        token_region_base: TokenRegionBase,
+        regional_token_idx_base: RegionalTokenIdxBase,
     ) -> Self {
         Self {
             next_regional_token_idx: RegionalTokenIdx::from_token_idx(
                 token_stream_state.next_token_idx(),
-                token_region_base,
+                regional_token_idx_base,
             ),
             drained: token_stream_state.drained(),
         }
@@ -53,7 +86,7 @@ impl RegionalTokenStreamState {
         self.drained
     }
 
-    pub fn token_stream_state(self, base: TokenRegionBase) -> TokenStreamState {
+    pub fn token_stream_state(self, base: RegionalTokenIdxBase) -> TokenStreamState {
         todo!()
     }
 }

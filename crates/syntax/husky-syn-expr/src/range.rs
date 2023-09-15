@@ -438,24 +438,7 @@ impl<'a> SynExprRangeCalculator<'a> {
                 ..
             } => {
                 let start = for_token.regional_token_idx();
-                let end = if let Ok(block) = block {
-                    self.calc_block_range(*block).end()
-                } else if let Ok(eol_colon) = eol_colon {
-                    RegionalTokenIdxRangeEnd::new_after(eol_colon.regional_token_idx())
-                } else {
-                    match particulars.range {
-                        Ok(ref range) => {
-                            if let Some(bound_expr) = range.final_boundary.bound_expr {
-                                self[bound_expr].end()
-                            } else {
-                                RegionalTokenIdxRangeEnd::new_after(
-                                    particulars.for_between_loop_var_regional_token_idx,
-                                )
-                            }
-                        }
-                        Err(_) => todo!(),
-                    }
-                };
+                let end = self.calc_block_range(*block).end();
                 RegionalTokenIdxRange::new(start, end)
             }
             SynStmt::ForIn {
@@ -471,14 +454,7 @@ impl<'a> SynExprRangeCalculator<'a> {
                 ..
             } => {
                 let start = forext_token.regional_token_idx();
-                let end = if let Ok(block) = block {
-                    self.calc_block_range(*block).end()
-                } else if let Ok(eol_colon) = eol_colon {
-                    RegionalTokenIdxRangeEnd::new_after(eol_colon.regional_token_idx())
-                } else {
-                    /* todo: particulars */
-                    RegionalTokenIdxRangeEnd::new_after(start)
-                };
+                let end = self.calc_block_range(*block).end();
                 RegionalTokenIdxRange::new(start, end)
             }
             SynStmt::While {
@@ -489,15 +465,7 @@ impl<'a> SynExprRangeCalculator<'a> {
                 ..
             } => {
                 let start = while_token.regional_token_idx();
-                let end = if let Ok(block) = block {
-                    self.calc_block_range(*block).end()
-                } else if let Ok(eol_colon) = eol_colon {
-                    RegionalTokenIdxRangeEnd::new_after(eol_colon.regional_token_idx())
-                } else if let Ok(condition) = condition {
-                    self[condition].end()
-                } else {
-                    RegionalTokenIdxRangeEnd::new_after(start)
-                };
+                let end = self.calc_block_range(*block).end();
                 RegionalTokenIdxRange::new(start, end)
             }
             SynStmt::DoWhile {
@@ -508,15 +476,7 @@ impl<'a> SynExprRangeCalculator<'a> {
                 ..
             } => {
                 let start = do_token.regional_token_idx();
-                let end = if let Ok(block) = block {
-                    self.calc_block_range(*block).end()
-                } else if let Ok(eol_colon) = eol_colon {
-                    RegionalTokenIdxRangeEnd::new_after(eol_colon.regional_token_idx())
-                } else if let Ok(condition) = condition {
-                    self[condition].end()
-                } else {
-                    RegionalTokenIdxRangeEnd::new_after(start)
-                };
+                let end = self.calc_block_range(*block).end();
                 RegionalTokenIdxRange::new(start, end)
             }
             SynStmt::IfElse {
@@ -526,39 +486,22 @@ impl<'a> SynExprRangeCalculator<'a> {
             } => {
                 let start = if_branch.if_token.regional_token_idx();
                 // it's important that every branch is computed
-                let if_branch_end: RegionalTokenIdxRangeEnd = if let Ok(block) = if_branch.stmts() {
-                    self.calc_block_range(block).end()
-                } else if let Ok(eol_colon_token) = if_branch.eol_colon_token() {
-                    RegionalTokenIdxRangeEnd::new_after(eol_colon_token.regional_token_idx())
-                } else if let Ok(condition) = if_branch.condition {
-                    self[condition].end()
-                } else {
-                    RegionalTokenIdxRangeEnd::new_after(if_branch.if_token.regional_token_idx())
-                };
+                let if_branch_end: RegionalTokenIdxRangeEnd =
+                    self.calc_block_range(if_branch.stmts()).end();
                 let mut elif_branch_rev_iter = elif_branches.iter().rev();
                 let elif_branches_end: Option<RegionalTokenIdxRangeEnd> = {
                     if let Some(last_elif_branch) = elif_branch_rev_iter.next() {
-                        if let Ok(block) = last_elif_branch.stmts() {
-                            Some(self.calc_block_range(block).end())
-                        } else {
-                            None
-                        }
+                        Some(self.calc_block_range(last_elif_branch.stmts()).end())
                     } else {
                         None
                     }
                 };
                 for elif_branch in elif_branch_rev_iter {
-                    if let Ok(block) = elif_branch.stmts() {
-                        self.calc_block_range(block);
-                    }
+                    self.calc_block_range(elif_branch.stmts());
                 }
                 let else_block_end: Option<RegionalTokenIdxRangeEnd> =
                     if let Some(else_branch) = else_branch {
-                        if let Ok(block) = else_branch.stmts() {
-                            Some(self.calc_block_range(block).end())
-                        } else {
-                            None
-                        }
+                        Some(self.calc_block_range(else_branch.stmts()).end())
                     } else {
                         None
                     };

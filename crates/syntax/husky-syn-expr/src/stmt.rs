@@ -48,32 +48,32 @@ pub enum SynStmt {
         particulars: SynForBetweenParticulars,
         frame_var_symbol_idx: CurrentSynSymbolIdx,
         eol_colon: SynExprResult<EolRegionalToken>,
-        block: SynExprResult<SynStmtIdxRange>,
+        block: SynStmtIdxRange,
     },
     ForIn {
         for_token: StmtForRegionalToken,
         condition: SynExprResult<SynExprIdx>,
         eol_colon: SynExprResult<EolRegionalToken>,
-        block: SynExprResult<SynStmtIdxRange>,
+        block: SynStmtIdxRange,
     },
     ForExt {
         forext_token: ForextRegionalToken,
         particulars: SynForextParticulars,
         eol_colon: SynExprResult<EolRegionalToken>,
-        block: SynExprResult<SynStmtIdxRange>,
+        block: SynStmtIdxRange,
     },
     While {
         while_token: WhileRegionalToken,
         condition: SynExprResult<SynExprIdx>,
         eol_colon: SynExprResult<EolRegionalToken>,
-        block: SynExprResult<SynStmtIdxRange>,
+        block: SynStmtIdxRange,
     },
     DoWhile {
         do_token: DoRegionalToken,
         while_token: WhileRegionalToken,
         condition: SynExprResult<SynExprIdx>,
         eol_colon: SynExprResult<EolRegionalToken>,
-        block: SynExprResult<SynStmtIdxRange>,
+        block: SynStmtIdxRange,
     },
     IfElse {
         if_branch: SynIfBranch,
@@ -86,33 +86,17 @@ pub enum SynStmt {
 }
 
 impl<'a> SynStmtContext<'a> {
-    pub fn parse_stmts_expected(
-        &mut self,
-        body: DefnAstIdxRange,
-        token_group_idx: RegionalTokenGroupIdx,
-    ) -> SynExprResult<SynStmtIdxRange> {
-        match self.parse_stmts(body) {
-            Some(stmt_idx_range) => Ok(stmt_idx_range),
-            None => Err(OriginalSynExprError::ExpectedBlock(token_group_idx).into()),
-        }
-    }
-
-    pub(crate) fn parse_stmts(&mut self, body: DefnAstIdxRange) -> Option<SynStmtIdxRange> {
+    pub(crate) fn parse_stmts(&mut self, body: DefnAstIdxRange) -> SynStmtIdxRange {
         let block_end = self.fugitive_body_end(body);
-        if body.len() == 0 {
-            return None;
-        }
         let stmts = body
             .into_iter()
             .map(|ast_idx| self.parse_stmt(ast_idx, block_end))
             .collect();
-        Some(self.alloc_stmts(stmts))
+        self.alloc_stmts(stmts)
     }
 
     pub fn parse_block_expr(&mut self, body: DefnAstIdxRange) -> SynExprIdx {
-        let stmts = self
-            .parse_stmts(body)
-            .expect("husky-ast should guarantee that this not empty");
+        let stmts = self.parse_stmts(body);
         let expr = self.alloc_expr(SynExpr::Block { stmts });
         self.add_expr_root(ExprRootKind::BlockExpr, expr);
         expr
@@ -236,10 +220,7 @@ impl<'a> SynStmtContext<'a> {
                         OriginalSynExprError::ExpectedCondition,
                     ),
                     eol_colon: parser.try_parse_expected(OriginalSynExprError::ExpectedEolColon),
-                    block: self.parse_stmts_expected(
-                        body.expect("should be checked in `husky_ast`"),
-                        token_group_idx,
-                    ),
+                    block: self.parse_stmts(body.expect("should be checked in `husky_ast`")),
                 },
                 BasicStmtKeywordRegionalToken::Do(do_token) => {
                     match parser.try_parse_option::<WhileRegionalToken>() {
@@ -252,10 +233,8 @@ impl<'a> SynStmtContext<'a> {
                             ),
                             eol_colon: parser
                                 .try_parse_expected(OriginalSynExprError::ExpectedEolColon),
-                            block: self.parse_stmts_expected(
-                                body.expect("should be checked in `husky_ast`"),
-                                token_group_idx,
-                            ),
+                            block: self
+                                .parse_stmts(body.expect("should be checked in `husky_ast`")),
                         },
                         Ok(None) => todo!(),
                         Err(_) => todo!(),

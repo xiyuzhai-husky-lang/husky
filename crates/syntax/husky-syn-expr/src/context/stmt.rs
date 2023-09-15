@@ -43,7 +43,6 @@ impl<'a> SynStmtContext<'a> {
             allow_self_value,
         );
         use salsa::DebugWithDb;
-        p!(syn_node_path.into().debug(db));
         Some(Self {
             expr_context,
             defn_tokra_region_data: syn_node_path.syn_defn_tokra_region(db)?.data(db),
@@ -61,9 +60,9 @@ impl<'a> SynStmtContext<'a> {
         SynExprParser::new(self, None, token_stream)
     }
 
-    pub(crate) fn parse_root_body(&mut self) -> Option<SynStmtIdxRange> {
+    pub(crate) fn parse_root_body(&mut self) -> SynStmtIdxRange {
         let body = self.defn_tokra_region_data.root_body();
-        todo!()
+        self.parse_stmts(body)
     }
 
     pub fn finish(self) -> SynExprRegion {

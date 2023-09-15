@@ -4,13 +4,13 @@ use husky_token::{TokenGroupIdx, TokenSheetData};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct DeclTokraRegionSourceMap {
-    token_region_base: TokenRegionBase,
+    regional_token_idx_base: RegionalTokenIdxBase,
     ast_idx: AstIdx,
 }
 
 impl DeclTokraRegionSourceMap {
-    pub fn token_region_base(&self) -> TokenRegionBase {
-        self.token_region_base
+    pub fn regional_token_idx_base(&self) -> RegionalTokenIdxBase {
+        self.regional_token_idx_base
     }
 
     pub fn ast_idx(&self) -> ArenaIdx<Ast> {
@@ -105,15 +105,18 @@ fn build_decl_tokra_region(
         _ => unreachable!(),
     };
     let tokens = token_sheet_data[token_group_idx].to_vec();
-    let token_region_base =
-        TokenRegionBase::new(token_sheet_data.token_group_base(token_group_idx));
+    let regional_token_idx_base =
+        RegionalTokenIdxBase::new(token_sheet_data.token_group_base(token_group_idx));
     let saved_regional_stream_state = saved_regional_stream_state.map(|token_stream_state| {
-        RegionalTokenStreamState::from_token_stream_state(token_stream_state, token_region_base)
+        RegionalTokenStreamState::from_token_stream_state(
+            token_stream_state,
+            regional_token_idx_base,
+        )
     });
     let decl_tokra_region =
         DeclTokraRegion::new_inner(db, tokens, saved_regional_stream_state, ast);
     let decl_tokra_region_source_map = DeclTokraRegionSourceMap {
-        token_region_base,
+        regional_token_idx_base,
         ast_idx,
     };
     (decl_tokra_region, decl_tokra_region_source_map)
