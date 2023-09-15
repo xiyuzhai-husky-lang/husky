@@ -158,6 +158,8 @@ pub struct EntitySynTreeJar(
     crate::helpers::trai_side_path_leading_trai_for_ty_impl_block_paths_map,
     crate::helpers::tokra_region::SnippetTokraRegion,
     crate::helpers::tokra_region::DeclTokraRegion,
+    crate::helpers::tokra_region::submodule_decl_tokra_region_with_source_map,
+    crate::helpers::tokra_region::submodule_decl_tokra_region,
     crate::helpers::tokra_region::trai_decl_tokra_region_with_source_map,
     crate::helpers::tokra_region::trai_decl_tokra_region,
     crate::helpers::tokra_region::ty_decl_tokra_region_with_source_map,

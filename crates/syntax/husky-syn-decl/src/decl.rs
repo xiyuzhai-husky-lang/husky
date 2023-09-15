@@ -132,11 +132,13 @@ impl HasSynNodeDecl for ItemSynNodePath {
     fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
         match self {
             ItemSynNodePath::MajorItem(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
-            ItemSynNodePath::TypeVariant(_) => todo!(),
-            ItemSynNodePath::ImplBlock(_) => todo!(),
-            ItemSynNodePath::AssociatedItem(_) => todo!(),
+            ItemSynNodePath::TypeVariant(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
+            ItemSynNodePath::ImplBlock(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
+            ItemSynNodePath::AssociatedItem(syn_node_path) => {
+                syn_node_path.syn_node_decl(db).into()
+            }
             ItemSynNodePath::Submodule(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
-            ItemSynNodePath::Decr(_) => todo!(),
+            ItemSynNodePath::Decr(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
         }
     }
 }

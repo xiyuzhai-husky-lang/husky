@@ -1,11 +1,14 @@
 use crate::*;
 use husky_ast::{Ast, AstSheet};
-use husky_regional_token::RegionalTokenIdx;
+use husky_regional_token::{RegionalTokenIdx, RegionalTokenIdxBase};
 use husky_syn_decl::HasSynNodeDecl;
 use husky_syn_defn::*;
 
 use husky_entity_syn_tree::{
-    helpers::{paths::module_item_syn_node_paths, tokra_region::HasDeclTokraRegion},
+    helpers::{
+        paths::module_item_syn_node_paths,
+        tokra_region::{HasDeclTokraRegion, HasSynDefnTokraRegion},
+    },
     ParentUseExpr,
 };
 use husky_entity_taxonomy::EntityKind;
@@ -131,16 +134,7 @@ impl<'a> TokenInfoEngine<'a> {
     }
 
     fn visit_expr_region(&mut self, syn_expr_region: SynExprRegion) {
-        DeclTokenInfoEngine {
-            db: self.db,
-            token_sheet_data: self.token_sheet_data,
-            ast_sheet: self.ast_sheet,
-            sheet: &mut self.sheet,
-            expr_region_data: syn_expr_region.data(self.db),
-            expr_ty_region: self.db.expr_ty_region(syn_expr_region),
-            syn_expr_region: syn_expr_region.into(),
-        }
-        .visit_all()
+        DeclTokenInfoEngine::new(self, syn_expr_region).visit_all()
     }
 
     fn visit_module_item_node(&mut self, defn: MajorItemSynNodeDefn) {
@@ -250,19 +244,42 @@ impl<'a> TokenInfoEngine<'a> {
     }
 }
 
-struct DeclTokenInfoEngine<'a> {
+struct DeclTokenInfoEngine<'a, 'b> {
     db: &'a dyn TokenInfoDb,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     expr_region_data: &'a SynExprRegionData,
     expr_ty_region: &'a ExprTypeRegion,
-    sheet: &'a mut TokenInfoSheet,
+    sheet: &'b mut TokenInfoSheet,
     syn_expr_region: ExprRegionLeash,
+    regional_token_idx_base: RegionalTokenIdxBase,
 }
 
-impl<'a> DeclTokenInfoEngine<'a> {
+impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
+    fn new(
+        engine: &'b mut TokenInfoEngine<'a>,
+        syn_expr_region: SynExprRegion,
+    ) -> DeclTokenInfoEngine<'a, 'b> {
+        let expr_region_data = syn_expr_region.data(engine.db);
+        let db = engine.db;
+        DeclTokenInfoEngine {
+            db,
+            token_sheet_data: engine.token_sheet_data,
+            ast_sheet: engine.ast_sheet,
+            sheet: &mut engine.sheet,
+            expr_region_data,
+            expr_ty_region: db.expr_ty_region(syn_expr_region),
+            syn_expr_region: syn_expr_region.into(),
+            regional_token_idx_base: match expr_region_data.path() {
+                RegionPath::Snippet(_) => todo!(),
+                RegionPath::Decl(path) => path.decl_regional_token_idx_base(db),
+                RegionPath::Defn(path) => path.defn_regional_token_idx_base(db).expect("todo"),
+            },
+        }
+    }
+
     fn add(&mut self, regional_token_idx: RegionalTokenIdx, token_info: TokenInfo) {
-        let base = todo!();
+        let base = self.regional_token_idx_base;
         self.sheet
             .add(regional_token_idx.token_idx(base), token_info)
     }
