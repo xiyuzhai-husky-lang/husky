@@ -103,8 +103,7 @@ impl<'a> SynStmtContext<'a> {
     }
 
     fn parse_stmt(&mut self, ast_idx: DefnAstIdx, block_end: RegionalTokenIdxRangeEnd) -> SynStmt {
-        let ast = todo!();
-        match ast {
+        match self.defn_tokra_region_data()[ast_idx] {
             DefnAst::BasicStmtOrBranch {
                 regional_token_group_idx: token_group_idx,
                 body,
@@ -250,10 +249,5 @@ impl<'a> SynStmtContext<'a> {
             },
             Err(_) => todo!(),
         }
-    }
-
-    fn fugitive_body_end(&self, body: DefnAstIdxRange) -> RegionalTokenIdxRangeEnd {
-        todo!()
-        // self.ast_token_idx_range_sheet()[body.ast_idx_range().end() - 1].end()
     }
 }
