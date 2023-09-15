@@ -6,18 +6,20 @@ mod token;
 mod token_group;
 mod token_idx;
 mod token_idx_range;
+mod tokens_data;
 
 pub use self::base::*;
 pub use self::token::*;
 pub use self::token_group::*;
 pub use self::token_idx::*;
 pub use self::token_idx_range::*;
+pub use self::tokens_data::*;
 
 #[cfg(test)]
 use crate::tests::*;
 use husky_coword::Ident;
 use husky_opr::Bracket;
-use husky_token::TokenGroupTokenIdxBase;
+use husky_token::TokenGroupStart;
 use husky_token::*;
 use husky_token_data::{db::TokenDataDb, *};
 use parsec::{HasStreamState, StreamParser, TryParseOptionFromStream};
@@ -28,7 +30,7 @@ use thiserror::Error;
 pub struct RegionalTokenGroupIdxBase(u32);
 
 impl RegionalTokenGroupIdxBase {
-    fn index(self) -> usize {
+    pub fn index(self) -> usize {
         self.0 as usize
     }
 
@@ -50,7 +52,7 @@ impl RegionalTokenGroupIdx {
         Self::from_index(token_group_idx.index() - base.index())
     }
 
-    fn index(self) -> usize {
+    pub fn index(self) -> usize {
         (self.0.get() - 1) as usize
     }
 
@@ -145,6 +147,17 @@ impl<'a> RegionalTokenStream<'a> {
                     )
                 })
                 .unwrap_or_default(),
+        }
+    }
+
+    pub fn new_defn_regional_token_stream(
+        tokens: &'a [TokenData],
+        regional_token_group_start: RegionalTokenGroupStart,
+    ) -> Self {
+        Self {
+            start: regional_token_group_start,
+            tokens,
+            next_relative: Default::default(),
         }
     }
 

@@ -12,10 +12,14 @@ pub(crate) use self::utils::*;
 
 use self::symbol::*;
 use crate::*;
-use husky_entity_syn_tree::helpers::TraitInUseItemsTable;
+use husky_entity_syn_tree::helpers::{
+    tokra_region::{HasDeclTokraRegion, HasSynDefnTokraRegion},
+    TraitInUseItemsTable,
+};
 use husky_ethereal_signature::HasEtherealSignatureTemplate;
 use husky_opr::PrefixOpr;
 use husky_print_utils::p;
+use husky_regional_token::{RegionalTokenIdx, RegionalTokensData};
 use husky_token_data::{IntegerLikeLiteral, Literal, TokenData};
 use husky_vfs::Toolchain;
 use husky_vfs::VfsPathMenu;
@@ -26,6 +30,7 @@ pub(crate) struct ExprTypeEngine<'a> {
     item_path_menu: &'a ItemPathMenu,
     term_menu: &'a EtherealTermMenu,
     expr_region_data: &'a SynExprRegionData,
+    regional_tokens_data: RegionalTokensData<'a>,
     declarative_term_region: &'a DeclarativeTermRegion,
     fluffy_term_region: FluffyTermRegion,
     expr_ty_infos: SynExprMap<ExprTypeInfo>,
@@ -121,6 +126,14 @@ impl<'a> ExprTypeEngine<'a> {
         let toolchain = syn_expr_region.toolchain(db);
         let parent_expr_ty_region =
             parent_expr_region.map(|parent_expr_region| db.expr_ty_region(parent_expr_region));
+        let regional_tokens_data = match expr_region_data.path() {
+            RegionPath::Snippet(_) => todo!(),
+            RegionPath::Decl(path) => path.decl_tokra_region(db).tokens_data(db),
+            RegionPath::Defn(path) => path
+                .defn_tokra_region(db)
+                .expect("guaranteed")
+                .tokens_data(db),
+        };
         Self {
             db,
             toolchain,
@@ -155,6 +168,7 @@ impl<'a> ExprTypeEngine<'a> {
                 pattern_expr_region.pattern_expr_arena(),
             ),
             trai_in_use_items_table: TraitInUseItemsTable::query(db, module_path),
+            regional_tokens_data,
         }
     }
 
@@ -263,5 +277,9 @@ impl<'a> ExprTypeEngine<'a> {
 
     pub(crate) fn term_menu(&self) -> &EtherealTermMenu {
         self.term_menu
+    }
+
+    fn token_data(&self, regional_token_idx: RegionalTokenIdx) -> TokenData {
+        self.regional_tokens_data[regional_token_idx]
     }
 }

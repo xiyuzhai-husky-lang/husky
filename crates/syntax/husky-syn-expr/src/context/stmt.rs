@@ -45,7 +45,7 @@ impl<'a> SynStmtContext<'a> {
         use salsa::DebugWithDb;
         Some(Self {
             expr_context,
-            defn_tokra_region_data: syn_node_path.syn_defn_tokra_region(db)?.data(db),
+            defn_tokra_region_data: syn_node_path.defn_tokra_region(db)?.data(db),
         })
     }
 
@@ -56,13 +56,15 @@ impl<'a> SynStmtContext<'a> {
     where
         'a: 'b,
     {
-        let token_stream = self.token_group_token_stream(token_group_idx, None);
+        let token_stream = self.token_group_token_stream(token_group_idx);
         SynExprParser::new(self, None, token_stream)
     }
 
-    pub(crate) fn parse_root_body(&mut self) -> SynStmtIdxRange {
+    pub(crate) fn parse_root_body(&mut self) -> SynExprIdx {
         let body = self.defn_tokra_region_data.root_body();
-        self.parse_stmts(body)
+        let stmts = self.parse_stmts(body);
+        let expr = SynExpr::Block { stmts };
+        self.alloc_expr(expr)
     }
 
     pub fn finish(self) -> SynExprRegion {
@@ -71,23 +73,19 @@ impl<'a> SynStmtContext<'a> {
 
     pub(crate) fn token_group_token_stream(
         &self,
-        token_group_idx: RegionalTokenGroupIdx,
-        saved_stream_state: impl Into<Option<RegionalTokenStreamState>>,
+        regional_token_group_idx: RegionalTokenGroupIdx,
     ) -> RegionalTokenStream<'a> {
-        // self.token_sheet_data
-        //     .token_group_token_stream(token_group_idx, saved_stream_state)
-        todo!()
+        self.defn_tokra_region_data
+            .token_stream(regional_token_group_idx)
     }
 
-    pub(crate) fn regional_asts(&self) -> DefnAstArenaRef<'a> {
-        todo!()
+    pub(crate) fn asts(&self) -> DefnAstArenaRef<'a> {
+        self.defn_tokra_region_data.ast_arena()
     }
 
-    pub(crate) fn regional_ast_token_idx_range(
-        &self,
-        defn_ast_idx: DefnAstIdx,
-    ) -> RegionalTokenIdxRange {
-        todo!()
+    pub(crate) fn ast_token_idx_range(&self, defn_ast_idx: DefnAstIdx) -> RegionalTokenIdxRange {
+        self.defn_tokra_region_data
+            .ast_token_idx_range(defn_ast_idx)
     }
 
     pub(crate) fn fugitive_body_end(&self, body: DefnAstIdxRange) -> RegionalTokenIdxRangeEnd {

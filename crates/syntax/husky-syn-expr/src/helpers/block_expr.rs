@@ -17,6 +17,7 @@ where
         allow_self_value,
         db,
     )?;
-    stmt_context.parse_root_body();
-    todo!()
+    let root_body = stmt_context.parse_root_body();
+    let syn_expr_region = stmt_context.finish();
+    Some((root_body, syn_expr_region))
 }

@@ -9,8 +9,7 @@ impl<'a> ExprTypeEngine<'a> {
         literal_token_idx: RegionalTokenIdx,
         expectation: &impl ExpectFluffyTerm,
     ) -> Result<FluffyTerm, ExprTypeError> {
-        let literal_token: TokenData = todo!();
-        // self.token_data(literal_token_idx);
+        let literal_token: TokenData = self.token_data(literal_token_idx);
         match literal_token {
             TokenData::Literal(literal) => match literal {
                 Literal::Unit => todo!(),

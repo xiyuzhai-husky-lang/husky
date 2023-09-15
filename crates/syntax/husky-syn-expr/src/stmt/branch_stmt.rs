@@ -60,7 +60,7 @@ impl SynElseBranch {
 
 impl<'a> SynStmtContext<'a> {
     pub(super) fn parse_if_branch(&mut self, if_branch: DefnAstIdx) -> SynIfBranch {
-        match self.regional_asts()[if_branch] {
+        match self.asts()[if_branch] {
             DefnAst::BasicStmtOrBranch {
                 regional_token_group_idx: token_group_idx,
                 body,
@@ -93,7 +93,7 @@ impl<'a> SynStmtContext<'a> {
     }
 
     fn parse_elif_branch(&mut self, elif_branch: DefnAstIdx) -> SynElifBranch {
-        match self.regional_asts()[elif_branch] {
+        match self.asts()[elif_branch] {
             DefnAst::BasicStmtOrBranch {
                 regional_token_group_idx: token_group_idx,
                 body,
@@ -119,7 +119,7 @@ impl<'a> SynStmtContext<'a> {
         &mut self,
         else_branch: Option<DefnAstIdx>,
     ) -> Option<SynElseBranch> {
-        match self.regional_asts()[else_branch?] {
+        match self.asts()[else_branch?] {
             DefnAst::BasicStmtOrBranch {
                 regional_token_group_idx: token_group_idx,
                 body,

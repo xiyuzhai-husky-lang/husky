@@ -21,7 +21,7 @@ impl DeclTokraRegionSourceMap {
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
 pub struct DeclTokraRegion {
     #[return_ref]
-    pub tokens: Vec<TokenData>,
+    _tokens_data: Vec<TokenData>,
     pub saved_regional_token_stream_state: Option<RegionalTokenStreamState>,
     pub ast: DeclAst,
 }
@@ -29,22 +29,26 @@ pub struct DeclTokraRegion {
 impl DeclTokraRegion {
     pub fn data<'a>(self, db: &'a dyn EntitySynTreeDb) -> DeclTokraRegionData<'a> {
         DeclTokraRegionData {
-            tokens: self.tokens(db),
+            tokens_data: self._tokens_data(db),
             saved_regional_token_stream_state: self.saved_regional_token_stream_state(db),
         }
+    }
+
+    pub fn tokens_data<'a>(self, db: &'a dyn EntitySynTreeDb) -> RegionalTokensData<'a> {
+        RegionalTokensData::new(self._tokens_data(db))
     }
 }
 
 #[derive(Debug, Clone, Copy)]
 pub struct DeclTokraRegionData<'a> {
     saved_regional_token_stream_state: Option<RegionalTokenStreamState>,
-    tokens: &'a [TokenData],
+    tokens_data: &'a [TokenData],
 }
 
 impl<'a> DeclTokraRegionData<'a> {
     pub fn regional_token_stream(self) -> RegionalTokenStream<'a> {
         RegionalTokenStream::new_decl_regional_token_stream(
-            self.tokens,
+            self.tokens_data,
             self.saved_regional_token_stream_state,
         )
     }
@@ -54,7 +58,7 @@ impl<'a> std::ops::Index<RegionalTokenIdx> for DeclTokraRegionData<'a> {
     type Output = TokenData;
 
     fn index(&self, idx: RegionalTokenIdx) -> &Self::Output {
-        &self.tokens[idx.index()]
+        &self.tokens_data[idx.index()]
     }
 }
 
@@ -106,7 +110,7 @@ fn build_decl_tokra_region(
     };
     let tokens = token_sheet_data[token_group_idx].to_vec();
     let regional_token_idx_base =
-        RegionalTokenIdxBase::new(token_sheet_data.token_group_base(token_group_idx));
+        RegionalTokenIdxBase::new(token_sheet_data.token_group_start(token_group_idx));
     let saved_regional_stream_state = saved_regional_stream_state.map(|token_stream_state| {
         RegionalTokenStreamState::from_token_stream_state(
             token_stream_state,

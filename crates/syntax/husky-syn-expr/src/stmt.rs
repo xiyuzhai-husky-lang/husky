@@ -118,12 +118,12 @@ impl<'a> SynStmtContext<'a> {
                 else_branch: self.parse_else_branch(else_branch),
             },
             DefnAst::MatchStmts {
-                token_group_idx,
+                regional_token_group_idx: token_group_idx,
                 pattern_stmt,
                 case_stmts,
                 ..
             } => {
-                let mut token_stream = self.token_group_token_stream(token_group_idx, None);
+                let mut token_stream = self.token_group_token_stream(token_group_idx);
                 SynStmt::Match {
                     match_token: token_stream.try_parse_option().unwrap().unwrap(),
                 }
