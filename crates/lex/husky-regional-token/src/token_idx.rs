@@ -8,7 +8,7 @@ impl RegionalTokenIdx {
         self.0.get() as usize - 1
     }
 
-    pub fn token_idx(self, base: TokenRegionBase) -> TokenIdx {
+    pub fn token_idx(self, base: RegionalTokenIdxBase) -> TokenIdx {
         unsafe { TokenIdx::from_usize_index_ext(self.index() + base.index_base()) }
     }
 
@@ -19,9 +19,9 @@ impl RegionalTokenIdx {
 
     pub(crate) fn from_token_idx(
         next_token_idx: TokenIdx,
-        token_region_base: TokenRegionBase,
+        regional_token_idx_base: RegionalTokenIdxBase,
     ) -> RegionalTokenIdx {
-        Self::from_index(next_token_idx.index() - token_region_base.index_base())
+        Self::from_index(next_token_idx.index() - regional_token_idx_base.index_base())
     }
 }
 

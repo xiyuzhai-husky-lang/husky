@@ -114,10 +114,7 @@ impl ToHirEager for SynStmtIdx {
                 ref block,
             } => HirEagerStmt::ForBetween {
                 particulars: particulars.to_hir_eager(builder),
-                block: block
-                    .as_ref()
-                    .expect("hir stage no errors")
-                    .to_hir_eager(builder),
+                block: block.to_hir_eager(builder),
             },
             SynStmt::ForIn {
                 for_token,
@@ -132,10 +129,7 @@ impl ToHirEager for SynStmtIdx {
                 ref block,
             } => HirEagerStmt::ForExt {
                 particulars: particulars.to_hir_eager(builder),
-                block: block
-                    .as_ref()
-                    .expect("hir stage no error")
-                    .to_hir_eager(builder),
+                block: block.to_hir_eager(builder),
             },
             SynStmt::While {
                 ref condition,
@@ -146,10 +140,7 @@ impl ToHirEager for SynStmtIdx {
                     .as_ref()
                     .expect("hir stage no error")
                     .to_hir_eager(builder),
-                stmts: block
-                    .as_ref()
-                    .expect("hir stage no error")
-                    .to_hir_eager(builder),
+                stmts: block.to_hir_eager(builder),
             },
             SynStmt::DoWhile {
                 ref condition,
@@ -160,10 +151,7 @@ impl ToHirEager for SynStmtIdx {
                     .as_ref()
                     .expect("hir stage no errors")
                     .to_hir_eager(builder),
-                block: block
-                    .as_ref()
-                    .expect("hir stage no errors")
-                    .to_hir_eager(builder),
+                block: block.to_hir_eager(builder),
             },
             SynStmt::IfElse {
                 ref if_branch,

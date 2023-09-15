@@ -28,10 +28,7 @@ impl ToHirLazy for SynIfBranch {
                 .as_ref()
                 .expect("hir stage no error")
                 .to_hir_lazy(builder),
-            stmts: self
-                .stmts()
-                .expect("hir stage no error")
-                .to_hir_lazy(builder),
+            stmts: self.stmts().to_hir_lazy(builder),
         }
     }
 }
@@ -62,11 +59,7 @@ impl ToHirLazy for SynElifBranch {
                 .as_ref()
                 .expect("hir stage no error")
                 .to_hir_lazy(builder),
-            stmts: self
-                .stmts
-                .as_ref()
-                .expect("hir stage no error")
-                .to_hir_lazy(builder),
+            stmts: self.stmts.to_hir_lazy(builder),
         }
     }
 }
@@ -87,10 +80,7 @@ impl ToHirLazy for SynElseBranch {
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
         HirLazyElseBranch {
-            stmts: self
-                .stmts()
-                .expect("hir stage no error")
-                .to_hir_lazy(builder),
+            stmts: self.stmts().to_hir_lazy(builder),
         }
     }
 }

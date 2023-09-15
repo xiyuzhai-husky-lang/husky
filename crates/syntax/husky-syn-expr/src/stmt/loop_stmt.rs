@@ -283,7 +283,7 @@ impl<'a> SynStmtContext<'a> {
                     particulars,
                     frame_var_symbol_idx,
                     eol_colon,
-                    block: self.parse_stmts_expected(body, token_group_idx),
+                    block: self.parse_stmts(body),
                 }
             }
             SynExpr::Binary {
@@ -295,7 +295,7 @@ impl<'a> SynStmtContext<'a> {
                 for_token,
                 condition: todo!(),
                 eol_colon,
-                block: self.parse_stmts_expected(body, token_group_idx),
+                block: self.parse_stmts(body),
             },
             _ => todo!(),
         }
@@ -417,7 +417,7 @@ impl<'a> SynStmtContext<'a> {
             forext_token,
             particulars,
             eol_colon,
-            block: self.parse_stmts_expected(body, token_group_idx),
+            block: self.parse_stmts(body),
         }
     }
 }

@@ -4,7 +4,7 @@ use husky_vfs::snippet::Snippet;
 
 #[derive(Debug, Clone)]
 pub struct TokenStream<'a> {
-    base: TokenGroupStart,
+    base: TokenGroupTokenIdxBase,
     tokens: &'a [TokenData],
     next_relative: TokenGroupRelativeTokenIndex,
 }

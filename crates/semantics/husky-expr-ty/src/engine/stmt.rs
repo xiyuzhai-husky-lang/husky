@@ -115,20 +115,18 @@ impl<'a> ExprTypeEngine<'a> {
                     self.symbol_tys
                         .insert_new(frame_var_symbol_idx, frame_var_symbol_ty)
                 }
-                if let Ok(block) = block {
-                    let expr_expectation = self.expect_unit();
-                    self.infer_new_block(*block, expr_expectation);
-                }
+                let expr_expectation = self.expect_unit();
+                self.infer_new_block(*block, expr_expectation);
                 Some(self.term_menu.unit_ty_ontology().into())
             }
             SynStmt::ForIn {
                 ref condition,
-                ref block,
+                block,
                 ..
             } => todo!(),
             SynStmt::ForExt {
                 ref particulars,
-                ref block,
+                block,
                 ..
             } => {
                 let Some(forext_loop_var_ty) =
@@ -140,29 +138,25 @@ impl<'a> ExprTypeEngine<'a> {
                     particulars.bound_expr,
                     ExpectCoersion::new_pure(self, forext_loop_var_ty),
                 );
-                if let Ok(block) = block {
-                    let expr_expectation = self.expect_unit();
-                    self.infer_new_block(*block, expr_expectation);
-                }
+                let expr_expectation = self.expect_unit();
+                self.infer_new_block(block, expr_expectation);
                 Some(self.term_menu.unit_ty_ontology().into())
             }
             SynStmt::While {
                 ref condition,
-                ref block,
+                block,
                 ..
             }
             | SynStmt::DoWhile {
                 ref condition,
-                ref block,
+                block,
                 ..
             } => {
                 condition.as_ref().copied().map(|condition| {
                     self.infer_new_expr_ty_discarded(condition, ExpectConditionType)
                 });
-                block.as_ref().copied().map(|block| {
-                    let expect_unit = self.expect_unit();
-                    self.infer_new_block(block, expect_unit)
-                });
+                let expect_unit = self.expect_unit();
+                self.infer_new_block(block, expect_unit);
                 Some(self.term_menu.unit_ty_ontology().into())
             }
             SynStmt::IfElse {
@@ -195,17 +189,17 @@ impl<'a> ExprTypeEngine<'a> {
             .as_ref()
             .copied()
             .map(|condition| self.infer_new_expr_ty(condition, ExpectConditionType));
-        branch_tys.visit_branch(self, &if_branch.stmts);
+        branch_tys.visit_branch(self, if_branch.stmts);
         for elif_branch in elif_branches {
             elif_branch
                 .condition
                 .as_ref()
                 .copied()
                 .map(|condition| self.infer_new_expr_ty_discarded(condition, ExpectConditionType));
-            branch_tys.visit_branch(self, &elif_branch.stmts);
+            branch_tys.visit_branch(self, elif_branch.stmts);
         }
         if let Some(else_branch) = else_branch {
-            branch_tys.visit_branch(self, &else_branch.stmts);
+            branch_tys.visit_branch(self, else_branch.stmts);
         }
         // exhaustive iff else branch exists
         branch_tys.merge(else_branch.is_some(), &self.term_menu)
@@ -229,30 +223,23 @@ impl<Expectation: ExpectFluffyTerm> BranchTypes<Expectation> {
         }
     }
 
-    fn visit_branch(
-        &mut self,
-        engine: &mut ExprTypeEngine,
-        block: &SynExprResult<SynStmtIdxRange>,
-    ) {
-        match block {
-            Ok(stmts) => match engine.infer_new_block(*stmts, self.expr_expectation.clone()) {
-                Some(new_block_ty)
-                    if new_block_ty.base_resolved(engine)
-                        == FluffyTermBase::Ethereal(EtherealTerm::EntityPath(
-                            TermEntityPath::TypeOntology(engine.item_path_menu.never_ty_path()),
-                        )) =>
-                {
-                    ()
+    fn visit_branch(&mut self, engine: &mut ExprTypeEngine, block: SynStmtIdxRange) {
+        match engine.infer_new_block(block, self.expr_expectation.clone()) {
+            Some(new_block_ty)
+                if new_block_ty.base_resolved(engine)
+                    == FluffyTermBase::Ethereal(EtherealTerm::EntityPath(
+                        TermEntityPath::TypeOntology(engine.item_path_menu.never_ty_path()),
+                    )) =>
+            {
+                ()
+            }
+            Some(new_block_ty) => {
+                if self.ever_ty.is_none() {
+                    self.ever_ty = Some(new_block_ty)
                 }
-                Some(new_block_ty) => {
-                    if self.ever_ty.is_none() {
-                        self.ever_ty = Some(new_block_ty)
-                    }
-                }
-                None => self.has_error = true,
-            },
-            Err(_) => self.has_error = true,
-        };
+            }
+            None => self.has_error = true,
+        }
     }
 
     fn merge(self, exhaustive: bool, menu: &EtherealTermMenu) -> Option<FluffyTerm> {

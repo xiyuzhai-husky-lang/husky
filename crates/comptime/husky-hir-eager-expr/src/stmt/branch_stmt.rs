@@ -28,10 +28,7 @@ impl ToHirEager for SynIfBranch {
                 .as_ref()
                 .expect("hir stage no error")
                 .to_hir_eager(builder),
-            stmts: self
-                .stmts()
-                .expect("hir stage no error")
-                .to_hir_eager(builder),
+            stmts: self.stmts().to_hir_eager(builder),
         }
     }
 }
@@ -62,11 +59,7 @@ impl ToHirEager for SynElifBranch {
                 .as_ref()
                 .expect("hir stage no error")
                 .to_hir_eager(builder),
-            stmts: self
-                .stmts
-                .as_ref()
-                .expect("hir stage no error")
-                .to_hir_eager(builder),
+            stmts: self.stmts.to_hir_eager(builder),
         }
     }
 }
@@ -87,10 +80,7 @@ impl ToHirEager for SynElseBranch {
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         HirEagerElseBranch {
-            stmts: self
-                .stmts()
-                .expect("hir stage no error")
-                .to_hir_eager(builder),
+            stmts: self.stmts().to_hir_eager(builder),
         }
     }
 }

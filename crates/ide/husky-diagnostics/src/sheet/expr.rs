@@ -89,7 +89,6 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                 } => {
                     self.visit_syn_expr_result(&particulars.range);
                     self.visit_syn_expr_result(eol_colon);
-                    self.visit_syn_expr_result(block);
                 }
                 SynStmt::ForIn {
                     for_token,
@@ -105,7 +104,6 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                 } => {
                     self.visit_syn_expr_result(eol_colon);
                     // todo: handle errors in particulars
-                    self.visit_syn_expr_result(block);
                 }
                 SynStmt::While {
                     while_token,
@@ -115,7 +113,6 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                 } => {
                     self.visit_syn_expr_result(condition);
                     self.visit_syn_expr_result(eol_colon);
-                    self.visit_syn_expr_result(block)
                 }
                 SynStmt::DoWhile {
                     do_token,
@@ -126,7 +123,6 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                 } => {
                     self.visit_syn_expr_result(condition);
                     self.visit_syn_expr_result(eol_colon);
-                    self.visit_syn_expr_result(block)
                 }
                 SynStmt::IfElse {
                     if_branch,
@@ -135,15 +131,12 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                 } => {
                     self.visit_syn_expr_result(&if_branch.condition);
                     self.visit_syn_expr_result(&if_branch.eol_colon);
-                    self.visit_syn_expr_result(&if_branch.stmts);
                     for elif_branch in elif_branches {
                         self.visit_syn_expr_result(&elif_branch.condition);
                         self.visit_syn_expr_result(&elif_branch.eol_colon);
-                        self.visit_syn_expr_result(&elif_branch.stmts);
                     }
                     if let Some(else_branch) = else_branch {
                         self.visit_syn_expr_result(&else_branch.eol_colon);
-                        self.visit_syn_expr_result(&else_branch.stmts);
                     }
                 }
                 SynStmt::Match { match_token } => {}
