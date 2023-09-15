@@ -29,9 +29,8 @@ impl TokenInfoSheet {
     }
 
     pub(crate) fn add(&mut self, token_idx: TokenIdx, token_info: TokenInfo) {
-        todo!()
-        // assert_eq!(self.token_infos[token_idx.index()], TokenInfo::None);
-        // self.token_infos[token_idx.index()] = token_info
+        assert_eq!(self.token_infos[token_idx.index()], TokenInfo::None);
+        self.token_infos[token_idx.index()] = token_info
     }
 
     pub fn informative_ranged_token_iter<'a>(

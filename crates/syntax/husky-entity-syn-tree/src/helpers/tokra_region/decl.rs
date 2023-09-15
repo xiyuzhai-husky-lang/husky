@@ -179,12 +179,32 @@ impl HasDeclTokraRegion for ItemSynNodePath {
 
 impl HasDeclTokraRegion for SubmoduleSynNodePath {
     fn decl_tokra_region(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegion {
-        todo!()
+        submodule_decl_tokra_region(db, self)
     }
 
     fn decl_tokra_region_source_map(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegionSourceMap {
-        todo!()
+        submodule_decl_tokra_region_with_source_map(db, self).1
     }
+}
+
+#[salsa::tracked(jar = EntitySynTreeJar)]
+fn submodule_decl_tokra_region_with_source_map(
+    db: &dyn EntitySynTreeDb,
+    syn_node_path: SubmoduleSynNodePath,
+) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
+    build_decl_tokra_region(
+        syn_node_path.module_path(db),
+        syn_node_path.syn_node(db).ast_idx(db),
+        db,
+    )
+}
+
+#[salsa::tracked(jar = EntitySynTreeJar)]
+fn submodule_decl_tokra_region(
+    db: &dyn EntitySynTreeDb,
+    syn_node_path: SubmoduleSynNodePath,
+) -> DeclTokraRegion {
+    submodule_decl_tokra_region_with_source_map(db, syn_node_path).0
 }
 
 impl HasDeclTokraRegion for MajorItemSynNodePath {

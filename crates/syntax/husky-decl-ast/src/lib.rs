@@ -13,6 +13,7 @@ pub enum DeclAst {
     ImplBlock,
     TypeVariant,
     Decr,
+    Submodule,
 }
 
 pub type DeclAstArena = Arena<DeclAst>;

@@ -76,6 +76,19 @@ impl AssociatedItemSynNodeDecl {
     }
 }
 
+impl HasSynNodeDecl for AssociatedItemSynNodePath {
+    type NodeDecl = AssociatedItemSynNodeDecl;
+
+    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
+        match self {
+            AssociatedItemSynNodePath::TypeItem(path) => path.syn_node_decl(db).into(),
+            AssociatedItemSynNodePath::TraitItem(path) => path.syn_node_decl(db).into(),
+            AssociatedItemSynNodePath::TraitForTypeItem(path) => path.syn_node_decl(db).into(),
+            AssociatedItemSynNodePath::IllFormedItem(path) => path.syn_node_decl(db).into(),
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
