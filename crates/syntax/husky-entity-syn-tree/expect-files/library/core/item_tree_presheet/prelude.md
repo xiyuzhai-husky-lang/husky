@@ -239,8 +239,8 @@ Ok(
                                 ),
                             },
                         ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
+                        colon_colon_token: Ok(
+                            ColonColonToken(
                                 TokenIdx(
                                     6,
                                 ),
@@ -262,8 +262,8 @@ Ok(
                                 ),
                             },
                         ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
+                        colon_colon_token: Ok(
+                            ColonColonToken(
                                 TokenIdx(
                                     4,
                                 ),
@@ -293,8 +293,8 @@ Ok(
                                 ),
                             },
                         ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
+                        colon_colon_token: Ok(
+                            ColonColonToken(
                                 TokenIdx(
                                     13,
                                 ),
@@ -316,8 +316,8 @@ Ok(
                                 ),
                             },
                         ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
+                        colon_colon_token: Ok(
+                            ColonColonToken(
                                 TokenIdx(
                                     11,
                                 ),
@@ -347,8 +347,8 @@ Ok(
                                 ),
                             },
                         ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
+                        colon_colon_token: Ok(
+                            ColonColonToken(
                                 TokenIdx(
                                     20,
                                 ),
@@ -370,8 +370,8 @@ Ok(
                                 ),
                             },
                         ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
+                        colon_colon_token: Ok(
+                            ColonColonToken(
                                 TokenIdx(
                                     18,
                                 ),
@@ -401,8 +401,8 @@ Ok(
                                 ),
                             },
                         ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
+                        colon_colon_token: Ok(
+                            ColonColonToken(
                                 TokenIdx(
                                     27,
                                 ),
@@ -424,8 +424,8 @@ Ok(
                                 ),
                             },
                         ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
+                        colon_colon_token: Ok(
+                            ColonColonToken(
                                 TokenIdx(
                                     25,
                                 ),
@@ -455,8 +455,8 @@ Ok(
                                 ),
                             },
                         ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
+                        colon_colon_token: Ok(
+                            ColonColonToken(
                                 TokenIdx(
                                     34,
                                 ),
@@ -478,8 +478,8 @@ Ok(
                                 ),
                             },
                         ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
+                        colon_colon_token: Ok(
+                            ColonColonToken(
                                 TokenIdx(
                                     32,
                                 ),
@@ -509,8 +509,8 @@ Ok(
                                 ),
                             },
                         ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
+                        colon_colon_token: Ok(
+                            ColonColonToken(
                                 TokenIdx(
                                     41,
                                 ),
@@ -532,8 +532,8 @@ Ok(
                                 ),
                             },
                         ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
+                        colon_colon_token: Ok(
+                            ColonColonToken(
                                 TokenIdx(
                                     39,
                                 ),
@@ -563,8 +563,8 @@ Ok(
                                 ),
                             },
                         ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
+                        colon_colon_token: Ok(
+                            ColonColonToken(
                                 TokenIdx(
                                     48,
                                 ),
@@ -586,8 +586,8 @@ Ok(
                                 ),
                             },
                         ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
+                        colon_colon_token: Ok(
+                            ColonColonToken(
                                 TokenIdx(
                                     46,
                                 ),
@@ -617,8 +617,8 @@ Ok(
                                 ),
                             },
                         ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
+                        colon_colon_token: Ok(
+                            ColonColonToken(
                                 TokenIdx(
                                     55,
                                 ),
@@ -640,8 +640,8 @@ Ok(
                                 ),
                             },
                         ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
+                        colon_colon_token: Ok(
+                            ColonColonToken(
                                 TokenIdx(
                                     53,
                                 ),
@@ -671,8 +671,8 @@ Ok(
                                 ),
                             },
                         ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
+                        colon_colon_token: Ok(
+                            ColonColonToken(
                                 TokenIdx(
                                     62,
                                 ),
@@ -694,8 +694,8 @@ Ok(
                                 ),
                             },
                         ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
+                        colon_colon_token: Ok(
+                            ColonColonToken(
                                 TokenIdx(
                                     60,
                                 ),
@@ -725,8 +725,8 @@ Ok(
                                 ),
                             },
                         ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
+                        colon_colon_token: Ok(
+                            ColonColonToken(
                                 TokenIdx(
                                     69,
                                 ),
@@ -748,8 +748,8 @@ Ok(
                                 ),
                             },
                         ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
+                        colon_colon_token: Ok(
+                            ColonColonToken(
                                 TokenIdx(
                                     67,
                                 ),
@@ -779,8 +779,8 @@ Ok(
                                 ),
                             },
                         ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
+                        colon_colon_token: Ok(
+                            ColonColonToken(
                                 TokenIdx(
                                     76,
                                 ),
@@ -802,8 +802,8 @@ Ok(
                                 ),
                             },
                         ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
+                        colon_colon_token: Ok(
+                            ColonColonToken(
                                 TokenIdx(
                                     74,
                                 ),

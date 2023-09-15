@@ -130,26 +130,6 @@ Ok(
                         submodule_path: SubmodulePath(
                             `std::prelude`,
                         ),
-                        node: SubmoduleSynNode {
-                            syn_node_path: SubmoduleSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `std::prelude`,
-                                    ),
-                                    disambiguator: 0,
-                                },
-                            },
-                            visibility: Scope::PubUnder(
-                                `std`,
-                            ),
-                            ast_idx: 1,
-                            ident_token: IdentToken {
-                                ident: `prelude`,
-                                token_idx: TokenIdx(
-                                    2,
-                                ),
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -161,26 +141,6 @@ Ok(
                         submodule_path: SubmodulePath(
                             `std::logic`,
                         ),
-                        node: SubmoduleSynNode {
-                            syn_node_path: SubmoduleSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `std::logic`,
-                                    ),
-                                    disambiguator: 0,
-                                },
-                            },
-                            visibility: Scope::PubUnder(
-                                `std`,
-                            ),
-                            ast_idx: 2,
-                            ident_token: IdentToken {
-                                ident: `logic`,
-                                token_idx: TokenIdx(
-                                    4,
-                                ),
-                            },
-                        },
                     },
                 },
                 EntitySymbolEntry {
@@ -192,26 +152,6 @@ Ok(
                         submodule_path: SubmodulePath(
                             `std::ops`,
                         ),
-                        node: SubmoduleSynNode {
-                            syn_node_path: SubmoduleSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `std::ops`,
-                                    ),
-                                    disambiguator: 0,
-                                },
-                            },
-                            visibility: Scope::PubUnder(
-                                `std`,
-                            ),
-                            ast_idx: 3,
-                            ident_token: IdentToken {
-                                ident: `ops`,
-                                token_idx: TokenIdx(
-                                    6,
-                                ),
-                            },
-                        },
                     },
                 },
             ],

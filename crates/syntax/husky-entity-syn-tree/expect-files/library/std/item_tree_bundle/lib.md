@@ -132,26 +132,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `std::prelude`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `std::prelude`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::PubUnder(
-                                        `std`,
-                                    ),
-                                    ast_idx: 1,
-                                    ident_token: IdentToken {
-                                        ident: `prelude`,
-                                        token_idx: TokenIdx(
-                                            2,
-                                        ),
-                                    },
-                                },
                             },
                         },
                         EntitySymbolEntry {
@@ -163,26 +143,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `std::logic`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `std::logic`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::PubUnder(
-                                        `std`,
-                                    ),
-                                    ast_idx: 2,
-                                    ident_token: IdentToken {
-                                        ident: `logic`,
-                                        token_idx: TokenIdx(
-                                            4,
-                                        ),
-                                    },
-                                },
                             },
                         },
                         EntitySymbolEntry {
@@ -194,26 +154,6 @@ Ok(
                                 submodule_path: SubmodulePath(
                                     `std::ops`,
                                 ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `std::ops`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::PubUnder(
-                                        `std`,
-                                    ),
-                                    ast_idx: 3,
-                                    ident_token: IdentToken {
-                                        ident: `ops`,
-                                        token_idx: TokenIdx(
-                                            6,
-                                        ),
-                                    },
-                                },
                             },
                         },
                     ],
@@ -260,32 +200,6 @@ Ok(
                                         module_item_path: MajorItemPath::Type(
                                             TypePath(`core::logic::Prop`, `Extern`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::logic::Prop`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 4,
-                                            ident_token: IdentToken {
-                                                ident: `Prop`,
-                                                token_idx: TokenIdx(
-                                                    7,
-                                                ),
-                                            },
-                                            block: Type {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 7,
-                                                    },
-                                                ),
-                                                variants: None,
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
@@ -307,32 +221,6 @@ Ok(
                                         module_item_path: MajorItemPath::Type(
                                             TypePath(`core::logic::LogicAnd`, `Structure`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::logic::LogicAnd`, `Structure`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 5,
-                                            ident_token: IdentToken {
-                                                ident: `LogicAnd`,
-                                                token_idx: TokenIdx(
-                                                    11,
-                                                ),
-                                            },
-                                            block: Type {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 8,
-                                                    },
-                                                ),
-                                                variants: None,
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
@@ -354,38 +242,6 @@ Ok(
                                         module_item_path: MajorItemPath::Type(
                                             TypePath(`core::logic::LogicOr`, `Inductive`),
                                         ),
-                                        node: MajorItemSynNode {
-                                            syn_node_path: MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::logic::LogicOr`, `Inductive`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                            visibility: Scope::Pub,
-                                            ast_idx: 6,
-                                            ident_token: IdentToken {
-                                                ident: `LogicOr`,
-                                                token_idx: TokenIdx(
-                                                    33,
-                                                ),
-                                            },
-                                            block: Type {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 9,
-                                                    },
-                                                ),
-                                                variants: Some(
-                                                    TypeVariants {
-                                                        ast_idx_range: ArenaIdxRange(
-                                                            1..3,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
@@ -550,40 +406,6 @@ Ok(
                                 module_item_path: MajorItemPath::Trait(
                                     TraitPath(`std::ops::Add`),
                                 ),
-                                node: MajorItemSynNode {
-                                    syn_node_path: MajorItemSynNodePath::Trait(
-                                        TraitSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`std::ops::Add`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    visibility: Scope::PubUnder(
-                                        `std::ops`,
-                                    ),
-                                    ast_idx: 4,
-                                    ident_token: IdentToken {
-                                        ident: `Add`,
-                                        token_idx: TokenIdx(
-                                            8,
-                                        ),
-                                    },
-                                    block: Trait {
-                                        path: TraitPath(
-                                            Id {
-                                                value: 27,
-                                            },
-                                        ),
-                                        items: Some(
-                                            TraitItems {
-                                                ast_idx_range: ArenaIdxRange(
-                                                    1..3,
-                                                ),
-                                            },
-                                        ),
-                                    },
-                                },
                             },
                         },
                     ],

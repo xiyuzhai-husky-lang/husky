@@ -438,18 +438,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -519,18 +508,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -637,18 +615,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -728,18 +695,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -809,18 +765,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -927,18 +872,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -1018,18 +952,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -1099,18 +1022,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -1180,18 +1092,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -1298,18 +1199,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -1389,18 +1279,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -1507,18 +1386,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -1598,18 +1466,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -1716,18 +1573,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -1807,18 +1653,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -1925,18 +1760,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -2016,18 +1840,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -2134,18 +1947,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -2225,18 +2027,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -2343,18 +2134,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -2434,18 +2214,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -2552,18 +2321,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -2643,18 +2401,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -2761,18 +2508,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -2852,18 +2588,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -2970,18 +2695,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -3061,18 +2775,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -3179,18 +2882,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -3270,18 +2962,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -3340,18 +3021,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -3421,18 +3091,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -3502,18 +3161,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -3572,18 +3220,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -3642,18 +3279,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -3712,18 +3338,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -3782,18 +3397,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -3900,18 +3504,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -3991,18 +3584,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -4061,18 +3643,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),
@@ -4179,18 +3750,7 @@
                             ),
                         ),
                     },
-                    body: None,
-                    hir_expr_region: HirEagerExprRegion {
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                    },
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),

@@ -8,10 +8,10 @@ pub struct TokenIdxRange {
 
 impl TokenIdxRange {
     #[inline(always)]
-    pub fn new(start: TokenIdx, end: TokenIdxRangeEnd) -> Self {
+    pub unsafe fn new(start: TokenIdx, end: TokenIdx) -> Self {
         Self {
             start: TokenIdxRangeStart(start),
-            end,
+            end: TokenIdxRangeEnd(end),
         }
     }
 
