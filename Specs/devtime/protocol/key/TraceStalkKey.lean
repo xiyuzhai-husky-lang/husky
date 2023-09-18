@@ -1,1 +1,0 @@
-inductive TraceStalkKey
