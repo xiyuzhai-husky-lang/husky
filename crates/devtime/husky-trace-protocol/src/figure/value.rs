@@ -1,51 +1,48 @@
 use std::iter::zip;
 
 use crate::*;
-use husky_signal::Signalable;
 use husky_vm_primitive_value::PrimitiveValueData;
 
 #[derive(Debug, Clone, PartialEq)]
-pub enum FigureCanvasValue {
+pub enum FigureCanvasValue<'a> {
     Unit,
     NonUnitPrimitive {
         data: PrimitiveValueData,
     },
     Graphics2d {
-        value: Graphics2dCanvasValue,
+        value: Graphics2dCanvasValue<'a>,
     },
     GenericF32 {
-        partitioned_samples: &'static [(Partition, Vec<(SampleId, f32)>)],
-        image_layers: Vec<&'static ImageLayerData>,
-        shapes: Vec<&'static Shape2dData>,
+        partitioned_samples: &'a [(Partition, Vec<(SampleId, f32)>)],
+        image_layers: Vec<&'a ImageLayerData>,
+        shapes: Vec<&'a Shape2dData>,
     },
     GenericI32 {
-        partitioned_samples: &'static [(Partition, Vec<(SampleId, i32)>)],
-        image_layers: Vec<&'static ImageLayerData>,
-        shapes: Vec<&'static Shape2dData>,
+        partitioned_samples: &'a [(Partition, Vec<(SampleId, i32)>)],
+        image_layers: Vec<&'a ImageLayerData>,
+        shapes: Vec<&'a Shape2dData>,
     },
     GenericGraphics2d {
-        partitioned_samples: Vec<(&'static Partition, Vec<(SampleId, Graphics2dCanvasValue)>)>,
-        specific: Graphics2dCanvasValue,
+        partitioned_samples: Vec<(&'a Partition, Vec<(SampleId, Graphics2dCanvasValue<'a>)>)>,
+        specific: Graphics2dCanvasValue<'a>,
     },
 }
 
-impl Default for FigureCanvasValue {
+impl<'a> Default for FigureCanvasValue<'a> {
     fn default() -> Self {
         FigureCanvasValue::Unit
     }
 }
 
-impl Signalable for FigureCanvasValue {}
-
 #[derive(Debug, Clone, PartialEq)]
-pub struct Graphics2dCanvasValue {
-    pub(crate) image_layers: Vec<&'static ImageLayerData>,
-    pub(crate) shapes: Vec<&'static Shape2dData>,
+pub struct Graphics2dCanvasValue<'a> {
+    pub(crate) image_layers: Vec<&'a ImageLayerData>,
+    pub(crate) shapes: Vec<&'a Shape2dData>,
     pub xrange: (f32, f32),
     pub yrange: (f32, f32),
 }
 
-impl Graphics2dCanvasValue {
+impl<'a> Graphics2dCanvasValue<'a> {
     fn add(&mut self, other: Self) {
         if self.xrange != other.xrange {
             todo!()
@@ -58,20 +55,20 @@ impl Graphics2dCanvasValue {
     }
 }
 
-impl ContainsShapes<'static> for Graphics2dCanvasValue {
-    fn shapes(&self) -> Vec<&'static Shape2dData> {
+impl<'a> ContainsShapes<'a> for Graphics2dCanvasValue<'a> {
+    fn shapes(&self) -> Vec<&'a Shape2dData> {
         self.shapes.clone()
     }
 }
 
-impl ContainsImageLayers<'static> for Graphics2dCanvasValue {
-    fn image_layers(&self) -> Vec<&'static ImageLayerData> {
+impl<'a> ContainsImageLayers<'a> for Graphics2dCanvasValue<'a> {
+    fn image_layers(&self) -> Vec<&'a ImageLayerData> {
         self.image_layers.clone()
     }
 }
 
-impl Graphics2dCanvasValue {
-    pub fn new(data: &'static Graphics2dCanvasData) -> Self {
+impl<'a> Graphics2dCanvasValue<'a> {
+    pub fn new(data: &'a Graphics2dCanvasData) -> Self {
         Graphics2dCanvasValue {
             image_layers: data.image_layers.iter().collect(),
             shapes: data.shapes.iter().collect(),
@@ -81,11 +78,11 @@ impl Graphics2dCanvasValue {
     }
 }
 
-impl FigureCanvasValue {
+impl<'a> FigureCanvasValue<'a> {
     pub fn new<C: AsRef<FigureControlData>>(
         presentation_kind: PresentationKind,
-        opt_active_figure_not_pinned: Option<FigureCanvasDataItd>,
-        pinned_figures: Vec<FigureCanvasDataItd>,
+        opt_active_figure_not_pinned: Option<FigureCanvasData<'a>>,
+        pinned_figures: Vec<FigureCanvasData<'a>>,
         opt_control: Option<&C>,
     ) -> Self {
         let mut all_figures = pinned_figures;
@@ -95,8 +92,8 @@ impl FigureCanvasValue {
         if all_figures.len() == 0 {
             return Default::default();
         }
-        let mut value = Self::new_piece(presentation_kind, &all_figures[0], opt_control);
-        for other in all_figures[1..].iter() {
+        let mut value = Self::new_piece(presentation_kind, all_figures[0], opt_control);
+        for other in all_figures[1..].iter().copied() {
             let new_piece = Self::new_piece(presentation_kind, other, opt_control);
             value.merge(new_piece)
         }
@@ -105,7 +102,7 @@ impl FigureCanvasValue {
 
     fn new_piece<C: AsRef<FigureControlData>>(
         presentation_kind: PresentationKind,
-        data_itd: &FigureCanvasDataItd,
+        data_itd: FigureCanvasData<'a>,
         opt_control: Option<&C>,
     ) -> Self {
         match presentation_kind {
@@ -115,7 +112,7 @@ impl FigureCanvasValue {
         }
     }
 
-    fn new_generic_piece(data_itd: &FigureCanvasDataItd) -> Self {
+    fn new_generic_piece(data_itd: FigureCanvasData<'a>) -> Self {
         match data_itd.generic {
             GenericFigureCanvasData::Unit => FigureCanvasValue::Unit,
             GenericFigureCanvasData::Plot2d {
@@ -182,10 +179,10 @@ impl FigureCanvasValue {
     }
 
     fn new_specific_piece<C: AsRef<FigureControlData>>(
-        data_itd: &FigureCanvasDataItd,
+        data: FigureCanvasData<'a>,
         opt_control: Option<&C>,
     ) -> Self {
-        match data_itd.specific {
+        match data.specific {
             SpecificFigureCanvasData::Unit => FigureCanvasValue::Unit,
             SpecificFigureCanvasData::Atom(atom) => Self::new_specific_opt_atom_piece(Some(atom)),
             SpecificFigureCanvasData::Mutations { mutations } => {
@@ -208,7 +205,7 @@ impl FigureCanvasValue {
         }
     }
 
-    fn new_specific_opt_atom_piece(opt_atom: Option<&'static FigureCanvasAtom>) -> Self {
+    fn new_specific_opt_atom_piece(opt_atom: Option<&'a FigureCanvasAtom>) -> Self {
         if let Some(atom) = opt_atom {
             match atom {
                 FigureCanvasAtom::Primitive(data) => match data {
@@ -224,7 +221,7 @@ impl FigureCanvasValue {
         }
     }
 
-    fn merge(&mut self, other: FigureCanvasValue) {
+    fn merge(&mut self, other: FigureCanvasValue<'a>) {
         match self {
             FigureCanvasValue::Unit => *self = other,
             FigureCanvasValue::NonUnitPrimitive { data: _ } => (), // ad hoc

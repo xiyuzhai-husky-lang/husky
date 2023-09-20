@@ -1,5 +1,3 @@
-use husky_signal::Signalable;
-
 use super::*;
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
@@ -14,5 +12,3 @@ pub enum TraceStats {
         dev_partition_noness: Vec<(Partition, usize)>,
     },
 }
-
-impl Signalable for TraceStats {}

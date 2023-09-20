@@ -24,5 +24,3 @@ impl Default for SpecificFigureCanvasData {
         SpecificFigureCanvasData::Unit
     }
 }
-
-impl Signalable for SpecificFigureCanvasData {}

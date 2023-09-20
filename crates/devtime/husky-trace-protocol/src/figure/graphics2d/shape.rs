@@ -84,8 +84,6 @@ pub enum Shape2dData {
     },
 }
 
-impl Signalable for Shape2dData {}
-
 impl Shape2dData {
     pub fn laser_grid28(padded_rows: &[u32; 31]) -> Self {
         let mut shapes = Vec::<Shape2dData>::new();

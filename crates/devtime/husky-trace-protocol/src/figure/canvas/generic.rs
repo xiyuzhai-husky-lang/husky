@@ -32,5 +32,3 @@ impl Default for GenericFigureCanvasData {
         GenericFigureCanvasData::Unit
     }
 }
-
-impl Signalable for GenericFigureCanvasData {}

@@ -1,12 +1,8 @@
-use husky_signal::Signalable;
-
 #[derive(Debug, Default, Clone, Copy, PartialEq, Eq)]
 pub struct PixelDimension {
     pub width: u32,
     pub height: u32,
 }
-
-impl Signalable for PixelDimension {}
 
 impl std::fmt::Display for PixelDimension {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {

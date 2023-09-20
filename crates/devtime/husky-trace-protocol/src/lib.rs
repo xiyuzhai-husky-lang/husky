@@ -7,8 +7,8 @@ mod label;
 mod presentation;
 mod sample;
 mod server_message;
-mod server_state;
 mod trace;
+mod world;
 
 pub use self::figure::*;
 pub use self::gui_message::*;
@@ -18,7 +18,8 @@ pub use self::label::*;
 pub use self::presentation::*;
 pub use self::sample::*;
 pub use self::server_message::*;
-pub use self::server_state::*;
 pub use self::trace::*;
+pub use self::world::*;
 
 use serde::*;
+use std::collections::HashMap;
