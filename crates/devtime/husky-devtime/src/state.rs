@@ -4,7 +4,7 @@ pub use old::*;
 
 use crate::*;
 
-pub type DevtimeState = ServerTraceState<TraceNode>;
+pub type DevtimeState = TraceWorld<TraceNode>;
 
 pub type DevtimeOldState = ServerTraceOldState<TraceNode>;
 

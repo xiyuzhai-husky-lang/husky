@@ -1,8 +1,6 @@
-mod atom;
 mod generic;
 mod specific;
 
-pub use atom::*;
 pub use generic::*;
 pub use specific::*;
 

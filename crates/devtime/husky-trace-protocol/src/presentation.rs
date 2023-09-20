@@ -1,11 +1,10 @@
 mod partition;
 
-use husky_signal::Signalable;
 pub use partition::*;
-use vec_like::VecSet;
 
 use super::*;
 use serde::{Deserialize, Serialize};
+use vec_like::VecSet;
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
 pub struct Presentation {
@@ -23,8 +22,6 @@ pub enum PresentationKind {
     Specific,
     Panic,
 }
-
-impl Signalable for PresentationKind {}
 
 #[derive(Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct Restriction {
@@ -198,8 +195,6 @@ impl Presentation {
         &self.pins
     }
 }
-
-impl Signalable for Presentation {}
 
 impl Default for Presentation {
     fn default() -> Self {

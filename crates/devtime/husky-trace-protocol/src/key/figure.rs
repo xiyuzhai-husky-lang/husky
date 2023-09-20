@@ -7,6 +7,8 @@ pub struct GenericFigureCanvasKey {
     restriction: Option<Restriction>,
 }
 
+pub type GenericFigureCanvasMap = HashMap<GenericFigureCanvasKey, GenericFigureCanvasData>;
+
 #[derive(Debug, Serialize, Deserialize, Clone, Hash, PartialEq, Eq)]
 pub struct SpecificFigureCanvasKey {
     trace_id: TraceId,

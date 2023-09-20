@@ -1,7 +1,5 @@
-use std::{convert::Infallible, ops::FromResidual};
-
 use super::*;
-use husky_signal::Signalable;
+use std::{convert::Infallible, ops::FromResidual};
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 pub enum FigureControlData {
@@ -20,8 +18,6 @@ impl FromResidual<std::option::Option<Infallible>> for FigureControlData {
         Default::default()
     }
 }
-
-impl Signalable for FigureControlData {}
 
 impl FigureControlData {
     pub fn mutations_default(mutations_len: usize) -> Self {

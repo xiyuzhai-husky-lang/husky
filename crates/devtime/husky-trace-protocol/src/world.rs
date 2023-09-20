@@ -1,3 +1,6 @@
+mod state;
+mod storage;
+
 use std::{collections::HashMap, marker::PhantomData};
 
 use crate::*;
@@ -18,7 +21,7 @@ pub trait AsTraceSketch: Eq + std::hash::Hash + Sized {
     fn new(node: &Self::Node) -> Option<Self>;
 }
 
-pub struct ServerTraceState<TraceNode: AsTraceNode> {
+pub struct TraceWorld<TraceNode: AsTraceNode> {
     pub(crate) presentation: TrackableAtom<Presentation>,
     pub trace_nodes: TrackableVec<TraceNode>,
     pub generic_figure_canvases: TrackableMap<GenericFigureCanvasKey, GenericFigureCanvasData>,
@@ -30,7 +33,7 @@ pub struct ServerTraceState<TraceNode: AsTraceNode> {
     pub subtrace_ids_map: TrackableMap<SubtracesKey, Vec<TraceId>>,
 }
 
-impl<TraceNode: AsTraceNode> Default for ServerTraceState<TraceNode> {
+impl<TraceNode: AsTraceNode> Default for TraceWorld<TraceNode> {
     fn default() -> Self {
         Self {
             presentation: Default::default(),
@@ -62,7 +65,7 @@ pub struct ServerTraceStateChange {
 }
 
 // implementation details
-impl<TraceNode: AsTraceNode> Trackable for ServerTraceState<TraceNode> {
+impl<TraceNode: AsTraceNode> Trackable for TraceWorld<TraceNode> {
     type Change = ServerTraceStateChange;
 
     fn take_change(&mut self) -> Self::Change {
@@ -80,7 +83,7 @@ impl<TraceNode: AsTraceNode> Trackable for ServerTraceState<TraceNode> {
     }
 }
 
-impl<TraceNode: AsTraceNode> ServerTraceState<TraceNode> {
+impl<TraceNode: AsTraceNode> TraceWorld<TraceNode> {
     pub fn presentation(&self) -> &Presentation {
         &self.presentation
     }

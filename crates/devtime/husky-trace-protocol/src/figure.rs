@@ -14,7 +14,6 @@ pub use value::*;
 pub use visual::*;
 
 use super::*;
-use husky_signal::Signalable;
 use husky_vm_primitive_value::PrimitiveValueData;
 
 // impl From<GenericFigureCanvasData> for FigureCanvasData {
@@ -37,21 +36,19 @@ pub struct MutationFigureData {
     pub idx: usize,
 }
 
-#[derive(Debug, PartialEq)]
-pub struct FigureCanvasDataItd {
-    pub generic: &'static GenericFigureCanvasData,
-    pub specific: &'static SpecificFigureCanvasData,
+#[derive(Debug, PartialEq, Clone, Copy)]
+pub struct FigureCanvasData<'a> {
+    pub generic: &'a GenericFigureCanvasData,
+    pub specific: &'a SpecificFigureCanvasData,
 }
 
-impl Signalable for FigureCanvasDataItd {}
-
-impl<'a> ContainsImageLayers<'a> for FigureCanvasDataItd {
+impl<'a> ContainsImageLayers<'a> for FigureCanvasData<'a> {
     fn image_layers(&self) -> Vec<&'a ImageLayerData> {
         self.specific.image_layers()
     }
 }
 
-impl<'a> ContainsShapes<'a> for FigureCanvasDataItd {
+impl<'a> ContainsShapes<'a> for FigureCanvasData<'a> {
     fn shapes(&self) -> Vec<&'a Shape2dData> {
         self.specific.shapes()
     }

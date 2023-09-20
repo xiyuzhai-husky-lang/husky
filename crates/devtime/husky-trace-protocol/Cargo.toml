@@ -12,7 +12,6 @@ log = "0.4.6"
 smallvec = { version = "1.9.0", features = ["serde"] }
 # abstraction
 vec-like = { path = "../../abstraction/vec-like" }
-husky-signal = { path = "../../abstraction/husky-signal" }
 ref-arena = { path = "../../abstraction/ref-arena" }
 trackable = { path = "../../abstraction/trackable" }
 # vm

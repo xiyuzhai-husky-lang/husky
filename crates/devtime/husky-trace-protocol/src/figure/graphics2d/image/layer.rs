@@ -7,8 +7,6 @@ pub enum ImageLayerData {
     Binary28 { rows: Box<[u32; 28]> },
 }
 
-impl Signalable for ImageLayerData {}
-
 impl ImageLayerData {
     pub fn binary_image28(padded_rows: &[u32; 30]) -> Self {
         Self::Binary28 {

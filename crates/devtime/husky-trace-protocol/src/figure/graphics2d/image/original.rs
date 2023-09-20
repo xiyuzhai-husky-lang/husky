@@ -1,5 +1,4 @@
 use super::*;
-use husky_signal::Signalable;
 use std::iter::zip;
 use wasm_bindgen::Clamped;
 
@@ -8,8 +7,6 @@ pub struct OriginalImageData {
     pub dimension: PixelDimension,
     data: Vec<u8>,
 }
-
-impl Signalable for OriginalImageData {}
 
 impl OriginalImageData {
     pub fn new(image_layer: &ImageLayerData) -> Self {

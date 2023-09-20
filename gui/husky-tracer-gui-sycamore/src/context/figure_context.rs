@@ -35,8 +35,8 @@ impl DeveloperGuiContext {
     //     FigureCanvasKey::new(trace.kind, trace.id, presentation, is_specific)
     // }
 
-    fn figure_canvas_data(&self) -> FigureCanvasDataItd {
-        FigureCanvasDataItd {
+    fn figure_canvas_data(&self) -> FigureCanvasData<'a> {
+        FigureCanvasData<'a> {
             generic: todo!(),
             specific: todo!(),
         }
@@ -75,7 +75,7 @@ impl DeveloperGuiContext {
     pub(crate) fn figure_canvas_data_itds(
         &'static self,
         presentation: &Presentation,
-    ) -> Vec<FigureCanvasDataItd> {
+    ) -> Vec<FigureCanvasData<'a>> {
         presentation
             .pins()
             .iter()
@@ -87,9 +87,9 @@ impl DeveloperGuiContext {
         &'static self,
         trace_id: TraceId,
         presentation: &Presentation,
-    ) -> FigureCanvasDataItd {
+    ) -> FigureCanvasData<'a> {
         let trace_data = &self.trace_data(trace_id);
-        FigureCanvasDataItd {
+        FigureCanvasData<'a> {
             generic: self.generic_figure_canvas_data(trace_data, presentation),
             specific: self.specific_figure_canvas_data(trace_data, presentation),
         }

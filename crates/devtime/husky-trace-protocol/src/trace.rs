@@ -1,71 +1,21 @@
+mod data;
 mod id;
-mod node;
 mod stalk;
 mod stats;
 mod token;
+mod tree;
 
+pub use self::data::*;
+pub use self::id::*;
+pub use self::stalk::*;
+pub use self::stats::*;
+pub use self::token::*;
+pub use self::tree::*;
 use husky_feature_protocol::FeatureId;
-pub use id::*;
-pub use node::*;
-pub use stalk::*;
-pub use stats::*;
-pub use token::*;
 
 use super::*;
 
 pub type Indent = u8;
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct TraceData {
-    pub opt_parent_id: Option<TraceId>,
-    pub id: TraceId,
-    pub kind: TraceKind,
-    pub indent: Indent,
-    pub lines: Vec<TraceLineData>,
-    pub can_have_subtraces: bool,
-    pub reachable: bool,
-    pub opt_arrival_indicator: Option<FeatureId>,
-}
-
-impl TraceData {
-    pub fn associated_trace_ids(&self) -> Vec<TraceId> {
-        let mut associated_trace_ids = vec![];
-        for line in &self.lines {
-            for token in &line.tokens {
-                if token.value == "]" || token.value == ")" || token.value == "}" {
-                    continue;
-                }
-                if let Some(associated_trace_id) = token.opt_associated_trace_id {
-                    associated_trace_ids.push(associated_trace_id)
-                }
-            }
-        }
-        associated_trace_ids
-    }
-
-    pub fn has_subtraces(&self, has_sample_id: bool) -> bool {
-        match self.kind {
-            TraceKind::Main
-            | TraceKind::EntityFeatureLazy
-            | TraceKind::FeatureExprLazy
-            | TraceKind::Module
-            | TraceKind::FeatureBranch
-            | TraceKind::LoopFrame => true,
-            TraceKind::CallHead
-            | TraceKind::FeatureCallArgument
-            | TraceKind::EagerCallArgument
-            | TraceKind::FeatureStmt => false,
-            TraceKind::FuncStmt
-            | TraceKind::EagerExpr
-            | TraceKind::EagerStmt
-            | TraceKind::FuncBranch
-            | TraceKind::EagerBranch => self.can_have_subtraces,
-            TraceKind::EntityFeatureEager | TraceKind::FeatureExprEager => {
-                has_sample_id && self.can_have_subtraces
-            }
-        }
-    }
-}
 
 #[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub enum TraceKind {

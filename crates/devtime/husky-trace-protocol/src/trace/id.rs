@@ -1,5 +1,4 @@
 use super::*;
-use husky_signal::Signalable;
 
 #[derive(Debug, Clone, Serialize, Deserialize, Copy, PartialEq, Eq, Hash)]
 pub struct TraceId(usize);
@@ -9,8 +8,6 @@ impl std::fmt::Display for TraceId {
         write!(f, "tr#{}", self.0)
     }
 }
-
-impl Signalable for TraceId {}
 
 impl TraceId {
     pub fn raw(self) -> usize {
