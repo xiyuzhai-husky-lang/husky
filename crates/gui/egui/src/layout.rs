@@ -805,7 +805,7 @@ impl Layout {
         &self,
         painter: &crate::Painter,
         region: &Region,
-        stroke: epaint::Stroke,
+        stroke: husky_epaint::Stroke,
         text: impl ToString,
     ) {
         let cursor = region.cursor;

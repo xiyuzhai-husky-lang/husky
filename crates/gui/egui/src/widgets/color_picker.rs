@@ -2,7 +2,7 @@
 
 use crate::util::fixed_cache::FixedCache;
 use crate::*;
-use epaint::{ecolor::*, *};
+use husky_epaint::{ecolor::*, *};
 
 fn contrast_color(color: impl Into<Rgba>) -> Color32 {
     if color.into().intensity() < 0.5 {
@@ -205,7 +205,7 @@ fn color_slider_2d(
         let x = lerp(rect.left()..=rect.right(), *x_value);
         let y = lerp(rect.bottom()..=rect.top(), *y_value);
         let picked_color = color_at(*x_value, *y_value);
-        ui.painter().add(epaint::CircleShape {
+        ui.painter().add(husky_epaint::CircleShape {
             center: pos2(x, y),
             radius: rect.width() / 12.0,
             fill: picked_color,

@@ -1,5 +1,5 @@
 use crate::emath::NumExt;
-use crate::epaint::{Color32, RectShape, Rounding, Shape, Stroke};
+use crate::husky_epaint::{Color32, RectShape, Rounding, Shape, Stroke};
 
 use super::{add_rulers_and_text, highlighted_color, Orientation, PlotConfig, RectElement};
 use crate::plot::{BarChart, Cursor, PlotPoint, PlotTransform};

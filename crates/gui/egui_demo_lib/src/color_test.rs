@@ -249,7 +249,7 @@ impl ColorTest {
 }
 
 fn vertex_gradient(ui: &mut Ui, bg_fill: Color32, gradient: &Gradient) -> Response {
-    use egui::epaint::*;
+    use egui::husky_epaint::*;
     let (rect, response) = ui.allocate_at_least(GRADIENT_SIZE, Sense::hover());
     if bg_fill != Default::default() {
         let mut mesh = Mesh::default();
@@ -367,7 +367,7 @@ impl TextureManager {
             let height = 1;
             ctx.load_texture(
                 "color_test_gradient",
-                epaint::ColorImage {
+                husky_epaint::ColorImage {
                     size: [width, height],
                     pixels,
                 },
@@ -505,7 +505,7 @@ fn paint_fine_lines_and_text(painter: &egui::Painter, mut rect: Rect, color: Col
             color,
         );
 
-        painter.add(egui::epaint::CubicBezierShape::from_points_stroke(
+        painter.add(egui::husky_epaint::CubicBezierShape::from_points_stroke(
             [
                 rect.left_top() + vec2(16.0, 0.0),
                 rect.right_top(),

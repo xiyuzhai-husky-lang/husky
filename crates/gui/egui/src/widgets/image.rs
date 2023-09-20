@@ -102,7 +102,7 @@ impl Image {
 
     pub fn paint_at(&self, ui: &mut Ui, rect: Rect) {
         if ui.is_rect_visible(rect) {
-            use epaint::*;
+            use husky_epaint::*;
             let Self {
                 texture_id,
                 uv,

@@ -351,7 +351,7 @@ impl Painter {
         screen_capture_state: &CaptureState,
         render_state: &RenderState,
         output_frame: &wgpu::SurfaceTexture,
-    ) -> Option<epaint::ColorImage> {
+    ) -> Option<husky_epaint::ColorImage> {
         let CaptureState {
             texture: tex,
             buffer,
@@ -408,7 +408,7 @@ impl Painter {
         {
             let row = &padded_row[..padding.unpadded_bytes_per_row as usize];
             for color in row.chunks(4) {
-                pixels.push(epaint::Color32::from_rgba_premultiplied(
+                pixels.push(husky_epaint::Color32::from_rgba_premultiplied(
                     color[to_rgba[0]],
                     color[to_rgba[1]],
                     color[to_rgba[2]],
@@ -418,7 +418,7 @@ impl Painter {
         }
         buffer.unmap();
 
-        Some(epaint::ColorImage {
+        Some(husky_epaint::ColorImage {
             size: [tex.width() as usize, tex.height() as usize],
             pixels,
         })
@@ -429,10 +429,10 @@ impl Painter {
         &mut self,
         pixels_per_point: f32,
         clear_color: [f32; 4],
-        clipped_primitives: &[epaint::ClippedPrimitive],
-        textures_delta: &epaint::textures::TexturesDelta,
+        clipped_primitives: &[husky_epaint::ClippedPrimitive],
+        textures_delta: &husky_epaint::textures::TexturesDelta,
         capture: bool,
-    ) -> Option<epaint::ColorImage> {
+    ) -> Option<husky_epaint::ColorImage> {
         crate::profile_function!();
 
         let render_state = self.render_state.as_mut()?;

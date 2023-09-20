@@ -67,7 +67,7 @@ pub struct Memory {
 
     /// new fonts that will be applied at the start of the next frame
     #[cfg_attr(feature = "persistence", serde(skip))]
-    pub(crate) new_font_definitions: Option<epaint::text::FontDefinitions>,
+    pub(crate) new_font_definitions: Option<husky_epaint::text::FontDefinitions>,
 
     #[cfg_attr(feature = "persistence", serde(skip))]
     pub(crate) interaction: Interaction,
@@ -101,7 +101,7 @@ pub struct Options {
     pub(crate) style: std::sync::Arc<Style>,
 
     /// Controls the tessellator.
-    pub tessellation_options: epaint::TessellationOptions,
+    pub tessellation_options: husky_epaint::TessellationOptions,
 
     /// This is a signal to any backend that we want the [`crate::PlatformOutput::events`] read out loud.
     ///

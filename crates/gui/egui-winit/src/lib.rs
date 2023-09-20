@@ -491,7 +491,7 @@ impl State {
     fn on_touch(&mut self, touch: &winit::event::Touch) {
         // Emit touch event
         self.egui_input.events.push(egui::Event::Touch {
-            device_id: egui::TouchDeviceId(egui::epaint::util::hash(touch.device_id)),
+            device_id: egui::TouchDeviceId(egui::husky_epaint::util::hash(touch.device_id)),
             id: egui::TouchId::from(touch.id),
             phase: match touch.phase {
                 winit::event::TouchPhase::Started => egui::TouchPhase::Start,

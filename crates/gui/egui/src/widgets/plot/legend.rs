@@ -114,7 +114,7 @@ impl LegendEntry {
 
         let painter = ui.painter();
 
-        painter.add(epaint::CircleShape {
+        painter.add(husky_epaint::CircleShape {
             center: icon_rect.center(),
             radius: icon_size * 0.5,
             fill: visuals.bg_fill,
@@ -127,7 +127,7 @@ impl LegendEntry {
             } else {
                 *color
             };
-            painter.add(epaint::Shape::circle_filled(
+            painter.add(husky_epaint::Shape::circle_filled(
                 icon_rect.center(),
                 icon_size * 0.4,
                 fill,
@@ -237,7 +237,7 @@ impl Widget for &mut LegendWidget {
                 let background_frame = Frame {
                     inner_margin: vec2(8.0, 4.0).into(),
                     rounding: ui.style().visuals.window_rounding,
-                    shadow: epaint::Shadow::NONE,
+                    shadow: husky_epaint::Shadow::NONE,
                     fill: ui.style().visuals.extreme_bg_color,
                     stroke: ui.style().visuals.window_stroke(),
                     ..Default::default()

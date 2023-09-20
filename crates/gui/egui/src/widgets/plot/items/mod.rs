@@ -2,8 +2,8 @@
 
 use std::ops::RangeInclusive;
 
-use epaint::util::FloatOrd;
-use epaint::Mesh;
+use husky_epaint::util::FloatOrd;
+use husky_epaint::Mesh;
 
 use crate::*;
 
@@ -713,7 +713,7 @@ impl PlotItem for Text {
             .anchor
             .anchor_rect(Rect::from_min_size(pos, galley.size()));
 
-        let mut text_shape = epaint::TextShape::new(rect.min, galley.galley);
+        let mut text_shape = husky_epaint::TextShape::new(rect.min, galley.galley);
         if !galley.galley_has_color {
             text_shape.override_text_color = Some(color);
         }
@@ -883,7 +883,7 @@ impl PlotItem for Points {
 
                 match shape {
                     MarkerShape::Circle => {
-                        shapes.push(Shape::Circle(epaint::CircleShape {
+                        shapes.push(Shape::Circle(husky_epaint::CircleShape {
                             center,
                             radius,
                             fill,

@@ -15,7 +15,7 @@ use emath::*;
 ///
 /// ## Example:
 /// ```
-/// use epaint::{Color32, text::{LayoutJob, TextFormat}, FontFamily, FontId};
+/// use husky_epaint::{Color32, text::{LayoutJob, TextFormat}, FontFamily, FontId};
 ///
 /// let mut job = LayoutJob::default();
 /// job.append(

@@ -56,7 +56,7 @@ impl<T: Float> Hash for OrderedFloat<T> {
 ///
 /// Example with `f64`:
 /// ```
-/// use epaint::util::FloatOrd;
+/// use husky_epaint::util::FloatOrd;
 ///
 /// let array = [1.0, 2.5, 2.0];
 /// let max = array.iter().max_by_key(|val| val.ord());

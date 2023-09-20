@@ -74,7 +74,7 @@ pub(crate) fn font_texture_ui(ui: &mut Ui, [width, height]: [usize; 2]) -> Respo
     .response
 }
 
-impl Widget for &epaint::stats::PaintStats {
+impl Widget for &husky_epaint::stats::PaintStats {
     fn ui(self, ui: &mut Ui) -> Response {
         ui.vertical(|ui| {
             ui.label(
@@ -85,7 +85,7 @@ impl Widget for &epaint::stats::PaintStats {
 
             ui.style_mut().override_text_style = Some(TextStyle::Monospace);
 
-            let epaint::stats::PaintStats {
+            let husky_epaint::stats::PaintStats {
                 shapes,
                 shape_text,
                 shape_path,
@@ -131,14 +131,14 @@ impl Widget for &epaint::stats::PaintStats {
     }
 }
 
-fn label(ui: &mut Ui, alloc_info: &epaint::stats::AllocInfo, what: &str) -> Response {
+fn label(ui: &mut Ui, alloc_info: &husky_epaint::stats::AllocInfo, what: &str) -> Response {
     ui.add(Label::new(alloc_info.format(what)).wrap(false))
 }
 
-impl Widget for &mut epaint::TessellationOptions {
+impl Widget for &mut husky_epaint::TessellationOptions {
     fn ui(self, ui: &mut Ui) -> Response {
         ui.vertical(|ui| {
-            let epaint::TessellationOptions {
+            let husky_epaint::TessellationOptions {
                 feathering,
                 feathering_size_in_pixels,
                 coarse_tessellation_culling,

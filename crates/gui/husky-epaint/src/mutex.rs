@@ -331,7 +331,7 @@ mod rw_lock_impl {
             .unwrap_or(stacktrace.len());
         let stacktrace = &stacktrace[..end_offset];
 
-        let first_interesting_function = "epaint::mutex::rw_lock_impl::make_backtrace\n";
+        let first_interesting_function = "husky_epaint::mutex::rw_lock_impl::make_backtrace\n";
         if let Some(start_offset) = stacktrace.find(first_interesting_function) {
             stacktrace[start_offset + first_interesting_function.len()..].to_owned()
         } else {

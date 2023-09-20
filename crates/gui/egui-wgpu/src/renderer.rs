@@ -8,9 +8,9 @@ use type_map::concurrent::TypeMap;
 use wgpu;
 use wgpu::util::DeviceExt as _;
 
-use epaint::{emath::NumExt, PaintCallbackInfo, Primitive, Vertex};
+use husky_epaint::{emath::NumExt, PaintCallbackInfo, Primitive, Vertex};
 
-/// A callback function that can be used to compose an [`epaint::PaintCallback`] for custom WGPU
+/// A callback function that can be used to compose an [`husky_epaint::PaintCallback`] for custom WGPU
 /// rendering.
 ///
 /// The callback is composed of two functions: `prepare` and `paint`:
@@ -160,11 +160,11 @@ pub struct Renderer {
     /// Map of egui texture IDs to textures and their associated bindgroups (texture view +
     /// sampler). The texture may be None if the TextureId is just a handle to a user-provided
     /// sampler.
-    textures: HashMap<epaint::TextureId, (Option<wgpu::Texture>, wgpu::BindGroup)>,
+    textures: HashMap<husky_epaint::TextureId, (Option<wgpu::Texture>, wgpu::BindGroup)>,
     next_user_texture_id: u64,
-    samplers: HashMap<epaint::textures::TextureOptions, wgpu::Sampler>,
+    samplers: HashMap<husky_epaint::textures::TextureOptions, wgpu::Sampler>,
 
-    /// Storage for use by [`epaint::PaintCallback`]'s that need to store resources such as render
+    /// Storage for use by [`husky_epaint::PaintCallback`]'s that need to store resources such as render
     /// pipelines that must have the lifetime of the renderpass.
     pub paint_callback_resources: TypeMap,
 }
@@ -357,7 +357,7 @@ impl Renderer {
     pub fn render<'rp>(
         &'rp self,
         render_pass: &mut wgpu::RenderPass<'rp>,
-        paint_jobs: &[epaint::ClippedPrimitive],
+        paint_jobs: &[husky_epaint::ClippedPrimitive],
         screen_descriptor: &ScreenDescriptor,
     ) {
         crate::profile_function!();
@@ -372,7 +372,7 @@ impl Renderer {
         let mut index_buffer_slices = self.index_buffer.slices.iter();
         let mut vertex_buffer_slices = self.vertex_buffer.slices.iter();
 
-        for epaint::ClippedPrimitive {
+        for husky_epaint::ClippedPrimitive {
             clip_rect,
             primitive,
         } in paint_jobs
@@ -490,8 +490,8 @@ impl Renderer {
         &mut self,
         device: &wgpu::Device,
         queue: &wgpu::Queue,
-        id: epaint::TextureId,
-        image_delta: &epaint::ImageDelta,
+        id: husky_epaint::TextureId,
+        image_delta: &husky_epaint::ImageDelta,
     ) {
         crate::profile_function!();
 
@@ -505,7 +505,7 @@ impl Renderer {
         };
 
         let data_color32 = match &image_delta.image {
-            epaint::ImageData::Color(image) => {
+            husky_epaint::ImageData::Color(image) => {
                 assert_eq!(
                     width as usize * height as usize,
                     image.pixels.len(),
@@ -513,7 +513,7 @@ impl Renderer {
                 );
                 Cow::Borrowed(&image.pixels)
             }
-            epaint::ImageData::Font(image) => {
+            husky_epaint::ImageData::Font(image) => {
                 assert_eq!(
                     width as usize * height as usize,
                     image.pixels.len(),
@@ -598,7 +598,7 @@ impl Renderer {
         };
     }
 
-    pub fn free_texture(&mut self, id: &epaint::TextureId) {
+    pub fn free_texture(&mut self, id: &husky_epaint::TextureId) {
         self.textures.remove(id);
     }
 
@@ -606,15 +606,15 @@ impl Renderer {
     ///
     /// This could be used by custom paint hooks to render images that have been added through with
     /// [`egui_extras::RetainedImage`](https://docs.rs/egui_extras/latest/egui_extras/image/struct.RetainedImage.html)
-    /// or [`epaint::Context::load_texture`](https://docs.rs/egui/latest/egui/struct.Context.html#method.load_texture).
+    /// or [`husky_epaint::Context::load_texture`](https://docs.rs/egui/latest/egui/struct.Context.html#method.load_texture).
     pub fn texture(
         &self,
-        id: &epaint::TextureId,
+        id: &husky_epaint::TextureId,
     ) -> Option<&(Option<wgpu::Texture>, wgpu::BindGroup)> {
         self.textures.get(id)
     }
 
-    /// Registers a `wgpu::Texture` with a `epaint::TextureId`.
+    /// Registers a `wgpu::Texture` with a `husky_epaint::TextureId`.
     ///
     /// This enables the application to reference the texture inside an image ui element.
     /// This effectively enables off-screen rendering inside the egui UI. Texture must have
@@ -625,7 +625,7 @@ impl Renderer {
         device: &wgpu::Device,
         texture: &wgpu::TextureView,
         texture_filter: wgpu::FilterMode,
-    ) -> epaint::TextureId {
+    ) -> husky_epaint::TextureId {
         self.register_native_texture_with_sampler_options(
             device,
             texture,
@@ -638,7 +638,7 @@ impl Renderer {
         )
     }
 
-    /// Registers a `wgpu::Texture` with an existing `epaint::TextureId`.
+    /// Registers a `wgpu::Texture` with an existing `husky_epaint::TextureId`.
     ///
     /// This enables applications to reuse `TextureId`s.
     pub fn update_egui_texture_from_wgpu_texture(
@@ -646,7 +646,7 @@ impl Renderer {
         device: &wgpu::Device,
         texture: &wgpu::TextureView,
         texture_filter: wgpu::FilterMode,
-        id: epaint::TextureId,
+        id: husky_epaint::TextureId,
     ) {
         self.update_egui_texture_from_wgpu_texture_with_sampler_options(
             device,
@@ -661,7 +661,7 @@ impl Renderer {
         );
     }
 
-    /// Registers a `wgpu::Texture` with a `epaint::TextureId` while also accepting custom
+    /// Registers a `wgpu::Texture` with a `husky_epaint::TextureId` while also accepting custom
     /// `wgpu::SamplerDescriptor` options.
     ///
     /// This allows applications to specify individual minification/magnification filters as well as
@@ -676,7 +676,7 @@ impl Renderer {
         device: &wgpu::Device,
         texture: &wgpu::TextureView,
         sampler_descriptor: wgpu::SamplerDescriptor<'_>,
-    ) -> epaint::TextureId {
+    ) -> husky_epaint::TextureId {
         crate::profile_function!();
 
         let sampler = device.create_sampler(&wgpu::SamplerDescriptor {
@@ -699,14 +699,14 @@ impl Renderer {
             ],
         });
 
-        let id = epaint::TextureId::User(self.next_user_texture_id);
+        let id = husky_epaint::TextureId::User(self.next_user_texture_id);
         self.textures.insert(id, (None, bind_group));
         self.next_user_texture_id += 1;
 
         id
     }
 
-    /// Registers a `wgpu::Texture` with an existing `epaint::TextureId` while also accepting custom
+    /// Registers a `wgpu::Texture` with an existing `husky_epaint::TextureId` while also accepting custom
     /// `wgpu::SamplerDescriptor` options.
     ///
     /// This allows applications to reuse `TextureId`s created with custom sampler options.
@@ -716,7 +716,7 @@ impl Renderer {
         device: &wgpu::Device,
         texture: &wgpu::TextureView,
         sampler_descriptor: wgpu::SamplerDescriptor<'_>,
-        id: epaint::TextureId,
+        id: husky_epaint::TextureId,
     ) {
         crate::profile_function!();
 
@@ -757,7 +757,7 @@ impl Renderer {
         device: &wgpu::Device,
         queue: &wgpu::Queue,
         encoder: &mut wgpu::CommandEncoder,
-        paint_jobs: &[epaint::ClippedPrimitive],
+        paint_jobs: &[husky_epaint::ClippedPrimitive],
         screen_descriptor: &ScreenDescriptor,
     ) -> Vec<wgpu::CommandBuffer> {
         crate::profile_function!();
@@ -811,7 +811,7 @@ impl Renderer {
                 )
                 .expect("Failed to create staging buffer for index data");
             let mut index_offset = 0;
-            for epaint::ClippedPrimitive { primitive, .. } in paint_jobs.iter() {
+            for husky_epaint::ClippedPrimitive { primitive, .. } in paint_jobs.iter() {
                 match primitive {
                     Primitive::Mesh(mesh) => {
                         let size = mesh.indices.len() * std::mem::size_of::<u32>();
@@ -846,7 +846,7 @@ impl Renderer {
                 )
                 .expect("Failed to create staging buffer for vertex data");
             let mut vertex_offset = 0;
-            for epaint::ClippedPrimitive { primitive, .. } in paint_jobs.iter() {
+            for husky_epaint::ClippedPrimitive { primitive, .. } in paint_jobs.iter() {
                 match primitive {
                     Primitive::Mesh(mesh) => {
                         let size = mesh.vertices.len() * std::mem::size_of::<Vertex>();
@@ -864,7 +864,7 @@ impl Renderer {
         {
             crate::profile_scope!("user command buffers");
             let mut user_cmd_bufs = Vec::new(); // collect user command buffers
-            for epaint::ClippedPrimitive { primitive, .. } in paint_jobs.iter() {
+            for husky_epaint::ClippedPrimitive { primitive, .. } in paint_jobs.iter() {
                 match primitive {
                     Primitive::Mesh(_) => {}
                     Primitive::Callback(callback) => {
@@ -891,16 +891,16 @@ impl Renderer {
 }
 
 fn create_sampler(
-    options: epaint::textures::TextureOptions,
+    options: husky_epaint::textures::TextureOptions,
     device: &wgpu::Device,
 ) -> wgpu::Sampler {
     let mag_filter = match options.magnification {
-        epaint::textures::TextureFilter::Nearest => wgpu::FilterMode::Nearest,
-        epaint::textures::TextureFilter::Linear => wgpu::FilterMode::Linear,
+        husky_epaint::textures::TextureFilter::Nearest => wgpu::FilterMode::Nearest,
+        husky_epaint::textures::TextureFilter::Linear => wgpu::FilterMode::Linear,
     };
     let min_filter = match options.minification {
-        epaint::textures::TextureFilter::Nearest => wgpu::FilterMode::Nearest,
-        epaint::textures::TextureFilter::Linear => wgpu::FilterMode::Linear,
+        husky_epaint::textures::TextureFilter::Nearest => wgpu::FilterMode::Nearest,
+        husky_epaint::textures::TextureFilter::Linear => wgpu::FilterMode::Linear,
     };
     device.create_sampler(&wgpu::SamplerDescriptor {
         label: Some(&format!(
@@ -942,7 +942,7 @@ struct ScissorRect {
 }
 
 impl ScissorRect {
-    fn new(clip_rect: &epaint::Rect, pixels_per_point: f32, target_size: [u32; 2]) -> Self {
+    fn new(clip_rect: &husky_epaint::Rect, pixels_per_point: f32, target_size: [u32; 2]) -> Self {
         // Transform clip rect to physical pixels:
         let clip_min_x = pixels_per_point * clip_rect.min.x;
         let clip_min_y = pixels_per_point * clip_rect.min.y;

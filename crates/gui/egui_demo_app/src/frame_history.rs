@@ -70,7 +70,7 @@ impl FrameHistory {
         let to_screen = emath::RectTransform::from_to(graph_rect, rect);
 
         let mut shapes = Vec::with_capacity(3 + 2 * history.len());
-        shapes.push(Shape::Rect(epaint::RectShape {
+        shapes.push(Shape::Rect(husky_epaint::RectShape {
             rect,
             rounding: style.rounding,
             fill: ui.visuals().extreme_bg_color,

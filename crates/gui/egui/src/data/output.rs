@@ -24,12 +24,12 @@ pub struct FullOutput {
     ///
     /// The backend needs to apply [`crate::TexturesDelta::set`] _before_ painting,
     /// and free any texture in [`crate::TexturesDelta::free`] _after_ painting.
-    pub textures_delta: epaint::textures::TexturesDelta,
+    pub textures_delta: husky_epaint::textures::TexturesDelta,
 
     /// What to paint.
     ///
     /// You can use [`crate::Context::tessellate`] to turn this into triangles.
-    pub shapes: Vec<epaint::ClippedShape>,
+    pub shapes: Vec<husky_epaint::ClippedShape>,
 }
 
 impl FullOutput {

@@ -19,7 +19,7 @@ pub mod winit;
 
 use std::sync::Arc;
 
-use epaint::mutex::RwLock;
+use husky_epaint::mutex::RwLock;
 
 #[derive(thiserror::Error, Debug)]
 pub enum WgpuError {

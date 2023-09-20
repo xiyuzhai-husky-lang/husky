@@ -6,7 +6,7 @@ use crate::{
     input_state::*, layers::GraphicLayers, memory::Options, os::OperatingSystem,
     output::FullOutput, util::IdTypeMap, TextureHandle, *,
 };
-use epaint::{mutex::*, stats::*, text::Fonts, TessellationOptions, *};
+use husky_epaint::{mutex::*, stats::*, text::Fonts, TessellationOptions, *};
 
 /// Information given to the backend about when it is time to repaint the ui.
 ///
@@ -25,16 +25,16 @@ pub struct RequestRepaintInfo {
 
 // ----------------------------------------------------------------------------
 
-struct WrappedTextureManager(Arc<RwLock<epaint::TextureManager>>);
+struct WrappedTextureManager(Arc<RwLock<husky_epaint::TextureManager>>);
 
 impl Default for WrappedTextureManager {
     fn default() -> Self {
-        let mut tex_mngr = epaint::textures::TextureManager::default();
+        let mut tex_mngr = husky_epaint::textures::TextureManager::default();
 
         // Will be filled in later
         let font_id = tex_mngr.alloc(
             "egui_font_texture".into(),
-            epaint::FontImage::new([0, 0]).into(),
+            husky_epaint::FontImage::new([0, 0]).into(),
             Default::default(),
         );
         assert_eq!(font_id, TextureId::default());
@@ -1162,7 +1162,7 @@ impl Context {
     /// In general it is easier to use [`Self::load_texture`] and [`TextureHandle`].
     ///
     /// You can show stats about the allocated textures using [`Self::texture_ui`].
-    pub fn tex_manager(&self) -> Arc<RwLock<epaint::textures::TextureManager>> {
+    pub fn tex_manager(&self) -> Arc<RwLock<husky_epaint::textures::TextureManager>> {
         self.read(|ctx| ctx.tex_manager.0.clone())
     }
 
