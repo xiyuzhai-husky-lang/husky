@@ -9,7 +9,7 @@ pub struct EguiGlow {
     pub egui_winit: egui_winit::State,
     pub painter: crate::Painter,
 
-    shapes: Vec<egui::epaint::ClippedShape>,
+    shapes: Vec<egui::husky_epaint::ClippedShape>,
     textures_delta: egui::TexturesDelta,
 }
 

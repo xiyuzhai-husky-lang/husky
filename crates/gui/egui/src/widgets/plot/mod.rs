@@ -4,8 +4,8 @@ use ahash::HashMap;
 use std::ops::RangeInclusive;
 
 use crate::*;
-use epaint::util::FloatOrd;
-use epaint::Hsva;
+use husky_epaint::util::FloatOrd;
+use husky_epaint::Hsva;
 
 use items::PlotItem;
 use legend::LegendWidget;
@@ -711,12 +711,14 @@ impl Plot {
 
         // Background
         if show_background {
-            ui.painter().with_clip_rect(rect).add(epaint::RectShape {
-                rect,
-                rounding: Rounding::same(2.0),
-                fill: ui.visuals().extreme_bg_color,
-                stroke: ui.visuals().widgets.noninteractive.bg_stroke,
-            });
+            ui.painter()
+                .with_clip_rect(rect)
+                .add(husky_epaint::RectShape {
+                    rect,
+                    rounding: Rounding::same(2.0),
+                    fill: ui.visuals().extreme_bg_color,
+                    stroke: ui.visuals().widgets.noninteractive.bg_stroke,
+                });
         }
 
         // --- Legend ---
@@ -881,17 +883,17 @@ impl Plot {
                 // while dragging prepare a Shape and draw it later on top of the plot
                 if response.dragged_by(boxed_zoom_pointer) {
                     response = response.on_hover_cursor(CursorIcon::ZoomIn);
-                    let rect = epaint::Rect::from_two_pos(box_start_pos, box_end_pos);
+                    let rect = husky_epaint::Rect::from_two_pos(box_start_pos, box_end_pos);
                     boxed_zoom_rect = Some((
-                        epaint::RectShape::stroke(
+                        husky_epaint::RectShape::stroke(
                             rect,
                             0.0,
-                            epaint::Stroke::new(4., Color32::DARK_BLUE),
+                            husky_epaint::Stroke::new(4., Color32::DARK_BLUE),
                         ), // Outer stroke
-                        epaint::RectShape::stroke(
+                        husky_epaint::RectShape::stroke(
                             rect,
                             0.0,
-                            epaint::Stroke::new(2., Color32::WHITE),
+                            husky_epaint::Stroke::new(2., Color32::WHITE),
                         ), // Inner stroke
                     ));
                 }

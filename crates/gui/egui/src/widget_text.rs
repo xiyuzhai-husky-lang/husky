@@ -227,7 +227,7 @@ impl RichText {
     }
 
     /// Read the font height of the selected text style.
-    pub fn font_height(&self, fonts: &epaint::Fonts, style: &Style) -> f32 {
+    pub fn font_height(&self, fonts: &husky_epaint::Fonts, style: &Style) -> f32 {
         let mut font_id = self.text_style.as_ref().map_or_else(
             || FontSelection::Default.resolve(style),
             |text_style| text_style.resolve(style),
@@ -353,7 +353,7 @@ pub enum WidgetText {
     ///
     /// Only [`LayoutJob::text`] and [`LayoutJob::sections`] are guaranteed to be respected.
     ///
-    /// [`TextWrapping::max_width`](epaint::text::TextWrapping::max_width), [`LayoutJob::halign`], [`LayoutJob::justify`]
+    /// [`TextWrapping::max_width`](husky_epaint::text::TextWrapping::max_width), [`LayoutJob::halign`], [`LayoutJob::justify`]
     /// and [`LayoutJob::first_row_min_height`] will likely be determined by the [`crate::Layout`]
     /// of the [`Ui`] the widget is placed in.
     /// If you want all parts of the [`LayoutJob`] respected, then convert it to a
@@ -518,7 +518,7 @@ impl WidgetText {
         }
     }
 
-    pub(crate) fn font_height(&self, fonts: &epaint::Fonts, style: &Style) -> f32 {
+    pub(crate) fn font_height(&self, fonts: &husky_epaint::Fonts, style: &Style) -> f32 {
         match self {
             Self::RichText(text) => text.font_height(fonts, style),
             Self::LayoutJob(job) => job.font_height(fonts),

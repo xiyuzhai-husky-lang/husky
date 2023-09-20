@@ -124,7 +124,7 @@
 #![allow(clippy::needless_doctest_main)]
 
 // Re-export all useful libraries:
-pub use {egui, egui::emath, egui::epaint};
+pub use {egui, egui::emath, egui::husky_epaint};
 
 #[cfg(feature = "glow")]
 pub use {egui_glow, glow};

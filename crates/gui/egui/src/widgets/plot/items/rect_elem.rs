@@ -1,7 +1,7 @@
 use super::{Orientation, PlotPoint};
 use crate::plot::transform::{PlotBounds, PlotTransform};
-use epaint::emath::NumExt;
-use epaint::{Color32, Rgba, Stroke};
+use husky_epaint::emath::NumExt;
+use husky_epaint::{Color32, Rgba, Stroke};
 
 /// Trait that abstracts from rectangular 'Value'-like elements, such as bars or boxes
 pub(super) trait RectElement {

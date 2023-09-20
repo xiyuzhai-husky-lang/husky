@@ -19,7 +19,7 @@ puffin = ["dep:puffin"]
 winit = ["dep:winit"]
 
 [dependencies]
-epaint = { version = "0.22.0", path = "../epaint", default-features = false, features = [
+husky-epaint = { version = "0.22.0", path = "../../gui/husky-epaint", default-features = false, features = [
   "bytemuck",
 ] }
 bytemuck = "1.7"

@@ -6,7 +6,7 @@ use crate::{
     layers::{LayerId, PaintList, ShapeIdx},
     Color32, Context, FontId,
 };
-use epaint::{
+use husky_epaint::{
     text::{Fonts, Galley},
     CircleShape, RectShape, Rounding, Shape, Stroke,
 };
@@ -366,7 +366,7 @@ impl Painter {
     /// unless you want to crop or flip the image.
     ///
     /// `tint` is a color multiplier. Use [`Color32::WHITE`] if you don't want to tint the image.
-    pub fn image(&self, texture_id: epaint::TextureId, rect: Rect, uv: Rect, tint: Color32) {
+    pub fn image(&self, texture_id: husky_epaint::TextureId, rect: Rect, uv: Rect, tint: Color32) {
         self.add(Shape::image(texture_id, rect, uv, tint));
     }
 }
@@ -449,7 +449,7 @@ impl Painter {
 }
 
 fn tint_shape_towards(shape: &mut Shape, target: Color32) {
-    epaint::shape_transform::adjust_colors(shape, &|color| {
+    husky_epaint::shape_transform::adjust_colors(shape, &|color| {
         *color = crate::ecolor::tint_color_towards(*color, target);
     });
 }

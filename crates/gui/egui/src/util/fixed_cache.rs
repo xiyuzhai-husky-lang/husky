@@ -1,4 +1,4 @@
-use epaint::util::hash;
+use husky_epaint::util::hash;
 
 const FIXED_CACHE_SIZE: usize = 1024; // must be small for web/WASM build (for unknown reason)
 

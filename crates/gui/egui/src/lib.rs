@@ -328,15 +328,15 @@ pub mod widgets;
 #[cfg(feature = "accesskit")]
 pub use accesskit;
 
-pub use epaint;
-pub use epaint::ecolor;
-pub use epaint::emath;
+pub use husky_epaint;
+pub use husky_epaint::ecolor;
+pub use husky_epaint::emath;
 
 #[cfg(feature = "color-hex")]
 pub use ecolor::hex_color;
 pub use ecolor::{Color32, Rgba};
 pub use emath::{lerp, pos2, remap, remap_clamp, vec2, Align, Align2, NumExt, Pos2, Rect, Vec2};
-pub use epaint::{
+pub use husky_epaint::{
     mutex,
     text::{FontData, FontDefinitions, FontFamily, FontId, FontTweak},
     textures::{TextureFilter, TextureOptions, TexturesDelta},
@@ -346,7 +346,7 @@ pub use epaint::{
 
 pub mod text {
     pub use crate::text_edit::CCursorRange;
-    pub use epaint::text::{
+    pub use husky_epaint::text::{
         cursor::CCursor, FontData, FontDefinitions, FontFamily, Fonts, Galley, LayoutJob,
         LayoutSection, TextFormat, TAB_SIZE,
     };

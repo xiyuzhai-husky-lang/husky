@@ -1,4 +1,4 @@
-use epaint::{Pos2, Shape, Stroke, Vec2};
+use husky_epaint::{Pos2, Shape, Stroke, Vec2};
 use std::ops::{Bound, RangeBounds, RangeInclusive};
 
 use crate::plot::transform::PlotBounds;

@@ -326,7 +326,7 @@ impl Resize {
     }
 }
 
-use epaint::Stroke;
+use husky_epaint::Stroke;
 
 pub fn paint_resize_corner(ui: &mut Ui, response: &Response) {
     let stroke = ui.style().interact(response).fg_stroke;

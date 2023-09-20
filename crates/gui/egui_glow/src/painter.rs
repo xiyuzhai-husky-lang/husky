@@ -5,7 +5,7 @@ use std::{collections::HashMap, sync::Arc};
 
 use egui::{
     emath::Rect,
-    epaint::{Mesh, PaintCallbackInfo, Primitive, Vertex},
+    husky_epaint::{Mesh, PaintCallbackInfo, Primitive, Vertex},
 };
 use glow::HasContext as _;
 use memoffset::offset_of;
@@ -462,7 +462,7 @@ impl Painter {
 
     // ------------------------------------------------------------------------
 
-    pub fn set_texture(&mut self, tex_id: egui::TextureId, delta: &egui::epaint::ImageDelta) {
+    pub fn set_texture(&mut self, tex_id: egui::TextureId, delta: &egui::husky_epaint::ImageDelta) {
         crate::profile_function!();
 
         self.assert_not_destroyed();

@@ -317,7 +317,7 @@ impl<'a> Widget for Checkbox<'a> {
             // let visuals = ui.style().interact_selectable(&response, *checked); // too colorful
             let visuals = ui.style().interact(&response);
             let (small_icon_rect, big_icon_rect) = ui.spacing().icon_rectangles(rect);
-            ui.painter().add(epaint::RectShape {
+            ui.painter().add(husky_epaint::RectShape {
                 rect: big_icon_rect.expand(visuals.expansion),
                 rounding: visuals.rounding,
                 fill: visuals.bg_fill,
@@ -426,7 +426,7 @@ impl Widget for RadioButton {
 
             let painter = ui.painter();
 
-            painter.add(epaint::CircleShape {
+            painter.add(husky_epaint::CircleShape {
                 center: big_icon_rect.center(),
                 radius: big_icon_rect.width() / 2.0 + visuals.expansion,
                 fill: visuals.bg_fill,
@@ -434,7 +434,7 @@ impl Widget for RadioButton {
             });
 
             if checked {
-                painter.add(epaint::CircleShape {
+                painter.add(husky_epaint::CircleShape {
                     center: small_icon_rect.center(),
                     radius: small_icon_rect.width() / 3.0,
                     fill: visuals.fg_stroke.color, // Intentional to use stroke and not fill

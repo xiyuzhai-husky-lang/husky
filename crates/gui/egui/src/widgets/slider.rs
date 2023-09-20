@@ -663,7 +663,7 @@ impl<'a> Slider<'a> {
                 );
             }
 
-            ui.painter().add(epaint::CircleShape {
+            ui.painter().add(husky_epaint::CircleShape {
                 center,
                 radius: self.handle_radius(rect) + visuals.expansion,
                 fill: visuals.bg_fill,

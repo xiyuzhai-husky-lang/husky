@@ -1,5 +1,5 @@
 [package]
-name = "epaint"
+name = "husky-epaint"
 version = "0.22.0"
 edition = "2021"
 authors = ["Emil Ernerfeldt <emil.ernerfeldt@gmail.com>"]

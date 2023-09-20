@@ -84,7 +84,7 @@ pub enum FontFamily {
     /// One of the names in [`FontDefinitions::families`].
     ///
     /// ```
-    /// # use epaint::FontFamily;
+    /// # use husky_epaint::FontFamily;
     /// // User-chosen names:
     /// FontFamily::Name("arial".into());
     /// FontFamily::Name("serif".into());
@@ -209,7 +209,7 @@ fn ab_glyph_font_from_font_data(name: &str, data: &FontData) -> ab_glyph::FontAr
 ///
 /// This is how you install your own custom fonts:
 /// ```
-/// # use {epaint::text::{FontDefinitions, FontFamily, FontData}};
+/// # use {husky_epaint::text::{FontDefinitions, FontFamily, FontData}};
 /// # struct FakeEguiCtx {};
 /// # impl FakeEguiCtx { fn set_fonts(&self, _: FontDefinitions) {} }
 /// # let egui_ctx = FakeEguiCtx {};

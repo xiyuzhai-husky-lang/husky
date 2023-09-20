@@ -1,4 +1,4 @@
-use egui::epaint::{CubicBezierShape, PathShape, QuadraticBezierShape};
+use egui::husky_epaint::{CubicBezierShape, PathShape, QuadraticBezierShape};
 use egui::*;
 
 #[cfg_attr(feature = "serde", derive(serde::Deserialize, serde::Serialize))]
@@ -111,7 +111,7 @@ impl PaintBezier {
                 let points = points_in_screen.clone().try_into().unwrap();
                 let shape =
                     QuadraticBezierShape::from_points_stroke(points, true, self.fill, self.stroke);
-                painter.add(epaint::RectShape::stroke(
+                painter.add(husky_epaint::RectShape::stroke(
                     shape.visual_bounding_rect(),
                     0.0,
                     self.bounding_box_stroke,
@@ -122,7 +122,7 @@ impl PaintBezier {
                 let points = points_in_screen.clone().try_into().unwrap();
                 let shape =
                     CubicBezierShape::from_points_stroke(points, true, self.fill, self.stroke);
-                painter.add(epaint::RectShape::stroke(
+                painter.add(husky_epaint::RectShape::stroke(
                     shape.visual_bounding_rect(),
                     0.0,
                     self.bounding_box_stroke,

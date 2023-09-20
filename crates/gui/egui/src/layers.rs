@@ -2,7 +2,7 @@
 //! are sometimes painted behind or in front of other things.
 
 use crate::{Id, *};
-use epaint::{ClippedShape, Shape};
+use husky_epaint::{ClippedShape, Shape};
 
 /// Different layer categories
 #[derive(Clone, Copy, Debug, Hash, Eq, PartialEq, Ord, PartialOrd)]

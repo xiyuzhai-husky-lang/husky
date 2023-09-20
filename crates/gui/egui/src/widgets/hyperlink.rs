@@ -51,7 +51,7 @@ impl Widget for Link {
                 Stroke::NONE
             };
 
-            ui.painter().add(epaint::TextShape {
+            ui.painter().add(husky_epaint::TextShape {
                 pos,
                 galley: text_galley.galley,
                 override_text_color: Some(color),

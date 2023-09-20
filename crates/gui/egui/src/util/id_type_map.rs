@@ -28,7 +28,7 @@ impl TypeId {
 impl From<std::any::TypeId> for TypeId {
     #[inline]
     fn from(id: std::any::TypeId) -> Self {
-        Self(epaint::util::hash(id))
+        Self(husky_epaint::util::hash(id))
     }
 }
 

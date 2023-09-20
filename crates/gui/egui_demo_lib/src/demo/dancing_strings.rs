@@ -55,7 +55,10 @@ impl super::View for DancingStrings {
                     .collect();
 
                 let thickness = 10.0 / mode as f32;
-                shapes.push(epaint::Shape::line(points, Stroke::new(thickness, color)));
+                shapes.push(husky_epaint::Shape::line(
+                    points,
+                    Stroke::new(thickness, color),
+                ));
             }
 
             ui.painter().extend(shapes);

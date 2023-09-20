@@ -1,4 +1,4 @@
-use epaint::text::cursor::*;
+use husky_epaint::text::cursor::*;
 
 /// A selected text range (could be a range of length zero).
 #[derive(Clone, Copy, Debug, Default, PartialEq)]

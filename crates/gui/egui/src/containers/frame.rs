@@ -1,7 +1,7 @@
 //! Frame container
 
 use crate::{layers::ShapeIdx, style::Margin, *};
-use epaint::*;
+use husky_epaint::*;
 
 /// Add a background, frame and/or margin to a rectangular background of a [`Ui`].
 ///
@@ -237,7 +237,7 @@ impl Frame {
             stroke,
         } = *self;
 
-        let frame_shape = Shape::Rect(epaint::RectShape {
+        let frame_shape = Shape::Rect(husky_epaint::RectShape {
             rect: outer_rect,
             rounding,
             fill,

@@ -3,7 +3,7 @@
 #![allow(clippy::if_same_then_else)]
 
 use crate::{ecolor::*, emath::*, FontFamily, FontId, Response, RichText, WidgetText};
-use epaint::{Rounding, Shadow, Stroke};
+use husky_epaint::{Rounding, Shadow, Stroke};
 use std::collections::BTreeMap;
 
 // ----------------------------------------------------------------------------

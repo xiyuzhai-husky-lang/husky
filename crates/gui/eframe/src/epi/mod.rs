@@ -341,7 +341,7 @@ pub struct NativeOptions {
     /// A value of `0` turns it off (default).
     ///
     /// `egui` already performs anti-aliasing via "feathering"
-    /// (controlled by [`egui::epaint::TessellationOptions`]),
+    /// (controlled by [`egui::husky_epaint::TessellationOptions`]),
     /// but if you are embedding 3D in egui you may want to turn on multisampling.
     pub multisampling: u16,
 

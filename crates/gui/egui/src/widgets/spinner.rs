@@ -1,4 +1,4 @@
-use epaint::{emath::lerp, vec2, Color32, Pos2, Shape, Stroke};
+use husky_epaint::{emath::lerp, vec2, Color32, Pos2, Shape, Stroke};
 
 use crate::{Response, Sense, Ui, Widget};
 

@@ -1,4 +1,4 @@
-use epaint::Shape;
+use husky_epaint::Shape;
 
 use crate::{style::WidgetVisuals, *};
 
@@ -383,7 +383,7 @@ fn button_frame(
 
         ui.painter().set(
             where_to_put_background,
-            epaint::RectShape {
+            husky_epaint::RectShape {
                 rect: outer_rect.expand(visuals.expansion),
                 rounding: visuals.rounding,
                 fill: visuals.weak_bg_fill,

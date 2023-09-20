@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use epaint::text::{cursor::*, Galley, LayoutJob};
+use husky_epaint::text::{cursor::*, Galley, LayoutJob};
 
 use crate::{output::OutputEvent, *};
 
@@ -368,7 +368,7 @@ impl<'t> TextEdit<'t> {
             let frame_rect = frame_rect.expand(visuals.expansion);
             let shape = if is_mutable {
                 if output.response.has_focus() {
-                    epaint::RectShape {
+                    husky_epaint::RectShape {
                         rect: frame_rect,
                         rounding: visuals.rounding,
                         // fill: ui.visuals().selection.bg_fill,
@@ -376,7 +376,7 @@ impl<'t> TextEdit<'t> {
                         stroke: ui.visuals().selection.stroke,
                     }
                 } else {
-                    epaint::RectShape {
+                    husky_epaint::RectShape {
                         rect: frame_rect,
                         rounding: visuals.rounding,
                         fill: ui.visuals().extreme_bg_color,
@@ -385,7 +385,7 @@ impl<'t> TextEdit<'t> {
                 }
             } else {
                 let visuals = &ui.style().visuals.widgets.inactive;
-                epaint::RectShape {
+                husky_epaint::RectShape {
                     rect: frame_rect,
                     rounding: visuals.rounding,
                     // fill: ui.visuals().extreme_bg_color,
@@ -834,7 +834,7 @@ impl<'t> TextEdit<'t> {
 
 fn mask_if_password(is_password: bool, text: &str) -> String {
     fn mask_password(text: &str) -> String {
-        std::iter::repeat(epaint::text::PASSWORD_REPLACEMENT_CHAR)
+        std::iter::repeat(husky_epaint::text::PASSWORD_REPLACEMENT_CHAR)
             .take(text.chars().count())
             .collect::<String>()
     }

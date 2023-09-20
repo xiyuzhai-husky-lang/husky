@@ -11,36 +11,36 @@ all-features = true
 
 [features]
 default = ["default_fonts"]
-## [`bytemuck`](https://docs.rs/bytemuck) enables you to cast [`epaint::Vertex`], [`emath::Vec2`] etc to `&[u8]`.
-bytemuck = ["epaint/bytemuck"]
+## [`bytemuck`](https://docs.rs/bytemuck) enables you to cast [`husky_epaint::Vertex`], [`emath::Vec2`] etc to `&[u8]`.
+bytemuck = ["husky-epaint/bytemuck"]
 ## [`cint`](https://docs.rs/cint) enables interoperability with other color libraries.
-cint = ["epaint/cint"]
+cint = ["husky-epaint/cint"]
 ## Enable the [`hex_color`] macro.
-color-hex = ["epaint/color-hex"]
+color-hex = ["husky-epaint/color-hex"]
 ## This will automatically detect deadlocks due to double-locking on the same thread.
 ## If your app freezes, you may want to enable this!
-## Only affects [`epaint::mutex::RwLock`] (which egui uses a lot).
-deadlock_detection = ["epaint/deadlock_detection"]
+## Only affects [`husky_epaint::mutex::RwLock`] (which egui uses a lot).
+deadlock_detection = ["husky-epaint/deadlock_detection"]
 ## If set, egui will use `include_bytes!` to bundle some fonts.
 ## If you plan on specifying your own fonts you may disable this feature.
-default_fonts = ["epaint/default_fonts"]
+default_fonts = ["husky-epaint/default_fonts"]
 ## Enable additional checks if debug assertions are enabled (debug builds).
-extra_debug_asserts = ["epaint/extra_debug_asserts"]
+extra_debug_asserts = ["husky-epaint/extra_debug_asserts"]
 ## Always enable additional checks.
-extra_asserts = ["epaint/extra_asserts"]
+extra_asserts = ["husky-epaint/extra_asserts"]
 ## Turn on the `log` feature, that makes egui log some errors using the [`log`](https://docs.rs/log) crate.
-log = ["dep:log", "epaint/log"]
+log = ["dep:log", "husky-epaint/log"]
 ## [`mint`](https://docs.rs/mint) enables interoperability with other math libraries such as [`glam`](https://docs.rs/glam) and [`nalgebra`](https://docs.rs/nalgebra).
-mint = ["epaint/mint"]
+mint = ["husky-epaint/mint"]
 ## Enable persistence of memory (window positions etc).
-persistence = ["serde", "epaint/serde", "ron"]
+persistence = ["serde", "husky-epaint/serde", "ron"]
 ## Allow serialization using [`serde`](https://docs.rs/serde).
-serde = ["dep:serde", "epaint/serde", "accesskit?/serde"]
+serde = ["dep:serde", "husky-epaint/serde", "accesskit?/serde"]
 ## Change Vertex layout to be compatible with unity
-unity = ["epaint/unity"]
+unity = ["husky-epaint/unity"]
 
 [dependencies]
-epaint = { version = "0.22.0", path = "../epaint", default-features = false }
+husky-epaint = { version = "0.22.0", path = "../../gui/husky-epaint", default-features = false }
 ahash = { version = "0.8.1", default-features = false, features = [
     "no-rng", # we don't need DOS-protection, so we let users opt-in to it instead
     "std",

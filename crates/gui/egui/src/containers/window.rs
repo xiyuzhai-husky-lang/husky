@@ -2,7 +2,7 @@
 
 use crate::collapsing_header::CollapsingState;
 use crate::{widget_text::WidgetTextGalley, *};
-use epaint::*;
+use husky_epaint::*;
 
 use super::*;
 
@@ -740,7 +740,7 @@ fn paint_frame_interaction(
     interaction: WindowInteraction,
     visuals: style::WidgetVisuals,
 ) {
-    use epaint::tessellator::path::add_circle_quadrant;
+    use husky_epaint::tessellator::path::add_circle_quadrant;
 
     let rounding = ui.visuals().window_rounding;
     let Rect { min, max } = rect;

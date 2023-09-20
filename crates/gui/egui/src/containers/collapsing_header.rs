@@ -1,7 +1,7 @@
 use std::hash::Hash;
 
 use crate::*;
-use epaint::Shape;
+use husky_epaint::Shape;
 
 #[derive(Clone, Copy, Debug)]
 #[cfg_attr(feature = "serde", derive(serde::Deserialize, serde::Serialize))]
@@ -551,7 +551,7 @@ impl CollapsingHeader {
             let visuals = ui.style().interact_selectable(&header_response, selected);
 
             if ui.visuals().collapsing_header_frame || show_background {
-                ui.painter().add(epaint::RectShape {
+                ui.painter().add(husky_epaint::RectShape {
                     rect: header_response.rect.expand(visuals.expansion),
                     rounding: visuals.rounding,
                     fill: visuals.weak_bg_fill,
