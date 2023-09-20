@@ -8,7 +8,7 @@ members = [
     "crates/devtools/*",
     # "crates/experiments/*",
     "crates/fs/*",
-    "crates/gui/*",
+    "crates/egui/*",
     "crates/ide/*",
     "crates/semantics/*",
     "crates/kernel/*",
