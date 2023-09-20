@@ -2,7 +2,7 @@ use husky_syn_expr::SynStmtIdx;
 
 use super::*;
 
-impl Devtime {
+impl<Task: IsTask> Devtime<Task> {
     pub(crate) fn proc_stmt_figure(
         &self,
         stmt: SynStmtIdx,

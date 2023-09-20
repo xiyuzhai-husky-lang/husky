@@ -3,7 +3,7 @@ use crate::*;
 use std::ops::FromResidual;
 use trackable::{TrackableAtom, TrackableMap, TrackableVec};
 
-impl Devtime {
+impl<Task: IsTask> Devtime<Task> {
     pub(crate) fn update(&mut self) {
         todo!()
         // match self.try_update() {

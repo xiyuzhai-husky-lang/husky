@@ -9,7 +9,7 @@ use crate::*;
 use husky_val_repr::{ValStmt, ValStmtData};
 use husky_vm::{History, HistoryEntry, MutationData, MutationDataVariant};
 
-impl Devtime {
+impl<Task: IsTask> Devtime<Task> {
     pub fn gen_trace_generic_figure(
         &self,
         trace_id: TraceId,

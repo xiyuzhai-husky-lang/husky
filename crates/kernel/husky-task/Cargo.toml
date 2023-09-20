@@ -6,5 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 small-cell-stack = { path = "../../abstraction/small-cell-stack" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
 husky-linkage-path = { path = "../../kernel/husky-linkage-path" }

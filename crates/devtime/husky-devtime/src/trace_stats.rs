@@ -1,6 +1,6 @@
 use crate::*;
 
-impl Devtime {
+impl<Task: IsTask> Devtime<Task> {
     pub(crate) fn update_trace_statss(&mut self) -> VMResult<()> {
         for root_trace_id in self.root_traces() {
             self.update_trace_statss_within_trace(root_trace_id)?;

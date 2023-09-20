@@ -1,7 +1,7 @@
 use crate::*;
 use husky_eval::Evaluator;
 
-impl Devtime {
+impl<Task: IsTask> Devtime<Task> {
     pub fn val_repr_subtraces(
         &mut self,
         parent: &Trace,

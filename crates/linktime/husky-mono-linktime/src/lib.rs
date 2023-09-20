@@ -18,14 +18,6 @@ where
     internal: std::sync::RwLock<MonoLinkTimeInternal<Db, Linkage>>,
 }
 
-impl<Db: HirDepsDb, Linkage: IsLinkage> MonoLinkTime<Db, Linkage> {
-    pub fn new(target_crate: CratePath, db: &Db) -> Self {
-        Self {
-            internal: std::sync::RwLock::new(MonoLinkTimeInternal::new(target_crate, db)),
-        }
-    }
-}
-
 impl<Db, Linkage> IsLinkageTable for MonoLinkTime<Db, Linkage>
 where
     Db: HirDepsDb,
@@ -43,6 +35,12 @@ where
                 .write()
                 .expect("todo")
                 .get_linkage_with_reload(key, db)
+        }
+    }
+
+    fn new_linkage_table(target_crate: CratePath, db: &Db) -> Self {
+        Self {
+            internal: std::sync::RwLock::new(MonoLinkTimeInternal::new(target_crate, db)),
         }
     }
 }

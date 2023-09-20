@@ -35,6 +35,13 @@ impl DiffPath {
     }
 }
 
+impl DiffPath {
+    // todo: room for optimization when path is owned
+    pub fn try_new(db: &dyn VfsDb, path: impl AsRef<Path>) -> VfsResult<Self> {
+        Ok(Self::new(db, DiffPathBuf::try_new(db, path.as_ref())?))
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct DiffPathBuf(PathBuf);
 
@@ -42,13 +49,6 @@ pub struct DiffPathBuf(PathBuf);
 fn test_absolute_path_debug() {
     let _db = DB::default();
     // let abs_path = DiffPath::new(path);
-}
-
-impl DiffPath {
-    // todo: room for optimization when path is owned
-    pub fn try_new(db: &dyn VfsDb, path: impl AsRef<Path>) -> VfsResult<Self> {
-        Ok(Self::new(db, DiffPathBuf::try_new(db, path.as_ref())?))
-    }
 }
 
 impl DiffPathBuf {

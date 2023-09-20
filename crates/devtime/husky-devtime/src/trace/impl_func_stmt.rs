@@ -2,7 +2,7 @@ use husky_syn_expr::SynStmtIdxRange;
 
 use super::*;
 
-impl Devtime {
+impl<Task: IsTask> Devtime<Task> {
     // pub(crate) fn func_stmts_traces(
     //     &mut self,
     //     parent_id: TraceId,

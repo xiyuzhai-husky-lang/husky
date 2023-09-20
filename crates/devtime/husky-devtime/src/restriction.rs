@@ -1,6 +1,6 @@
 use crate::*;
 
-impl Devtime {
+impl<Task: IsTask> Devtime<Task> {
     pub fn presentation(&self) -> &Presentation {
         self.state.presentation()
     }

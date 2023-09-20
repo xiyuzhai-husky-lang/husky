@@ -2,7 +2,7 @@ use husky_vm_primitive_value::PrimitiveValueData;
 
 use super::*;
 
-impl Devtime {
+impl<Task: IsTask> Devtime<Task> {
     pub(crate) fn feature_repr_specific_figure(
         &self,
         repr: &ValRepr,

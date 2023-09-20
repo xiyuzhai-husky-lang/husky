@@ -1,7 +1,7 @@
 use super::*;
 use husky_syn_expr::SynExprIdx;
 
-impl Devtime {
+impl<Task: IsTask> Devtime<Task> {
     pub(crate) fn eager_expr_figure(
         &self,
         expr: SynExprIdx,

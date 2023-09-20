@@ -9,7 +9,7 @@ use trackable::{Trackable, TrackableAtom, TrackableVec};
 //     OtherworldlyErr(__VMError),
 // }
 
-impl Devtime {
+impl<Task: IsTask> Devtime<Task> {
     pub(crate) fn take_change(&mut self) -> DevtimeStateChange {
         self.state.take_change()
     }
