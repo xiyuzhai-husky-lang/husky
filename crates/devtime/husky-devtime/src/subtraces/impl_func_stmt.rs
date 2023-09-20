@@ -1,6 +1,6 @@
 use super::*;
 
-impl Devtime {
+impl<Task: IsTask> Devtime<Task> {
     // pub(crate) fn func_branch_subtraces(
     //     &mut self,
     //     stmts: SynStmtIdxRange,

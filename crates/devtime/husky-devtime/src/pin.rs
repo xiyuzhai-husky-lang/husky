@@ -1,6 +1,6 @@
 use super::*;
 
-impl Devtime {
+impl<Task: IsTask> Devtime<Task> {
     pub fn toggle_pin(&mut self, trace_id: TraceId) -> DevtimeStateChange {
         todo!()
         // self.state

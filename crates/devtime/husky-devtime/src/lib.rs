@@ -16,33 +16,39 @@ mod trace_stats;
 pub use self::ops::*;
 pub use self::state::*;
 
+use self::trace_node::*;
 use husky_dev_runtime::*;
 use husky_init_syntax::*;
 use husky_loop_syntax::*;
 use husky_opr::*;
 use husky_print_utils::p;
+use husky_syn_expr::SynExprIdx;
+use husky_task::IsTask;
 use husky_trace::*;
 use husky_trace_protocol::*;
 use husky_val_repr::*;
+use husky_vfs::DiffPathBuf;
 use husky_vm::*;
+use std::{path::Path, sync::Arc};
 
-use self::trace_node::*;
-use husky_syn_expr::SynExprIdx;
-use std::sync::Arc;
-
-pub struct Devtime {
-    runtime: DevRuntime,
+pub struct Devtime<Task: IsTask> {
+    runtime: DevRuntime<Task>,
     state: DevtimeState,
 }
-
-pub struct DevRuntime {}
 
 // ad hoc
 pub struct RuntimeConfig {}
 
-impl Devtime {
-    pub fn new(runtime_config: RuntimeConfig) -> Self {
-        todo!()
+impl<Task: IsTask> Devtime<Task> {
+    pub fn new(
+        task: Task,
+        target_crate: &Path,
+        runtime_config: Option<DevRuntimeConfig<Task>>,
+    ) -> Self {
+        Self {
+            runtime: DevRuntime::new(task, target_crate, runtime_config),
+            state: Default::default(),
+        }
         // let mut devtime = Self {
         //     runtime: DevRuntime::new(runtime_config),
         //     state: Default::default(),
@@ -71,7 +77,7 @@ impl Devtime {
             .collect()
     }
 
-    pub fn runtime(&self) -> &DevRuntime {
+    pub fn runtime(&self) -> &DevRuntime<Task> {
         &self.runtime
     }
 

@@ -2,7 +2,7 @@ use husky_syn_expr::{SynStmtIdx, SynStmtIdxRange};
 
 use super::*;
 
-impl Devtime {
+impl<Task: IsTask> Devtime<Task> {
     pub(crate) fn new_proc_stmt_trace(
         &mut self,
         parent_id: TraceId,

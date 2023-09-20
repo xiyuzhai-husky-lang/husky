@@ -8,7 +8,7 @@ mod impl_proc_stmt;
 use super::*;
 use husky_check_utils::should_eq;
 
-impl Devtime {
+impl<Task: IsTask> Devtime<Task> {
     pub fn gen_subtraces(&mut self, trace_id: TraceId) -> Option<Vec<TraceId>> {
         todo!()
         // let trace = unsafe { self.trace_ref(trace_id) };

@@ -3,7 +3,7 @@ use husky_entity_taxonomy::EntityKind;
 
 use std::time::Instant;
 
-impl Devtime {
+impl<Task: IsTask> Devtime<Task> {
     pub fn hot_reload(&mut self) {
         todo!()
         // self.runtime.hot_reload();

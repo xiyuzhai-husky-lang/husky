@@ -5,7 +5,7 @@ use husky_syn_decl::SynDecl;
 
 use super::*;
 
-impl Devtime {
+impl<Task: IsTask> Devtime<Task> {
     pub(crate) fn feature_stmt_traces(&mut self, parent: &Trace, stmt: ValStmt) -> Vec<TraceId> {
         todo!()
         // match stmt.variant {

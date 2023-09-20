@@ -1,5 +1,6 @@
 use std::panic::RefUnwindSafe;
 
+#[derive(Default)]
 #[salsa::db(
     // comptime
     husky_val_repr::db::ValReprJar,

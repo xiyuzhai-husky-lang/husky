@@ -4,7 +4,7 @@ use husky_vfs::DiffPath;
 
 use crate::*;
 
-impl Devtime {
+impl<Task: IsTask> Devtime<Task> {
     pub fn visualize_temp_value(
         &self,
         value: &RegularValue,

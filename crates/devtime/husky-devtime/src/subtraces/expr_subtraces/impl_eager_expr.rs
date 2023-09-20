@@ -1,6 +1,6 @@
 use super::*;
 
-impl Devtime {
+impl<Task: IsTask> Devtime<Task> {
     pub(crate) fn eager_expr_subtraces(
         &mut self,
         parent: &Trace,

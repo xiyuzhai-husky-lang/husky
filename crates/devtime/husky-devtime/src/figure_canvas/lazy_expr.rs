@@ -1,6 +1,6 @@
 use super::*;
 
-impl Devtime {
+impl<Task: IsTask> Devtime<Task> {
     pub(crate) fn feature_expr_specific_figure(
         &self,
         expr: &ValExpr,

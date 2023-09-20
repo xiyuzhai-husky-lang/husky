@@ -1,7 +1,7 @@
 use super::*;
 use husky_syn_expr::{SynStmtIdx, SynStmtIdxRange};
 
-impl Devtime {
+impl<Task: IsTask> Devtime<Task> {
     pub(crate) fn loop_subtraces(
         &mut self,
         parent: &Trace,

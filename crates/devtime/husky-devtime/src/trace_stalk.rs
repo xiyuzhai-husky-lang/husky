@@ -1,7 +1,7 @@
 use crate::*;
 use husky_ethereal_term::EtherealTerm;
 
-impl Devtime {
+impl<Task: IsTask> Devtime<Task> {
     pub fn trace_stalk(&self, trace_id: TraceId) -> &TraceStalk {
         let sample_id = self.state.presentation().opt_sample_id().unwrap();
         let key = TraceStalkKey::from_trace_data(sample_id, &self.trace(trace_id).raw_data);

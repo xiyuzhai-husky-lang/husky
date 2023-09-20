@@ -13,7 +13,7 @@ use husky_text::TextLine;
 
 use super::*;
 
-impl Devtime {
+impl<Task: IsTask> Devtime<Task> {
     pub(crate) fn trace_lines(
         &mut self,
         indent: Indent,
@@ -23,17 +23,17 @@ impl Devtime {
         TraceLineGenerator::new(self, indent, trace_variant, has_parent).gen()
     }
 }
-pub struct TraceLineGenerator<'a> {
-    devtime: &'a mut Devtime,
+pub struct TraceLineGenerator<'a, Task: IsTask> {
+    devtime: &'a mut Devtime<Task>,
     trace_variant: &'a TraceVariant,
     has_parent: bool,
     lines: Vec<TraceLineData>,
     current_line: Option<TextLine>,
 }
 
-impl<'a> TraceLineGenerator<'a> {
+impl<'a, Task: IsTask> TraceLineGenerator<'a, Task> {
     pub(super) fn new(
-        devtime: &'a mut Devtime,
+        devtime: &'a mut Devtime<Task>,
         indent: Indent,
         trace_variant: &'a TraceVariant,
         has_parent: bool,
@@ -52,21 +52,21 @@ impl<'a> TraceLineGenerator<'a> {
     }
 }
 
-impl<'a> std::ops::Deref for TraceLineGenerator<'a> {
-    type Target = Devtime;
+impl<'a, Task: IsTask> std::ops::Deref for TraceLineGenerator<'a, Task> {
+    type Target = Devtime<Task>;
 
     fn deref(&self) -> &Self::Target {
         self.devtime
     }
 }
 
-impl<'a> std::ops::DerefMut for TraceLineGenerator<'a> {
+impl<'a, Task: IsTask> std::ops::DerefMut for TraceLineGenerator<'a, Task> {
     fn deref_mut(&mut self) -> &mut Self::Target {
         self.devtime
     }
 }
 
-impl<'a> TraceLineGenerator<'a> {
+impl<'a, Task: IsTask> TraceLineGenerator<'a, Task> {
     pub(super) fn gen(mut self) -> Vec<TraceLineData> {
         todo!()
         // match self.trace_variant {

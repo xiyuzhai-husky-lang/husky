@@ -4,7 +4,7 @@ mod impl_feature_expr;
 use super::*;
 use husky_syn_defn::SynDefn;
 
-impl Devtime {
+impl<Task: IsTask> Devtime<Task> {
     pub(crate) fn routine_call_subtraces<A>(
         &mut self,
         parent: &Trace,
