@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`invariant Type -> invariant Type -> core::basic::Trait`),
+            DeclarativeTerm(`invariant Type -> core::basic::Trait`),
         ),
     ),
     (
@@ -16,7 +16,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`invariant Type -> invariant Type -> core::basic::Trait`),
+            DeclarativeTerm(`invariant Type -> core::basic::Trait`),
         ),
     ),
     (
@@ -26,7 +26,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`invariant Type -> invariant Type -> core::basic::Trait`),
+            DeclarativeTerm(`invariant Type -> core::basic::Trait`),
         ),
     ),
     (
@@ -36,7 +36,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`invariant Type -> invariant Type -> core::basic::Trait`),
+            DeclarativeTerm(`invariant Type -> core::basic::Trait`),
         ),
     ),
     (
@@ -46,7 +46,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`invariant Type -> invariant Type -> core::basic::Trait`),
+            DeclarativeTerm(`invariant Type -> core::basic::Trait`),
         ),
     ),
     (
@@ -56,7 +56,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`invariant Type -> invariant Type -> core::basic::Trait`),
+            DeclarativeTerm(`invariant Type -> core::basic::Trait`),
         ),
     ),
     (
@@ -66,7 +66,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`invariant Type -> invariant Type -> core::basic::Trait`),
+            DeclarativeTerm(`invariant Type -> core::basic::Trait`),
         ),
     ),
     (
@@ -76,7 +76,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`invariant Type -> invariant Type -> core::basic::Trait`),
+            DeclarativeTerm(`invariant Type -> core::basic::Trait`),
         ),
     ),
     (
@@ -86,7 +86,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`invariant Type -> invariant Type -> core::basic::Trait`),
+            DeclarativeTerm(`invariant Type -> core::basic::Trait`),
         ),
     ),
     (
@@ -96,7 +96,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`invariant Type -> invariant Type -> core::basic::Trait`),
+            DeclarativeTerm(`invariant Type -> core::basic::Trait`),
         ),
     ),
     (
@@ -106,7 +106,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`invariant Type -> core::basic::Trait`),
+            DeclarativeTerm(`core::basic::Trait`),
         ),
     ),
     (
@@ -116,7 +116,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`invariant Type -> invariant Type -> core::basic::Trait`),
+            DeclarativeTerm(`invariant Type -> core::basic::Trait`),
         ),
     ),
     (
@@ -126,7 +126,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`invariant Type -> invariant Type -> core::basic::Trait`),
+            DeclarativeTerm(`invariant Type -> core::basic::Trait`),
         ),
     ),
     (
@@ -136,7 +136,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`invariant Type -> core::basic::Trait`),
+            DeclarativeTerm(`core::basic::Trait`),
         ),
     ),
     (
@@ -146,7 +146,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`invariant Type -> core::basic::Trait`),
+            DeclarativeTerm(`core::basic::Trait`),
         ),
     ),
     (
@@ -156,7 +156,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`invariant Type -> invariant Type -> core::basic::Trait`),
+            DeclarativeTerm(`invariant Type -> core::basic::Trait`),
         ),
     ),
     (
@@ -166,7 +166,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`invariant Type -> invariant Type -> core::basic::Trait`),
+            DeclarativeTerm(`invariant Type -> core::basic::Trait`),
         ),
     ),
     (

@@ -98,7 +98,7 @@ fn hir_template_symbol_from_ethereal(
         EtherealTermSymbolIndexInner::EphemOther { disambiguator } => {
             todo!()
         }
-        EtherealTermSymbolIndexInner::SelfType => todo!(),
+        EtherealTermSymbolIndexInner::SelfType => Some(HirTypeSymbol::SelfType.into()),
         EtherealTermSymbolIndexInner::SelfValue => todo!(),
     }
 }

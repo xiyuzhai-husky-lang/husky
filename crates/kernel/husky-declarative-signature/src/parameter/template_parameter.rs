@@ -1,16 +1,10 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub enum DeclarativeTemplateParameter {
-    Explicit {
-        annotated_variance: Option<Variance>,
-        symbol: DeclarativeTermSymbol,
-        traits: Vec<DeclarativeTerm>,
-    },
-    Implicit {
-        symbol: DeclarativeTermSymbol,
-        kind: ImplicitTemplateParameterSymbolKind,
-    },
+pub struct DeclarativeTemplateParameter {
+    annotated_variance: Option<Variance>,
+    symbol: DeclarativeTermSymbol,
+    annotated_traits: Vec<DeclarativeTerm>,
 }
 
 impl DeclarativeTemplateParameter {
@@ -30,72 +24,63 @@ impl DeclarativeTemplateParameter {
                 });
         match parameter_decl_pattern.data() {
             TemplateParameterObeliskData::Type { .. } => {
-                DeclarativeTemplateParameter::Explicit {
+                DeclarativeTemplateParameter {
                     symbol: region
                         .current_symbol_signature(symbol)
                         .expect("not none")
                         .term_symbol()
                         .expect("should have term"),
                     // ad hoc
-                    traits: vec![],
+                    annotated_traits: vec![],
                     annotated_variance,
                 }
             }
-            TemplateParameterObeliskData::Constant { .. } => {
-                DeclarativeTemplateParameter::Explicit {
-                    symbol: region
-                        .current_symbol_signature(symbol)
-                        .expect("not none")
-                        .term_symbol()
-                        .expect("should have term"),
-                    traits: vec![],
-                    annotated_variance,
-                }
-            }
+            TemplateParameterObeliskData::Constant { .. } => DeclarativeTemplateParameter {
+                symbol: region
+                    .current_symbol_signature(symbol)
+                    .expect("not none")
+                    .term_symbol()
+                    .expect("should have term"),
+                annotated_traits: vec![],
+                annotated_variance,
+            },
             TemplateParameterObeliskData::Lifetime { .. } => {
-                DeclarativeTemplateParameter::Explicit {
+                DeclarativeTemplateParameter {
                     symbol: region
                         .current_symbol_signature(symbol)
                         .expect("not none")
                         .term_symbol()
                         .expect("should have term"),
                     // ad hoc
-                    traits: vec![],
+                    annotated_traits: vec![],
                     annotated_variance,
                 }
             }
             TemplateParameterObeliskData::Place { .. } => {
-                DeclarativeTemplateParameter::Explicit {
+                DeclarativeTemplateParameter {
                     symbol: region
                         .current_symbol_signature(symbol)
                         .expect("not none")
                         .term_symbol()
                         .expect("should have term"),
                     // ad hoc
-                    traits: vec![],
+                    annotated_traits: vec![],
                     annotated_variance,
                 }
             }
         }
     }
 
-    fn new_implicit(symbol: ImplicitTemplateParameterSymbol) -> Self {
-        match symbol.kind() {
-            ImplicitTemplateParameterSymbolKind::SelfType => todo!(),
-            ImplicitTemplateParameterSymbolKind::SelfLifetime => todo!(),
-            ImplicitTemplateParameterSymbolKind::SelfPlace => todo!(),
-        }
-        DeclarativeTemplateParameter::Implicit {
-            symbol: symbol.symbol(),
-            kind: symbol.kind(),
+    fn new_implicit(symbol: DeclarativeTermSymbol) -> Self {
+        DeclarativeTemplateParameter {
+            symbol: symbol,
+            annotated_variance: None,
+            annotated_traits: vec![],
         }
     }
 
     pub fn symbol(&self) -> DeclarativeTermSymbol {
-        match self {
-            DeclarativeTemplateParameter::Explicit { symbol, .. }
-            | DeclarativeTemplateParameter::Implicit { symbol, .. } => *symbol,
-        }
+        self.symbol
     }
 
     pub fn ty(
@@ -106,15 +91,7 @@ impl DeclarativeTemplateParameter {
     }
 
     pub fn traits(&self) -> &[DeclarativeTerm] {
-        match self {
-            DeclarativeTemplateParameter::Explicit {
-                annotated_variance,
-                symbol,
-                traits,
-            } => todo!(),
-            DeclarativeTemplateParameter::Implicit { symbol, kind } => todo!(),
-        }
-        self.traits.as_ref()
+        self.annotated_traits.as_ref()
     }
 
     pub fn annotated_variance(&self) -> Option<Variance> {

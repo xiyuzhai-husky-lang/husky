@@ -317,7 +317,7 @@ pub fn trai_path_declarative_ty(
         db,
         CurryKind::Explicit,
         variances,
-        signature.template_parameters(db),
+        signature.template_parameters_without_self_ty(db),
         declarative_term_menu.trai_ty(),
     )
 }

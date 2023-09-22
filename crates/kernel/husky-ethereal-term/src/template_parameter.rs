@@ -42,12 +42,10 @@ impl std::ops::Deref for EtherealTermTemplateParameters {
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::debug_with_db(db = EtherealTermDb)]
-pub enum EtherealTermTemplateParameter {
-    Explicit {
-        annotated_variance: Option<Variance>,
-        symbol: EtherealTermSymbol,
-        traits: Vec<EtherealTerm>,
-    },
+pub struct EtherealTermTemplateParameter {
+    annotated_variance: Option<Variance>,
+    symbol: EtherealTermSymbol,
+    traits: Vec<EtherealTerm>,
 }
 
 impl EtherealTermTemplateParameter {
