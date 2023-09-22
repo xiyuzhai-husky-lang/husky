@@ -93,8 +93,8 @@ pub struct EntitySynTreeJar(
     trai_item_paths,
     TypeSynNodePath,
     ty_node,
-    ty_decrs,
-    ty_decr_paths,
+    ty_attrs,
+    ty_attr_paths,
     FugitiveSynNodePath,
     fugitive_syn_node,
     // ty variant
@@ -133,10 +133,10 @@ pub struct EntitySynTreeJar(
     // - ill formed impl block
     IllFormedImplBlockSynNode,
     ill_formed_impl_block_syn_node,
-    // decr
-    decr_node,
-    DecrSynNodePath,
-    DecrSynNode,
+    // attr
+    attr_node,
+    AttrSynNodePath,
+    AttrSynNode,
     // other
     item_tree_presheet,
     item_tree_crate_bundle,
@@ -182,8 +182,8 @@ pub struct EntitySynTreeJar(
     crate::helpers::tokra_region::trai_for_ty_item_decl_tokra_region,
     crate::helpers::tokra_region::ill_formed_item_decl_tokra_region_with_source_map,
     crate::helpers::tokra_region::ill_formed_item_decl_tokra_region,
-    crate::helpers::tokra_region::decr_decl_tokra_region_with_source_map,
-    crate::helpers::tokra_region::decr_decl_tokra_region,
+    crate::helpers::tokra_region::attr_decl_tokra_region_with_source_map,
+    crate::helpers::tokra_region::attr_decl_tokra_region,
     // defn
     crate::helpers::tokra_region::DefnTokraRegion,
     crate::helpers::tokra_region::SynDefnTokraRegionSourceMap,

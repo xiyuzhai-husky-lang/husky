@@ -95,7 +95,7 @@ impl SemanticToken {
                 EntityKind::TypeVariant => ext::SemanticTokenType::ENUM_MEMBER,
                 EntityKind::Trait => ext::SemanticTokenType::CLASS,
                 EntityKind::ImplBlock => unreachable!(),
-                EntityKind::Decr => unreachable!(),
+                EntityKind::Attr => unreachable!(),
             },
             SemanticToken::ImplicitParameter => ext::SemanticTokenType::TYPE_PARAMETER,
             SemanticToken::Parameter => ext::SemanticTokenType::PARAMETER,

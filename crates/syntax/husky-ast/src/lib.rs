@@ -30,7 +30,7 @@ use husky_entity_taxonomy::EntityKind;
 use husky_scope::Scope;
 use husky_scope_expr::VisibilityExpr;
 use husky_token::{
-    DecrIdentToken, IdentToken, TokenGroupIdx, TokenIdx, TokenStreamState, VerticalToken,
+    AttrIdentToken, IdentToken, TokenGroupIdx, TokenIdx, TokenStreamState, VerticalToken,
 };
 use husky_token_data::*;
 use husky_vfs::*;

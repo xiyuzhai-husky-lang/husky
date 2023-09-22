@@ -97,7 +97,7 @@ fn underscore_token_works() {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub enum DecrIdentToken {
+pub enum AttrIdentToken {
     Derive(DeriveToken),
 }
 

@@ -131,11 +131,11 @@ pub struct SynDeclJar(
     TraitForTypeAssociatedValSynDecl,
     // -- ill formed item
     IllFormedItemSynNodeDecl,
-    // decr
-    DeriveDecrSynDecl,
-    DeriveDecrSynNodeDecl,
-    decr_syn_node_decl,
-    decr_syn_decl,
+    // attr
+    DeriveAttrSynDecl,
+    DeriveAttrSynNodeDecl,
+    attr_syn_node_decl,
+    attr_syn_decl,
     // sheet
     SynNodeDeclSheet,
     syn_node_decl_sheet,

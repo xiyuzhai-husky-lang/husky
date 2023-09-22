@@ -84,7 +84,7 @@ pub(crate) struct TraitForTypeImplBlockSynNode {
 pub enum SelfTypeSketchExpr {
     Path(MajorItemPathExprIdx),
     DeriveAny {
-        at_token: AtToken,
+        pound_token: PoundToken,
         derive_token: DeriveToken,
         underscore_token: UnderscoreToken,
     },

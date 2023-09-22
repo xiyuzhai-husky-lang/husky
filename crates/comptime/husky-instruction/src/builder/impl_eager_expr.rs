@@ -405,7 +405,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         // let this_ty = opds[0].intrinsic_ty();
         // let ins_variant = InstructionData::CallRoutine {
         //     resolved_linkage: match opr {
-        //         EagerSuffixOpr::Incr | EagerSuffixOpr::Decr | EagerSuffixOpr::AsTy(_) => {
+        //         EagerSuffixOpr::Incr | EagerSuffixOpr::Attr | EagerSuffixOpr::AsTy(_) => {
         //             match this_ty {
         //                 EntityRoutePtr::Root(root_identifier) => {
         //                     resolve_primitive_suffix_opr_linkage(opr, root_identifier).transfer()
@@ -415,7 +415,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //                     match ty_decl.ty_kind {
         //                         TyKind::Enum => match opr {
         //                             EagerSuffixOpr::Incr => todo!(),
-        //                             EagerSuffixOpr::Decr => todo!(),
+        //                             EagerSuffixOpr::Attr => todo!(),
         //                             EagerSuffixOpr::AsTy(as_ty) => match as_ty.route {
         //                                 EntityRoutePtr::Root(root_identifier) => {
         //                                     match root_identifier {

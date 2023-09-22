@@ -210,7 +210,7 @@ impl<'a> EntityTreePresheetBuilder<'a> {
             }
             Ast::Err { .. }
             | Ast::Sorc { .. }
-            | Ast::Decr { .. }
+            | Ast::Attr { .. }
             | Ast::BasicStmtOrBranch { .. }
             | Ast::IfElseStmts { .. }
             | Ast::MatchStmts { .. }

@@ -58,6 +58,6 @@ pub struct HirDeclJar(
     // - trait for type
     trai_for_ty_impl_block_hir_decl,
     TraitForTypeImplBlockHirDecl,
-    // decr
-    DeriveDecrHirDecl,
+    // attr
+    DeriveAttrHirDecl,
 );

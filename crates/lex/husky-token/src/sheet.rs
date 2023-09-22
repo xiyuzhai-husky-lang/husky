@@ -232,15 +232,16 @@ impl<'a> TokenGroupIter<'a> {
         Some((idx, token_group, first_noncomment))
     }
 
-    pub fn next_token_group_of_no_less_indent_with_its_first_token(
+    pub fn next_token_group_of_no_less_indent_with_its_first_two_tokens(
         &mut self,
         indent: u32,
-    ) -> Option<(TokenGroupIdx, TokenGroup<'a>, TokenData)> {
+    ) -> Option<(TokenGroupIdx, TokenGroup<'a>, TokenData, Option<TokenData>)> {
         let (idx, token_group) = self.peek()?;
         if token_group.indent() >= indent {
             self.current += 1;
-            let first_noncomment = token_group.first();
-            Some((idx, token_group, first_noncomment))
+            let fst = token_group.first();
+            let snd = token_group.second();
+            Some((idx, token_group, fst, snd))
         } else {
             None
         }

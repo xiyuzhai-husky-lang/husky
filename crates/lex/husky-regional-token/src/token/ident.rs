@@ -103,7 +103,7 @@ fn underscore_token_works() {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub enum DecrIdentRegionalToken {
+pub enum AttrIdentRegionalToken {
     Derive(DeriveRegionalToken),
 }
 

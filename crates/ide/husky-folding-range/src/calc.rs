@@ -36,7 +36,7 @@ impl<'a> FoldingRangeCalculator<'a> {
             Ast::Err { .. }
             | Ast::Use { .. }
             | Ast::Sorc { .. }
-            | Ast::Decr { .. }
+            | Ast::Attr { .. }
             | Ast::IfElseStmts { .. }
             | Ast::MatchStmts { .. }
             | Ast::TypeVariant { .. } => None,

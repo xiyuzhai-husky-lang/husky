@@ -9,7 +9,7 @@ impl<E> Slice E:
     pub fn swap(&mut self, a: usize, b: usize);
 
 // todo: impl ?Sized
-@derive(Debug, Visualize)
+#derive(Debug, Visualize)
 pub extern CyclicSlice<covariant E>;
 
 impl<E> crate::ops::IntIndex for CyclicSlice E:

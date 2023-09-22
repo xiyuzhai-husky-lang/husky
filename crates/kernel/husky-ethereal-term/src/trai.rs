@@ -3,7 +3,7 @@ use husky_declarative_signature::{
     HasDeclarativeSignatureTemplate, TypeDeclarativeSignatureTemplate,
 };
 use husky_entity_syn_tree::TraitForTypeImplBlockNode;
-use husky_syn_decr::{Decr, HasDecrs};
+use husky_syn_attr::{Attr, HasAttrs};
 use smallvec::SmallVec;
 
 impl EtherealTerm {
@@ -109,8 +109,8 @@ pub(crate) fn ty_side_trai_for_ty_impl_blocks_aux<'a>(
     ty_path: TypePath,
 ) -> EtherealTermResult<Vec<TraitForTypeImplTemplate>> {
     let mut templates = vec![];
-    for decr in ty_path.decrs(db)?.iter().copied() {
-        TraitForTypeImplTemplate::collect_from_decr(db, ty_path, decr, &mut templates)?
+    for attr in ty_path.attrs(db)?.iter().copied() {
+        TraitForTypeImplTemplate::collect_from_attr(db, ty_path, attr, &mut templates)?
     }
     for path in db
         .item_tree_bundle(ty_path.crate_path(db))?

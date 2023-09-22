@@ -138,7 +138,7 @@ define_specific_punctuation_token!(
 
 define_specific_punctuation_token!(VerticalToken, VERTICAL, vertical_token_works, "|");
 
-define_specific_punctuation_token!(AtToken, AT, at_token_works, "@");
+define_specific_punctuation_token!(PoundToken, POUND, pound_token_works, "#");
 
 define_specific_punctuation_token!(DotDotToken, DOT_DOT, dot_dot_token_works, "..");
 

@@ -18,9 +18,9 @@ impl<'a> ExprTypeEngine<'a> {
         final_destination: FinalDestination,
     ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         match opr {
-            SuffixOpr::Incr | SuffixOpr::Decr => Ok((
+            SuffixOpr::Incr | SuffixOpr::Attr => Ok((
                 SynExprDisambiguation::Trivial,
-                self.calc_incr_or_decr_expr_ty(opd),
+                self.calc_incr_or_attr_expr_ty(opd),
             )),
             SuffixOpr::UnveilOrComposeWithOption => {
                 // self.calc_unveil_or_compose_with_option_expr_ty(opd, final_destination)
@@ -43,7 +43,7 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn calc_incr_or_decr_expr_ty(&mut self, opd: SynExprIdx) -> ExprTypeResult<FluffyTerm> {
+    fn calc_incr_or_attr_expr_ty(&mut self, opd: SynExprIdx) -> ExprTypeResult<FluffyTerm> {
         let opd_ty = self
             .infer_new_expr_ty(opd, ExpectAnyOriginal)
             .ok_or(DerivedExprTypeError::SuffixOperandTypeNotInferred)?;

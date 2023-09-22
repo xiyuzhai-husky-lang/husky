@@ -5,5 +5,5 @@ pub trait Visualize:
 
 pub extern Html;
 
-impl Visualize for @derive _:
+impl Visualize for #derive _:
     fn visualize() -> Html:

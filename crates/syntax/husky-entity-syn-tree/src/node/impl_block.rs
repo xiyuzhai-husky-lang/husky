@@ -197,7 +197,7 @@ impl ImplBlockSynNode {
                         }
                         Some(_) => Err(ImplBlockIllForm::ExpectTypePathAfterForKeyword)?,
                         None => {
-                            if let Some(at_token) = parser.try_parse_option::<AtToken>()? {
+                            if let Some(pound_token) = parser.try_parse_option::<PoundToken>()? {
                                 let derive_token: DeriveToken = parser
                                     .try_parse_expected(ImplBlockIllForm::ExpectedDeriveIdent)?;
                                 if let Some(underscore_token) =
@@ -205,7 +205,7 @@ impl ImplBlockSynNode {
                                 {
                                     (
                                         SelfTypeSketchExpr::DeriveAny {
-                                            at_token,
+                                            pound_token,
                                             derive_token,
                                             underscore_token,
                                         },

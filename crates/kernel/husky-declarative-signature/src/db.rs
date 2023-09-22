@@ -76,8 +76,8 @@ pub struct DeclarativeSignatureJar(
     TraitForTypeMethodFnDeclarativeSignatureTemplate,
     TraitForTypeAssociatedTypeDeclarativeSignatureTemplate,
     TraitForTypeAssociatedValDeclarativeSignatureTemplate,
-    // decr
-    decr_declarative_signature_template,
-    DeriveDecrDeclarativeSignatureTemplate,
-    DeriveDecrShardDeclarativeSignatureTemplate,
+    // attr
+    attr_declarative_signature_template,
+    DeriveAttrDeclarativeSignatureTemplate,
+    DeriveAttrShardDeclarativeSignatureTemplate,
 );

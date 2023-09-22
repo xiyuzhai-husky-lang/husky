@@ -3,10 +3,10 @@ use parsec::{parse_separated_list2, PunctuatedSmallList};
 use super::*;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new_inner)]
-pub struct DeriveDecrSynNodeDecl {
+pub struct DeriveAttrSynNodeDecl {
     #[id]
-    pub syn_node_path: DecrSynNodePath,
-    pub at_token: AtRegionalToken,
+    pub syn_node_path: AttrSynNodePath,
+    pub pound_token: PoundRegionalToken,
     pub derive_token: IdentRegionalToken,
     #[return_ref]
     pub lpar_token: SynNodeDeclResult<LparRegionalToken>,
@@ -19,8 +19,8 @@ pub struct DeriveDecrSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl DeriveDecrSynNodeDecl {
-    pub(super) fn new(db: &dyn SynDeclDb, syn_node_path: DecrSynNodePath) -> Self {
+impl DeriveAttrSynNodeDecl {
+    pub(super) fn new(db: &dyn SynDeclDb, syn_node_path: AttrSynNodePath) -> Self {
         let parser_factory = DeclParser::new(db, syn_node_path);
         let mut parser = parser_factory.expr_parser(
             syn_node_path
@@ -58,20 +58,20 @@ impl DeriveDecrSynNodeDecl {
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct DeriveDecrSynDecl {
+pub struct DeriveAttrSynDecl {
     #[id]
-    pub path: DecrPath,
+    pub path: AttrPath,
     #[return_ref]
     pub trais: SmallVec<[TraitObelisk; 8]>,
     pub syn_expr_region: SynExprRegion,
 }
 
-impl DeriveDecrSynDecl {
+impl DeriveAttrSynDecl {
     #[inline(always)]
     pub(super) fn from_node_decl(
         db: &dyn SynDeclDb,
-        path: DecrPath,
-        syn_node_decl: DeriveDecrSynNodeDecl,
+        path: AttrPath,
+        syn_node_decl: DeriveAttrSynNodeDecl,
     ) -> DeclResult<Self> {
         let trais = SmallVec::from(syn_node_decl.trais(db).as_ref()?.elements());
         let syn_expr_region = syn_node_decl.syn_expr_region(db);

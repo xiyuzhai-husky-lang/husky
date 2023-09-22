@@ -1,12 +1,12 @@
 mod associated_item;
-mod decr;
+mod attr;
 mod impl_block;
 mod major_item;
 mod submodule;
 mod ty_variant;
 
 pub use self::associated_item::*;
-pub use self::decr::*;
+pub use self::attr::*;
 pub use self::impl_block::*;
 pub use self::major_item::*;
 pub use self::submodule::*;
@@ -25,7 +25,7 @@ pub enum ItemSynNodePath {
     TypeVariant(TypeVariantSynNodePath),
     ImplBlock(ImplBlockSynNodePath),
     AssociatedItem(AssociatedItemSynNodePath),
-    Decr(DecrSynNodePath),
+    Attr(AttrSynNodePath),
 }
 
 impl<Db> HasModulePath<Db> for ItemSynNodePath
@@ -39,7 +39,7 @@ where
             ItemSynNodePath::TypeVariant(syn_node_path) => syn_node_path.module_path(db),
             ItemSynNodePath::ImplBlock(syn_node_path) => syn_node_path.module_path(db),
             ItemSynNodePath::AssociatedItem(syn_node_path) => syn_node_path.module_path(db),
-            ItemSynNodePath::Decr(syn_node_path) => syn_node_path.module_path(db),
+            ItemSynNodePath::Attr(syn_node_path) => syn_node_path.module_path(db),
         }
     }
 }
@@ -54,7 +54,7 @@ impl ItemSynNodePath {
             ItemSynNodePath::AssociatedItem(syn_node_path) => {
                 syn_node_path.path(db).map(Into::into)
             }
-            ItemSynNodePath::Decr(syn_node_path) => syn_node_path.path(db).map(Into::into),
+            ItemSynNodePath::Attr(syn_node_path) => syn_node_path.path(db).map(Into::into),
         }
     }
 
@@ -62,18 +62,18 @@ impl ItemSynNodePath {
         self.module_path(db).toolchain(db)
     }
 
-    pub(crate) fn decr_syn_nodes(
+    pub(crate) fn attr_syn_nodes(
         self,
         db: &dyn EntitySynTreeDb,
-    ) -> &[(DecrSynNodePath, DecrSynNode)] {
+    ) -> &[(AttrSynNodePath, AttrSynNode)] {
         // ad hoc
         match self {
             ItemSynNodePath::Submodule(_) => &[],
-            ItemSynNodePath::MajorItem(path) => path.decrs(db),
+            ItemSynNodePath::MajorItem(path) => path.attrs(db),
             ItemSynNodePath::TypeVariant(_) => &[],
             ItemSynNodePath::ImplBlock(_) => &[],
             ItemSynNodePath::AssociatedItem(_) => &[],
-            ItemSynNodePath::Decr(_) => &[],
+            ItemSynNodePath::Attr(_) => &[],
         }
     }
 }
@@ -94,7 +94,7 @@ impl HasSynNodePath for ItemPath {
             ItemPath::AssociatedItem(path) => path.syn_node_path(db).into(),
             ItemPath::TypeVariant(path) => path.syn_node_path(db).into(),
             ItemPath::ImplBlock(path) => path.syn_node_path(db).into(),
-            ItemPath::Decr(path) => path.syn_node_path(db).into(),
+            ItemPath::Attr(path) => path.syn_node_path(db).into(),
         }
     }
 }
@@ -194,7 +194,7 @@ impl ItemSynNode {
             ),
             ItemPath::AssociatedItem(_) | ItemPath::TypeVariant(_) => None,
             ItemPath::ImplBlock(_) => todo!(),
-            ItemPath::Decr(_) => todo!(),
+            ItemPath::Attr(_) => todo!(),
         }
     }
 
@@ -237,7 +237,7 @@ impl ItemSynNodePath {
             ItemSynNodePath::AssociatedItem(path) => path.syn_node(db).into(),
             ItemSynNodePath::TypeVariant(path) => path.syn_node(db).into(),
             ItemSynNodePath::ImplBlock(path) => path.syn_node(db).into(),
-            ItemSynNodePath::Decr(_) => todo!(),
+            ItemSynNodePath::Attr(_) => todo!(),
         }
     }
 }
@@ -251,8 +251,8 @@ pub trait HasAssociatedItemPaths: Copy {
     ) -> &[(Ident, Self::AssociatedItemPath)];
 }
 
-pub trait HasDecrPaths: Copy {
-    type DecrPath;
+pub trait HasAttrPaths: Copy {
+    type AttrPath;
 
-    fn decr_paths(self, db: &dyn EntitySynTreeDb) -> &[Self::DecrPath];
+    fn attr_paths(self, db: &dyn EntitySynTreeDb) -> &[Self::AttrPath];
 }

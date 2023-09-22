@@ -29,7 +29,7 @@ pub fn trai_for_ty_impl_block_ethereal_signature_templates<'a>(
     ty_path: TypePath,
 ) -> EtherealSignatureResult<TraitForTypeImplBlockEtherealSignatureTemplates<'a>> {
     let does_ty_path_derive_trai_path = ty_path
-        .derive_decr_ethereal_signature_templates(db, trai_path)?
+        .derive_attr_ethereal_signature_templates(db, trai_path)?
         .is_some();
     Ok(TraitForTypeImplBlockEtherealSignatureTemplates {
         trai_side_derive_any: if does_ty_path_derive_trai_path {

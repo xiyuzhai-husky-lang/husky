@@ -65,7 +65,7 @@ impl<'a> AstTokenIdxRangeCalculator<'a> {
             | Ast::Sorc {
                 token_group_idx, ..
             }
-            | Ast::Decr {
+            | Ast::Attr {
                 token_group_idx, ..
             }
             | Ast::TypeVariant {

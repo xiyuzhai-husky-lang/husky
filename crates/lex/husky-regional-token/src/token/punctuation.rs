@@ -156,11 +156,16 @@ define_specific_punctuation_regional_token!(
 define_specific_punctuation_regional_token!(
     VerticalRegionalToken,
     VERTICAL,
-    regional_vertical_token_works,
+    vertical_regional_token_works,
     "|"
 );
 
-define_specific_punctuation_regional_token!(AtRegionalToken, AT, regional_at_token_works, "@");
+define_specific_punctuation_regional_token!(
+    PoundRegionalToken,
+    POUND,
+    pound_regional_token_works,
+    "#"
+);
 
 define_specific_punctuation_regional_token!(
     DotDotRegionalToken,
@@ -168,6 +173,8 @@ define_specific_punctuation_regional_token!(
     dot_dot_regional_token_works,
     ".."
 );
+
+define_specific_punctuation_regional_token!(AtRegionalToken, AT, at_regional_token_works, "@");
 
 define_specific_punctuation_regional_token!(
     DotDotDotRegionalToken,

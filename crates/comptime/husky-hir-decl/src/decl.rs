@@ -1,12 +1,12 @@
 mod associated_item;
-mod decr;
+mod attr;
 mod impl_block;
 mod module_item;
 mod submodule;
 mod ty_variant;
 
 pub use self::associated_item::*;
-pub use self::decr::*;
+pub use self::attr::*;
 pub use self::impl_block::*;
 pub use self::module_item::*;
 pub use self::submodule::*;
@@ -33,7 +33,7 @@ impl HasHirDecl for ItemPath {
             ItemPath::AssociatedItem(path) => path.hir_decl(db)?.into(),
             ItemPath::TypeVariant(path) => path.hir_decl(db)?.into(),
             ItemPath::ImplBlock(path) => path.hir_decl(db)?.into(),
-            ItemPath::Decr(_) => todo!(),
+            ItemPath::Attr(_) => todo!(),
         })
     }
 }
@@ -47,7 +47,7 @@ pub enum HirDecl {
     ImplBlock(ImplBlockHirDecl),
     AssociatedItem(AssociatedItemHirDecl),
     TypeVariant(TypeVariantHirDecl),
-    Decr(DecrHirDecl),
+    Attr(AttrHirDecl),
 }
 
 impl HirDecl {
@@ -58,7 +58,7 @@ impl HirDecl {
             HirDecl::ImplBlock(decl) => decl.template_parameters(db),
             HirDecl::AssociatedItem(decl) => decl.template_parameters(db),
             HirDecl::TypeVariant(decl) => &[],
-            HirDecl::Decr(_) => todo!(),
+            HirDecl::Attr(_) => todo!(),
         }
     }
 
@@ -79,7 +79,7 @@ impl HirDecl {
             HirDecl::ImplBlock(decl) => decl.path(db).into(),
             HirDecl::AssociatedItem(decl) => decl.path(db).into(),
             HirDecl::TypeVariant(decl) => decl.path(db).into(),
-            HirDecl::Decr(decl) => decl.path(db).into(),
+            HirDecl::Attr(decl) => decl.path(db).into(),
         }
     }
 }

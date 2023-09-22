@@ -1,11 +1,11 @@
 mod associated_item;
-mod decr;
+mod attr;
 mod impl_block;
 mod module_item;
 mod variant;
 
 pub use self::associated_item::*;
-pub use self::decr::*;
+pub use self::attr::*;
 pub use self::impl_block::*;
 pub use self::module_item::*;
 pub use self::variant::*;
@@ -21,7 +21,7 @@ pub enum EntityPath {
     AssociatedItem(AssociatedItemPath),
     TypeVariant(TypeVariantPath),
     ImplBlock(ImplBlockPath),
-    Decr(DecrPath),
+    Attr(AttrPath),
 }
 
 impl EntityPath {
@@ -32,7 +32,7 @@ impl EntityPath {
             EntityPath::AssociatedItem(path) => Some(path.ident(db)),
             EntityPath::TypeVariant(path) => Some(path.ident(db)),
             EntityPath::ImplBlock(_) => None,
-            EntityPath::Decr(_) => None,
+            EntityPath::Attr(_) => None,
         }
     }
 
@@ -54,7 +54,7 @@ impl EntityPath {
             EntityPath::AssociatedItem(path) => path.module_path(db),
             EntityPath::TypeVariant(path) => path.module_path(db),
             EntityPath::ImplBlock(path) => path.module_path(db),
-            EntityPath::Decr(_) => todo!(),
+            EntityPath::Attr(_) => todo!(),
         }
     }
 
@@ -73,7 +73,7 @@ impl EntityPath {
             EntityPath::AssociatedItem(path) => path.item_kind(db),
             EntityPath::TypeVariant(_) => EntityKind::TypeVariant,
             EntityPath::ImplBlock(_) => EntityKind::ImplBlock,
-            EntityPath::Decr(_) => todo!(),
+            EntityPath::Attr(_) => todo!(),
         }
     }
 
@@ -85,7 +85,7 @@ impl EntityPath {
             EntityPath::AssociatedItem(_)
             | EntityPath::TypeVariant(_)
             | EntityPath::ImplBlock(_) => None,
-            EntityPath::Decr(_) => todo!(),
+            EntityPath::Attr(_) => todo!(),
         }
     }
 }
@@ -117,7 +117,7 @@ pub enum ItemPath {
     AssociatedItem(AssociatedItemPath),
     TypeVariant(TypeVariantPath),
     ImplBlock(ImplBlockPath),
-    Decr(DecrPath),
+    Attr(AttrPath),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -135,7 +135,7 @@ impl ItemPath {
             ItemPath::AssociatedItem(path) => Some(path.ident(db)),
             ItemPath::TypeVariant(path) => Some(path.ident(db)),
             ItemPath::ImplBlock(_) => None,
-            ItemPath::Decr(_) => None,
+            ItemPath::Attr(_) => None,
         }
     }
 
@@ -157,7 +157,7 @@ impl ItemPath {
             ItemPath::AssociatedItem(path) => path.module_path(db),
             ItemPath::TypeVariant(path) => path.module_path(db),
             ItemPath::ImplBlock(path) => path.module_path(db),
-            ItemPath::Decr(path) => path.module_path(db),
+            ItemPath::Attr(path) => path.module_path(db),
         }
     }
 
@@ -176,7 +176,7 @@ impl ItemPath {
             ItemPath::AssociatedItem(path) => path.item_kind(db),
             ItemPath::TypeVariant(_) => EntityKind::TypeVariant,
             ItemPath::ImplBlock(_) => EntityKind::ImplBlock,
-            ItemPath::Decr(_) => EntityKind::Decr,
+            ItemPath::Attr(_) => EntityKind::Attr,
         }
     }
 
@@ -188,7 +188,7 @@ impl ItemPath {
             ItemPath::AssociatedItem(_)
             | ItemPath::TypeVariant(_)
             | ItemPath::ImplBlock(_)
-            | ItemPath::Decr(_) => None,
+            | ItemPath::Attr(_) => None,
         }
     }
 }
@@ -210,7 +210,7 @@ where
             ItemPath::AssociatedItem(path) => path.display_with_db_fmt(f, db, level),
             ItemPath::TypeVariant(path) => path.display_with_db_fmt(f, db, level),
             ItemPath::ImplBlock(_) => todo!(),
-            ItemPath::Decr(_) => todo!(),
+            ItemPath::Attr(_) => todo!(),
         }
     }
 }

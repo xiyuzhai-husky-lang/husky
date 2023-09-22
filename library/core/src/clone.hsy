@@ -3,5 +3,5 @@ use crate::*
 pub trait Clone:
     fn clone() -> Self;
 
-impl Clone for @derive _:
+impl Clone for #derive _:
     fn clone() -> Self;

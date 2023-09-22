@@ -3,15 +3,15 @@ use vec_like::VecMapGetEntry;
 use super::*;
 
 #[salsa::interned(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub struct DecrSynNodePath {
+pub struct AttrSynNodePath {
     pub parent_syn_node_path: ItemSynNodePath,
-    maybe_ambiguous_path: MaybeAmbiguousPath<DecrPath>,
+    maybe_ambiguous_path: MaybeAmbiguousPath<AttrPath>,
 }
 
-impl DecrSynNodePath {
+impl AttrSynNodePath {
     fn new(
         parent_syn_node_path: ItemSynNodePath,
-        path: DecrPath,
+        path: AttrPath,
         registry: &mut ItemSynNodePathRegistry,
         db: &dyn EntitySynTreeDb,
     ) -> Self {
@@ -22,12 +22,12 @@ impl DecrSynNodePath {
         )
     }
 
-    pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<DecrPath> {
+    pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<AttrPath> {
         self.maybe_ambiguous_path(db).unambiguous_path()
     }
 
-    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> DecrSynNode {
-        decr_node(db, self)
+    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> AttrSynNode {
+        attr_node(db, self)
     }
 
     pub fn ident(self, db: &dyn EntitySynTreeDb) -> Ident {
@@ -35,7 +35,7 @@ impl DecrSynNodePath {
     }
 }
 
-impl<Db> HasModulePath<Db> for DecrSynNodePath
+impl<Db> HasModulePath<Db> for AttrSynNodePath
 where
     Db: ?Sized + EntitySynTreeDb,
 {
@@ -45,11 +45,11 @@ where
     }
 }
 
-impl HasSynNodePath for DecrPath {
-    type SynNodePath = DecrSynNodePath;
+impl HasSynNodePath for AttrPath {
+    type SynNodePath = AttrSynNodePath;
 
     fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
-        DecrSynNodePath::new_inner(
+        AttrSynNodePath::new_inner(
             db,
             self.parent(db).syn_node_path(db),
             MaybeAmbiguousPath::from_path(self),
@@ -58,34 +58,34 @@ impl HasSynNodePath for DecrPath {
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
-fn decr_node(db: &dyn EntitySynTreeDb, syn_node_path: DecrSynNodePath) -> DecrSynNode {
+fn attr_node(db: &dyn EntitySynTreeDb, syn_node_path: AttrSynNodePath) -> AttrSynNode {
     syn_node_path
         .parent_syn_node_path(db)
-        .decr_syn_nodes(db)
+        .attr_syn_nodes(db)
         .get_entry(syn_node_path)
         .expect("todo")
         .1
 }
 
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub(crate) struct DecrSynNode {
+pub(crate) struct AttrSynNode {
     #[id]
-    pub syn_node_path: DecrSynNodePath,
+    pub syn_node_path: AttrSynNodePath,
     pub ast_idx: AstIdx,
 }
 
-impl DecrSynNode {
+impl AttrSynNode {
     pub(crate) fn new(
         parent_path: ItemSynNodePath,
-        path: DecrPath,
+        path: AttrPath,
         ast_idx: AstIdx,
         registry: &mut ItemSynNodePathRegistry,
         db: &dyn EntitySynTreeDb,
-    ) -> (DecrSynNodePath, Self) {
-        let syn_node_path = DecrSynNodePath::new(parent_path, path, registry, db);
+    ) -> (AttrSynNodePath, Self) {
+        let syn_node_path = AttrSynNodePath::new(parent_path, path, registry, db);
         (
             syn_node_path,
-            DecrSynNode::new_inner(db, syn_node_path, ast_idx),
+            AttrSynNode::new_inner(db, syn_node_path, ast_idx),
         )
     }
 }

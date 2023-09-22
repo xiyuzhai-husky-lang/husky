@@ -90,7 +90,7 @@ impl<'a> AstParser<'a> {
             EntityKind::TypeVariant => todo!(),
             EntityKind::Trait => todo!(),
             EntityKind::ImplBlock => todo!(),
-            EntityKind::Decr => todo!(),
+            EntityKind::Attr => todo!(),
         };
         Ok(Ast::Identifiable {
             visibility_expr,

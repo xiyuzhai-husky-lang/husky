@@ -10,7 +10,7 @@ pub enum MnistLabel
 | Eight
 | Nine
 
-@derive(Debug, Clone)
+#derive(Debug, Clone)
 pub struct BinaryImage28([30]r32)
 
 impl Visualize for BinaryImage28:
