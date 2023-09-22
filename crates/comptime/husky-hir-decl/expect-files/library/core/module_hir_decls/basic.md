@@ -54,4 +54,26 @@
             ),
         ),
     ),
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
+            Extern(
+                ExternTypeHirDecl(
+                    Id {
+                        value: 7,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
+            Extern(
+                ExternTypeHirDecl(
+                    Id {
+                        value: 8,
+                    },
+                ),
+            ),
+        ),
+    ),
 ]

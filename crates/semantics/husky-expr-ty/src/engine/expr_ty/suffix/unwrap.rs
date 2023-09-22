@@ -22,13 +22,16 @@ impl<'a> ExprTypeEngine<'a> {
             FluffyTermData::TypeOntology {
                 ty_path,
                 refined_ty_path,
-                ty_arguments: arguments,
+                ty_arguments,
                 ty_ethereal_term,
             } => match refined_ty_path {
-                Left(PreludeTypePath::Option | PreludeTypePath::Result) => Ok((
-                    UnwrapOrComposeWithNotExprDisambiguation::Unwrap.into(),
-                    Ok(arguments[0]),
-                )),
+                Left(PreludeTypePath::Option | PreludeTypePath::Result) => {
+                    p!(self.path());
+                    Ok((
+                        UnwrapOrComposeWithNotExprDisambiguation::Unwrap.into(),
+                        Ok(ty_arguments[0]),
+                    ))
+                }
                 _ => Err(OriginalExprTypeError::CannotUnwrap)?,
             },
             FluffyTermData::Curry {

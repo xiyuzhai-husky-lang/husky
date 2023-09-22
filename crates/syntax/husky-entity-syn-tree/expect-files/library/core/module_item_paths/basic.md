@@ -25,5 +25,15 @@ Ok(
                 TypePath(`core::basic::Module`, `Extern`),
             ),
         ),
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`core::basic::Lifetime`, `Extern`),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`core::basic::Place`, `Extern`),
+            ),
+        ),
     ],
 )

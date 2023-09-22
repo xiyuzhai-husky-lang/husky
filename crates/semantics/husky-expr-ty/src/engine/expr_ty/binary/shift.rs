@@ -10,7 +10,21 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> ExprTypeResult<FluffyTerm> {
         // todo: don't use resolved
         let Some(lopd_ty) = self.infer_new_expr_ty(lopd, ExpectAnyOriginal) else {
+            p!(self.path());
+            p!(self.expr_region_data[lopd].debug(self.db));
+            p!(self.symbol_tys.debug(self.db));
             todo!();
+            match self.expr_region_data[lopd] {
+                SynExpr::CurrentSymbol {
+                    ident,
+                    regional_token_idx,
+                    current_symbol_idx,
+                    current_symbol_kind,
+                } => {
+                    todo!()
+                }
+                _ => todo!(),
+            }
             self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived);
             Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred)?
         };

@@ -73,13 +73,7 @@ pub(crate) fn term_curry_from_declarative(
     db: &dyn EtherealTermDb,
     declarative_term_curry: DeclarativeTermCurry,
 ) -> EtherealTermResult<EtherealTermCurry> {
-    let t = |declarative_ty| {
-        EtherealTerm::from_declarative(
-            db,
-            declarative_ty,
-            TermTypeExpectation::FinalDestinationEqsSort,
-        )
-    };
+    let t = |declarative_ty| EtherealTerm::ty_from_declarative(db, declarative_ty);
     Ok(EtherealTermCurry::new(
         db,
         declarative_term_curry.curry_kind(db),
