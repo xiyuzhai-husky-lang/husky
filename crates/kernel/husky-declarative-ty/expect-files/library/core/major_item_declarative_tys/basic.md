@@ -49,4 +49,24 @@
             DeclarativeTerm(`Type`),
         ),
     ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`core::basic::Lifetime`, `Extern`),
+            ),
+        ),
+        Ok(
+            DeclarativeTerm(`Type`),
+        ),
+    ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`core::basic::Place`, `Extern`),
+            ),
+        ),
+        Ok(
+            DeclarativeTerm(`Type`),
+        ),
+    ),
 ]

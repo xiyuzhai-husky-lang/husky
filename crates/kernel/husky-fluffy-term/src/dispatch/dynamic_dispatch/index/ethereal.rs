@@ -43,23 +43,26 @@ pub(super) fn ethereal_owner_ty_index_dispatch_aux(
     // indirections
     match refined_ty_path {
         Left(prelude_ty_path) => match prelude_ty_path {
-            PreludeTypePath::Indirection(prelude_borrow_ty_path) => match prelude_borrow_ty_path {
-                PreludeIndirectionTypePath::Ref => todo!(),
-                PreludeIndirectionTypePath::RefMut => todo!(),
-                PreludeIndirectionTypePath::Leash => {
-                    indirections.push(FluffyDynamicDispatchIndirection::Leash);
-                    if owner_ty_arguments.len() != 1 {
-                        todo!()
+            PreludeTypePath::Indirection(prelude_indirection_ty_path) => {
+                match prelude_indirection_ty_path {
+                    PreludeIndirectionTypePath::Ref => todo!(),
+                    PreludeIndirectionTypePath::RefMut => todo!(),
+                    PreludeIndirectionTypePath::Leash => {
+                        indirections.push(FluffyDynamicDispatchIndirection::Leash);
+                        if owner_ty_arguments.len() != 1 {
+                            todo!()
+                        }
+                        ethereal_owner_ty_index_dispatch_aux(
+                            engine,
+                            expr_idx,
+                            owner_ty_arguments[0],
+                            index_ty,
+                            indirections,
+                        )
                     }
-                    ethereal_owner_ty_index_dispatch_aux(
-                        engine,
-                        expr_idx,
-                        owner_ty_arguments[0],
-                        index_ty,
-                        indirections,
-                    )
+                    PreludeIndirectionTypePath::At => todo!(),
                 }
-            },
+            }
             _ => Nothing,
         },
         // ad hoc

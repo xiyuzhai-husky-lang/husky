@@ -32,6 +32,7 @@ pub struct CowordMenu {
     f64_ident: Ident,
     trai_ty_ident: Ident,
     lifetime_ty_ident: Ident,
+    place_ty_ident: Ident,
     module_ident: Ident,
     crate_ident: Ident,
     camel_case_output_ident: Ident,
@@ -72,6 +73,7 @@ impl CowordMenu {
             module_ident: db.it_ident_borrowed("Module").unwrap(),
             crate_ident: db.it_ident_borrowed("crate").unwrap(),
             lifetime_ty_ident: db.it_ident_borrowed("Lifetime").unwrap(),
+            place_ty_ident: db.it_ident_borrowed("Place").unwrap(),
             camel_case_output_ident: db.it_ident_borrowed("Output").unwrap(),
         }
     }
@@ -194,6 +196,10 @@ impl CowordMenu {
 
     pub fn lifetime_ty_ident(&self) -> Ident {
         self.lifetime_ty_ident
+    }
+
+    pub fn place_ty_ident(&self) -> Ident {
+        self.place_ty_ident
     }
 
     pub fn never_ident(&self) -> Ident {

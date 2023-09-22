@@ -54,7 +54,8 @@ impl InheritedSynSymbol {
     pub fn ident(&self) -> Option<Ident> {
         match self.kind {
             InheritedSynSymbolKind::TemplateParameter(kind) => match kind {
-                InheritedTemplateParameterSynSymbol::Lifetime { label } => None,
+                InheritedTemplateParameterSynSymbol::Lifetime { .. }
+                | InheritedTemplateParameterSynSymbol::Place { .. } => None,
                 InheritedTemplateParameterSynSymbol::Type { ident }
                 | InheritedTemplateParameterSynSymbol::Constant { ident } => Some(ident),
             },
@@ -76,6 +77,7 @@ pub enum InheritedSynSymbolKind {
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum InheritedTemplateParameterSynSymbol {
     Lifetime { label: Label },
+    Place { label: Label },
     Type { ident: Ident },
     Constant { ident: Ident },
 }
@@ -132,7 +134,8 @@ impl CurrentSynSymbol {
             | CurrentSynSymbolVariant::FrameVariable { ident, .. } => Some(ident),
             CurrentSynSymbolVariant::TemplateParameter {
                 template_parameter_variant:
-                    CurrentTemplateParameterSynSymbolVariant::Lifetime { .. },
+                    CurrentTemplateParameterSynSymbolVariant::Lifetime { .. }
+                    | CurrentTemplateParameterSynSymbolVariant::Place { .. },
                 ..
             } => None,
             CurrentSynSymbolVariant::SelfType | CurrentSynSymbolVariant::SelfValue { .. } => None,
@@ -173,6 +176,9 @@ pub enum CurrentImplicitParameterSynSymbolKind {
     },
     Lifetime {
         label_token: LifetimeLabelRegionalToken,
+    },
+    Place {
+        label_token: PlaceLabelRegionalToken,
     },
     Constant {
         ident_token: IdentRegionalToken,
@@ -279,6 +285,9 @@ pub enum CurrentTemplateParameterSynSymbolVariant {
     Lifetime {
         label_token: LifetimeLabelRegionalToken,
     },
+    Place {
+        label_token: PlaceLabelRegionalToken,
+    },
     Type {
         ident_token: IdentRegionalToken,
     },
@@ -293,6 +302,11 @@ impl CurrentTemplateParameterSynSymbolVariant {
         match self {
             CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token } => {
                 InheritedTemplateParameterSynSymbol::Lifetime {
+                    label: label_token.label(),
+                }
+            }
+            CurrentTemplateParameterSynSymbolVariant::Place { label_token } => {
+                InheritedTemplateParameterSynSymbol::Place {
                     label: label_token.label(),
                 }
             }
@@ -361,6 +375,11 @@ impl CurrentTemplateParameterSynSymbolVariant {
             }
             CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token } => {
                 CurrentImplicitParameterSynSymbolKind::Lifetime {
+                    label_token: *label_token,
+                }
+            }
+            CurrentTemplateParameterSynSymbolVariant::Place { label_token } => {
+                CurrentImplicitParameterSynSymbolKind::Place {
                     label_token: *label_token,
                 }
             }

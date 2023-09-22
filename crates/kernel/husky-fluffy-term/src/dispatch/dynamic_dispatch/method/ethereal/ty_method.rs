@@ -58,22 +58,25 @@ fn ethereal_ty_method_dispatch_aux(
     mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
 ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
     match ty_path.refine(engine.db()) {
-        Left(PreludeTypePath::Indirection(borrow_ty_path)) => match borrow_ty_path {
-            PreludeIndirectionTypePath::Ref => todo!(),
-            PreludeIndirectionTypePath::RefMut => todo!(),
-            PreludeIndirectionTypePath::Leash => {
-                indirections.push(FluffyDynamicDispatchIndirection::Leash);
-                if arguments.len() != 1 {
-                    p!((&arguments).debug(engine.db()));
-                    todo!()
+        Left(PreludeTypePath::Indirection(prelude_indirection_ty_path)) => {
+            match prelude_indirection_ty_path {
+                PreludeIndirectionTypePath::Ref => todo!(),
+                PreludeIndirectionTypePath::RefMut => todo!(),
+                PreludeIndirectionTypePath::Leash => {
+                    indirections.push(FluffyDynamicDispatchIndirection::Leash);
+                    if arguments.len() != 1 {
+                        p!((&arguments).debug(engine.db()));
+                        todo!()
+                    }
+                    return JustOk(
+                        arguments[0]
+                            .ty_method_dispatch(engine, expr_idx, ident_token)?
+                            .merge(indirections),
+                    );
                 }
-                return JustOk(
-                    arguments[0]
-                        .ty_method_dispatch(engine, expr_idx, ident_token)?
-                        .merge(indirections),
-                );
+                PreludeIndirectionTypePath::At => todo!(),
             }
-        },
+        }
         _ => (),
     }
     if let Some(signature) = ty_method_fluffy_signature(

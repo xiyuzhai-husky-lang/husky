@@ -64,6 +64,21 @@ impl DeclarativeTermSymbol {
     }
 
     #[inline(always)]
+    pub fn new_place(
+        db: &dyn DeclarativeTermDb,
+        menu: &DeclarativeTermMenu,
+        registry: &mut TermSymbolRegistry,
+        attrs: DeclarativeTemplateSymbolAttrs,
+        variance: Option<Variance>,
+    ) -> (DeclarativeTermSymbolTypeResult<DeclarativeTerm>, Self) {
+        let ty = Ok(menu.place_ty());
+        (
+            ty,
+            Self::new(db, ty, registry.issue_lifetime_index(attrs, variance)),
+        )
+    }
+
+    #[inline(always)]
     pub fn new_ty(
         db: &dyn DeclarativeTermDb,
         menu: &DeclarativeTermMenu,

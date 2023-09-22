@@ -64,7 +64,7 @@ impl PlaceLabelRegionalToken {
         self.label
     }
 
-    pub fn token_idx(&self) -> RegionalTokenIdx {
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
         self.regional_token_idx
     }
 }

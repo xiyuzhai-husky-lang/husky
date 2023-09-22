@@ -53,6 +53,7 @@ pub struct DeclarativeTermMenu0 {
     r64: DeclarativeTerm,
     bool: DeclarativeTerm,
     lifetime_ty: DeclarativeTerm,
+    place_ty: DeclarativeTerm,
     trai_ty: DeclarativeTerm,
     module: DeclarativeTerm,
 }
@@ -114,6 +115,7 @@ impl DeclarativeTermMenu0 {
             trai_ty: DeclarativeTermEntityPath::Type(item_path_menu.trai_ty_path()).into(),
             leash_ty_path: item_path_menu.leash_ty_path().into(),
             lifetime_ty: DeclarativeTermEntityPath::Type(item_path_menu.lifetime_ty_path()).into(),
+            place_ty: DeclarativeTermEntityPath::Type(item_path_menu.place_ty_path()).into(),
             module: DeclarativeTermEntityPath::Type(item_path_menu.module_ty_path()).into(),
             i8: DeclarativeTermEntityPath::Type(item_path_menu.i8_ty_path()).into(),
             i16: DeclarativeTermEntityPath::Type(item_path_menu.i16_ty_path()).into(),
@@ -300,6 +302,11 @@ impl DeclarativeTermMenu0 {
     /// Lifetime
     pub fn lifetime_ty(&self) -> DeclarativeTerm {
         self.lifetime_ty
+    }
+
+    /// Place
+    pub fn place_ty(&self) -> DeclarativeTerm {
+        self.place_ty
     }
 
     pub fn str_ty_path(&self) -> DeclarativeTerm {

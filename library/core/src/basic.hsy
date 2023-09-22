@@ -6,6 +6,14 @@ pub extern never;
 
 pub extern unit;
 
+// todo: move this to another module
 pub extern Trait;
 
+// todo: move this to another module
 pub extern Module;
+
+// todo: move this to another module
+pub extern Lifetime;
+
+// todo: move this to another module
+pub extern Place;

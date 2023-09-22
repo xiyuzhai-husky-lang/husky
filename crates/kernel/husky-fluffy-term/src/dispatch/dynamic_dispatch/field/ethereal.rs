@@ -57,19 +57,22 @@ fn ethereal_ty_field_dispatch_aux<'a>(
     mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
 ) -> FluffyTermMaybeResult<FluffyFieldDispatch> {
     match ty_path.refine(db) {
-        Left(PreludeTypePath::Indirection(borrow_ty_path)) => match borrow_ty_path {
-            PreludeIndirectionTypePath::Ref => todo!(),
-            PreludeIndirectionTypePath::RefMut => todo!(),
-            PreludeIndirectionTypePath::Leash => {
-                indirections.push(FluffyDynamicDispatchIndirection::Leash);
-                if arguments.len() != 1 {
-                    todo!()
+        Left(PreludeTypePath::Indirection(prelude_indirection_ty_path)) => {
+            match prelude_indirection_ty_path {
+                PreludeIndirectionTypePath::Ref => todo!(),
+                PreludeIndirectionTypePath::RefMut => todo!(),
+                PreludeIndirectionTypePath::Leash => {
+                    indirections.push(FluffyDynamicDispatchIndirection::Leash);
+                    if arguments.len() != 1 {
+                        todo!()
+                    }
+                    return JustOk(
+                        ethereal_ty_field_dispatch(db, arguments[0], ident)?.merge(indirections),
+                    );
                 }
-                return JustOk(
-                    ethereal_ty_field_dispatch(db, arguments[0], ident)?.merge(indirections),
-                );
+                PreludeIndirectionTypePath::At => todo!(),
             }
-        },
+        }
         _ => (),
     }
     if let Some(regular_field_ethereal_signature) = ty_path

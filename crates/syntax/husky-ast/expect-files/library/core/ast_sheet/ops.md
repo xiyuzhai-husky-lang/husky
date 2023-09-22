@@ -1971,7 +1971,7 @@ Ok(
                     block: Type {
                         path: TypePath(
                             Id {
-                                value: 27,
+                                value: 30,
                             },
                         ),
                         variants: Some(

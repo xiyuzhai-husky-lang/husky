@@ -49,6 +49,7 @@ impl<'a> ExprTypeEngine<'a> {
                                 // needs to check more
                                 ty_arguments[0]
                             }
+                            PreludeIndirectionTypePath::At => todo!(),
                         }
                     }
                     _ => opd_ty,

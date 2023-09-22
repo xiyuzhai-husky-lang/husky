@@ -118,6 +118,45 @@
         ),
     ),
     (
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`core::mem::At`, `Extern`),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Type(
+                    TypeDeclarativeSignatureTemplate::Extern(
+                        ExternTypeDeclarativeSignatureTemplate {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [
+                                    DeclarativeTemplateParameter {
+                                        annotated_variance: None,
+                                        symbol: DeclarativeTermSymbol(
+                                            Id {
+                                                value: 9,
+                                            },
+                                        ),
+                                        traits: [],
+                                    },
+                                    DeclarativeTemplateParameter {
+                                        annotated_variance: None,
+                                        symbol: DeclarativeTermSymbol(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
+                                        traits: [],
+                                    },
+                                ],
+                            },
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath {
@@ -152,7 +191,7 @@
                             ExplicitApplication(
                                 DeclarativeTermExplicitApplication(
                                     Id {
-                                        value: 14,
+                                        value: 16,
                                     },
                                 ),
                             ),
