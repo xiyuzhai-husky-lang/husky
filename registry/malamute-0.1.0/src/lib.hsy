@@ -1,9 +1,9 @@
-@derive(Debug, Clone, Copy)
+#derive(Debug, Clone, Copy)
 pub enum Class<Label>
 | Known(Label)
 | Unknown
 
-@derive(Debug, Clone, Copy)
+#derive(Debug, Clone, Copy)
 pub enum OneVsAll<Label, const label: Label>
 | Yes
 | No
@@ -11,7 +11,7 @@ pub enum OneVsAll<Label, const label: Label>
 impl<Label, const label: Label> core::ops::Unveil OneVsAll Label label for Class Label:
     type Output = ()
 
-@derive(Debug, Clone, Copy)
+#derive(Debug, Clone, Copy)
 pub enum OneVsAllResult<Label, const label: Label>
 | ConfidentYes
 | ConfidentNo

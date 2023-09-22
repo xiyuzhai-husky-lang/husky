@@ -117,7 +117,7 @@ pub(super) fn defn_token_region(
         ItemSynNodePath::TypeVariant(_) => todo!(),
         ItemSynNodePath::ImplBlock(_) => todo!(),
         ItemSynNodePath::AssociatedItem(_) => todo!(),
-        ItemSynNodePath::Decr(_) => todo!(),
+        ItemSynNodePath::Attr(_) => todo!(),
     }
 }
 
@@ -366,7 +366,7 @@ impl HasSynDefnTokraRegion for ItemSynNodePath {
             ItemSynNodePath::TypeVariant(syn_node_path) => syn_node_path.defn_tokra_region(db),
             ItemSynNodePath::ImplBlock(syn_node_path) => syn_node_path.defn_tokra_region(db),
             ItemSynNodePath::AssociatedItem(syn_node_path) => syn_node_path.defn_tokra_region(db),
-            ItemSynNodePath::Decr(syn_node_path) => syn_node_path.defn_tokra_region(db),
+            ItemSynNodePath::Attr(syn_node_path) => syn_node_path.defn_tokra_region(db),
         }
     }
 
@@ -390,7 +390,7 @@ impl HasSynDefnTokraRegion for ItemSynNodePath {
             ItemSynNodePath::AssociatedItem(syn_node_path) => {
                 syn_node_path.defn_tokra_region_source_map(db)
             }
-            ItemSynNodePath::Decr(syn_node_path) => syn_node_path.defn_tokra_region_source_map(db),
+            ItemSynNodePath::Attr(syn_node_path) => syn_node_path.defn_tokra_region_source_map(db),
         }
     }
 }
@@ -752,7 +752,7 @@ fn ill_formed_item_defn_tokra_region(
     ill_formed_item_defn_tokra_region_with_source_map(db, syn_node_path).map(|v| v.0)
 }
 
-impl HasSynDefnTokraRegion for DecrSynNodePath {
+impl HasSynDefnTokraRegion for AttrSynNodePath {
     fn defn_tokra_region(self, db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
         None
     }

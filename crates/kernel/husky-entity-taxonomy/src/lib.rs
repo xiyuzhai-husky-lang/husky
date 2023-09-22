@@ -31,7 +31,7 @@ pub enum EntityKind {
     TypeVariant,
     Trait,
     ImplBlock,
-    Decr,
+    Attr,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

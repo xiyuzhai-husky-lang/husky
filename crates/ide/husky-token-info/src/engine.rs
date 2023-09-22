@@ -120,7 +120,7 @@ impl<'a> TokenInfoEngine<'a> {
             ),
             Ast::ImplBlock { .. } => (),
             // ad hoc
-            Ast::Decr { .. } => (),
+            Ast::Attr { .. } => (),
             _ => unreachable!(),
         }
         match syn_node_defn {
@@ -129,7 +129,7 @@ impl<'a> TokenInfoEngine<'a> {
             SynNodeDefn::TypeVariant(_) => todo!(),
             SynNodeDefn::ImplBlock(_) => (),
             SynNodeDefn::Submodule(_) => (),
-            SynNodeDefn::Decr(_) => (),
+            SynNodeDefn::Attr(_) => (),
         }
     }
 

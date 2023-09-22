@@ -74,10 +74,10 @@ fn build_decl_tokra_region(
         .ast_sheet(module_path)
         .expect("all modules should be valid");
     let (token_group_idx, ast, saved_regional_stream_state) = match ast_sheet[ast_idx] {
-        Ast::Decr {
+        Ast::Attr {
             token_group_idx,
             ident,
-        } => (token_group_idx, DeclAst::Decr, None),
+        } => (token_group_idx, DeclAst::Attr, None),
         Ast::Identifiable {
             token_group_idx,
             ref visibility_expr,
@@ -151,7 +151,7 @@ impl HasDeclTokraRegion for ItemSynNodePath {
             ItemSynNodePath::TypeVariant(syn_node_path) => syn_node_path.decl_tokra_region(db),
             ItemSynNodePath::ImplBlock(syn_node_path) => syn_node_path.decl_tokra_region(db),
             ItemSynNodePath::AssociatedItem(syn_node_path) => syn_node_path.decl_tokra_region(db),
-            ItemSynNodePath::Decr(syn_node_path) => syn_node_path.decl_tokra_region(db),
+            ItemSynNodePath::Attr(syn_node_path) => syn_node_path.decl_tokra_region(db),
         }
     }
 
@@ -172,7 +172,7 @@ impl HasDeclTokraRegion for ItemSynNodePath {
             ItemSynNodePath::AssociatedItem(syn_node_path) => {
                 syn_node_path.decl_tokra_region_source_map(db)
             }
-            ItemSynNodePath::Decr(syn_node_path) => syn_node_path.decl_tokra_region_source_map(db),
+            ItemSynNodePath::Attr(syn_node_path) => syn_node_path.decl_tokra_region_source_map(db),
         }
     }
 }
@@ -629,20 +629,20 @@ fn ill_formed_item_decl_tokra_region(
     ill_formed_item_decl_tokra_region_with_source_map(db, syn_node_path).0
 }
 
-impl HasDeclTokraRegion for DecrSynNodePath {
+impl HasDeclTokraRegion for AttrSynNodePath {
     fn decl_tokra_region(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegion {
-        decr_decl_tokra_region(db, self)
+        attr_decl_tokra_region(db, self)
     }
 
     fn decl_tokra_region_source_map(self, db: &dyn EntitySynTreeDb) -> DeclTokraRegionSourceMap {
-        decr_decl_tokra_region_with_source_map(db, self).1
+        attr_decl_tokra_region_with_source_map(db, self).1
     }
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
-fn decr_decl_tokra_region_with_source_map(
+fn attr_decl_tokra_region_with_source_map(
     db: &dyn EntitySynTreeDb,
-    syn_node_path: DecrSynNodePath,
+    syn_node_path: AttrSynNodePath,
 ) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
     build_decl_tokra_region(
         syn_node_path.module_path(db),
@@ -652,9 +652,9 @@ fn decr_decl_tokra_region_with_source_map(
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
-fn decr_decl_tokra_region(
+fn attr_decl_tokra_region(
     db: &dyn EntitySynTreeDb,
-    syn_node_path: DecrSynNodePath,
+    syn_node_path: AttrSynNodePath,
 ) -> DeclTokraRegion {
-    decr_decl_tokra_region_with_source_map(db, syn_node_path).0
+    attr_decl_tokra_region_with_source_map(db, syn_node_path).0
 }

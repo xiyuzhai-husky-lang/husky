@@ -110,7 +110,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for FieldDe
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
     ) -> Result<Option<Self>, Self::Error> {
-        let Some(at_token) = ctx.try_parse_option::<AtRegionalToken>()? else {
+        let Some(pound_token) = ctx.try_parse_option::<PoundRegionalToken>()? else {
             return Ok(None);
         };
         todo!()

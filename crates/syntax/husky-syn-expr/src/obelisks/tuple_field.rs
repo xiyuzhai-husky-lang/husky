@@ -5,7 +5,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct TupleFieldObelisk {
-    decorators: Vec<FieldDecorator>,
+    decorators: Vec<FieldAttr>,
     visibility: Option<FieldVisibilityExpr>,
     ty: SynExprIdx,
 }
@@ -39,15 +39,15 @@ impl<'a> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for TupleFieldO
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub struct FieldDecorator {}
+pub struct FieldAttr {}
 
-impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for FieldDecorator {
+impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for FieldAttr {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
     ) -> Result<Option<Self>, Self::Error> {
-        let Some(at_token) = ctx.try_parse_option::<AtRegionalToken>()? else {
+        let Some(pound_token) = ctx.try_parse_option::<PoundRegionalToken>()? else {
             return Ok(None);
         };
         todo!()

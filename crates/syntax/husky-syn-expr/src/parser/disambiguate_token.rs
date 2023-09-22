@@ -139,7 +139,7 @@ where
                                     EntityKind::TypeVariant => todo!(),
                                     EntityKind::Trait => todo!(),
                                     EntityKind::ImplBlock => todo!(),
-                                    EntityKind::Decr => todo!(),
+                                    EntityKind::Attr => todo!(),
                                 }
                             }
                             _ => DisambiguatedToken::BinaryOpr(

@@ -1,4 +1,4 @@
-@derive(Debug, Clone, Visualize)
+#derive(Debug, Clone, Visualize)
 pub struct Point2d {
     x: f32,
     y: f32,

@@ -10,8 +10,8 @@ pub fn module_item_syn_node_paths(
     let item_tree_sheet = db.item_syn_tree_sheet(module_path)?;
     let mut push = |syn_node_path| {
         node_paths.push(syn_node_path);
-        for &(decr_syn_node_path, _) in syn_node_path.decr_syn_nodes(db) {
-            node_paths.push(decr_syn_node_path.into())
+        for &(attr_syn_node_path, _) in syn_node_path.attr_syn_nodes(db) {
+            node_paths.push(attr_syn_node_path.into())
         }
     };
     for syn_node_path in item_tree_sheet.major_item_syn_node_paths() {

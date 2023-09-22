@@ -12,7 +12,7 @@ pub enum DeclAst {
     Identifiable {},
     ImplBlock,
     TypeVariant,
-    Decr,
+    Attr,
     Submodule,
 }
 

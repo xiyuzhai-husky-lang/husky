@@ -10,7 +10,7 @@ impl Indent {
         self.0 += INDENT_INCR
     }
 
-    fn decr(&mut self) {
+    fn attr(&mut self) {
         self.0 -= INDENT_INCR
     }
 }
@@ -23,7 +23,7 @@ impl<'a> AstParser<'a> {
     pub(super) fn with_indent(&mut self, f: impl FnOnce(&mut Self) -> AstIdxRange) -> AstIdxRange {
         self.indent.incr();
         let result = f(self);
-        self.indent.decr();
+        self.indent.attr();
         result
     }
 }

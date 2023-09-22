@@ -88,9 +88,9 @@ impl<'a> AstParser<'a> {
     }
 
     fn parse_ast<C: NormalAstChildren>(&mut self) -> Option<Ast> {
-        let (token_group_idx, token_group, first_token) = self
+        let (token_group_idx, token_group, fst, snd) = self
             .token_groups
-            .next_token_group_of_no_less_indent_with_its_first_token(self.indent())?;
+            .next_token_group_of_no_less_indent_with_its_first_two_tokens(self.indent())?;
         if token_group.indent() > self.indent() {
             return Some(Ast::Err {
                 token_group_idx,
@@ -98,7 +98,7 @@ impl<'a> AstParser<'a> {
             });
         }
         Some(
-            match self.parse_ast_aux::<C>(token_group_idx, token_group, first_token) {
+            match self.parse_ast_aux::<C>(token_group_idx, token_group, fst, snd) {
                 Ok(value) => value,
                 Err(error) => Ast::Err {
                     token_group_idx,
@@ -112,9 +112,10 @@ impl<'a> AstParser<'a> {
         &mut self,
         token_group_idx: TokenGroupIdx,
         token_group: TokenGroup,
-        first_token: TokenData,
+        fst: TokenData,
+        snd: Option<TokenData>,
     ) -> AstResult<Ast> {
-        Ok(match first_token {
+        Ok(match fst {
             TokenData::Keyword(kw) => match kw {
                 Keyword::Stmt(kw) => self.try_parse_stmt_after_keyword::<C>(token_group_idx, kw)?,
                 Keyword::Todo | Keyword::Sorry | Keyword::Pronoun(_) => {
@@ -159,14 +160,22 @@ impl<'a> AstParser<'a> {
                 }
                 Keyword::Async => todo!(),
             },
-            TokenData::Punctuation(Punctuation::POUND) => Ast::Sorc { token_group_idx },
-            TokenData::Punctuation(Punctuation::AT) => match token_group.second() {
-                Some(TokenData::Ident(ident)) => Ast::Decr {
-                    token_group_idx,
-                    ident,
+            TokenData::Punctuation(Punctuation::POUND) => match snd {
+                Some(snd) => match snd {
+                    TokenData::Punctuation(Punctuation::LBOX) => todo!(),
+                    TokenData::Ident(_) => todo!(),
+                    _ => todo!(),
                 },
-                _ => todo!(),
+                None => todo!(),
             },
+            //  Ast::Sorc { token_group_idx },
+            // TokenData::Punctuation(Punctuation::AT) => match token_group.second() {
+            //     Some(TokenData::Ident(ident)) => Ast::Attr {
+            //         token_group_idx,
+            //         ident,
+            //     },
+            //     _ => todo!(),
+            // },
             TokenData::Punctuation(_)
             | TokenData::Ident(_)
             | TokenData::Label(_)

@@ -1,11 +1,11 @@
 mod associated_item;
-mod decr;
+mod attr;
 mod impl_block;
 mod major_item;
 mod ty_variant;
 
 pub use self::associated_item::*;
-pub use self::decr::*;
+pub use self::attr::*;
 pub use self::impl_block::*;
 pub use self::major_item::*;
 pub use self::ty_variant::*;
@@ -22,7 +22,7 @@ pub enum ItemEtherealSignatureTemplate {
     ImplBlock(ImplBlockEtherealSignatureTemplate),
     AssociatedItem(AssociatedItemEtherealSignatureTemplate),
     Variant(TypeVariantEtherealSignatureTemplate),
-    Decr(DecrEtherealSignatureTemplate),
+    Attr(AttrEtherealSignatureTemplate),
 }
 
 impl ItemEtherealSignatureTemplate {
@@ -33,7 +33,7 @@ impl ItemEtherealSignatureTemplate {
             ItemEtherealSignatureTemplate::ImplBlock(template) => Some(template.self_ty(db)),
             ItemEtherealSignatureTemplate::AssociatedItem(template) => template.self_ty(db),
             ItemEtherealSignatureTemplate::Variant(template) => Some(template.self_ty(db)),
-            ItemEtherealSignatureTemplate::Decr(_) => None,
+            ItemEtherealSignatureTemplate::Attr(_) => None,
         }
     }
 }
@@ -60,7 +60,7 @@ impl HasEtherealSignatureTemplate for ItemPath {
             ItemPath::AssociatedItem(path) => path.ethereal_signature_template(db)?.into(),
             ItemPath::TypeVariant(path) => path.ethereal_signature_template(db)?.into(),
             ItemPath::ImplBlock(path) => path.ethereal_signature_template(db)?.into(),
-            ItemPath::Decr(path) => path.ethereal_signature_template(db)?.into(),
+            ItemPath::Attr(path) => path.ethereal_signature_template(db)?.into(),
         })
     }
 }

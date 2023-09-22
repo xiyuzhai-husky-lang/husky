@@ -63,7 +63,7 @@ pub(crate) fn item_variances(
         ItemPath::AssociatedItem(_) => todo!(),
         ItemPath::TypeVariant(_) => todo!(),
         ItemPath::ImplBlock(_) => todo!(),
-        ItemPath::Decr(_) => todo!(),
+        ItemPath::Attr(_) => todo!(),
     }
 }
 

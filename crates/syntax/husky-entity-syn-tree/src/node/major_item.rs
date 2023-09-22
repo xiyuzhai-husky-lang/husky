@@ -70,11 +70,11 @@ impl MajorItemSynNodePath {
         todo!()
     }
 
-    pub(crate) fn decrs(self, db: &dyn EntitySynTreeDb) -> &[(DecrSynNodePath, DecrSynNode)] {
+    pub(crate) fn attrs(self, db: &dyn EntitySynTreeDb) -> &[(AttrSynNodePath, AttrSynNode)] {
         // ad hoc
         match self {
             MajorItemSynNodePath::Trait(_) => &[],
-            MajorItemSynNodePath::Type(syn_node_path) => syn_node_path.decr_syn_nodes(db),
+            MajorItemSynNodePath::Type(syn_node_path) => syn_node_path.attr_syn_nodes(db),
             MajorItemSynNodePath::Fugitive(_) => &[],
         }
     }

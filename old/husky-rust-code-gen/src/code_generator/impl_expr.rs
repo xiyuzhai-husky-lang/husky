@@ -574,7 +574,7 @@ impl<'a> RustCodeGenerator<'a> {
     fn gen_suffix_opr(&mut self, opr: &EagerSuffixOpr) {
         match opr {
             EagerSuffixOpr::Incr => self.write(" += 1"),
-            EagerSuffixOpr::Decr => self.write(" -= 1"),
+            EagerSuffixOpr::Attr => self.write(" -= 1"),
             EagerSuffixOpr::AsTy(ty) => {
                 self.write(" as ");
                 self.gen_item_route(ty.route, EntityRouteRole::Other)

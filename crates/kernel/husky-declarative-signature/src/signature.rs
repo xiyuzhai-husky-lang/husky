@@ -1,11 +1,11 @@
 mod associated_item;
-mod decr;
+mod attr;
 mod impl_block;
 mod module_item;
 mod ty_variant;
 
 pub use self::associated_item::*;
-pub use self::decr::*;
+pub use self::attr::*;
 pub use self::impl_block::*;
 pub use self::module_item::*;
 pub use self::ty_variant::*;
@@ -21,7 +21,7 @@ pub enum SignatureTemplate {
     ImplBlock(ImplBlockDeclarativeSignatureTemplate),
     AssociatedItem(AssociatedItemDeclarativeSignatureTemplate),
     Variant(TypeVariantDeclarativeSignatureTemplate),
-    Decr(DecrDeclarativeSignatureTemplate),
+    Attr(AttrDeclarativeSignatureTemplate),
 }
 
 pub trait HasDeclarativeSignatureTemplate: Copy {
@@ -46,7 +46,7 @@ impl HasDeclarativeSignatureTemplate for ItemPath {
             ItemPath::AssociatedItem(path) => path.declarative_signature_template(db)?.into(),
             ItemPath::TypeVariant(path) => path.declarative_signature_template(db)?.into(),
             ItemPath::ImplBlock(path) => path.declarative_signature_template(db)?.into(),
-            ItemPath::Decr(_) => todo!(),
+            ItemPath::Attr(_) => todo!(),
         })
     }
 }

@@ -1,20 +1,20 @@
 use super::*;
-use husky_entity_syn_tree::HasDecrPaths;
+use husky_entity_syn_tree::HasAttrPaths;
 use vec_like::{SmallVecPairMap, SmallVecSet, VecMapGetEntry};
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct DeriveDecrDeclarativeSignatureTemplate {
-    pub shards: SmallVec<[DeriveDecrShardDeclarativeSignatureTemplate; 8]>,
+pub struct DeriveAttrDeclarativeSignatureTemplate {
+    pub shards: SmallVec<[DeriveAttrShardDeclarativeSignatureTemplate; 8]>,
 }
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct DeriveDecrShardDeclarativeSignatureTemplate {
+pub struct DeriveAttrShardDeclarativeSignatureTemplate {
     pub trai_term: DeclarativeTerm,
 }
 
-impl DeriveDecrDeclarativeSignatureTemplate {
+impl DeriveAttrDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
-        decl: DeriveDecrSynDecl,
+        decl: DeriveAttrSynDecl,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
@@ -23,25 +23,25 @@ impl DeriveDecrDeclarativeSignatureTemplate {
             .trais(db)
             .iter()
             .map(|trai| {
-                Ok(DeriveDecrShardDeclarativeSignatureTemplate::new(
+                Ok(DeriveAttrShardDeclarativeSignatureTemplate::new(
                     db,
                     declarative_term_region.expr_term(trai.expr())?,
                 ))
             })
             .collect::<DeclarativeTermResultBorrowed2<_>>()?;
-        Ok(DeriveDecrDeclarativeSignatureTemplate::new(db, shards))
+        Ok(DeriveAttrDeclarativeSignatureTemplate::new(db, shards))
     }
 }
 
 // // todo: change to ordered map and set
-//     for decr_path in ty_path.decr_paths(db) {
-//         match decr_path.syn_decl(db)? {
-//             DecrSynDecl::Derive(derive_decr) => {
-//                 let syn_expr_region = derive_decr.syn_expr_region(db);
+//     for attr_path in ty_path.attr_paths(db) {
+//         match attr_path.syn_decl(db)? {
+//             AttrSynDecl::Derive(derive_attr) => {
+//                 let syn_expr_region = derive_attr.syn_expr_region(db);
 //                 let declarative_term_region = declarative_term_region(db, syn_expr_region);
-//                 for trai in derive_decr.trais(db) {
+//                 for trai in derive_attr.trais(db) {
 //                     let trai_term = declarative_term_region.expr_term(trai.expr())?;
-//                     let template = DeriveDecrDeclarativeSignatureTemplate::new(db, trai_term);
+//                     let template = DeriveAttrDeclarativeSignatureTemplate::new(db, trai_term);
 //                     // trai_term.a
 //                     let trai_path = match trai_term {
 //                         DeclarativeTerm::Literal(_) => todo!(),

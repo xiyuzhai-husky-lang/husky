@@ -18,7 +18,7 @@ pub enum Ast {
     Sorc { token_group_idx: TokenGroupIdx },
     /// decoration, used for deriving trait implementations, etc.
     /// needs to be processed before inference
-    Decr {
+    Attr {
         token_group_idx: TokenGroupIdx,
         ident: Ident,
     },

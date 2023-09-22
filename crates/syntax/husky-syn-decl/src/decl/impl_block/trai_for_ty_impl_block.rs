@@ -21,7 +21,7 @@ pub struct TraitForTypeImplBlockSynNodeDecl {
 pub enum SelfTypeDecl {
     PathLeadingExpr(SelfTypeObelisk),
     DeriveAny {
-        at_token: AtRegionalToken,
+        pound_token: PoundRegionalToken,
         derive_token: DeriveRegionalToken,
         underscore_token: UnderscoreRegionalToken,
     },
@@ -74,7 +74,7 @@ impl<'a> DeclParser<'a, TraitForTypeImplBlockSynNodePath> {
 
         let ty = match syn_node_path.ty_sketch(db) {
             TypeSketch::DeriveAny => SelfTypeDecl::DeriveAny {
-                at_token: parser
+                pound_token: parser
                     .try_parse_option()
                     .expect("guaranteed")
                     .expect("guaranteed"),

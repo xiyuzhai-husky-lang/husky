@@ -29,11 +29,11 @@ impl TypeSynNodePath {
         ty_node(db, self)
     }
 
-    pub(crate) fn decr_syn_nodes<'a>(
+    pub(crate) fn attr_syn_nodes<'a>(
         self,
         db: &'a dyn EntitySynTreeDb,
-    ) -> &'a [(DecrSynNodePath, DecrSynNode)] {
-        ty_decrs(db, self)
+    ) -> &'a [(AttrSynNodePath, AttrSynNode)] {
+        ty_attrs(db, self)
     }
 }
 
@@ -79,32 +79,32 @@ fn ty_node(db: &dyn EntitySynTreeDb, syn_node_path: TypeSynNodePath) -> MajorIte
     }
 }
 
-impl HasDecrPaths for TypePath {
-    type DecrPath = DecrPath;
+impl HasAttrPaths for TypePath {
+    type AttrPath = AttrPath;
 
-    fn decr_paths(self, db: &dyn EntitySynTreeDb) -> &[Self::DecrPath] {
-        ty_decr_paths(db, self)
+    fn attr_paths(self, db: &dyn EntitySynTreeDb) -> &[Self::AttrPath] {
+        ty_attr_paths(db, self)
     }
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
-fn ty_decrs(
+fn ty_attrs(
     db: &dyn EntitySynTreeDb,
     ty_syn_node_path: TypeSynNodePath,
-) -> SmallVec<[(DecrSynNodePath, DecrSynNode); 2]> {
+) -> SmallVec<[(AttrSynNodePath, AttrSynNode); 2]> {
     let ast_sheet = ty_syn_node_path
         .module_path(db)
         .ast_sheet(db)
         .expect("todo: module paths should be guaranteed to be valid");
     let mut registry = ItemSynNodePathRegistry::default();
-    ast_sheet.procure_decrs(
+    ast_sheet.procure_attrs(
         ty_syn_node_path.maybe_ambiguous_path(db).path.into(),
         ty_syn_node_path.syn_node(db).ast_idx(db),
-        move |decr_ast_idx, _, path| {
-            DecrSynNode::new(
+        move |attr_ast_idx, _, path| {
+            AttrSynNode::new(
                 ty_syn_node_path.into(),
                 path,
-                decr_ast_idx,
+                attr_ast_idx,
                 &mut registry,
                 db,
             )
@@ -114,10 +114,10 @@ fn ty_decrs(
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
-fn ty_decr_paths(db: &dyn EntitySynTreeDb, path: TypePath) -> SmallVec<[DecrPath; 2]> {
+fn ty_attr_paths(db: &dyn EntitySynTreeDb, path: TypePath) -> SmallVec<[AttrPath; 2]> {
     path.syn_node_path(db)
-        .decr_syn_nodes(db)
+        .attr_syn_nodes(db)
         .iter()
-        .filter_map(|(decr_syn_node_path, _)| decr_syn_node_path.path(db))
+        .filter_map(|(attr_syn_node_path, _)| attr_syn_node_path.path(db))
         .collect()
 }
