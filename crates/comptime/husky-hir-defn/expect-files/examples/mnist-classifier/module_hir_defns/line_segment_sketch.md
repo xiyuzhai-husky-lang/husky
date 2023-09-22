@@ -2746,7 +2746,7 @@
                                         },
                                         Suffix {
                                             opd: 21,
-                                            opr: Decr,
+                                            opr: Attr,
                                         },
                                         CurrentSymbol {
                                             ident: Ident(
@@ -3610,7 +3610,7 @@
                                         },
                                         Suffix {
                                             opd: 117,
-                                            opr: Decr,
+                                            opr: Attr,
                                         },
                                         CurrentSymbol {
                                             ident: Ident(

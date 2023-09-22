@@ -256,7 +256,7 @@ Ok(
                         body: None,
                     },
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
@@ -310,7 +310,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
@@ -378,7 +378,7 @@ Ok(
                         ),
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         10,
                     ),

@@ -162,20 +162,15 @@ impl<'a> AstParser<'a> {
             },
             TokenData::Punctuation(Punctuation::POUND) => match snd {
                 Some(snd) => match snd {
-                    TokenData::Punctuation(Punctuation::LBOX) => todo!(),
-                    TokenData::Ident(_) => todo!(),
+                    TokenData::Punctuation(Punctuation::LBOX) => Ast::Sorc { token_group_idx },
+                    TokenData::Ident(ident) => Ast::Attr {
+                        token_group_idx,
+                        ident,
+                    },
                     _ => todo!(),
                 },
                 None => todo!(),
             },
-            //  Ast::Sorc { token_group_idx },
-            // TokenData::Punctuation(Punctuation::AT) => match token_group.second() {
-            //     Some(TokenData::Ident(ident)) => Ast::Attr {
-            //         token_group_idx,
-            //         ident,
-            //     },
-            //     _ => todo!(),
-            // },
             TokenData::Punctuation(_)
             | TokenData::Ident(_)
             | TokenData::Label(_)

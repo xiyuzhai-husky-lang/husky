@@ -200,7 +200,7 @@
                                         },
                                         Suffix {
                                             opd: 17,
-                                            opr: Decr,
+                                            opr: Attr,
                                         },
                                         CurrentSymbol {
                                             ident: Ident(

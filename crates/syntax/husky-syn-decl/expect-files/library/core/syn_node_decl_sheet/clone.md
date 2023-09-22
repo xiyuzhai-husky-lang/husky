@@ -124,7 +124,7 @@ Ok(
                                 ),
                             },
                             self_ty_decl: DeriveAny {
-                                at_token: AtRegionalToken(
+                                pound_token: PoundRegionalToken(
                                     RegionalTokenIdx(
                                         4,
                                     ),
