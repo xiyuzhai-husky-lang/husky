@@ -5,7 +5,7 @@ pub struct EnumTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
     #[return_ref]
-    template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<TemplateParameters>>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -47,7 +47,7 @@ pub struct EnumTypeSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
-    pub template_parameters: ImplicitParameterDeclPatterns,
+    pub template_parameters: TemplateParameterObelisks,
     pub syn_expr_region: SynExprRegion,
 }
 

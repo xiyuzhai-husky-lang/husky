@@ -7,9 +7,9 @@ pub struct TypeMethodFnSynNodeDecl {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
     #[return_ref]
-    template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
+    template_parameters: SynNodeDeclResult<Option<TemplateParameters>>,
     #[return_ref]
-    pub ritchie_parameter_decl_list: SynNodeDeclResult<RitchieParameters<true>>,
+    pub parenate_parameters: SynNodeDeclResult<ParenateParameters<true>>,
     pub light_arrow_token: TokenDataResult<Option<LightArrowRegionalToken>>,
     #[return_ref]
     pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
@@ -21,16 +21,11 @@ pub struct TypeMethodFnSynNodeDecl {
 impl TypeMethodFnSynNodeDecl {
     pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
-            self.template_parameter_decl_list(db)
+            self.template_parameters(db)
                 .as_ref()
                 .err()
                 .into_iter()
-                .chain(
-                    self.ritchie_parameter_decl_list(db)
-                        .as_ref()
-                        .err()
-                        .into_iter(),
-                )
+                .chain(self.parenate_parameters(db).as_ref().err().into_iter())
                 .chain(self.return_ty(db).as_ref().err().into_iter())
                 .chain(self.eol_colon(db).as_ref().err().into_iter()),
         )
@@ -77,7 +72,7 @@ pub struct TypeMethodFnSynDecl {
     #[id]
     pub path: TypeItemPath,
     #[return_ref]
-    pub template_parameters: ImplicitParameterDeclPatterns,
+    pub template_parameters: TemplateParameterObelisks,
     pub self_value_parameter: Option<SelfParameterObelisk>,
     #[return_ref]
     pub parenate_parameters: ExplicitParameterDeclPatterns,
@@ -92,15 +87,14 @@ impl TypeMethodFnSynDecl {
         syn_node_decl: TypeMethodFnSynNodeDecl,
     ) -> DeclResult<Self> {
         let template_parameters = syn_node_decl
-            .template_parameter_decl_list(db)
+            .template_parameters(db)
             .as_ref()?
             .as_ref()
             .map(|list| list.template_parameters().to_smallvec())
             .unwrap_or_default();
-        let parenate_parameter_decl_list =
-            syn_node_decl.ritchie_parameter_decl_list(db).as_ref()?;
-        let self_value_parameter = *parenate_parameter_decl_list.self_value_parameter();
-        let parenate_parameters: ExplicitParameterDeclPatterns = parenate_parameter_decl_list
+        let parenate_parameters = syn_node_decl.parenate_parameters(db).as_ref()?;
+        let self_value_parameter = *parenate_parameters.self_value_parameter();
+        let parenate_parameters: ExplicitParameterDeclPatterns = parenate_parameters
             .parenate_parameters()
             .iter()
             .map(Clone::clone)

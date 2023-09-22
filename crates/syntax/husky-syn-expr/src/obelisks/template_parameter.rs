@@ -38,7 +38,7 @@ pub enum TemplateParameterDeclPatternVariant {
         ty_expr: SynExprIdx,
     },
     Lifetime {
-        label_token: LifetimeRegionalToken,
+        label_token: LifetimeLabelRegionalToken,
     },
     Binding {
         label_token: PlaceLabelRegionalToken,
@@ -93,7 +93,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
                     },
                 },
             }))
-        } else if let Some(label_token) = ctx.try_parse_option::<LifetimeRegionalToken>()? {
+        } else if let Some(label_token) = ctx.try_parse_option::<LifetimeLabelRegionalToken>()? {
             let access_start = ctx.save_state().next_regional_token_idx();
             let symbols = ctx.define_symbols(
                 [CurrentSynSymbol::new(

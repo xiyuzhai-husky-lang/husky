@@ -1,19 +1,19 @@
 use super::*;
 use parsec::parse_separated_small2_list_expected;
 
-pub(crate) type ImplicitParameterDeclPatterns = SmallVec<[TemplateParameterObelisk; 2]>;
+pub(crate) type TemplateParameterObelisks = SmallVec<[TemplateParameterObelisk; 2]>;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynDeclDb)]
-pub struct Generics {
+pub struct TemplateParameters {
     langle: LaOrLtRegionalToken,
-    template_parameters: ImplicitParameterDeclPatterns,
+    template_parameters: TemplateParameterObelisks,
     commas: CommaRegionalTokens,
     decl_list_result: Result<(), SynNodeDeclError>,
     rangle: RaOrGtRegionalToken,
 }
 
-impl Generics {
+impl TemplateParameters {
     pub fn lcurl(&self) -> LaOrLtRegionalToken {
         self.langle
     }
@@ -27,7 +27,7 @@ impl Generics {
     }
 }
 
-impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for Generics {
+impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParameters {
     type Error = SynNodeDeclError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(

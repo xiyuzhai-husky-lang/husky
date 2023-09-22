@@ -6,7 +6,7 @@ pub struct UnitStructTypeSynNodeDecl {
     pub syn_node_path: TypeSynNodePath,
     pub syn_expr_region: SynExprRegion,
     #[return_ref]
-    template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<TemplateParameters>>,
 }
 
 impl UnitStructTypeSynNodeDecl {
@@ -26,7 +26,7 @@ pub struct UnitStructTypeSynDecl {
     pub path: TypePath,
     pub syn_expr_region: SynExprRegion,
     #[return_ref]
-    pub template_parameters: ImplicitParameterDeclPatterns,
+    pub template_parameters: TemplateParameterObelisks,
 }
 
 impl UnitStructTypeSynDecl {

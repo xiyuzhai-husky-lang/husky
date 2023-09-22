@@ -111,7 +111,7 @@ pub type DeclResult<T> = Result<T, DeclError>;
 impl From<&SynNodeDeclError> for DeclError {
     #[track_caller]
     fn from(value: &SynNodeDeclError) -> Self {
-        todo!();
+        todo!("not yet expect errors in from of impl From<&SynNodeDeclError> for DeclError");
         DeclError::NodeDecl
     }
 }

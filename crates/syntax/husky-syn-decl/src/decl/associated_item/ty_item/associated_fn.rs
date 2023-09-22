@@ -5,9 +5,9 @@ pub struct TypeAssociatedFnSynNodeDecl {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
     #[return_ref]
-    pub template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
+    pub template_parameter_decl_list: SynNodeDeclResult<Option<TemplateParameters>>,
     #[return_ref]
-    pub parenate_parameter_decl_list: SynNodeDeclResult<RitchieParameters<false>>,
+    pub parenate_parameter_decl_list: SynNodeDeclResult<ParenateParameters<false>>,
     pub light_arrow_token: TokenDataResult<Option<LightArrowRegionalToken>>,
     #[return_ref]
     pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
@@ -79,7 +79,7 @@ pub struct TypeAssociatedFnSynDecl {
     #[id]
     pub path: TypeItemPath,
     #[return_ref]
-    pub template_parameters: ImplicitParameterDeclPatterns,
+    pub template_parameters: TemplateParameterObelisks,
     #[return_ref]
     pub parenate_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeBeforeColonObelisk>,

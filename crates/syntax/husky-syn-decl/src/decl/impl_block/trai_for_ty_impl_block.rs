@@ -8,7 +8,7 @@ pub struct TraitForTypeImplBlockSynNodeDecl {
     pub syn_node_path: TraitForTypeImplBlockSynNodePath,
     pub impl_regional_token: ImplRegionalToken,
     #[return_ref]
-    template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<TemplateParameters>>,
     pub trai_expr: TraitObelisk,
     pub for_token: ConnectionForRegionalToken,
     pub self_ty_decl: SelfTypeDecl,
@@ -114,7 +114,7 @@ pub struct TraitForTypeImplBlockSynDecl {
     #[id]
     pub path: TraitForTypeImplBlockPath,
     #[return_ref]
-    pub template_parameters: ImplicitParameterDeclPatterns,
+    pub template_parameters: TemplateParameterObelisks,
     pub trai_expr: TraitObelisk,
     pub self_ty_decl: SelfTypeDecl,
     pub syn_expr_region: SynExprRegion,
