@@ -53,6 +53,8 @@ pub enum EtherealTermError {
     NoSuchMethod,
     #[error("ExpectedCurryForApplicationFunctionType")]
     ExpectedCurryForApplicationFunctionType,
+    #[error("ExpectedType")]
+    ExpectedType { expectee: DeclarativeTerm },
 }
 
 impl From<EntityPathError> for EtherealTermError {

@@ -25,7 +25,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 10,
+                                        value: 12,
                                     },
                                 ),
                                 variants: None,
@@ -67,7 +67,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 11,
+                                        value: 13,
                                     },
                                 ),
                                 variants: None,
@@ -109,7 +109,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 12,
+                                        value: 14,
                                     },
                                 ),
                                 variants: None,
@@ -127,6 +127,48 @@ Ok(
                         ),
                     ),
                     ident: `Leash`,
+                    visibility: Scope::Pub,
+                },
+                EntityNodeEntry {
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
+                                TypeSynNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::mem::At`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 6,
+                            ident_token: IdentToken {
+                                ident: `At`,
+                                token_idx: TokenIdx(
+                                    46,
+                                ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                                variants: None,
+                            },
+                        },
+                    ),
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Type(
+                            TypeSynNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`core::mem::At`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `At`,
                     visibility: Scope::Pub,
                 },
             ],
@@ -157,6 +199,15 @@ Ok(
                     symbol: EntitySymbol::MajorItem {
                         module_item_path: MajorItemPath::Type(
                             TypePath(`core::mem::Leash`, `Extern`),
+                        ),
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `At`,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::MajorItem {
+                        module_item_path: MajorItemPath::Type(
+                            TypePath(`core::mem::At`, `Extern`),
                         ),
                     },
                 },
@@ -842,6 +893,108 @@ Ok(
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`core::basic::Module`, `Extern`),
+                                ),
+                            ),
+                            visibility: Scope::PubUnder(
+                                `core::mem`,
+                            ),
+                            ast_idx: 1,
+                            use_expr_idx: 1,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
+                    ident: `Lifetime`,
+                    visibility: Scope::PubUnder(
+                        `core::mem`,
+                    ),
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::MajorItem {
+                                                module_item_path: MajorItemPath::Type(
+                                                    TypePath(`core::basic::Lifetime`, `Extern`),
+                                                ),
+                                            },
+                                            path: PrincipalEntityPath::MajorItem(
+                                                MajorItemPath::Type(
+                                                    TypePath(`core::basic::Lifetime`, `Extern`),
+                                                ),
+                                            ),
+                                            visibility: Scope::Pub,
+                                            ast_idx: 1,
+                                            use_expr_idx: 1,
+                                        },
+                                    ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`core::basic::Lifetime`, `Extern`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `core`,
+                                    ),
+                                    ast_idx: 20,
+                                    use_expr_idx: 1,
+                                },
+                            ),
+                            path: PrincipalEntityPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::basic::Lifetime`, `Extern`),
+                                ),
+                            ),
+                            visibility: Scope::PubUnder(
+                                `core::mem`,
+                            ),
+                            ast_idx: 1,
+                            use_expr_idx: 1,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
+                    ident: `Place`,
+                    visibility: Scope::PubUnder(
+                        `core::mem`,
+                    ),
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::MajorItem {
+                                                module_item_path: MajorItemPath::Type(
+                                                    TypePath(`core::basic::Place`, `Extern`),
+                                                ),
+                                            },
+                                            path: PrincipalEntityPath::MajorItem(
+                                                MajorItemPath::Type(
+                                                    TypePath(`core::basic::Place`, `Extern`),
+                                                ),
+                                            ),
+                                            visibility: Scope::Pub,
+                                            ast_idx: 1,
+                                            use_expr_idx: 1,
+                                        },
+                                    ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`core::basic::Place`, `Extern`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `core`,
+                                    ),
+                                    ast_idx: 20,
+                                    use_expr_idx: 1,
+                                },
+                            ),
+                            path: PrincipalEntityPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::basic::Place`, `Extern`),
                                 ),
                             ),
                             visibility: Scope::PubUnder(
@@ -2555,7 +2708,7 @@ Ok(
                         `core::mem`,
                     ),
                     progress: Ok(
-                        55,
+                        57,
                     ),
                 },
             ],

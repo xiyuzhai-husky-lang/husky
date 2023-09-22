@@ -112,6 +112,48 @@ Ok(
                     ),
                 },
                 EntitySymbolEntry {
+                    ident: `Lifetime`,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::MajorItem {
+                                module_item_path: MajorItemPath::Type(
+                                    TypePath(`core::basic::Lifetime`, `Extern`),
+                                ),
+                            },
+                            path: PrincipalEntityPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::basic::Lifetime`, `Extern`),
+                                ),
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 1,
+                            use_expr_idx: 1,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
+                    ident: `Place`,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::MajorItem {
+                                module_item_path: MajorItemPath::Type(
+                                    TypePath(`core::basic::Place`, `Extern`),
+                                ),
+                            },
+                            path: PrincipalEntityPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::basic::Place`, `Extern`),
+                                ),
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 1,
+                            use_expr_idx: 1,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
                     ident: `i8`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
@@ -1435,7 +1477,7 @@ Ok(
                     use_expr_idx: 1,
                     visibility: Scope::Pub,
                     progress: Ok(
-                        60,
+                        64,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -1445,7 +1487,7 @@ Ok(
                     use_expr_idx: 4,
                     visibility: Scope::Pub,
                     progress: Ok(
-                        70,
+                        72,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -1455,7 +1497,7 @@ Ok(
                     use_expr_idx: 7,
                     visibility: Scope::Pub,
                     progress: Ok(
-                        56,
+                        58,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -1465,7 +1507,7 @@ Ok(
                     use_expr_idx: 10,
                     visibility: Scope::Pub,
                     progress: Ok(
-                        56,
+                        58,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -1475,7 +1517,7 @@ Ok(
                     use_expr_idx: 13,
                     visibility: Scope::Pub,
                     progress: Ok(
-                        57,
+                        59,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -1485,7 +1527,7 @@ Ok(
                     use_expr_idx: 16,
                     visibility: Scope::Pub,
                     progress: Ok(
-                        57,
+                        59,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -1495,7 +1537,7 @@ Ok(
                     use_expr_idx: 19,
                     visibility: Scope::Pub,
                     progress: Ok(
-                        56,
+                        58,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -1505,7 +1547,7 @@ Ok(
                     use_expr_idx: 22,
                     visibility: Scope::Pub,
                     progress: Ok(
-                        58,
+                        60,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -1515,7 +1557,7 @@ Ok(
                     use_expr_idx: 25,
                     visibility: Scope::Pub,
                     progress: Ok(
-                        59,
+                        61,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -1525,7 +1567,7 @@ Ok(
                     use_expr_idx: 28,
                     visibility: Scope::Pub,
                     progress: Ok(
-                        57,
+                        59,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -1535,7 +1577,7 @@ Ok(
                     use_expr_idx: 31,
                     visibility: Scope::Pub,
                     progress: Ok(
-                        56,
+                        58,
                     ),
                 },
             ],

@@ -140,7 +140,19 @@ impl EtherealTerm {
             },
             EtherealTerm::Category(cat) => RawType::Declarative(cat.ty()?.into()),
             EtherealTerm::Universe(_) => todo!(),
-            EtherealTerm::Curry(_) => todo!(),
+            EtherealTerm::Curry(curry) => {
+                let Ok(RawType::Declarative(DeclarativeTerm::Category(parameter_ty_cat))) =
+                    curry.parameter_ty(db).raw_ty(db)
+                else {
+                    unreachable!()
+                };
+                let Ok(RawType::Declarative(DeclarativeTerm::Category(return_ty_cat))) =
+                    curry.return_ty(db).raw_ty(db)
+                else {
+                    unreachable!()
+                };
+                RawType::Declarative(parameter_ty_cat.max(return_ty_cat).into())
+            }
             EtherealTerm::Ritchie(_) => {
                 DeclarativeTerm::Category(TermCategory::new(1.into())).into()
             }

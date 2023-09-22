@@ -1,5 +1,6 @@
 use super::*;
 use husky_entity_syn_tree::{EntitySynTreeBundleResult, HasAssociatedItemPaths};
+use husky_term_prelude::TermTypeExpectation;
 use smallvec::SmallVec;
 use vec_like::{SmallVecPairMap, VecMapGetEntry};
 
@@ -112,7 +113,11 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
             db,
             declarative_signature_template.template_parameters(db),
         )?;
-        let trai = EtherealTerm::ty_from_declarative(db, declarative_signature_template.trai(db))?;
+        let trai = EtherealTerm::from_declarative(
+            db,
+            declarative_signature_template.trai(db),
+            TermTypeExpectation::Any,
+        )?;
         let self_ty = EtherealSelfTypeInTraitImpl::from_declarative(
             db,
             declarative_signature_template.self_ty(db),

@@ -15,8 +15,7 @@ impl EtherealTermVariable {
         variable: DeclarativeTermVariable,
     ) -> EtherealTermResult<Self> {
         let ty = variable.ty(db)?;
-        let ty =
-            EtherealTerm::from_declarative(db, ty, TermTypeExpectation::FinalDestinationEqsSort)?;
+        let ty = EtherealTerm::ty_from_declarative(db, ty)?;
         Ok(Self::new_inner(db, ty, variable.idx(db)))
     }
 

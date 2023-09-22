@@ -25,7 +25,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 49,
+                                        value: 51,
                                     },
                                 ),
                                 variants: None,
@@ -67,7 +67,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 50,
+                                        value: 52,
                                     },
                                 ),
                                 variants: None,
@@ -109,7 +109,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 51,
+                                        value: 53,
                                     },
                                 ),
                                 variants: None,
@@ -151,7 +151,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 52,
+                                        value: 54,
                                     },
                                 ),
                                 variants: None,
@@ -193,7 +193,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 53,
+                                        value: 55,
                                     },
                                 ),
                                 variants: None,
@@ -235,7 +235,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 54,
+                                        value: 56,
                                     },
                                 ),
                                 variants: None,

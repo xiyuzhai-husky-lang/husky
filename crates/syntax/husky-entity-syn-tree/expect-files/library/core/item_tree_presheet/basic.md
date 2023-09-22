@@ -213,6 +213,90 @@ Ok(
                     ident: `Module`,
                     visibility: Scope::Pub,
                 },
+                EntityNodeEntry {
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
+                                TypeSynNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::basic::Lifetime`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 7,
+                            ident_token: IdentToken {
+                                ident: `Lifetime`,
+                                token_idx: TokenIdx(
+                                    27,
+                                ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 7,
+                                    },
+                                ),
+                                variants: None,
+                            },
+                        },
+                    ),
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Type(
+                            TypeSynNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`core::basic::Lifetime`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `Lifetime`,
+                    visibility: Scope::Pub,
+                },
+                EntityNodeEntry {
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
+                                TypeSynNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::basic::Place`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 8,
+                            ident_token: IdentToken {
+                                ident: `Place`,
+                                token_idx: TokenIdx(
+                                    31,
+                                ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 8,
+                                    },
+                                ),
+                                variants: None,
+                            },
+                        },
+                    ),
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Type(
+                            TypeSynNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`core::basic::Place`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `Place`,
+                    visibility: Scope::Pub,
+                },
             ],
         },
         use_one_trackers: OnceUseRules(

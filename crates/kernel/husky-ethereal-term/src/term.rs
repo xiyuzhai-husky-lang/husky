@@ -72,15 +72,22 @@ pub enum EtherealTerm {
 }
 
 impl EtherealTerm {
+    #[track_caller]
     pub fn ty_from_declarative(
         db: &dyn EtherealTermDb,
         declarative_term: DeclarativeTerm,
     ) -> EtherealTermResult<Self> {
-        Self::from_declarative(
+        let ty_term = Self::from_declarative(
             db,
             declarative_term,
             TermTypeExpectation::FinalDestinationEqsSort,
-        )
+        )?;
+        match ty_term.raw_ty(db)? {
+            RawType::Declarative(DeclarativeTerm::Category(_)) => Ok(ty_term),
+            _ => Err(EtherealTermError::ExpectedType {
+                expectee: declarative_term,
+            }),
+        }
     }
 
     pub fn from_declarative(

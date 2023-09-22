@@ -27,7 +27,7 @@ Ok(
                                     block: Type {
                                         path: TypePath(
                                             Id {
-                                                value: 73,
+                                                value: 75,
                                             },
                                         ),
                                         variants: Some(
@@ -75,7 +75,7 @@ Ok(
                                     block: Type {
                                         path: TypePath(
                                             Id {
-                                                value: 74,
+                                                value: 76,
                                             },
                                         ),
                                         variants: None,
@@ -117,7 +117,7 @@ Ok(
                                     block: Type {
                                         path: TypePath(
                                             Id {
-                                                value: 75,
+                                                value: 77,
                                             },
                                         ),
                                         variants: None,

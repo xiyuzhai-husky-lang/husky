@@ -54,7 +54,7 @@
                                 indirections: [],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 58,
+                                        value: 60,
                                     },
                                 ),
                                 signature: PropsStruct {
@@ -106,7 +106,7 @@
                                                         TypeOntology(
                                                             TypePath(
                                                                 Id {
-                                                                    value: 36,
+                                                                    value: 39,
                                                                 },
                                                             ),
                                                         ),
