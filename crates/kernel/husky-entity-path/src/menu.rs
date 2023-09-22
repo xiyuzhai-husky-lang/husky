@@ -49,6 +49,7 @@ pub struct ItemPathMenu {
     str_ty_path: TypePath,
     ref_ty_path: TypePath,
     ref_mut_ty_path: TypePath,
+    at_ty_path: TypePath,
     vec_ty_path: TypePath,
     array_ty_path: TypePath,
     leash_ty_path: TypePath,
@@ -79,6 +80,7 @@ pub struct ItemPathMenu {
     html_ty_path: TypePath,
     trai_ty_path: TypePath,
     lifetime_ty_path: TypePath,
+    place_ty_path: TypePath,
     module_ty_path: TypePath,
 }
 
@@ -283,6 +285,13 @@ impl ItemPathMenu {
             MajorItemConnection::Connected,
             TypeKind::Extern,
         );
+        let place_ty_path = TypePath::new(
+            db,
+            core_basic,
+            ident_menu.place_ty_ident(),
+            MajorItemConnection::Connected,
+            TypeKind::Extern,
+        );
         let module_ty_path = TypePath::new(
             db,
             core_basic,
@@ -322,6 +331,13 @@ impl ItemPathMenu {
             db,
             core_mem,
             db.it_ident_borrowed("Leash").unwrap(),
+            MajorItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let at_ty_path = TypePath::new(
+            db,
+            core_mem,
+            db.it_ident_borrowed("At").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
         );
@@ -508,6 +524,7 @@ impl ItemPathMenu {
             trai_ty_path,
             module_ty_path,
             lifetime_ty_path,
+            place_ty_path,
             option_ty_path,
             slice_ty_path,
             cyclic_slice_leashed_ty_path,
@@ -515,10 +532,11 @@ impl ItemPathMenu {
             str_ty_path,
             ref_ty_path,
             ref_mut_ty_path,
+            leash_ty_path,
+            at_ty_path,
             html_ty_path,
             vec_ty_path,
             array_ty_path,
-            leash_ty_path,
             core_ops_add_trai_path,
             add_assign_trai_path,
             bit_and_trai_path,
@@ -646,6 +664,10 @@ impl ItemPathMenu {
         self.lifetime_ty_path
     }
 
+    pub fn place_ty_path(&self) -> TypePath {
+        self.place_ty_path
+    }
+
     pub fn option_ty_path(&self) -> TypePath {
         self.option_ty_path
     }
@@ -672,6 +694,10 @@ impl ItemPathMenu {
 
     pub fn ref_mut_ty_path(&self) -> TypePath {
         self.ref_mut_ty_path
+    }
+
+    pub fn at_ty_path(&self) -> TypePath {
+        self.at_ty_path
     }
 
     pub fn result_ty_path(&self) -> TypePath {

@@ -228,14 +228,98 @@ Ok(
                         variants: None,
                     },
                 },
+                Ast::Identifiable {
+                    token_group_idx: TokenGroupIdx(
+                        6,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    25,
+                                ),
+                            },
+                        },
+                    },
+                    item_kind: MajorItem {
+                        module_item_kind: Type(
+                            Extern,
+                        ),
+                        connection: Connected,
+                    },
+                    ident_token: IdentToken {
+                        ident: `Lifetime`,
+                        token_idx: TokenIdx(
+                            27,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            28,
+                        ),
+                        drained: false,
+                    },
+                    block: Type {
+                        path: TypePath(
+                            Id {
+                                value: 7,
+                            },
+                        ),
+                        variants: None,
+                    },
+                },
+                Ast::Identifiable {
+                    token_group_idx: TokenGroupIdx(
+                        7,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    29,
+                                ),
+                            },
+                        },
+                    },
+                    item_kind: MajorItem {
+                        module_item_kind: Type(
+                            Extern,
+                        ),
+                        connection: Connected,
+                    },
+                    ident_token: IdentToken {
+                        ident: `Place`,
+                        token_idx: TokenIdx(
+                            31,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            32,
+                        ),
+                        drained: false,
+                    },
+                    block: Type {
+                        path: TypePath(
+                            Id {
+                                value: 8,
+                            },
+                        ),
+                        variants: None,
+                    },
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            1..7,
+            1..9,
         ),
         siblings: [
             ArenaIdxRange(
-                1..7,
+                1..9,
             ),
         ],
     },

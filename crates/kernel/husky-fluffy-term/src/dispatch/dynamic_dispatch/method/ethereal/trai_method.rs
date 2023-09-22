@@ -67,23 +67,26 @@ fn ethereal_term_trai_method_dispatch_aux(
     }
     match matches_map.len() {
         0 => match ty_path.refine(db) {
-            Left(PreludeTypePath::Indirection(path)) => match path {
-                PreludeIndirectionTypePath::Ref => todo!(),
-                PreludeIndirectionTypePath::RefMut => todo!(),
-                PreludeIndirectionTypePath::Leash => {
-                    indirections.push(FluffyDynamicDispatchIndirection::Leash);
-                    debug_assert_eq!(arguments.len(), 1);
-                    let the_argument = arguments[0];
-                    ethereal_term_trai_method_dispatch_aux(
-                        engine,
-                        expr_idx,
-                        the_argument,
-                        ident_token,
-                        trai_item_records,
-                        indirections,
-                    )
+            Left(PreludeTypePath::Indirection(prelude_indirection_ty_path)) => {
+                match prelude_indirection_ty_path {
+                    PreludeIndirectionTypePath::Ref => todo!(),
+                    PreludeIndirectionTypePath::RefMut => todo!(),
+                    PreludeIndirectionTypePath::Leash => {
+                        indirections.push(FluffyDynamicDispatchIndirection::Leash);
+                        debug_assert_eq!(arguments.len(), 1);
+                        let the_argument = arguments[0];
+                        ethereal_term_trai_method_dispatch_aux(
+                            engine,
+                            expr_idx,
+                            the_argument,
+                            ident_token,
+                            trai_item_records,
+                            indirections,
+                        )
+                    }
+                    PreludeIndirectionTypePath::At => todo!(),
                 }
-            },
+            }
             Left(_) => Nothing,
             Right(_) => {
                 // todo: consider custom Deref Carrier etc

@@ -8,3 +8,6 @@ pub extern RefMut<covariant 'a, invariant E>;
 pub extern Leash<covariant E>;
 
 impl<E> Copy for Leash E;
+
+// todo: add where E: Clone + !Copy + Hash
+pub extern At<'α, E>;

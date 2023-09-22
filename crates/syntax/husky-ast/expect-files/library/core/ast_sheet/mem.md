@@ -54,7 +54,7 @@ Ok(
                     block: Type {
                         path: TypePath(
                             Id {
-                                value: 10,
+                                value: 12,
                             },
                         ),
                         variants: None,
@@ -96,7 +96,7 @@ Ok(
                     block: Type {
                         path: TypePath(
                             Id {
-                                value: 11,
+                                value: 13,
                             },
                         ),
                         variants: None,
@@ -138,7 +138,7 @@ Ok(
                     block: Type {
                         path: TypePath(
                             Id {
-                                value: 12,
+                                value: 14,
                             },
                         ),
                         variants: None,
@@ -150,17 +150,59 @@ Ok(
                     ),
                     items: None,
                 },
+                Ast::Identifiable {
+                    token_group_idx: TokenGroupIdx(
+                        5,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    44,
+                                ),
+                            },
+                        },
+                    },
+                    item_kind: MajorItem {
+                        module_item_kind: Type(
+                            Extern,
+                        ),
+                        connection: Connected,
+                    },
+                    ident_token: IdentToken {
+                        ident: `At`,
+                        token_idx: TokenIdx(
+                            46,
+                        ),
+                    },
+                    is_generic: true,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            47,
+                        ),
+                        drained: false,
+                    },
+                    block: Type {
+                        path: TypePath(
+                            Id {
+                                value: 15,
+                            },
+                        ),
+                        variants: None,
+                    },
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            1..6,
+            1..7,
         ),
         siblings: [
             ArenaIdxRange(
                 1..1,
             ),
             ArenaIdxRange(
-                1..6,
+                1..7,
             ),
         ],
     },

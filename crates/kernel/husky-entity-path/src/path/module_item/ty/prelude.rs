@@ -37,6 +37,7 @@ pub enum PreludeIndirectionTypePath {
     Ref,
     RefMut,
     Leash,
+    At,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -148,6 +149,7 @@ pub(crate) fn prelude_ty_path(db: &dyn EntityPathDb, path: TypePath) -> Option<P
         path if path == menu.ref_ty_path() => PreludeIndirectionTypePath::Ref.into(),
         path if path == menu.ref_mut_ty_path() => PreludeIndirectionTypePath::RefMut.into(),
         path if path == menu.leash_ty_path() => PreludeIndirectionTypePath::Leash.into(),
+        path if path == menu.at_ty_path() => PreludeIndirectionTypePath::At.into(),
         path if path == menu.vec_ty_path() => PreludeArrTypePath::Vec.into(),
         path if path == menu.slice_ty_path() => PreludeArrTypePath::Slice.into(),
         path if path == menu.cyclic_slice_leashed_ty_path() => {

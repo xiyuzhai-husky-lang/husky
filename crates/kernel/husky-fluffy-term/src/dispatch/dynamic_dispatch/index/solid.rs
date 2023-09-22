@@ -73,7 +73,7 @@ impl SolidTerm {
 //     // indirections
 //     match refined_ty_path {
 //         Left(prelude_ty_path) => match prelude_ty_path {
-//             PreludeTypePath::Borrow(prelude_borrow_ty_path) => match prelude_borrow_ty_path {
+//             PreludeTypePath::Borrow(prelude_indirection_ty_path) => match prelude_indirection_ty_path {
 //                 PreludeBorrowTypePath::Ref => todo!(),
 //                 PreludeBorrowTypePath::RefMut => todo!(),
 //                 PreludeBorrowTypePath::Leash => {

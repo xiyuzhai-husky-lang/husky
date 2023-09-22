@@ -47,6 +47,7 @@ impl ExpectCoersion {
                             state,
                         )
                     }
+                    PreludeIndirectionTypePath::At => todo!(),
                 }
             }
             _ => AltNone,

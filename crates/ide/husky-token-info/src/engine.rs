@@ -521,6 +521,14 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                         current_symbol_kind,
                     },
                 ),
+                CurrentImplicitParameterSynSymbolKind::Place { label_token } => self.add(
+                    label_token.regional_token_idx(),
+                    TokenInfo::CurrentSymbol {
+                        current_symbol_idx,
+                        syn_expr_region: self.syn_expr_region,
+                        current_symbol_kind,
+                    },
+                ),
                 CurrentImplicitParameterSynSymbolKind::Constant { ident_token } => self.add(
                     ident_token.regional_token_idx(),
                     TokenInfo::CurrentSymbol {

@@ -56,7 +56,18 @@ impl DeclarativeTemplateParameter {
                     annotated_variance,
                 }
             }
-            TemplateParameterDeclPatternVariant::Binding { .. } => todo!(),
+            TemplateParameterDeclPatternVariant::Place { .. } => {
+                DeclarativeTemplateParameter {
+                    symbol: region
+                        .current_symbol_signature(symbol)
+                        .expect("not none")
+                        .term_symbol()
+                        .expect("should have term"),
+                    // ad hoc
+                    traits: vec![],
+                    annotated_variance,
+                }
+            }
         }
     }
 

@@ -99,4 +99,44 @@
             ),
         ),
     ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`core::basic::Lifetime`, `Extern`),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Type(
+                    TypeDeclarativeSignatureTemplate::Extern(
+                        ExternTypeDeclarativeSignatureTemplate {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`core::basic::Place`, `Extern`),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Type(
+                    TypeDeclarativeSignatureTemplate::Extern(
+                        ExternTypeDeclarativeSignatureTemplate {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
 ]

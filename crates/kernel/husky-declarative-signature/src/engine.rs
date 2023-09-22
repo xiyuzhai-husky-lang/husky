@@ -113,6 +113,15 @@ impl<'a> DeclarativeTermEngine<'a> {
                                 variance,
                             )
                         }
+                        CurrentTemplateParameterSynSymbolVariant::Place { label_token } => {
+                            DeclarativeTermSymbol::new_place(
+                                self.db,
+                                self.declarative_term_menu,
+                                &mut self.symbol_declarative_term_region.symbol_registry_mut(),
+                                attrs,
+                                variance,
+                            )
+                        }
                         CurrentTemplateParameterSynSymbolVariant::Type { ident_token, .. } => {
                             DeclarativeTermSymbol::new_ty(
                                 self.db,

@@ -29,4 +29,14 @@
             DeclarativeTerm(`covariant Type -> Type`),
         ),
     ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`core::mem::At`, `Extern`),
+            ),
+        ),
+        Ok(
+            DeclarativeTerm(`independent core::basic::Place -> independent Type -> Type`),
+        ),
+    ),
 ]
