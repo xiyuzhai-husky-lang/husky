@@ -9,9 +9,9 @@ impl<E> Vec E:
 
     pub fn push(&mut self, e: E);
 
-    pub fn first() -> Option E;
+    pub fn first(@self) -> Option @E;
 
-    pub fn last() -> Option E;
+    pub fn last(@self) -> Option @E;
 
     pub fn pop(&mut self) -> Option E;
 

@@ -1,11 +1,13 @@
+use husky_coword::Label;
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum SymbolModifier {
     None,
     Mut,
     RefMut,
     Const,
-    Ambersand(Option<husky_coword::Label>),
-    AmbersandMut(Option<husky_coword::Label>),
+    Ambersand(Option<Label>),
+    AmbersandMut(Option<Label>),
     Le,
     Tilde,
 }

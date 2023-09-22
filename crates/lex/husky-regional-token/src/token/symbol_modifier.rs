@@ -6,17 +6,18 @@ pub enum EphemSymbolModifierRegionalTokenGroup {
     Mut(MutRegionalToken),
     RefMut(
         RefRegionalToken,
-        Option<LifetimeRegionalToken>,
+        Option<LifetimeLabelRegionalToken>,
         MutRegionalToken,
     ),
-    Ambersand(AmbersandRegionalToken, Option<LifetimeRegionalToken>),
+    Ambersand(AmbersandRegionalToken, Option<LifetimeLabelRegionalToken>),
     AmbersandMut(
         AmbersandRegionalToken,
-        Option<LifetimeRegionalToken>,
+        Option<LifetimeLabelRegionalToken>,
         MutRegionalToken,
     ),
     Le(LeRegionalToken),
     Tilde(TildeRegionalToken),
+    At(AtRegionalToken, Option<PlaceLabelRegionalToken>),
 }
 
 impl Into<SymbolModifier> for EphemSymbolModifierRegionalTokenGroup {
@@ -33,6 +34,7 @@ impl Into<SymbolModifier> for EphemSymbolModifierRegionalTokenGroup {
             }
             EphemSymbolModifierRegionalTokenGroup::Le(..) => SymbolModifier::Le,
             EphemSymbolModifierRegionalTokenGroup::Tilde(..) => SymbolModifier::Tilde,
+            EphemSymbolModifierRegionalTokenGroup::At(_, _) => todo!(),
         }
     }
 }
@@ -47,6 +49,7 @@ impl Into<Contract> for EphemSymbolModifierRegionalTokenGroup {
             EphemSymbolModifierRegionalTokenGroup::AmbersandMut(_, _, _) => Contract::BorrowMut,
             EphemSymbolModifierRegionalTokenGroup::Le(_) => todo!(),
             EphemSymbolModifierRegionalTokenGroup::Tilde(_) => Contract::Leash,
+            EphemSymbolModifierRegionalTokenGroup::At(_, _) => Contract::At,
         }
     }
 }
@@ -77,7 +80,8 @@ where
                 ModifierKeyword::Le => todo!(),
             },
             TokenData::Punctuation(Punctuation::AMBERSAND) => {
-                let lifetime_token = token_stream.try_parse_option::<LifetimeRegionalToken>()?;
+                let lifetime_token =
+                    token_stream.try_parse_option::<LifetimeLabelRegionalToken>()?;
                 if let Some(mut_token) = token_stream.try_parse_option::<MutRegionalToken>()? {
                     Ok(Some(EphemSymbolModifierRegionalTokenGroup::AmbersandMut(
                         AmbersandRegionalToken(regional_token_idx),
@@ -94,6 +98,12 @@ where
             TokenData::Punctuation(Punctuation::TILDE) => {
                 Ok(Some(EphemSymbolModifierRegionalTokenGroup::Tilde(
                     TildeRegionalToken(regional_token_idx),
+                )))
+            }
+            TokenData::Punctuation(Punctuation::AT) => {
+                Ok(Some(EphemSymbolModifierRegionalTokenGroup::At(
+                    AtRegionalToken(regional_token_idx),
+                    token_stream.try_parse_option()?,
                 )))
             }
             TokenData::Error(error) => Err(error)?,

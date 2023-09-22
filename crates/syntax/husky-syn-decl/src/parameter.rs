@@ -1,8 +1,8 @@
-mod explicit;
-mod implicit;
+mod parenate_parameter;
+mod template_parameter;
 
-pub use self::explicit::*;
-pub use self::implicit::*;
+pub use self::parenate_parameter::*;
+pub use self::template_parameter::*;
 
 pub(crate) type CommaRegionalTokens = SmallVec<[CommaRegionalToken; 2]>;
 

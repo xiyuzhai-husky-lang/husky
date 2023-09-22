@@ -6,9 +6,9 @@ pub struct FnSynNodeDecl {
     #[id]
     pub syn_node_path: FugitiveSynNodePath,
     #[return_ref]
-    template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<TemplateParameters>>,
     #[return_ref]
-    parenate_parameter_decl_list: SynNodeDeclResult<RitchieParameters<false>>,
+    parenate_parameter_decl_list: SynNodeDeclResult<ParenateParameters<false>>,
     #[return_ref]
     pub light_arrow_token: TokenDataResult<Option<LightArrowRegionalToken>>,
     #[return_ref]
@@ -70,7 +70,7 @@ pub struct FnSynDecl {
     #[id]
     pub path: FugitivePath,
     #[return_ref]
-    pub template_parameters: ImplicitParameterDeclPatterns,
+    pub template_parameters: TemplateParameterObelisks,
     #[return_ref]
     pub parenate_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeBeforeColonObelisk>,

@@ -217,13 +217,13 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeTermRitchieRegularParameter {
-                                contract: None,
+                                contract: At,
                                 ty: DeclarativeTerm(`core::vec::Vec t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::option::Option t`),
+                            return_ty: DeclarativeTerm(`core::option::Option`),
                         },
                     ),
                 ),
@@ -270,13 +270,13 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeTermRitchieRegularParameter {
-                                contract: None,
+                                contract: At,
                                 ty: DeclarativeTerm(`core::vec::Vec t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::option::Option t`),
+                            return_ty: DeclarativeTerm(`core::option::Option`),
                         },
                     ),
                 ),

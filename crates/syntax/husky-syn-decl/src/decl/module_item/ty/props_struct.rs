@@ -7,7 +7,7 @@ pub struct PropsStructTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
     #[return_ref]
-    template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<TemplateParameters>>,
     #[return_ref]
     lcurl: SynNodeDeclResult<PropsStructLcurlRegionalToken>,
     #[return_ref]
@@ -69,7 +69,7 @@ pub struct PropsStructTypeSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
-    pub template_parameters: ImplicitParameterDeclPatterns,
+    pub template_parameters: TemplateParameterObelisks,
     #[return_ref]
     pub fields: SmallVec<[PropsFieldDeclPattern; 4]>,
     pub syn_expr_region: SynExprRegion,

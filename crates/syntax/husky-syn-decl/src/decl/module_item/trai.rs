@@ -5,7 +5,7 @@ pub struct TraitSynNodeDecl {
     #[id]
     pub syn_node_path: TraitSynNodePath,
     #[return_ref]
-    template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<TemplateParameters>>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -54,7 +54,7 @@ pub struct TraitSynDecl {
     #[id]
     pub path: TraitPath,
     #[return_ref]
-    pub template_parameters: ImplicitParameterDeclPatterns,
+    pub template_parameters: TemplateParameterObelisks,
     pub syn_expr_region: SynExprRegion,
 }
 

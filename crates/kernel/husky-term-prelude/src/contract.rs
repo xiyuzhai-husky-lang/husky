@@ -8,6 +8,7 @@ pub enum Contract {
     BorrowMut,
     Const,
     Leash,
+    At,
 }
 
 impl Contract {
@@ -29,6 +30,7 @@ impl Contract {
             Contract::BorrowMut => "borrow mut",
             Contract::Const => "const",
             Contract::Leash => todo!(),
+            Contract::At => "@",
         }
     }
 }

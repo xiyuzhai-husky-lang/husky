@@ -5,9 +5,9 @@ pub struct TraitMethodFnSynNodeDecl {
     #[id]
     pub syn_node_path: TraitItemSynNodePath,
     #[return_ref]
-    pub template_parameter_decl_list: SynNodeDeclResult<Option<Generics>>,
+    pub template_parameter_decl_list: SynNodeDeclResult<Option<TemplateParameters>>,
     #[return_ref]
-    pub parenate_parameter_decl_list: SynNodeDeclResult<RitchieParameters<true>>,
+    pub parenate_parameter_decl_list: SynNodeDeclResult<ParenateParameters<true>>,
     #[return_ref]
     pub light_arrow_token: TokenDataResult<Option<LightArrowRegionalToken>>,
     #[return_ref]
@@ -85,7 +85,7 @@ pub struct TraitMethodFnSynDecl {
     #[id]
     pub path: TraitItemPath,
     #[return_ref]
-    pub template_parameters: ImplicitParameterDeclPatterns,
+    pub template_parameters: TemplateParameterObelisks,
     pub self_value_parameter: Option<SelfParameterObelisk>,
     #[return_ref]
     pub parenate_parameters: ExplicitParameterDeclPatterns,
