@@ -19,7 +19,7 @@
                                                 value: 5,
                                             },
                                         ),
-                                        traits: [],
+                                        annotated_traits: [],
                                     },
                                 ],
                             },

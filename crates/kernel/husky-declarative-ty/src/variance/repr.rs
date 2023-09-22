@@ -103,8 +103,18 @@ pub(crate) fn trai_item_variance_reprs(
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };
-    let template_parameters = signature.template_parameters(db);
-    let reprs = template_parameters
+    debug_assert!(matches!(
+        signature
+            .template_parameters(db)
+            .last()
+            .unwrap()
+            .symbol()
+            .index(db)
+            .inner(),
+        DeclarativeTermSymbolIndexInner::SelfType
+    ));
+    let reprs = signature
+        .template_parameters_without_self_ty(db)
         .iter()
         .map(|parameter| VarianceRepr {
             base: parameter

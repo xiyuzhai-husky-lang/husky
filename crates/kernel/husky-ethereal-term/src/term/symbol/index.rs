@@ -35,7 +35,7 @@ pub struct EtherealTermSymbolIndex(EtherealTermSymbolIndexInner);
 impl EtherealTermSymbolIndex {
     pub(super) fn from_declarative(index: DeclarativeTermSymbolIndex) -> Self {
         EtherealTermSymbolIndex(match index.inner() {
-            DeclarativeTermSymbolIndexInner::Lifetime {
+            DeclarativeTermSymbolIndexInner::ExplicitLifetime {
                 attrs,
                 variance,
                 disambiguator,
@@ -103,7 +103,7 @@ impl Into<DeclarativeTermSymbolIndex> for EtherealTermSymbolIndex {
                     attrs,
                     variance,
                     disambiguator,
-                } => DeclarativeTermSymbolIndexInner::Lifetime {
+                } => DeclarativeTermSymbolIndexInner::ExplicitLifetime {
                     attrs: attrs.into(),
                     variance,
                     disambiguator,

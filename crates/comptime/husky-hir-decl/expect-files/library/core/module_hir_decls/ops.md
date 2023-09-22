@@ -15,6 +15,12 @@
                             ),
                             traits: [],
                         },
+                        HirTemplateParameter {
+                            symbol: Type(
+                                SelfType,
+                            ),
+                            traits: [],
+                        },
                     ],
                 },
             },
@@ -33,6 +39,12 @@
                                     variance: None,
                                     disambiguator: 0,
                                 },
+                            ),
+                            traits: [],
+                        },
+                        HirTemplateParameter {
+                            symbol: Type(
+                                SelfType,
                             ),
                             traits: [],
                         },
@@ -57,6 +69,12 @@
                             ),
                             traits: [],
                         },
+                        HirTemplateParameter {
+                            symbol: Type(
+                                SelfType,
+                            ),
+                            traits: [],
+                        },
                     ],
                 },
             },
@@ -75,6 +93,12 @@
                                     variance: None,
                                     disambiguator: 0,
                                 },
+                            ),
+                            traits: [],
+                        },
+                        HirTemplateParameter {
+                            symbol: Type(
+                                SelfType,
                             ),
                             traits: [],
                         },
@@ -99,6 +123,12 @@
                             ),
                             traits: [],
                         },
+                        HirTemplateParameter {
+                            symbol: Type(
+                                SelfType,
+                            ),
+                            traits: [],
+                        },
                     ],
                 },
             },
@@ -117,6 +147,12 @@
                                     variance: None,
                                     disambiguator: 0,
                                 },
+                            ),
+                            traits: [],
+                        },
+                        HirTemplateParameter {
+                            symbol: Type(
+                                SelfType,
                             ),
                             traits: [],
                         },
@@ -141,6 +177,12 @@
                             ),
                             traits: [],
                         },
+                        HirTemplateParameter {
+                            symbol: Type(
+                                SelfType,
+                            ),
+                            traits: [],
+                        },
                     ],
                 },
             },
@@ -159,6 +201,12 @@
                                     variance: None,
                                     disambiguator: 0,
                                 },
+                            ),
+                            traits: [],
+                        },
+                        HirTemplateParameter {
+                            symbol: Type(
+                                SelfType,
                             ),
                             traits: [],
                         },
@@ -183,6 +231,12 @@
                             ),
                             traits: [],
                         },
+                        HirTemplateParameter {
+                            symbol: Type(
+                                SelfType,
+                            ),
+                            traits: [],
+                        },
                     ],
                 },
             },
@@ -204,6 +258,12 @@
                             ),
                             traits: [],
                         },
+                        HirTemplateParameter {
+                            symbol: Type(
+                                SelfType,
+                            ),
+                            traits: [],
+                        },
                     ],
                 },
             },
@@ -214,7 +274,14 @@
             TraitHirDecl {
                 path: TraitPath(`core::ops::IntIndex`),
                 template_parameters: HirTemplateParameters {
-                    data: [],
+                    data: [
+                        HirTemplateParameter {
+                            symbol: Type(
+                                SelfType,
+                            ),
+                            traits: [],
+                        },
+                    ],
                 },
             },
         ),
@@ -232,6 +299,12 @@
                                     variance: None,
                                     disambiguator: 0,
                                 },
+                            ),
+                            traits: [],
+                        },
+                        HirTemplateParameter {
+                            symbol: Type(
+                                SelfType,
                             ),
                             traits: [],
                         },
@@ -256,6 +329,12 @@
                             ),
                             traits: [],
                         },
+                        HirTemplateParameter {
+                            symbol: Type(
+                                SelfType,
+                            ),
+                            traits: [],
+                        },
                     ],
                 },
             },
@@ -266,7 +345,14 @@
             TraitHirDecl {
                 path: TraitPath(`core::ops::Neg`),
                 template_parameters: HirTemplateParameters {
-                    data: [],
+                    data: [
+                        HirTemplateParameter {
+                            symbol: Type(
+                                SelfType,
+                            ),
+                            traits: [],
+                        },
+                    ],
                 },
             },
         ),
@@ -276,7 +362,14 @@
             TraitHirDecl {
                 path: TraitPath(`core::ops::Not`),
                 template_parameters: HirTemplateParameters {
-                    data: [],
+                    data: [
+                        HirTemplateParameter {
+                            symbol: Type(
+                                SelfType,
+                            ),
+                            traits: [],
+                        },
+                    ],
                 },
             },
         ),
@@ -294,6 +387,12 @@
                                     variance: None,
                                     disambiguator: 0,
                                 },
+                            ),
+                            traits: [],
+                        },
+                        HirTemplateParameter {
+                            symbol: Type(
+                                SelfType,
                             ),
                             traits: [],
                         },
@@ -315,6 +414,12 @@
                                     variance: None,
                                     disambiguator: 0,
                                 },
+                            ),
+                            traits: [],
+                        },
+                        HirTemplateParameter {
+                            symbol: Type(
+                                SelfType,
                             ),
                             traits: [],
                         },

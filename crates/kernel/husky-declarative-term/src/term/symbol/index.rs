@@ -54,7 +54,7 @@ impl DeclarativeTermSymbolIndex {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[repr(u8)]
 pub enum DeclarativeTermSymbolIndexInner {
-    Lifetime {
+    ExplicitLifetime {
         attrs: DeclarativeTemplateSymbolAttrs,
         variance: Option<Variance>,
         disambiguator: u8,
@@ -181,7 +181,7 @@ impl TermSymbolRegistry {
             .cache
             .iter_mut()
             .filter_map(|index| match index.0 {
-                DeclarativeTermSymbolIndexInner::Lifetime {
+                DeclarativeTermSymbolIndexInner::ExplicitLifetime {
                     attrs: attrs1,
                     variance: variance1,
                     ref mut disambiguator,
@@ -192,18 +192,19 @@ impl TermSymbolRegistry {
         {
             Some(latest_disambiguator) => {
                 *latest_disambiguator += 1;
-                DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::Lifetime {
+                DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::ExplicitLifetime {
                     attrs,
                     variance,
                     disambiguator: *latest_disambiguator,
                 })
             }
             None => {
-                let index = DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::Lifetime {
-                    attrs,
-                    variance,
-                    disambiguator: 0,
-                });
+                let index =
+                    DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::ExplicitLifetime {
+                        attrs,
+                        variance,
+                        disambiguator: 0,
+                    });
                 self.cache.push(index);
                 index
             }

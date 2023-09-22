@@ -4,7 +4,14 @@
             TraitHirDecl {
                 path: TraitPath(`core::fmt::Debug`),
                 template_parameters: HirTemplateParameters {
-                    data: [],
+                    data: [
+                        HirTemplateParameter {
+                            symbol: Type(
+                                SelfType,
+                            ),
+                            traits: [],
+                        },
+                    ],
                 },
             },
         ),

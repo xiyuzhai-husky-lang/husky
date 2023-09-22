@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`invariant Type -> core::basic::Trait`),
+            DeclarativeTerm(`core::basic::Trait`),
         ),
     ),
     (
@@ -16,7 +16,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`invariant Type -> core::basic::Trait`),
+            DeclarativeTerm(`core::basic::Trait`),
         ),
     ),
 ]

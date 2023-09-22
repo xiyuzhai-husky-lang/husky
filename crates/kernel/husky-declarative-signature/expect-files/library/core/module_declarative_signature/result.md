@@ -19,7 +19,7 @@
                                                 value: 5,
                                             },
                                         ),
-                                        traits: [],
+                                        annotated_traits: [],
                                     },
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
@@ -28,7 +28,7 @@
                                                 value: 6,
                                             },
                                         ),
-                                        traits: [],
+                                        annotated_traits: [],
                                     },
                                 ],
                             },
@@ -65,7 +65,7 @@
                                             value: 5,
                                         },
                                     ),
-                                    traits: [],
+                                    annotated_traits: [],
                                 },
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -74,7 +74,7 @@
                                             value: 6,
                                         },
                                     ),
-                                    traits: [],
+                                    annotated_traits: [],
                                 },
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -83,7 +83,7 @@
                                             value: 10,
                                         },
                                     ),
-                                    traits: [],
+                                    annotated_traits: [],
                                 },
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -92,7 +92,7 @@
                                             value: 11,
                                         },
                                     ),
-                                    traits: [],
+                                    annotated_traits: [],
                                 },
                             ],
                         },

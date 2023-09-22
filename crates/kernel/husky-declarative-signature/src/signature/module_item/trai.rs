@@ -6,7 +6,24 @@ pub struct TraitDeclarativeSignatureTemplate {
     pub template_parameters: DeclarativeTemplateParameterTemplates,
 }
 
-impl TraitDeclarativeSignatureTemplate {}
+impl TraitDeclarativeSignatureTemplate {
+    pub fn template_parameters_without_self_ty<'a>(
+        self,
+        db: &'a dyn DeclarativeSignatureDb,
+    ) -> &'a [DeclarativeTemplateParameter] {
+        let template_parameters = self.template_parameters(db);
+        debug_assert!(matches!(
+            self.template_parameters(db)
+                .last()
+                .unwrap()
+                .symbol()
+                .index(db)
+                .inner(),
+            DeclarativeTermSymbolIndexInner::SelfType
+        ));
+        &template_parameters[..template_parameters.len() - 1]
+    }
+}
 
 impl HasDeclarativeSignatureTemplate for TraitPath {
     type DeclarativeSignatureTemplate = TraitDeclarativeSignatureTemplate;

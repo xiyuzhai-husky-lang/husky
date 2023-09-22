@@ -19,7 +19,7 @@
                                                 value: 1,
                                             },
                                         ),
-                                        traits: [],
+                                        annotated_traits: [],
                                     },
                                     DeclarativeTemplateParameter {
                                         annotated_variance: Some(
@@ -30,7 +30,7 @@
                                                 value: 2,
                                             },
                                         ),
-                                        traits: [],
+                                        annotated_traits: [],
                                     },
                                 ],
                             },
