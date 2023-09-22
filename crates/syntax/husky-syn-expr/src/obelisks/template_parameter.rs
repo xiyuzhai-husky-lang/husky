@@ -7,7 +7,7 @@ use super::*;
 pub struct TemplateParameterObelisk {
     annotated_variance_token: Option<VarianceRegionalToken>,
     symbol: CurrentSynSymbolIdx,
-    variant: TemplateParameterDeclPatternVariant,
+    data: TemplateParameterObeliskData,
 }
 
 impl TemplateParameterObelisk {
@@ -15,8 +15,8 @@ impl TemplateParameterObelisk {
         self.symbol
     }
 
-    pub fn variant(&self) -> &TemplateParameterDeclPatternVariant {
-        &self.variant
+    pub fn data(&self) -> &TemplateParameterObeliskData {
+        &self.data
     }
 
     pub fn annotated_variance_token(&self) -> Option<VarianceRegionalToken> {
@@ -26,7 +26,7 @@ impl TemplateParameterObelisk {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub enum TemplateParameterDeclPatternVariant {
+pub enum TemplateParameterObeliskData {
     Type {
         ident_token: IdentRegionalToken,
         traits: Option<(ColonRegionalToken, SynExprIdx)>,
@@ -75,7 +75,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
                 // todo: maybe we don't need to put it there, it's redundant
                 annotated_variance_token,
                 symbol: symbols.start(),
-                variant: TemplateParameterDeclPatternVariant::Type {
+                data: TemplateParameterObeliskData::Type {
                     ident_token,
                     traits: if let Some(colon) = ctx.try_parse_option::<ColonRegionalToken>()? {
                         Some((
@@ -112,7 +112,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
             Ok(Some(TemplateParameterObelisk {
                 annotated_variance_token,
                 symbol: symbols.start(),
-                variant: TemplateParameterDeclPatternVariant::Lifetime { label_token },
+                data: TemplateParameterObeliskData::Lifetime { label_token },
             }))
         } else if let Some(label_token) = ctx.try_parse_option::<PlaceLabelRegionalToken>()? {
             let access_start = ctx.save_state().next_regional_token_idx();
@@ -135,7 +135,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
             Ok(Some(TemplateParameterObelisk {
                 annotated_variance_token,
                 symbol,
-                variant: TemplateParameterDeclPatternVariant::Place { label_token },
+                data: TemplateParameterObeliskData::Place { label_token },
             }))
         } else if let Some(const_token) = ctx.try_parse_option::<ConstRegionalToken>()? {
             let ident_token = ctx.try_parse_expected(OriginalSynExprError::ExpectedIdent)?;
@@ -171,7 +171,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
             Ok(Some(TemplateParameterObelisk {
                 annotated_variance_token,
                 symbol,
-                variant: TemplateParameterDeclPatternVariant::Constant {
+                data: TemplateParameterObeliskData::Constant {
                     const_token,
                     ident_token,
                     colon_token,

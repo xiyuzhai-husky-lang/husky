@@ -10,6 +10,31 @@ pub struct SymbolDeclarativeTermRegion {
     symbol_signatures: SymbolOrderedMap<SymbolSignature>,
     self_ty_term: Option<DeclarativeTerm>,
     self_value_term: Option<DeclarativeTermSymbol>,
+    implicit_template_parameter_symbols: SmallVec<[ImplicitTemplateParameterSymbol; 1]>,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::debug_with_db(db = DeclarativeSignatureDb)]
+pub struct ImplicitTemplateParameterSymbol {
+    kind: ImplicitTemplateParameterSymbolKind,
+    symbol: DeclarativeTermSymbol,
+}
+
+impl ImplicitTemplateParameterSymbol {
+    pub fn kind(&self) -> ImplicitTemplateParameterSymbolKind {
+        self.kind
+    }
+
+    pub fn symbol(&self) -> DeclarativeTermSymbol {
+        self.symbol
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub enum ImplicitTemplateParameterSymbolKind {
+    SelfType,
+    SelfLifetime,
+    SelfPlace,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -127,6 +152,10 @@ impl SymbolDeclarativeTermRegion {
     ) {
         self.symbol_signatures.insert_next(idx, signature)
     }
+
+    pub fn implicit_template_parameter_symbols(&self) -> &[ImplicitTemplateParameterSymbol] {
+        &self.implicit_template_parameter_symbols
+    }
 }
 
 impl SymbolDeclarativeTermRegion {
@@ -146,10 +175,11 @@ impl SymbolDeclarativeTermRegion {
             ),
             self_ty_term: parent.map(|parent| parent.self_ty_term).flatten(),
             self_value_term: parent.map(|parent| parent.self_value_term).flatten(),
+            implicit_template_parameter_symbols: Default::default(),
         }
     }
 
-    pub(crate) fn init_self_ty_parameter_and_self_value_parameter(
+    pub(crate) fn infer_self_ty_parameter_and_self_value_parameter(
         &mut self,
         db: &dyn DeclarativeSignatureDb,
         region_path: RegionPath,
@@ -195,7 +225,13 @@ impl SymbolDeclarativeTermRegion {
         }
     }
     fn new_self_ty_symbol(&mut self, db: &dyn DeclarativeSignatureDb) -> DeclarativeTermSymbol {
-        DeclarativeTermSymbol::new_self_ty(db, &mut self.symbol_registry)
+        let symbol = DeclarativeTermSymbol::new_self_ty(db, &mut self.symbol_registry);
+        self.implicit_template_parameter_symbols
+            .push(ImplicitTemplateParameterSymbol {
+                kind: ImplicitTemplateParameterSymbolKind::SelfType,
+                symbol,
+            });
+        symbol
     }
 
     /// this only works on type definitions

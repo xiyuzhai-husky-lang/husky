@@ -1,12 +1,12 @@
-mod generic;
-mod specific;
+mod parenate_parameter;
+mod template_parameter;
 
-pub use self::generic::*;
-pub use self::specific::*;
+pub use self::parenate_parameter::*;
+pub use self::template_parameter::*;
 
 use crate::*;
 use husky_regional_token::VarianceRegionalToken;
 use husky_syn_expr::{
-    SpecificParameterObelisk, SynExprRegionData, TemplateParameterDeclPatternVariant,
-    TemplateParameterObelisk,
+    SpecificParameterObelisk, SynExprRegionData, TemplateParameterObelisk,
+    TemplateParameterObeliskData,
 };

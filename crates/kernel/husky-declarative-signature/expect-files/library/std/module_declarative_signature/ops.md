@@ -20,6 +20,15 @@
                                     ),
                                     traits: [],
                                 },
+                                DeclarativeTemplateParameter {
+                                    annotated_variance: None,
+                                    symbol: DeclarativeTermSymbol(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
+                                    traits: [],
+                                },
                             ],
                         },
                     },

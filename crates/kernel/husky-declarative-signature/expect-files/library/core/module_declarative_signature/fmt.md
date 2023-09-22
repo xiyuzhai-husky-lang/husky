@@ -10,7 +10,17 @@
                 MajorItemDeclarativeSignatureTemplate::Trait(
                     TraitDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
-                            data: [],
+                            data: [
+                                DeclarativeTemplateParameter {
+                                    annotated_variance: None,
+                                    symbol: DeclarativeTermSymbol(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
+                                    traits: [],
+                                },
+                            ],
                         },
                     },
                 ),

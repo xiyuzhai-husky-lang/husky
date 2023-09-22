@@ -63,18 +63,18 @@ impl<'a> DeclarativeTermEngine<'a> {
     }
 
     fn infer_all(mut self) -> DeclarativeTermRegion {
-        self.init_current_symbol_terms();
+        self.infer_current_symbol_terms();
         self.symbol_declarative_term_region
-            .init_self_ty_parameter_and_self_value_parameter(
+            .infer_self_ty_parameter_and_self_value_parameter(
                 self.db,
                 self.expr_region_data.path(),
                 self.expr_region_data.symbol_region(),
             );
-        self.init_expr_roots();
+        self.infer_expr_roots();
         self.finish()
     }
 
-    fn init_current_symbol_terms(&mut self) {
+    fn infer_current_symbol_terms(&mut self) {
         let mut current_symbol_indexed_iter = self
             .expr_region_data
             .symbol_region()
@@ -259,7 +259,7 @@ impl<'a> DeclarativeTermEngine<'a> {
         }
     }
 
-    fn init_expr_roots(&mut self) {
+    fn infer_expr_roots(&mut self) {
         for expr_root in self.expr_region_data.roots() {
             match expr_root.kind() {
                 // omit props struct field because they are inferred for field variable

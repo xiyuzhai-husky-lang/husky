@@ -166,9 +166,7 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
                 }
             }
             EtherealSelfTypeInTraitImpl::DeriveAny(symbol) => {
-                unsafe {
-                    instantiation.add_self_ty_parameter_mapping(symbol, target_ty_term);
-                }
+                instantiation.try_add_symbol_rule(symbol, target_ty_term)?;
                 JustOk(
                     TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated::new(
                         db,
