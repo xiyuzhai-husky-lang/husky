@@ -16,14 +16,6 @@ impl EtherealTermPartialInstantiation {
         }
     }
 
-    pub unsafe fn add_self_ty_parameter_mapping(
-        &mut self,
-        symbol: EtherealTermSymbol,
-        mapped: EtherealTerm,
-    ) {
-        self.symbol_map.insert_new_unchecked((symbol, Some(mapped)))
-    }
-
     /// JustOk(()) means rule is added and everything is compatible
     /// Nothing means something is incompatible
     /// JustErr(_) means something is wrong
@@ -59,25 +51,7 @@ impl EtherealTermPartialInstantiation {
         }
         match src {
             EtherealTerm::Literal(_) => todo!(),
-            EtherealTerm::Symbol(symbol) => {
-                if let Some((_, opt_dst0)) = self.symbol_map.get_entry_mut(symbol) {
-                    match opt_dst0 {
-                        Some(dst0) => {
-                            if dst != *dst0 {
-                                todo!()
-                            } else {
-                                return JustOk(());
-                            }
-                        }
-                        None => {
-                            *opt_dst0 = Some(dst);
-                            JustOk(())
-                        }
-                    }
-                } else {
-                    Nothing
-                }
-            }
+            EtherealTerm::Symbol(symbol) => self.try_add_symbol_rule(symbol, dst),
             EtherealTerm::Variable(_) => todo!(),
             EtherealTerm::EntityPath(_) => todo!(),
             EtherealTerm::Category(_) => todo!(),
@@ -110,6 +84,30 @@ impl EtherealTermPartialInstantiation {
             EtherealTerm::Subitem(_) => todo!(),
             EtherealTerm::AsTraitSubitem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
+        }
+    }
+
+    pub fn try_add_symbol_rule(
+        &mut self,
+        symbol: EtherealTermSymbol,
+        dst: EtherealTerm,
+    ) -> EtherealTermMaybeResult<()> {
+        if let Some((_, opt_dst0)) = self.symbol_map.get_entry_mut(symbol) {
+            match opt_dst0 {
+                Some(dst0) => {
+                    if dst != *dst0 {
+                        todo!()
+                    } else {
+                        return JustOk(());
+                    }
+                }
+                None => {
+                    *opt_dst0 = Some(dst);
+                    JustOk(())
+                }
+            }
+        } else {
+            Nothing
         }
     }
 
