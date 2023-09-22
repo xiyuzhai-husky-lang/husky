@@ -8576,7 +8576,7 @@ Ok(
                                                 },
                                                 SynExpr::Suffix {
                                                     opd: 21,
-                                                    opr: Decr,
+                                                    opr: Attr,
                                                     opr_regional_token_idx: RegionalTokenIdx(
                                                         46,
                                                     ),
@@ -9747,7 +9747,7 @@ Ok(
                                                 },
                                                 SynExpr::Suffix {
                                                     opd: 118,
-                                                    opr: Decr,
+                                                    opr: Attr,
                                                     opr_regional_token_idx: RegionalTokenIdx(
                                                         229,
                                                     ),

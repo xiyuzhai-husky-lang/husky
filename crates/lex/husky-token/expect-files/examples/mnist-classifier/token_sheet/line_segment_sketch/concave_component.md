@@ -2950,7 +2950,7 @@ Ok(
             TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Suffix(
-                        Decr,
+                        Attr,
                     ),
                 ),
             ),

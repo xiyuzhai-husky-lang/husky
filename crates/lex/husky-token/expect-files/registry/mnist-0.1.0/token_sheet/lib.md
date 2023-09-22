@@ -94,7 +94,7 @@ Ok(
             ),
             TokenData::Punctuation(
                 Punctuation(
-                    PunctuationMapped::At,
+                    PunctuationMapped::Pound,
                 ),
             ),
             TokenData::Ident(

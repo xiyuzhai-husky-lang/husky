@@ -306,7 +306,7 @@ Ok(
                     },
                     state_after_visibility_expr: None,
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),

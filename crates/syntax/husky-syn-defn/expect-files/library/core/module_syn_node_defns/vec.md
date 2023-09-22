@@ -156,10 +156,10 @@ Ok(
                 ),
             ),
         ),
-        SynNodeDefn::Decr(
-            DecrSynNodeDefn {
+        SynNodeDefn::Attr(
+            AttrSynNodeDefn {
                 syn_node_decl: Derive(
-                    DeriveDecrSynNodeDecl(
+                    DeriveAttrSynNodeDecl(
                         Id {
                             value: 17,
                         },

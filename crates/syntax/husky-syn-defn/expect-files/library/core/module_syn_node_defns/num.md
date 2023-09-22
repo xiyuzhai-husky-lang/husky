@@ -79,10 +79,10 @@ Ok(
                 ),
             ),
         ),
-        SynNodeDefn::Decr(
-            DecrSynNodeDefn {
+        SynNodeDefn::Attr(
+            AttrSynNodeDefn {
                 syn_node_decl: Derive(
-                    DeriveDecrSynNodeDecl(
+                    DeriveAttrSynNodeDecl(
                         Id {
                             value: 1,
                         },
@@ -169,10 +169,10 @@ Ok(
                 ),
             ),
         ),
-        SynNodeDefn::Decr(
-            DecrSynNodeDefn {
+        SynNodeDefn::Attr(
+            AttrSynNodeDefn {
                 syn_node_decl: Derive(
-                    DeriveDecrSynNodeDecl(
+                    DeriveAttrSynNodeDecl(
                         Id {
                             value: 2,
                         },
@@ -259,10 +259,10 @@ Ok(
                 ),
             ),
         ),
-        SynNodeDefn::Decr(
-            DecrSynNodeDefn {
+        SynNodeDefn::Attr(
+            AttrSynNodeDefn {
                 syn_node_decl: Derive(
-                    DeriveDecrSynNodeDecl(
+                    DeriveAttrSynNodeDecl(
                         Id {
                             value: 3,
                         },
@@ -349,10 +349,10 @@ Ok(
                 ),
             ),
         ),
-        SynNodeDefn::Decr(
-            DecrSynNodeDefn {
+        SynNodeDefn::Attr(
+            AttrSynNodeDefn {
                 syn_node_decl: Derive(
-                    DeriveDecrSynNodeDecl(
+                    DeriveAttrSynNodeDecl(
                         Id {
                             value: 4,
                         },
@@ -439,10 +439,10 @@ Ok(
                 ),
             ),
         ),
-        SynNodeDefn::Decr(
-            DecrSynNodeDefn {
+        SynNodeDefn::Attr(
+            AttrSynNodeDefn {
                 syn_node_decl: Derive(
-                    DeriveDecrSynNodeDecl(
+                    DeriveAttrSynNodeDecl(
                         Id {
                             value: 5,
                         },
@@ -529,10 +529,10 @@ Ok(
                 ),
             ),
         ),
-        SynNodeDefn::Decr(
-            DecrSynNodeDefn {
+        SynNodeDefn::Attr(
+            AttrSynNodeDefn {
                 syn_node_decl: Derive(
-                    DeriveDecrSynNodeDecl(
+                    DeriveAttrSynNodeDecl(
                         Id {
                             value: 6,
                         },
@@ -619,10 +619,10 @@ Ok(
                 ),
             ),
         ),
-        SynNodeDefn::Decr(
-            DecrSynNodeDefn {
+        SynNodeDefn::Attr(
+            AttrSynNodeDefn {
                 syn_node_decl: Derive(
-                    DeriveDecrSynNodeDecl(
+                    DeriveAttrSynNodeDecl(
                         Id {
                             value: 7,
                         },
@@ -709,10 +709,10 @@ Ok(
                 ),
             ),
         ),
-        SynNodeDefn::Decr(
-            DecrSynNodeDefn {
+        SynNodeDefn::Attr(
+            AttrSynNodeDefn {
                 syn_node_decl: Derive(
-                    DeriveDecrSynNodeDecl(
+                    DeriveAttrSynNodeDecl(
                         Id {
                             value: 8,
                         },
@@ -799,10 +799,10 @@ Ok(
                 ),
             ),
         ),
-        SynNodeDefn::Decr(
-            DecrSynNodeDefn {
+        SynNodeDefn::Attr(
+            AttrSynNodeDefn {
                 syn_node_decl: Derive(
-                    DeriveDecrSynNodeDecl(
+                    DeriveAttrSynNodeDecl(
                         Id {
                             value: 9,
                         },
@@ -889,10 +889,10 @@ Ok(
                 ),
             ),
         ),
-        SynNodeDefn::Decr(
-            DecrSynNodeDefn {
+        SynNodeDefn::Attr(
+            AttrSynNodeDefn {
                 syn_node_decl: Derive(
-                    DeriveDecrSynNodeDecl(
+                    DeriveAttrSynNodeDecl(
                         Id {
                             value: 10,
                         },
@@ -979,10 +979,10 @@ Ok(
                 ),
             ),
         ),
-        SynNodeDefn::Decr(
-            DecrSynNodeDefn {
+        SynNodeDefn::Attr(
+            AttrSynNodeDefn {
                 syn_node_decl: Derive(
-                    DeriveDecrSynNodeDecl(
+                    DeriveAttrSynNodeDecl(
                         Id {
                             value: 11,
                         },
@@ -1069,10 +1069,10 @@ Ok(
                 ),
             ),
         ),
-        SynNodeDefn::Decr(
-            DecrSynNodeDefn {
+        SynNodeDefn::Attr(
+            AttrSynNodeDefn {
                 syn_node_decl: Derive(
-                    DeriveDecrSynNodeDecl(
+                    DeriveAttrSynNodeDecl(
                         Id {
                             value: 12,
                         },
@@ -1159,10 +1159,10 @@ Ok(
                 ),
             ),
         ),
-        SynNodeDefn::Decr(
-            DecrSynNodeDefn {
+        SynNodeDefn::Attr(
+            AttrSynNodeDefn {
                 syn_node_decl: Derive(
-                    DeriveDecrSynNodeDecl(
+                    DeriveAttrSynNodeDecl(
                         Id {
                             value: 13,
                         },
@@ -1249,10 +1249,10 @@ Ok(
                 ),
             ),
         ),
-        SynNodeDefn::Decr(
-            DecrSynNodeDefn {
+        SynNodeDefn::Attr(
+            AttrSynNodeDefn {
                 syn_node_decl: Derive(
-                    DeriveDecrSynNodeDecl(
+                    DeriveAttrSynNodeDecl(
                         Id {
                             value: 14,
                         },

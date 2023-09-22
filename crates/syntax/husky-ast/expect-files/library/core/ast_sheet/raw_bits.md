@@ -203,7 +203,7 @@ Ok(
                         1,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),

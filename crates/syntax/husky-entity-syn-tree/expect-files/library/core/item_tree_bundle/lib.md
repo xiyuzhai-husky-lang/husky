@@ -9723,7 +9723,7 @@ Ok(
                                     18,
                                 ),
                                 ty_sketch_expr: DeriveAny {
-                                    at_token: AtToken(
+                                    pound_token: PoundToken(
                                         TokenIdx(
                                             19,
                                         ),
@@ -51527,7 +51527,7 @@ Ok(
                                     22,
                                 ),
                                 ty_sketch_expr: DeriveAny {
-                                    at_token: AtToken(
+                                    pound_token: PoundToken(
                                         TokenIdx(
                                             23,
                                         ),
