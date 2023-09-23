@@ -154,7 +154,17 @@
                             },
                             self_ty: DeclarativeTerm(`core::vec::Vec t`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
-                                data: [],
+                                data: [
+                                    DeclarativeTemplateParameter {
+                                        annotated_variance: None,
+                                        symbol: DeclarativeTermSymbol(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                        annotated_traits: [],
+                                    },
+                                ],
                             },
                             self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: BorrowMut,
@@ -214,7 +224,17 @@
                             },
                             self_ty: DeclarativeTerm(`core::vec::Vec t`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
-                                data: [],
+                                data: [
+                                    DeclarativeTemplateParameter {
+                                        annotated_variance: None,
+                                        symbol: DeclarativeTermSymbol(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                        annotated_traits: [],
+                                    },
+                                ],
                             },
                             self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: At,
@@ -267,7 +287,17 @@
                             },
                             self_ty: DeclarativeTerm(`core::vec::Vec t`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
-                                data: [],
+                                data: [
+                                    DeclarativeTemplateParameter {
+                                        annotated_variance: None,
+                                        symbol: DeclarativeTermSymbol(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                        annotated_traits: [],
+                                    },
+                                ],
                             },
                             self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: At,
@@ -320,7 +350,17 @@
                             },
                             self_ty: DeclarativeTerm(`core::vec::Vec t`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
-                                data: [],
+                                data: [
+                                    DeclarativeTemplateParameter {
+                                        annotated_variance: None,
+                                        symbol: DeclarativeTermSymbol(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                        annotated_traits: [],
+                                    },
+                                ],
                             },
                             self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: BorrowMut,
@@ -492,7 +532,17 @@
                             },
                             self_ty: DeclarativeTerm(`core::vec::Vec t`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
-                                data: [],
+                                data: [
+                                    DeclarativeTemplateParameter {
+                                        annotated_variance: None,
+                                        symbol: DeclarativeTermSymbol(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                        annotated_traits: [],
+                                    },
+                                ],
                             },
                             self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: BorrowMut,

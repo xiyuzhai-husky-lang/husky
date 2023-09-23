@@ -10,6 +10,8 @@ pub struct SymbolDeclarativeTermRegion {
     symbol_signatures: SymbolOrderedMap<SymbolSignature>,
     self_ty_term: Option<DeclarativeTerm>,
     self_value_term: Option<DeclarativeTermSymbol>,
+    implicit_self_lifetime: Option<DeclarativeTermSymbol>,
+    implicit_self_place: Option<DeclarativeTermSymbol>,
     implicit_template_parameter_symbols: SmallVec<[DeclarativeTermSymbol; 1]>,
 }
 
@@ -141,9 +143,16 @@ impl SymbolDeclarativeTermRegion {
     /// `self_value_term` is set to that of parent if parent exists, otherwise none
     pub(crate) fn new(
         parent: Option<&SymbolDeclarativeTermRegion>,
-        symbol_region: &SynSymbolRegion,
+        syn_expr_region_data: &SynExprRegionData,
+        declarative_term_menu: &DeclarativeTermMenu,
     ) -> Self {
         let registry = parent.map_or(Default::default(), |parent| parent.symbol_registry.clone());
+        let implicit_self_lifetime = syn_expr_region_data
+            .intro_implicit_self_lifetime()
+            .then_some(declarative_term_menu.implicit_self_lifetime());
+        let implicit_self_place = syn_expr_region_data
+            .intro_implicit_self_place()
+            .then_some(declarative_term_menu.implicit_self_place());
         Self {
             symbol_registry: registry,
             symbol_signatures: SymbolOrderedMap::new(
@@ -151,7 +160,12 @@ impl SymbolDeclarativeTermRegion {
             ),
             self_ty_term: parent.map(|parent| parent.self_ty_term).flatten(),
             self_value_term: parent.map(|parent| parent.self_value_term).flatten(),
-            implicit_template_parameter_symbols: Default::default(),
+            implicit_self_lifetime,
+            implicit_self_place,
+            implicit_template_parameter_symbols: implicit_self_lifetime
+                .into_iter()
+                .chain(implicit_self_place)
+                .collect(),
         }
     }
 

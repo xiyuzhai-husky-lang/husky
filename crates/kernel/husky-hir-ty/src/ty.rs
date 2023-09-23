@@ -134,7 +134,9 @@ fn hir_ty_from_ethereal_term_application(
                     EtherealTermSymbolIndexInner::EphemPathLeading { .. }
                     | EtherealTermSymbolIndexInner::EphemOther { .. }
                     | EtherealTermSymbolIndexInner::SelfType
-                    | EtherealTermSymbolIndexInner::SelfValue => unreachable!(),
+                    | EtherealTermSymbolIndexInner::SelfValue
+                    | EtherealTermSymbolIndexInner::SelfLifetime
+                    | EtherealTermSymbolIndexInner::SelfPlace => unreachable!(),
                 }
             })
             .collect();

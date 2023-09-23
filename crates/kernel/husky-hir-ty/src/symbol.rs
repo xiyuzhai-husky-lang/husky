@@ -100,5 +100,7 @@ fn hir_template_symbol_from_ethereal(
         }
         EtherealTermSymbolIndexInner::SelfType => Some(HirTypeSymbol::SelfType.into()),
         EtherealTermSymbolIndexInner::SelfValue => todo!(),
+        EtherealTermSymbolIndexInner::SelfLifetime => todo!(),
+        EtherealTermSymbolIndexInner::SelfPlace => todo!(),
     }
 }

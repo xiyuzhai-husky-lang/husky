@@ -73,7 +73,9 @@ fn hir_trai_from_ethereal_term_application(
                 EtherealTermSymbolIndexInner::EphemPathLeading { .. }
                 | EtherealTermSymbolIndexInner::EphemOther { .. }
                 | EtherealTermSymbolIndexInner::SelfType
-                | EtherealTermSymbolIndexInner::SelfValue => unreachable!(),
+                | EtherealTermSymbolIndexInner::SelfValue
+                | EtherealTermSymbolIndexInner::SelfLifetime
+                | EtherealTermSymbolIndexInner::SelfPlace => unreachable!(),
             })
             .collect();
             HirTrait::new(db, trai_path, template_arguments).into()
