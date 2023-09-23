@@ -20,7 +20,7 @@ impl<'a> ExprTypeEngine<'a> {
             return Err(DerivedExprTypeError::MethodOwnerTypeNotInferred.into());
         };
         let method_dispatch = self_expr_ty
-            .method_dispatch(self, expr_idx, ident_token)
+            .method_dispatch(self, expr_idx, ident_token, Default::default())
             .into_result_or(OriginalExprTypeError::NoMethodForType {
                 self_expr_ty,
                 ident_token,

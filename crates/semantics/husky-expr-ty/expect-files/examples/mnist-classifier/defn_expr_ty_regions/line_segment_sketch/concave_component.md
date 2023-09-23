@@ -270,9 +270,11 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [
-                                    Leash,
-                                ],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 58,
@@ -314,7 +316,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -1259,9 +1263,11 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [
-                                    Leash,
-                                ],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 58,
@@ -1343,7 +1349,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [
@@ -1546,7 +1554,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [
@@ -4127,7 +4137,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -4169,9 +4181,11 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [
-                                        Leash,
-                                    ],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [
+                                            Leash,
+                                        ],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -4422,7 +4436,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -4671,7 +4687,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -4716,7 +4734,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -4760,7 +4780,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -5340,7 +5362,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -5382,9 +5406,11 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [
-                                        Leash,
-                                    ],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [
+                                            Leash,
+                                        ],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -5447,9 +5473,11 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [
-                                    Leash,
-                                ],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 57,
@@ -5511,7 +5539,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -5575,7 +5605,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -5621,7 +5653,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -5684,7 +5718,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -5726,9 +5762,11 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [
-                                        Leash,
-                                    ],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [
+                                            Leash,
+                                        ],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -5791,7 +5829,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -5833,9 +5873,11 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [
-                                        Leash,
-                                    ],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [
+                                            Leash,
+                                        ],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -5898,7 +5940,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -5958,7 +6002,9 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: Int {
                                         element_ty: FluffyTerm {
                                             place: None,
@@ -5997,7 +6043,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 57,
@@ -6077,7 +6125,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [
@@ -7390,7 +7440,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -7449,7 +7501,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -7491,9 +7545,11 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [
-                                        Leash,
-                                    ],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [
+                                            Leash,
+                                        ],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -7539,7 +7595,9 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: Int {
                                         element_ty: FluffyTerm {
                                             place: None,
@@ -7579,7 +7637,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -7642,7 +7702,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -7684,9 +7746,11 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [
-                                        Leash,
-                                    ],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [
+                                            Leash,
+                                        ],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -7749,7 +7813,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -7791,9 +7857,11 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [
-                                        Leash,
-                                    ],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [
+                                            Leash,
+                                        ],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -7856,7 +7924,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -7916,7 +7986,9 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: Int {
                                         element_ty: FluffyTerm {
                                             place: None,
@@ -7956,7 +8028,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -8076,7 +8150,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [
@@ -9454,7 +9530,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -9496,9 +9574,11 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [
-                                        Leash,
-                                    ],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [
+                                            Leash,
+                                        ],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -9561,9 +9641,11 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [
-                                    Leash,
-                                ],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 57,
@@ -9624,7 +9706,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 51,
@@ -9685,7 +9769,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 51,
@@ -9746,7 +9832,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 51,
@@ -9807,7 +9895,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 51,
@@ -9868,7 +9958,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -9910,9 +10002,11 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [
-                                        Leash,
-                                    ],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [
+                                            Leash,
+                                        ],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -9975,7 +10069,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -10017,9 +10113,11 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [
-                                        Leash,
-                                    ],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [
+                                            Leash,
+                                        ],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -10082,7 +10180,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -10142,7 +10242,9 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: Int {
                                         element_ty: FluffyTerm {
                                             place: None,
@@ -10181,7 +10283,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 57,
@@ -10260,7 +10364,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 51,
@@ -10322,7 +10428,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [
@@ -10465,7 +10573,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 51,
@@ -10527,7 +10637,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [
@@ -10670,7 +10782,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 51,
@@ -10732,7 +10846,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [
@@ -10875,7 +10991,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 51,
@@ -10937,7 +11055,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [
@@ -13143,7 +13263,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -13184,9 +13306,11 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [
-                                    Leash,
-                                ],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 58,
@@ -13247,7 +13371,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -13291,7 +13417,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [
@@ -13679,7 +13807,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -13721,9 +13851,11 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [
-                                        Leash,
-                                    ],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [
+                                            Leash,
+                                        ],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -13786,9 +13918,11 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [
-                                    Leash,
-                                ],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 57,
@@ -13832,7 +13966,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -13895,7 +14031,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -13937,9 +14075,11 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [
-                                        Leash,
-                                    ],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [
+                                            Leash,
+                                        ],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -14002,9 +14142,11 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [
-                                    Leash,
-                                ],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 57,
@@ -14048,7 +14190,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -14672,7 +14816,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -14714,9 +14860,11 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [
-                                        Leash,
-                                    ],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [
+                                            Leash,
+                                        ],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -14779,9 +14927,11 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [
-                                    Leash,
-                                ],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 57,
@@ -14825,7 +14975,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -15133,7 +15285,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -15175,9 +15329,11 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [
-                                        Leash,
-                                    ],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [
+                                            Leash,
+                                        ],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -15240,9 +15396,11 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [
-                                    Leash,
-                                ],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 57,
@@ -15286,7 +15444,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -15595,7 +15755,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -15641,7 +15803,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -15892,7 +16056,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -15934,9 +16100,11 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [
-                                        Leash,
-                                    ],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [
+                                            Leash,
+                                        ],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -16000,9 +16168,11 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [
-                                        Leash,
-                                    ],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [
+                                            Leash,
+                                        ],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -16291,7 +16461,9 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: [],
+                                indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: [],
+                                },
                                 ty_path: TypePath(
                                     Id {
                                         value: 59,
@@ -16333,9 +16505,11 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [
-                                        Leash,
-                                    ],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [
+                                            Leash,
+                                        ],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -16399,9 +16573,11 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [
-                                        Leash,
-                                    ],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [
+                                            Leash,
+                                        ],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],

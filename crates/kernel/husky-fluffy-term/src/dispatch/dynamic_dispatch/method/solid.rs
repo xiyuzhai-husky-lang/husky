@@ -13,7 +13,7 @@ impl SolidTerm {
         expr_idx: SynExprIdx,
         ident: Ident,
         available_traits: &[TraitPath],
-        mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
+        mut indirections: FluffyDynamicDispatchIndirections,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         match self.data(engine) {
             SolidTermData::TypeOntology {

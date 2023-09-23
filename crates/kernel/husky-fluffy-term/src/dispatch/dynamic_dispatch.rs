@@ -11,7 +11,7 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct FluffyDynamicDispatch<S: MemberSignature> {
-    indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
+    indirections: FluffyDynamicDispatchIndirections,
     signature: S,
 }
 
@@ -28,19 +28,8 @@ pub trait MemberSignature {
 impl<S: MemberSignature> FluffyDynamicDispatch<S> {
     pub fn new(signature: S) -> Self {
         Self {
-            indirections: smallvec![],
+            indirections: Default::default(),
             signature,
-        }
-    }
-
-    fn merge(&self, mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>) -> Self
-    where
-        S: Clone,
-    {
-        indirections.extend(self.indirections.iter().copied());
-        Self {
-            indirections,
-            signature: self.signature.clone(),
         }
     }
 
@@ -61,4 +50,28 @@ impl<S: MemberSignature> FluffyDynamicDispatch<S> {
 pub enum FluffyDynamicDispatchIndirection {
     Place(Place),
     Leash,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Default)]
+pub struct FluffyDynamicDispatchIndirections {
+    indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
+}
+
+impl FluffyDynamicDispatchIndirections {
+    /// only use this for field dispatch
+    pub(crate) fn extend(&mut self, others: &[FluffyDynamicDispatchIndirection]) {
+        self.indirections.extend(others.iter().copied())
+    }
+
+    pub(crate) fn push(&mut self, new: FluffyDynamicDispatchIndirection) {
+        self.indirections.push(new)
+    }
+}
+
+impl std::ops::Deref for FluffyDynamicDispatchIndirections {
+    type Target = [FluffyDynamicDispatchIndirection];
+
+    fn deref(&self) -> &Self::Target {
+        &self.indirections
+    }
 }

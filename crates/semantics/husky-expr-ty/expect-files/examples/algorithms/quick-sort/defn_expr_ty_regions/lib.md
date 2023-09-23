@@ -81,7 +81,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -3753,7 +3755,9 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: Int {
                                         element_ty: FluffyTerm {
                                             place: None,
@@ -3791,7 +3795,9 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: Int {
                                         element_ty: FluffyTerm {
                                             place: None,
@@ -4101,7 +4107,9 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: Int {
                                         element_ty: FluffyTerm {
                                             place: None,
@@ -4139,7 +4147,9 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: Int {
                                         element_ty: FluffyTerm {
                                             place: None,
@@ -4469,7 +4479,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [
@@ -4735,7 +4747,9 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [

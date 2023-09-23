@@ -28,6 +28,7 @@ pub trait HasFluffyTraitMethodDispatch: Copy {
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
         ident_regional_token: IdentRegionalToken,
+        mut indirections: FluffyDynamicDispatchIndirections,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         self.trai_method_dispatch_aux(
             engine,
@@ -36,6 +37,7 @@ pub trait HasFluffyTraitMethodDispatch: Copy {
             engine
                 .trai_in_use_items_table()?
                 .available_trait_items_with_given_ident(ident_regional_token.ident())?,
+            indirections,
         )
     }
 
@@ -45,6 +47,7 @@ pub trait HasFluffyTraitMethodDispatch: Copy {
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
+        indirections: FluffyDynamicDispatchIndirections,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch>;
 }
 
@@ -54,6 +57,7 @@ pub trait HasFluffyTypeMethodDispatch: Copy {
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
+        indirections: FluffyDynamicDispatchIndirections,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch>;
 }
 
@@ -72,14 +76,15 @@ pub trait HasFluffyMethodDispatch:
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
+        indirections: FluffyDynamicDispatchIndirections,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         if let Some(dispatch) = self
-            .ty_method_dispatch(engine, expr_idx, ident_token)
+            .ty_method_dispatch(engine, expr_idx, ident_token, indirections.clone())
             .into_result_option()?
         {
             return JustOk(dispatch);
         }
-        self.trai_method_dispatch(engine, expr_idx, ident_token)
+        self.trai_method_dispatch(engine, expr_idx, ident_token, indirections)
     }
 }
 
@@ -89,16 +94,17 @@ impl HasFluffyTypeMethodDispatch for FluffyTerm {
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
+        indirections: FluffyDynamicDispatchIndirections,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         match self.base_resolved(engine) {
             FluffyTermBase::Ethereal(ty_term) => {
-                ty_term.ty_method_dispatch(engine, expr_idx, ident_token)
+                ty_term.ty_method_dispatch(engine, expr_idx, ident_token, indirections)
             }
             FluffyTermBase::Solid(ty_term) => {
-                ty_term.ty_method_dispatch(engine, expr_idx, ident_token)
+                ty_term.ty_method_dispatch(engine, expr_idx, ident_token, indirections)
             }
             FluffyTermBase::Hollow(ty_term) => {
-                ty_term.ty_method_dispatch(engine, expr_idx, ident_token)
+                ty_term.ty_method_dispatch(engine, expr_idx, ident_token, indirections)
             }
         }
     }
@@ -111,17 +117,30 @@ impl HasFluffyTraitMethodDispatch for FluffyTerm {
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
+        indirections: FluffyDynamicDispatchIndirections,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         match self.base_resolved(engine) {
-            FluffyTermBase::Ethereal(ty_term) => {
-                ty_term.trai_method_dispatch_aux(engine, expr_idx, ident_token, trai_item_records)
-            }
-            FluffyTermBase::Solid(ty_term) => {
-                ty_term.trai_method_dispatch_aux(engine, expr_idx, ident_token, trai_item_records)
-            }
-            FluffyTermBase::Hollow(ty_term) => {
-                ty_term.trai_method_dispatch_aux(engine, expr_idx, ident_token, trai_item_records)
-            }
+            FluffyTermBase::Ethereal(ty_term) => ty_term.trai_method_dispatch_aux(
+                engine,
+                expr_idx,
+                ident_token,
+                trai_item_records,
+                indirections,
+            ),
+            FluffyTermBase::Solid(ty_term) => ty_term.trai_method_dispatch_aux(
+                engine,
+                expr_idx,
+                ident_token,
+                trai_item_records,
+                indirections,
+            ),
+            FluffyTermBase::Hollow(ty_term) => ty_term.trai_method_dispatch_aux(
+                engine,
+                expr_idx,
+                ident_token,
+                trai_item_records,
+                indirections,
+            ),
         }
     }
 }
@@ -134,7 +153,7 @@ impl HasFluffyMethodDispatch for FluffyTerm {}
 //     expr_idx: ExprIdx,
 //     ident: Ident,
 //     available_traits: &[TraitPath],
-//     mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
+//     mut indirections: FluffyDynamicDispatchIndirections,
 // ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
 //     match self.base() {
 //         FluffyTermBase::Ethereal(term) => {

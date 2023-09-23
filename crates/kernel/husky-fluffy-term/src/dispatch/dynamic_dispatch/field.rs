@@ -13,14 +13,14 @@ use husky_ethereal_signature::{PropsFieldEtherealSignature, TypeMemoizedFieldEth
 #[derive(Debug, PartialEq, Eq)]
 // #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct FluffyFieldDispatch {
-    indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
+    indirections: FluffyDynamicDispatchIndirections,
     ty_path: TypePath,
     signature: FluffyFieldSignature,
 }
 
 impl FluffyFieldDispatch {
-    fn merge(&self, mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>) -> Self {
-        indirections.extend(self.indirections.iter().copied());
+    fn merge(&self, mut indirections: FluffyDynamicDispatchIndirections) -> Self {
+        indirections.extend(&self.indirections);
         Self {
             indirections,
             ty_path: self.ty_path,
@@ -28,7 +28,7 @@ impl FluffyFieldDispatch {
         }
     }
 
-    pub fn indirections(&self) -> &SmallVec<[FluffyDynamicDispatchIndirection; 2]> {
+    pub fn indirections(&self) -> &[FluffyDynamicDispatchIndirection] {
         &self.indirections
     }
 
@@ -49,7 +49,7 @@ impl FluffyTerm {
         ident: Ident,
         available_traits: &[TraitPath],
     ) -> FluffyTermMaybeResult<FluffyFieldDispatch> {
-        self.field_dispatch_aux(engine, ident, available_traits, smallvec![])
+        self.field_dispatch_aux(engine, ident, available_traits, Default::default())
     }
 
     fn field_dispatch_aux(
@@ -57,7 +57,7 @@ impl FluffyTerm {
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
         available_traits: &[TraitPath],
-        mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
+        mut indirections: FluffyDynamicDispatchIndirections,
     ) -> FluffyTermMaybeResult<FluffyFieldDispatch> {
         match self.base_resolved(engine) {
             FluffyTermBase::Ethereal(term) => {

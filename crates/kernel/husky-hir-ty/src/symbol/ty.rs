@@ -10,6 +10,7 @@ pub enum HirTypeSymbol {
         disambiguator: u8,
     },
     SelfType,
+    SelfLifetime,
 }
 
 impl HirTypeSymbol {
