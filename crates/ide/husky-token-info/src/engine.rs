@@ -349,6 +349,10 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             SynExpr::MethodApplicationOrCall { ident_token, .. } => {
                 self.add(ident_token.regional_token_idx(), TokenInfo::Method)
             }
+            SynExpr::At {
+                at_regional_token_idx,
+                place_label_regional_token,
+            } => todo!(),
             SynExpr::Literal(_, _)
             | SynExpr::PrincipalEntityPath { .. }
             | SynExpr::ScopeResolution { .. }

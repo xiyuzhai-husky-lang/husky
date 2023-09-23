@@ -302,6 +302,10 @@ impl<'a> ExprTypeEngine<'a> {
                 ref arguments,
                 empty_html_ket,
             } => todo!(),
+            SynExpr::At {
+                at_regional_token_idx,
+                place_label_regional_token,
+            } => todo!(),
             SynExpr::Unit {
                 lpar_regional_token_idx,
                 rpar_regional_token_idx,

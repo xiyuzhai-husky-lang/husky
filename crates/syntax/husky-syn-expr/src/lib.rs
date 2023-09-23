@@ -205,6 +205,10 @@ pub enum SynExpr {
         function_expr_idx: SynExprIdx,
         argument_expr_idx: SynExprIdx,
     },
+    At {
+        at_regional_token_idx: RegionalTokenIdx,
+        place_label_regional_token: Option<PlaceLabelRegionalToken>,
+    },
     Unit {
         lpar_regional_token_idx: RegionalTokenIdx,
         rpar_regional_token_idx: RegionalTokenIdx,

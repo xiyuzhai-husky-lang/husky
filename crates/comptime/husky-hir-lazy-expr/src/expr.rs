@@ -288,6 +288,10 @@ impl ToHirLazy for SynExprIdx {
                 function_expr_idx,
                 argument_expr_idx,
             } => todo!(),
+            SynExpr::At {
+                at_regional_token_idx,
+                place_label_regional_token,
+            } => todo!(),
             SynExpr::Unit {
                 lpar_regional_token_idx,
                 rpar_regional_token_idx,

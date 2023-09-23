@@ -253,6 +253,10 @@ impl<'a> ExprTypeEngine<'a> {
                 self.infer_new_expr_ty(item, expr_ty_expectation.clone())
                     .ok_or(DerivedExprTypeError::BracketedItemTypeError.into()),
             )),
+            SynExpr::At {
+                at_regional_token_idx,
+                place_label_regional_token,
+            } => todo!(),
             SynExpr::Unit { .. } => Ok((
                 SynExprDisambiguation::Trivial,
                 Ok(self.term_menu.unit_ty_ontology().into()),

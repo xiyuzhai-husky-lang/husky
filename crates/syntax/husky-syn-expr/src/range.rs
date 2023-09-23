@@ -296,6 +296,10 @@ impl<'a> SynExprRangeCalculator<'a> {
                 function_expr_idx: function,
                 argument_expr_idx: argument,
             } => self[function].join(self[argument]),
+            SynExpr::At {
+                at_regional_token_idx,
+                place_label_regional_token,
+            } => todo!(),
             SynExpr::Unit {
                 lpar_regional_token_idx,
                 rpar_regional_token_idx,

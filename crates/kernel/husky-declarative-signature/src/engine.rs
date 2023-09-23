@@ -558,6 +558,21 @@ impl<'a> DeclarativeTermEngine<'a> {
             SynExpr::Block { stmts: _ } => todo!(),
             SynExpr::IndexOrCompositionWithList { .. } => todo!(),
             SynExpr::Err(ref e) => Err(DerivedDeclarativeTermError2::ExprError.into()),
+            SynExpr::At {
+                at_regional_token_idx,
+                place_label_regional_token,
+            } => match place_label_regional_token {
+                Some(_) => todo!(),
+                None => match self.symbol_declarative_term_region.self_place() {
+                    Some(place) => Ok(DeclarativeTermExplicitApplication::new(
+                        self.db,
+                        self.declarative_term_menu.at_ty_path(),
+                        place.into(),
+                    )
+                    .into()),
+                    None => todo!(),
+                },
+            },
             SynExpr::Unit { .. } => Ok(self.declarative_term_menu.unit()),
             SynExpr::EmptyHtmlTag {
                 empty_html_bra_idx: langle_token_idx,
