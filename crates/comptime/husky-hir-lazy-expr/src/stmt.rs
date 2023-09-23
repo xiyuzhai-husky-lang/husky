@@ -97,7 +97,7 @@ impl ToHirLazy for SynStmtIdx {
                     .as_ref()
                     .map(|else_branch| else_branch.to_hir_lazy(builder)),
             },
-            SynStmt::Match { match_token } => todo!(),
+            SynStmt::Match { match_token, .. } => todo!(),
         })
     }
 }

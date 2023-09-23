@@ -82,6 +82,7 @@ pub enum SynStmt {
     },
     Match {
         match_token: MatchRegionalToken,
+        match_expr: SynExprResult<SynExprIdx>,
     },
 }
 
@@ -123,9 +124,13 @@ impl<'a> SynStmtContext<'a> {
                 case_stmts,
                 ..
             } => {
-                let mut token_stream = self.token_group_token_stream(token_group_idx);
+                let mut parser = self.expr_parser(token_group_idx);
                 SynStmt::Match {
-                    match_token: token_stream.try_parse_option().unwrap().unwrap(),
+                    match_token: parser.try_parse_option().unwrap().unwrap(),
+                    match_expr: parser.parse_expr_expected(
+                        Some(ExprEnvironment::Condition(block_end)),
+                        OriginalSynExprError::ExpectedMatchExpr,
+                    ),
                 }
             }
             DefnAst::Err { .. } => todo!(),

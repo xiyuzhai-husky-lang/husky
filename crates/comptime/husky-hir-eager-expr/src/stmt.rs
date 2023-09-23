@@ -167,7 +167,7 @@ impl ToHirEager for SynStmtIdx {
                     .as_ref()
                     .map(|else_branch| else_branch.to_hir_eager(builder)),
             },
-            SynStmt::Match { match_token } => HirEagerStmt::Match {},
+            SynStmt::Match { match_token, .. } => HirEagerStmt::Match {},
         })
     }
 }

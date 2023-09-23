@@ -6,7 +6,9 @@ use husky_entity_syn_tree::{
 };
 use husky_expr_ty::*;
 use husky_fluffy_term::FluffyTermRegion;
-use husky_regional_token::{RegionalTokenIdx, RegionalTokenIdxBase, RegionalTokenStreamState};
+use husky_regional_token::{
+    RegionalTokenIdx, RegionalTokenIdxBase, RegionalTokenIdxRange, RegionalTokenStreamState,
+};
 use husky_syn_expr::{ExprRangeRegion, SynExprIdx, SynExprRegion, SynExprRegionData};
 use husky_token::{TokenGroupIdx, TokenIdx, TokenIdxRange, TokenStreamState};
 
@@ -135,6 +137,13 @@ impl<'a> RegionDiagnosticsContext<'a> {
         self.text_range(
             self.expr_range_region[expr_idx].token_idx_range(self.regional_token_idx_base),
         )
+    }
+
+    pub(crate) fn tokens_text_range(
+        &self,
+        regional_token_idx_range: RegionalTokenIdxRange,
+    ) -> TextRange {
+        self.text_range(regional_token_idx_range.token_idx_range(self.regional_token_idx_base))
     }
 
     fn text_range(&self, token_idx_range: TokenIdxRange) -> TextRange {

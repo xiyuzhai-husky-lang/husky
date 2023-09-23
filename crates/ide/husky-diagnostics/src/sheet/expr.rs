@@ -139,7 +139,14 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                         self.visit_syn_expr_result(&else_branch.eol_colon);
                     }
                 }
-                SynStmt::Match { match_token } => {}
+                SynStmt::Match {
+                    match_token,
+                    match_expr,
+                    ..
+                } => {
+                    self.visit_syn_expr_result(match_expr);
+                    // todo!()
+                }
             }
         }
         for item_path_expr in expr_region_data.principal_item_path_expr_arena().data() {
@@ -171,21 +178,21 @@ impl Diagnose for OriginalSynExprError {
                 format!("Syntax Error: mismatching bracket")
             }
             OriginalSynExprError::ExpectedRightAngleBracket { .. } => {
-                format!("Syntax Error: expect `>`")
+                format!("Syntax Error: expected `>`")
             }
             OriginalSynExprError::ExpectedRightCurlyBrace(_) => {
-                format!("Syntax Error: expect `}}`")
+                format!("Syntax Error: expected `}}`")
             }
-            OriginalSynExprError::ExpectedIdent(_) => format!("Syntax Error: expect identifier"),
-            OriginalSynExprError::ExpectedColon(_) => format!("Syntax Error: expect `:`"),
+            OriginalSynExprError::ExpectedIdent(_) => format!("Syntax Error: expected identifier"),
+            OriginalSynExprError::ExpectedColon(_) => format!("Syntax Error: expected `:`"),
             OriginalSynExprError::ExpectedRightParenthesis(_) => {
-                format!("Syntax Error: expect `)`")
+                format!("Syntax Error: expected `)`")
             }
             OriginalSynExprError::NoMatchingBra { .. } => {
                 format!("Syntax Error: no matching bracket")
             }
             OriginalSynExprError::ExpectedIdentAfterDot { .. } => {
-                format!("Syntax Error: expect identifier after dot")
+                format!("Syntax Error: expected identifier after dot")
             }
             OriginalSynExprError::NoLeftOperandForBinaryOperator { .. } => {
                 format!("Syntax Error: no left operand for binary operator")
@@ -197,43 +204,48 @@ impl Diagnose for OriginalSynExprError {
                 format!("Syntax Error:no operand for prefix operator")
             }
             OriginalSynExprError::ExpectedItemBeforeComma { .. } => {
-                format!("Syntax Error: expect item before `,`")
+                format!("Syntax Error: expected item before `,`")
             }
             OriginalSynExprError::ExpectedItemBeforeBe { .. } => {
-                format!("Syntax Error: expect item before `be`")
+                format!("Syntax Error: expected item before `be`")
             }
             OriginalSynExprError::ExpectedLetVariableDecls(_) => {
-                format!("Syntax Error: expect variable pattern")
+                format!("Syntax Error: expected variable pattern")
             }
             OriginalSynExprError::ExpectedBeVariablesPattern(_) => {
                 format!("Syntax Error: expected pattern expression after `be`")
             }
-            OriginalSynExprError::ExpectedAssign(_) => format!("Syntax Error: expect `=`"),
+            OriginalSynExprError::ExpectedAssign(_) => format!("Syntax Error: expected `=`"),
             OriginalSynExprError::ExpectedInitialValue(_) => {
-                format!("Syntax Error: expect initial value")
+                format!("Syntax Error: expected initial value")
             }
             OriginalSynExprError::UnexpectedKeyword(_) => {
                 format!("Syntax Error: unexpected keyword")
             }
-            OriginalSynExprError::ExpectedResult(_) => format!("Syntax Error: expect result"),
-            OriginalSynExprError::ExpectedCondition(_) => format!("Syntax Error: expect condition"),
-            OriginalSynExprError::ExpectedForExpr(_) => format!("Syntax Error: expect for expr"),
+            OriginalSynExprError::ExpectedResult(_) => format!("Syntax Error: expected result"),
+            OriginalSynExprError::ExpectedCondition(_) => {
+                format!("Syntax Error: expected condition")
+            }
+            OriginalSynExprError::ExpectedMatchExpr(_) => {
+                format!("Syntax Error: expected match expression")
+            }
+            OriginalSynExprError::ExpectedForExpr(_) => format!("Syntax Error: expected for expr"),
             OriginalSynExprError::ExpectedBePattern(_) => {
-                format!("Syntax Error: expect be pattern")
+                format!("Syntax Error: expected be pattern")
             }
             OriginalSynExprError::ExpectedParameterPattern(_) => {
-                format!("Syntax Error: expect paramter pattern")
+                format!("Syntax Error: expected paramter pattern")
             }
             OriginalSynExprError::ExpectedEolColon(_) => {
-                format!("Syntax Error: expect `:` at end of line")
+                format!("Syntax Error: expected `:` at end of line")
             }
             OriginalSynExprError::ExpectedIdentAfterModifier(_, _) => {
-                format!("Syntax Error: expect identifier after `mut`")
+                format!("Syntax Error: expected identifier after `mut`")
             }
             OriginalSynExprError::ExpectedConstantImplicitParameterType(_) => {
                 format!("Syntax Error: expected constant implicit parameter type")
             }
-            OriginalSynExprError::ExpectedBlock(_) => format!("Syntax Error: expect block"),
+            OriginalSynExprError::ExpectedBlock(_) => format!("Syntax Error: expected block"),
             OriginalSynExprError::UnterminatedList { .. } => {
                 format!("Syntax Error: unterminated list")
             }
@@ -305,9 +317,7 @@ impl Diagnose for OriginalSynExprError {
     }
 
     fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
-        let regional_token_idx_range = self.regional_token_idx_range();
-        // ctx.tokens_text_range(regional_token_idx_range)
-        todo!()
+        ctx.tokens_text_range(self.regional_token_idx_range())
     }
 }
 

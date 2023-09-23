@@ -63,6 +63,8 @@ pub enum OriginalSynExprError {
     ExpectedResult(RegionalTokenStreamState),
     #[error("expected condition")]
     ExpectedCondition(RegionalTokenStreamState),
+    #[error("expected match expression")]
+    ExpectedMatchExpr(RegionalTokenStreamState),
     #[error("expected for expr")]
     ExpectedForExpr(RegionalTokenIdx),
     #[error("expected be pattern")]
@@ -165,95 +167,99 @@ pub enum OriginalSynExprError {
 
 impl OriginalSynExprError {
     pub fn regional_token_idx_range(&self) -> RegionalTokenIdxRange {
-        todo!()
-        // match self {
-        //     OriginalSynExprError::ExpectedLetVariableDecls(regional_token_idx)
-        //     | OriginalSynExprError::ExpectedBeVariablesPattern(regional_token_idx) => todo!(),
-        //     OriginalSynExprError::ExpectedLetVariablesType(token_stream_state)
-        //     | OriginalSynExprError::ExpectedAssign(token_stream_state)
-        //     | OriginalSynExprError::ExpectedInitialValue(token_stream_state)
-        //     | OriginalSynExprError::ExpectedResult(token_stream_state)
-        //     | OriginalSynExprError::ExpectedCondition(token_stream_state)
-        //     | OriginalSynExprError::ExpectedRightCurlyBrace(token_stream_state)
-        //     | OriginalSynExprError::ExpectedIdent(token_stream_state)
-        //     | OriginalSynExprError::ExpectedColon(token_stream_state)
-        //     | OriginalSynExprError::ExpectedRightParenthesis(token_stream_state)
-        //     | OriginalSynExprError::ExpectedEolColon(token_stream_state)
-        //     | OriginalSynExprError::ExpectedIdentAfterModifier(token_stream_state, _)
-        //     | OriginalSynExprError::ExpectedFieldType(token_stream_state)
-        //     | OriginalSynExprError::ExpectedParameterType(token_stream_state)
-        //     | OriginalSynExprError::HtmlTodo(token_stream_state)
-        //     | OriginalSynExprError::ExpectedValueForFieldBindInitialization(token_stream_state)
-        //     | OriginalSynExprError::ExpectedFunctionIdentAfterOpeningHtmlBra(token_stream_state)
-        //     | OriginalSynExprError::ExpectedConstantImplicitParameterType(token_stream_state)
-        //     | OriginalSynExprError::ExpectedTraits(token_stream_state)
-        //     | OriginalSynExprError::ExpectedExplicitParameterDefaultValue(token_stream_state) => {
-        //         let regional_token_idx = token_stream_state.next_regional_token_idx();
-        //         match token_stream_state.drained() {
-        //             true => RegionalTokenIdxRange::new_drained(regional_token_idx),
-        //             false => RegionalTokenIdxRange::new_single(regional_token_idx),
-        //         }
-        //     }
-        //     OriginalSynExprError::MismatchingBracket {
-        //         ket_regional_token_idx: regional_token_idx,
-        //         ..
-        //     }
-        //     | OriginalSynExprError::ExpectedRightAngleBracket {
-        //         langle_regional_token_idx: regional_token_idx,
-        //     }
-        //     | OriginalSynExprError::NoMatchingBra {
-        //         ket_regional_token_idx: regional_token_idx,
-        //         ..
-        //     }
-        //     | OriginalSynExprError::NoLeftOperandForBinaryOperator {
-        //         binary_regional_token_idx: regional_token_idx,
-        //     }
-        //     | OriginalSynExprError::NoRightOperandForBinaryOperator {
-        //         punctuation_regional_token_idx: regional_token_idx,
-        //         ..
-        //     }
-        //     | OriginalSynExprError::NoOperandForPrefixOperator {
-        //         prefix_regional_token_idx: regional_token_idx,
-        //         ..
-        //     }
-        //     | OriginalSynExprError::UnexpectedKeyword(regional_token_idx)
-        //     | OriginalSynExprError::ExpectedItemBeforeComma {
-        //         comma_regional_token_idx: regional_token_idx,
-        //     }
-        //     | OriginalSynExprError::ExpectedItemBeforeBe {
-        //         be_regional_token_idx: regional_token_idx,
-        //     }
-        //     | OriginalSynExprError::ExpectedForExpr(regional_token_idx)
-        //     | OriginalSynExprError::ExpectedBePattern(regional_token_idx)
-        //     | OriginalSynExprError::ExpectedParameterPattern(regional_token_idx)
-        //     | OriginalSynExprError::UnterminatedList {
-        //         bra_regional_token_idx: regional_token_idx,
-        //     }
-        //     | OriginalSynExprError::UnterminatedFunctionCallKeyedArgumentList {
-        //         bra_regional_token_idx: regional_token_idx,
-        //     }
-        //     | OriginalSynExprError::UnterminatedMethodCallKeyedArgumentList {
-        //         bra_regional_token_idx: regional_token_idx,
-        //     }
-        //     | OriginalSynExprError::UnexpectedSheba(regional_token_idx)
-        //     | OriginalSynExprError::UnrecognizedIdent { regional_token_idx, .. }
-        //     | OriginalSynExprError::UnresolvedSubitem { regional_token_idx, .. }
-        //     | OriginalSynExprError::SelfTypeNotAllowed(regional_token_idx)
-        //     | OriginalSynExprError::SelfValueNotAllowed(regional_token_idx)
-        //     | OriginalSynExprError::ExpectedIdentAfterDot {
-        //         dot_regional_token_idx: regional_token_idx,
-        //         ..
-        //     }
-        //     | OriginalSynExprError::ExpectedExprBeforeDot {
-        //         dot_regional_token_idx: regional_token_idx,
-        //     }
-        //     | OriginalSynExprError::UnexpectedLeftCurlyBrace(regional_token_idx) => {
-        //         RegionalTokenIdxRange::new_single(*regional_token_idx)
-        //     }
-        //     OriginalSynExprError::ExpectedBlock(_) => todo!(),
-        //     OriginalSynExprError::ExpectedTypeAfterLightArrow { light_arrow_token } => todo!(),
-        //     OriginalSynExprError::ExpectedTypeTermForAssociatedType(_) => todo!(),
-        // }
+        match self {
+            OriginalSynExprError::ExpectedLetVariableDecls(regional_token_idx)
+            | OriginalSynExprError::ExpectedBeVariablesPattern(regional_token_idx) => todo!(),
+            OriginalSynExprError::ExpectedLetVariablesType(token_stream_state)
+            | OriginalSynExprError::ExpectedAssign(token_stream_state)
+            | OriginalSynExprError::ExpectedInitialValue(token_stream_state)
+            | OriginalSynExprError::ExpectedResult(token_stream_state)
+            | OriginalSynExprError::ExpectedCondition(token_stream_state)
+            | OriginalSynExprError::ExpectedMatchExpr(token_stream_state)
+            | OriginalSynExprError::ExpectedRightCurlyBrace(token_stream_state)
+            | OriginalSynExprError::ExpectedIdent(token_stream_state)
+            | OriginalSynExprError::ExpectedColon(token_stream_state)
+            | OriginalSynExprError::ExpectedRightParenthesis(token_stream_state)
+            | OriginalSynExprError::ExpectedEolColon(token_stream_state)
+            | OriginalSynExprError::ExpectedIdentAfterModifier(token_stream_state, _)
+            | OriginalSynExprError::ExpectedFieldType(token_stream_state)
+            | OriginalSynExprError::ExpectedParameterType(token_stream_state)
+            | OriginalSynExprError::HtmlTodo(token_stream_state)
+            | OriginalSynExprError::ExpectedValueForFieldBindInitialization(token_stream_state)
+            | OriginalSynExprError::ExpectedFunctionIdentAfterOpeningHtmlBra(token_stream_state)
+            | OriginalSynExprError::ExpectedConstantImplicitParameterType(token_stream_state)
+            | OriginalSynExprError::ExpectedTraits(token_stream_state)
+            | OriginalSynExprError::ExpectedExplicitParameterDefaultValue(token_stream_state) => {
+                let regional_token_idx = token_stream_state.next_regional_token_idx();
+                match token_stream_state.drained() {
+                    true => RegionalTokenIdxRange::new_drained(regional_token_idx),
+                    false => RegionalTokenIdxRange::new_single(regional_token_idx),
+                }
+            }
+            OriginalSynExprError::MismatchingBracket {
+                ket_regional_token_idx: regional_token_idx,
+                ..
+            }
+            | OriginalSynExprError::ExpectedRightAngleBracket {
+                langle_regional_token_idx: regional_token_idx,
+            }
+            | OriginalSynExprError::NoMatchingBra {
+                ket_regional_token_idx: regional_token_idx,
+                ..
+            }
+            | OriginalSynExprError::NoLeftOperandForBinaryOperator {
+                binary_regional_token_idx: regional_token_idx,
+            }
+            | OriginalSynExprError::NoRightOperandForBinaryOperator {
+                punctuation_regional_token_idx: regional_token_idx,
+                ..
+            }
+            | OriginalSynExprError::NoOperandForPrefixOperator {
+                prefix_regional_token_idx: regional_token_idx,
+                ..
+            }
+            | OriginalSynExprError::UnexpectedKeyword(regional_token_idx)
+            | OriginalSynExprError::ExpectedItemBeforeComma {
+                comma_regional_token_idx: regional_token_idx,
+            }
+            | OriginalSynExprError::ExpectedItemBeforeBe {
+                be_regional_token_idx: regional_token_idx,
+            }
+            | OriginalSynExprError::ExpectedForExpr(regional_token_idx)
+            | OriginalSynExprError::ExpectedBePattern(regional_token_idx)
+            | OriginalSynExprError::ExpectedParameterPattern(regional_token_idx)
+            | OriginalSynExprError::UnterminatedList {
+                bra_regional_token_idx: regional_token_idx,
+            }
+            | OriginalSynExprError::UnterminatedFunctionCallKeyedArgumentList {
+                bra_regional_token_idx: regional_token_idx,
+            }
+            | OriginalSynExprError::UnterminatedMethodCallKeyedArgumentList {
+                bra_regional_token_idx: regional_token_idx,
+            }
+            | OriginalSynExprError::UnexpectedSheba(regional_token_idx)
+            | OriginalSynExprError::UnrecognizedIdent {
+                regional_token_idx, ..
+            }
+            | OriginalSynExprError::UnresolvedSubitem {
+                regional_token_idx, ..
+            }
+            | OriginalSynExprError::SelfTypeNotAllowed(regional_token_idx)
+            | OriginalSynExprError::SelfValueNotAllowed(regional_token_idx)
+            | OriginalSynExprError::ExpectedIdentAfterDot {
+                dot_regional_token_idx: regional_token_idx,
+                ..
+            }
+            | OriginalSynExprError::ExpectedExprBeforeDot {
+                dot_regional_token_idx: regional_token_idx,
+            }
+            | OriginalSynExprError::UnexpectedLeftCurlyBrace(regional_token_idx) => {
+                RegionalTokenIdxRange::new_single(*regional_token_idx)
+            }
+            OriginalSynExprError::ExpectedBlock(_) => todo!(),
+            OriginalSynExprError::ExpectedTypeAfterLightArrow { light_arrow_token } => todo!(),
+            OriginalSynExprError::ExpectedTypeTermForAssociatedType(_) => todo!(),
+        }
     }
 }
 
