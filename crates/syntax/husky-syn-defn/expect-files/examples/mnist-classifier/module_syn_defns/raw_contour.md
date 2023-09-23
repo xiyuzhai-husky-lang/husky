@@ -3369,6 +3369,18 @@ Ok(
                                                     match_expr: Ok(
                                                         11,
                                                     ),
+                                                    eol_with_token: Err(
+                                                        Original(
+                                                            ExpectedEolWithInMatchHead(
+                                                                RegionalTokenStreamState {
+                                                                    next_regional_token_idx: RegionalTokenIdx(
+                                                                        22,
+                                                                    ),
+                                                                    drained: true,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -4338,6 +4350,18 @@ Ok(
                                                     },
                                                     match_expr: Ok(
                                                         18,
+                                                    ),
+                                                    eol_with_token: Err(
+                                                        Original(
+                                                            ExpectedEolWithInMatchHead(
+                                                                RegionalTokenStreamState {
+                                                                    next_regional_token_idx: RegionalTokenIdx(
+                                                                        29,
+                                                                    ),
+                                                                    drained: true,
+                                                                },
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -5526,6 +5550,18 @@ Ok(
                                                     },
                                                     match_expr: Ok(
                                                         11,
+                                                    ),
+                                                    eol_with_token: Err(
+                                                        Original(
+                                                            ExpectedEolWithInMatchHead(
+                                                                RegionalTokenStreamState {
+                                                                    next_regional_token_idx: RegionalTokenIdx(
+                                                                        22,
+                                                                    ),
+                                                                    drained: true,
+                                                                },
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -11153,6 +11189,18 @@ Ok(
                                                     },
                                                     match_expr: Ok(
                                                         262,
+                                                    ),
+                                                    eol_with_token: Err(
+                                                        Original(
+                                                            ExpectedEolWithInMatchHead(
+                                                                RegionalTokenStreamState {
+                                                                    next_regional_token_idx: RegionalTokenIdx(
+                                                                        430,
+                                                                    ),
+                                                                    drained: false,
+                                                                },
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 SynStmt::Eval {

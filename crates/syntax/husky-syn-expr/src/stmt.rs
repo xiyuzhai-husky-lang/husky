@@ -83,6 +83,7 @@ pub enum SynStmt {
     Match {
         match_token: MatchRegionalToken,
         match_expr: SynExprResult<SynExprIdx>,
+        eol_with_token: SynExprResult<EolWithRegionalToken>,
     },
 }
 
@@ -131,6 +132,8 @@ impl<'a> SynStmtContext<'a> {
                         Some(ExprEnvironment::Condition(block_end)),
                         OriginalSynExprError::ExpectedMatchExpr,
                     ),
+                    eol_with_token: parser
+                        .try_parse_expected(OriginalSynExprError::ExpectedEolWithInMatchHead),
                 }
             }
             DefnAst::Err { .. } => todo!(),
