@@ -6,7 +6,7 @@ impl HasFluffyTypeMethodDispatch for SolidTerm {
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
-        indirections: FluffyDynamicDispatchIndirections,
+        indirections: FluffyTermDynamicDispatchIndirections,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         match self.data(engine) {
             SolidTermData::TypeOntology {
@@ -22,7 +22,7 @@ impl HasFluffyTypeMethodDispatch for SolidTerm {
             //     base_ty_term,
             // } => match base_ty_term.as_ref() {
             //     Some(&base_ty_term) => {
-            //         indirections.push(FluffyDynamicDispatchIndirection::Place(*place));
+            //         indirections.push(FluffyTermDynamicDispatchIndirection::Place(*place));
             //         JustOk(
             //             base_ty_term
             //                 .ty_method_dispatch(engine, expr_idx, ident_token)?

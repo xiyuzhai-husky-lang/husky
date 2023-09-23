@@ -8,6 +8,7 @@ pub(super) fn ethereal_owner_ty_int_index_signature(
     custom_ty_path: CustomTypePath,
     owner_ty_arguments: &[EtherealTerm],
     index_ty: FluffyTerm,
+    final_place: Place,
 ) -> FluffyTermMaybeResult<FluffyIndexSignature> {
     if !coersible_to_int(engine, index_ty) {
         return Nothing;
@@ -30,7 +31,7 @@ pub(super) fn ethereal_owner_ty_int_index_signature(
     .expect("fully instantiated")
     .ty_term();
     JustOk(FluffyIndexSignature::Int {
-        element_ty: element_ty.into(),
+        element_ty: FluffyTerm::new_ethereal(final_place, element_ty),
     })
 }
 

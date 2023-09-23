@@ -6,7 +6,7 @@ impl SolidTerm {
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
         available_traits: &[TraitPath],
-        mut indirections: FluffyDynamicDispatchIndirections,
+        mut indirections: FluffyTermDynamicDispatchIndirections,
     ) -> FluffyTermMaybeResult<FluffyFieldDispatch> {
         match self.data(engine) {
             SolidTermData::TypeOntology {
@@ -22,7 +22,7 @@ impl SolidTerm {
             //     base_ty_term,
             // } => match base_ty_term {
             //     Some(base_ty_term) => {
-            //         indirections.push(FluffyDynamicDispatchIndirection::Place(*place));
+            //         indirections.push(FluffyTermDynamicDispatchIndirection::Place(*place));
             //         JustOk(
             //             ethereal_ty_field_dispatch(engine.db(), *base_ty_term, ident)?
             //                 .merge(indirections),

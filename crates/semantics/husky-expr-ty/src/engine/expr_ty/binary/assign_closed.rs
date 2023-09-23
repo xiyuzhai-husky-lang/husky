@@ -7,7 +7,7 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: SynExprIdx,
         opr: BinaryClosedOpr,
         ropd: SynExprIdx,
-    ) -> Result<FluffyTerm, ExprTypeError> {
+    ) -> ExprTypeResult<FluffyTerm> {
         // let expr_eval_lifetime = self
         //     .fluffy_term_region
         //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
@@ -20,7 +20,11 @@ impl<'a> ExprTypeEngine<'a> {
                         Place::StackPure { location } => todo!(),
                         Place::ImmutableStackOwned { location } => todo!(),
                         Place::MutableStackOwned { .. } => (),
-                        Place::Transient => todo!(),
+                        Place::Transient => {
+                            // ad hoc
+                            // should return err
+                            ()
+                        }
                         Place::Ref { guard } => todo!(),
                         Place::RefMut { guard } => todo!(),
                         Place::Leashed => todo!(),

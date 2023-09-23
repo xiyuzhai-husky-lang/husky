@@ -11,7 +11,7 @@ impl HasFluffyTraitMethodDispatch for EtherealTerm {
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
-        mut indirections: FluffyDynamicDispatchIndirections,
+        mut indirections: FluffyTermDynamicDispatchIndirections,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         let db = engine.db();
         let mut matches: SmallVec<[(); 2]> = Default::default();
@@ -54,7 +54,7 @@ impl HasFluffyTraitMethodDispatch for EtherealTerm {
                         PreludeIndirectionTypePath::Ref => todo!(),
                         PreludeIndirectionTypePath::RefMut => todo!(),
                         PreludeIndirectionTypePath::Leash => {
-                            indirections.push(FluffyDynamicDispatchIndirection::Leash);
+                            indirections.add(FluffyTermDynamicDispatchIndirection::Leash);
                             debug_assert_eq!(arguments.len(), 1);
                             let the_argument = arguments[0];
                             the_argument.trai_method_dispatch_aux(

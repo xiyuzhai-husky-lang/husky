@@ -141,6 +141,7 @@ impl FluffyTerm {
             FluffyTermBase::Ethereal(term) => ethereal_term_data(db, term),
             FluffyTermBase::Solid(term) => term.data_inner(terms.solid_terms()).into(),
             FluffyTermBase::Hollow(term) => term.fluffy_data(db, terms),
+            FluffyTermBase::Place => todo!(),
         }
     }
 
@@ -163,6 +164,7 @@ impl FluffyTerm {
             FluffyTermBase::Ethereal(term) => ethereal_term_data2(db, term),
             FluffyTermBase::Solid(term) => term.data_inner(terms.solid_terms()).into(),
             FluffyTermBase::Hollow(term) => term.fluffy_base_ty_data(db, terms),
+            FluffyTermBase::Place => todo!(),
         }
     }
 }

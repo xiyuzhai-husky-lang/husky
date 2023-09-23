@@ -102,6 +102,7 @@ impl<'a> HirEagerExprBuilder<'a> {
             FluffyTermBase::Ethereal(term) => term,
             FluffyTermBase::Solid(_) => todo!(),
             FluffyTermBase::Hollow(_) => todo!(),
+            FluffyTermBase::Place => todo!(),
         }
     }
 

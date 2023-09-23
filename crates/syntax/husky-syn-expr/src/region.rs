@@ -19,8 +19,8 @@ pub struct SynExprRegionData {
     pattern_expr_region: SynPatternExprRegion,
     symbol_region: SynSymbolRegion,
     roots: Vec<SynExprRoot>,
-    intro_implicit_self_lifetime: bool,
-    intro_implicit_self_place: bool,
+    has_self_lifetime: bool,
+    has_self_place: bool,
 }
 
 impl SynExprRegionData {
@@ -33,8 +33,8 @@ impl SynExprRegionData {
         pattern_expr_region: SynPatternExprRegion,
         symbol_region: SynSymbolRegion,
         roots: Vec<SynExprRoot>,
-        intro_implicit_self_lifetime: bool,
-        intro_implicit_self_place: bool,
+        has_self_lifetime: bool,
+        has_self_place: bool,
     ) -> Self {
         Self {
             parent,
@@ -45,8 +45,8 @@ impl SynExprRegionData {
             pattern_expr_region,
             symbol_region,
             roots,
-            intro_implicit_self_lifetime,
-            intro_implicit_self_place,
+            has_self_lifetime,
+            has_self_place,
         }
     }
 
@@ -105,12 +105,12 @@ impl SynExprRegionData {
         //     .find_map(|root| (root.kind() == ExprRootKind::SelfType).then_some(root.expr_idx()))
     }
 
-    pub fn intro_implicit_self_lifetime(&self) -> bool {
-        self.intro_implicit_self_lifetime
+    pub fn has_self_lifetime(&self) -> bool {
+        self.has_self_lifetime
     }
 
-    pub fn intro_implicit_self_place(&self) -> bool {
-        self.intro_implicit_self_place
+    pub fn has_self_place(&self) -> bool {
+        self.has_self_place
     }
 }
 

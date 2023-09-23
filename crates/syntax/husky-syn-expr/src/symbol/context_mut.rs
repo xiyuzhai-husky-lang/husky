@@ -51,8 +51,8 @@ impl<'a> SynSymbolContextMut<'a> {
         pattern_expr_region: SynPatternExprRegion,
         stmt_arena: SynStmtArena,
         roots: Vec<SynExprRoot>,
-        intro_implicit_self_lifetime: bool,
-        intro_implicit_self_place: bool,
+        has_self_lifetime: bool,
+        has_self_place: bool,
     ) -> SynExprRegion {
         SynExprRegion::new(
             db,
@@ -65,8 +65,8 @@ impl<'a> SynSymbolContextMut<'a> {
                 pattern_expr_region,
                 self.symbol_region,
                 roots,
-                intro_implicit_self_lifetime,
-                intro_implicit_self_place,
+                has_self_lifetime,
+                has_self_place,
             ),
         )
     }

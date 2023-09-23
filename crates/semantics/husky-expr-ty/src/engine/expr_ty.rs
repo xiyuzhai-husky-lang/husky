@@ -256,7 +256,10 @@ impl<'a> ExprTypeEngine<'a> {
             SynExpr::At {
                 at_regional_token_idx,
                 place_label_regional_token,
-            } => todo!(),
+            } => Ok((
+                SynExprDisambiguation::Trivial,
+                Ok(self.term_menu.ex_inv_ty0_to_ty0().into()),
+            )),
             SynExpr::Unit { .. } => Ok((
                 SynExprDisambiguation::Trivial,
                 Ok(self.term_menu.unit_ty_ontology().into()),

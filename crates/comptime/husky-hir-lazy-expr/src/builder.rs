@@ -97,6 +97,7 @@ impl<'a> HirLazyExprBuilder<'a> {
             FluffyTermBase::Ethereal(term) => term,
             FluffyTermBase::Solid(_) => todo!(),
             FluffyTermBase::Hollow(_) => todo!(),
+            FluffyTermBase::Place => todo!(),
         }
     }
 

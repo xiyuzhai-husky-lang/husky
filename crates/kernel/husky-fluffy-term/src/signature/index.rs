@@ -13,21 +13,9 @@ pub enum FluffyIndexSignature {
 }
 
 impl MemberSignature for FluffyIndexSignature {
-    fn expr_ty(
-        &self,
-        indirections: &[FluffyDynamicDispatchIndirection],
-    ) -> FluffyTermResult<FluffyTerm> {
+    fn expr_ty(&self) -> FluffyTermResult<FluffyTerm> {
         match self {
-            FluffyIndexSignature::Int { element_ty } => {
-                let mut expr_ty = *element_ty;
-                for indirection in indirections {
-                    match indirection {
-                        FluffyDynamicDispatchIndirection::Place(_) => todo!(),
-                        FluffyDynamicDispatchIndirection::Leash => todo!(),
-                    }
-                }
-                Ok(expr_ty)
-            }
+            FluffyIndexSignature::Int { element_ty } => Ok(*element_ty),
             FluffyIndexSignature::Regular { element_ty } => todo!(),
             FluffyIndexSignature::Index { element_ty } => todo!(),
         }

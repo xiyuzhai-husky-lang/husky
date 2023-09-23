@@ -11,29 +11,24 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct FluffyDynamicDispatch<S: MemberSignature> {
-    indirections: FluffyDynamicDispatchIndirections,
+    indirections: FluffyTermDynamicDispatchIndirections,
     signature: S,
 }
 
-type FluffyIndirections = SmallVec<[FluffyDynamicDispatchIndirection; 2]>;
-
 /// members means dynamic associated items, i.e. those accessed through an instance
 pub trait MemberSignature {
-    fn expr_ty(
-        &self,
-        indirections: &[FluffyDynamicDispatchIndirection],
-    ) -> FluffyTermResult<FluffyTerm>;
+    fn expr_ty(&self) -> FluffyTermResult<FluffyTerm>;
 }
 
 impl<S: MemberSignature> FluffyDynamicDispatch<S> {
-    pub fn new(signature: S) -> Self {
+    pub fn new(indirections: FluffyTermDynamicDispatchIndirections, signature: S) -> Self {
         Self {
-            indirections: Default::default(),
+            indirections,
             signature,
         }
     }
 
-    pub fn indirections(&self) -> &[FluffyDynamicDispatchIndirection] {
+    pub fn indirections(&self) -> &[FluffyTermDynamicDispatchIndirection] {
         &self.indirections
     }
 
@@ -42,34 +37,63 @@ impl<S: MemberSignature> FluffyDynamicDispatch<S> {
     }
 
     pub fn expr_ty_result(&self) -> FluffyTermResult<FluffyTerm> {
-        self.signature.expr_ty(&self.indirections)
+        self.signature.expr_ty()
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum FluffyDynamicDispatchIndirection {
+pub enum FluffyTermDynamicDispatchIndirection {
     Place(Place),
     Leash,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Default)]
-pub struct FluffyDynamicDispatchIndirections {
-    indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
+impl FluffyTermDynamicDispatchIndirection {
+    fn act(self, initial_place: Place) -> Place {
+        match self {
+            FluffyTermDynamicDispatchIndirection::Place(place) => match place {
+                Place::Const => todo!(),
+                Place::StackPure { location } => todo!(),
+                Place::ImmutableStackOwned { location } => todo!(),
+                Place::MutableStackOwned { location } => todo!(),
+                Place::Transient => todo!(),
+                Place::Ref { guard } => todo!(),
+                Place::RefMut { guard } => todo!(),
+                Place::Leashed => todo!(),
+                Place::Todo => todo!(),
+            },
+            FluffyTermDynamicDispatchIndirection::Leash => Place::Leashed,
+        }
+    }
 }
 
-impl FluffyDynamicDispatchIndirections {
-    /// only use this for field dispatch
-    pub(crate) fn extend(&mut self, others: &[FluffyDynamicDispatchIndirection]) {
-        self.indirections.extend(others.iter().copied())
+#[derive(Debug, PartialEq, Eq)]
+pub struct FluffyTermDynamicDispatchIndirections {
+    initial_place: Place,
+    indirections: SmallVec<[FluffyTermDynamicDispatchIndirection; 2]>,
+    final_place: Place,
+}
+
+impl FluffyTermDynamicDispatchIndirections {
+    pub(crate) fn new(initial_place: Place) -> Self {
+        Self {
+            initial_place,
+            indirections: smallvec![],
+            final_place: initial_place,
+        }
     }
 
-    pub(crate) fn push(&mut self, new: FluffyDynamicDispatchIndirection) {
-        self.indirections.push(new)
+    pub(crate) fn add(&mut self, indirection: FluffyTermDynamicDispatchIndirection) {
+        self.final_place = indirection.act(self.initial_place);
+        self.indirections.push(indirection)
+    }
+
+    pub(crate) fn final_place(&self) -> Place {
+        self.final_place
     }
 }
 
-impl std::ops::Deref for FluffyDynamicDispatchIndirections {
-    type Target = [FluffyDynamicDispatchIndirection];
+impl std::ops::Deref for FluffyTermDynamicDispatchIndirections {
+    type Target = [FluffyTermDynamicDispatchIndirection];
 
     fn deref(&self) -> &Self::Target {
         &self.indirections

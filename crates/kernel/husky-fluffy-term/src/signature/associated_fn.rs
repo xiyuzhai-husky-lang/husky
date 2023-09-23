@@ -30,7 +30,8 @@ pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     if self_ty_application_expansion.arguments(db).len() != ty_template_arguments.len() {
         todo!()
     }
-    let mut instantiation = FluffyTermInstantiation::default();
+    let mut instantiation =
+        FluffyTermInstantiation::new(FluffyTermInstantiationEnvironment::AssociatedFn);
     // initialize pattern matcher
     std::iter::zip(
         self_ty_application_expansion.arguments(db).iter().copied(),

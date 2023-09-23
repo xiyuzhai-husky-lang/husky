@@ -2,12 +2,25 @@ use vec_like::VecPairMap;
 
 use super::*;
 
-#[derive(Default)]
 pub(crate) struct FluffyTermInstantiation {
+    env: FluffyTermInstantiationEnvironment,
     symbol_map: VecPairMap<EtherealTermSymbol, FluffyTerm>,
 }
 
+#[derive(Debug, Clone, Copy)]
+pub enum FluffyTermInstantiationEnvironment {
+    AssociatedFn,
+    TypeMethodFn { self_place: Place },
+}
+
 impl FluffyTermInstantiation {
+    pub(crate) fn new(env: FluffyTermInstantiationEnvironment) -> Self {
+        Self {
+            env,
+            symbol_map: Default::default(),
+        }
+    }
+
     // todo: add try_add_rules_from_application as in Etherealinstantiation
 
     /// JustOk(()) means rule is added and everything is compatible
@@ -43,6 +56,10 @@ impl FluffyTermInstantiation {
             EtherealTerm::AsTraitSubitem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
         }
+    }
+
+    pub(crate) fn env(&self) -> FluffyTermInstantiationEnvironment {
+        self.env
     }
 }
 
@@ -104,7 +121,42 @@ impl FluffyTermInstantiate for EtherealTerm {
             EtherealTerm::Literal(_) => todo!(),
             EtherealTerm::Symbol(symbol) => match instantiation.symbol_map.get_entry(symbol) {
                 Some((_, instantiated_term)) => *instantiated_term,
-                None => todo!(),
+                None => match symbol.index(engine.db()).inner() {
+                    EtherealTermSymbolIndexInner::Lifetime {
+                        attrs,
+                        variance,
+                        disambiguator,
+                    } => todo!(),
+                    EtherealTermSymbolIndexInner::Type {
+                        attrs,
+                        variance,
+                        disambiguator,
+                    } => todo!(),
+                    EtherealTermSymbolIndexInner::Prop { disambiguator } => todo!(),
+                    EtherealTermSymbolIndexInner::ConstPathLeading {
+                        attrs,
+                        disambiguator,
+                        ty_path,
+                    } => todo!(),
+                    EtherealTermSymbolIndexInner::ConstOther {
+                        attrs,
+                        disambiguator,
+                    } => todo!(),
+                    EtherealTermSymbolIndexInner::EphemPathLeading {
+                        disambiguator,
+                        ty_path,
+                    } => todo!(),
+                    EtherealTermSymbolIndexInner::EphemOther { disambiguator } => todo!(),
+                    EtherealTermSymbolIndexInner::SelfType => todo!(),
+                    EtherealTermSymbolIndexInner::SelfValue => todo!(),
+                    EtherealTermSymbolIndexInner::SelfLifetime => todo!(),
+                    EtherealTermSymbolIndexInner::SelfPlace => match instantiation.env() {
+                        FluffyTermInstantiationEnvironment::AssociatedFn => todo!(),
+                        FluffyTermInstantiationEnvironment::TypeMethodFn { self_place } => {
+                            self_place.into()
+                        }
+                    },
+                },
             },
             EtherealTerm::Variable(_) => todo!(),
             EtherealTerm::EntityPath(_) => self.into(),

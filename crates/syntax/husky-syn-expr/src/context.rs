@@ -19,8 +19,8 @@ pub struct SynExprContext<'a> {
     syn_pattern_expr_region: SynPatternExprRegion,
     syn_stmt_arena: SynStmtArena,
     syn_expr_roots: Vec<SynExprRoot>,
-    intro_implicit_self_lifetime: bool,
-    intro_implicit_self_place: bool,
+    has_self_lifetime: bool,
+    has_self_place: bool,
 }
 
 pub trait IsSynExprContext<'a>:
@@ -59,8 +59,8 @@ impl<'a> SynExprContext<'a> {
             syn_pattern_expr_region: Default::default(),
             syn_stmt_arena: Default::default(),
             syn_expr_roots: vec![],
-            intro_implicit_self_lifetime: false,
-            intro_implicit_self_place: false,
+            has_self_lifetime: false,
+            has_self_place: false,
         }
     }
 
@@ -74,8 +74,8 @@ impl<'a> SynExprContext<'a> {
             self.syn_pattern_expr_region,
             self.syn_stmt_arena,
             self.syn_expr_roots,
-            self.intro_implicit_self_lifetime,
-            self.intro_implicit_self_place,
+            self.has_self_lifetime,
+            self.has_self_place,
         )
     }
 
@@ -170,13 +170,13 @@ impl<'a> SynExprContext<'a> {
         self.crate_root_path
     }
 
-    pub fn set_intro_implicit_self_lifetime(&mut self) {
-        debug_assert!(!self.intro_implicit_self_lifetime);
-        self.intro_implicit_self_lifetime = true;
+    pub fn set_has_self_lifetime(&mut self) {
+        debug_assert!(!self.has_self_lifetime);
+        self.has_self_lifetime = true;
     }
 
-    pub fn set_intro_implicit_self_place(&mut self) {
-        debug_assert!(!self.intro_implicit_self_place);
-        self.intro_implicit_self_place = true;
+    pub fn set_has_self_place(&mut self) {
+        debug_assert!(!self.has_self_place);
+        self.has_self_place = true;
     }
 }

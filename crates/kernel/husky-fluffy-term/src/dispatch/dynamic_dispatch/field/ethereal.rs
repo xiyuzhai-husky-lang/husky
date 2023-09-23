@@ -8,33 +8,34 @@ pub(super) fn ethereal_ty_field_dispatch(
     db: &dyn FluffyTermDb,
     ty_term: EtherealTerm,
     ident: Ident,
-) -> FluffyTermMaybeResult<&FluffyFieldDispatch> {
+    indirections: FluffyTermDynamicDispatchIndirections,
+) -> FluffyTermMaybeResult<FluffyFieldDispatch> {
     // divide into cases for memoization
     match ty_term {
         EtherealTerm::EntityPath(TermEntityPath::TypeOntology(ty_path)) => {
-            ethereal_ty_ontology_path_ty_field_dispatch(db, ty_path, ident).just_ok_as_ref()
+            ethereal_ty_ontology_path_ty_field_dispatch(db, ty_path, ident, indirections)
         }
         EtherealTerm::Application(ty_term) => {
-            ethereal_term_application_ty_field_dispatch(db, ty_term, ident).just_ok_as_ref()
+            ethereal_term_application_ty_field_dispatch(db, ty_term, ident, indirections)
         }
         _ => Nothing,
     }
 }
 
-#[salsa::tracked(jar = FluffyTermJar, return_ref)]
 pub(crate) fn ethereal_ty_ontology_path_ty_field_dispatch(
     db: &dyn FluffyTermDb,
     ty_path: TypePath,
     ident: Ident,
+    indirections: FluffyTermDynamicDispatchIndirections,
 ) -> FluffyTermMaybeResult<FluffyFieldDispatch> {
-    ethereal_ty_field_dispatch_aux(db, ty_path, &[], ident, Default::default())
+    ethereal_ty_field_dispatch_aux(db, ty_path, &[], ident, indirections)
 }
 
-#[salsa::tracked(jar = FluffyTermJar, return_ref)]
 pub(crate) fn ethereal_term_application_ty_field_dispatch(
     db: &dyn FluffyTermDb,
     ty_term: EtherealTermApplication,
     ident: Ident,
+    indirections: FluffyTermDynamicDispatchIndirections,
 ) -> FluffyTermMaybeResult<FluffyFieldDispatch> {
     let application_expansion = ty_term.application_expansion(db);
     match application_expansion.function() {
@@ -43,7 +44,7 @@ pub(crate) fn ethereal_term_application_ty_field_dispatch(
             ty_path,
             application_expansion.arguments(db),
             ident,
-            Default::default(),
+            indirections,
         ),
         TermFunctionReduced::Trait(_) | TermFunctionReduced::Other(_) => Nothing,
     }
@@ -54,7 +55,7 @@ fn ethereal_ty_field_dispatch_aux<'a>(
     ty_path: TypePath,
     arguments: &'a [EtherealTerm],
     ident: Ident,
-    mut indirections: FluffyDynamicDispatchIndirections,
+    mut indirections: FluffyTermDynamicDispatchIndirections,
 ) -> FluffyTermMaybeResult<FluffyFieldDispatch> {
     match ty_path.refine(db) {
         Left(PreludeTypePath::Indirection(prelude_indirection_ty_path)) => {
@@ -62,13 +63,11 @@ fn ethereal_ty_field_dispatch_aux<'a>(
                 PreludeIndirectionTypePath::Ref => todo!(),
                 PreludeIndirectionTypePath::RefMut => todo!(),
                 PreludeIndirectionTypePath::Leash => {
-                    indirections.push(FluffyDynamicDispatchIndirection::Leash);
+                    indirections.add(FluffyTermDynamicDispatchIndirection::Leash);
                     if arguments.len() != 1 {
                         todo!()
                     }
-                    return JustOk(
-                        ethereal_ty_field_dispatch(db, arguments[0], ident)?.merge(indirections),
-                    );
+                    return ethereal_ty_field_dispatch(db, arguments[0], ident, indirections);
                 }
                 PreludeIndirectionTypePath::At => todo!(),
             }
