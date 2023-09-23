@@ -517,7 +517,7 @@ impl<'a> SynExprRangeCalculator<'a> {
                     .unwrap_or(if_branch_end);
                 RegionalTokenIdxRange::new(start, end)
             }
-            SynStmt::Match { match_token } => {
+            SynStmt::Match { match_token, .. } => {
                 // ad hoc
                 RegionalTokenIdxRange::new_single(match_token.regional_token_idx())
             }

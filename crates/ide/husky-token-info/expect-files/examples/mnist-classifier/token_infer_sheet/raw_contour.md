@@ -1547,7 +1547,13 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1763,7 +1769,13 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1945,7 +1957,13 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -3590,7 +3608,13 @@ Ok(
                 syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 24,
+                current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                    pattern_symbol_idx: 22,
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
