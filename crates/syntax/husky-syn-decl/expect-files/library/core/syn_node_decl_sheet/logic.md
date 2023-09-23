@@ -78,6 +78,8 @@ Ok(
                                             pattern_ty_constraints: [],
                                         },
                                         roots: [],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },
@@ -108,7 +110,7 @@ Ok(
                                 },
                                 template_parameter_decl_list: Ok(
                                     Some(
-                                        Generics {
+                                        TemplateParameters {
                                             langle: LaOrLtRegionalToken(
                                                 RegionalTokenIdx(
                                                     4,
@@ -118,7 +120,7 @@ Ok(
                                                 TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 1,
-                                                    variant: TemplateParameterDeclPatternVariant::Type {
+                                                    data: TemplateParameterObeliskData::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `P`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -140,7 +142,7 @@ Ok(
                                                 TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 2,
-                                                    variant: TemplateParameterDeclPatternVariant::Type {
+                                                    data: TemplateParameterObeliskData::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `Q`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -347,6 +349,8 @@ Ok(
                                                 expr_idx: 2,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },
@@ -377,7 +381,7 @@ Ok(
                                 },
                                 template_parameter_decl_list: Ok(
                                     Some(
-                                        Generics {
+                                        TemplateParameters {
                                             langle: LaOrLtRegionalToken(
                                                 RegionalTokenIdx(
                                                     4,
@@ -387,7 +391,7 @@ Ok(
                                                 TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 1,
-                                                    variant: TemplateParameterDeclPatternVariant::Type {
+                                                    data: TemplateParameterObeliskData::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `P`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -409,7 +413,7 @@ Ok(
                                                 TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 2,
-                                                    variant: TemplateParameterDeclPatternVariant::Type {
+                                                    data: TemplateParameterObeliskData::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `Q`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -616,6 +620,8 @@ Ok(
                                                 expr_idx: 2,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },

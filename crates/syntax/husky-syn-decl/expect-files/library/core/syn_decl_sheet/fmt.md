@@ -65,6 +65,8 @@ Ok(
                                         pattern_ty_constraints: [],
                                     },
                                     roots: [],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },

@@ -48,8 +48,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -111,8 +113,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -157,8 +161,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -625,8 +631,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -690,8 +698,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -754,8 +764,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -882,8 +894,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -1028,8 +1042,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -1093,8 +1109,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -1157,8 +1175,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -1285,8 +1305,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -1431,8 +1453,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -1515,8 +1539,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -1625,8 +1651,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -1673,8 +1701,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {

@@ -11,7 +11,7 @@ Ok(
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    variant: TemplateParameterDeclPatternVariant::Constant {
+                                    data: TemplateParameterObeliskData::Constant {
                                         const_token: ConstRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 5,
@@ -42,7 +42,7 @@ Ok(
                                         ),
                                     ),
                                     symbol: 2,
-                                    variant: TemplateParameterDeclPatternVariant::Type {
+                                    data: TemplateParameterObeliskData::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `E`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -202,6 +202,8 @@ Ok(
                                             expr_idx: 1,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },

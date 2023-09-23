@@ -1,8 +1,10 @@
 mod r#const;
 mod lifetime;
+mod place;
 mod ty;
 
 pub use self::lifetime::*;
+pub use self::place::*;
 pub use self::r#const::*;
 pub use self::ty::*;
 
@@ -12,18 +14,19 @@ use husky_ethereal_term::{
 };
 
 #[enum_class::from_variants]
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum HirTemplateSymbol {
     Type(HirTypeSymbol),
     Const(HirConstSymbol),
     Lifetime(HirLifetimeSymbol),
+    Place(HirPlaceSymbol),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct HirSymbolAttrs();
 
 impl HirSymbolAttrs {
-    fn from_ethereal(attrs: EtherealTemplateSymbolAttrs) -> Option<Self> {
+    pub(crate) fn from_ethereal(attrs: EtherealTemplateSymbolAttrs) -> Option<Self> {
         (!attrs.phantom()).then_some(Self())
     }
 }
@@ -40,12 +43,24 @@ fn hir_template_symbol_from_ethereal(
     symbol: EtherealTermSymbol,
 ) -> Option<HirTemplateSymbol> {
     match symbol.index(db).inner() {
-        EtherealTermSymbolIndexInner::Lifetime {
+        EtherealTermSymbolIndexInner::ExplicitLifetime {
             attrs,
             variance,
             disambiguator,
         } => Some(
             HirLifetimeSymbol {
+                attrs: HirSymbolAttrs::from_ethereal(attrs)?,
+                variance,
+                disambiguator,
+            }
+            .into(),
+        ),
+        EtherealTermSymbolIndexInner::ExplicitPlace {
+            attrs,
+            variance,
+            disambiguator,
+        } => Some(
+            HirPlaceSymbol {
                 attrs: HirSymbolAttrs::from_ethereal(attrs)?,
                 variance,
                 disambiguator,
@@ -101,6 +116,6 @@ fn hir_template_symbol_from_ethereal(
         EtherealTermSymbolIndexInner::SelfType => Some(HirTypeSymbol::SelfType.into()),
         EtherealTermSymbolIndexInner::SelfValue => todo!(),
         EtherealTermSymbolIndexInner::SelfLifetime => Some(HirTypeSymbol::SelfLifetime.into()),
-        EtherealTermSymbolIndexInner::SelfPlace => todo!(),
+        EtherealTermSymbolIndexInner::SelfPlace => Some(HirTypeSymbol::SelfPlace.into()),
     }
 }

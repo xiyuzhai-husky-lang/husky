@@ -122,7 +122,12 @@ impl FluffyTermInstantiate for EtherealTerm {
             EtherealTerm::Symbol(symbol) => match instantiation.symbol_map.get_entry(symbol) {
                 Some((_, instantiated_term)) => *instantiated_term,
                 None => match symbol.index(engine.db()).inner() {
-                    EtherealTermSymbolIndexInner::Lifetime {
+                    EtherealTermSymbolIndexInner::ExplicitLifetime {
+                        attrs,
+                        variance,
+                        disambiguator,
+                    } => todo!(),
+                    EtherealTermSymbolIndexInner::ExplicitPlace {
                         attrs,
                         variance,
                         disambiguator,
@@ -190,7 +195,18 @@ impl FluffyTermInstantiate for EtherealTermApplication {
             TermFunctionReduced::TypeOntology(path) => match path.refine(db) {
                 Left(PreludeTypePath::Indirection(PreludeIndirectionTypePath::At)) => {
                     debug_assert_eq!(arguments.len(), 2);
-                    todo!()
+                    let the_place = arguments[0].instantiate(engine, expr_idx, instantiation);
+                    let the_place = match the_place.base() {
+                        FluffyTermBase::Ethereal(_) => todo!(),
+                        FluffyTermBase::Solid(_) => todo!(),
+                        FluffyTermBase::Hollow(_) => todo!(),
+                        FluffyTermBase::Place => the_place.place().unwrap(),
+                    };
+                    let base = arguments[1].instantiate(engine, expr_idx, instantiation);
+                    match base.place() {
+                        Some(_) => todo!(),
+                        None => base.with_place(the_place),
+                    }
                 }
                 refined_path => {
                     let arguments = arguments

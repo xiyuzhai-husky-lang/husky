@@ -25,7 +25,7 @@ Ok(
                                 },
                                 template_parameter_decl_list: Ok(
                                     Some(
-                                        Generics {
+                                        TemplateParameters {
                                             langle: LaOrLtRegionalToken(
                                                 RegionalTokenIdx(
                                                     4,
@@ -35,7 +35,7 @@ Ok(
                                                 TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 1,
-                                                    variant: TemplateParameterDeclPatternVariant::Type {
+                                                    data: TemplateParameterObeliskData::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `T`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -68,7 +68,7 @@ Ok(
                                     ),
                                 ),
                                 parenate_parameter_decl_list: Ok(
-                                    RitchieParameters {
+                                    ParenateParameters {
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 9,
@@ -318,6 +318,8 @@ Ok(
                                                 expr_idx: 4,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },
@@ -348,7 +350,7 @@ Ok(
                                 },
                                 template_parameter_decl_list: Ok(
                                     Some(
-                                        Generics {
+                                        TemplateParameters {
                                             langle: LaOrLtRegionalToken(
                                                 RegionalTokenIdx(
                                                     3,
@@ -358,7 +360,7 @@ Ok(
                                                 TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 1,
-                                                    variant: TemplateParameterDeclPatternVariant::Type {
+                                                    data: TemplateParameterObeliskData::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `T`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -391,7 +393,7 @@ Ok(
                                     ),
                                 ),
                                 parenate_parameter_decl_list: Ok(
-                                    RitchieParameters {
+                                    ParenateParameters {
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 8,
@@ -816,6 +818,8 @@ Ok(
                                                 expr_idx: 6,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },
@@ -846,7 +850,7 @@ Ok(
                                 },
                                 template_parameter_decl_list: Ok(
                                     Some(
-                                        Generics {
+                                        TemplateParameters {
                                             langle: LaOrLtRegionalToken(
                                                 RegionalTokenIdx(
                                                     3,
@@ -856,7 +860,7 @@ Ok(
                                                 TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 1,
-                                                    variant: TemplateParameterDeclPatternVariant::Type {
+                                                    data: TemplateParameterObeliskData::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `T`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -889,7 +893,7 @@ Ok(
                                     ),
                                 ),
                                 parenate_parameter_decl_list: Ok(
-                                    RitchieParameters {
+                                    ParenateParameters {
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 8,
@@ -1353,6 +1357,8 @@ Ok(
                                                 expr_idx: 7,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },
@@ -1385,7 +1391,7 @@ Ok(
                                     None,
                                 ),
                                 parenate_parameter_decl_list: Ok(
-                                    RitchieParameters {
+                                    ParenateParameters {
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 3,
@@ -1469,6 +1475,8 @@ Ok(
                                             pattern_ty_constraints: [],
                                         },
                                         roots: [],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },
@@ -1501,7 +1509,7 @@ Ok(
                                     None,
                                 ),
                                 parenate_parameter_decl_list: Ok(
-                                    RitchieParameters {
+                                    ParenateParameters {
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 3,
@@ -1585,6 +1593,8 @@ Ok(
                                             pattern_ty_constraints: [],
                                         },
                                         roots: [],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },

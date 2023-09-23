@@ -59,7 +59,11 @@ impl DeclarativeTermSymbol {
         let ty = Ok(menu.lifetime_ty());
         (
             ty,
-            Self::new(db, ty, registry.issue_lifetime_index(attrs, variance)),
+            Self::new(
+                db,
+                ty,
+                registry.issue_explicit_lifetime_index(attrs, variance),
+            ),
         )
     }
 
@@ -74,7 +78,7 @@ impl DeclarativeTermSymbol {
         let ty = Ok(menu.place_ty());
         (
             ty,
-            Self::new(db, ty, registry.issue_lifetime_index(attrs, variance)),
+            Self::new(db, ty, registry.issue_explicit_place_index(attrs, variance)),
         )
     }
 

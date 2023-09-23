@@ -199,7 +199,14 @@
                             ),
                         ),
                         template_parameters: HirTemplateParameters {
-                            data: [],
+                            data: [
+                                HirTemplateParameter {
+                                    symbol: Type(
+                                        SelfLifetime,
+                                    ),
+                                    traits: [],
+                                },
+                            ],
                         },
                         self_value_parameter: HirRitchieParameter {
                             contract: BorrowMut,

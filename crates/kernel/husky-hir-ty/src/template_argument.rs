@@ -4,6 +4,7 @@ use husky_ethereal_term::EtherealTerm;
 pub type HirTemplateArguments = smallvec::SmallVec<[HirTemplateArgument; 2]>;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[enum_class::from_variants]
 pub enum HirTemplateArgument {
     /// `Vacant` is used to repr abstract types
     ///
@@ -18,6 +19,8 @@ pub enum HirTemplateArgument {
     Vacant,
     Type(HirType),
     Constant(HirConstant),
+    Lifetime(HirLifetimeSymbol),
+    Place(HirPlaceSymbol),
 }
 
 impl HirTemplateArgument {

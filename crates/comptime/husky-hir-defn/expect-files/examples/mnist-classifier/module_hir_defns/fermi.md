@@ -15,7 +15,7 @@
                                 ty: PathLeading(
                                     HirTypePathLeading(
                                         Id {
-                                            value: 42,
+                                            value: 44,
                                         },
                                     ),
                                 ),
@@ -25,7 +25,7 @@
                                 ty: PathLeading(
                                     HirTypePathLeading(
                                         Id {
-                                            value: 43,
+                                            value: 45,
                                         },
                                     ),
                                 ),
@@ -68,7 +68,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 374,
+                                                        value: 377,
                                                     },
                                                 ),
                                             ),
@@ -78,7 +78,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 144,
+                                                        value: 148,
                                                     },
                                                 ),
                                             ),
@@ -92,7 +92,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 436,
+                                                        value: 439,
                                                     },
                                                 ),
                                             ),
@@ -102,7 +102,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 138,
+                                                        value: 142,
                                                     },
                                                 ),
                                             ),
@@ -113,7 +113,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 436,
+                                                        value: 439,
                                                     },
                                                 ),
                                             ),
@@ -122,7 +122,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 258,
+                                                        value: 261,
                                                     },
                                                 ),
                                             ),
@@ -137,7 +137,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 246,
+                                                        value: 249,
                                                     },
                                                 ),
                                             ),
@@ -146,7 +146,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 433,
+                                                        value: 436,
                                                     },
                                                 ),
                                             ),
@@ -155,7 +155,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 437,
+                                                        value: 440,
                                                     },
                                                 ),
                                             ),
@@ -165,7 +165,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 149,
+                                                        value: 153,
                                                     },
                                                 ),
                                             ),
@@ -181,7 +181,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 139,
+                                                        value: 143,
                                                     },
                                                 ),
                                             ),
@@ -197,7 +197,7 @@
                                                 Type(
                                                     TypePath(
                                                         Id {
-                                                            value: 60,
+                                                            value: 62,
                                                         },
                                                     ),
                                                 ),
@@ -207,7 +207,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 246,
+                                                        value: 249,
                                                     },
                                                 ),
                                             ),
@@ -216,7 +216,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 433,
+                                                        value: 436,
                                                     },
                                                 ),
                                             ),
@@ -266,7 +266,7 @@
                                                     PathLeading(
                                                         HirTypePathLeading(
                                                             Id {
-                                                                value: 42,
+                                                                value: 44,
                                                             },
                                                         ),
                                                     ),
@@ -279,7 +279,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 258,
+                                                            value: 261,
                                                         },
                                                     ),
                                                 ),
@@ -314,7 +314,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 433,
+                                                        value: 436,
                                                     },
                                                 ),
                                             ),
@@ -323,7 +323,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 246,
+                                                        value: 249,
                                                     },
                                                 ),
                                             ),
@@ -332,7 +332,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 437,
+                                                        value: 440,
                                                     },
                                                 ),
                                             ),
@@ -360,7 +360,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 44,
+                            value: 46,
                         },
                     ),
                 ),
@@ -428,7 +428,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 433,
+                                                        value: 436,
                                                     },
                                                 ),
                                             ),
@@ -438,7 +438,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 138,
+                                                        value: 142,
                                                     },
                                                 ),
                                             ),
@@ -449,7 +449,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 351,
+                                                        value: 354,
                                                     },
                                                 ),
                                             ),
@@ -458,7 +458,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 351,
+                                                        value: 354,
                                                     },
                                                 ),
                                             ),
@@ -469,7 +469,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 433,
+                                                        value: 436,
                                                     },
                                                 ),
                                             ),
@@ -478,7 +478,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 258,
+                                                        value: 261,
                                                     },
                                                 ),
                                             ),
@@ -494,7 +494,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 351,
+                                                        value: 354,
                                                     },
                                                 ),
                                             ),
@@ -504,7 +504,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 58,
+                                                        value: 62,
                                                     },
                                                 ),
                                             ),
@@ -524,7 +524,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 351,
+                                                        value: 354,
                                                     },
                                                 ),
                                             ),
@@ -561,7 +561,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 258,
+                                                            value: 261,
                                                         },
                                                     ),
                                                 ),
@@ -596,7 +596,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 351,
+                                                        value: 354,
                                                     },
                                                 ),
                                             ),
@@ -671,7 +671,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 433,
+                                                        value: 436,
                                                     },
                                                 ),
                                             ),
@@ -681,7 +681,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 138,
+                                                        value: 142,
                                                     },
                                                 ),
                                             ),
@@ -692,7 +692,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 351,
+                                                        value: 354,
                                                     },
                                                 ),
                                             ),
@@ -701,7 +701,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 351,
+                                                        value: 354,
                                                     },
                                                 ),
                                             ),
@@ -712,7 +712,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 433,
+                                                        value: 436,
                                                     },
                                                 ),
                                             ),
@@ -721,7 +721,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 258,
+                                                        value: 261,
                                                     },
                                                 ),
                                             ),
@@ -737,7 +737,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 410,
+                                                        value: 413,
                                                     },
                                                 ),
                                             ),
@@ -747,7 +747,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 58,
+                                                        value: 62,
                                                     },
                                                 ),
                                             ),
@@ -767,7 +767,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 351,
+                                                        value: 354,
                                                     },
                                                 ),
                                             ),
@@ -804,7 +804,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 258,
+                                                            value: 261,
                                                         },
                                                     ),
                                                 ),
@@ -839,7 +839,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 351,
+                                                        value: 354,
                                                     },
                                                 ),
                                             ),
@@ -914,7 +914,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 433,
+                                                        value: 436,
                                                     },
                                                 ),
                                             ),
@@ -924,7 +924,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 138,
+                                                        value: 142,
                                                     },
                                                 ),
                                             ),
@@ -935,7 +935,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 351,
+                                                        value: 354,
                                                     },
                                                 ),
                                             ),
@@ -944,7 +944,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 351,
+                                                        value: 354,
                                                     },
                                                 ),
                                             ),
@@ -955,7 +955,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 433,
+                                                        value: 436,
                                                     },
                                                 ),
                                             ),
@@ -964,7 +964,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 258,
+                                                        value: 261,
                                                     },
                                                 ),
                                             ),
@@ -980,7 +980,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 348,
+                                                        value: 351,
                                                     },
                                                 ),
                                             ),
@@ -990,7 +990,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 57,
+                                                        value: 61,
                                                     },
                                                 ),
                                             ),
@@ -1002,7 +1002,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 58,
+                                                        value: 62,
                                                     },
                                                 ),
                                             ),
@@ -1022,7 +1022,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 351,
+                                                        value: 354,
                                                     },
                                                 ),
                                             ),
@@ -1059,7 +1059,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 258,
+                                                            value: 261,
                                                         },
                                                     ),
                                                 ),
@@ -1094,7 +1094,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 351,
+                                                        value: 354,
                                                     },
                                                 ),
                                             ),

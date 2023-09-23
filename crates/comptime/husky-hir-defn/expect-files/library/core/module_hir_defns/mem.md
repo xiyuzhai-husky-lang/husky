@@ -140,6 +140,53 @@
             ),
         ),
     ),
+    HirDefn::MajorItem(
+        MajorItemHirDefn::Type(
+            TypeHirDefn::Extern(
+                ExternTypeHirDefn {
+                    path: TypePath(`core::mem::At`, `Extern`),
+                    hir_decl: ExternTypeHirDecl {
+                        path: TypePath(`core::mem::At`, `Extern`),
+                        template_parameters: HirTemplateParameters {
+                            data: [
+                                HirTemplateParameter {
+                                    symbol: Place(
+                                        HirPlaceSymbol {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                    traits: [],
+                                },
+                                HirTemplateParameter {
+                                    symbol: Type(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                    traits: [],
+                                },
+                            ],
+                        },
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
+                    },
+                },
+            ),
+        ),
+    ),
     HirDefn::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {

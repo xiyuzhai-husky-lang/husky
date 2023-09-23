@@ -19,7 +19,7 @@ Ok(
                             },
                             template_parameter_decl_list: Ok(
                                 Some(
-                                    Generics {
+                                    TemplateParameters {
                                         langle: LaOrLtRegionalToken(
                                             RegionalTokenIdx(
                                                 4,
@@ -37,7 +37,7 @@ Ok(
                                                     ),
                                                 ),
                                                 symbol: 1,
-                                                variant: TemplateParameterDeclPatternVariant::Type {
+                                                data: TemplateParameterObeliskData::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `E`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -149,6 +149,8 @@ Ok(
                                         ],
                                     },
                                     roots: [],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -184,7 +186,7 @@ Ok(
                     },
                     template_parameter_decl_list: Ok(
                         Some(
-                            Generics {
+                            TemplateParameters {
                                 langle: LaOrLtRegionalToken(
                                     RegionalTokenIdx(
                                         2,
@@ -194,7 +196,7 @@ Ok(
                                     TemplateParameterObelisk {
                                         annotated_variance_token: None,
                                         symbol: 1,
-                                        variant: TemplateParameterDeclPatternVariant::Type {
+                                        data: TemplateParameterObeliskData::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `E`,
                                                 regional_token_idx: RegionalTokenIdx(
@@ -364,6 +366,8 @@ Ok(
                                     expr_idx: 3,
                                 },
                             ],
+                            has_self_lifetime: false,
+                            has_self_place: false,
                         },
                     },
                 },
@@ -402,11 +406,11 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            template_parameter_decl_list: Ok(
+                            template_parameters: Ok(
                                 None,
                             ),
-                            ritchie_parameter_decl_list: Ok(
-                                RitchieParameters {
+                            parenate_parameters: Ok(
+                                ParenateParameters {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
                                             4,
@@ -586,6 +590,8 @@ Ok(
                                                         expr_idx: 3,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -690,6 +696,8 @@ Ok(
                                             expr_idx: 1,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -731,11 +739,11 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            template_parameter_decl_list: Ok(
+                            template_parameters: Ok(
                                 None,
                             ),
-                            ritchie_parameter_decl_list: Ok(
-                                RitchieParameters {
+                            parenate_parameters: Ok(
+                                ParenateParameters {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
                                             4,
@@ -947,6 +955,8 @@ Ok(
                                                         expr_idx: 3,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -1086,6 +1096,8 @@ Ok(
                                             expr_idx: 1,
                                         },
                                     ],
+                                    has_self_lifetime: true,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -1127,23 +1139,41 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            template_parameter_decl_list: Ok(
+                            template_parameters: Ok(
                                 None,
                             ),
-                            ritchie_parameter_decl_list: Ok(
-                                RitchieParameters {
+                            parenate_parameters: Ok(
+                                ParenateParameters {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
                                             4,
                                         ),
                                     ),
-                                    self_value_parameter: None,
+                                    self_value_parameter: Some(
+                                        SelfParameterObelisk {
+                                            ephem_symbol_modifier_token_group: Some(
+                                                At(
+                                                    AtRegionalToken(
+                                                        RegionalTokenIdx(
+                                                            5,
+                                                        ),
+                                                    ),
+                                                    None,
+                                                ),
+                                            ),
+                                            self_value_token: SelfValueRegionalToken {
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    6,
+                                                ),
+                                            },
+                                        },
+                                    ),
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [],
                                     commas: [],
                                     rpar: RparRegionalToken(
                                         RegionalTokenIdx(
-                                            5,
+                                            7,
                                         ),
                                     ),
                                 },
@@ -1152,7 +1182,7 @@ Ok(
                                 Some(
                                     LightArrowRegionalToken(
                                         RegionalTokenIdx(
-                                            6,
+                                            8,
                                         ),
                                     ),
                                 ),
@@ -1160,7 +1190,7 @@ Ok(
                             return_ty: Ok(
                                 Some(
                                     ReturnTypeBeforeColonObelisk {
-                                        expr: 3,
+                                        expr: 5,
                                     },
                                 ),
                             ),
@@ -1168,7 +1198,7 @@ Ok(
                                 EolRegionalToken::Semicolon(
                                     EolSemicolonRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
-                                            9,
+                                            12,
                                         ),
                                     },
                                 ),
@@ -1311,6 +1341,8 @@ Ok(
                                                         expr_idx: 3,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -1346,10 +1378,20 @@ Ok(
                                                     ),
                                                 ),
                                             },
+                                            SynExpr::At {
+                                                at_regional_token_idx: RegionalTokenIdx(
+                                                    10,
+                                                ),
+                                                place_label_regional_token: None,
+                                            },
+                                            SynExpr::ExplicitApplication {
+                                                function_expr_idx: 1,
+                                                argument_expr_idx: 2,
+                                            },
                                             SynExpr::InheritedSymbol {
                                                 ident: `E`,
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    8,
+                                                    11,
                                                 ),
                                                 inherited_symbol_idx: 1,
                                                 inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
@@ -1359,8 +1401,8 @@ Ok(
                                                 ),
                                             },
                                             SynExpr::ExplicitApplication {
-                                                function_expr_idx: 1,
-                                                argument_expr_idx: 2,
+                                                function_expr_idx: 3,
+                                                argument_expr_idx: 4,
                                             },
                                         ],
                                     },
@@ -1371,7 +1413,7 @@ Ok(
                                                     IdentRegionalToken {
                                                         ident: `Option`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            7,
+                                                            9,
                                                         ),
                                                     },
                                                 ),
@@ -1428,9 +1470,11 @@ Ok(
                                     roots: [
                                         SynExprRoot {
                                             kind: ReturnType,
-                                            expr_idx: 3,
+                                            expr_idx: 5,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: true,
                                 },
                             },
                         },
@@ -1472,23 +1516,41 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            template_parameter_decl_list: Ok(
+                            template_parameters: Ok(
                                 None,
                             ),
-                            ritchie_parameter_decl_list: Ok(
-                                RitchieParameters {
+                            parenate_parameters: Ok(
+                                ParenateParameters {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
                                             4,
                                         ),
                                     ),
-                                    self_value_parameter: None,
+                                    self_value_parameter: Some(
+                                        SelfParameterObelisk {
+                                            ephem_symbol_modifier_token_group: Some(
+                                                At(
+                                                    AtRegionalToken(
+                                                        RegionalTokenIdx(
+                                                            5,
+                                                        ),
+                                                    ),
+                                                    None,
+                                                ),
+                                            ),
+                                            self_value_token: SelfValueRegionalToken {
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    6,
+                                                ),
+                                            },
+                                        },
+                                    ),
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [],
                                     commas: [],
                                     rpar: RparRegionalToken(
                                         RegionalTokenIdx(
-                                            5,
+                                            7,
                                         ),
                                     ),
                                 },
@@ -1497,7 +1559,7 @@ Ok(
                                 Some(
                                     LightArrowRegionalToken(
                                         RegionalTokenIdx(
-                                            6,
+                                            8,
                                         ),
                                     ),
                                 ),
@@ -1505,7 +1567,7 @@ Ok(
                             return_ty: Ok(
                                 Some(
                                     ReturnTypeBeforeColonObelisk {
-                                        expr: 3,
+                                        expr: 5,
                                     },
                                 ),
                             ),
@@ -1513,7 +1575,7 @@ Ok(
                                 EolRegionalToken::Semicolon(
                                     EolSemicolonRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
-                                            9,
+                                            12,
                                         ),
                                     },
                                 ),
@@ -1656,6 +1718,8 @@ Ok(
                                                         expr_idx: 3,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -1691,10 +1755,20 @@ Ok(
                                                     ),
                                                 ),
                                             },
+                                            SynExpr::At {
+                                                at_regional_token_idx: RegionalTokenIdx(
+                                                    10,
+                                                ),
+                                                place_label_regional_token: None,
+                                            },
+                                            SynExpr::ExplicitApplication {
+                                                function_expr_idx: 1,
+                                                argument_expr_idx: 2,
+                                            },
                                             SynExpr::InheritedSymbol {
                                                 ident: `E`,
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    8,
+                                                    11,
                                                 ),
                                                 inherited_symbol_idx: 1,
                                                 inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
@@ -1704,8 +1778,8 @@ Ok(
                                                 ),
                                             },
                                             SynExpr::ExplicitApplication {
-                                                function_expr_idx: 1,
-                                                argument_expr_idx: 2,
+                                                function_expr_idx: 3,
+                                                argument_expr_idx: 4,
                                             },
                                         ],
                                     },
@@ -1716,7 +1790,7 @@ Ok(
                                                     IdentRegionalToken {
                                                         ident: `Option`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            7,
+                                                            9,
                                                         ),
                                                     },
                                                 ),
@@ -1773,9 +1847,11 @@ Ok(
                                     roots: [
                                         SynExprRoot {
                                             kind: ReturnType,
-                                            expr_idx: 3,
+                                            expr_idx: 5,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: true,
                                 },
                             },
                         },
@@ -1817,11 +1893,11 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            template_parameter_decl_list: Ok(
+                            template_parameters: Ok(
                                 None,
                             ),
-                            ritchie_parameter_decl_list: Ok(
-                                RitchieParameters {
+                            parenate_parameters: Ok(
+                                ParenateParameters {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
                                             4,
@@ -2024,6 +2100,8 @@ Ok(
                                                         expr_idx: 3,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -2144,6 +2222,8 @@ Ok(
                                             expr_idx: 3,
                                         },
                                     ],
+                                    has_self_lifetime: true,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -2185,11 +2265,11 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            template_parameter_decl_list: Ok(
+                            template_parameters: Ok(
                                 None,
                             ),
-                            ritchie_parameter_decl_list: Ok(
-                                RitchieParameters {
+                            parenate_parameters: Ok(
+                                ParenateParameters {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
                                             4,
@@ -2386,6 +2466,8 @@ Ok(
                                                         expr_idx: 3,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -2496,6 +2578,8 @@ Ok(
                                             expr_idx: 4,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -2537,11 +2621,11 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            template_parameter_decl_list: Ok(
+                            template_parameters: Ok(
                                 None,
                             ),
-                            ritchie_parameter_decl_list: Ok(
-                                RitchieParameters {
+                            parenate_parameters: Ok(
+                                ParenateParameters {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
                                             4,
@@ -2775,6 +2859,8 @@ Ok(
                                                         expr_idx: 3,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -3050,6 +3136,8 @@ Ok(
                                             expr_idx: 6,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -3091,11 +3179,11 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            template_parameter_decl_list: Ok(
+                            template_parameters: Ok(
                                 None,
                             ),
-                            ritchie_parameter_decl_list: Ok(
-                                RitchieParameters {
+                            parenate_parameters: Ok(
+                                ParenateParameters {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
                                             4,
@@ -3317,6 +3405,8 @@ Ok(
                                                         expr_idx: 3,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -3542,6 +3632,8 @@ Ok(
                                             expr_idx: 6,
                                         },
                                     ],
+                                    has_self_lifetime: true,
+                                    has_self_place: false,
                                 },
                             },
                         },

@@ -71,6 +71,8 @@ Ok(
                                     pattern_ty_constraints: [],
                                 },
                                 roots: [],
+                                has_self_lifetime: false,
+                                has_self_place: false,
                             },
                         },
                     },
@@ -216,6 +218,8 @@ Ok(
                                     expr_idx: 1,
                                 },
                             ],
+                            has_self_lifetime: false,
+                            has_self_place: false,
                         },
                     },
                 },
@@ -260,7 +264,7 @@ Ok(
                                 None,
                             ),
                             parenate_parameter_decl_list: Ok(
-                                RitchieParameters {
+                                ParenateParameters {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
                                             3,
@@ -391,6 +395,8 @@ Ok(
                                                         expr_idx: 1,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -463,6 +469,8 @@ Ok(
                                             expr_idx: 1,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },

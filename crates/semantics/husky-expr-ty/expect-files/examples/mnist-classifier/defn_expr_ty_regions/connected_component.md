@@ -80,10 +80,12 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [
                                         Leash,
                                     ],
+                                    final_place: Leashed,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -3307,7 +3309,9 @@
             PatternExprTypeInfo {
                 ty: Ok(
                     FluffyTerm {
-                        place: None,
+                        place: Some(
+                            Transient,
+                        ),
                         base: Ethereal(
                             EntityPath(
                                 TypeOntology(
@@ -3391,7 +3395,9 @@
             PatternExprTypeInfo {
                 ty: Ok(
                     FluffyTerm {
-                        place: None,
+                        place: Some(
+                            Transient,
+                        ),
                         base: Ethereal(
                             EntityPath(
                                 TypeOntology(
@@ -3427,7 +3433,9 @@
             PatternExprTypeInfo {
                 ty: Ok(
                     FluffyTerm {
-                        place: None,
+                        place: Some(
+                            Transient,
+                        ),
                         base: Ethereal(
                             EntityPath(
                                 TypeOntology(
@@ -3505,7 +3513,9 @@
                     PatternSymbolTypeInfo {
                         ty: Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: Ethereal(
                                     EntityPath(
                                         TypeOntology(
@@ -3599,7 +3609,9 @@
                     PatternSymbolTypeInfo {
                         ty: Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: Ethereal(
                                     EntityPath(
                                         TypeOntology(
@@ -3639,7 +3651,9 @@
                     PatternSymbolTypeInfo {
                         ty: Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: Ethereal(
                                     EntityPath(
                                         TypeOntology(
@@ -3780,8 +3794,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -3886,12 +3902,16 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Transient,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -3910,7 +3930,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -3966,12 +3988,16 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Transient,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -3990,7 +4016,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -4008,7 +4036,9 @@
                         SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -4026,8 +4056,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -4224,7 +4256,9 @@
                         SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -4296,12 +4330,16 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Transient,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -4320,7 +4358,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -4715,12 +4755,16 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Transient,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -4739,7 +4783,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -4855,12 +4901,16 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Transient,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -4879,7 +4929,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -4935,12 +4987,16 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Transient,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -4959,7 +5015,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -4977,7 +5035,9 @@
                         SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -5122,7 +5182,9 @@
                         SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -5308,12 +5370,16 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Transient,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -5332,7 +5398,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -5464,12 +5532,16 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Transient,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -5488,7 +5560,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -5564,12 +5638,16 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Transient,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -5588,7 +5666,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -5684,12 +5764,16 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Transient,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -5708,7 +5792,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -5726,7 +5812,9 @@
                         SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -5835,7 +5923,9 @@
                         SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -5981,12 +6071,16 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Transient,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -6005,7 +6099,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -6175,12 +6271,16 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Transient,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -6199,7 +6299,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -6219,7 +6321,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -6237,12 +6341,16 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Transient,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -6261,7 +6369,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -6279,7 +6389,9 @@
                         SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -6417,8 +6529,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -6719,7 +6833,9 @@
                 ),
                 SymbolType(
                     FluffyTerm {
-                        place: None,
+                        place: Some(
+                            Transient,
+                        ),
                         base: FluffyTermBase::Ethereal(
                             EtherealTerm(`r32`),
                         ),
@@ -6761,7 +6877,9 @@
                 ),
                 SymbolType(
                     FluffyTerm {
-                        place: None,
+                        place: Some(
+                            Transient,
+                        ),
                         base: FluffyTermBase::Ethereal(
                             EtherealTerm(`r32`),
                         ),
@@ -6777,7 +6895,9 @@
                 ),
                 SymbolType(
                     FluffyTerm {
-                        place: None,
+                        place: Some(
+                            Transient,
+                        ),
                         base: FluffyTermBase::Ethereal(
                             EtherealTerm(`r32`),
                         ),
@@ -7169,7 +7289,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -7234,7 +7356,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -7253,7 +7377,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -7420,7 +7546,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -7525,7 +7653,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -8062,7 +8192,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -8081,7 +8213,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -8286,7 +8420,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -8361,7 +8497,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -8382,7 +8520,9 @@
                                 ExpectCoersion {
                                     contract: None,
                                     ty_expected: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Transient,
+                                        ),
                                         base: FluffyTermBase::Ethereal(
                                             EtherealTerm(`r32`),
                                         ),
@@ -8492,7 +8632,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -8505,7 +8647,9 @@
                                 ExpectCoersion {
                                     contract: None,
                                     ty_expected: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Transient,
+                                        ),
                                         base: FluffyTermBase::Ethereal(
                                             EtherealTerm(`r32`),
                                         ),
@@ -8744,7 +8888,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -8917,7 +9063,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -8936,7 +9084,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -9081,7 +9231,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -9216,7 +9368,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -9237,7 +9391,9 @@
                                 ExpectCoersion {
                                     contract: None,
                                     ty_expected: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Transient,
+                                        ),
                                         base: FluffyTermBase::Ethereal(
                                             EtherealTerm(`r32`),
                                         ),
@@ -9297,7 +9453,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -9310,7 +9468,9 @@
                                 ExpectCoersion {
                                     contract: None,
                                     ty_expected: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Transient,
+                                        ),
                                         base: FluffyTermBase::Ethereal(
                                             EtherealTerm(`r32`),
                                         ),
@@ -9489,7 +9649,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -9644,7 +9806,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -9703,7 +9867,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -9713,7 +9879,9 @@
                                         FluffyTermExpectationOutcome::IntType(
                                             ExpectIntTypeOutcome {
                                                 placeless_num_ty: FluffyTerm {
-                                                    place: None,
+                                                    place: Some(
+                                                        Transient,
+                                                    ),
                                                     base: Ethereal(
                                                         EntityPath(
                                                             TypeOntology(
@@ -9751,7 +9919,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -9786,7 +9956,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -10150,8 +10322,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -10196,8 +10370,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -10752,7 +10928,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 59,
+                                        value: 64,
                                     },
                                 ),
                             ),
@@ -10768,7 +10944,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 61,
+                                        value: 66,
                                     },
                                 ),
                             ),
@@ -10788,7 +10964,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 59,
+                                                value: 64,
                                             },
                                         ),
                                     ),
@@ -10806,7 +10982,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 61,
+                                                value: 66,
                                             },
                                         ),
                                     ),
@@ -10841,8 +11017,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -10856,7 +11034,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 58,
+                                                        value: 63,
                                                     },
                                                 ),
                                             ),
@@ -10885,8 +11063,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -10897,7 +11077,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 59,
+                                                                value: 64,
                                                             },
                                                         ),
                                                     ),
@@ -11085,8 +11265,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -11115,7 +11297,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 60,
+                                                                value: 65,
                                                             },
                                                         ),
                                                     ),
@@ -11227,8 +11409,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -11257,7 +11441,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 60,
+                                                                value: 65,
                                                             },
                                                         ),
                                                     ),
@@ -11313,8 +11497,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -11328,7 +11514,7 @@
                                                                 Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 60,
+                                                                            value: 65,
                                                                         },
                                                                     ),
                                                                 ),
@@ -11365,7 +11551,7 @@
                                                         Application(
                                                             EtherealTermApplication(
                                                                 Id {
-                                                                    value: 60,
+                                                                    value: 65,
                                                                 },
                                                             ),
                                                         ),
@@ -11457,8 +11643,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -11487,7 +11675,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 60,
+                                                                value: 65,
                                                             },
                                                         ),
                                                     ),
@@ -11543,8 +11731,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -11558,7 +11748,7 @@
                                                                 Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 60,
+                                                                            value: 65,
                                                                         },
                                                                     ),
                                                                 ),
@@ -11595,7 +11785,7 @@
                                                         Application(
                                                             EtherealTermApplication(
                                                                 Id {
-                                                                    value: 60,
+                                                                    value: 65,
                                                                 },
                                                             ),
                                                         ),
@@ -11678,7 +11868,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 61,
+                                                                value: 66,
                                                             },
                                                         ),
                                                     ),
@@ -12483,7 +12673,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 61,
+                                                                                    value: 66,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -12656,7 +12846,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 58,
+                                        value: 63,
                                     },
                                 ),
                             ),
@@ -12708,7 +12898,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 58,
+                                                value: 63,
                                             },
                                         ),
                                     ),
@@ -12783,8 +12973,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -12798,7 +12990,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 58,
+                                                        value: 63,
                                                     },
                                                 ),
                                             ),
@@ -12865,8 +13057,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -12949,8 +13143,10 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
@@ -12990,8 +13186,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -13034,8 +13232,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -14117,8 +14317,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -14183,12 +14385,16 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Transient,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -14207,7 +14413,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -14225,8 +14433,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -14291,8 +14501,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -14826,7 +15038,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -15197,8 +15411,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -15263,12 +15479,16 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Transient,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -15287,7 +15507,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -15325,8 +15547,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -15795,7 +16019,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -16281,8 +16507,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -16347,12 +16575,16 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Transient,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -16371,7 +16603,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -16506,8 +16740,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -16572,12 +16808,16 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Transient,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -16596,7 +16836,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -16869,8 +17111,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -16935,12 +17179,16 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Transient,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -16959,7 +17207,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -16997,8 +17247,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -17180,8 +17432,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -17246,12 +17500,16 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Transient,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -17270,7 +17528,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -17308,8 +17568,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -18081,7 +18343,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -18321,7 +18585,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -18751,7 +19017,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -19060,7 +19328,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -19533,8 +19803,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -19578,8 +19850,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -19933,8 +20207,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -19978,8 +20254,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -20521,8 +20799,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -20587,12 +20867,16 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Transient,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -20611,7 +20895,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -20722,8 +21008,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -20786,12 +21074,16 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Transient,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -20810,7 +21102,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -20848,8 +21142,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -21444,7 +21740,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -21660,7 +21958,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -22116,8 +22416,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -22182,12 +22484,16 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Transient,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -22206,7 +22512,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -22317,8 +22625,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -22381,12 +22691,16 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Transient,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -22405,7 +22719,9 @@
                         ),
                         Ok(
                             FluffyTerm {
-                                place: None,
+                                place: Some(
+                                    Transient,
+                                ),
                                 base: FluffyTermBase::Ethereal(
                                     EtherealTerm(`r32`),
                                 ),
@@ -22443,8 +22759,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -23039,7 +23357,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),
@@ -23255,7 +23575,9 @@
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Transient,
+                                    ),
                                     base: FluffyTermBase::Ethereal(
                                         EtherealTerm(`r32`),
                                     ),

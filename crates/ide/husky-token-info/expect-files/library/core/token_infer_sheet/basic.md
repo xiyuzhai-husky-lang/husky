@@ -122,6 +122,48 @@ Ok(
                 },
             ),
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
+                        TypeSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`core::basic::Lifetime`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                MajorItem {
+                    module_item_kind: Type(
+                        Extern,
+                    ),
+                    connection: Connected,
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
+                        TypeSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`core::basic::Place`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                MajorItem {
+                    module_item_kind: Type(
+                        Extern,
+                    ),
+                    connection: Connected,
+                },
+            ),
+            TokenInfo::None,
         ],
     },
 )

@@ -328,6 +328,8 @@ Ok(
                                                 expr_idx: 3,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },

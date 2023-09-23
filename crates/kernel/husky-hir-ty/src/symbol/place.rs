@@ -2,13 +2,13 @@ use super::*;
 use husky_term_prelude::Variance;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct HirLifetimeSymbol {
+pub struct HirPlaceSymbol {
     pub(crate) attrs: HirSymbolAttrs,
     pub(crate) variance: Option<Variance>,
     pub(crate) disambiguator: u8,
 }
 
-impl HirLifetimeSymbol {
+impl HirPlaceSymbol {
     pub fn attrs(&self) -> &HirSymbolAttrs {
         &self.attrs
     }
