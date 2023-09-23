@@ -85,8 +85,10 @@ impl EtherealTermSymbolIndex {
             DeclarativeTermSymbolIndexInner::EphemErr { disambiguator } => todo!(),
             DeclarativeTermSymbolIndexInner::SelfType => EtherealTermSymbolIndexInner::SelfType,
             DeclarativeTermSymbolIndexInner::SelfValue => EtherealTermSymbolIndexInner::SelfValue,
-            DeclarativeTermSymbolIndexInner::SelfLifetime => todo!(),
-            DeclarativeTermSymbolIndexInner::SelfPlace => todo!(),
+            DeclarativeTermSymbolIndexInner::SelfLifetime => {
+                EtherealTermSymbolIndexInner::SelfLifetime
+            }
+            DeclarativeTermSymbolIndexInner::SelfPlace => EtherealTermSymbolIndexInner::SelfPlace,
             DeclarativeTermSymbolIndexInner::AdHoc { disambiguator } => unreachable!(),
         })
     }
@@ -136,6 +138,8 @@ impl Into<DeclarativeTermSymbolIndex> for EtherealTermSymbolIndex {
                 EtherealTermSymbolIndexInner::EphemOther { disambiguator } => todo!(),
                 EtherealTermSymbolIndexInner::SelfType => todo!(),
                 EtherealTermSymbolIndexInner::SelfValue => todo!(),
+                EtherealTermSymbolIndexInner::SelfLifetime => todo!(),
+                EtherealTermSymbolIndexInner::SelfPlace => todo!(),
             })
         }
     }
@@ -177,4 +181,6 @@ pub enum EtherealTermSymbolIndexInner {
     },
     SelfType,
     SelfValue,
+    SelfLifetime,
+    SelfPlace,
 }

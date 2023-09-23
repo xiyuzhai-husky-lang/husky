@@ -18,8 +18,6 @@ pub(super) struct DeclarativeTermEngine<'a> {
     /// todo: change this to ordered
     pattern_expr_ty_infos: SynPatternExprMap<PatternExprDeclarativeTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolDeclarativeTypeInfo>,
-    implicit_self_lifetime: Option<DeclarativeTermSymbol>,
-    implicit_self_place: Option<DeclarativeTermSymbol>,
 }
 
 #[salsa::tracked(jar = DeclarativeSignatureJar, return_ref)]
@@ -46,19 +44,14 @@ impl<'a> DeclarativeTermEngine<'a> {
         let _item_path_menu = db.item_path_menu(toolchain);
         let declarative_term_menu = db.declarative_term_menu(toolchain).unwrap();
         let syn_expr_region_data = &syn_expr_region.data(db);
-        let implicit_self_lifetime = syn_expr_region_data
-            .intro_implicit_self_lifetime()
-            .then_some(declarative_term_menu.implicit_self_lifetime());
-        let implicit_self_place = syn_expr_region_data
-            .intro_implicit_self_place()
-            .then_some(declarative_term_menu.implicit_self_place());
         Self {
             db,
             syn_expr_region_data,
             declarative_term_menu,
             symbol_declarative_term_region: SymbolDeclarativeTermRegion::new(
                 parent_term_symbol_region,
-                syn_expr_region_data.symbol_region(),
+                syn_expr_region_data,
+                declarative_term_menu,
             ),
             expr_terms: SynExprMap::new(syn_expr_region_data.expr_arena()),
             pattern_expr_ty_infos: SynPatternExprMap::new(
@@ -69,8 +62,6 @@ impl<'a> DeclarativeTermEngine<'a> {
                     .pattern_expr_region()
                     .pattern_symbol_arena(),
             ),
-            implicit_self_lifetime,
-            implicit_self_place,
         }
     }
 

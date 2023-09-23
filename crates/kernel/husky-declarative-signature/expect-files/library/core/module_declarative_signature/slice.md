@@ -186,7 +186,17 @@
                             },
                             self_ty: DeclarativeTerm(`core::slice::Slice t`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
-                                data: [],
+                                data: [
+                                    DeclarativeTemplateParameter {
+                                        annotated_variance: None,
+                                        symbol: DeclarativeTermSymbol(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                        annotated_traits: [],
+                                    },
+                                ],
                             },
                             self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: BorrowMut,

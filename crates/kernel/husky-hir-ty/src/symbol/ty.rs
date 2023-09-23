@@ -50,6 +50,8 @@ impl HirTypeSymbol {
             }
             EtherealTermSymbolIndexInner::SelfType => HirTypeSymbol::SelfType,
             EtherealTermSymbolIndexInner::SelfValue => todo!(),
+            EtherealTermSymbolIndexInner::SelfLifetime => todo!(),
+            EtherealTermSymbolIndexInner::SelfPlace => todo!(),
         }
     }
 }
