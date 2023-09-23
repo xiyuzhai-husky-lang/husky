@@ -142,9 +142,10 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                 SynStmt::Match {
                     match_token,
                     match_expr,
-                    ..
+                    eol_with_token,
                 } => {
                     self.visit_syn_expr_result(match_expr);
+                    self.visit_syn_expr_result(eol_with_token);
                     // todo!()
                 }
             }
@@ -228,6 +229,9 @@ impl Diagnose for OriginalSynExprError {
             }
             OriginalSynExprError::ExpectedMatchExpr(_) => {
                 format!("Syntax Error: expected match expression")
+            }
+            OriginalSynExprError::ExpectedEolWithInMatchHead(_) => {
+                format!("Syntax Error: expected end of line `with` in match head")
             }
             OriginalSynExprError::ExpectedForExpr(_) => format!("Syntax Error: expected for expr"),
             OriginalSynExprError::ExpectedBePattern(_) => {

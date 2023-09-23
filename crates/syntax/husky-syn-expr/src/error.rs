@@ -65,6 +65,8 @@ pub enum OriginalSynExprError {
     ExpectedCondition(RegionalTokenStreamState),
     #[error("expected match expression")]
     ExpectedMatchExpr(RegionalTokenStreamState),
+    #[error("expected end of line `with`")]
+    ExpectedEolWithInMatchHead(RegionalTokenStreamState),
     #[error("expected for expr")]
     ExpectedForExpr(RegionalTokenIdx),
     #[error("expected be pattern")]
@@ -176,6 +178,7 @@ impl OriginalSynExprError {
             | OriginalSynExprError::ExpectedResult(token_stream_state)
             | OriginalSynExprError::ExpectedCondition(token_stream_state)
             | OriginalSynExprError::ExpectedMatchExpr(token_stream_state)
+            | OriginalSynExprError::ExpectedEolWithInMatchHead(token_stream_state)
             | OriginalSynExprError::ExpectedRightCurlyBrace(token_stream_state)
             | OriginalSynExprError::ExpectedIdent(token_stream_state)
             | OriginalSynExprError::ExpectedColon(token_stream_state)
