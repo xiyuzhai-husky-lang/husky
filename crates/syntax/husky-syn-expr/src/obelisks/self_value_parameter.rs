@@ -27,6 +27,19 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SelfParameterOb
         ctx: &mut SynDeclExprParser<'a>,
     ) -> Result<Option<Self>, Self::Error> {
         let ephem_symbol_modifier_token_group = ctx.try_parse_option()?;
+        if let Some(ephem_symbol_modifier_token_group) = ephem_symbol_modifier_token_group {
+            match ephem_symbol_modifier_token_group {
+                EphemSymbolModifierRegionalTokenGroup::RefMut(_, None, _)
+                | EphemSymbolModifierRegionalTokenGroup::Ambersand(_, None)
+                | EphemSymbolModifierRegionalTokenGroup::AmbersandMut(_, None, _) => {
+                    ctx.context.set_intro_implicit_self_lifetime()
+                }
+                EphemSymbolModifierRegionalTokenGroup::At(_, None) => {
+                    ctx.context.set_intro_implicit_self_place()
+                }
+                _ => (),
+            }
+        }
         if let Some(self_value_token) = ctx.try_parse_option::<SelfValueRegionalToken>()? {
             Ok(Some(Self {
                 ephem_symbol_modifier_token_group,

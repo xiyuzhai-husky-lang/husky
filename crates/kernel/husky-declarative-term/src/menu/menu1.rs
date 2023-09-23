@@ -8,6 +8,8 @@ pub struct DeclarativeTermMenu1 {
     explicit_covariant_ty0_to_ty0: DeclarativeTermCurry,
     explicit_contravariant_ty0_to_ty0: DeclarativeTermCurry,
     explicit_invariant_ty0_to_ty0: DeclarativeTermCurry,
+    implicit_self_lifetime: DeclarativeTermSymbol,
+    implicit_self_place: DeclarativeTermSymbol,
 }
 
 impl std::ops::Deref for DeclarativeTermMenu1 {
@@ -59,6 +61,16 @@ impl DeclarativeTermMenu1 {
                 menu0.ty0().into(),
                 menu0.ty0().into(),
             ),
+            implicit_self_lifetime: DeclarativeTermSymbol::new(
+                db,
+                Ok(menu0.lifetime_ty()),
+                DeclarativeTermSymbolIndex::SELF_LIFETIME,
+            ),
+            implicit_self_place: DeclarativeTermSymbol::new(
+                db,
+                Ok(menu0.place_ty()),
+                DeclarativeTermSymbolIndex::SELF_PLACE,
+            ),
             parent: menu0,
         }
     }
@@ -81,5 +93,13 @@ impl DeclarativeTermMenu1 {
 
     pub fn static_ref_ty(&self) -> DeclarativeTerm {
         self.static_ref_ty
+    }
+
+    pub fn implicit_self_lifetime(&self) -> DeclarativeTermSymbol {
+        self.implicit_self_lifetime
+    }
+
+    pub fn implicit_self_place(&self) -> DeclarativeTermSymbol {
+        self.implicit_self_place
     }
 }

@@ -85,6 +85,8 @@ impl EtherealTermSymbolIndex {
             DeclarativeTermSymbolIndexInner::EphemErr { disambiguator } => todo!(),
             DeclarativeTermSymbolIndexInner::SelfType => EtherealTermSymbolIndexInner::SelfType,
             DeclarativeTermSymbolIndexInner::SelfValue => EtherealTermSymbolIndexInner::SelfValue,
+            DeclarativeTermSymbolIndexInner::SelfLifetime => todo!(),
+            DeclarativeTermSymbolIndexInner::SelfPlace => todo!(),
             DeclarativeTermSymbolIndexInner::AdHoc { disambiguator } => unreachable!(),
         })
     }
