@@ -6,6 +6,7 @@ impl HasFluffyTypeMethodDispatch for HollowTerm {
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
+        indirections: FluffyDynamicDispatchIndirections,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         match self.fluffy_base_ty_data(engine.db(), engine.fluffy_terms()) {
             FluffyBaseTypeData::TypeOntology {
@@ -30,7 +31,12 @@ impl HasFluffyTypeMethodDispatch for HollowTerm {
                     .terms
                     .fill_hole_by_force(hole, db, term_menu);
                 // ad hoc, needs improvement
-                Into::<FluffyTerm>::into(self).ty_method_dispatch(engine, expr_idx, ident_token)
+                Into::<FluffyTerm>::into(self).ty_method_dispatch(
+                    engine,
+                    expr_idx,
+                    ident_token,
+                    indirections,
+                )
             }
             FluffyBaseTypeData::Category(_) => todo!(),
             FluffyBaseTypeData::Ritchie {

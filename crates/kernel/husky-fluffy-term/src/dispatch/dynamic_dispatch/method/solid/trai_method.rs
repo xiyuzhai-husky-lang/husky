@@ -7,25 +7,7 @@ impl HasFluffyTraitMethodDispatch for SolidTerm {
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
-    ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
-        self.trai_method_dispatch_aux(
-            engine,
-            expr_idx,
-            ident_token,
-            trai_item_records,
-            smallvec![],
-        )
-    }
-}
-
-impl SolidTerm {
-    pub(super) fn trai_method_dispatch_aux(
-        self,
-        engine: &mut impl FluffyTermEngine,
-        expr_idx: SynExprIdx,
-        ident_token: IdentRegionalToken,
-        trai_item_records: TraitInUseItemsWithGivenIdent,
-        mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
+        indirections: FluffyDynamicDispatchIndirections,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         match self.data(engine) {
             SolidTermData::TypeOntology {

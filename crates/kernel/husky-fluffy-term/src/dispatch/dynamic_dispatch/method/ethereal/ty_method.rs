@@ -6,15 +6,26 @@ impl HasFluffyTypeMethodDispatch for EtherealTerm {
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
+        indirections: FluffyDynamicDispatchIndirections,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         // todo: check scope
         match self {
             EtherealTerm::EntityPath(TermEntityPath::TypeOntology(ty_path)) => {
-                ethereal_ty_ontology_path_ty_method_dispatch(engine, expr_idx, ty_path, ident_token)
+                ethereal_ty_ontology_path_ty_method_dispatch(
+                    engine,
+                    expr_idx,
+                    ty_path,
+                    ident_token,
+                    indirections,
+                )
             }
-            EtherealTerm::Application(ty_term) => {
-                ethereal_term_application_ty_method_dispatch(engine, expr_idx, ty_term, ident_token)
-            }
+            EtherealTerm::Application(ty_term) => ethereal_term_application_ty_method_dispatch(
+                engine,
+                expr_idx,
+                ty_term,
+                ident_token,
+                indirections,
+            ),
             _ => Nothing,
         }
     }
@@ -25,8 +36,9 @@ fn ethereal_ty_ontology_path_ty_method_dispatch(
     expr_idx: SynExprIdx,
     ty_path: TypePath,
     ident_token: IdentRegionalToken,
+    indirections: FluffyDynamicDispatchIndirections,
 ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
-    ethereal_ty_method_dispatch_aux(engine, expr_idx, ty_path, &[], ident_token, smallvec![])
+    ethereal_ty_method_dispatch_aux(engine, expr_idx, ty_path, &[], ident_token, indirections)
 }
 
 fn ethereal_term_application_ty_method_dispatch(
@@ -34,6 +46,7 @@ fn ethereal_term_application_ty_method_dispatch(
     expr_idx: SynExprIdx,
     ty_term: EtherealTermApplication,
     ident_token: IdentRegionalToken,
+    indirections: FluffyDynamicDispatchIndirections,
 ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
     let application_expansion = ty_term.application_expansion(engine.db());
     match application_expansion.function() {
@@ -43,7 +56,7 @@ fn ethereal_term_application_ty_method_dispatch(
             ty_path,
             application_expansion.arguments(engine.db()),
             ident_token,
-            smallvec![],
+            indirections,
         ),
         TermFunctionReduced::Trait(_) | TermFunctionReduced::Other(_) => Nothing,
     }
@@ -55,7 +68,7 @@ fn ethereal_ty_method_dispatch_aux(
     ty_path: TypePath,
     arguments: &[EtherealTerm],
     ident_token: IdentRegionalToken,
-    mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
+    mut indirections: FluffyDynamicDispatchIndirections,
 ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
     match ty_path.refine(engine.db()) {
         Left(PreludeTypePath::Indirection(prelude_indirection_ty_path)) => {
@@ -68,10 +81,11 @@ fn ethereal_ty_method_dispatch_aux(
                         p!((&arguments).debug(engine.db()));
                         todo!()
                     }
-                    return JustOk(
-                        arguments[0]
-                            .ty_method_dispatch(engine, expr_idx, ident_token)?
-                            .merge(indirections),
+                    return arguments[0].ty_method_dispatch(
+                        engine,
+                        expr_idx,
+                        ident_token,
+                        indirections,
                     );
                 }
                 PreludeIndirectionTypePath::At => todo!(),
@@ -94,9 +108,6 @@ fn ethereal_ty_method_dispatch_aux(
             signature,
         });
     };
-    if indirections.contains(&FluffyDynamicDispatchIndirection::Leash) {
-        todo!()
-    }
     // ad hoc
     // needs to consider `Deref` `DerefMut` `Carrier`
     Nothing

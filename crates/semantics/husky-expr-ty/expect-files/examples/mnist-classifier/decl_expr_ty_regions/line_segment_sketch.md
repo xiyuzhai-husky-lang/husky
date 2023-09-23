@@ -139,9 +139,11 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [
-                                        Leash,
-                                    ],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [
+                                            Leash,
+                                        ],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -205,9 +207,11 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [
-                                        Leash,
-                                    ],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [
+                                            Leash,
+                                        ],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -291,9 +295,11 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [
-                                        Leash,
-                                    ],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [
+                                            Leash,
+                                        ],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],
@@ -357,9 +363,11 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: [
-                                        Leash,
-                                    ],
+                                    indirections: FluffyDynamicDispatchIndirections {
+                                        indirections: [
+                                            Leash,
+                                        ],
+                                    },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
                                             parenate_parameters: [],

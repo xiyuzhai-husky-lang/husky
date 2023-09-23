@@ -27,7 +27,7 @@ pub(crate) fn ethereal_ty_ontology_path_ty_field_dispatch(
     ty_path: TypePath,
     ident: Ident,
 ) -> FluffyTermMaybeResult<FluffyFieldDispatch> {
-    ethereal_ty_field_dispatch_aux(db, ty_path, &[], ident, smallvec![])
+    ethereal_ty_field_dispatch_aux(db, ty_path, &[], ident, Default::default())
 }
 
 #[salsa::tracked(jar = FluffyTermJar, return_ref)]
@@ -43,7 +43,7 @@ pub(crate) fn ethereal_term_application_ty_field_dispatch(
             ty_path,
             application_expansion.arguments(db),
             ident,
-            smallvec![],
+            Default::default(),
         ),
         TermFunctionReduced::Trait(_) | TermFunctionReduced::Other(_) => Nothing,
     }
@@ -54,7 +54,7 @@ fn ethereal_ty_field_dispatch_aux<'a>(
     ty_path: TypePath,
     arguments: &'a [EtherealTerm],
     ident: Ident,
-    mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
+    mut indirections: FluffyDynamicDispatchIndirections,
 ) -> FluffyTermMaybeResult<FluffyFieldDispatch> {
     match ty_path.refine(db) {
         Left(PreludeTypePath::Indirection(prelude_indirection_ty_path)) => {

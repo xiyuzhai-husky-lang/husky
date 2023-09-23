@@ -6,7 +6,7 @@ impl SolidTerm {
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
         available_traits: &[TraitPath],
-        mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
+        mut indirections: FluffyDynamicDispatchIndirections,
     ) -> FluffyTermMaybeResult<FluffyFieldDispatch> {
         match self.data(engine) {
             SolidTermData::TypeOntology {
