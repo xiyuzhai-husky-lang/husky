@@ -240,6 +240,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::Entity(
                 EntityPath::MajorItem(
                     MajorItemPath::Type(
@@ -247,6 +249,7 @@ Ok(
                     ),
                 ),
             ),
+            TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
                 inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
@@ -287,6 +290,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::Entity(
                 EntityPath::MajorItem(
                     MajorItemPath::Type(
@@ -294,6 +299,7 @@ Ok(
                     ),
                 ),
             ),
+            TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
                 inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(

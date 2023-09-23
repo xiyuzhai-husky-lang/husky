@@ -126,7 +126,14 @@ impl FluffyTerm {
                         Err(_) => todo!(),
                     }
                 }
-                FluffyTermDataKind::Solid => todo!(),
+                FluffyTermDataKind::Solid => fluffy_terms
+                    .solid_terms_mut()
+                    .intern_new(SolidTermData::TypeOntology {
+                        path,
+                        refined_path,
+                        arguments,
+                    })
+                    .into(),
                 FluffyTermDataKind::Hollow => fluffy_terms
                     .hollow_terms_mut()
                     .alloc_new(HollowTermData::TypeOntology {

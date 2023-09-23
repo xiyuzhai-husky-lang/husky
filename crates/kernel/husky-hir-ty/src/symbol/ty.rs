@@ -11,12 +11,18 @@ pub enum HirTypeSymbol {
     },
     SelfType,
     SelfLifetime,
+    SelfPlace,
 }
 
 impl HirTypeSymbol {
     pub(crate) fn from_ethereal(symbol: EtherealTermSymbol, db: &dyn HirTypeDb) -> Self {
         match symbol.index(db).inner() {
-            EtherealTermSymbolIndexInner::Lifetime {
+            EtherealTermSymbolIndexInner::ExplicitLifetime {
+                attrs,
+                variance,
+                disambiguator,
+            } => todo!(),
+            EtherealTermSymbolIndexInner::ExplicitPlace {
                 attrs,
                 variance,
                 disambiguator,

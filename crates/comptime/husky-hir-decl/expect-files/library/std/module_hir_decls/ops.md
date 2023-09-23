@@ -15,6 +15,12 @@
                             ),
                             traits: [],
                         },
+                        HirTemplateParameter {
+                            symbol: Type(
+                                SelfType,
+                            ),
+                            traits: [],
+                        },
                     ],
                 },
             },

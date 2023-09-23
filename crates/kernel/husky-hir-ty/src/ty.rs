@@ -87,11 +87,23 @@ fn hir_ty_from_ethereal_term_application(
             .filter_map(|(param, arg)| {
                 let symbol = param.symbol();
                 match symbol.index(db).inner() {
-                    EtherealTermSymbolIndexInner::Lifetime {
+                    EtherealTermSymbolIndexInner::ExplicitLifetime {
                         attrs,
                         variance,
                         disambiguator,
                     } => todo!(),
+                    EtherealTermSymbolIndexInner::ExplicitPlace {
+                        attrs,
+                        variance,
+                        disambiguator,
+                    } => Some(
+                        HirPlaceSymbol {
+                            attrs: HirSymbolAttrs::from_ethereal(attrs)?,
+                            variance,
+                            disambiguator,
+                        }
+                        .into(),
+                    ),
                     EtherealTermSymbolIndexInner::Type { attrs, .. } => (!attrs.phantom())
                         .then(|| HirTemplateArgument::Type(HirType::from_ethereal(arg, db))),
                     EtherealTermSymbolIndexInner::Prop { .. } => None,

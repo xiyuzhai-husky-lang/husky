@@ -60,7 +60,12 @@ fn hir_trai_from_ethereal_term_application(
                 application_expansion.arguments(db).iter().copied(),
             )
             .filter_map(|(param, arg)| match param.symbol().index(db).inner() {
-                EtherealTermSymbolIndexInner::Lifetime {
+                EtherealTermSymbolIndexInner::ExplicitLifetime {
+                    attrs,
+                    variance,
+                    disambiguator,
+                } => todo!(),
+                EtherealTermSymbolIndexInner::ExplicitPlace {
                     attrs,
                     variance,
                     disambiguator,

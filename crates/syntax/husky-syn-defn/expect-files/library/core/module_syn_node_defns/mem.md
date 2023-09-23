@@ -19,7 +19,7 @@ Ok(
                             },
                             template_parameter_decl_list: Ok(
                                 Some(
-                                    Generics {
+                                    TemplateParameters {
                                         langle: LaOrLtRegionalToken(
                                             RegionalTokenIdx(
                                                 4,
@@ -37,8 +37,8 @@ Ok(
                                                     ),
                                                 ),
                                                 symbol: 1,
-                                                variant: TemplateParameterDeclPatternVariant::Lifetime {
-                                                    label_token: LifetimeRegionalToken {
+                                                data: TemplateParameterObeliskData::Lifetime {
+                                                    label_token: LifetimeLabelRegionalToken {
                                                         label: `'a`,
                                                         token_idx: RegionalTokenIdx(
                                                             6,
@@ -57,7 +57,7 @@ Ok(
                                                     ),
                                                 ),
                                                 symbol: 2,
-                                                variant: TemplateParameterDeclPatternVariant::Type {
+                                                data: TemplateParameterObeliskData::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `E`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -152,7 +152,7 @@ Ok(
                                                             ),
                                                         ),
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Lifetime {
-                                                            label_token: LifetimeRegionalToken {
+                                                            label_token: LifetimeLabelRegionalToken {
                                                                 label: `'a`,
                                                                 token_idx: RegionalTokenIdx(
                                                                     6,
@@ -210,6 +210,8 @@ Ok(
                                         ],
                                     },
                                     roots: [],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -236,7 +238,7 @@ Ok(
                             },
                             template_parameter_decl_list: Ok(
                                 Some(
-                                    Generics {
+                                    TemplateParameters {
                                         langle: LaOrLtRegionalToken(
                                             RegionalTokenIdx(
                                                 4,
@@ -254,8 +256,8 @@ Ok(
                                                     ),
                                                 ),
                                                 symbol: 1,
-                                                variant: TemplateParameterDeclPatternVariant::Lifetime {
-                                                    label_token: LifetimeRegionalToken {
+                                                data: TemplateParameterObeliskData::Lifetime {
+                                                    label_token: LifetimeLabelRegionalToken {
                                                         label: `'a`,
                                                         token_idx: RegionalTokenIdx(
                                                             6,
@@ -274,7 +276,7 @@ Ok(
                                                     ),
                                                 ),
                                                 symbol: 2,
-                                                variant: TemplateParameterDeclPatternVariant::Type {
+                                                data: TemplateParameterObeliskData::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `E`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -369,7 +371,7 @@ Ok(
                                                             ),
                                                         ),
                                                         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Lifetime {
-                                                            label_token: LifetimeRegionalToken {
+                                                            label_token: LifetimeLabelRegionalToken {
                                                                 label: `'a`,
                                                                 token_idx: RegionalTokenIdx(
                                                                     6,
@@ -427,6 +429,8 @@ Ok(
                                         ],
                                     },
                                     roots: [],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -453,7 +457,7 @@ Ok(
                             },
                             template_parameter_decl_list: Ok(
                                 Some(
-                                    Generics {
+                                    TemplateParameters {
                                         langle: LaOrLtRegionalToken(
                                             RegionalTokenIdx(
                                                 4,
@@ -471,7 +475,7 @@ Ok(
                                                     ),
                                                 ),
                                                 symbol: 1,
-                                                variant: TemplateParameterDeclPatternVariant::Type {
+                                                data: TemplateParameterObeliskData::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `E`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -583,6 +587,195 @@ Ok(
                                         ],
                                     },
                                     roots: [],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
+                                },
+                            },
+                        },
+                    },
+                ),
+            ),
+        ),
+        SynNodeDefn::MajorItem(
+            MajorItemSynNodeDefn::Type(
+                TypeSynNodeDefn::Extern(
+                    ExternTypeSynNodeDefn {
+                        syn_node_path: TypeSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`core::mem::At`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        },
+                        syn_node_decl: ExternTypeSynNodeDecl {
+                            syn_node_path: TypeSynNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`core::mem::At`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            template_parameter_decl_list: Ok(
+                                Some(
+                                    TemplateParameters {
+                                        langle: LaOrLtRegionalToken(
+                                            RegionalTokenIdx(
+                                                4,
+                                            ),
+                                        ),
+                                        template_parameters: [
+                                            TemplateParameterObelisk {
+                                                annotated_variance_token: None,
+                                                symbol: 1,
+                                                data: TemplateParameterObeliskData::Place {
+                                                    label_token: PlaceLabelRegionalToken {
+                                                        label: `'α`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            5,
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            TemplateParameterObelisk {
+                                                annotated_variance_token: None,
+                                                symbol: 2,
+                                                data: TemplateParameterObeliskData::Type {
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `E`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            7,
+                                                        ),
+                                                    },
+                                                    traits: None,
+                                                },
+                                            },
+                                        ],
+                                        commas: [
+                                            CommaRegionalToken(
+                                                RegionalTokenIdx(
+                                                    6,
+                                                ),
+                                            ),
+                                        ],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
+                                        rangle: RaOrGtRegionalToken(
+                                            RegionalTokenIdx(
+                                                8,
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                            syn_expr_region: SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: None,
+                                    path: RegionPath::Decl(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Type(
+                                                TypeSynNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::mem::At`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SynSymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [
+                                                CurrentSynSymbol {
+                                                    modifier: Const,
+                                                    access_start: RegionalTokenIdx(
+                                                        6,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                        },
+                                                        annotated_variance_token: None,
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Place {
+                                                            label_token: PlaceLabelRegionalToken {
+                                                                label: `'α`,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    5,
+                                                                ),
+                                                            },
+                                                        },
+                                                    },
+                                                },
+                                                CurrentSynSymbol {
+                                                    modifier: Const,
+                                                    access_start: RegionalTokenIdx(
+                                                        8,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                        },
+                                                        annotated_variance_token: None,
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
+                                                            ident_token: IdentRegionalToken {
+                                                                ident: `E`,
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    7,
+                                                                ),
+                                                            },
+                                                        },
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: False,
+                                        pattern_ty_constraints: [
+                                            (
+                                                TemplateTypeParameter,
+                                                ArenaIdxRange(
+                                                    1..2,
+                                                ),
+                                            ),
+                                            (
+                                                TemplateTypeParameter,
+                                                ArenaIdxRange(
+                                                    2..3,
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    roots: [],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -610,7 +803,7 @@ Ok(
                     },
                     template_parameter_decl_list: Ok(
                         Some(
-                            Generics {
+                            TemplateParameters {
                                 langle: LaOrLtRegionalToken(
                                     RegionalTokenIdx(
                                         2,
@@ -620,7 +813,7 @@ Ok(
                                     TemplateParameterObelisk {
                                         annotated_variance_token: None,
                                         symbol: 1,
-                                        variant: TemplateParameterDeclPatternVariant::Type {
+                                        data: TemplateParameterObeliskData::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `E`,
                                                 regional_token_idx: RegionalTokenIdx(
@@ -832,6 +1025,8 @@ Ok(
                                     expr_idx: 4,
                                 },
                             ],
+                            has_self_lifetime: false,
+                            has_self_place: false,
                         },
                     },
                 },

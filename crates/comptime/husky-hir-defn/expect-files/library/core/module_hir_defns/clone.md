@@ -6,7 +6,14 @@
                 hir_decl: TraitHirDecl {
                     path: TraitPath(`core::clone::Clone`),
                     template_parameters: HirTemplateParameters {
-                        data: [],
+                        data: [
+                            HirTemplateParameter {
+                                symbol: Type(
+                                    SelfType,
+                                ),
+                                traits: [],
+                            },
+                        ],
                     },
                 },
             },

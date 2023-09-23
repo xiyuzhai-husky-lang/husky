@@ -97,6 +97,8 @@ Ok(
                                             expr_idx: 1,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -190,6 +192,8 @@ Ok(
                                                             expr_idx: 1,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -444,6 +448,8 @@ Ok(
                                                 expr_idx: 8,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             ),
@@ -632,6 +638,8 @@ Ok(
                                             expr_idx: 5,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -808,6 +816,8 @@ Ok(
                                                             expr_idx: 5,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -912,7 +922,7 @@ Ok(
                                                                 key: Ident(
                                                                     Coword(
                                                                         Id {
-                                                                            value: 452,
+                                                                            value: 455,
                                                                         },
                                                                     ),
                                                                 ),
@@ -1102,7 +1112,7 @@ Ok(
                                                                 key: Ident(
                                                                     Coword(
                                                                         Id {
-                                                                            value: 452,
+                                                                            value: 455,
                                                                         },
                                                                     ),
                                                                 ),
@@ -1607,7 +1617,7 @@ Ok(
                                                                 key: Ident(
                                                                     Coword(
                                                                         Id {
-                                                                            value: 452,
+                                                                            value: 455,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2084,7 +2094,7 @@ Ok(
                                                                 key: Ident(
                                                                     Coword(
                                                                         Id {
-                                                                            value: 452,
+                                                                            value: 455,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2315,7 +2325,7 @@ Ok(
                                                                 key: Ident(
                                                                     Coword(
                                                                         Id {
-                                                                            value: 452,
+                                                                            value: 455,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2852,7 +2862,7 @@ Ok(
                                                                 key: Ident(
                                                                     Coword(
                                                                         Id {
-                                                                            value: 452,
+                                                                            value: 455,
                                                                         },
                                                                     ),
                                                                 ),
@@ -3015,7 +3025,7 @@ Ok(
                                                                 key: Ident(
                                                                     Coword(
                                                                         Id {
-                                                                            value: 452,
+                                                                            value: 455,
                                                                         },
                                                                     ),
                                                                 ),
@@ -3346,7 +3356,7 @@ Ok(
                                                                 key: Ident(
                                                                     Coword(
                                                                         Id {
-                                                                            value: 452,
+                                                                            value: 455,
                                                                         },
                                                                     ),
                                                                 ),
@@ -3765,7 +3775,7 @@ Ok(
                                                                 key: Ident(
                                                                     Coword(
                                                                         Id {
-                                                                            value: 452,
+                                                                            value: 455,
                                                                         },
                                                                     ),
                                                                 ),
@@ -6267,6 +6277,8 @@ Ok(
                                                 expr_idx: 249,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             ),
@@ -6478,6 +6490,8 @@ Ok(
                                             expr_idx: 4,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -6663,6 +6677,8 @@ Ok(
                                                             expr_idx: 4,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -6933,6 +6949,8 @@ Ok(
                                                 expr_idx: 9,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             ),
@@ -7144,6 +7162,8 @@ Ok(
                                             expr_idx: 4,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -7329,6 +7349,8 @@ Ok(
                                                             expr_idx: 4,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -7626,6 +7648,8 @@ Ok(
                                                 expr_idx: 11,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             ),
@@ -7837,6 +7861,8 @@ Ok(
                                             expr_idx: 4,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -8022,6 +8048,8 @@ Ok(
                                                             expr_idx: 4,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -8389,6 +8417,8 @@ Ok(
                                                 expr_idx: 17,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             ),

@@ -28,6 +28,13 @@ impl FluffyTerm {
             base: ethereal_term.into(),
         }
     }
+
+    pub(crate) fn with_place(self, place: Place) -> Self {
+        Self {
+            place: Some(place),
+            base: self.base,
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

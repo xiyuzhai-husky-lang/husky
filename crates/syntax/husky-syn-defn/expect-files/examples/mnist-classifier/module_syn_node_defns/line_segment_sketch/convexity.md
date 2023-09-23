@@ -21,7 +21,7 @@ Ok(
                                 None,
                             ),
                             parenate_parameter_decl_list: Ok(
-                                RitchieParameters {
+                                ParenateParameters {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
                                             4,
@@ -326,6 +326,8 @@ Ok(
                                             expr_idx: 3,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -567,6 +569,8 @@ Ok(
                                                             expr_idx: 3,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -2767,6 +2771,8 @@ Ok(
                                                 expr_idx: 94,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             ),

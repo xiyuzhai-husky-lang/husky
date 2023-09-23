@@ -19,7 +19,7 @@ Ok(
                                         ),
                                     ),
                                     symbol: 1,
-                                    variant: TemplateParameterDeclPatternVariant::Type {
+                                    data: TemplateParameterObeliskData::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `E`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -119,6 +119,8 @@ Ok(
                                         ],
                                     },
                                     roots: [],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -145,7 +147,7 @@ Ok(
                                         ),
                                     ),
                                     symbol: 1,
-                                    variant: TemplateParameterDeclPatternVariant::Type {
+                                    data: TemplateParameterObeliskData::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `E`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -245,6 +247,8 @@ Ok(
                                         ],
                                     },
                                     roots: [],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -264,7 +268,7 @@ Ok(
                         TemplateParameterObelisk {
                             annotated_variance_token: None,
                             symbol: 1,
-                            variant: TemplateParameterDeclPatternVariant::Type {
+                            data: TemplateParameterObeliskData::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(
@@ -413,6 +417,8 @@ Ok(
                                     expr_idx: 3,
                                 },
                             ],
+                            has_self_lifetime: false,
+                            has_self_place: false,
                         },
                     },
                 },
@@ -587,6 +593,8 @@ Ok(
                                                         expr_idx: 3,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -691,6 +699,8 @@ Ok(
                                             expr_idx: 1,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -912,6 +922,8 @@ Ok(
                                                         expr_idx: 3,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -1135,6 +1147,8 @@ Ok(
                                             expr_idx: 2,
                                         },
                                     ],
+                                    has_self_lifetime: true,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -1158,7 +1172,7 @@ Ok(
                         TemplateParameterObelisk {
                             annotated_variance_token: None,
                             symbol: 1,
-                            variant: TemplateParameterDeclPatternVariant::Type {
+                            data: TemplateParameterObeliskData::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(
@@ -1385,6 +1399,8 @@ Ok(
                                     expr_idx: 4,
                                 },
                             ],
+                            has_self_lifetime: false,
+                            has_self_place: false,
                         },
                     },
                 },
@@ -1632,6 +1648,8 @@ Ok(
                                                         expr_idx: 4,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -1725,6 +1743,8 @@ Ok(
                                             expr_idx: 1,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -1745,7 +1765,7 @@ Ok(
                         TemplateParameterObelisk {
                             annotated_variance_token: None,
                             symbol: 1,
-                            variant: TemplateParameterDeclPatternVariant::Type {
+                            data: TemplateParameterObeliskData::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(
@@ -1894,6 +1914,8 @@ Ok(
                                     expr_idx: 3,
                                 },
                             ],
+                            has_self_lifetime: false,
+                            has_self_place: false,
                         },
                     },
                 },
@@ -2068,6 +2090,8 @@ Ok(
                                                         expr_idx: 3,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -2172,6 +2196,8 @@ Ok(
                                             expr_idx: 1,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -2349,6 +2375,8 @@ Ok(
                                                         expr_idx: 3,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -2453,6 +2481,8 @@ Ok(
                                             expr_idx: 1,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -2630,6 +2660,8 @@ Ok(
                                                         expr_idx: 3,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -2734,6 +2766,8 @@ Ok(
                                             expr_idx: 1,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -2911,6 +2945,8 @@ Ok(
                                                         expr_idx: 3,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -3015,6 +3051,8 @@ Ok(
                                             expr_idx: 3,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -3192,6 +3230,8 @@ Ok(
                                                         expr_idx: 3,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -3296,6 +3336,8 @@ Ok(
                                             expr_idx: 3,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },

@@ -24,7 +24,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 55,
+                            value: 57,
                         },
                     ),
                 ),

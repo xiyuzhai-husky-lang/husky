@@ -45,7 +45,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 146,
+                                                                value: 150,
                                                             },
                                                         ),
                                                     ),
@@ -69,7 +69,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 147,
+                                                                value: 151,
                                                             },
                                                         ),
                                                     ),
@@ -250,7 +250,7 @@ Ok(
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 146,
+                                                                        value: 150,
                                                                     },
                                                                 ),
                                                             ),
@@ -270,7 +270,7 @@ Ok(
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 147,
+                                                                        value: 151,
                                                                     },
                                                                 ),
                                                             ),
@@ -293,7 +293,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 146,
+                                                                    value: 150,
                                                                 },
                                                             ),
                                                         ),
@@ -310,7 +310,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 147,
+                                                                    value: 151,
                                                                 },
                                                             ),
                                                         ),
@@ -322,6 +322,8 @@ Ok(
                                                 expr_idx: 2,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },
@@ -456,6 +458,8 @@ Ok(
                                             expr_idx: 1,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -499,11 +503,11 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                template_parameter_decl_list: Ok(
+                                template_parameters: Ok(
                                     None,
                                 ),
-                                ritchie_parameter_decl_list: Ok(
-                                    RitchieParameters {
+                                parenate_parameters: Ok(
+                                    ParenateParameters {
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 3,
@@ -633,6 +637,8 @@ Ok(
                                                             expr_idx: 1,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -725,6 +731,8 @@ Ok(
                                                 expr_idx: 1,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },
@@ -769,11 +777,11 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                template_parameter_decl_list: Ok(
+                                template_parameters: Ok(
                                     None,
                                 ),
-                                ritchie_parameter_decl_list: Ok(
-                                    RitchieParameters {
+                                parenate_parameters: Ok(
+                                    ParenateParameters {
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 3,
@@ -916,6 +924,8 @@ Ok(
                                                             expr_idx: 1,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -1086,6 +1096,8 @@ Ok(
                                                 expr_idx: 2,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },

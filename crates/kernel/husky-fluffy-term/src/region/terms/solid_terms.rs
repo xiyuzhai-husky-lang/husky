@@ -18,7 +18,7 @@ impl SolidTerms {
         Self { entries }
     }
 
-    fn intern(&mut self, data: SolidTermData) -> SolidTerm {
+    pub(crate) fn intern_new(&mut self, data: SolidTermData) -> SolidTerm {
         let raw = self
             .entries
             .position_or_insert(data)
@@ -35,7 +35,7 @@ pub struct SolidTerm(u32);
 
 impl SolidTerm {
     pub(crate) fn new(solid_terms: &mut SolidTerms, data: SolidTermData) -> Self {
-        solid_terms.intern(data)
+        solid_terms.intern_new(data)
     }
 
     pub(crate) fn data(self, engine: &impl FluffyTermEngine) -> &SolidTermData {

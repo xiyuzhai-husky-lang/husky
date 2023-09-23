@@ -25,7 +25,7 @@ Ok(
                                 },
                                 template_parameter_decl_list: Ok(
                                     Some(
-                                        Generics {
+                                        TemplateParameters {
                                             langle: LaOrLtRegionalToken(
                                                 RegionalTokenIdx(
                                                     4,
@@ -35,7 +35,7 @@ Ok(
                                                 TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 1,
-                                                    variant: TemplateParameterDeclPatternVariant::Type {
+                                                    data: TemplateParameterObeliskData::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -139,6 +139,8 @@ Ok(
                                             ],
                                         },
                                         roots: [],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },
@@ -169,7 +171,7 @@ Ok(
                                 },
                                 template_parameter_decl_list: Ok(
                                     Some(
-                                        Generics {
+                                        TemplateParameters {
                                             langle: LaOrLtRegionalToken(
                                                 RegionalTokenIdx(
                                                     4,
@@ -179,7 +181,7 @@ Ok(
                                                 TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 1,
-                                                    variant: TemplateParameterDeclPatternVariant::Type {
+                                                    data: TemplateParameterObeliskData::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -192,7 +194,7 @@ Ok(
                                                 TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 2,
-                                                    variant: TemplateParameterDeclPatternVariant::Constant {
+                                                    data: TemplateParameterObeliskData::Constant {
                                                         const_token: ConstRegionalToken {
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 7,
@@ -363,6 +365,8 @@ Ok(
                                                 expr_idx: 1,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },
@@ -393,7 +397,7 @@ Ok(
                                 },
                                 template_parameter_decl_list: Ok(
                                     Some(
-                                        Generics {
+                                        TemplateParameters {
                                             langle: LaOrLtRegionalToken(
                                                 RegionalTokenIdx(
                                                     4,
@@ -403,7 +407,7 @@ Ok(
                                                 TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 1,
-                                                    variant: TemplateParameterDeclPatternVariant::Type {
+                                                    data: TemplateParameterObeliskData::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -416,7 +420,7 @@ Ok(
                                                 TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 2,
-                                                    variant: TemplateParameterDeclPatternVariant::Constant {
+                                                    data: TemplateParameterObeliskData::Constant {
                                                         const_token: ConstRegionalToken {
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 7,
@@ -587,6 +591,8 @@ Ok(
                                                 expr_idx: 1,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },
@@ -964,11 +970,13 @@ Ok(
                                                 expr_idx: 9,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                                 template_parameter_decl_list: Ok(
                                     Some(
-                                        Generics {
+                                        TemplateParameters {
                                             langle: LaOrLtRegionalToken(
                                                 RegionalTokenIdx(
                                                     4,
@@ -978,7 +986,7 @@ Ok(
                                                 TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 1,
-                                                    variant: TemplateParameterDeclPatternVariant::Type {
+                                                    data: TemplateParameterObeliskData::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -991,7 +999,7 @@ Ok(
                                                 TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 2,
-                                                    variant: TemplateParameterDeclPatternVariant::Constant {
+                                                    data: TemplateParameterObeliskData::Constant {
                                                         const_token: ConstRegionalToken {
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 7,
@@ -1031,7 +1039,7 @@ Ok(
                                     ),
                                 ),
                                 parenate_parameter_decl_list: Ok(
-                                    RitchieParameters {
+                                    ParenateParameters {
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 12,
@@ -1183,7 +1191,7 @@ Ok(
                             },
                             template_parameter_decl_list: Ok(
                                 Some(
-                                    Generics {
+                                    TemplateParameters {
                                         langle: LaOrLtRegionalToken(
                                             RegionalTokenIdx(
                                                 2,
@@ -1193,7 +1201,7 @@ Ok(
                                             TemplateParameterObelisk {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
-                                                variant: TemplateParameterDeclPatternVariant::Type {
+                                                data: TemplateParameterObeliskData::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `Label`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -1206,7 +1214,7 @@ Ok(
                                             TemplateParameterObelisk {
                                                 annotated_variance_token: None,
                                                 symbol: 2,
-                                                variant: TemplateParameterDeclPatternVariant::Constant {
+                                                data: TemplateParameterObeliskData::Constant {
                                                     const_token: ConstRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
                                                             5,
@@ -1596,6 +1604,8 @@ Ok(
                                             expr_idx: 11,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -1988,6 +1998,8 @@ Ok(
                                                             expr_idx: 11,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -2088,6 +2100,8 @@ Ok(
                                                 expr_idx: 1,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },
@@ -2130,7 +2144,7 @@ Ok(
                             },
                             template_parameter_decl_list: Ok(
                                 Some(
-                                    Generics {
+                                    TemplateParameters {
                                         langle: LaOrLtRegionalToken(
                                             RegionalTokenIdx(
                                                 2,
@@ -2140,7 +2154,7 @@ Ok(
                                             TemplateParameterObelisk {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
-                                                variant: TemplateParameterDeclPatternVariant::Type {
+                                                data: TemplateParameterObeliskData::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `Label`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -2153,7 +2167,7 @@ Ok(
                                             TemplateParameterObelisk {
                                                 annotated_variance_token: None,
                                                 symbol: 2,
-                                                variant: TemplateParameterDeclPatternVariant::Constant {
+                                                data: TemplateParameterObeliskData::Constant {
                                                     const_token: ConstRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
                                                             5,
@@ -2564,6 +2578,8 @@ Ok(
                                             expr_idx: 13,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -2977,6 +2993,8 @@ Ok(
                                                             expr_idx: 13,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -3077,6 +3095,8 @@ Ok(
                                                 expr_idx: 1,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },

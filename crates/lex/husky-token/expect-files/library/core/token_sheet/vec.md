@@ -244,6 +244,16 @@ Ok(
             ),
             TokenData::Punctuation(
                 Punctuation(
+                    PunctuationMapped::At,
+                ),
+            ),
+            TokenData::Keyword(
+                Keyword::Pronoun(
+                    SelfValue,
+                ),
+            ),
+            TokenData::Punctuation(
+                Punctuation(
                     PunctuationMapped::Ket(
                         Par,
                     ),
@@ -258,6 +268,11 @@ Ok(
             ),
             TokenData::Ident(
                 `Option`,
+            ),
+            TokenData::Punctuation(
+                Punctuation(
+                    PunctuationMapped::At,
+                ),
             ),
             TokenData::Ident(
                 `E`,
@@ -287,6 +302,16 @@ Ok(
             ),
             TokenData::Punctuation(
                 Punctuation(
+                    PunctuationMapped::At,
+                ),
+            ),
+            TokenData::Keyword(
+                Keyword::Pronoun(
+                    SelfValue,
+                ),
+            ),
+            TokenData::Punctuation(
+                Punctuation(
                     PunctuationMapped::Ket(
                         Par,
                     ),
@@ -301,6 +326,11 @@ Ok(
             ),
             TokenData::Ident(
                 `Option`,
+            ),
+            TokenData::Punctuation(
+                Punctuation(
+                    PunctuationMapped::At,
+                ),
             ),
             TokenData::Ident(
                 `E`,
@@ -676,27 +706,27 @@ Ok(
             ),
             TokenGroupStart(
                 TokenIdx(
-                    59,
+                    62,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    68,
+                    74,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    80,
+                    86,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    93,
+                    99,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    113,
+                    119,
                 ),
             ),
         ],

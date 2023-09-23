@@ -17,7 +17,7 @@ Ok(
                                     TemplateParameterObelisk {
                                         annotated_variance_token: None,
                                         symbol: 1,
-                                        variant: TemplateParameterDeclPatternVariant::Type {
+                                        data: TemplateParameterObeliskData::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `T`,
                                                 regional_token_idx: RegionalTokenIdx(
@@ -30,7 +30,7 @@ Ok(
                                     TemplateParameterObelisk {
                                         annotated_variance_token: None,
                                         symbol: 2,
-                                        variant: TemplateParameterDeclPatternVariant::Type {
+                                        data: TemplateParameterObeliskData::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `E`,
                                                 regional_token_idx: RegionalTokenIdx(
@@ -149,6 +149,8 @@ Ok(
                                             ],
                                         },
                                         roots: [],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },
@@ -184,7 +186,7 @@ Ok(
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    variant: TemplateParameterDeclPatternVariant::Type {
+                                    data: TemplateParameterObeliskData::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `T1`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -197,7 +199,7 @@ Ok(
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 2,
-                                    variant: TemplateParameterDeclPatternVariant::Type {
+                                    data: TemplateParameterObeliskData::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `T2`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -210,7 +212,7 @@ Ok(
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 3,
-                                    variant: TemplateParameterDeclPatternVariant::Type {
+                                    data: TemplateParameterObeliskData::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `E1`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -223,7 +225,7 @@ Ok(
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 4,
-                                    variant: TemplateParameterDeclPatternVariant::Type {
+                                    data: TemplateParameterObeliskData::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `E2`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -623,6 +625,8 @@ Ok(
                                             expr_idx: 12,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -1048,6 +1052,8 @@ Ok(
                                                             expr_idx: 12,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -1174,6 +1180,8 @@ Ok(
                                                 expr_idx: 1,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },
@@ -1619,6 +1627,8 @@ Ok(
                                                             expr_idx: 12,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -1901,6 +1911,8 @@ Ok(
                                                 expr_idx: 10,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },

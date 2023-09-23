@@ -352,7 +352,13 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             SynExpr::At {
                 at_regional_token_idx,
                 place_label_regional_token,
-            } => todo!(),
+            } => {
+                if let Some(_) = place_label_regional_token {
+                    todo!()
+                }
+                // ad hoc
+                // self.add(*at_regional_token_idx, TokenInfo::Method)
+            }
             SynExpr::Literal(_, _)
             | SynExpr::PrincipalEntityPath { .. }
             | SynExpr::ScopeResolution { .. }

@@ -184,6 +184,43 @@ Ok(
                     PunctuationMapped::Semicolon,
                 ),
             ),
+            TokenData::Keyword(
+                Keyword::Pub,
+            ),
+            TokenData::Keyword(
+                Keyword::TypeEntity(
+                    Extern,
+                ),
+            ),
+            TokenData::Ident(
+                `At`,
+            ),
+            TokenData::Punctuation(
+                Punctuation(
+                    PunctuationMapped::LaOrLt,
+                ),
+            ),
+            TokenData::Label(
+                `'α`,
+            ),
+            TokenData::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Comma,
+                ),
+            ),
+            TokenData::Ident(
+                `E`,
+            ),
+            TokenData::Punctuation(
+                Punctuation(
+                    PunctuationMapped::RaOrGt,
+                ),
+            ),
+            TokenData::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
         ],
         token_group_starts: [
             TokenGroupStart(
@@ -211,8 +248,14 @@ Ok(
                     35,
                 ),
             ),
+            TokenGroupStart(
+                TokenIdx(
+                    44,
+                ),
+            ),
         ],
         indents: [
+            0,
             0,
             0,
             0,

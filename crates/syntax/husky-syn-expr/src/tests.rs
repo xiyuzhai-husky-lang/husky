@@ -118,6 +118,8 @@ fn parse_expr_works() {
                         expr_idx: 1,
                     },
                 ],
+                has_self_lifetime: false,
+                has_self_place: false,
             },
             Some(
                 1,
@@ -199,6 +201,8 @@ fn parse_expr_works() {
                         expr_idx: 2,
                     },
                 ],
+                has_self_lifetime: false,
+                has_self_place: false,
             },
             Some(
                 2,
@@ -273,6 +277,8 @@ fn parse_expr_works() {
                         expr_idx: 1,
                     },
                 ],
+                has_self_lifetime: false,
+                has_self_place: false,
             },
             Some(
                 1,
@@ -347,6 +353,8 @@ fn parse_expr_works() {
                         expr_idx: 1,
                     },
                 ],
+                has_self_lifetime: false,
+                has_self_place: false,
             },
             Some(
                 1,
@@ -418,6 +426,8 @@ fn parse_expr_works() {
                         expr_idx: 1,
                     },
                 ],
+                has_self_lifetime: false,
+                has_self_place: false,
             },
             Some(
                 1,
@@ -512,6 +522,8 @@ fn parse_expr_works() {
                         expr_idx: 3,
                     },
                 ],
+                has_self_lifetime: false,
+                has_self_place: false,
             },
             Some(
                 3,
@@ -605,6 +617,8 @@ fn parse_expr_works() {
                         expr_idx: 3,
                     },
                 ],
+                has_self_lifetime: false,
+                has_self_place: false,
             },
             Some(
                 3,
@@ -713,6 +727,8 @@ fn parse_expr_works() {
                         expr_idx: 4,
                     },
                 ],
+                has_self_lifetime: false,
+                has_self_place: false,
             },
             Some(
                 4,
@@ -831,6 +847,8 @@ fn parse_expr_works() {
                         expr_idx: 3,
                     },
                 ],
+                has_self_lifetime: false,
+                has_self_place: false,
             },
             Some(
                 3,
@@ -919,7 +937,7 @@ fn parse_expr_works() {
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 66,
+                                                value: 67,
                                             },
                                         ),
                                     ),
@@ -935,7 +953,7 @@ fn parse_expr_works() {
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 67,
+                                            value: 68,
                                         },
                                     ),
                                 ),
@@ -987,6 +1005,8 @@ fn parse_expr_works() {
                         expr_idx: 2,
                     },
                 ],
+                has_self_lifetime: false,
+                has_self_place: false,
             },
             Some(
                 2,
@@ -1017,7 +1037,7 @@ fn parse_expr_works() {
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 66,
+                                                value: 67,
                                             },
                                         ),
                                     ),
@@ -1033,7 +1053,7 @@ fn parse_expr_works() {
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 68,
+                                            value: 69,
                                         },
                                     ),
                                 ),
@@ -1093,6 +1113,8 @@ fn parse_expr_works() {
                         expr_idx: 2,
                     },
                 ],
+                has_self_lifetime: false,
+                has_self_place: false,
             },
             Some(
                 2,
@@ -1200,6 +1222,8 @@ fn parse_application_expr_works() {
                         expr_idx: 5,
                     },
                 ],
+                has_self_lifetime: false,
+                has_self_place: false,
             },
             Some(
                 5,

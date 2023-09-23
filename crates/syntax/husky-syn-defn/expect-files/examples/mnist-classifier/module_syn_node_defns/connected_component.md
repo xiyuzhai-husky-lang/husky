@@ -39,7 +39,7 @@ Ok(
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 241,
+                                                            value: 244,
                                                         },
                                                     ),
                                                 ),
@@ -63,7 +63,7 @@ Ok(
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 242,
+                                                            value: 245,
                                                         },
                                                     ),
                                                 ),
@@ -87,7 +87,7 @@ Ok(
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 243,
+                                                            value: 246,
                                                         },
                                                     ),
                                                 ),
@@ -111,7 +111,7 @@ Ok(
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 244,
+                                                            value: 247,
                                                         },
                                                     ),
                                                 ),
@@ -382,7 +382,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 241,
+                                                                    value: 244,
                                                                 },
                                                             ),
                                                         ),
@@ -402,7 +402,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 242,
+                                                                    value: 245,
                                                                 },
                                                             ),
                                                         ),
@@ -422,7 +422,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 243,
+                                                                    value: 246,
                                                                 },
                                                             ),
                                                         ),
@@ -442,7 +442,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 244,
+                                                                    value: 247,
                                                                 },
                                                             ),
                                                         ),
@@ -465,7 +465,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 241,
+                                                                value: 244,
                                                             },
                                                         ),
                                                     ),
@@ -482,7 +482,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 242,
+                                                                value: 245,
                                                             },
                                                         ),
                                                     ),
@@ -499,7 +499,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 243,
+                                                                value: 246,
                                                             },
                                                         ),
                                                     ),
@@ -516,7 +516,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 244,
+                                                                value: 247,
                                                             },
                                                         ),
                                                     ),
@@ -528,6 +528,8 @@ Ok(
                                             expr_idx: 4,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -574,7 +576,7 @@ Ok(
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 246,
+                                                            value: 249,
                                                         },
                                                     ),
                                                 ),
@@ -737,7 +739,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 246,
+                                                                    value: 249,
                                                                 },
                                                             ),
                                                         ),
@@ -760,7 +762,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 246,
+                                                                value: 249,
                                                             },
                                                         ),
                                                     ),
@@ -772,6 +774,8 @@ Ok(
                                             expr_idx: 5,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -800,7 +804,7 @@ Ok(
                                 None,
                             ),
                             parenate_parameter_decl_list: Ok(
-                                RitchieParameters {
+                                ParenateParameters {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
                                             3,
@@ -1031,6 +1035,8 @@ Ok(
                                             expr_idx: 4,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -1216,6 +1222,8 @@ Ok(
                                                             expr_idx: 4,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -1478,6 +1486,8 @@ Ok(
                                                 expr_idx: 9,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             ),
@@ -1525,7 +1535,7 @@ Ok(
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 252,
+                                                            value: 255,
                                                         },
                                                     ),
                                                 ),
@@ -1655,7 +1665,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 252,
+                                                                    value: 255,
                                                                 },
                                                             ),
                                                         ),
@@ -1678,7 +1688,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 252,
+                                                                value: 255,
                                                             },
                                                         ),
                                                     ),
@@ -1690,6 +1700,8 @@ Ok(
                                             expr_idx: 1,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -1718,7 +1730,7 @@ Ok(
                                 None,
                             ),
                             parenate_parameter_decl_list: Ok(
-                                RitchieParameters {
+                                ParenateParameters {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
                                             3,
@@ -2023,6 +2035,8 @@ Ok(
                                             expr_idx: 3,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -2264,6 +2278,8 @@ Ok(
                                                             expr_idx: 3,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -3059,6 +3075,8 @@ Ok(
                                                 expr_idx: 52,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             ),
@@ -3088,7 +3106,7 @@ Ok(
                                 None,
                             ),
                             parenate_parameter_decl_list: Ok(
-                                RitchieParameters {
+                                ParenateParameters {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
                                             4,
@@ -3318,6 +3336,8 @@ Ok(
                                             expr_idx: 4,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -3502,6 +3522,8 @@ Ok(
                                                             expr_idx: 4,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -5230,7 +5252,7 @@ Ok(
                                                         forext_loop_var_ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 258,
+                                                                    value: 261,
                                                                 },
                                                             ),
                                                         ),
@@ -5264,7 +5286,7 @@ Ok(
                                                         forext_loop_var_ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 258,
+                                                                    value: 261,
                                                                 },
                                                             ),
                                                         ),
@@ -6265,6 +6287,8 @@ Ok(
                                                 expr_idx: 124,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             ),
@@ -6433,6 +6457,8 @@ Ok(
                                     expr_idx: 2,
                                 },
                             ],
+                            has_self_lifetime: false,
+                            has_self_place: false,
                         },
                     },
                 },
@@ -6481,7 +6507,7 @@ Ok(
                                 None,
                             ),
                             parenate_parameter_decl_list: Ok(
-                                RitchieParameters {
+                                ParenateParameters {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
                                             3,
@@ -6643,6 +6669,8 @@ Ok(
                                                         expr_idx: 2,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -6738,6 +6766,8 @@ Ok(
                                             expr_idx: 1,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -6867,6 +6897,8 @@ Ok(
                                                                         expr_idx: 2,
                                                                     },
                                                                 ],
+                                                                has_self_lifetime: false,
+                                                                has_self_place: false,
                                                             },
                                                         },
                                                     ),
@@ -6962,6 +6994,8 @@ Ok(
                                                             expr_idx: 1,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -7084,6 +7118,8 @@ Ok(
                                                 expr_idx: 4,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             ),
@@ -7207,6 +7243,8 @@ Ok(
                                     expr_idx: 1,
                                 },
                             ],
+                            has_self_lifetime: false,
+                            has_self_place: false,
                         },
                     },
                 },
@@ -7357,6 +7395,8 @@ Ok(
                                                         expr_idx: 1,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -7462,6 +7502,8 @@ Ok(
                                             expr_idx: 3,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -7559,6 +7601,8 @@ Ok(
                                                                         expr_idx: 1,
                                                                     },
                                                                 ],
+                                                                has_self_lifetime: false,
+                                                                has_self_place: false,
                                                             },
                                                         },
                                                     ),
@@ -7664,6 +7708,8 @@ Ok(
                                                             expr_idx: 3,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -7793,6 +7839,8 @@ Ok(
                                                 expr_idx: 4,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             ),
@@ -7946,6 +7994,8 @@ Ok(
                                                         expr_idx: 1,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -8038,6 +8088,8 @@ Ok(
                                             expr_idx: 1,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -8135,6 +8187,8 @@ Ok(
                                                                         expr_idx: 1,
                                                                     },
                                                                 ],
+                                                                has_self_lifetime: false,
+                                                                has_self_place: false,
                                                             },
                                                         },
                                                     ),
@@ -8227,6 +8281,8 @@ Ok(
                                                             expr_idx: 1,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -8930,6 +8986,8 @@ Ok(
                                                 expr_idx: 26,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             ),
@@ -9083,6 +9141,8 @@ Ok(
                                                         expr_idx: 1,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -9175,6 +9235,8 @@ Ok(
                                             expr_idx: 1,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -9272,6 +9334,8 @@ Ok(
                                                                         expr_idx: 1,
                                                                     },
                                                                 ],
+                                                                has_self_lifetime: false,
+                                                                has_self_place: false,
                                                             },
                                                         },
                                                     ),
@@ -9364,6 +9428,8 @@ Ok(
                                                             expr_idx: 1,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -10042,6 +10108,8 @@ Ok(
                                                 expr_idx: 24,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             ),
@@ -10195,6 +10263,8 @@ Ok(
                                                         expr_idx: 1,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -10287,6 +10357,8 @@ Ok(
                                             expr_idx: 1,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -10384,6 +10456,8 @@ Ok(
                                                                         expr_idx: 1,
                                                                     },
                                                                 ],
+                                                                has_self_lifetime: false,
+                                                                has_self_place: false,
                                                             },
                                                         },
                                                     ),
@@ -10476,6 +10550,8 @@ Ok(
                                                             expr_idx: 1,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -10989,6 +11065,8 @@ Ok(
                                                 expr_idx: 20,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             ),
@@ -11142,6 +11220,8 @@ Ok(
                                                         expr_idx: 1,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -11234,6 +11314,8 @@ Ok(
                                             expr_idx: 1,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -11331,6 +11413,8 @@ Ok(
                                                                         expr_idx: 1,
                                                                     },
                                                                 ],
+                                                                has_self_lifetime: false,
+                                                                has_self_place: false,
                                                             },
                                                         },
                                                     ),
@@ -11423,6 +11507,8 @@ Ok(
                                                             expr_idx: 1,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -11857,6 +11943,8 @@ Ok(
                                                 expr_idx: 17,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             ),
@@ -12010,6 +12098,8 @@ Ok(
                                                         expr_idx: 1,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -12102,6 +12192,8 @@ Ok(
                                             expr_idx: 1,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -12199,6 +12291,8 @@ Ok(
                                                                         expr_idx: 1,
                                                                     },
                                                                 ],
+                                                                has_self_lifetime: false,
+                                                                has_self_place: false,
                                                             },
                                                         },
                                                     ),
@@ -12291,6 +12385,8 @@ Ok(
                                                             expr_idx: 1,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -13131,7 +13227,7 @@ Ok(
                                                         forext_loop_var_ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 241,
+                                                                    value: 244,
                                                                 },
                                                             ),
                                                         ),
@@ -13192,7 +13288,7 @@ Ok(
                                                         forext_loop_var_ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 242,
+                                                                    value: 245,
                                                                 },
                                                             ),
                                                         ),
@@ -13806,6 +13902,8 @@ Ok(
                                                 expr_idx: 62,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             ),
@@ -13959,6 +14057,8 @@ Ok(
                                                         expr_idx: 1,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -14051,6 +14151,8 @@ Ok(
                                             expr_idx: 1,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -14148,6 +14250,8 @@ Ok(
                                                                         expr_idx: 1,
                                                                     },
                                                                 ],
+                                                                has_self_lifetime: false,
+                                                                has_self_place: false,
                                                             },
                                                         },
                                                     ),
@@ -14240,6 +14344,8 @@ Ok(
                                                             expr_idx: 1,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -14385,6 +14491,8 @@ Ok(
                                                 expr_idx: 6,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             ),
@@ -14538,6 +14646,8 @@ Ok(
                                                         expr_idx: 1,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -14630,6 +14740,8 @@ Ok(
                                             expr_idx: 1,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -14727,6 +14839,8 @@ Ok(
                                                                         expr_idx: 1,
                                                                     },
                                                                 ],
+                                                                has_self_lifetime: false,
+                                                                has_self_place: false,
                                                             },
                                                         },
                                                     ),
@@ -14819,6 +14933,8 @@ Ok(
                                                             expr_idx: 1,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -14964,6 +15080,8 @@ Ok(
                                                 expr_idx: 6,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             ),
@@ -15005,11 +15123,11 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            template_parameter_decl_list: Ok(
+                            template_parameters: Ok(
                                 None,
                             ),
-                            ritchie_parameter_decl_list: Ok(
-                                RitchieParameters {
+                            parenate_parameters: Ok(
+                                ParenateParameters {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
                                             3,
@@ -15152,6 +15270,8 @@ Ok(
                                                         expr_idx: 1,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -15322,6 +15442,8 @@ Ok(
                                             expr_idx: 2,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -15419,6 +15541,8 @@ Ok(
                                                                         expr_idx: 1,
                                                                     },
                                                                 ],
+                                                                has_self_lifetime: false,
+                                                                has_self_place: false,
                                                             },
                                                         },
                                                     ),
@@ -15589,6 +15713,8 @@ Ok(
                                                             expr_idx: 2,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -16058,7 +16184,7 @@ Ok(
                                                         forext_loop_var_ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 258,
+                                                                    value: 261,
                                                                 },
                                                             ),
                                                         ),
@@ -16321,6 +16447,8 @@ Ok(
                                                 expr_idx: 30,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             ),
@@ -16362,11 +16490,11 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            template_parameter_decl_list: Ok(
+                            template_parameters: Ok(
                                 None,
                             ),
-                            ritchie_parameter_decl_list: Ok(
-                                RitchieParameters {
+                            parenate_parameters: Ok(
+                                ParenateParameters {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
                                             3,
@@ -16509,6 +16637,8 @@ Ok(
                                                         expr_idx: 1,
                                                     },
                                                 ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
                                             },
                                         },
                                     ),
@@ -16679,6 +16809,8 @@ Ok(
                                             expr_idx: 2,
                                         },
                                     ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
                                 },
                             },
                         },
@@ -16776,6 +16908,8 @@ Ok(
                                                                         expr_idx: 1,
                                                                     },
                                                                 ],
+                                                                has_self_lifetime: false,
+                                                                has_self_place: false,
                                                             },
                                                         },
                                                     ),
@@ -16946,6 +17080,8 @@ Ok(
                                                             expr_idx: 2,
                                                         },
                                                     ],
+                                                    has_self_lifetime: false,
+                                                    has_self_place: false,
                                                 },
                                             },
                                         ),
@@ -17415,7 +17551,7 @@ Ok(
                                                         forext_loop_var_ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 258,
+                                                                    value: 261,
                                                                 },
                                                             ),
                                                         ),
@@ -17678,6 +17814,8 @@ Ok(
                                                 expr_idx: 30,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             ),

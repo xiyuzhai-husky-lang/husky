@@ -131,6 +131,8 @@ Ok(
                                                 expr_idx: 1,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },
@@ -163,7 +165,7 @@ Ok(
                                     None,
                                 ),
                                 parenate_parameter_decl_list: Ok(
-                                    RitchieParameters {
+                                    ParenateParameters {
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 3,
@@ -394,6 +396,8 @@ Ok(
                                                 expr_idx: 4,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },
@@ -530,6 +534,8 @@ Ok(
                                                 expr_idx: 1,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },
@@ -666,6 +672,8 @@ Ok(
                                                 expr_idx: 1,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },
@@ -885,6 +893,8 @@ Ok(
                                                 expr_idx: 5,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },
@@ -917,7 +927,7 @@ Ok(
                                     None,
                                 ),
                                 parenate_parameter_decl_list: Ok(
-                                    RitchieParameters {
+                                    ParenateParameters {
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 3,
@@ -1148,6 +1158,8 @@ Ok(
                                                 expr_idx: 4,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },
@@ -1180,7 +1192,7 @@ Ok(
                                     None,
                                 ),
                                 parenate_parameter_decl_list: Ok(
-                                    RitchieParameters {
+                                    ParenateParameters {
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 3,
@@ -1411,6 +1423,8 @@ Ok(
                                                 expr_idx: 4,
                                             },
                                         ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
                                     },
                                 },
                             },

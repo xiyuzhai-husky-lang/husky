@@ -40,7 +40,16 @@ impl EtherealTermSymbolIndex {
                 attrs,
                 variance,
                 disambiguator,
-            } => EtherealTermSymbolIndexInner::Lifetime {
+            } => EtherealTermSymbolIndexInner::ExplicitLifetime {
+                attrs: EtherealTemplateSymbolAttrs::from_declarative(attrs),
+                variance,
+                disambiguator,
+            },
+            DeclarativeTermSymbolIndexInner::ExplicitPlace {
+                attrs,
+                variance,
+                disambiguator,
+            } => EtherealTermSymbolIndexInner::ExplicitPlace {
                 attrs: EtherealTemplateSymbolAttrs::from_declarative(attrs),
                 variance,
                 disambiguator,
@@ -104,11 +113,20 @@ impl Into<DeclarativeTermSymbolIndex> for EtherealTermSymbolIndex {
     fn into(self) -> DeclarativeTermSymbolIndex {
         unsafe {
             DeclarativeTermSymbolIndex::new(match self.inner() {
-                EtherealTermSymbolIndexInner::Lifetime {
+                EtherealTermSymbolIndexInner::ExplicitLifetime {
                     attrs,
                     variance,
                     disambiguator,
                 } => DeclarativeTermSymbolIndexInner::ExplicitLifetime {
+                    attrs: attrs.into(),
+                    variance,
+                    disambiguator,
+                },
+                EtherealTermSymbolIndexInner::ExplicitPlace {
+                    attrs,
+                    variance,
+                    disambiguator,
+                } => DeclarativeTermSymbolIndexInner::ExplicitPlace {
                     attrs: attrs.into(),
                     variance,
                     disambiguator,
@@ -150,7 +168,12 @@ impl Into<DeclarativeTermSymbolIndex> for EtherealTermSymbolIndex {
 #[salsa::debug_with_db(db = EtherealTermDb)]
 #[repr(u8)]
 pub enum EtherealTermSymbolIndexInner {
-    Lifetime {
+    ExplicitLifetime {
+        attrs: EtherealTemplateSymbolAttrs,
+        variance: Option<Variance>,
+        disambiguator: u8,
+    },
+    ExplicitPlace {
         attrs: EtherealTemplateSymbolAttrs,
         variance: Option<Variance>,
         disambiguator: u8,

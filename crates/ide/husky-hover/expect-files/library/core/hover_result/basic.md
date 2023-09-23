@@ -496,11 +496,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 8,
+                                    line: 9,
                                     character: 0,
                                 },
                                 end: Position {
-                                    line: 8,
+                                    line: 9,
                                     character: 3,
                                 },
                             },
@@ -526,11 +526,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 8,
+                                    line: 9,
                                     character: 4,
                                 },
                                 end: Position {
-                                    line: 8,
+                                    line: 9,
                                     character: 10,
                                 },
                             },
@@ -556,11 +556,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 8,
+                                    line: 9,
                                     character: 11,
                                 },
                                 end: Position {
-                                    line: 8,
+                                    line: 9,
                                     character: 16,
                                 },
                             },
@@ -586,11 +586,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 8,
+                                    line: 9,
                                     character: 16,
                                 },
                                 end: Position {
-                                    line: 8,
+                                    line: 9,
                                     character: 17,
                                 },
                             },
@@ -616,11 +616,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 10,
+                                    line: 12,
                                     character: 0,
                                 },
                                 end: Position {
-                                    line: 10,
+                                    line: 12,
                                     character: 3,
                                 },
                             },
@@ -646,11 +646,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 10,
+                                    line: 12,
                                     character: 4,
                                 },
                                 end: Position {
-                                    line: 10,
+                                    line: 12,
                                     character: 10,
                                 },
                             },
@@ -676,11 +676,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 10,
+                                    line: 12,
                                     character: 11,
                                 },
                                 end: Position {
-                                    line: 10,
+                                    line: 12,
                                     character: 17,
                                 },
                             },
@@ -706,12 +706,252 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 10,
+                                    line: 12,
                                     character: 17,
                                 },
                                 end: Position {
-                                    line: 10,
+                                    line: 12,
                                     character: 18,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                25,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "Other\ntoken_idx = 24;\n\ntoken_line_group_idx = 6\n\ntoken = TokenData::Keyword(\n    Keyword::Pub,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 15,
+                                    character: 0,
+                                },
+                                end: Position {
+                                    line: 15,
+                                    character: 3,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                26,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "Other\ntoken_idx = 25;\n\ntoken_line_group_idx = 6\n\ntoken = TokenData::Keyword(\n    Keyword::TypeEntity(\n        Extern,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 15,
+                                    character: 4,
+                                },
+                                end: Position {
+                                    line: 15,
+                                    character: 10,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                27,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 26;\n\ntoken_line_group_idx = 6\n\ntoken = TokenData::Ident(\n    `Lifetime`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    ItemSynNodePath::MajorItem(\n        MajorItemSynNodePath::Type(\n            TypeSynNodePath {\n                maybe_ambiguous_path: MaybeAmbiguousPath {\n                    path: TypePath(`core::basic::Lifetime`, `Extern`),\n                    disambiguator: 0,\n                },\n            },\n        ),\n    ),\n    MajorItem {\n        module_item_kind: Type(\n            Extern,\n        ),\n        connection: Connected,\n    },\n);\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 15,
+                                    character: 11,
+                                },
+                                end: Position {
+                                    line: 15,
+                                    character: 19,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                28,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 27;\n\ntoken_line_group_idx = 6\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Semicolon,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 15,
+                                    character: 19,
+                                },
+                                end: Position {
+                                    line: 15,
+                                    character: 20,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                29,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "Other\ntoken_idx = 28;\n\ntoken_line_group_idx = 7\n\ntoken = TokenData::Keyword(\n    Keyword::Pub,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 18,
+                                    character: 0,
+                                },
+                                end: Position {
+                                    line: 18,
+                                    character: 3,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                30,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "Other\ntoken_idx = 29;\n\ntoken_line_group_idx = 7\n\ntoken = TokenData::Keyword(\n    Keyword::TypeEntity(\n        Extern,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 18,
+                                    character: 4,
+                                },
+                                end: Position {
+                                    line: 18,
+                                    character: 10,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                31,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 30;\n\ntoken_line_group_idx = 7\n\ntoken = TokenData::Ident(\n    `Place`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    ItemSynNodePath::MajorItem(\n        MajorItemSynNodePath::Type(\n            TypeSynNodePath {\n                maybe_ambiguous_path: MaybeAmbiguousPath {\n                    path: TypePath(`core::basic::Place`, `Extern`),\n                    disambiguator: 0,\n                },\n            },\n        ),\n    ),\n    MajorItem {\n        module_item_kind: Type(\n            Extern,\n        ),\n        connection: Connected,\n    },\n);\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 18,
+                                    character: 11,
+                                },
+                                end: Position {
+                                    line: 18,
+                                    character: 16,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                32,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 31;\n\ntoken_line_group_idx = 7\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Semicolon,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 18,
+                                    character: 16,
+                                },
+                                end: Position {
+                                    line: 18,
+                                    character: 17,
                                 },
                             },
                         ),

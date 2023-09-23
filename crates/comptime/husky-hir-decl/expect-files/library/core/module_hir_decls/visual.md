@@ -4,7 +4,14 @@
             TraitHirDecl {
                 path: TraitPath(`core::visual::Visualize`),
                 template_parameters: HirTemplateParameters {
-                    data: [],
+                    data: [
+                        HirTemplateParameter {
+                            symbol: Type(
+                                SelfType,
+                            ),
+                            traits: [],
+                        },
+                    ],
                 },
             },
         ),
@@ -14,7 +21,7 @@
             Extern(
                 ExternTypeHirDecl(
                     Id {
-                        value: 31,
+                        value: 34,
                     },
                 ),
             ),

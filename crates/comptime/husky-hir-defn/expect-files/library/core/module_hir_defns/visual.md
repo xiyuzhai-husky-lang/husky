@@ -6,7 +6,14 @@
                 hir_decl: TraitHirDecl {
                     path: TraitPath(`core::visual::Visualize`),
                     template_parameters: HirTemplateParameters {
-                        data: [],
+                        data: [
+                            HirTemplateParameter {
+                                symbol: Type(
+                                    SelfType,
+                                ),
+                                traits: [],
+                            },
+                        ],
                     },
                 },
             },
@@ -78,7 +85,7 @@
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 27,
+                                    value: 29,
                                 },
                             ),
                         ),

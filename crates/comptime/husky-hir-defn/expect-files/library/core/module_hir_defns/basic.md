@@ -129,4 +129,56 @@
             ),
         ),
     ),
+    HirDefn::MajorItem(
+        MajorItemHirDefn::Type(
+            TypeHirDefn::Extern(
+                ExternTypeHirDefn {
+                    path: TypePath(`core::basic::Lifetime`, `Extern`),
+                    hir_decl: ExternTypeHirDecl {
+                        path: TypePath(`core::basic::Lifetime`, `Extern`),
+                        template_parameters: HirTemplateParameters {
+                            data: [],
+                        },
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
+                    },
+                },
+            ),
+        ),
+    ),
+    HirDefn::MajorItem(
+        MajorItemHirDefn::Type(
+            TypeHirDefn::Extern(
+                ExternTypeHirDefn {
+                    path: TypePath(`core::basic::Place`, `Extern`),
+                    hir_decl: ExternTypeHirDecl {
+                        path: TypePath(`core::basic::Place`, `Extern`),
+                        template_parameters: HirTemplateParameters {
+                            data: [],
+                        },
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
+                    },
+                },
+            ),
+        ),
+    ),
 ]

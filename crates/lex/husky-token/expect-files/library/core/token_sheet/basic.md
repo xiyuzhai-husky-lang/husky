@@ -101,6 +101,38 @@ Ok(
                     PunctuationMapped::Semicolon,
                 ),
             ),
+            TokenData::Keyword(
+                Keyword::Pub,
+            ),
+            TokenData::Keyword(
+                Keyword::TypeEntity(
+                    Extern,
+                ),
+            ),
+            TokenData::Ident(
+                `Lifetime`,
+            ),
+            TokenData::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+            TokenData::Keyword(
+                Keyword::Pub,
+            ),
+            TokenData::Keyword(
+                Keyword::TypeEntity(
+                    Extern,
+                ),
+            ),
+            TokenData::Ident(
+                `Place`,
+            ),
+            TokenData::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
         ],
         token_group_starts: [
             TokenGroupStart(
@@ -133,8 +165,20 @@ Ok(
                     21,
                 ),
             ),
+            TokenGroupStart(
+                TokenIdx(
+                    25,
+                ),
+            ),
+            TokenGroupStart(
+                TokenIdx(
+                    29,
+                ),
+            ),
         ],
         indents: [
+            0,
+            0,
             0,
             0,
             0,

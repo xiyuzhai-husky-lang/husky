@@ -21,7 +21,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 82,
+                                        value: 87,
                                     },
                                 ),
                             ),
@@ -37,7 +37,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 81,
+                                        value: 86,
                                     },
                                 ),
                             ),
@@ -73,7 +73,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 82,
+                                                value: 87,
                                             },
                                         ),
                                     ),
@@ -91,7 +91,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 81,
+                                                value: 86,
                                             },
                                         ),
                                     ),
@@ -145,10 +145,12 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [
                                             Leash,
                                         ],
+                                        final_place: Leashed,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -159,7 +161,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 82,
+                                                                value: 87,
                                                             },
                                                         ),
                                                     ),
@@ -327,8 +329,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -411,8 +415,10 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
@@ -505,8 +511,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -535,7 +543,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 80,
+                                                                value: 85,
                                                             },
                                                         ),
                                                     ),
@@ -591,8 +599,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -606,7 +616,7 @@
                                                                 Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 80,
+                                                                            value: 85,
                                                                         },
                                                                     ),
                                                                 ),
@@ -643,7 +653,7 @@
                                                         Application(
                                                             EtherealTermApplication(
                                                                 Id {
-                                                                    value: 80,
+                                                                    value: 85,
                                                                 },
                                                             ),
                                                         ),
@@ -744,7 +754,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 81,
+                                                                value: 86,
                                                             },
                                                         ),
                                                     ),
@@ -769,7 +779,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 82,
+                                                                value: 87,
                                                             },
                                                         ),
                                                     ),
@@ -1467,7 +1477,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 81,
+                                                                                    value: 86,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -1484,7 +1494,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 82,
+                                                                                    value: 87,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -1775,8 +1785,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -1790,7 +1802,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 82,
+                                                        value: 87,
                                                     },
                                                 ),
                                             ),
@@ -1819,8 +1831,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -1902,8 +1916,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -1917,7 +1933,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 82,
+                                                        value: 87,
                                                     },
                                                 ),
                                             ),
@@ -1964,8 +1980,10 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
@@ -1974,7 +1992,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 66,
+                                                            value: 71,
                                                         },
                                                     ),
                                                 ),
@@ -2003,10 +2021,12 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [
                                         Leash,
                                     ],
+                                    final_place: Leashed,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -2069,8 +2089,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -2800,8 +2822,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -2815,7 +2839,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 82,
+                                                        value: 87,
                                                     },
                                                 ),
                                             ),
@@ -2844,8 +2868,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -2927,8 +2953,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -2942,7 +2970,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 82,
+                                                        value: 87,
                                                     },
                                                 ),
                                             ),
@@ -2989,8 +3017,10 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
@@ -2999,7 +3029,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 66,
+                                                            value: 71,
                                                         },
                                                     ),
                                                 ),
@@ -3028,10 +3058,12 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [
                                         Leash,
                                     ],
+                                    final_place: Leashed,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -3094,8 +3126,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -3825,8 +3859,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -3840,7 +3876,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 82,
+                                                        value: 87,
                                                     },
                                                 ),
                                             ),
@@ -3869,8 +3905,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -3952,8 +3990,10 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [],
+                                    final_place: Transient,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -3967,7 +4007,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 82,
+                                                        value: 87,
                                                     },
                                                 ),
                                             ),
@@ -4014,8 +4054,10 @@
                         SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: Int {
                                         element_ty: FluffyTerm {
@@ -4024,7 +4066,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 66,
+                                                            value: 71,
                                                         },
                                                     ),
                                                 ),
@@ -4053,10 +4095,12 @@
                     (
                         SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
-                                indirections: FluffyDynamicDispatchIndirections {
+                                indirections: FluffyTermDynamicDispatchIndirections {
+                                    initial_place: Transient,
                                     indirections: [
                                         Leash,
                                     ],
+                                    final_place: Leashed,
                                 },
                                 ty_path: TypePath(
                                     Id {
@@ -4101,8 +4145,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {
@@ -4167,8 +4213,10 @@
                         SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
-                                    indirections: FluffyDynamicDispatchIndirections {
+                                    indirections: FluffyTermDynamicDispatchIndirections {
+                                        initial_place: Transient,
                                         indirections: [],
+                                        final_place: Transient,
                                     },
                                     signature: MethodFn(
                                         MethodFnFluffySignature {

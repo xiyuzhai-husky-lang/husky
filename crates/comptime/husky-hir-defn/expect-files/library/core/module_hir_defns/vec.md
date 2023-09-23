@@ -160,7 +160,14 @@
                             ),
                         ),
                         template_parameters: HirTemplateParameters {
-                            data: [],
+                            data: [
+                                HirTemplateParameter {
+                                    symbol: Type(
+                                        SelfLifetime,
+                                    ),
+                                    traits: [],
+                                },
+                            ],
                         },
                         self_value_parameter: HirRitchieParameter {
                             contract: BorrowMut,
@@ -230,10 +237,17 @@
                             ),
                         ),
                         template_parameters: HirTemplateParameters {
-                            data: [],
+                            data: [
+                                HirTemplateParameter {
+                                    symbol: Type(
+                                        SelfPlace,
+                                    ),
+                                    traits: [],
+                                },
+                            ],
                         },
                         self_value_parameter: HirRitchieParameter {
-                            contract: None,
+                            contract: At,
                             ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
@@ -248,7 +262,7 @@
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 24,
+                                    value: 25,
                                 },
                             ),
                         ),
@@ -289,10 +303,17 @@
                             ),
                         ),
                         template_parameters: HirTemplateParameters {
-                            data: [],
+                            data: [
+                                HirTemplateParameter {
+                                    symbol: Type(
+                                        SelfPlace,
+                                    ),
+                                    traits: [],
+                                },
+                            ],
                         },
                         self_value_parameter: HirRitchieParameter {
-                            contract: None,
+                            contract: At,
                             ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
@@ -307,7 +328,7 @@
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 24,
+                                    value: 25,
                                 },
                             ),
                         ),
@@ -348,7 +369,14 @@
                             ),
                         ),
                         template_parameters: HirTemplateParameters {
-                            data: [],
+                            data: [
+                                HirTemplateParameter {
+                                    symbol: Type(
+                                        SelfLifetime,
+                                    ),
+                                    traits: [],
+                                },
+                            ],
                         },
                         self_value_parameter: HirRitchieParameter {
                             contract: BorrowMut,
@@ -366,7 +394,7 @@
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 24,
+                                    value: 26,
                                 },
                             ),
                         ),
@@ -425,7 +453,7 @@
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 25,
+                                    value: 27,
                                 },
                             ),
                         ),
@@ -505,7 +533,7 @@
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 26,
+                                    value: 28,
                                 },
                             ),
                         ),
@@ -546,7 +574,14 @@
                             ),
                         ),
                         template_parameters: HirTemplateParameters {
-                            data: [],
+                            data: [
+                                HirTemplateParameter {
+                                    symbol: Type(
+                                        SelfLifetime,
+                                    ),
+                                    traits: [],
+                                },
+                            ],
                         },
                         self_value_parameter: HirRitchieParameter {
                             contract: BorrowMut,
@@ -569,7 +604,7 @@
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 24,
+                                    value: 26,
                                 },
                             ),
                         ),

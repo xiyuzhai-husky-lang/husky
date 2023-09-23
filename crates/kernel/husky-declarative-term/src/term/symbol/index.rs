@@ -64,6 +64,11 @@ pub enum DeclarativeTermSymbolIndexInner {
         variance: Option<Variance>,
         disambiguator: u8,
     },
+    ExplicitPlace {
+        attrs: DeclarativeTemplateSymbolAttrs,
+        variance: Option<Variance>,
+        disambiguator: u8,
+    },
     Type {
         attrs: DeclarativeTemplateSymbolAttrs,
         variance: Option<Variance>,
@@ -179,7 +184,7 @@ impl TermSymbolRegistry {
         }
     }
 
-    pub fn issue_lifetime_index(
+    pub fn issue_explicit_lifetime_index(
         &mut self,
         attrs: DeclarativeTemplateSymbolAttrs,
         variance: Option<Variance>,
@@ -208,6 +213,45 @@ impl TermSymbolRegistry {
             None => {
                 let index =
                     DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::ExplicitLifetime {
+                        attrs,
+                        variance,
+                        disambiguator: 0,
+                    });
+                self.cache.push(index);
+                index
+            }
+        }
+    }
+
+    pub fn issue_explicit_place_index(
+        &mut self,
+        attrs: DeclarativeTemplateSymbolAttrs,
+        variance: Option<Variance>,
+    ) -> DeclarativeTermSymbolIndex {
+        match self
+            .cache
+            .iter_mut()
+            .filter_map(|index| match index.0 {
+                DeclarativeTermSymbolIndexInner::ExplicitPlace {
+                    attrs: attrs1,
+                    variance: variance1,
+                    ref mut disambiguator,
+                } if attrs1 == attrs && variance1 == variance => Some(disambiguator),
+                _ => None,
+            })
+            .next()
+        {
+            Some(latest_disambiguator) => {
+                *latest_disambiguator += 1;
+                DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::ExplicitPlace {
+                    attrs,
+                    variance,
+                    disambiguator: *latest_disambiguator,
+                })
+            }
+            None => {
+                let index =
+                    DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::ExplicitPlace {
                         attrs,
                         variance,
                         disambiguator: 0,

@@ -115,7 +115,12 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     let mut method_template_argument_iter = method_template_arguments.iter();
     for template_parameter in ty_method_template.template_parameters(db).iter() {
         match template_parameter.symbol().index(db).inner() {
-            EtherealTermSymbolIndexInner::Lifetime {
+            EtherealTermSymbolIndexInner::ExplicitLifetime {
+                attrs,
+                variance,
+                disambiguator,
+            } => todo!(),
+            EtherealTermSymbolIndexInner::ExplicitPlace {
                 attrs,
                 variance,
                 disambiguator,
