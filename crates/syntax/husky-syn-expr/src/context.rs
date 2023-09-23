@@ -171,12 +171,12 @@ impl<'a> SynExprContext<'a> {
     }
 
     pub fn set_intro_implicit_self_lifetime(&mut self) {
-        debug_assert!(self.intro_implicit_self_lifetime);
+        debug_assert!(!self.intro_implicit_self_lifetime);
         self.intro_implicit_self_lifetime = true;
     }
 
     pub fn set_intro_implicit_self_place(&mut self) {
-        debug_assert!(self.intro_implicit_self_place);
+        debug_assert!(!self.intro_implicit_self_place);
         self.intro_implicit_self_place = true;
     }
 }
