@@ -41,8 +41,9 @@ pub struct DeclarativeTermMenu0 {
     slice_ty_path: DeclarativeTerm,
     str_ty_path: DeclarativeTerm,
     ref_ty_path: DeclarativeTerm,
+    at_ty_path: DeclarativeTerm,
     leash_ty_path: DeclarativeTermEntityPath,
-    list_ty: DeclarativeTerm,
+    vec_ty: DeclarativeTerm,
     i8: DeclarativeTerm,
     i16: DeclarativeTerm,
     i32: DeclarativeTerm,
@@ -107,8 +108,9 @@ impl DeclarativeTermMenu0 {
             option_ty_path: DeclarativeTermEntityPath::Type(item_path_menu.option_ty_path()).into(),
             slice_ty_path: DeclarativeTermEntityPath::Type(item_path_menu.slice_ty_path()).into(),
             str_ty_path: DeclarativeTermEntityPath::Type(item_path_menu.str_ty_path()).into(),
-            ref_ty_path: DeclarativeTermEntityPath::Type(item_path_menu.ref_ty_path()).into(),
-            list_ty: DeclarativeTermEntityPath::Type(item_path_menu.vec_ty_path()).into(),
+            ref_ty_path: item_path_menu.ref_ty_path().into(),
+            at_ty_path: item_path_menu.at_ty_path().into(),
+            vec_ty: DeclarativeTermEntityPath::Type(item_path_menu.vec_ty_path()).into(),
             unit: DeclarativeTermEntityPath::Type(item_path_menu.unit_ty_path()).into(),
             never: DeclarativeTermEntityPath::Type(item_path_menu.never_ty_path()).into(),
             bool: DeclarativeTermEntityPath::Type(item_path_menu.bool_ty_path()).into(),
@@ -240,7 +242,7 @@ impl DeclarativeTermMenu0 {
     }
 
     pub fn list(&self) -> DeclarativeTerm {
-        self.list_ty
+        self.vec_ty
     }
 
     pub fn unit(&self) -> DeclarativeTerm {
@@ -311,5 +313,9 @@ impl DeclarativeTermMenu0 {
 
     pub fn str_ty_path(&self) -> DeclarativeTerm {
         self.str_ty_path
+    }
+
+    pub fn at_ty_path(&self) -> DeclarativeTerm {
+        self.at_ty_path
     }
 }

@@ -243,7 +243,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::option::Option`),
+                            return_ty: DeclarativeTerm(`core::option::Option core::mem::At a t`),
                         },
                     ),
                 ),
@@ -306,7 +306,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::option::Option`),
+                            return_ty: DeclarativeTerm(`core::option::Option core::mem::At a t`),
                         },
                     ),
                 ),

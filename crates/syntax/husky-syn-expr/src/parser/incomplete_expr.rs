@@ -10,7 +10,7 @@ use smallvec::SmallVec;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub(super) enum IncompleteExpr {
+pub(super) enum IncompleteSynExpr {
     Binary {
         lopd: SynExpr,
         punctuation: BinaryOpr,
@@ -95,16 +95,18 @@ where
     }
 }
 
-impl IncompleteExpr {
+impl IncompleteSynExpr {
     pub(super) fn precedence(&self) -> Precedence {
         match self {
-            IncompleteExpr::Binary { punctuation, .. } => (*punctuation).into(),
-            IncompleteExpr::Prefix { .. } => Precedence::Prefix,
-            IncompleteExpr::CommaList { .. } | IncompleteExpr::CallList { .. } => Precedence::List,
-            IncompleteExpr::LambdaHead { .. } => Precedence::LambdaHead,
-            IncompleteExpr::Application { .. } => Precedence::Application,
-            IncompleteExpr::Ritchie { .. } => Precedence::Curry,
-            IncompleteExpr::KeyedArgument { .. } => Precedence::KeyedArgument,
+            IncompleteSynExpr::Binary { punctuation, .. } => (*punctuation).into(),
+            IncompleteSynExpr::Prefix { .. } => Precedence::Prefix,
+            IncompleteSynExpr::CommaList { .. } | IncompleteSynExpr::CallList { .. } => {
+                Precedence::List
+            }
+            IncompleteSynExpr::LambdaHead { .. } => Precedence::LambdaHead,
+            IncompleteSynExpr::Application { .. } => Precedence::Application,
+            IncompleteSynExpr::Ritchie { .. } => Precedence::Curry,
+            IncompleteSynExpr::KeyedArgument { .. } => Precedence::KeyedArgument,
         }
     }
 }

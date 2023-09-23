@@ -4,14 +4,14 @@ use husky_syn_expr::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = DeclarativeSignatureDb)]
+// #[salsa::debug_with_db(db = DeclarativeSignatureDb)]
 pub struct SymbolDeclarativeTermRegion {
     symbol_registry: TermSymbolRegistry,
     symbol_signatures: SymbolOrderedMap<SymbolSignature>,
     self_ty_term: Option<DeclarativeTerm>,
     self_value_term: Option<DeclarativeTermSymbol>,
-    implicit_self_lifetime: Option<DeclarativeTermSymbol>,
-    implicit_self_place: Option<DeclarativeTermSymbol>,
+    self_lifetime: Option<DeclarativeTermSymbol>,
+    self_place: Option<DeclarativeTermSymbol>,
     implicit_template_parameter_symbols: SmallVec<[DeclarativeTermSymbol; 1]>,
 }
 
@@ -49,6 +49,18 @@ impl SymbolSignature {
 }
 
 impl SymbolDeclarativeTermRegion {
+    pub fn self_lifetime(&self) -> Option<DeclarativeTermSymbol> {
+        self.self_lifetime
+    }
+
+    pub fn self_place(&self) -> Option<DeclarativeTermSymbol> {
+        self.self_place
+    }
+
+    pub fn implicit_template_parameter_symbols(&self) -> &[DeclarativeTermSymbol] {
+        &self.implicit_template_parameter_symbols
+    }
+
     pub(crate) fn symbol_registry_mut(&mut self) -> &mut TermSymbolRegistry {
         &mut self.symbol_registry
     }
@@ -130,10 +142,6 @@ impl SymbolDeclarativeTermRegion {
     ) {
         self.symbol_signatures.insert_next(idx, signature)
     }
-
-    pub fn implicit_template_parameter_symbols(&self) -> &[DeclarativeTermSymbol] {
-        &self.implicit_template_parameter_symbols
-    }
 }
 
 impl SymbolDeclarativeTermRegion {
@@ -160,8 +168,8 @@ impl SymbolDeclarativeTermRegion {
             ),
             self_ty_term: parent.map(|parent| parent.self_ty_term).flatten(),
             self_value_term: parent.map(|parent| parent.self_value_term).flatten(),
-            implicit_self_lifetime,
-            implicit_self_place,
+            self_lifetime: implicit_self_lifetime,
+            self_place: implicit_self_place,
             implicit_template_parameter_symbols: implicit_self_lifetime
                 .into_iter()
                 .chain(implicit_self_place)
