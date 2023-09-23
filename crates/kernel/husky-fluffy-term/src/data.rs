@@ -187,6 +187,9 @@ impl<'a> FluffyTermDataKindMerger<'a> {
     }
 
     pub(crate) fn accept_one(&mut self, term: FluffyTerm) {
+        if term.place().is_some() {
+            self.has_solid = true
+        }
         match term.resolve_progress(self.hollow_terms) {
             TermResolveProgress::UnresolvedHollow => self.has_hollow = true,
             TermResolveProgress::ResolvedEthereal(_) => (),
