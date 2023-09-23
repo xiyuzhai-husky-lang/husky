@@ -111,7 +111,21 @@ impl FluffyTerm {
             let mut merger = FluffyTermDataKindMerger::new(fluffy_terms);
             merger.accept(arguments.iter().copied());
             match merger.data_kind() {
-                FluffyTermDataKind::Ethereal => todo!(),
+                FluffyTermDataKind::Ethereal => {
+                    match EtherealTerm::new_ty_ontology(
+                        db,
+                        path,
+                        arguments.iter().map(|argument| {
+                            match argument.resolve_progress(fluffy_terms) {
+                                TermResolveProgress::ResolvedEthereal(argument) => argument,
+                                _ => unreachable!(),
+                            }
+                        }),
+                    ) {
+                        Ok(term) => term.into(),
+                        Err(_) => todo!(),
+                    }
+                }
                 FluffyTermDataKind::Solid => todo!(),
                 FluffyTermDataKind::Hollow => fluffy_terms
                     .hollow_terms_mut()

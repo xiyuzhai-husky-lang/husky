@@ -183,22 +183,42 @@ impl FluffyTermInstantiate for EtherealTermApplication {
         instantiation: &mut FluffyTermInstantiation,
     ) -> Self::Target {
         let mut flag = false;
-        let function = self.function(engine.db()).instantiate_with_flag(
-            engine,
-            expr_idx,
-            instantiation,
-            &mut flag,
-        );
-        let argument = self.argument(engine.db()).instantiate_with_flag(
-            engine,
-            expr_idx,
-            instantiation,
-            &mut flag,
-        );
-        match flag {
-            true => FluffyTerm::new_application(engine, expr_idx, function, argument)
-                .expect("should be okay"),
-            false => self.into(),
+        let db = engine.db();
+        let application_expansion = self.application_expansion(db);
+        let arguments = application_expansion.arguments(db);
+        match application_expansion.function() {
+            TermFunctionReduced::TypeOntology(path) => match path.refine(db) {
+                Left(PreludeTypePath::Indirection(PreludeIndirectionTypePath::At)) => {
+                    debug_assert_eq!(arguments.len(), 2);
+                    todo!()
+                }
+                refined_path => {
+                    let arguments = arguments
+                        .iter()
+                        .map(|argument| {
+                            argument.instantiate_with_flag(
+                                engine,
+                                expr_idx,
+                                instantiation,
+                                &mut flag,
+                            )
+                        })
+                        .collect();
+                    if flag {
+                        FluffyTerm::new_ty_ontology(
+                            db,
+                            engine.fluffy_terms_mut(),
+                            path,
+                            refined_path,
+                            arguments,
+                        )
+                    } else {
+                        self.into()
+                    }
+                }
+            },
+            TermFunctionReduced::Trait(_) => todo!(),
+            TermFunctionReduced::Other(_) => todo!(),
         }
     }
 }
