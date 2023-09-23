@@ -13,22 +13,13 @@ use husky_ethereal_signature::{PropsFieldEtherealSignature, TypeMemoizedFieldEth
 #[derive(Debug, PartialEq, Eq)]
 // #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct FluffyFieldDispatch {
-    indirections: FluffyDynamicDispatchIndirections,
+    indirections: FluffyTermDynamicDispatchIndirections,
     ty_path: TypePath,
     signature: FluffyFieldSignature,
 }
 
 impl FluffyFieldDispatch {
-    fn merge(&self, mut indirections: FluffyDynamicDispatchIndirections) -> Self {
-        indirections.extend(&self.indirections);
-        Self {
-            indirections,
-            ty_path: self.ty_path,
-            signature: self.signature,
-        }
-    }
-
-    pub fn indirections(&self) -> &[FluffyDynamicDispatchIndirection] {
+    pub fn indirections(&self) -> &[FluffyTermDynamicDispatchIndirection] {
         &self.indirections
     }
 
@@ -49,7 +40,12 @@ impl FluffyTerm {
         ident: Ident,
         available_traits: &[TraitPath],
     ) -> FluffyTermMaybeResult<FluffyFieldDispatch> {
-        self.field_dispatch_aux(engine, ident, available_traits, Default::default())
+        self.field_dispatch_aux(
+            engine,
+            ident,
+            available_traits,
+            FluffyTermDynamicDispatchIndirections::new(self.initial_place()),
+        )
     }
 
     fn field_dispatch_aux(
@@ -57,16 +53,17 @@ impl FluffyTerm {
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
         available_traits: &[TraitPath],
-        mut indirections: FluffyDynamicDispatchIndirections,
+        mut indirections: FluffyTermDynamicDispatchIndirections,
     ) -> FluffyTermMaybeResult<FluffyFieldDispatch> {
         match self.base_resolved(engine) {
             FluffyTermBase::Ethereal(term) => {
-                JustOk(ethereal_ty_field_dispatch(engine.db(), term, ident)?.merge(indirections))
+                ethereal_ty_field_dispatch(engine.db(), term, ident, indirections)
             }
             FluffyTermBase::Solid(term) => {
                 term.field_dispatch_aux(engine, ident, available_traits, indirections)
             }
             FluffyTermBase::Hollow(term) => todo!(),
+            FluffyTermBase::Place => todo!(),
         }
     }
 }

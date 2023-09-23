@@ -21,6 +21,15 @@ pub struct FluffyTerm {
     base: FluffyTermBase,
 }
 
+impl FluffyTerm {
+    pub(crate) fn new_ethereal(place: Place, ethereal_term: EtherealTerm) -> Self {
+        Self {
+            place: Some(place),
+            base: ethereal_term.into(),
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = FluffyTermDb)]
 #[enum_class::from_variants]
@@ -28,6 +37,16 @@ pub enum FluffyTermBase {
     Ethereal(EtherealTerm),
     Solid(SolidTerm),
     Hollow(HollowTerm),
+    Place,
+}
+
+impl From<Place> for FluffyTerm {
+    fn from(place: Place) -> Self {
+        FluffyTerm {
+            place: Some(place),
+            base: FluffyTermBase::Place,
+        }
+    }
 }
 
 impl From<EtherealTerm> for FluffyTerm {
@@ -143,6 +162,7 @@ impl FluffyTerm {
                 TermResolveProgress::ResolvedSolid(term) => term.into(),
                 TermResolveProgress::Err => todo!(),
             },
+            FluffyTermBase::Place => self.base,
         }
     }
 

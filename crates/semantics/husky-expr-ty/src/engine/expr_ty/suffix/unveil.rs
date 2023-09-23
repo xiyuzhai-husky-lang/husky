@@ -75,6 +75,7 @@ impl<'a> ExprTypeEngine<'a> {
                     }
                     FluffyTermBase::Solid(_) => todo!(),
                     FluffyTermBase::Hollow(_) => todo!(),
+                    FluffyTermBase::Place => todo!(),
                 }
             }
             Unveiler::Nothing => Err(OriginalExprTypeError::CannotUnveil)?,

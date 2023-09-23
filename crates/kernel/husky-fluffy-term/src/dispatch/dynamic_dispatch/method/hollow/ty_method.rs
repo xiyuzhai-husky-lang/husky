@@ -6,7 +6,7 @@ impl HasFluffyTypeMethodDispatch for HollowTerm {
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
-        indirections: FluffyDynamicDispatchIndirections,
+        indirections: FluffyTermDynamicDispatchIndirections,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         match self.fluffy_base_ty_data(engine.db(), engine.fluffy_terms()) {
             FluffyBaseTypeData::TypeOntology {
@@ -14,7 +14,12 @@ impl HasFluffyTypeMethodDispatch for HollowTerm {
                 refined_ty_path,
                 ty_arguments,
                 ty_ethereal_term,
-            } => todo!(),
+            } => {
+                p!(self
+                    .fluffy_base_ty_data(engine.db(), engine.fluffy_terms())
+                    .debug(engine.db()));
+                todo!()
+            }
             FluffyBaseTypeData::Curry {
                 curry_kind,
                 variance,

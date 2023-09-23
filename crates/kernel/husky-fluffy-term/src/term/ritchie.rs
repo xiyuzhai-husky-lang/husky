@@ -131,12 +131,14 @@ impl FluffyTerm {
                 FluffyTermBase::Ethereal(_) => (),
                 FluffyTermBase::Solid(_) => solid_flag = true,
                 FluffyTermBase::Hollow(_) => hollow_flag = true,
+                FluffyTermBase::Place => todo!(),
             }
         }
         match return_ty.base_resolved_inner(terms) {
             FluffyTermBase::Ethereal(_) => (),
             FluffyTermBase::Solid(_) => solid_flag = true,
             FluffyTermBase::Hollow(_) => hollow_flag = true,
+            FluffyTermBase::Place => todo!(),
         }
         if hollow_flag {
             terms

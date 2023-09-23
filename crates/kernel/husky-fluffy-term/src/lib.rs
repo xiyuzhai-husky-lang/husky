@@ -50,9 +50,4 @@ use salsa::DebugWithDb as _;
 use smallvec::*;
 
 #[salsa::jar(db = FluffyTermDb)]
-pub struct FluffyTermJar(
-    term_ritchie_fluffy_data,
-    term_application_fluffy_data,
-    ethereal_ty_ontology_path_ty_field_dispatch,
-    ethereal_term_application_ty_field_dispatch,
-);
+pub struct FluffyTermJar(term_ritchie_fluffy_data, term_application_fluffy_data);

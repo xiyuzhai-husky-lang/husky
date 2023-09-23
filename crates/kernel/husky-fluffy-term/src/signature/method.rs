@@ -52,6 +52,7 @@ pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     ty_template_arguments: &[Term],
     method_template_arguments: &[FluffyTerm],
     ident_token: IdentRegionalToken,
+    self_place: Place,
 ) -> FluffyTermMaybeResult<MethodFluffySignature> {
     let ident = ident_token.ident();
     match ty_path.ty_item_ethereal_signature_templates(engine.db(), ident)? {
@@ -63,6 +64,7 @@ pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
                     template,
                     ty_template_arguments,
                     method_template_arguments,
+                    self_place,
                 ) {
                     return JustOk(signature.into());
                 }
@@ -93,13 +95,17 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     ty_method_template: TypeMethodFnEtherealSignatureTemplate,
     ty_template_arguments: &[Term],
     method_template_arguments: &[FluffyTerm],
+    self_place: Place,
 ) -> FluffyTermMaybeResult<MethodFnFluffySignature> {
     let db = engine.db();
     let self_ty_application_expansion = ty_method_template.self_ty(db).application_expansion(db);
     if self_ty_application_expansion.arguments(db).len() != ty_template_arguments.len() {
         todo!()
     }
-    let mut instantiation = FluffyTermInstantiation::default();
+    let mut instantiation =
+        FluffyTermInstantiation::new(FluffyTermInstantiationEnvironment::TypeMethodFn {
+            self_place,
+        });
     // initialize pattern matcher
     std::iter::zip(
         self_ty_application_expansion.arguments(db).iter().copied(),

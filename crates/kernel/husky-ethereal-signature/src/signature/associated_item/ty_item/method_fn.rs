@@ -14,22 +14,18 @@ pub struct TypeMethodFnEtherealSignatureTemplate {
 impl TypeMethodFnEtherealSignatureTemplate {
     pub(super) fn from_declarative(
         db: &dyn EtherealSignatureDb,
-        dec_sig_tmpl: TypeMethodFnDeclarativeSignatureTemplate,
+        tmpl: TypeMethodFnDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let self_ty = EtherealTerm::ty_from_declarative(db, dec_sig_tmpl.self_ty(db))?;
-        let template_parameters = EtherealTermTemplateParameters::from_declarative(
-            db,
-            dec_sig_tmpl.template_parameters(db),
-        )?;
+        let self_ty = EtherealTerm::ty_from_declarative(db, tmpl.self_ty(db))?;
+        let template_parameters =
+            EtherealTermTemplateParameters::from_declarative(db, tmpl.template_parameters(db))?;
         let self_value_parameter = EtherealTermRitchieRegularParameter::from_declarative(
             db,
-            dec_sig_tmpl.self_value_parameter(db),
+            tmpl.self_value_parameter(db),
         )?;
-        let parenate_parameters = EtherealTermParenateParameters::from_declarative(
-            db,
-            dec_sig_tmpl.parenate_parameters(db),
-        )?;
-        let return_ty = EtherealTerm::ty_from_declarative(db, dec_sig_tmpl.return_ty(db))?;
+        let parenate_parameters =
+            EtherealTermParenateParameters::from_declarative(db, tmpl.parenate_parameters(db))?;
+        let return_ty = EtherealTerm::ty_from_declarative(db, tmpl.return_ty(db))?;
         Ok(Self::new(
             db,
             self_ty,

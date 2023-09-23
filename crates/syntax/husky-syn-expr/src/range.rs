@@ -299,7 +299,10 @@ impl<'a> SynExprRangeCalculator<'a> {
             SynExpr::At {
                 at_regional_token_idx,
                 place_label_regional_token,
-            } => todo!(),
+            } => match place_label_regional_token {
+                Some(_) => todo!(),
+                None => RegionalTokenIdxRange::new_single(*at_regional_token_idx),
+            },
             SynExpr::Unit {
                 lpar_regional_token_idx,
                 rpar_regional_token_idx,

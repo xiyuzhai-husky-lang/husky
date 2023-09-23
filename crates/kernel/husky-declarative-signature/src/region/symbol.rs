@@ -156,10 +156,10 @@ impl SymbolDeclarativeTermRegion {
     ) -> Self {
         let registry = parent.map_or(Default::default(), |parent| parent.symbol_registry.clone());
         let implicit_self_lifetime = syn_expr_region_data
-            .intro_implicit_self_lifetime()
+            .has_self_lifetime()
             .then_some(declarative_term_menu.implicit_self_lifetime());
         let implicit_self_place = syn_expr_region_data
-            .intro_implicit_self_place()
+            .has_self_place()
             .then_some(declarative_term_menu.implicit_self_place());
         Self {
             symbol_registry: registry,

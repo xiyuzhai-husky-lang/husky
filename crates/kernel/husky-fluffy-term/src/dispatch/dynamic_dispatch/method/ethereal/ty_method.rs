@@ -6,7 +6,7 @@ impl HasFluffyTypeMethodDispatch for EtherealTerm {
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
-        indirections: FluffyDynamicDispatchIndirections,
+        indirections: FluffyTermDynamicDispatchIndirections,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         // todo: check scope
         match self {
@@ -36,7 +36,7 @@ fn ethereal_ty_ontology_path_ty_method_dispatch(
     expr_idx: SynExprIdx,
     ty_path: TypePath,
     ident_token: IdentRegionalToken,
-    indirections: FluffyDynamicDispatchIndirections,
+    indirections: FluffyTermDynamicDispatchIndirections,
 ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
     ethereal_ty_method_dispatch_aux(engine, expr_idx, ty_path, &[], ident_token, indirections)
 }
@@ -46,7 +46,7 @@ fn ethereal_term_application_ty_method_dispatch(
     expr_idx: SynExprIdx,
     ty_term: EtherealTermApplication,
     ident_token: IdentRegionalToken,
-    indirections: FluffyDynamicDispatchIndirections,
+    indirections: FluffyTermDynamicDispatchIndirections,
 ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
     let application_expansion = ty_term.application_expansion(engine.db());
     match application_expansion.function() {
@@ -68,7 +68,7 @@ fn ethereal_ty_method_dispatch_aux(
     ty_path: TypePath,
     arguments: &[EtherealTerm],
     ident_token: IdentRegionalToken,
-    mut indirections: FluffyDynamicDispatchIndirections,
+    mut indirections: FluffyTermDynamicDispatchIndirections,
 ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
     match ty_path.refine(engine.db()) {
         Left(PreludeTypePath::Indirection(prelude_indirection_ty_path)) => {
@@ -76,7 +76,7 @@ fn ethereal_ty_method_dispatch_aux(
                 PreludeIndirectionTypePath::Ref => todo!(),
                 PreludeIndirectionTypePath::RefMut => todo!(),
                 PreludeIndirectionTypePath::Leash => {
-                    indirections.push(FluffyDynamicDispatchIndirection::Leash);
+                    indirections.add(FluffyTermDynamicDispatchIndirection::Leash);
                     if arguments.len() != 1 {
                         p!((&arguments).debug(engine.db()));
                         todo!()
@@ -100,6 +100,7 @@ fn ethereal_ty_method_dispatch_aux(
         arguments,
         /* ad hoc */ &[],
         ident_token,
+        indirections.final_place(),
     )
     .into_result_option()?
     {

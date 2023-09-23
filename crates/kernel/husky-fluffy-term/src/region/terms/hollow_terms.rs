@@ -257,6 +257,7 @@ impl FluffyTerms {
                 hole_entry.resolve_progress = HollowTermResolveProgressBuf::ResolvedSolid(term)
             }
             FluffyTermBase::Hollow(_) => (),
+            FluffyTermBase::Place => todo!(),
         }
         self.hollow_terms.update_entries(db, &mut self.solid_terms)
     }
@@ -328,6 +329,7 @@ impl FluffyTerm {
             FluffyTermBase::Ethereal(term) => TermResolveProgress::ResolvedEthereal(term),
             FluffyTermBase::Solid(term) => TermResolveProgress::ResolvedSolid(term),
             FluffyTermBase::Hollow(term) => term.resolve_progress(terms.borrow()),
+            FluffyTermBase::Place => todo!(),
         }
     }
 

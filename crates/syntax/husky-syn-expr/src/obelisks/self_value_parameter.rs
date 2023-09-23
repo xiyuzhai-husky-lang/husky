@@ -32,10 +32,10 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SelfParameterOb
                 EphemSymbolModifierRegionalTokenGroup::RefMut(_, None, _)
                 | EphemSymbolModifierRegionalTokenGroup::Ambersand(_, None)
                 | EphemSymbolModifierRegionalTokenGroup::AmbersandMut(_, None, _) => {
-                    ctx.context.set_intro_implicit_self_lifetime()
+                    ctx.context.set_has_self_lifetime()
                 }
                 EphemSymbolModifierRegionalTokenGroup::At(_, None) => {
-                    ctx.context.set_intro_implicit_self_place()
+                    ctx.context.set_has_self_place()
                 }
                 _ => (),
             }
