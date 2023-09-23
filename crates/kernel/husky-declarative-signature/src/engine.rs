@@ -11,13 +11,15 @@ use salsa::DebugWithDb;
 
 pub(super) struct DeclarativeTermEngine<'a> {
     db: &'a dyn DeclarativeSignatureDb,
-    expr_region_data: &'a SynExprRegionData,
+    syn_expr_region_data: &'a SynExprRegionData,
     declarative_term_menu: &'a DeclarativeTermMenu,
     symbol_declarative_term_region: SymbolDeclarativeTermRegion,
     expr_terms: SynExprMap<DeclarativeTermResult2<DeclarativeTerm>>,
     /// todo: change this to ordered
     pattern_expr_ty_infos: SynPatternExprMap<PatternExprDeclarativeTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolDeclarativeTypeInfo>,
+    implicit_self_lifetime: Option<DeclarativeTermSymbol>,
+    implicit_self_place: Option<DeclarativeTermSymbol>,
 }
 
 #[salsa::tracked(jar = DeclarativeSignatureJar, return_ref)]
@@ -43,22 +45,32 @@ impl<'a> DeclarativeTermEngine<'a> {
         // ad hoc
         let _item_path_menu = db.item_path_menu(toolchain);
         let declarative_term_menu = db.declarative_term_menu(toolchain).unwrap();
-        let expr_region_data = &syn_expr_region.data(db);
+        let syn_expr_region_data = &syn_expr_region.data(db);
+        let implicit_self_lifetime = syn_expr_region_data
+            .intro_implicit_self_lifetime()
+            .then_some(declarative_term_menu.implicit_self_lifetime());
+        let implicit_self_place = syn_expr_region_data
+            .intro_implicit_self_place()
+            .then_some(declarative_term_menu.implicit_self_place());
         Self {
             db,
-            expr_region_data,
+            syn_expr_region_data,
             declarative_term_menu,
             symbol_declarative_term_region: SymbolDeclarativeTermRegion::new(
                 parent_term_symbol_region,
-                expr_region_data.symbol_region(),
+                syn_expr_region_data.symbol_region(),
             ),
-            expr_terms: SynExprMap::new(expr_region_data.expr_arena()),
-            pattern_expr_ty_infos: SynPatternExprMap::new(expr_region_data.pattern_expr_arena()),
+            expr_terms: SynExprMap::new(syn_expr_region_data.expr_arena()),
+            pattern_expr_ty_infos: SynPatternExprMap::new(
+                syn_expr_region_data.pattern_expr_arena(),
+            ),
             pattern_symbol_ty_infos: SynPatternSymbolMap::new(
-                expr_region_data
+                syn_expr_region_data
                     .pattern_expr_region()
                     .pattern_symbol_arena(),
             ),
+            implicit_self_lifetime,
+            implicit_self_place,
         }
     }
 
@@ -67,8 +79,8 @@ impl<'a> DeclarativeTermEngine<'a> {
         self.symbol_declarative_term_region
             .infer_self_ty_parameter_and_self_value_parameter(
                 self.db,
-                self.expr_region_data.path(),
-                self.expr_region_data.symbol_region(),
+                self.syn_expr_region_data.path(),
+                self.syn_expr_region_data.symbol_region(),
             );
         self.infer_expr_roots();
         self.finish()
@@ -76,11 +88,11 @@ impl<'a> DeclarativeTermEngine<'a> {
 
     fn infer_current_symbol_terms(&mut self) {
         let mut current_symbol_indexed_iter = self
-            .expr_region_data
+            .syn_expr_region_data
             .symbol_region()
             .current_symbol_indexed_iter();
         for (pattern_ty_constraint, symbols) in self
-            .expr_region_data
+            .syn_expr_region_data
             .symbol_region()
             .pattern_ty_constraints()
         {
@@ -139,9 +151,9 @@ impl<'a> DeclarativeTermEngine<'a> {
                             if ty.is_err() {
                                 p!(
                                     ident_token.debug(self.db),
-                                    self.expr_region_data.path().debug(self.db)
+                                    self.syn_expr_region_data.path().debug(self.db)
                                 );
-                                p!(self.expr_region_data[*ty_expr_idx].debug(self.db));
+                                p!(self.syn_expr_region_data[*ty_expr_idx].debug(self.db));
                                 p!(self.expr_terms[*ty_expr_idx].debug(self.db));
                                 todo!()
                             }
@@ -217,14 +229,14 @@ impl<'a> DeclarativeTermEngine<'a> {
     ) {
         let Ok(ty) = self.infer_new_expr_term(ty) else {
             for symbol in symbols {
-                let modifier = self.expr_region_data[symbol].modifier();
+                let modifier = self.syn_expr_region_data[symbol].modifier();
                 self.symbol_declarative_term_region
                     .add_new_parenate_parameter_symbol_signature(
                         self.db,
                         symbol,
                         modifier,
                         Err(DeclarativeTermSymbolTypeErrorKind::CannotInferTypeExprTerm(
-                            self.expr_region_data.path(),
+                            self.syn_expr_region_data.path(),
                         )),
                     )
             }
@@ -240,7 +252,7 @@ impl<'a> DeclarativeTermEngine<'a> {
         &mut self,
         current_symbol_idx: CurrentSynSymbolIdx,
     ) {
-        let current_symbol = &self.expr_region_data.symbol_region()[current_symbol_idx];
+        let current_symbol = &self.syn_expr_region_data.symbol_region()[current_symbol_idx];
         match current_symbol.variant() {
             CurrentSynSymbolVariant::ParenateRegularParameter {
                 ident,
@@ -260,7 +272,7 @@ impl<'a> DeclarativeTermEngine<'a> {
     }
 
     fn infer_expr_roots(&mut self) {
-        for expr_root in self.expr_region_data.roots() {
+        for expr_root in self.syn_expr_region_data.roots() {
             match expr_root.kind() {
                 // omit props struct field because they are inferred for field variable
                 ExprRootKind::PropsStructFieldType { .. } => continue,
@@ -317,7 +329,7 @@ impl<'a> DeclarativeTermEngine<'a> {
 
     pub(crate) fn finish(self) -> DeclarativeTermRegion {
         DeclarativeTermRegion::new(
-            self.expr_region_data.path(),
+            self.syn_expr_region_data.path(),
             self.symbol_declarative_term_region,
             self.expr_terms,
             self.pattern_expr_ty_infos,
@@ -335,7 +347,7 @@ impl<'a> DeclarativeTermEngine<'a> {
     }
 
     fn calc_expr_term(&mut self, expr_idx: SynExprIdx) -> DeclarativeTermResult2<DeclarativeTerm> {
-        match self.expr_region_data.expr_arena()[expr_idx] {
+        match self.syn_expr_region_data.expr_arena()[expr_idx] {
             SynExpr::Literal(token_idx, literal) => match literal {
                 Literal::Unit => todo!(),
                 Literal::Char(_) => todo!(),
@@ -466,7 +478,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                     PrefixOpr::Minus => todo!(),
                     PrefixOpr::Not => todo!(),
                     PrefixOpr::Tilde => DeclarativeTerm::LeashOrBitNot(
-                        self.expr_region_data.path().toolchain(self.db),
+                        self.syn_expr_region_data.path().toolchain(self.db),
                     ),
                     PrefixOpr::Ref => todo!(),
                     // self.declarative_term_menu.ref_ty_path(),
@@ -531,7 +543,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 Ok(DeclarativeTermExplicitApplication::new(self.db, function, argument).into())
             }
             SynExpr::NewTuple { ref items, .. } => {
-                p!(self.expr_region_data.path().debug(self.db));
+                p!(self.syn_expr_region_data.path().debug(self.db));
                 p!(items.len());
                 todo!()
             }
@@ -542,7 +554,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                     .collect::<DeclarativeTermResult2<Vec<_>>>()?;
                 Ok(DeclarativeTermList::new(
                     self.db,
-                    self.expr_region_data.path().toolchain(self.db),
+                    self.syn_expr_region_data.path().toolchain(self.db),
                     items,
                 )
                 .into())

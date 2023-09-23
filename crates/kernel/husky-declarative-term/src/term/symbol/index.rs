@@ -37,6 +37,11 @@ pub enum DeclarativeTemplateSymbolAttr {
 pub struct DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner);
 
 impl DeclarativeTermSymbolIndex {
+    pub const SELF_TYPE: Self = Self(DeclarativeTermSymbolIndexInner::SelfType);
+    pub const SELF_VALUE: Self = Self(DeclarativeTermSymbolIndexInner::SelfValue);
+    pub const SELF_LIFETIME: Self = Self(DeclarativeTermSymbolIndexInner::SelfLifetime);
+    pub const SELF_PLACE: Self = Self(DeclarativeTermSymbolIndexInner::SelfPlace);
+
     /// only use this in husky-ethereal-term
     pub unsafe fn new(inner: DeclarativeTermSymbolIndexInner) -> Self {
         Self(inner)
@@ -95,6 +100,8 @@ pub enum DeclarativeTermSymbolIndexInner {
     },
     SelfType,
     SelfValue,
+    SelfLifetime,
+    SelfPlace,
     /// useful when calculatingb application shifts (operad-like)
     AdHoc {
         disambiguator: u8,
