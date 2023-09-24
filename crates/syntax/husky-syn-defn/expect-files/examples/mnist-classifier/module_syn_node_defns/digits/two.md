@@ -1061,7 +1061,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 1,
                                                             variables: ArenaIdxRange(
                                                                 1..2,
@@ -1782,7 +1782,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 1,
                                                             variables: ArenaIdxRange(
                                                                 1..2,
@@ -2503,7 +2503,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 1,
                                                             variables: ArenaIdxRange(
                                                                 1..2,
@@ -3070,7 +3070,7 @@ Ok(
                                                         3,
                                                     ),
                                                     target: Ok(
-                                                        BeVariablesObelisk {
+                                                        BePatternObelisk {
                                                             pattern_expr: 1,
                                                             variables: ArenaIdxRange(
                                                                 1..2,
@@ -3094,7 +3094,7 @@ Ok(
                                                         7,
                                                     ),
                                                     target: Ok(
-                                                        BeVariablesObelisk {
+                                                        BePatternObelisk {
                                                             pattern_expr: 2,
                                                             variables: ArenaIdxRange(
                                                                 2..3,
@@ -3118,7 +3118,7 @@ Ok(
                                                         11,
                                                     ),
                                                     target: Ok(
-                                                        BeVariablesObelisk {
+                                                        BePatternObelisk {
                                                             pattern_expr: 3,
                                                             variables: ArenaIdxRange(
                                                                 3..4,
@@ -3142,7 +3142,7 @@ Ok(
                                                         15,
                                                     ),
                                                     target: Ok(
-                                                        BeVariablesObelisk {
+                                                        BePatternObelisk {
                                                             pattern_expr: 4,
                                                             variables: ArenaIdxRange(
                                                                 4..5,
@@ -3166,7 +3166,7 @@ Ok(
                                                         19,
                                                     ),
                                                     target: Ok(
-                                                        BeVariablesObelisk {
+                                                        BePatternObelisk {
                                                             pattern_expr: 5,
                                                             variables: ArenaIdxRange(
                                                                 5..6,
@@ -3190,7 +3190,7 @@ Ok(
                                                         23,
                                                     ),
                                                     target: Ok(
-                                                        BeVariablesObelisk {
+                                                        BePatternObelisk {
                                                             pattern_expr: 6,
                                                             variables: ArenaIdxRange(
                                                                 6..7,
@@ -3303,7 +3303,7 @@ Ok(
                                                         46,
                                                     ),
                                                     target: Ok(
-                                                        BeVariablesObelisk {
+                                                        BePatternObelisk {
                                                             pattern_expr: 9,
                                                             variables: ArenaIdxRange(
                                                                 9..10,
@@ -3616,7 +3616,7 @@ Ok(
                                                         100,
                                                     ),
                                                     target: Ok(
-                                                        BeVariablesObelisk {
+                                                        BePatternObelisk {
                                                             pattern_expr: 14,
                                                             variables: ArenaIdxRange(
                                                                 14..15,
@@ -3640,7 +3640,7 @@ Ok(
                                                         104,
                                                     ),
                                                     target: Ok(
-                                                        BeVariablesObelisk {
+                                                        BePatternObelisk {
                                                             pattern_expr: 15,
                                                             variables: ArenaIdxRange(
                                                                 15..16,
@@ -4284,7 +4284,7 @@ Ok(
                                                         229,
                                                     ),
                                                     target: Ok(
-                                                        BeVariablesObelisk {
+                                                        BePatternObelisk {
                                                             pattern_expr: 26,
                                                             variables: ArenaIdxRange(
                                                                 26..27,
@@ -4308,7 +4308,7 @@ Ok(
                                                         233,
                                                     ),
                                                     target: Ok(
-                                                        BeVariablesObelisk {
+                                                        BePatternObelisk {
                                                             pattern_expr: 27,
                                                             variables: ArenaIdxRange(
                                                                 27..28,
@@ -4332,7 +4332,7 @@ Ok(
                                                         237,
                                                     ),
                                                     target: Ok(
-                                                        BeVariablesObelisk {
+                                                        BePatternObelisk {
                                                             pattern_expr: 28,
                                                             variables: ArenaIdxRange(
                                                                 28..29,
@@ -4723,7 +4723,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 16,
                                                             variables: ArenaIdxRange(
                                                                 16..17,
@@ -4758,7 +4758,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 17,
                                                             variables: ArenaIdxRange(
                                                                 17..18,
@@ -4785,7 +4785,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 18,
                                                             variables: ArenaIdxRange(
                                                                 18..19,
@@ -4812,7 +4812,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 19,
                                                             variables: ArenaIdxRange(
                                                                 19..20,
@@ -4839,7 +4839,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 20,
                                                             variables: ArenaIdxRange(
                                                                 20..21,
@@ -4866,7 +4866,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 21,
                                                             variables: ArenaIdxRange(
                                                                 21..22,
@@ -4893,7 +4893,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 22,
                                                             variables: ArenaIdxRange(
                                                                 22..23,
@@ -4920,7 +4920,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 23,
                                                             variables: ArenaIdxRange(
                                                                 23..24,
@@ -4947,7 +4947,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 24,
                                                             variables: ArenaIdxRange(
                                                                 24..25,
@@ -4974,7 +4974,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 25,
                                                             variables: ArenaIdxRange(
                                                                 25..26,
@@ -5041,7 +5041,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 29,
                                                             variables: ArenaIdxRange(
                                                                 29..30,
@@ -5116,7 +5116,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 7,
                                                             variables: ArenaIdxRange(
                                                                 7..8,
@@ -5143,7 +5143,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 8,
                                                             variables: ArenaIdxRange(
                                                                 8..9,
@@ -5178,7 +5178,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 10,
                                                             variables: ArenaIdxRange(
                                                                 10..11,
@@ -5205,7 +5205,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 11,
                                                             variables: ArenaIdxRange(
                                                                 11..12,
@@ -5232,7 +5232,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 12,
                                                             variables: ArenaIdxRange(
                                                                 12..13,
@@ -5267,7 +5267,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 13,
                                                             variables: ArenaIdxRange(
                                                                 13..14,
@@ -6004,7 +6004,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        variant: CurrentSynSymbolVariant::BeVariable {
                                                             ident: `none`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -6021,7 +6021,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        variant: CurrentSynSymbolVariant::BeVariable {
                                                             ident: `none`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -6038,7 +6038,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        variant: CurrentSynSymbolVariant::BeVariable {
                                                             ident: `none`,
                                                             pattern_symbol_idx: 3,
                                                         },
@@ -6055,7 +6055,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        variant: CurrentSynSymbolVariant::BeVariable {
                                                             ident: `none`,
                                                             pattern_symbol_idx: 4,
                                                         },
@@ -6072,7 +6072,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        variant: CurrentSynSymbolVariant::BeVariable {
                                                             ident: `none`,
                                                             pattern_symbol_idx: 5,
                                                         },
@@ -6089,7 +6089,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        variant: CurrentSynSymbolVariant::BeVariable {
                                                             ident: `none`,
                                                             pattern_symbol_idx: 6,
                                                         },
@@ -6140,7 +6140,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        variant: CurrentSynSymbolVariant::BeVariable {
                                                             ident: `none`,
                                                             pattern_symbol_idx: 9,
                                                         },
@@ -6225,7 +6225,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        variant: CurrentSynSymbolVariant::BeVariable {
                                                             ident: `some`,
                                                             pattern_symbol_idx: 14,
                                                         },
@@ -6242,7 +6242,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        variant: CurrentSynSymbolVariant::BeVariable {
                                                             ident: `some`,
                                                             pattern_symbol_idx: 15,
                                                         },
@@ -6429,7 +6429,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        variant: CurrentSynSymbolVariant::BeVariable {
                                                             ident: `some`,
                                                             pattern_symbol_idx: 26,
                                                         },
@@ -6446,7 +6446,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        variant: CurrentSynSymbolVariant::BeVariable {
                                                             ident: `some`,
                                                             pattern_symbol_idx: 27,
                                                         },
@@ -6463,7 +6463,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        variant: CurrentSynSymbolVariant::BeVariable {
                                                             ident: `some`,
                                                             pattern_symbol_idx: 28,
                                                         },

@@ -161,7 +161,7 @@ impl<'a> SynDefnTokraRegionBuilder<'a> {
                     | Ast::BasicStmtOrBranch {
                         token_group_idx, ..
                     }
-                    | Ast::MatchStmts {
+                    | Ast::MatchStmt {
                         token_group_idx, ..
                     } => Some((ast_idx, token_group_idx)),
                     Ast::IfElseStmts { if_branch, .. } => Some((
@@ -262,17 +262,17 @@ impl<'a> SynDefnTokraRegionBuilder<'a> {
                 else_branch: else_branch
                     .map(|else_branch| self.build_ast_then_alloc(else_branch).expect("todo")),
             }),
-            Ast::MatchStmts {
+            Ast::MatchStmt {
                 token_group_idx,
                 pattern_stmt,
-                case_stmts,
-            } => Some(DefnAst::MatchStmts {
+                case_branches,
+            } => Some(DefnAst::MatchStmt {
                 regional_token_group_idx: RegionalTokenGroupIdx::new(
                     token_group_idx,
                     self.regional_token_group_idx_base,
                 ),
                 pattern_stmt: self.build_ast_then_alloc(pattern_stmt).expect("todo"),
-                case_stmts: self.build_asts(case_stmts),
+                case_branches: self.build_asts(case_branches),
             }),
             _ => None,
         }

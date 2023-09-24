@@ -185,6 +185,8 @@ impl SynSymbolRegion {
                     InheritedSynSymbolKind::ParenateParameter { ident }
                 }
                 CurrentSynSymbolVariant::LetVariable { .. } => todo!(),
+                CurrentSynSymbolVariant::BeVariable { .. } => todo!(),
+                CurrentSynSymbolVariant::CaseVariable { .. } => todo!(),
                 CurrentSynSymbolVariant::FrameVariable { .. } => todo!(),
                 CurrentSynSymbolVariant::TemplateParameter {
                     ref template_parameter_variant,

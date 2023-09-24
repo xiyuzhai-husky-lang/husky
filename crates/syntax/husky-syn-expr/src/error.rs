@@ -50,9 +50,11 @@ pub enum OriginalSynExprError {
         be_regional_token_idx: RegionalTokenIdx,
     },
     #[error("expected variable pattern")]
-    ExpectedLetVariableDecls(RegionalTokenStreamState),
+    ExpectedLetPattern(RegionalTokenStreamState),
     #[error("expected pattern expression after `be`")]
-    ExpectedBeVariablesPattern(RegionalTokenStreamState),
+    ExpectedBePattern(RegionalTokenStreamState),
+    #[error("expected pattern expression after `|`")]
+    ExpectedCasePattern(RegionalTokenStreamState),
     #[error("expected `=`")]
     ExpectedAssign(RegionalTokenStreamState),
     #[error("expected initial value")]
@@ -69,8 +71,6 @@ pub enum OriginalSynExprError {
     ExpectedEolWithInMatchHead(RegionalTokenStreamState),
     #[error("expected for expr")]
     ExpectedForExpr(RegionalTokenIdx),
-    #[error("expected be pattern")]
-    ExpectedBePattern(RegionalTokenIdx),
     #[error("expected paramter pattern")]
     ExpectedParameterPattern(RegionalTokenIdx),
     #[error("ExpectedValueForFieldBindInitialization")]
@@ -170,9 +170,10 @@ pub enum OriginalSynExprError {
 impl OriginalSynExprError {
     pub fn regional_token_idx_range(&self) -> RegionalTokenIdxRange {
         match self {
-            OriginalSynExprError::ExpectedLetVariableDecls(regional_token_idx)
-            | OriginalSynExprError::ExpectedBeVariablesPattern(regional_token_idx) => todo!(),
-            OriginalSynExprError::ExpectedLetVariablesType(token_stream_state)
+            OriginalSynExprError::ExpectedLetPattern(token_stream_state)
+            | OriginalSynExprError::ExpectedBePattern(token_stream_state)
+            | OriginalSynExprError::ExpectedCasePattern(token_stream_state)
+            | OriginalSynExprError::ExpectedLetVariablesType(token_stream_state)
             | OriginalSynExprError::ExpectedAssign(token_stream_state)
             | OriginalSynExprError::ExpectedInitialValue(token_stream_state)
             | OriginalSynExprError::ExpectedResult(token_stream_state)
@@ -229,7 +230,6 @@ impl OriginalSynExprError {
                 be_regional_token_idx: regional_token_idx,
             }
             | OriginalSynExprError::ExpectedForExpr(regional_token_idx)
-            | OriginalSynExprError::ExpectedBePattern(regional_token_idx)
             | OriginalSynExprError::ExpectedParameterPattern(regional_token_idx)
             | OriginalSynExprError::UnterminatedList {
                 bra_regional_token_idx: regional_token_idx,

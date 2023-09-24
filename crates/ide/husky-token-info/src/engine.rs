@@ -491,6 +491,12 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             CurrentSynSymbolKind::LetVariable {
                 pattern_symbol_idx: pattern_symbol,
             }
+            | CurrentSynSymbolKind::BeVariable {
+                pattern_symbol_idx: pattern_symbol,
+            }
+            | CurrentSynSymbolKind::CaseVariable {
+                pattern_symbol_idx: pattern_symbol,
+            }
             | CurrentSynSymbolKind::ExplicitRegularParameter {
                 pattern_symbol_idx: pattern_symbol,
             } => match self.expr_region_data[pattern_symbol] {

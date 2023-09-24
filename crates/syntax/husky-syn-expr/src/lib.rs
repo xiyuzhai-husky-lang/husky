@@ -124,7 +124,7 @@ pub enum SynExpr {
     Be {
         src: SynExprIdx,
         be_regional_token_idx: RegionalTokenIdx,
-        target: SynExprResult<BeVariablesObelisk>,
+        target: SynExprResult<BePatternObelisk>,
     },
     Prefix {
         opr: PrefixOpr,

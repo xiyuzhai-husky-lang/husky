@@ -20,10 +20,10 @@ pub enum DefnAst {
         elif_branches: DefnAstIdxRange,
         else_branch: Option<DefnAstIdx>,
     },
-    MatchStmts {
+    MatchStmt {
         regional_token_group_idx: RegionalTokenGroupIdx,
         pattern_stmt: DefnAstIdx,
-        case_stmts: DefnAstIdxRange,
+        case_branches: DefnAstIdxRange,
     },
 }
 

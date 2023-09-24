@@ -38,7 +38,7 @@ impl<'a> FoldingRangeCalculator<'a> {
             | Ast::Sorc { .. }
             | Ast::Attr { .. }
             | Ast::IfElseStmts { .. }
-            | Ast::MatchStmts { .. }
+            | Ast::MatchStmt { .. }
             | Ast::TypeVariant { .. } => None,
             Ast::Identifiable { block, .. } => block
                 .children()?

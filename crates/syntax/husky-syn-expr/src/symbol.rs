@@ -131,6 +131,8 @@ impl CurrentSynSymbol {
             | CurrentSynSymbolVariant::FieldVariable { ident_token } => Some(ident_token.ident()),
             CurrentSynSymbolVariant::ParenateRegularParameter { ident, .. }
             | CurrentSynSymbolVariant::LetVariable { ident, .. }
+            | CurrentSynSymbolVariant::BeVariable { ident, .. }
+            | CurrentSynSymbolVariant::CaseVariable { ident, .. }
             | CurrentSynSymbolVariant::FrameVariable { ident, .. } => Some(ident),
             CurrentSynSymbolVariant::TemplateParameter {
                 template_parameter_variant:
@@ -160,6 +162,12 @@ pub enum CurrentSynSymbolKind {
         ident_token: IdentRegionalToken,
     },
     LetVariable {
+        pattern_symbol_idx: SynPatternSymbolIdx,
+    },
+    BeVariable {
+        pattern_symbol_idx: SynPatternSymbolIdx,
+    },
+    CaseVariable {
         pattern_symbol_idx: SynPatternSymbolIdx,
     },
     FieldVariable {
@@ -206,6 +214,14 @@ pub enum CurrentSynSymbolVariant {
         ident_token: IdentRegionalToken,
     },
     LetVariable {
+        ident: Ident,
+        pattern_symbol_idx: SynPatternSymbolIdx,
+    },
+    BeVariable {
+        ident: Ident,
+        pattern_symbol_idx: SynPatternSymbolIdx,
+    },
+    CaseVariable {
         ident: Ident,
         pattern_symbol_idx: SynPatternSymbolIdx,
     },
@@ -262,6 +278,12 @@ impl CurrentSynSymbolVariant {
                 pattern_symbol_idx, ..
             }
             | CurrentSynSymbolVariant::LetVariable {
+                pattern_symbol_idx, ..
+            }
+            | CurrentSynSymbolVariant::BeVariable {
+                pattern_symbol_idx, ..
+            }
+            | CurrentSynSymbolVariant::CaseVariable {
                 pattern_symbol_idx, ..
             } => pattern_expr_region.pattern_symbol_modifier(*pattern_symbol_idx),
             CurrentSynSymbolVariant::ParenateVariadicParameter {
@@ -342,6 +364,16 @@ impl CurrentSynSymbolVariant {
             CurrentSynSymbolVariant::LetVariable {
                 pattern_symbol_idx, ..
             } => CurrentSynSymbolKind::LetVariable {
+                pattern_symbol_idx: *pattern_symbol_idx,
+            },
+            CurrentSynSymbolVariant::BeVariable {
+                pattern_symbol_idx, ..
+            } => CurrentSynSymbolKind::BeVariable {
+                pattern_symbol_idx: *pattern_symbol_idx,
+            },
+            CurrentSynSymbolVariant::CaseVariable {
+                pattern_symbol_idx, ..
+            } => CurrentSynSymbolKind::CaseVariable {
                 pattern_symbol_idx: *pattern_symbol_idx,
             },
             CurrentSynSymbolVariant::FrameVariable { expr_idx, .. } => {

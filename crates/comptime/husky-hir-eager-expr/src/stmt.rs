@@ -6,7 +6,7 @@ pub use self::loop_stmt::*;
 
 use crate::*;
 use husky_syn_expr::{
-    LetVariableObelisk, LoopBoundaryKind, LoopStep, SynForBetweenLoopBoundary,
+    LetPatternObelisk, LoopBoundaryKind, LoopStep, SynForBetweenLoopBoundary,
     SynForBetweenParticulars, SynForBetweenRange, SynStmt, SynStmtIdx, SynStmtIdxRange,
 };
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
