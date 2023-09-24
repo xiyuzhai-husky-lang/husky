@@ -3,6 +3,7 @@
 #![feature(let_chains)]
 mod context;
 mod db;
+mod entity_path;
 mod error;
 pub mod helpers;
 mod html;
@@ -11,7 +12,6 @@ mod obelisks;
 mod parser;
 mod pattern;
 mod precedence;
-mod principal_entity_path;
 mod range;
 mod region;
 mod snippet;
@@ -22,13 +22,13 @@ mod tests;
 
 pub use self::context::*;
 pub use self::db::*;
+pub use self::entity_path::*;
 pub use self::error::*;
 pub use self::html::*;
 pub use self::list_item::*;
 pub use self::obelisks::*;
 pub use self::parser::*;
 pub use self::pattern::*;
-pub use self::principal_entity_path::*;
 pub use self::range::*;
 pub use self::region::*;
 pub use self::stmt::*;
@@ -86,15 +86,7 @@ impl BaseEntityPathInclination {
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum SynExpr {
     Literal(RegionalTokenIdx, Literal),
-    PrincipalEntityPath {
-        item_path_expr: PrincipalEntityPathExprIdx,
-        opt_path: Option<PrincipalEntityPath>,
-    },
-    ScopeResolution {
-        parent_expr_idx: SynExprIdx,
-        colon_colon_regional_token: ColonColonRegionalToken,
-        ident_token: IdentRegionalToken,
-    },
+    IdentifiableEntityPath(IdentifiableEntityPathExpr),
     InheritedSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,

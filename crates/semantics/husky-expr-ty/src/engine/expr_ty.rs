@@ -102,15 +102,16 @@ impl<'a> ExprTypeEngine<'a> {
                 SynExprDisambiguation::Trivial,
                 self.calc_literal_expr_ty(expr_idx, literal_token_idx, expr_ty_expectation),
             )),
-            SynExpr::PrincipalEntityPath {
+            SynExpr::IdentifiableEntityPath(IdentifiableEntityPathExpr::Principal {
                 item_path_expr,
                 opt_path: path,
-            } => self.calc_principal_item_path_expr_ty(path, expr_ty_expectation),
-            SynExpr::ScopeResolution {
+            }) => self.calc_principal_item_path_expr_ty(path, expr_ty_expectation),
+            SynExpr::IdentifiableEntityPath(IdentifiableEntityPathExpr::ScopeResolution {
                 parent_expr_idx,
+                parent_path,
                 colon_colon_regional_token,
                 ident_token,
-            } => self.calc_scope_resolution_ty(expr_idx, parent_expr_idx, ident_token),
+            }) => self.calc_scope_resolution_ty(expr_idx, parent_expr_idx, ident_token),
             SynExpr::InheritedSymbol {
                 ident,
                 inherited_symbol_idx,

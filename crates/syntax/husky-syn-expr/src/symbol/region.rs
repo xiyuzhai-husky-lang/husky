@@ -141,7 +141,7 @@ impl SynSymbolRegion {
                 symbol.ident() == Some(ident) && accessible
             })
             .map(|(current_symbol_idx, current_symbol)| {
-                Symbol::Local(current_symbol_idx, current_symbol.kind())
+                Symbol::Current(current_symbol_idx, current_symbol.kind())
             })
             .or_else(|| {
                 self.inherited_symbol_arena

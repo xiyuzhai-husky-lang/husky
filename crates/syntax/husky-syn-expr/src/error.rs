@@ -105,6 +105,8 @@ pub enum OriginalSynExprError {
     ExpectedExplicitParameterDefaultValue(RegionalTokenStreamState),
     #[error("expected `=>` after case pattern")]
     ExpectedHeavyArrowAfterCasePattern(RegionalTokenStreamState),
+    #[error("expected identifier after `::`")]
+    ExpectIdentAfterScopeResolution(RegionalTokenStreamState),
     #[error("expected identifier after `.`")]
     ExpectedIdentAfterDot {
         dot_regional_token_idx: RegionalTokenIdx,
@@ -167,6 +169,11 @@ pub enum OriginalSynExprError {
     },
     #[error("ExpectedTypeTermForAssociatedType")]
     ExpectedTypeTermForAssociatedType(RegionalTokenStreamState),
+    #[error("entity tree error")]
+    EntityTree {
+        regional_token_idx: RegionalTokenIdx,
+        error: EntitySynTreeError,
+    },
 }
 
 impl OriginalSynExprError {
@@ -265,6 +272,11 @@ impl OriginalSynExprError {
             OriginalSynExprError::ExpectedBlock(_) => todo!(),
             OriginalSynExprError::ExpectedTypeAfterLightArrow { light_arrow_token } => todo!(),
             OriginalSynExprError::ExpectedTypeTermForAssociatedType(_) => todo!(),
+            OriginalSynExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
+            OriginalSynExprError::EntityTree {
+                regional_token_idx,
+                error,
+            } => todo!(),
         }
     }
 }

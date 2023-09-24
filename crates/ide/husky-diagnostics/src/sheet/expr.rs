@@ -1,7 +1,7 @@
 use super::*;
 use husky_syn_defn::HasDefns;
 use husky_syn_expr::{
-    OriginalPrincipalEntityPathExprError, OriginalSynExprError, PrincipalEntityPathExpr,
+    OriginalSynExprError, OriginalSynExprError, PrincipalEntityPathExpr,
     PrincipalEntityPathExprError, SynExpr, SynExprError, SynExprRegion, SynExprResult, SynStmt,
 };
 use salsa::DebugWithDb;
@@ -321,6 +321,11 @@ impl Diagnose for OriginalSynExprError {
             OriginalSynExprError::ExpectedTypeAfterLightArrow { light_arrow_token } => todo!(),
             OriginalSynExprError::ExpectedExplicitParameterDefaultValue(_) => todo!(),
             OriginalSynExprError::ExpectedTypeTermForAssociatedType(_) => todo!(),
+            OriginalSynExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
+            OriginalSynExprError::EntityTree {
+                regional_token_idx,
+                error,
+            } => todo!(),
         }
     }
 
@@ -330,43 +335,5 @@ impl Diagnose for OriginalSynExprError {
 
     fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
         ctx.tokens_text_range(self.regional_token_idx_range())
-    }
-}
-
-impl Diagnose for OriginalPrincipalEntityPathExprError {
-    type Context<'a> = RegionDiagnosticsContext<'a>;
-
-    fn message(&self, ctx: &RegionDiagnosticsContext) -> String {
-        match self {
-            OriginalPrincipalEntityPathExprError::EntityTree {
-                regional_token_idx: _,
-                error,
-            } => {
-                format!("item tree error {:?}", error.debug(ctx.db()))
-            }
-            OriginalPrincipalEntityPathExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
-        }
-    }
-
-    fn severity(&self) -> DiagnosticSeverity {
-        match self {
-            OriginalPrincipalEntityPathExprError::EntityTree {
-                regional_token_idx: _,
-                error: _,
-            } => DiagnosticSeverity::Error,
-            OriginalPrincipalEntityPathExprError::ExpectIdentAfterScopeResolution(_) => {
-                DiagnosticSeverity::Error
-            }
-        }
-    }
-
-    fn range(&self, ctx: &RegionDiagnosticsContext) -> TextRange {
-        match self {
-            OriginalPrincipalEntityPathExprError::EntityTree {
-                regional_token_idx,
-                error: _,
-            } => ctx.token_text_range(*regional_token_idx),
-            OriginalPrincipalEntityPathExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
-        }
     }
 }
