@@ -33,6 +33,10 @@ impl TokenInfoSheet {
         self.token_infos[token_idx.index()] = token_info
     }
 
+    pub(crate) fn override_add(&mut self, token_idx: TokenIdx, token_info: TokenInfo) {
+        self.token_infos[token_idx.index()] = token_info
+    }
+
     pub fn informative_ranged_token_iter<'a>(
         &'a self,
         ranged_token_sheet: &'a RangedTokenSheet,

@@ -90,7 +90,6 @@ fn parse_expr_works() {
                     pattern_expr_contracts: ArenaMap {
                         data: [],
                     },
-                    pattern_infos: [],
                     pattern_symbol_arena: Arena {
                         data: [],
                     },
@@ -173,7 +172,6 @@ fn parse_expr_works() {
                     pattern_expr_contracts: ArenaMap {
                         data: [],
                     },
-                    pattern_infos: [],
                     pattern_symbol_arena: Arena {
                         data: [],
                     },
@@ -249,7 +247,6 @@ fn parse_expr_works() {
                     pattern_expr_contracts: ArenaMap {
                         data: [],
                     },
-                    pattern_infos: [],
                     pattern_symbol_arena: Arena {
                         data: [],
                     },
@@ -325,7 +322,6 @@ fn parse_expr_works() {
                     pattern_expr_contracts: ArenaMap {
                         data: [],
                     },
-                    pattern_infos: [],
                     pattern_symbol_arena: Arena {
                         data: [],
                     },
@@ -398,7 +394,6 @@ fn parse_expr_works() {
                     pattern_expr_contracts: ArenaMap {
                         data: [],
                     },
-                    pattern_infos: [],
                     pattern_symbol_arena: Arena {
                         data: [],
                     },
@@ -494,7 +489,6 @@ fn parse_expr_works() {
                     pattern_expr_contracts: ArenaMap {
                         data: [],
                     },
-                    pattern_infos: [],
                     pattern_symbol_arena: Arena {
                         data: [],
                     },
@@ -589,7 +583,6 @@ fn parse_expr_works() {
                     pattern_expr_contracts: ArenaMap {
                         data: [],
                     },
-                    pattern_infos: [],
                     pattern_symbol_arena: Arena {
                         data: [],
                     },
@@ -699,7 +692,6 @@ fn parse_expr_works() {
                     pattern_expr_contracts: ArenaMap {
                         data: [],
                     },
-                    pattern_infos: [],
                     pattern_symbol_arena: Arena {
                         data: [],
                     },
@@ -819,7 +811,6 @@ fn parse_expr_works() {
                     pattern_expr_contracts: ArenaMap {
                         data: [],
                     },
-                    pattern_infos: [],
                     pattern_symbol_arena: Arena {
                         data: [],
                     },
@@ -977,7 +968,6 @@ fn parse_expr_works() {
                     pattern_expr_contracts: ArenaMap {
                         data: [],
                     },
-                    pattern_infos: [],
                     pattern_symbol_arena: Arena {
                         data: [],
                     },
@@ -1085,7 +1075,6 @@ fn parse_expr_works() {
                     pattern_expr_contracts: ArenaMap {
                         data: [],
                     },
-                    pattern_infos: [],
                     pattern_symbol_arena: Arena {
                         data: [],
                     },
@@ -1194,7 +1183,6 @@ fn parse_application_expr_works() {
                     pattern_expr_contracts: ArenaMap {
                         data: [],
                     },
-                    pattern_infos: [],
                     pattern_symbol_arena: Arena {
                         data: [],
                     },
