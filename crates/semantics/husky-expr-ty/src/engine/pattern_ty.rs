@@ -63,6 +63,12 @@ impl<'a> ExprTypeEngine<'a> {
             } => todo!(),
             CurrentSynSymbolVariant::LetVariable {
                 pattern_symbol_idx, ..
+            }
+            | CurrentSynSymbolVariant::BeVariable {
+                pattern_symbol_idx, ..
+            }
+            | CurrentSynSymbolVariant::CaseVariable {
+                pattern_symbol_idx, ..
             } => self.infer_new_pattern_symbol_ty(*pattern_symbol_idx),
             CurrentSynSymbolVariant::FrameVariable { .. } => todo!(),
             CurrentSynSymbolVariant::ParenateVariadicParameter { ident_token, .. } => todo!(),

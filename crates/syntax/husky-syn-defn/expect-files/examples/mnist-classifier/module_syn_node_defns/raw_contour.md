@@ -3108,7 +3108,7 @@ Ok(
                         },
                         body_with_syn_expr_region: Some(
                             (
-                                10,
+                                13,
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: Some(
@@ -3551,9 +3551,39 @@ Ok(
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
+                                                SynExpr::CurrentSymbol {
+                                                    ident: `pixel_pair_below`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        26,
+                                                    ),
+                                                    current_symbol_idx: 2,
+                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                        pattern_symbol_idx: 2,
+                                                    },
+                                                },
+                                                SynExpr::CurrentSymbol {
+                                                    ident: `pixel_pair_below`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        56,
+                                                    ),
+                                                    current_symbol_idx: 2,
+                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                        pattern_symbol_idx: 2,
+                                                    },
+                                                },
+                                                SynExpr::CurrentSymbol {
+                                                    ident: `pixel_pair_below`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        86,
+                                                    ),
+                                                    current_symbol_idx: 2,
+                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                        pattern_symbol_idx: 2,
+                                                    },
+                                                },
                                                 SynExpr::Block {
                                                     stmts: ArenaIdxRange(
-                                                        1..4,
+                                                        4..7,
                                                     ),
                                                 },
                                             ],
@@ -3594,6 +3624,251 @@ Ok(
                                         },
                                         stmt_arena: Arena {
                                             data: [
+                                                SynStmt::Match {
+                                                    match_token: MatchRegionalToken {
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            25,
+                                                        ),
+                                                    },
+                                                    match_expr: Ok(
+                                                        10,
+                                                    ),
+                                                    eol_with_token: Ok(
+                                                        EolWithRegionalToken {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                27,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    case_branches: [
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    28,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                29,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    36,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                37,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    42,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Ok(
+                                                                CasePatternObelisk {
+                                                                    pattern_expr: 3,
+                                                                    variables: ArenaIdxRange(
+                                                                        3..4,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                    ],
+                                                },
+                                                SynStmt::Match {
+                                                    match_token: MatchRegionalToken {
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            55,
+                                                        ),
+                                                    },
+                                                    match_expr: Ok(
+                                                        11,
+                                                    ),
+                                                    eol_with_token: Ok(
+                                                        EolWithRegionalToken {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                57,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    case_branches: [
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    58,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                59,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    64,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                65,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    72,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                73,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    78,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Ok(
+                                                                CasePatternObelisk {
+                                                                    pattern_expr: 4,
+                                                                    variables: ArenaIdxRange(
+                                                                        4..5,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                    ],
+                                                },
+                                                SynStmt::Match {
+                                                    match_token: MatchRegionalToken {
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            85,
+                                                        ),
+                                                    },
+                                                    match_expr: Ok(
+                                                        12,
+                                                    ),
+                                                    eol_with_token: Ok(
+                                                        EolWithRegionalToken {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                87,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    case_branches: [
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    88,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                89,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    96,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                97,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    102,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Ok(
+                                                                CasePatternObelisk {
+                                                                    pattern_expr: 5,
+                                                                    variables: ArenaIdxRange(
+                                                                        5..6,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                    ],
+                                                },
                                                 SynStmt::Let {
                                                     let_token: LetRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
@@ -3601,7 +3876,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 1,
                                                             variables: ArenaIdxRange(
                                                                 1..2,
@@ -3628,7 +3903,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 2,
                                                             variables: ArenaIdxRange(
                                                                 2..3,
@@ -3664,6 +3939,116 @@ Ok(
                                                             ),
                                                         },
                                                     ),
+                                                    case_branches: [
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    22,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                23,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Some(
+                                                                ArenaIdxRange(
+                                                                    1..2,
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    46,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                47,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    52,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                53,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Some(
+                                                                ArenaIdxRange(
+                                                                    2..3,
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    82,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                83,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Some(
+                                                                ArenaIdxRange(
+                                                                    3..4,
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    106,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Ok(
+                                                                CasePatternObelisk {
+                                                                    pattern_expr: 6,
+                                                                    variables: ArenaIdxRange(
+                                                                        6..7,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                    ],
                                                 },
                                             ],
                                         },
@@ -3688,15 +4073,59 @@ Ok(
                                                             ),
                                                         },
                                                     },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `_`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                43,
+                                                            ),
+                                                        },
+                                                    },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `_`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                79,
+                                                            ),
+                                                        },
+                                                    },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `_`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                103,
+                                                            ),
+                                                        },
+                                                    },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `_`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                107,
+                                                            ),
+                                                        },
+                                                    },
                                                 ],
                                             },
                                             pattern_expr_contracts: ArenaMap {
                                                 data: [
                                                     None,
                                                     None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
                                                 ],
                                             },
                                             pattern_infos: [
+                                                Let,
+                                                Let,
+                                                Let,
+                                                Let,
                                                 Let,
                                                 Let,
                                             ],
@@ -3707,6 +4136,18 @@ Ok(
                                                     ),
                                                     SynPatternSymbol::Atom(
                                                         2,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        3,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        4,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        5,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        6,
                                                     ),
                                                 ],
                                             },
@@ -3723,9 +4164,37 @@ Ok(
                                                         2,
                                                     ),
                                                 ],
+                                                [
+                                                    (
+                                                        `_`,
+                                                        3,
+                                                    ),
+                                                ],
+                                                [
+                                                    (
+                                                        `_`,
+                                                        4,
+                                                    ),
+                                                ],
+                                                [
+                                                    (
+                                                        `_`,
+                                                        5,
+                                                    ),
+                                                ],
+                                                [
+                                                    (
+                                                        `_`,
+                                                        6,
+                                                    ),
+                                                ],
                                             ],
                                             pattern_symbol_modifiers: ArenaMap {
                                                 data: [
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
                                                     None,
                                                     None,
                                                 ],
@@ -3799,6 +4268,74 @@ Ok(
                                                             pattern_symbol_idx: 2,
                                                         },
                                                     },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            44,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    46,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::CaseVariable {
+                                                            ident: `_`,
+                                                            pattern_symbol_idx: 3,
+                                                        },
+                                                    },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            80,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    82,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::CaseVariable {
+                                                            ident: `_`,
+                                                            pattern_symbol_idx: 4,
+                                                        },
+                                                    },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            104,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    106,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::CaseVariable {
+                                                            ident: `_`,
+                                                            pattern_symbol_idx: 5,
+                                                        },
+                                                    },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            108,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    110,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::CaseVariable {
+                                                            ident: `_`,
+                                                            pattern_symbol_idx: 6,
+                                                        },
+                                                    },
                                                 ],
                                             },
                                             allow_self_type: False,
@@ -3816,7 +4353,7 @@ Ok(
                                             },
                                             SynExprRoot {
                                                 kind: BlockExpr,
-                                                expr_idx: 10,
+                                                expr_idx: 13,
                                             },
                                         ],
                                         has_self_lifetime: false,
@@ -4647,7 +5184,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 1,
                                                             variables: ArenaIdxRange(
                                                                 1..2,
@@ -4683,6 +5220,64 @@ Ok(
                                                             ),
                                                         },
                                                     ),
+                                                    case_branches: [
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    29,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                30,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    39,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                40,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    44,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Ok(
+                                                                CasePatternObelisk {
+                                                                    pattern_expr: 2,
+                                                                    variables: ArenaIdxRange(
+                                                                        2..3,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                    ],
                                                 },
                                             ],
                                         },
@@ -4698,20 +5293,34 @@ Ok(
                                                             ),
                                                         },
                                                     },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `_`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                45,
+                                                            ),
+                                                        },
+                                                    },
                                                 ],
                                             },
                                             pattern_expr_contracts: ArenaMap {
                                                 data: [
                                                     None,
+                                                    None,
                                                 ],
                                             },
                                             pattern_infos: [
+                                                Let,
                                                 Let,
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
                                                     SynPatternSymbol::Atom(
                                                         1,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        2,
                                                     ),
                                                 ],
                                             },
@@ -4722,9 +5331,16 @@ Ok(
                                                         1,
                                                     ),
                                                 ],
+                                                [
+                                                    (
+                                                        `_`,
+                                                        2,
+                                                    ),
+                                                ],
                                             ],
                                             pattern_symbol_modifiers: ArenaMap {
                                                 data: [
+                                                    None,
                                                     None,
                                                 ],
                                             },
@@ -4769,6 +5385,23 @@ Ok(
                                                         variant: CurrentSynSymbolVariant::LetVariable {
                                                             ident: `raw_angle_change`,
                                                             pattern_symbol_idx: 1,
+                                                        },
+                                                    },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            46,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    48,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::CaseVariable {
+                                                            ident: `_`,
+                                                            pattern_symbol_idx: 2,
                                                         },
                                                     },
                                                 ],
@@ -5309,7 +5942,7 @@ Ok(
                         },
                         body_with_syn_expr_region: Some(
                             (
-                                10,
+                                16,
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: Some(
@@ -5822,9 +6455,69 @@ Ok(
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
+                                                SynExpr::CurrentSymbol {
+                                                    ident: `pixel_pair_below`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        26,
+                                                    ),
+                                                    current_symbol_idx: 2,
+                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                        pattern_symbol_idx: 2,
+                                                    },
+                                                },
+                                                SynExpr::CurrentSymbol {
+                                                    ident: `pixel_pair_below`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        50,
+                                                    ),
+                                                    current_symbol_idx: 2,
+                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                        pattern_symbol_idx: 2,
+                                                    },
+                                                },
+                                                SynExpr::InheritedSymbol {
+                                                    ident: `inward_direction`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        68,
+                                                    ),
+                                                    inherited_symbol_idx: 4,
+                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                        ident: `inward_direction`,
+                                                    },
+                                                },
+                                                SynExpr::CurrentSymbol {
+                                                    ident: `pixel_pair_below`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        104,
+                                                    ),
+                                                    current_symbol_idx: 2,
+                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                        pattern_symbol_idx: 2,
+                                                    },
+                                                },
+                                                SynExpr::InheritedSymbol {
+                                                    ident: `inward_direction`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        120,
+                                                    ),
+                                                    inherited_symbol_idx: 4,
+                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                        ident: `inward_direction`,
+                                                    },
+                                                },
+                                                SynExpr::CurrentSymbol {
+                                                    ident: `pixel_pair_below`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        150,
+                                                    ),
+                                                    current_symbol_idx: 2,
+                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                        pattern_symbol_idx: 2,
+                                                    },
+                                                },
                                                 SynExpr::Block {
                                                     stmts: ArenaIdxRange(
-                                                        1..4,
+                                                        7..10,
                                                     ),
                                                 },
                                             ],
@@ -5865,6 +6558,488 @@ Ok(
                                         },
                                         stmt_arena: Arena {
                                             data: [
+                                                SynStmt::Match {
+                                                    match_token: MatchRegionalToken {
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            25,
+                                                        ),
+                                                    },
+                                                    match_expr: Ok(
+                                                        10,
+                                                    ),
+                                                    eol_with_token: Ok(
+                                                        EolWithRegionalToken {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                27,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    case_branches: [
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    28,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                29,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    34,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                35,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    42,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Ok(
+                                                                CasePatternObelisk {
+                                                                    pattern_expr: 3,
+                                                                    variables: ArenaIdxRange(
+                                                                        3..4,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                    ],
+                                                },
+                                                SynStmt::Match {
+                                                    match_token: MatchRegionalToken {
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            67,
+                                                        ),
+                                                    },
+                                                    match_expr: Ok(
+                                                        12,
+                                                    ),
+                                                    eol_with_token: Ok(
+                                                        EolWithRegionalToken {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                69,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    case_branches: [
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    70,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Ok(
+                                                                CasePatternObelisk {
+                                                                    pattern_expr: 4,
+                                                                    variables: ArenaIdxRange(
+                                                                        4..5,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    78,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Ok(
+                                                                CasePatternObelisk {
+                                                                    pattern_expr: 5,
+                                                                    variables: ArenaIdxRange(
+                                                                        5..6,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    86,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Ok(
+                                                                CasePatternObelisk {
+                                                                    pattern_expr: 6,
+                                                                    variables: ArenaIdxRange(
+                                                                        6..7,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                    ],
+                                                },
+                                                SynStmt::Match {
+                                                    match_token: MatchRegionalToken {
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            49,
+                                                        ),
+                                                    },
+                                                    match_expr: Ok(
+                                                        11,
+                                                    ),
+                                                    eol_with_token: Ok(
+                                                        EolWithRegionalToken {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                51,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    case_branches: [
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    52,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                53,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    58,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                59,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    64,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                65,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Some(
+                                                                ArenaIdxRange(
+                                                                    2..3,
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    90,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                91,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    96,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Ok(
+                                                                CasePatternObelisk {
+                                                                    pattern_expr: 7,
+                                                                    variables: ArenaIdxRange(
+                                                                        7..8,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                    ],
+                                                },
+                                                SynStmt::Match {
+                                                    match_token: MatchRegionalToken {
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            119,
+                                                        ),
+                                                    },
+                                                    match_expr: Ok(
+                                                        14,
+                                                    ),
+                                                    eol_with_token: Ok(
+                                                        EolWithRegionalToken {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                121,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    case_branches: [
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    122,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Ok(
+                                                                CasePatternObelisk {
+                                                                    pattern_expr: 8,
+                                                                    variables: ArenaIdxRange(
+                                                                        8..9,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    130,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Ok(
+                                                                CasePatternObelisk {
+                                                                    pattern_expr: 9,
+                                                                    variables: ArenaIdxRange(
+                                                                        9..10,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    138,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Ok(
+                                                                CasePatternObelisk {
+                                                                    pattern_expr: 10,
+                                                                    variables: ArenaIdxRange(
+                                                                        10..11,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                    ],
+                                                },
+                                                SynStmt::Match {
+                                                    match_token: MatchRegionalToken {
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            103,
+                                                        ),
+                                                    },
+                                                    match_expr: Ok(
+                                                        13,
+                                                    ),
+                                                    eol_with_token: Ok(
+                                                        EolWithRegionalToken {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                105,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    case_branches: [
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    106,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                107,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    116,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                117,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Some(
+                                                                ArenaIdxRange(
+                                                                    4..5,
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    142,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Ok(
+                                                                CasePatternObelisk {
+                                                                    pattern_expr: 11,
+                                                                    variables: ArenaIdxRange(
+                                                                        11..12,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                    ],
+                                                },
+                                                SynStmt::Match {
+                                                    match_token: MatchRegionalToken {
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            149,
+                                                        ),
+                                                    },
+                                                    match_expr: Ok(
+                                                        15,
+                                                    ),
+                                                    eol_with_token: Ok(
+                                                        EolWithRegionalToken {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                151,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    case_branches: [
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    152,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                153,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    160,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                161,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    166,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Ok(
+                                                                CasePatternObelisk {
+                                                                    pattern_expr: 12,
+                                                                    variables: ArenaIdxRange(
+                                                                        12..13,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                    ],
+                                                },
                                                 SynStmt::Let {
                                                     let_token: LetRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
@@ -5872,7 +7047,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 1,
                                                             variables: ArenaIdxRange(
                                                                 1..2,
@@ -5899,7 +7074,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 2,
                                                             variables: ArenaIdxRange(
                                                                 2..3,
@@ -5935,6 +7110,120 @@ Ok(
                                                             ),
                                                         },
                                                     ),
+                                                    case_branches: [
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    22,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                23,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Some(
+                                                                ArenaIdxRange(
+                                                                    1..2,
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    46,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                47,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Some(
+                                                                ArenaIdxRange(
+                                                                    3..4,
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    100,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                101,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Some(
+                                                                ArenaIdxRange(
+                                                                    5..6,
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    146,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Err(
+                                                                Original(
+                                                                    ExpectedCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                147,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Some(
+                                                                ArenaIdxRange(
+                                                                    6..7,
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    170,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Ok(
+                                                                CasePatternObelisk {
+                                                                    pattern_expr: 13,
+                                                                    variables: ArenaIdxRange(
+                                                                        13..14,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                    ],
                                                 },
                                             ],
                                         },
@@ -5959,15 +7248,136 @@ Ok(
                                                             ),
                                                         },
                                                     },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `_`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                43,
+                                                            ),
+                                                        },
+                                                    },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `Direction`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                71,
+                                                            ),
+                                                        },
+                                                    },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `Direction`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                79,
+                                                            ),
+                                                        },
+                                                    },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `_`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                87,
+                                                            ),
+                                                        },
+                                                    },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `_`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                97,
+                                                            ),
+                                                        },
+                                                    },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `Direction`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                123,
+                                                            ),
+                                                        },
+                                                    },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `Direction`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                131,
+                                                            ),
+                                                        },
+                                                    },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `_`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                139,
+                                                            ),
+                                                        },
+                                                    },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `_`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                143,
+                                                            ),
+                                                        },
+                                                    },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `_`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                167,
+                                                            ),
+                                                        },
+                                                    },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `_`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                171,
+                                                            ),
+                                                        },
+                                                    },
                                                 ],
                                             },
                                             pattern_expr_contracts: ArenaMap {
                                                 data: [
                                                     None,
                                                     None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
                                                 ],
                                             },
                                             pattern_infos: [
+                                                Let,
+                                                Let,
+                                                Let,
+                                                Let,
+                                                Let,
+                                                Let,
+                                                Let,
+                                                Let,
+                                                Let,
+                                                Let,
+                                                Let,
                                                 Let,
                                                 Let,
                                             ],
@@ -5978,6 +7388,39 @@ Ok(
                                                     ),
                                                     SynPatternSymbol::Atom(
                                                         2,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        3,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        4,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        5,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        6,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        7,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        8,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        9,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        10,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        11,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        12,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        13,
                                                     ),
                                                 ],
                                             },
@@ -5994,9 +7437,86 @@ Ok(
                                                         2,
                                                     ),
                                                 ],
+                                                [
+                                                    (
+                                                        `_`,
+                                                        3,
+                                                    ),
+                                                ],
+                                                [
+                                                    (
+                                                        `Direction`,
+                                                        4,
+                                                    ),
+                                                ],
+                                                [
+                                                    (
+                                                        `Direction`,
+                                                        5,
+                                                    ),
+                                                ],
+                                                [
+                                                    (
+                                                        `_`,
+                                                        6,
+                                                    ),
+                                                ],
+                                                [
+                                                    (
+                                                        `_`,
+                                                        7,
+                                                    ),
+                                                ],
+                                                [
+                                                    (
+                                                        `Direction`,
+                                                        8,
+                                                    ),
+                                                ],
+                                                [
+                                                    (
+                                                        `Direction`,
+                                                        9,
+                                                    ),
+                                                ],
+                                                [
+                                                    (
+                                                        `_`,
+                                                        10,
+                                                    ),
+                                                ],
+                                                [
+                                                    (
+                                                        `_`,
+                                                        11,
+                                                    ),
+                                                ],
+                                                [
+                                                    (
+                                                        `_`,
+                                                        12,
+                                                    ),
+                                                ],
+                                                [
+                                                    (
+                                                        `_`,
+                                                        13,
+                                                    ),
+                                                ],
                                             ],
                                             pattern_symbol_modifiers: ArenaMap {
                                                 data: [
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
                                                     None,
                                                     None,
                                                 ],
@@ -6079,6 +7599,193 @@ Ok(
                                                             pattern_symbol_idx: 2,
                                                         },
                                                     },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            44,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    46,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::CaseVariable {
+                                                            ident: `_`,
+                                                            pattern_symbol_idx: 3,
+                                                        },
+                                                    },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            72,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    78,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::CaseVariable {
+                                                            ident: `Direction`,
+                                                            pattern_symbol_idx: 4,
+                                                        },
+                                                    },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            80,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    86,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::CaseVariable {
+                                                            ident: `Direction`,
+                                                            pattern_symbol_idx: 5,
+                                                        },
+                                                    },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            88,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    90,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::CaseVariable {
+                                                            ident: `_`,
+                                                            pattern_symbol_idx: 6,
+                                                        },
+                                                    },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            98,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    100,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::CaseVariable {
+                                                            ident: `_`,
+                                                            pattern_symbol_idx: 7,
+                                                        },
+                                                    },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            124,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    130,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::CaseVariable {
+                                                            ident: `Direction`,
+                                                            pattern_symbol_idx: 8,
+                                                        },
+                                                    },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            132,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    138,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::CaseVariable {
+                                                            ident: `Direction`,
+                                                            pattern_symbol_idx: 9,
+                                                        },
+                                                    },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            140,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    142,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::CaseVariable {
+                                                            ident: `_`,
+                                                            pattern_symbol_idx: 10,
+                                                        },
+                                                    },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            144,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    146,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::CaseVariable {
+                                                            ident: `_`,
+                                                            pattern_symbol_idx: 11,
+                                                        },
+                                                    },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            168,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    170,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::CaseVariable {
+                                                            ident: `_`,
+                                                            pattern_symbol_idx: 12,
+                                                        },
+                                                    },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            172,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    174,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::CaseVariable {
+                                                            ident: `_`,
+                                                            pattern_symbol_idx: 13,
+                                                        },
+                                                    },
                                                 ],
                                             },
                                             allow_self_type: False,
@@ -6096,7 +7803,7 @@ Ok(
                                             },
                                             SynExprRoot {
                                                 kind: BlockExpr,
-                                                expr_idx: 10,
+                                                expr_idx: 16,
                                             },
                                         ],
                                         has_self_lifetime: false,
@@ -7277,7 +8984,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 1,
                                                             variables: ArenaIdxRange(
                                                                 1..2,
@@ -7304,7 +9011,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 2,
                                                             variables: ArenaIdxRange(
                                                                 2..3,
@@ -7331,7 +9038,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 3,
                                                             variables: ArenaIdxRange(
                                                                 3..4,
@@ -7814,7 +9521,7 @@ Ok(
                         },
                         body_with_syn_expr_region: Some(
                             (
-                                291,
+                                321,
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: Some(
@@ -10784,6 +12491,308 @@ Ok(
                                                     },
                                                 },
                                                 SynExpr::CurrentSymbol {
+                                                    ident: `i`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        437,
+                                                    ),
+                                                    current_symbol_idx: 10,
+                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                        pattern_symbol_idx: 8,
+                                                    },
+                                                },
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        439,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::CurrentSymbol {
+                                                    ident: `i`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        435,
+                                                    ),
+                                                    current_symbol_idx: 10,
+                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                        pattern_symbol_idx: 8,
+                                                    },
+                                                },
+                                                SynExpr::Binary {
+                                                    lopd: 261,
+                                                    opr: Closed(
+                                                        Sub,
+                                                    ),
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        438,
+                                                    ),
+                                                    ropd: 262,
+                                                },
+                                                SynExpr::Binary {
+                                                    lopd: 263,
+                                                    opr: Assign,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        436,
+                                                    ),
+                                                    ropd: 264,
+                                                },
+                                                SynExpr::CurrentSymbol {
+                                                    ident: `row_below`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        440,
+                                                    ),
+                                                    current_symbol_idx: 13,
+                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                        pattern_symbol_idx: 11,
+                                                    },
+                                                },
+                                                SynExpr::CurrentSymbol {
+                                                    ident: `row_above`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        442,
+                                                    ),
+                                                    current_symbol_idx: 12,
+                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                        pattern_symbol_idx: 10,
+                                                    },
+                                                },
+                                                SynExpr::Binary {
+                                                    lopd: 266,
+                                                    opr: Assign,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        441,
+                                                    ),
+                                                    ropd: 267,
+                                                },
+                                                SynExpr::InheritedSymbol {
+                                                    ident: `cc`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        445,
+                                                    ),
+                                                    inherited_symbol_idx: 1,
+                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                        ident: `cc`,
+                                                    },
+                                                },
+                                                SynExpr::Field {
+                                                    owner: 269,
+                                                    dot_regional_token_idx: RegionalTokenIdx(
+                                                        446,
+                                                    ),
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `mask`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            447,
+                                                        ),
+                                                    },
+                                                },
+                                                SynExpr::CurrentSymbol {
+                                                    ident: `i`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        449,
+                                                    ),
+                                                    current_symbol_idx: 10,
+                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                        pattern_symbol_idx: 8,
+                                                    },
+                                                },
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        451,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Binary {
+                                                    lopd: 271,
+                                                    opr: Closed(
+                                                        Sub,
+                                                    ),
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        450,
+                                                    ),
+                                                    ropd: 272,
+                                                },
+                                                SynExpr::CurrentSymbol {
+                                                    ident: `row_above`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        443,
+                                                    ),
+                                                    current_symbol_idx: 12,
+                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                        pattern_symbol_idx: 10,
+                                                    },
+                                                },
+                                                SynExpr::IndexOrCompositionWithList {
+                                                    owner: 270,
+                                                    lbox_regional_token_idx: RegionalTokenIdx(
+                                                        448,
+                                                    ),
+                                                    items: [
+                                                        SynCommaListItem {
+                                                            expr_idx: 273,
+                                                            comma_regional_token_idx: None,
+                                                        },
+                                                    ],
+                                                    rbox_regional_token_idx: RegionalTokenIdx(
+                                                        452,
+                                                    ),
+                                                },
+                                                SynExpr::Binary {
+                                                    lopd: 274,
+                                                    opr: Assign,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        444,
+                                                    ),
+                                                    ropd: 275,
+                                                },
+                                                SynExpr::CurrentSymbol {
+                                                    ident: `i`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        460,
+                                                    ),
+                                                    current_symbol_idx: 10,
+                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                        pattern_symbol_idx: 8,
+                                                    },
+                                                },
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        462,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::CurrentSymbol {
+                                                    ident: `i`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        458,
+                                                    ),
+                                                    current_symbol_idx: 10,
+                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                        pattern_symbol_idx: 8,
+                                                    },
+                                                },
+                                                SynExpr::Binary {
+                                                    lopd: 277,
+                                                    opr: Closed(
+                                                        Add,
+                                                    ),
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        461,
+                                                    ),
+                                                    ropd: 278,
+                                                },
+                                                SynExpr::Binary {
+                                                    lopd: 279,
+                                                    opr: Assign,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        459,
+                                                    ),
+                                                    ropd: 280,
+                                                },
+                                                SynExpr::CurrentSymbol {
+                                                    ident: `row_above`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        463,
+                                                    ),
+                                                    current_symbol_idx: 12,
+                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                        pattern_symbol_idx: 10,
+                                                    },
+                                                },
+                                                SynExpr::CurrentSymbol {
+                                                    ident: `row_below`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        465,
+                                                    ),
+                                                    current_symbol_idx: 13,
+                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                        pattern_symbol_idx: 11,
+                                                    },
+                                                },
+                                                SynExpr::Binary {
+                                                    lopd: 282,
+                                                    opr: Assign,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        464,
+                                                    ),
+                                                    ropd: 283,
+                                                },
+                                                SynExpr::InheritedSymbol {
+                                                    ident: `cc`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        468,
+                                                    ),
+                                                    inherited_symbol_idx: 1,
+                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                        ident: `cc`,
+                                                    },
+                                                },
+                                                SynExpr::Field {
+                                                    owner: 285,
+                                                    dot_regional_token_idx: RegionalTokenIdx(
+                                                        469,
+                                                    ),
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `mask`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            470,
+                                                        ),
+                                                    },
+                                                },
+                                                SynExpr::CurrentSymbol {
+                                                    ident: `i`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        472,
+                                                    ),
+                                                    current_symbol_idx: 10,
+                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                        pattern_symbol_idx: 8,
+                                                    },
+                                                },
+                                                SynExpr::CurrentSymbol {
+                                                    ident: `row_below`,
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        466,
+                                                    ),
+                                                    current_symbol_idx: 13,
+                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                        pattern_symbol_idx: 11,
+                                                    },
+                                                },
+                                                SynExpr::IndexOrCompositionWithList {
+                                                    owner: 286,
+                                                    lbox_regional_token_idx: RegionalTokenIdx(
+                                                        471,
+                                                    ),
+                                                    items: [
+                                                        SynCommaListItem {
+                                                            expr_idx: 287,
+                                                            comma_regional_token_idx: None,
+                                                        },
+                                                    ],
+                                                    rbox_regional_token_idx: RegionalTokenIdx(
+                                                        473,
+                                                    ),
+                                                },
+                                                SynExpr::Binary {
+                                                    lopd: 288,
+                                                    opr: Assign,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        467,
+                                                    ),
+                                                    ropd: 289,
+                                                },
+                                                SynExpr::CurrentSymbol {
                                                     ident: `inward_direction`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         494,
@@ -10804,12 +12813,12 @@ Ok(
                                                     },
                                                 },
                                                 SynExpr::Binary {
-                                                    lopd: 261,
+                                                    lopd: 291,
                                                     opr: Assign,
                                                     opr_regional_token_idx: RegionalTokenIdx(
                                                         495,
                                                     ),
-                                                    ropd: 262,
+                                                    ropd: 292,
                                                 },
                                                 SynExpr::Literal(
                                                     RegionalTokenIdx(
@@ -10836,17 +12845,17 @@ Ok(
                                                     opr_regional_token_idx: RegionalTokenIdx(
                                                         500,
                                                     ),
-                                                    opd: 264,
+                                                    opd: 294,
                                                 },
                                                 SynExpr::Binary {
-                                                    lopd: 265,
+                                                    lopd: 295,
                                                     opr: Comparison(
                                                         Neq,
                                                     ),
                                                     opr_regional_token_idx: RegionalTokenIdx(
                                                         499,
                                                     ),
-                                                    ropd: 266,
+                                                    ropd: 296,
                                                 },
                                                 SynExpr::CurrentSymbol {
                                                     ident: `current_streak`,
@@ -10859,7 +12868,7 @@ Ok(
                                                     },
                                                 },
                                                 SynExpr::Suffix {
-                                                    opd: 268,
+                                                    opd: 298,
                                                     opr: Incr,
                                                     opr_regional_token_idx: RegionalTokenIdx(
                                                         504,
@@ -10890,7 +12899,7 @@ Ok(
                                                     opr_regional_token_idx: RegionalTokenIdx(
                                                         508,
                                                     ),
-                                                    opd: 270,
+                                                    opd: 300,
                                                 },
                                                 SynExpr::CurrentSymbol {
                                                     ident: `current_streak`,
@@ -10913,24 +12922,24 @@ Ok(
                                                     ),
                                                 ),
                                                 SynExpr::Binary {
-                                                    lopd: 271,
+                                                    lopd: 301,
                                                     opr: Comparison(
                                                         Eq,
                                                     ),
                                                     opr_regional_token_idx: RegionalTokenIdx(
                                                         507,
                                                     ),
-                                                    ropd: 272,
+                                                    ropd: 302,
                                                 },
                                                 SynExpr::Binary {
-                                                    lopd: 273,
+                                                    lopd: 303,
                                                     opr: Comparison(
                                                         Eq,
                                                     ),
                                                     opr_regional_token_idx: RegionalTokenIdx(
                                                         512,
                                                     ),
-                                                    ropd: 274,
+                                                    ropd: 304,
                                                 },
                                                 SynExpr::CurrentSymbol {
                                                     ident: `prev_streak1`,
@@ -10953,34 +12962,34 @@ Ok(
                                                     ),
                                                 ),
                                                 SynExpr::Binary {
-                                                    lopd: 275,
+                                                    lopd: 305,
                                                     opr: ShortCircuitLogic(
                                                         And,
                                                     ),
                                                     opr_regional_token_idx: RegionalTokenIdx(
                                                         510,
                                                     ),
-                                                    ropd: 276,
+                                                    ropd: 306,
                                                 },
                                                 SynExpr::Binary {
-                                                    lopd: 277,
+                                                    lopd: 307,
                                                     opr: Comparison(
                                                         Greater,
                                                     ),
                                                     opr_regional_token_idx: RegionalTokenIdx(
                                                         516,
                                                     ),
-                                                    ropd: 278,
+                                                    ropd: 308,
                                                 },
                                                 SynExpr::Binary {
-                                                    lopd: 279,
+                                                    lopd: 309,
                                                     opr: ShortCircuitLogic(
                                                         And,
                                                     ),
                                                     opr_regional_token_idx: RegionalTokenIdx(
                                                         514,
                                                     ),
-                                                    ropd: 280,
+                                                    ropd: 310,
                                                 },
                                                 SynExpr::CurrentSymbol {
                                                     ident: `contour`,
@@ -10993,7 +13002,7 @@ Ok(
                                                     },
                                                 },
                                                 SynExpr::MethodApplicationOrCall {
-                                                    self_argument: 282,
+                                                    self_argument: 312,
                                                     dot_regional_token_idx: RegionalTokenIdx(
                                                         520,
                                                     ),
@@ -11053,14 +13062,14 @@ Ok(
                                                     },
                                                 },
                                                 SynExpr::FunctionApplicationOrCall {
-                                                    function: 285,
+                                                    function: 315,
                                                     generic_arguments: None,
                                                     lpar_regional_token_idx: RegionalTokenIdx(
                                                         530,
                                                     ),
                                                     items: [
                                                         SynCommaListItem {
-                                                            expr_idx: 286,
+                                                            expr_idx: 316,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     532,
@@ -11068,7 +13077,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 287,
+                                                            expr_idx: 317,
                                                             comma_regional_token_idx: None,
                                                         },
                                                     ],
@@ -11077,7 +13086,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::MethodApplicationOrCall {
-                                                    self_argument: 284,
+                                                    self_argument: 314,
                                                     dot_regional_token_idx: RegionalTokenIdx(
                                                         526,
                                                     ),
@@ -11093,7 +13102,7 @@ Ok(
                                                     ),
                                                     items: [
                                                         SynCommaListItem {
-                                                            expr_idx: 288,
+                                                            expr_idx: 318,
                                                             comma_regional_token_idx: None,
                                                         },
                                                     ],
@@ -11113,7 +13122,7 @@ Ok(
                                                 },
                                                 SynExpr::Block {
                                                     stmts: ArenaIdxRange(
-                                                        51..56,
+                                                        57..62,
                                                     ),
                                                 },
                                             ],
@@ -11311,7 +13320,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 3,
                                                             variables: ArenaIdxRange(
                                                                 4..5,
@@ -11338,7 +13347,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 4,
                                                             variables: ArenaIdxRange(
                                                                 5..6,
@@ -11365,7 +13374,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 5,
                                                             variables: ArenaIdxRange(
                                                                 6..7,
@@ -11392,7 +13401,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 6,
                                                             variables: ArenaIdxRange(
                                                                 7..8,
@@ -11606,7 +13615,43 @@ Ok(
                                                     ),
                                                 },
                                                 SynStmt::Eval {
-                                                    expr_idx: 269,
+                                                    expr_idx: 265,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 268,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 276,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 281,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 284,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 290,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 299,
                                                     eol_semicolon: Ok(
                                                         None,
                                                     ),
@@ -11618,7 +13663,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 22,
                                                             variables: ArenaIdxRange(
                                                                 24..25,
@@ -11645,7 +13690,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 23,
                                                             variables: ArenaIdxRange(
                                                                 25..26,
@@ -11713,9 +13758,83 @@ Ok(
                                                             ),
                                                         },
                                                     ),
+                                                    case_branches: [
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    430,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Ok(
+                                                                CasePatternObelisk {
+                                                                    pattern_expr: 24,
+                                                                    variables: ArenaIdxRange(
+                                                                        26..27,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            stmts: Some(
+                                                                ArenaIdxRange(
+                                                                    23..26,
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    453,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Ok(
+                                                                CasePatternObelisk {
+                                                                    pattern_expr: 25,
+                                                                    variables: ArenaIdxRange(
+                                                                        27..28,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            stmts: Some(
+                                                                ArenaIdxRange(
+                                                                    26..29,
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    474,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Ok(
+                                                                CasePatternObelisk {
+                                                                    pattern_expr: 26,
+                                                                    variables: ArenaIdxRange(
+                                                                        28..29,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                        SynCaseBranch {
+                                                            vertical_token: VerticalRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    484,
+                                                                ),
+                                                            ),
+                                                            case_pattern: Ok(
+                                                                CasePatternObelisk {
+                                                                    pattern_expr: 27,
+                                                                    variables: ArenaIdxRange(
+                                                                        29..30,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            stmts: None,
+                                                        },
+                                                    ],
                                                 },
                                                 SynStmt::Eval {
-                                                    expr_idx: 263,
+                                                    expr_idx: 293,
                                                     eol_semicolon: Ok(
                                                         None,
                                                     ),
@@ -11728,7 +13847,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            267,
+                                                            297,
                                                         ),
                                                         eol_colon: Ok(
                                                             Colon(
@@ -11740,14 +13859,14 @@ Ok(
                                                             ),
                                                         ),
                                                         stmts: ArenaIdxRange(
-                                                            23..24,
+                                                            29..30,
                                                         ),
                                                     },
                                                     elif_branches: [],
                                                     else_branch: None,
                                                 },
                                                 SynStmt::Eval {
-                                                    expr_idx: 283,
+                                                    expr_idx: 313,
                                                     eol_semicolon: Ok(
                                                         Some(
                                                             EolSemicolonRegionalToken {
@@ -11765,7 +13884,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 7,
                                                             variables: ArenaIdxRange(
                                                                 9..10,
@@ -11800,7 +13919,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 8,
                                                             variables: ArenaIdxRange(
                                                                 10..11,
@@ -11827,7 +13946,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 9,
                                                             variables: ArenaIdxRange(
                                                                 11..12,
@@ -11854,7 +13973,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 10,
                                                             variables: ArenaIdxRange(
                                                                 12..13,
@@ -11881,7 +14000,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 11,
                                                             variables: ArenaIdxRange(
                                                                 13..14,
@@ -11908,7 +14027,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 12,
                                                             variables: ArenaIdxRange(
                                                                 14..15,
@@ -11935,7 +14054,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 13,
                                                             variables: ArenaIdxRange(
                                                                 15..16,
@@ -11962,7 +14081,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 14,
                                                             variables: ArenaIdxRange(
                                                                 16..17,
@@ -11989,7 +14108,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 15,
                                                             variables: ArenaIdxRange(
                                                                 17..18,
@@ -12016,7 +14135,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 16,
                                                             variables: ArenaIdxRange(
                                                                 18..19,
@@ -12043,7 +14162,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 17,
                                                             variables: ArenaIdxRange(
                                                                 19..20,
@@ -12070,7 +14189,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 18,
                                                             variables: ArenaIdxRange(
                                                                 20..21,
@@ -12097,7 +14216,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 19,
                                                             variables: ArenaIdxRange(
                                                                 21..22,
@@ -12124,7 +14243,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 20,
                                                             variables: ArenaIdxRange(
                                                                 22..23,
@@ -12151,7 +14270,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 21,
                                                             variables: ArenaIdxRange(
                                                                 23..24,
@@ -12195,7 +14314,7 @@ Ok(
                                                         ),
                                                     ),
                                                     block: ArenaIdxRange(
-                                                        24..31,
+                                                        30..37,
                                                     ),
                                                 },
                                                 SynStmt::IfElse {
@@ -12206,7 +14325,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            281,
+                                                            311,
                                                         ),
                                                         eol_colon: Ok(
                                                             Colon(
@@ -12218,14 +14337,14 @@ Ok(
                                                             ),
                                                         ),
                                                         stmts: ArenaIdxRange(
-                                                            31..32,
+                                                            37..38,
                                                         ),
                                                     },
                                                     elif_branches: [],
                                                     else_branch: None,
                                                 },
                                                 SynStmt::Eval {
-                                                    expr_idx: 289,
+                                                    expr_idx: 319,
                                                     eol_semicolon: Ok(
                                                         None,
                                                     ),
@@ -12249,7 +14368,7 @@ Ok(
                                                         ),
                                                     ),
                                                     block: ArenaIdxRange(
-                                                        32..50,
+                                                        38..56,
                                                     ),
                                                 },
                                                 SynStmt::Let {
@@ -12259,7 +14378,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 1,
                                                             variables: ArenaIdxRange(
                                                                 1..2,
@@ -12294,7 +14413,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 2,
                                                             variables: ArenaIdxRange(
                                                                 2..3,
@@ -12403,7 +14522,7 @@ Ok(
                                                         ),
                                                     ),
                                                     block: ArenaIdxRange(
-                                                        50..51,
+                                                        56..57,
                                                     ),
                                                 },
                                                 SynStmt::Return {
@@ -12412,7 +14531,7 @@ Ok(
                                                             536,
                                                         ),
                                                     },
-                                                    result: 290,
+                                                    result: 320,
                                                 },
                                             ],
                                         },
@@ -12738,6 +14857,42 @@ Ok(
                                                             ),
                                                         },
                                                     },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `Direction`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                431,
+                                                            ),
+                                                        },
+                                                    },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `Direction`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                454,
+                                                            ),
+                                                        },
+                                                    },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `Direction`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                475,
+                                                            ),
+                                                        },
+                                                    },
+                                                    SynPatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentRegionalToken {
+                                                            ident: `Direction`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                485,
+                                                            ),
+                                                        },
+                                                    },
                                                 ],
                                             },
                                             pattern_expr_contracts: ArenaMap {
@@ -12765,9 +14920,17 @@ Ok(
                                                     Move,
                                                     None,
                                                     None,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
                                                 ],
                                             },
                                             pattern_infos: [
+                                                Let,
+                                                Let,
+                                                Let,
+                                                Let,
                                                 Let,
                                                 Let,
                                                 Let,
@@ -12862,6 +15025,18 @@ Ok(
                                                     ),
                                                     SynPatternSymbol::Atom(
                                                         23,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        24,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        25,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        26,
+                                                    ),
+                                                    SynPatternSymbol::Atom(
+                                                        27,
                                                     ),
                                                 ],
                                             },
@@ -13004,6 +15179,30 @@ Ok(
                                                         23,
                                                     ),
                                                 ],
+                                                [
+                                                    (
+                                                        `Direction`,
+                                                        24,
+                                                    ),
+                                                ],
+                                                [
+                                                    (
+                                                        `Direction`,
+                                                        25,
+                                                    ),
+                                                ],
+                                                [
+                                                    (
+                                                        `Direction`,
+                                                        26,
+                                                    ),
+                                                ],
+                                                [
+                                                    (
+                                                        `Direction`,
+                                                        27,
+                                                    ),
+                                                ],
                                             ],
                                             pattern_symbol_modifiers: ArenaMap {
                                                 data: [
@@ -13028,6 +15227,10 @@ Ok(
                                                     Mut,
                                                     Mut,
                                                     Mut,
+                                                    None,
+                                                    None,
+                                                    None,
+                                                    None,
                                                     None,
                                                     None,
                                                 ],
@@ -13474,6 +15677,74 @@ Ok(
                                                             pattern_symbol_idx: 23,
                                                         },
                                                     },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            432,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    453,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::CaseVariable {
+                                                            ident: `Direction`,
+                                                            pattern_symbol_idx: 24,
+                                                        },
+                                                    },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            455,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    474,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::CaseVariable {
+                                                            ident: `Direction`,
+                                                            pattern_symbol_idx: 25,
+                                                        },
+                                                    },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            476,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    484,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::CaseVariable {
+                                                            ident: `Direction`,
+                                                            pattern_symbol_idx: 26,
+                                                        },
+                                                    },
+                                                    CurrentSynSymbol {
+                                                        modifier: None,
+                                                        access_start: RegionalTokenIdx(
+                                                            486,
+                                                        ),
+                                                        access_end: Some(
+                                                            RegionalTokenIdxRangeEnd(
+                                                                RegionalTokenIdx(
+                                                                    494,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSynSymbolVariant::CaseVariable {
+                                                            ident: `Direction`,
+                                                            pattern_symbol_idx: 27,
+                                                        },
+                                                    },
                                                 ],
                                             },
                                             allow_self_type: False,
@@ -13686,27 +15957,51 @@ Ok(
                                             },
                                             SynExprRoot {
                                                 kind: EvalExpr,
-                                                expr_idx: 263,
+                                                expr_idx: 265,
                                             },
                                             SynExprRoot {
                                                 kind: EvalExpr,
-                                                expr_idx: 269,
+                                                expr_idx: 268,
                                             },
                                             SynExprRoot {
                                                 kind: EvalExpr,
-                                                expr_idx: 283,
+                                                expr_idx: 276,
                                             },
                                             SynExprRoot {
                                                 kind: EvalExpr,
-                                                expr_idx: 289,
+                                                expr_idx: 281,
                                             },
                                             SynExprRoot {
-                                                kind: ReturnExpr,
+                                                kind: EvalExpr,
+                                                expr_idx: 284,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
                                                 expr_idx: 290,
                                             },
                                             SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 293,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 299,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 313,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 319,
+                                            },
+                                            SynExprRoot {
+                                                kind: ReturnExpr,
+                                                expr_idx: 320,
+                                            },
+                                            SynExprRoot {
                                                 kind: BlockExpr,
-                                                expr_idx: 291,
+                                                expr_idx: 321,
                                             },
                                         ],
                                         has_self_lifetime: false,
@@ -16512,7 +18807,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 6,
                                                             variables: ArenaIdxRange(
                                                                 7..8,
@@ -16563,7 +18858,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 1,
                                                             variables: ArenaIdxRange(
                                                                 1..2,
@@ -16590,7 +18885,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 2,
                                                             variables: ArenaIdxRange(
                                                                 2..3,
@@ -16617,7 +18912,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 3,
                                                             variables: ArenaIdxRange(
                                                                 3..4,
@@ -16644,7 +18939,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 4,
                                                             variables: ArenaIdxRange(
                                                                 4..5,
@@ -16671,7 +18966,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 5,
                                                             variables: ArenaIdxRange(
                                                                 5..6,
@@ -18963,7 +21258,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 2,
                                                             variables: ArenaIdxRange(
                                                                 3..4,
@@ -18990,7 +21285,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 3,
                                                             variables: ArenaIdxRange(
                                                                 4..5,
@@ -19023,7 +21318,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 1,
                                                             variables: ArenaIdxRange(
                                                                 1..2,
@@ -19096,7 +21391,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 4,
                                                             variables: ArenaIdxRange(
                                                                 5..6,
@@ -19123,7 +21418,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 5,
                                                             variables: ArenaIdxRange(
                                                                 6..7,
@@ -20496,7 +22791,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 1,
                                                             variables: ArenaIdxRange(
                                                                 1..2,
@@ -20523,7 +22818,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 2,
                                                             variables: ArenaIdxRange(
                                                                 2..3,
@@ -20550,7 +22845,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 3,
                                                             variables: ArenaIdxRange(
                                                                 3..4,

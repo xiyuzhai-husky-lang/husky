@@ -73,10 +73,10 @@ impl<'a> AstParser<'a> {
     }
 
     fn parse_match_stmts(&mut self, token_group_idx: TokenGroupIdx) -> Ast {
-        Ast::MatchStmts {
+        Ast::MatchStmt {
             token_group_idx,
             pattern_stmt: self.alloc_stmt(token_group_idx),
-            case_stmts: self.parse_case_stmts(),
+            case_branches: self.parse_case_stmts(),
         }
     }
 

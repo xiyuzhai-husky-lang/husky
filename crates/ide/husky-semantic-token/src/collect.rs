@@ -43,7 +43,9 @@ fn token_to_semantic_token(
             current_symbol_kind,
             ..
         } => match current_symbol_kind {
-            CurrentSynSymbolKind::LetVariable { .. } => SemanticToken::Variable,
+            CurrentSynSymbolKind::LetVariable { .. }
+            | CurrentSynSymbolKind::BeVariable { .. }
+            | CurrentSynSymbolKind::CaseVariable { .. } => SemanticToken::Variable,
             CurrentSynSymbolKind::ExplicitRegularParameter { .. } => SemanticToken::Parameter,
             CurrentSynSymbolKind::FrameVariable(_) => SemanticToken::FrameVariable,
             CurrentSynSymbolKind::ImplicitParameter { .. } => SemanticToken::ImplicitParameter,

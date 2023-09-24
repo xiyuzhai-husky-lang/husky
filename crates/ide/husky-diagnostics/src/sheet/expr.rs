@@ -143,6 +143,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                     match_token,
                     match_expr,
                     eol_with_token,
+                    ..
                 } => {
                     self.visit_syn_expr_result(match_expr);
                     self.visit_syn_expr_result(eol_with_token);
@@ -210,11 +211,14 @@ impl Diagnose for OriginalSynExprError {
             OriginalSynExprError::ExpectedItemBeforeBe { .. } => {
                 format!("Syntax Error: expected item before `be`")
             }
-            OriginalSynExprError::ExpectedLetVariableDecls(_) => {
-                format!("Syntax Error: expected variable pattern")
+            OriginalSynExprError::ExpectedLetPattern(_) => {
+                format!("Syntax Error: expected variable pattern after `let`")
             }
-            OriginalSynExprError::ExpectedBeVariablesPattern(_) => {
-                format!("Syntax Error: expected pattern expression after `be`")
+            OriginalSynExprError::ExpectedBePattern(_) => {
+                format!("Syntax Error: expected pattern after `be`")
+            }
+            OriginalSynExprError::ExpectedCasePattern(_) => {
+                format!("Syntax Error: expected pattern after `|`")
             }
             OriginalSynExprError::ExpectedAssign(_) => format!("Syntax Error: expected `=`"),
             OriginalSynExprError::ExpectedInitialValue(_) => {
@@ -234,9 +238,6 @@ impl Diagnose for OriginalSynExprError {
                 format!("Syntax Error: expected end of line `with` in match head")
             }
             OriginalSynExprError::ExpectedForExpr(_) => format!("Syntax Error: expected for expr"),
-            OriginalSynExprError::ExpectedBePattern(_) => {
-                format!("Syntax Error: expected be pattern")
-            }
             OriginalSynExprError::ExpectedParameterPattern(_) => {
                 format!("Syntax Error: expected paramter pattern")
             }

@@ -971,7 +971,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 3,
                                                             variables: ArenaIdxRange(
                                                                 4..5,
@@ -1024,7 +1024,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 1,
                                                             variables: ArenaIdxRange(
                                                                 1..2,
@@ -1051,7 +1051,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 2,
                                                             variables: ArenaIdxRange(
                                                                 2..3,
@@ -1836,7 +1836,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetVariableObelisk {
+                                                        LetPatternObelisk {
                                                             pattern_expr_idx: 1,
                                                             variables: ArenaIdxRange(
                                                                 1..2,

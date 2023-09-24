@@ -31,10 +31,10 @@ pub enum Ast {
         elif_branches: AstIdxRange,
         else_branch: Option<AstIdx>,
     },
-    MatchStmts {
+    MatchStmt {
         token_group_idx: TokenGroupIdx,
         pattern_stmt: AstIdx,
-        case_stmts: AstIdxRange,
+        case_branches: AstIdxRange,
     },
     Identifiable {
         token_group_idx: TokenGroupIdx,

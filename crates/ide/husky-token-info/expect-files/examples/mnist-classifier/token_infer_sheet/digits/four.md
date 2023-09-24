@@ -315,7 +315,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                current_symbol_kind: CurrentSynSymbolKind::BeVariable {
                     pattern_symbol_idx: 1,
                 },
                 syn_expr_region: ExprRegionLeash(_),
@@ -336,7 +336,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                current_symbol_kind: CurrentSynSymbolKind::BeVariable {
                     pattern_symbol_idx: 2,
                 },
                 syn_expr_region: ExprRegionLeash(_),
@@ -375,7 +375,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 4,
-                current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                current_symbol_kind: CurrentSynSymbolKind::BeVariable {
                     pattern_symbol_idx: 4,
                 },
                 syn_expr_region: ExprRegionLeash(_),
@@ -412,7 +412,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 6,
-                current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                current_symbol_kind: CurrentSynSymbolKind::BeVariable {
                     pattern_symbol_idx: 6,
                 },
                 syn_expr_region: ExprRegionLeash(_),
@@ -494,7 +494,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 9,
-                current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                current_symbol_kind: CurrentSynSymbolKind::BeVariable {
                     pattern_symbol_idx: 9,
                 },
                 syn_expr_region: ExprRegionLeash(_),
@@ -546,7 +546,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 11,
-                current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                current_symbol_kind: CurrentSynSymbolKind::BeVariable {
                     pattern_symbol_idx: 11,
                 },
                 syn_expr_region: ExprRegionLeash(_),
@@ -623,7 +623,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 14,
-                current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                current_symbol_kind: CurrentSynSymbolKind::BeVariable {
                     pattern_symbol_idx: 14,
                 },
                 syn_expr_region: ExprRegionLeash(_),

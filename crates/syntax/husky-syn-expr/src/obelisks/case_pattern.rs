@@ -4,7 +4,7 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub struct BeVariablesObelisk {
+pub struct CasePatternObelisk {
     pattern_expr: SynPatternExprIdx,
     variables: CurrentSynSymbolIdxRange,
 }
@@ -13,13 +13,13 @@ impl<'a, C> SynExprParser<'a, C>
 where
     C: IsSynExprContext<'a>,
 {
-    pub(crate) fn parse_be_variables_pattern_expected(
+    pub(crate) fn parse_case_pattern_expected(
         &mut self,
         access_end: RegionalTokenIdxRangeEnd,
-    ) -> SynExprResult<BeVariablesObelisk> {
+    ) -> SynExprResult<CasePatternObelisk> {
         let state = self.save_state();
         let Some(pattern_expr) = self.parse_pattern_expr(SynPatternExprInfo::Let)? else {
-            Err(OriginalSynExprError::ExpectedBeVariablesPattern(state))?
+            Err(OriginalSynExprError::ExpectedCasePattern(state))?
         };
         let symbols = self
             .pattern_expr_region()
@@ -32,7 +32,7 @@ where
                     self.pattern_expr_region(),
                     access_start,
                     Some(access_end),
-                    CurrentSynSymbolVariant::LetVariable {
+                    CurrentSynSymbolVariant::CaseVariable {
                         ident: *ident,
                         pattern_symbol_idx: *pattern_symbol,
                     },
@@ -40,14 +40,14 @@ where
             })
             .collect::<Vec<_>>();
         let variables = self.define_symbols(symbols, None);
-        Ok(BeVariablesObelisk {
+        Ok(CasePatternObelisk {
             pattern_expr,
             variables,
         })
     }
 }
 
-impl BeVariablesObelisk {
+impl CasePatternObelisk {
     pub fn pattern_expr(&self) -> SynPatternExprIdx {
         self.pattern_expr
     }

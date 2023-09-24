@@ -1,8 +1,10 @@
-mod branch_stmt;
+mod if_else_stmt;
 mod loop_stmt;
+mod match_stmt;
 
-pub use self::branch_stmt::*;
+pub use self::if_else_stmt::*;
 pub use self::loop_stmt::*;
+pub use self::match_stmt::*;
 
 use crate::*;
 use husky_defn_ast::{DefnAst, DefnAstIdx, DefnAstIdxRange};
@@ -19,7 +21,7 @@ pub type SynStmtMap<V> = ArenaMap<SynStmt, V>;
 pub enum SynStmt {
     Let {
         let_token: LetRegionalToken,
-        let_variables_pattern: SynExprResult<LetVariableObelisk>,
+        let_variables_pattern: SynExprResult<LetPatternObelisk>,
         assign_token: SynExprResult<RegionalEqToken>,
         initial_value: SynExprIdx,
     },
@@ -84,6 +86,7 @@ pub enum SynStmt {
         match_token: MatchRegionalToken,
         match_expr: SynExprResult<SynExprIdx>,
         eol_with_token: SynExprResult<EolWithRegionalToken>,
+        case_branches: Vec<SynCaseBranch>,
     },
 }
 
@@ -119,10 +122,10 @@ impl<'a> SynStmtContext<'a> {
                 elif_branches: self.parse_elif_branches(elif_branches),
                 else_branch: self.parse_else_branch(else_branch),
             },
-            DefnAst::MatchStmts {
+            DefnAst::MatchStmt {
                 regional_token_group_idx: token_group_idx,
                 pattern_stmt,
-                case_stmts,
+                case_branches,
                 ..
             } => {
                 let mut parser = self.expr_parser(token_group_idx);
@@ -134,6 +137,7 @@ impl<'a> SynStmtContext<'a> {
                     ),
                     eol_with_token: parser
                         .try_parse_expected(OriginalSynExprError::ExpectedEolWithInMatchHead),
+                    case_branches: self.parse_case_branches(case_branches),
                 }
             }
             DefnAst::Err { .. } => todo!(),

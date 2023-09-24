@@ -4,7 +4,7 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub struct LetVariableObelisk {
+pub struct LetPatternObelisk {
     pattern_expr_idx: SynPatternExprIdx,
     variables: CurrentSynSymbolIdxRange,
     colon_token: SynExprResult<Option<ColonRegionalToken>>,
@@ -15,10 +15,10 @@ impl<'a, 'b> SynDefnExprParser<'a, 'b> {
     pub(crate) fn parse_let_variables_pattern_expected(
         &mut self,
         access_end: RegionalTokenIdxRangeEnd,
-    ) -> SynExprResult<LetVariableObelisk> {
+    ) -> SynExprResult<LetPatternObelisk> {
         let state = self.save_state();
         let Some(pattern) = self.parse_pattern_expr(SynPatternExprInfo::Let)? else {
-            Err(OriginalSynExprError::ExpectedLetVariableDecls(state))?
+            Err(OriginalSynExprError::ExpectedLetPattern(state))?
         };
         let symbols = self.pattern_expr_region().pattern_expr_symbols(pattern);
         let access_start = self.save_state().next_regional_token_idx();
@@ -49,7 +49,7 @@ impl<'a, 'b> SynDefnExprParser<'a, 'b> {
         };
         let ty_constraint = ty.map(|ty| ObeliskTypeConstraint::LetVariables { pattern, ty });
         let variables = self.define_symbols(symbols, ty_constraint);
-        Ok(LetVariableObelisk {
+        Ok(LetPatternObelisk {
             pattern_expr_idx: pattern,
             variables,
             colon_token,
@@ -58,7 +58,7 @@ impl<'a, 'b> SynDefnExprParser<'a, 'b> {
     }
 }
 
-impl LetVariableObelisk {
+impl LetPatternObelisk {
     pub fn pattern_expr_idx(&self) -> SynPatternExprIdx {
         self.pattern_expr_idx
     }

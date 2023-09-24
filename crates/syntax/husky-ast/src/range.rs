@@ -107,16 +107,16 @@ impl<'a> AstTokenIdxRangeCalculator<'a> {
                 };
                 (start, end).into()
             }
-            Ast::MatchStmts {
+            Ast::MatchStmt {
                 pattern_stmt,
-                case_stmts,
+                case_branches,
                 ..
             } => {
                 let pattern_stmt_token_idx_range =
                     self.ast_ranges[pattern_stmt.index()].token_idx_range();
                 let start = pattern_stmt_token_idx_range.start();
                 let end = {
-                    if let Some(last) = case_stmts.last() {
+                    if let Some(last) = case_branches.last() {
                         self.ast_ranges[last.index()].end()
                     } else {
                         pattern_stmt_token_idx_range.end()
