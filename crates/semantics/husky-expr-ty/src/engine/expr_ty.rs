@@ -103,7 +103,7 @@ impl<'a> ExprTypeEngine<'a> {
                 self.calc_literal_expr_ty(expr_idx, literal_token_idx, expr_ty_expectation),
             )),
             SynExpr::PrincipalEntityPath {
-                item_path_expr,
+                path_expr_idx,
                 opt_path,
             } => self.calc_principal_item_path_expr_ty(opt_path, expr_ty_expectation),
             SynExpr::AssociatedItem {

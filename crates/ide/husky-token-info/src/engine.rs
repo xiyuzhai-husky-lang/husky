@@ -504,7 +504,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                     match self.expr_region_data[pattern_expr_idx] {
                         SynPatternExpr::Ident {
                             ident_token,
-                            symbol_modifier_keyword_group: _,
+                            symbol_modifier_tokens: _,
                         } => self.add(
                             ident_token.regional_token_idx(),
                             TokenInfo::CurrentSymbol {

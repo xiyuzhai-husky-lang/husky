@@ -78,10 +78,7 @@ pub enum OriginalSynExprError {
     #[error("ExpectedFunctionIdentAfterOpeningHtmlBra")]
     ExpectedFunctionIdentAfterOpeningHtmlBra(RegionalTokenStreamState),
     #[error("expected identifier after modifier")]
-    ExpectedIdentAfterModifier(
-        RegionalTokenStreamState,
-        EphemSymbolModifierRegionalTokenGroup,
-    ),
+    ExpectedIdentAfterModifier(RegionalTokenStreamState, EphemSymbolModifierRegionalTokens),
     #[error("expected `:` at end of line")]
     ExpectedEolColon(RegionalTokenStreamState),
     #[error("expected constant implicit parameter type")]

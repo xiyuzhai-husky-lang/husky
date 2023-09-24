@@ -112,7 +112,7 @@ impl ToHirEager for SynExprIdx {
                 _ => unreachable!(),
             }),
             SynExpr::PrincipalEntityPath {
-                item_path_expr,
+                path_expr_idx,
                 opt_path,
             } => {
                 let path = opt_path.expect("whatever");

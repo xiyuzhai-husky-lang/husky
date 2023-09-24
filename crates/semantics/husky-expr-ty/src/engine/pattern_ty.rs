@@ -25,10 +25,10 @@ impl<'a> ExprTypeEngine<'a> {
         match self.expr_region_data[pattern_expr_idx] {
             SynPatternExpr::Literal(_) => todo!(),
             SynPatternExpr::Ident { .. } => (), // there is no subpattern to infer
-            SynPatternExpr::Entity(_) => todo!(),
+            SynPatternExpr::TypeVariant { .. } => todo!(),
             SynPatternExpr::Tuple { name, fields } => todo!(),
             SynPatternExpr::Props { name, fields } => todo!(),
-            SynPatternExpr::OneOf { options } => todo!(),
+            SynPatternExpr::OneOf { ref options } => todo!(),
             SynPatternExpr::Binding {
                 ident_token,
                 asperand_token,

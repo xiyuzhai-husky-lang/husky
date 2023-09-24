@@ -2,7 +2,7 @@ use crate::*;
 use husky_term_prelude::{Contract, SymbolModifier};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum EphemSymbolModifierRegionalTokenGroup {
+pub enum EphemSymbolModifierRegionalTokens {
     Mut(MutRegionalToken),
     RefMut(
         RefRegionalToken,
@@ -20,42 +20,42 @@ pub enum EphemSymbolModifierRegionalTokenGroup {
     At(AtRegionalToken, Option<PlaceLabelRegionalToken>),
 }
 
-impl Into<SymbolModifier> for EphemSymbolModifierRegionalTokenGroup {
+impl Into<SymbolModifier> for EphemSymbolModifierRegionalTokens {
     #[inline(always)]
     fn into(self) -> SymbolModifier {
         match self {
-            EphemSymbolModifierRegionalTokenGroup::Mut(_) => SymbolModifier::Mut,
-            EphemSymbolModifierRegionalTokenGroup::RefMut(..) => SymbolModifier::RefMut,
-            EphemSymbolModifierRegionalTokenGroup::Ambersand(_, lifetime_token) => {
+            EphemSymbolModifierRegionalTokens::Mut(_) => SymbolModifier::Mut,
+            EphemSymbolModifierRegionalTokens::RefMut(..) => SymbolModifier::RefMut,
+            EphemSymbolModifierRegionalTokens::Ambersand(_, lifetime_token) => {
                 SymbolModifier::Ambersand(lifetime_token.map(|t| t.label()))
             }
-            EphemSymbolModifierRegionalTokenGroup::AmbersandMut(_, lifetime_token, _) => {
+            EphemSymbolModifierRegionalTokens::AmbersandMut(_, lifetime_token, _) => {
                 SymbolModifier::AmbersandMut(lifetime_token.map(|t| t.label()))
             }
-            EphemSymbolModifierRegionalTokenGroup::Le(..) => SymbolModifier::Le,
-            EphemSymbolModifierRegionalTokenGroup::Tilde(..) => SymbolModifier::Tilde,
-            EphemSymbolModifierRegionalTokenGroup::At(_, _) => todo!(),
+            EphemSymbolModifierRegionalTokens::Le(..) => SymbolModifier::Le,
+            EphemSymbolModifierRegionalTokens::Tilde(..) => SymbolModifier::Tilde,
+            EphemSymbolModifierRegionalTokens::At(_, _) => todo!(),
         }
     }
 }
 
-impl Into<Contract> for EphemSymbolModifierRegionalTokenGroup {
+impl Into<Contract> for EphemSymbolModifierRegionalTokens {
     #[inline(always)]
     fn into(self) -> Contract {
         match self {
-            EphemSymbolModifierRegionalTokenGroup::Mut(_) => Contract::Move,
-            EphemSymbolModifierRegionalTokenGroup::RefMut(..) => Contract::BorrowMut,
-            EphemSymbolModifierRegionalTokenGroup::Ambersand(_, _) => Contract::Borrow,
-            EphemSymbolModifierRegionalTokenGroup::AmbersandMut(_, _, _) => Contract::BorrowMut,
-            EphemSymbolModifierRegionalTokenGroup::Le(_) => todo!(),
-            EphemSymbolModifierRegionalTokenGroup::Tilde(_) => Contract::Leash,
-            EphemSymbolModifierRegionalTokenGroup::At(_, _) => Contract::At,
+            EphemSymbolModifierRegionalTokens::Mut(_) => Contract::Move,
+            EphemSymbolModifierRegionalTokens::RefMut(..) => Contract::BorrowMut,
+            EphemSymbolModifierRegionalTokens::Ambersand(_, _) => Contract::Borrow,
+            EphemSymbolModifierRegionalTokens::AmbersandMut(_, _, _) => Contract::BorrowMut,
+            EphemSymbolModifierRegionalTokens::Le(_) => todo!(),
+            EphemSymbolModifierRegionalTokens::Tilde(_) => Contract::Leash,
+            EphemSymbolModifierRegionalTokens::At(_, _) => Contract::At,
         }
     }
 }
 
 // todo: change this to TryParse
-impl<'a, SP> parsec::TryParseOptionFromStream<SP> for EphemSymbolModifierRegionalTokenGroup
+impl<'a, SP> parsec::TryParseOptionFromStream<SP> for EphemSymbolModifierRegionalTokens
 where
     SP: RegionalTokenStreamParser<'a>,
 {
@@ -70,7 +70,7 @@ where
         };
         match token {
             TokenData::Keyword(Keyword::Modifier(kw)) => match kw {
-                ModifierKeyword::Mut => Ok(Some(EphemSymbolModifierRegionalTokenGroup::Mut(
+                ModifierKeyword::Mut => Ok(Some(EphemSymbolModifierRegionalTokens::Mut(
                     MutRegionalToken { regional_token_idx },
                 ))),
                 ModifierKeyword::Covariant
@@ -83,25 +83,23 @@ where
                 let lifetime_token =
                     token_stream.try_parse_option::<LifetimeLabelRegionalToken>()?;
                 if let Some(mut_token) = token_stream.try_parse_option::<MutRegionalToken>()? {
-                    Ok(Some(EphemSymbolModifierRegionalTokenGroup::AmbersandMut(
+                    Ok(Some(EphemSymbolModifierRegionalTokens::AmbersandMut(
                         AmbersandRegionalToken(regional_token_idx),
                         lifetime_token,
                         mut_token,
                     )))
                 } else {
-                    Ok(Some(EphemSymbolModifierRegionalTokenGroup::Ambersand(
+                    Ok(Some(EphemSymbolModifierRegionalTokens::Ambersand(
                         AmbersandRegionalToken(regional_token_idx),
                         lifetime_token,
                     )))
                 }
             }
-            TokenData::Punctuation(Punctuation::TILDE) => {
-                Ok(Some(EphemSymbolModifierRegionalTokenGroup::Tilde(
-                    TildeRegionalToken(regional_token_idx),
-                )))
-            }
+            TokenData::Punctuation(Punctuation::TILDE) => Ok(Some(
+                EphemSymbolModifierRegionalTokens::Tilde(TildeRegionalToken(regional_token_idx)),
+            )),
             TokenData::Punctuation(Punctuation::AT) => {
-                Ok(Some(EphemSymbolModifierRegionalTokenGroup::At(
+                Ok(Some(EphemSymbolModifierRegionalTokens::At(
                     AtRegionalToken(regional_token_idx),
                     token_stream.try_parse_option()?,
                 )))

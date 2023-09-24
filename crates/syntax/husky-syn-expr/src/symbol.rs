@@ -203,14 +203,14 @@ pub enum CurrentSynSymbolVariant {
     },
     SelfType,
     SelfValue {
-        symbol_modifier_keyword_group: Option<EphemSymbolModifierRegionalTokenGroup>,
+        symbol_modifier_keyword_group: Option<EphemSymbolModifierRegionalTokens>,
     },
     ParenateRegularParameter {
         ident: Ident,
         pattern_symbol_idx: SynPatternSymbolIdx,
     },
     ParenateVariadicParameter {
-        symbol_modifier_keyword_group: Option<EphemSymbolModifierRegionalTokenGroup>,
+        symbol_modifier_keyword_group: Option<EphemSymbolModifierRegionalTokens>,
         ident_token: IdentRegionalToken,
     },
     LetVariable {

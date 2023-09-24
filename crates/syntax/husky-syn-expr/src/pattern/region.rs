@@ -5,23 +5,16 @@ use super::*;
 pub struct SynPatternExprRegion {
     pattern_expr_arena: SynPatternExprArena,
     pattern_expr_contracts: SynPatternExprOrderedMap<Contract>,
-    pattern_infos: Vec<SynPatternExprEnvironment>,
     pattern_symbol_arena: SynPatternSymbolArena,
     pattern_symbol_maps: SynPatternExprOrderedMap<IdentPairMap<SynPatternSymbolIdx>>,
     pattern_symbol_modifiers: SynPatternSymbolOrderedMap<SymbolModifier>,
 }
 
 impl SynPatternExprRegion {
-    pub fn alloc_one_pattern_expr(
-        &mut self,
-        expr: SynPatternExpr,
-        env: SynPatternExprEnvironment,
-    ) -> SynPatternExprIdx {
+    pub fn alloc_one_pattern_expr(&mut self, expr: SynPatternExpr) -> SynPatternExprIdx {
         // order matters
         let contract = expr.contract();
         let idx = self.pattern_expr_arena.alloc_one(expr);
-        assert_eq!(idx.index(), self.pattern_infos.len());
-        self.pattern_infos.push(env);
         let symbols = self.collect_symbols(idx);
         assert_eq!(idx.index(), self.pattern_symbol_maps.len());
         self.pattern_symbol_maps.insert_next(idx, symbols);
@@ -38,16 +31,16 @@ impl SynPatternExprRegion {
             match self.pattern_expr_arena[pattern_expr_idx] {
                 SynPatternExpr::Literal(_) => Default::default(),
                 SynPatternExpr::Ident {
+                    symbol_modifier_tokens: contract,
                     ident_token,
-                    symbol_modifier_keyword_group: contract,
                 } => IdentPairMap::new_one_element_map((
                     ident_token.ident(),
                     self.alloc_new_symbol(SynPatternSymbol::Atom(pattern_expr_idx)),
                 )),
-                SynPatternExpr::Entity(_) => todo!(),
+                SynPatternExpr::TypeVariant { .. } => todo!(),
                 SynPatternExpr::Tuple { name, fields } => todo!(),
                 SynPatternExpr::Props { name, fields } => todo!(),
-                SynPatternExpr::OneOf { options } => todo!(),
+                SynPatternExpr::OneOf { ref options } => todo!(),
                 SynPatternExpr::Binding {
                     ident_token,
                     asperand_token,
@@ -80,10 +73,6 @@ impl SynPatternExprRegion {
         pattern_expr_idx: SynPatternRoot,
     ) -> &[(Ident, SynPatternSymbolIdx)] {
         &self.pattern_symbol_maps[pattern_expr_idx.0]
-    }
-
-    pub fn pattern_info(&self, pattern_expr_idx: SynPatternExprIdx) -> SynPatternExprEnvironment {
-        self.pattern_infos[pattern_expr_idx.index()]
     }
 
     pub fn pattern_expr_arena(&self) -> &SynPatternExprArena {

@@ -56,7 +56,7 @@ impl SynExpr {
         match self {
             SynExpr::Literal(_, _) => BaseEntityPath::None,
             SynExpr::PrincipalEntityPath {
-                item_path_expr,
+                path_expr_idx,
                 opt_path,
             } => match opt_path {
                 &Some(path) => BaseEntityPath::Some(path.into()),

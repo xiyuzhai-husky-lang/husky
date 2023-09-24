@@ -370,10 +370,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 Literal::TupleIndex(_) => todo!(),
                 Literal::Bool(_) => todo!(),
             },
-            SynExpr::PrincipalEntityPath {
-                item_path_expr: _,
-                opt_path,
-            } => match opt_path {
+            SynExpr::PrincipalEntityPath { opt_path, .. } => match opt_path {
                 Some(path) => Ok(DeclarativeTerm::EntityPath(match path {
                     PrincipalEntityPath::Module(_) => todo!(),
                     PrincipalEntityPath::MajorItem(path) => match path {

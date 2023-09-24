@@ -5,10 +5,10 @@ impl SynPatternExpr {
         match self {
             SynPatternExpr::Literal(_) => todo!(),
             SynPatternExpr::Ident {
-                symbol_modifier_keyword_group,
+                symbol_modifier_tokens: symbol_modifier_keyword_group,
                 ..
             } => Contract::new(*symbol_modifier_keyword_group),
-            SynPatternExpr::Entity(_) => todo!(),
+            SynPatternExpr::TypeVariant { .. } => todo!(),
             SynPatternExpr::Tuple { name, fields } => todo!(),
             SynPatternExpr::Props { name, fields } => todo!(),
             SynPatternExpr::OneOf { options } => todo!(),

@@ -43,7 +43,7 @@ pub enum SpecificParameterObelisk {
     Variadic {
         dot_dot_dot_token: DotDotDotRegionalToken,
         variadic_variant: VariadicVariant,
-        symbol_modifier_keyword_group: Option<EphemSymbolModifierRegionalTokenGroup>,
+        symbol_modifier_keyword_group: Option<EphemSymbolModifierRegionalTokens>,
         ident_token: IdentRegionalToken,
         variable: CurrentSynSymbolIdx,
         colon: ColonRegionalToken,
@@ -51,7 +51,7 @@ pub enum SpecificParameterObelisk {
     },
     Keyed {
         syn_pattern_root: SynPatternRoot,
-        symbol_modifier_keyword_group: Option<EphemSymbolModifierRegionalTokenGroup>,
+        symbol_modifier_keyword_group: Option<EphemSymbolModifierRegionalTokens>,
         ident_token: IdentRegionalToken,
         variable: CurrentSynSymbolIdx,
         colon: ColonRegionalToken,
@@ -102,7 +102,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
             );
             if let Some(eq_token) = ctx.try_parse_option::<RegionalEqToken>()? {
                 let SynPatternExpr::Ident {
-                    symbol_modifier_keyword_group,
+                    symbol_modifier_tokens: symbol_modifier_keyword_group,
                     ident_token,
                 } = ctx.pattern_expr_region()[syn_pattern_root.syn_pattern_expr_idx()]
                 else {
@@ -140,7 +140,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
             let access_start = ctx.save_state().next_regional_token_idx();
             let variadic_variant = ctx.try_parse()?;
             let symbol_modifier_keyword_group =
-                ctx.try_parse_option::<EphemSymbolModifierRegionalTokenGroup>()?;
+                ctx.try_parse_option::<EphemSymbolModifierRegionalTokens>()?;
             let ident_token = ctx
                 .try_parse_expected::<IdentRegionalToken, _>(OriginalSynExprError::ExpectedIdent)?;
             let variable = CurrentSynSymbol::new(
