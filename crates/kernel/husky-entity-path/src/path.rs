@@ -24,6 +24,16 @@ pub enum EntityPath {
     Attr(AttrPath),
 }
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::debug_with_db(db = EntityPathDb)]
+#[enum_class::from_variants]
+pub enum IdentifiableEntityPath {
+    Module(ModulePath),
+    MajorItem(MajorItemPath),
+    AssociatedItem(AssociatedItemPath),
+    TypeVariant(TypeVariantPath),
+}
+
 impl EntityPath {
     pub fn ident(self, db: &dyn EntityPathDb) -> Option<Ident> {
         match self {

@@ -11,7 +11,32 @@ where
 {
     pub(crate) fn accept_token(&mut self, token: DisambiguatedTokenData) {
         match token {
-            DisambiguatedTokenData::AtomicExpr(atom) => self.accept_atom(atom),
+            DisambiguatedTokenData::Literal(_, _) => todo!(),
+            DisambiguatedTokenData::IdentifiableEntityPath(atom) => todo!(),
+            DisambiguatedTokenData::InheritedSymbol {
+                ident,
+                regional_token_idx,
+                inherited_symbol_idx,
+                inherited_symbol_kind,
+            } => todo!(),
+            DisambiguatedTokenData::CurrentSymbol {
+                ident,
+                regional_token_idx,
+                current_symbol_idx,
+                current_symbol_kind,
+            } => todo!(),
+            DisambiguatedTokenData::SelfType(_) => todo!(),
+            DisambiguatedTokenData::SelfValue(i32) => todo!(),
+            /// sorry is for comptime (say proof) terms
+            DisambiguatedTokenData::Sorry { regional_token_idx } => todo!(),
+            /// todo is for runtime terms
+            DisambiguatedTokenData::Todo { regional_token_idx } => todo!(),
+            DisambiguatedTokenData::UnrecognizedIdent {
+                regional_token_idx,
+                ident,
+            } => todo!(),
+            DisambiguatedTokenData::Err(_) => todo!(),
+            // self.accept_atom(atom),
             DisambiguatedTokenData::BinaryOpr(regional_token_idx, opr) => {
                 self.accept_binary_opr(opr, regional_token_idx)
             }

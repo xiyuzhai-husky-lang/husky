@@ -370,10 +370,10 @@ impl<'a> DeclarativeTermEngine<'a> {
                 Literal::TupleIndex(_) => todo!(),
                 Literal::Bool(_) => todo!(),
             },
-            SynExpr::PrincipalEntityPath {
+            SynExpr::IdentifiableEntityPath(IdentifiableEntityPathExpr::Principal {
                 item_path_expr: _,
                 opt_path,
-            } => match opt_path {
+            }) => match opt_path {
                 Some(path) => Ok(DeclarativeTerm::EntityPath(match path {
                     PrincipalEntityPath::Module(_) => todo!(),
                     PrincipalEntityPath::MajorItem(path) => match path {
@@ -387,11 +387,12 @@ impl<'a> DeclarativeTermEngine<'a> {
                 })),
                 None => Err(DerivedDeclarativeTermError2::InvalidEntityPath.into()),
             },
-            SynExpr::ScopeResolution {
+            SynExpr::IdentifiableEntityPath(IdentifiableEntityPathExpr::ScopeResolution {
                 parent_expr_idx,
+                parent_path,
                 colon_colon_regional_token,
                 ident_token,
-            } => todo!(),
+            }) => todo!(),
             SynExpr::InheritedSymbol {
                 inherited_symbol_idx,
                 ..

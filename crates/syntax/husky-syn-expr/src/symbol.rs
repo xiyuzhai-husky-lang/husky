@@ -19,7 +19,7 @@ use vec_like::SmallVecSet;
 pub enum Symbol {
     PrincipalEntity(PrincipalEntityPath),
     Inherited(InheritedSynSymbolIdx, InheritedSynSymbolKind),
-    Local(CurrentSynSymbolIdx, CurrentSynSymbolKind),
+    Current(CurrentSynSymbolIdx, CurrentSynSymbolKind),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

@@ -229,20 +229,34 @@ impl<'a> SynExprRangeCalculator<'a> {
                 RegionalTokenIdxRange::new_single(*regional_token_idx)
             }
             SynExpr::Binary { lopd, ropd, .. } => self[lopd].join(self[ropd]),
-            SynExpr::PrincipalEntityPath {
-                item_path_expr,
-                opt_path: item_path,
-            } => self[*item_path_expr],
-            SynExpr::ScopeResolution {
-                parent_expr_idx,
-                colon_colon_regional_token,
-                ident_token,
-            } => {
-                // todo: consider implicit(angular) arguments
-                self[parent_expr_idx].to(RegionalTokenIdxRangeEnd::new_after(
-                    ident_token.regional_token_idx(),
-                ))
-            }
+            SynExpr::IdentifiableEntityPath(expr) => match expr {
+                IdentifiableEntityPathExpr::Principal {
+                    item_path_expr,
+                    opt_path,
+                } => self[*item_path_expr],
+                IdentifiableEntityPathExpr::ScopeResolution {
+                    parent_expr_idx,
+                    parent_path,
+                    colon_colon_regional_token,
+                    ident_token,
+                } => {
+                    // {
+                    //     item_path_expr,
+                    //     opt_path: item_path,
+                    // } => self[*item_path_expr],
+                    // SynExpr::ScopeResolution {
+                    //     parent_expr_idx,
+                    //     colon_colon_regional_token,
+                    //     ident_token,
+                    // } => {
+                    //     // todo: consider implicit(angular) arguments
+                    //     self[parent_expr_idx].to(RegionalTokenIdxRangeEnd::new_after(
+                    //         ident_token.regional_token_idx(),
+                    //     ))
+                    // }
+                    todo!()
+                }
+            },
             SynExpr::Be {
                 src,
                 be_regional_token_idx,

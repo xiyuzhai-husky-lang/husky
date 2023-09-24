@@ -202,15 +202,16 @@ impl<'a> ExprTypeEngine<'a> {
                     .into(),
                 )
             }
-            SynExpr::PrincipalEntityPath {
+            SynExpr::IdentifiableEntityPath(IdentifiableEntityPathExpr::Principal {
                 item_path_expr,
                 opt_path,
-            } => self.calc_item_path_term(expr_idx, opt_path),
-            SynExpr::ScopeResolution {
+            }) => self.calc_item_path_term(expr_idx, opt_path),
+            SynExpr::IdentifiableEntityPath(IdentifiableEntityPathExpr::ScopeResolution {
                 parent_expr_idx,
+                parent_path,
                 colon_colon_regional_token,
                 ident_token,
-            } => todo!(),
+            }) => todo!(),
             SynExpr::InheritedSymbol {
                 ident,
                 regional_token_idx,
