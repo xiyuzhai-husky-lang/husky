@@ -10,29 +10,27 @@ pub use self::symbol::*;
 use super::*;
 use husky_coword::Ident;
 use husky_entity_path::{ItemPath, TypeVariantPath};
+use husky_entity_taxonomy::FugitiveKind;
 use husky_print_utils::p;
 use idx_arena::{ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use ordered_float::NotNan;
 use parsec::{IsStreamParser, PunctuatedSmallList, TryParseOptionFromStream};
 
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub enum LiteralData {
-    NotNanFloat,
-    NotNanF32(NotNan<f32>),
-}
-
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum SynPatternExpr {
     /// example: `1`
-    Literal(LiteralData),
+    Literal {
+        regional_token_idx: RegionalTokenIdx,
+        literal: Literal,
+    },
     /// example: `a`
     Ident {
         symbol_modifier_tokens: Option<EphemSymbolModifierRegionalTokens>,
         ident_token: IdentRegionalToken,
     },
     /// example: `A::B`
-    TypeVariant {
+    TypeVariantUnit {
         path_expr_idx: PrincipalEntityPathExprIdx,
         path: TypeVariantPath,
     },
@@ -110,7 +108,14 @@ where
         match punctuated_patterns.elements().len() {
             0 => Ok(None),
             1 => Ok(Some(SynPatternRoot(punctuated_patterns.elements()[0].0))),
-            _ => todo!(),
+            _ => {
+                let expr = SynPatternExpr::OneOf {
+                    options: punctuated_patterns,
+                };
+                Ok(Some(SynPatternRoot(
+                    sp.context_mut().alloc_pattern_expr(expr),
+                )))
+            }
         }
     }
 }
@@ -129,47 +134,46 @@ where
         let Some((regional_token_idx, token_data)) = parser.next_indexed() else {
             return Ok(None);
         };
+        let db = parser.db();
         let expr = match parser.disambiguate_token(regional_token_idx, token_data) {
             ControlFlow::Continue(resolved_token) => match resolved_token {
-                DisambiguatedTokenData::Literal(syn_expr, _) => todo!(),
+                DisambiguatedTokenData::Literal(regional_token_idx, literal) => {
+                    Some(SynPatternExpr::Literal {
+                        regional_token_idx,
+                        literal,
+                    })
+                }
                 DisambiguatedTokenData::IdentifiableEntityPath(syn_expr) => match syn_expr {
                     IdentifiableEntityPathExpr::Principal {
                         path_expr_idx,
                         opt_path,
                     } => match opt_path {
                         Some(path) => match path {
-                            PrincipalEntityPath::Module(_) => {
-                                match parser.context().syn_principal_entity_path_expr_arena()
-                                    [path_expr_idx]
-                                {
-                                    PrincipalEntityPathExpr::Root {
-                                        path_name_token,
-                                        principal_entity_path,
-                                    } => match path_name_token {
-                                        PathNameRegionalToken::Ident(ident_token) => {
-                                            Some(SynPatternExpr::Ident {
-                                                symbol_modifier_tokens,
-                                                ident_token,
-                                            })
-                                        }
-                                        PathNameRegionalToken::CrateRoot(_) => todo!(),
-                                        PathNameRegionalToken::SelfMod(_) => todo!(),
-                                        PathNameRegionalToken::Super(_) => todo!(),
-                                    },
-                                    PrincipalEntityPathExpr::Subitem {
-                                        parent,
-                                        colon_colon_token,
-                                        ref ident_token,
-                                        ref path,
-                                    } => todo!(),
-                                }
-                            }
-                            PrincipalEntityPath::MajorItem(_) => todo!(),
+                            // modules and major items will be overriden by pattern symbol
+                            PrincipalEntityPath::Module(_) => parse_overriding_ident_pattern(
+                                parser,
+                                path_expr_idx,
+                                symbol_modifier_tokens,
+                            ),
+                            PrincipalEntityPath::MajorItem(path) => match path {
+                                MajorItemPath::Type(_) => todo!(),
+                                MajorItemPath::Trait(_) => todo!(),
+                                MajorItemPath::Fugitive(path) => match path.fugitive_kind(db) {
+                                    FugitiveKind::Fn | FugitiveKind::Gn | FugitiveKind::Val => {
+                                        parse_overriding_ident_pattern(
+                                            parser,
+                                            path_expr_idx,
+                                            symbol_modifier_tokens,
+                                        )
+                                    }
+                                    FugitiveKind::AliasType => todo!(),
+                                },
+                            },
                             PrincipalEntityPath::TypeVariant(path) => {
                                 if symbol_modifier_tokens.is_some() {
                                     todo!()
                                 }
-                                Some(SynPatternExpr::TypeVariant {
+                                Some(SynPatternExpr::TypeVariantUnit {
                                     path_expr_idx,
                                     path,
                                 })
@@ -184,18 +188,26 @@ where
                         ident_token,
                     } => todo!(),
                 },
-                DisambiguatedTokenData::InheritedSymbol { .. } => todo!(),
-                DisambiguatedTokenData::CurrentSymbol { .. } => todo!(),
-                DisambiguatedTokenData::SelfType(RegionalTokenIdx) => todo!(),
-                DisambiguatedTokenData::SelfValue(RegionalTokenIdx) => todo!(),
-                DisambiguatedTokenData::Bra(_, _) => todo!(),
-                DisambiguatedTokenData::UnrecognizedIdent {
+                DisambiguatedTokenData::InheritedSymbol {
+                    regional_token_idx,
+                    ident,
+                    ..
+                }
+                | DisambiguatedTokenData::CurrentSymbol {
+                    regional_token_idx,
+                    ident,
+                    ..
+                }
+                | DisambiguatedTokenData::UnrecognizedIdent {
                     regional_token_idx,
                     ident,
                 } => Some(SynPatternExpr::Ident {
                     symbol_modifier_tokens,
                     ident_token: IdentRegionalToken::new(ident, regional_token_idx),
                 }),
+                DisambiguatedTokenData::SelfType(RegionalTokenIdx) => todo!(),
+                DisambiguatedTokenData::SelfValue(RegionalTokenIdx) => todo!(),
+                DisambiguatedTokenData::Bra(_, _) => todo!(),
                 _ => None,
             },
             ControlFlow::Break(_) => None,
@@ -210,6 +222,36 @@ where
         Ok(Some(SynPatternComponent(
             parser.context.borrow_mut().alloc_pattern_expr(expr),
         )))
+    }
+}
+
+fn parse_overriding_ident_pattern<'a, C>(
+    parser: &mut SynExprParser<'a, C>,
+    path_expr_idx: ArenaIdx<PrincipalEntityPathExpr>,
+    symbol_modifier_tokens: Option<EphemSymbolModifierRegionalTokens>,
+) -> Option<SynPatternExpr>
+where
+    C: IsSynExprContext<'a>,
+{
+    match parser.context().syn_principal_entity_path_expr_arena()[path_expr_idx] {
+        PrincipalEntityPathExpr::Root {
+            path_name_token,
+            principal_entity_path,
+        } => match path_name_token {
+            PathNameRegionalToken::Ident(ident_token) => Some(SynPatternExpr::Ident {
+                symbol_modifier_tokens,
+                ident_token,
+            }),
+            PathNameRegionalToken::CrateRoot(_) => todo!(),
+            PathNameRegionalToken::SelfMod(_) => todo!(),
+            PathNameRegionalToken::Super(_) => todo!(),
+        },
+        PrincipalEntityPathExpr::Subitem {
+            parent,
+            colon_colon_token,
+            ref ident_token,
+            ref path,
+        } => todo!(),
     }
 }
 

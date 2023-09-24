@@ -3,15 +3,17 @@ use super::*;
 impl SynPatternExpr {
     pub(super) fn contract(&self) -> Contract {
         match self {
-            SynPatternExpr::Literal(_) => todo!(),
+            SynPatternExpr::Literal { .. } => Contract::None,
             SynPatternExpr::Ident {
-                symbol_modifier_tokens: symbol_modifier_keyword_group,
+                symbol_modifier_tokens,
                 ..
-            } => Contract::new(*symbol_modifier_keyword_group),
-            SynPatternExpr::TypeVariant { .. } => todo!(),
+            } => Contract::new(*symbol_modifier_tokens),
+            // ad hoc
+            SynPatternExpr::TypeVariantUnit { .. } => Contract::None,
             SynPatternExpr::Tuple { name, fields } => todo!(),
             SynPatternExpr::Props { name, fields } => todo!(),
-            SynPatternExpr::OneOf { options } => todo!(),
+            // ad hoc
+            SynPatternExpr::OneOf { options } => Contract::None,
             SynPatternExpr::Binding {
                 ident_token,
                 asperand_token,

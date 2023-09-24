@@ -14,7 +14,11 @@ impl<'a> ExprTypeEngine<'a> {
         ident_token: IdentRegionalToken,
     ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let parent_term: FluffyTerm = match parent_path {
-            MajorItemPath::Type(_) => todo!(),
+            MajorItemPath::Type(path) => {
+                // ad hoc
+                // should consider type template arguments
+                TermEntityPath::TypeOntology(path).into()
+            }
             MajorItemPath::Trait(_) => todo!(),
             MajorItemPath::Fugitive(_) => todo!(),
         };
