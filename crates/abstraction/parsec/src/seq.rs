@@ -2,7 +2,7 @@ use crate::*;
 
 pub fn parse_seq2<'a, Context, A, B, Error>(stream: &mut Context) -> Result<Option<(A, B)>, Error>
 where
-    Context: StreamParser,
+    Context: IsStreamParser,
     A: TryParseOptionFromStream<Context, Error = Error>,
     B: TryParseOptionFromStream<Context, Error = Error>,
 {
@@ -30,7 +30,7 @@ pub fn parse_seq3<'a, Context, A, B, C, Error>(
     stream: &mut Context,
 ) -> Result<Option<(A, B, C)>, Error>
 where
-    Context: StreamParser,
+    Context: IsStreamParser,
     A: TryParseOptionFromStream<Context, Error = Error>,
     B: TryParseOptionFromStream<Context, Error = Error>,
     C: TryParseOptionFromStream<Context, Error = Error>,

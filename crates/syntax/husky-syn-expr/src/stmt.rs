@@ -9,7 +9,7 @@ pub use self::match_stmt::*;
 use crate::*;
 use husky_defn_ast::{DefnAst, DefnAstIdx, DefnAstIdxRange};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
-use parsec::StreamParser;
+use parsec::IsStreamParser;
 
 pub type SynStmtArena = Arena<SynStmt>;
 pub type SynStmtIdx = ArenaIdx<SynStmt>;

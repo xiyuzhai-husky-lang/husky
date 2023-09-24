@@ -11,7 +11,7 @@ pub struct TupleStructTypeSynNodeDecl {
     lpar: LparRegionalToken,
     #[return_ref]
     field_comma_list: SynNodeDeclResult<
-        PunctuatedSmallList<TupleFieldObelisk, CommaRegionalToken, 4, SynNodeDeclError>,
+        PunctuatedSmallList<TupleFieldObelisk, CommaRegionalToken, SynNodeDeclError, true, 4>,
     >,
     #[return_ref]
     rpar: SynNodeDeclResult<TupleStructRparRegionalToken>,

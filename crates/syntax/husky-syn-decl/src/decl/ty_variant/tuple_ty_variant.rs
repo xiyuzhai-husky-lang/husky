@@ -10,7 +10,7 @@ pub struct TupleTypeVariantSynNodeDecl {
     lpar_token_idx: RegionalTokenIdx,
     #[return_ref]
     field_comma_list: SynNodeDeclResult<
-        PunctuatedSmallList<TupleFieldObelisk, CommaRegionalToken, 4, SynNodeDeclError>,
+        PunctuatedSmallList<TupleFieldObelisk, CommaRegionalToken, SynNodeDeclError, true, 4>,
     >,
     #[return_ref]
     rpar: SynNodeDeclResult<TupleTypeVariantRparRegionalToken>,

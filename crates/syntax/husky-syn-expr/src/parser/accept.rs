@@ -2,7 +2,7 @@ use crate::RegularOrVariadicCallListItem;
 
 use super::*;
 use husky_print_utils::p;
-use parsec::{parse_consecutive_list, parse_consecutive_vec_map, StreamParser};
+use parsec::{parse_consecutive_list, parse_consecutive_vec_map, IsStreamParser};
 use smallvec::smallvec;
 
 impl<'a, C> SynExprParser<'a, C>

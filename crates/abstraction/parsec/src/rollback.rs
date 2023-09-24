@@ -2,7 +2,7 @@ use crate::*;
 
 pub trait ParseFromWithRollback<SP>: TryParseOptionFromStream<SP>
 where
-    SP: StreamParser + ?Sized,
+    SP: IsStreamParser + ?Sized,
 {
     type Error;
 
@@ -15,7 +15,7 @@ where
 
 impl<Context, P> ParseFromWithRollback<Context> for P
 where
-    Context: StreamParser + ?Sized,
+    Context: IsStreamParser + ?Sized,
     P: TryParseOptionFromStream<Context>,
 {
     type Error = <P as TryParseOptionFromStream<Context>>::Error;
@@ -49,7 +49,7 @@ where
 
 pub trait ParseFromWithContextAndRollback<SP>: TryParseOptionFromStreamWithContext<SP>
 where
-    SP: StreamParser + ?Sized,
+    SP: IsStreamParser + ?Sized,
 {
     type Error;
 
@@ -63,7 +63,7 @@ where
 
 impl<SP, P> ParseFromWithContextAndRollback<SP> for P
 where
-    SP: StreamParser + ?Sized,
+    SP: IsStreamParser + ?Sized,
     P: TryParseOptionFromStreamWithContext<SP>,
 {
     type Error = <P as TryParseOptionFromStreamWithContext<SP>>::Error;

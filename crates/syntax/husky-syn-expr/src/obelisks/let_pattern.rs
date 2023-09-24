@@ -5,7 +5,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct LetPatternObelisk {
-    pattern_expr_idx: SynPatternExprIdx,
+    syn_pattern_root: SynPatternRoot,
     variables: CurrentSynSymbolIdxRange,
     colon_token: SynExprResult<Option<ColonRegionalToken>>,
     ty: Option<SynExprIdx>,
@@ -17,10 +17,12 @@ impl<'a, 'b> SynDefnExprParser<'a, 'b> {
         access_end: RegionalTokenIdxRangeEnd,
     ) -> SynExprResult<LetPatternObelisk> {
         let state = self.save_state();
-        let Some(pattern) = self.parse_pattern_expr(SynPatternExprEnvironment::Let)? else {
+        let Some(syn_pattern_root) = self.try_parse_option()? else {
             Err(OriginalSynExprError::ExpectedLetPattern(state))?
         };
-        let symbols = self.pattern_expr_region().pattern_expr_symbols(pattern);
+        let symbols = self
+            .pattern_expr_region()
+            .pattern_expr_symbols(syn_pattern_root);
         let access_start = self.save_state().next_regional_token_idx();
         let symbols = symbols
             .iter()
@@ -47,10 +49,13 @@ impl<'a, 'b> SynDefnExprParser<'a, 'b> {
             )),
             _ => None,
         };
-        let ty_constraint = ty.map(|ty| ObeliskTypeConstraint::LetVariables { pattern, ty });
+        let ty_constraint = ty.map(|ty| ObeliskTypeConstraint::LetPattern {
+            pattern: syn_pattern_root,
+            ty,
+        });
         let variables = self.define_symbols(symbols, ty_constraint);
         Ok(LetPatternObelisk {
-            pattern_expr_idx: pattern,
+            syn_pattern_root,
             variables,
             colon_token,
             ty,
@@ -59,8 +64,8 @@ impl<'a, 'b> SynDefnExprParser<'a, 'b> {
 }
 
 impl LetPatternObelisk {
-    pub fn pattern_expr_idx(&self) -> SynPatternExprIdx {
-        self.pattern_expr_idx
+    pub fn syn_pattern_root(&self) -> SynPatternRoot {
+        self.syn_pattern_root
     }
 
     pub fn ty(&self) -> Option<SynExprIdx> {

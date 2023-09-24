@@ -13,7 +13,7 @@ use husky_print_utils::p;
 use husky_token::ImplToken;
 use husky_token::*;
 use maybe_result::*;
-use parsec::{HasStreamState, StreamParser};
+use parsec::{HasStreamState, IsStreamParser};
 use smallvec::SmallVec;
 use thiserror::Error;
 use vec_like::VecPairMap;

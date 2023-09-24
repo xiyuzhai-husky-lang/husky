@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_path::PatternPath;
-use husky_syn_expr::{LiteralData, SynPatternExpr, SynPatternExprIdx};
+use husky_syn_expr::{LiteralData, SynPatternExpr, SynPatternExprIdx, SynPatternRoot};
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum HirLazyPatternExpr {
@@ -49,9 +49,9 @@ pub type HirLazyPatternExprOrderedMap<V> = ArenaOrderedMap<HirLazyPatternExpr, V
 impl<'a> HirLazyExprBuilder<'a> {
     pub(super) fn new_pattern_expr(
         &mut self,
-        syn_pattern_expr_idx: SynPatternExprIdx,
+        syn_pattern_root: SynPatternRoot,
     ) -> HirLazyPatternExprIdx {
-        let pattern_expr = self.new_pattern_expr_aux(syn_pattern_expr_idx);
+        let pattern_expr = self.new_pattern_expr_aux(syn_pattern_root.syn_pattern_expr_idx());
         self.alloc_pattern_expr(pattern_expr)
     }
 

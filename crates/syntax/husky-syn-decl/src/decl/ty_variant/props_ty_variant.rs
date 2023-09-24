@@ -11,7 +11,7 @@ pub struct PropsTypeVariantSynNodeDecl {
     lcurl: SynNodeDeclResult<PropsTypeVariantLeftCurlyBrace>,
     #[return_ref]
     fields: SynNodeDeclResult<
-        PunctuatedSmallList<PropsFieldDeclPattern, CommaRegionalToken, 4, SynNodeDeclError>,
+        PunctuatedSmallList<PropsFieldDeclPattern, CommaRegionalToken, SynNodeDeclError, true, 4>,
     >,
     #[return_ref]
     rcurl: SynNodeDeclResult<PropsTypeVariantRcurlRegionalToken>,

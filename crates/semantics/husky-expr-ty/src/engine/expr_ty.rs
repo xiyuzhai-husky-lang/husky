@@ -170,7 +170,7 @@ impl<'a> ExprTypeEngine<'a> {
                 match self.infer_new_expr_ty(src, ExpectAnyOriginal) {
                     Some(src_ty) => match target {
                         Ok(target) => self.infer_pattern_and_symbols_ty(
-                            target.pattern_expr(),
+                            target.syn_pattern_root(),
                             src_ty,
                             target.variables(),
                         ),

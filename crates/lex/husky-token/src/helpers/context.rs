@@ -1,9 +1,9 @@
-use parsec::StreamParser;
+use parsec::IsStreamParser;
 
 use super::*;
 
 pub trait TokenStreamParser<'a>:
-    HasStreamState<State = TokenStreamState> + StreamParser + core::borrow::BorrowMut<TokenStream<'a>>
+    HasStreamState<State = TokenStreamState> + IsStreamParser + core::borrow::BorrowMut<TokenStream<'a>>
 {
     fn token_stream(&self) -> &TokenStream<'a> {
         self.borrow()
@@ -18,7 +18,7 @@ pub trait TokenStreamParser<'a>:
 
 impl<'a, T> TokenStreamParser<'a> for T where
     T: HasStreamState<State = TokenStreamState>
-        + StreamParser
+        + IsStreamParser
         + core::borrow::BorrowMut<TokenStream<'a>>
 {
 }

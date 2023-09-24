@@ -22,7 +22,7 @@ use husky_entity_path::*;
 use husky_entity_syn_tree::*;
 use husky_syn_expr::*;
 use husky_vfs::{ModulePath, SubmodulePath};
-use parsec::StreamParser;
+use parsec::IsStreamParser;
 use parser::*;
 use smallvec::{SmallVec, ToSmallVec};
 #[cfg(test)]
