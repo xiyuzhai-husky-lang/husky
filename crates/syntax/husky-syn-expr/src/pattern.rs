@@ -2,6 +2,8 @@ mod contract;
 mod region;
 mod symbol;
 
+use std::ops::ControlFlow;
+
 pub use self::region::*;
 pub use self::symbol::*;
 
@@ -121,9 +123,161 @@ where
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        sp: &mut SynExprParser<'a, C>,
+        parser: &mut SynExprParser<'a, C>,
     ) -> Result<Option<Self>, Self::Error> {
-        todo!()
+        let Some((regional_token_idx, token_data)) = parser.next_indexed() else {
+            return Ok(None);
+        };
+        match parser.disambiguate_token(regional_token_idx, token_data) {
+            ControlFlow::Continue(resolved_token) => match resolved_token {
+                DisambiguatedTokenData::AtomicExpr(syn_expr) => match syn_expr {
+                    SynExpr::Literal(_, _) => todo!(),
+                    SynExpr::PrincipalEntityPath {
+                        item_path_expr,
+                        opt_path,
+                    } => todo!(),
+                    SynExpr::ScopeResolution {
+                        parent_expr_idx,
+                        colon_colon_regional_token,
+                        ident_token,
+                    } => todo!(),
+                    SynExpr::InheritedSymbol {
+                        ident,
+                        regional_token_idx,
+                        inherited_symbol_idx,
+                        inherited_symbol_kind,
+                    } => todo!(),
+                    SynExpr::CurrentSymbol {
+                        ident,
+                        regional_token_idx,
+                        current_symbol_idx,
+                        current_symbol_kind,
+                    } => todo!(),
+                    SynExpr::FrameVarDecl {
+                        regional_token_idx,
+                        ident,
+                        frame_var_symbol_idx,
+                        current_symbol_kind,
+                    } => todo!(),
+                    SynExpr::SelfType(_) => todo!(),
+                    SynExpr::SelfValue(_) => todo!(),
+                    SynExpr::Binary {
+                        lopd,
+                        opr,
+                        opr_regional_token_idx,
+                        ropd,
+                    } => todo!(),
+                    SynExpr::Be {
+                        src,
+                        be_regional_token_idx,
+                        target,
+                    } => todo!(),
+                    SynExpr::Prefix {
+                        opr,
+                        opr_regional_token_idx,
+                        opd,
+                    } => todo!(),
+                    SynExpr::Suffix {
+                        opd,
+                        opr,
+                        opr_regional_token_idx,
+                    } => todo!(),
+                    SynExpr::FunctionApplicationOrCall {
+                        function,
+                        generic_arguments,
+                        lpar_regional_token_idx,
+                        items,
+                        rpar_regional_token_idx,
+                    } => todo!(),
+                    SynExpr::Ritchie {
+                        ritchie_kind_regional_token_idx,
+                        ritchie_kind,
+                        lpar_token,
+                        parameter_ty_items,
+                        rpar_regional_token_idx,
+                        light_arrow_token,
+                        return_ty_expr,
+                    } => todo!(),
+                    SynExpr::FunctionCall {
+                        function,
+                        generic_arguments,
+                        lpar_regional_token_idx,
+                        items,
+                        rpar_regional_token_idx,
+                    } => todo!(),
+                    SynExpr::Field {
+                        owner,
+                        dot_regional_token_idx,
+                        ident_token,
+                    } => todo!(),
+                    SynExpr::MethodApplicationOrCall {
+                        self_argument,
+                        dot_regional_token_idx,
+                        ident_token,
+                        generic_arguments,
+                        lpar_regional_token_idx,
+                        items,
+                        rpar_regional_token_idx,
+                    } => todo!(),
+                    SynExpr::TemplateInstantiation {
+                        template,
+                        generic_arguments,
+                    } => todo!(),
+                    SynExpr::ExplicitApplication {
+                        function_expr_idx,
+                        argument_expr_idx,
+                    } => todo!(),
+                    SynExpr::At {
+                        at_regional_token_idx,
+                        place_label_regional_token,
+                    } => todo!(),
+                    SynExpr::Unit {
+                        lpar_regional_token_idx,
+                        rpar_regional_token_idx,
+                    } => todo!(),
+                    SynExpr::Bracketed {
+                        lpar_regional_token_idx,
+                        item,
+                        rpar_regional_token_idx,
+                    } => todo!(),
+                    SynExpr::NewTuple {
+                        lpar_regional_token_idx,
+                        items,
+                        rpar_regional_token_idx,
+                    } => todo!(),
+                    SynExpr::IndexOrCompositionWithList {
+                        owner,
+                        lbox_regional_token_idx,
+                        items,
+                        rbox_regional_token_idx,
+                    } => todo!(),
+                    SynExpr::List {
+                        lbox_regional_token_idx,
+                        items,
+                        rbox_regional_token_idx,
+                    } => todo!(),
+                    SynExpr::BoxColonList {
+                        lbox_regional_token_idx,
+                        colon_regional_token_idx,
+                        items,
+                        rbox_regional_token_idx,
+                    } => todo!(),
+                    SynExpr::Block { stmts } => todo!(),
+                    SynExpr::EmptyHtmlTag {
+                        empty_html_bra_idx,
+                        function_ident,
+                        arguments,
+                        empty_html_ket,
+                    } => todo!(),
+                    SynExpr::Sorry { regional_token_idx } => todo!(),
+                    SynExpr::Todo { regional_token_idx } => todo!(),
+                    SynExpr::Err(_) => todo!(),
+                },
+                DisambiguatedTokenData::Bra(_, _) => todo!(),
+                _ => Ok(None),
+            },
+            ControlFlow::Break(_) => Ok(None),
+        }
     }
 }
 
