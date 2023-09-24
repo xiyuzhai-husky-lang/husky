@@ -42,8 +42,9 @@ fn expr_region_contains_gn(db: &dyn HirExprDb, syn_expr_region: SynExprRegion) -
                 FugitiveKind::Gn => return true,
                 FugitiveKind::Fn | FugitiveKind::AliasType | FugitiveKind::Val => (),
             },
-            SynExpr::ScopeResolution {
+            SynExpr::AssociatedItem {
                 parent_expr_idx,
+                parent_path,
                 colon_colon_regional_token,
                 ident_token,
             } => todo!(),

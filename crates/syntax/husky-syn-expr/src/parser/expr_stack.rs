@@ -55,21 +55,19 @@ impl SynExpr {
     pub fn base_item_path(&self, db: &dyn SynExprDb, arena: &SynExprArena) -> BaseEntityPath {
         match self {
             SynExpr::Literal(_, _) => BaseEntityPath::None,
-            SynExpr::IdentifiableEntityPath(expr) => match expr {
-                IdentifiableEntityPathExpr::Principal {
-                    item_path_expr,
-                    opt_path,
-                } => match opt_path {
-                    &Some(path) => BaseEntityPath::Some(path.into()),
-                    None => todo!(),
-                },
-                IdentifiableEntityPathExpr::ScopeResolution {
-                    parent_expr_idx,
-                    parent_path,
-                    colon_colon_regional_token,
-                    ident_token,
-                } => todo!(),
+            SynExpr::PrincipalEntityPath {
+                item_path_expr,
+                opt_path,
+            } => match opt_path {
+                &Some(path) => BaseEntityPath::Some(path.into()),
+                None => todo!(),
             },
+            SynExpr::AssociatedItem {
+                parent_expr_idx,
+                parent_path,
+                colon_colon_regional_token,
+                ident_token,
+            } => todo!(),
             SynExpr::InheritedSymbol { .. } | SynExpr::CurrentSymbol { .. } => BaseEntityPath::None,
             SynExpr::SelfValue(_) => todo!(),
             SynExpr::SelfType(_) => BaseEntityPath::SelfType,
@@ -81,7 +79,8 @@ impl SynExpr {
             } => {
                 match &arena[lopd] {
                     SynExpr::Literal(_, _) => todo!(),
-                    SynExpr::IdentifiableEntityPath(_) => todo!(),
+                    SynExpr::PrincipalEntityPath { .. } => todo!(),
+                    SynExpr::AssociatedItem { .. } => todo!(),
                     SynExpr::InheritedSymbol {
                         ident,
                         regional_token_idx,

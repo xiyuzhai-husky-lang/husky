@@ -11,7 +11,7 @@ use husky_expr_ty::{
     MethodCallOrApplicationDisambiguation, RitchieParameterArgumentMatch, SynExprDisambiguation,
 };
 use husky_fluffy_term::StaticDispatch;
-use husky_syn_expr::{SynExpr, SynExprIdx, SynStmtIdx};
+use husky_syn_expr::{IdentifiableEntityPathExpr, SynExpr, SynExprIdx, SynStmtIdx};
 use salsa::debug::ExpectWithDb;
 use vec_like::VecMap;
 
@@ -119,8 +119,9 @@ impl ToHirEager for SynExprIdx {
                 // ad hoc
                 HirEagerExpr::PrincipalEntityPath(path)
             }
-            SynExpr::ScopeResolution {
+            SynExpr::AssociatedItem {
                 parent_expr_idx,
+                parent_path,
                 colon_colon_regional_token,
                 ident_token,
             } => {

@@ -361,7 +361,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             }
             SynExpr::Literal(_, _)
             | SynExpr::PrincipalEntityPath { .. }
-            | SynExpr::ScopeResolution { .. }
+            | SynExpr::AssociatedItem { .. }
             | SynExpr::Binary { .. }
             | SynExpr::Prefix { .. }
             | SynExpr::Suffix { .. }

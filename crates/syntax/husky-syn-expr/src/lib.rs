@@ -35,7 +35,9 @@ pub use self::stmt::*;
 pub use self::symbol::*;
 
 use husky_coword::*;
-use husky_entity_path::{EntityPath, ItemPath, PrincipalEntityPath};
+use husky_entity_path::{
+    EntityPath, ItemPath, MajorEntityPath, MajorItemPath, PrincipalEntityPath,
+};
 use husky_entity_syn_tree::{helpers::tokra_region::*, *};
 use husky_opr::*;
 use husky_regional_token::*;
@@ -86,7 +88,16 @@ impl BaseEntityPathInclination {
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum SynExpr {
     Literal(RegionalTokenIdx, Literal),
-    IdentifiableEntityPath(IdentifiableEntityPathExpr),
+    PrincipalEntityPath {
+        item_path_expr: PrincipalEntityPathExprIdx,
+        opt_path: Option<PrincipalEntityPath>,
+    },
+    AssociatedItem {
+        parent_expr_idx: PrincipalEntityPathExprIdx,
+        parent_path: MajorItemPath,
+        colon_colon_regional_token: ColonColonRegionalToken,
+        ident_token: IdentRegionalToken,
+    },
     InheritedSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
@@ -259,6 +270,31 @@ pub enum SynExpr {
         regional_token_idx: RegionalTokenIdx,
     },
     Err(SynExprError),
+}
+
+impl From<IdentifiableEntityPathExpr> for SynExpr {
+    fn from(expr: IdentifiableEntityPathExpr) -> Self {
+        match expr {
+            IdentifiableEntityPathExpr::Principal {
+                item_path_expr,
+                opt_path,
+            } => SynExpr::PrincipalEntityPath {
+                item_path_expr,
+                opt_path,
+            },
+            IdentifiableEntityPathExpr::AssociatedItem {
+                parent_expr_idx,
+                parent_path,
+                colon_colon_regional_token,
+                ident_token,
+            } => SynExpr::AssociatedItem {
+                parent_expr_idx,
+                parent_path,
+                colon_colon_regional_token,
+                ident_token,
+            },
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq)]

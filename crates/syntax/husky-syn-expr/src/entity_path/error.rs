@@ -3,26 +3,26 @@ use original_error::OriginalError;
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
-pub enum PrincipalEntityPathExprError {
+pub enum SynExprError {
     #[error("original `{0}`")]
     Original(OriginalSynExprError),
     #[error("derived `{0}`")]
     Derived(DerivedPrincipalEntityPathExprError),
 }
 
-impl From<TokenDataError> for PrincipalEntityPathExprError {
+impl From<TokenDataError> for SynExprError {
     fn from(value: TokenDataError) -> Self {
-        PrincipalEntityPathExprError::Derived(value.into())
+        SynExprError::Derived(value.into())
     }
 }
 
-impl From<OriginalSynExprError> for PrincipalEntityPathExprError {
+impl From<OriginalSynExprError> for SynExprError {
     fn from(v: OriginalSynExprError) -> Self {
         Self::Original(v)
     }
 }
 
-impl From<DerivedPrincipalEntityPathExprError> for PrincipalEntityPathExprError {
+impl From<DerivedPrincipalEntityPathExprError> for SynExprError {
     fn from(v: DerivedPrincipalEntityPathExprError) -> Self {
         Self::Derived(v)
     }
@@ -41,7 +41,7 @@ pub enum OriginalSynExprError {
 }
 
 impl OriginalError for OriginalSynExprError {
-    type Error = PrincipalEntityPathExprError;
+    type Error = SynExprError;
 }
 
 impl From<OriginalSynExprError> for OriginalSynExprError {
@@ -59,4 +59,4 @@ pub enum DerivedPrincipalEntityPathExprError {
     TokenDataError(#[from] TokenDataError),
 }
 
-pub type SynExprResult<T> = Result<T, PrincipalEntityPathExprError>;
+pub type SynExprResult<T> = Result<T, SynExprError>;

@@ -341,7 +341,8 @@ where
                     BaseEntityPath::None => {
                         match lopd {
                             SynExpr::Literal(_, _) => todo!(),
-                            SynExpr::IdentifiableEntityPath(_) => todo!(),
+                            SynExpr::PrincipalEntityPath { .. } => todo!(),
+                            SynExpr::AssociatedItem { .. } => todo!(),
                             SynExpr::InheritedSymbol {
                                 ident,
                                 regional_token_idx,

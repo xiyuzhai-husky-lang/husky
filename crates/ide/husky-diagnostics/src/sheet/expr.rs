@@ -1,8 +1,8 @@
 use super::*;
 use husky_syn_defn::HasDefns;
 use husky_syn_expr::{
-    OriginalSynExprError, OriginalSynExprError, PrincipalEntityPathExpr,
-    PrincipalEntityPathExprError, SynExpr, SynExprError, SynExprRegion, SynExprResult, SynStmt,
+    OriginalSynExprError, PrincipalEntityPathExpr, SynExpr, SynExprError, SynExprRegion,
+    SynExprResult, SynStmt,
 };
 use salsa::DebugWithDb;
 
@@ -162,11 +162,11 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                     ident_token, path, ..
                 } => {
                     match ident_token {
-                        Err(PrincipalEntityPathExprError::Original(e)) => self.visit_atom(e),
+                        Err(SynExprError::Original(e)) => self.visit_atom(e),
                         _ => (),
                     }
                     match path {
-                        Err(PrincipalEntityPathExprError::Original(e)) => self.visit_atom(e),
+                        Err(SynExprError::Original(e)) => self.visit_atom(e),
                         _ => (),
                     }
                 }
