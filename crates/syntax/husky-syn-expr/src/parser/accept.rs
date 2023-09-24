@@ -51,6 +51,9 @@ where
             DisambiguatedTokenData::Todo { regional_token_idx } => {
                 self.accept_atom(SynExpr::Todo { regional_token_idx })
             }
+            DisambiguatedTokenData::Unreachable { regional_token_idx } => {
+                self.accept_atom(SynExpr::Unreachable { regional_token_idx })
+            }
             DisambiguatedTokenData::UnrecognizedIdent {
                 regional_token_idx,
                 ident,

@@ -3598,16 +3598,11 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::Err(
-                                                    SynExprError::Original(
-                                                        OriginalSynExprError::UnrecognizedIdent {
-                                                            regional_token_idx: RegionalTokenIdx(
-                                                                45,
-                                                            ),
-                                                            ident: `unreachable`,
-                                                        },
+                                                SynExpr::Unreachable {
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        45,
                                                     ),
-                                                ),
+                                                },
                                                 SynExpr::PrincipalEntityPath {
                                                     path_expr_idx: 8,
                                                     opt_path: Some(
@@ -3662,16 +3657,11 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::Err(
-                                                    SynExprError::Original(
-                                                        OriginalSynExprError::UnrecognizedIdent {
-                                                            regional_token_idx: RegionalTokenIdx(
-                                                                81,
-                                                            ),
-                                                            ident: `unreachable`,
-                                                        },
+                                                SynExpr::Unreachable {
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        81,
                                                     ),
-                                                ),
+                                                },
                                                 SynExpr::CurrentSymbol {
                                                     ident: `pixel_pair_below`,
                                                     regional_token_idx: RegionalTokenIdx(
@@ -3704,26 +3694,16 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::Err(
-                                                    SynExprError::Original(
-                                                        OriginalSynExprError::UnrecognizedIdent {
-                                                            regional_token_idx: RegionalTokenIdx(
-                                                                105,
-                                                            ),
-                                                            ident: `unreachable`,
-                                                        },
+                                                SynExpr::Unreachable {
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        105,
                                                     ),
-                                                ),
-                                                SynExpr::Err(
-                                                    SynExprError::Original(
-                                                        OriginalSynExprError::UnrecognizedIdent {
-                                                            regional_token_idx: RegionalTokenIdx(
-                                                                109,
-                                                            ),
-                                                            ident: `unreachable`,
-                                                        },
+                                                },
+                                                SynExpr::Unreachable {
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        109,
                                                     ),
-                                                ),
+                                                },
                                                 SynExpr::Block {
                                                     stmts: ArenaIdxRange(
                                                         16..19,
@@ -6112,16 +6092,11 @@ Ok(
                                                     ),
                                                     opd: 20,
                                                 },
-                                                SynExpr::Err(
-                                                    SynExprError::Original(
-                                                        OriginalSynExprError::UnrecognizedIdent {
-                                                            regional_token_idx: RegionalTokenIdx(
-                                                                47,
-                                                            ),
-                                                            ident: `unreachable`,
-                                                        },
+                                                SynExpr::Unreachable {
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        47,
                                                     ),
-                                                ),
+                                                },
                                                 SynExpr::Block {
                                                     stmts: ArenaIdxRange(
                                                         4..6,
@@ -7654,16 +7629,11 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::Err(
-                                                    SynExprError::Original(
-                                                        OriginalSynExprError::UnrecognizedIdent {
-                                                            regional_token_idx: RegionalTokenIdx(
-                                                                45,
-                                                            ),
-                                                            ident: `unreachable`,
-                                                        },
+                                                SynExpr::Unreachable {
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        45,
                                                     ),
-                                                ),
+                                                },
                                                 SynExpr::CurrentSymbol {
                                                     ident: `pixel_pair_below`,
                                                     regional_token_idx: RegionalTokenIdx(
@@ -7728,16 +7698,11 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::Err(
-                                                    SynExprError::Original(
-                                                        OriginalSynExprError::UnrecognizedIdent {
-                                                            regional_token_idx: RegionalTokenIdx(
-                                                                89,
-                                                            ),
-                                                            ident: `unreachable`,
-                                                        },
+                                                SynExpr::Unreachable {
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        89,
                                                     ),
-                                                ),
+                                                },
                                                 SynExpr::PrincipalEntityPath {
                                                     path_expr_idx: 20,
                                                     opt_path: Some(
@@ -7749,16 +7714,11 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::Err(
-                                                    SynExprError::Original(
-                                                        OriginalSynExprError::UnrecognizedIdent {
-                                                            regional_token_idx: RegionalTokenIdx(
-                                                                99,
-                                                            ),
-                                                            ident: `unreachable`,
-                                                        },
+                                                SynExpr::Unreachable {
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        99,
                                                     ),
-                                                ),
+                                                },
                                                 SynExpr::CurrentSymbol {
                                                     ident: `pixel_pair_below`,
                                                     regional_token_idx: RegionalTokenIdx(
@@ -7812,26 +7772,16 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::Err(
-                                                    SynExprError::Original(
-                                                        OriginalSynExprError::UnrecognizedIdent {
-                                                            regional_token_idx: RegionalTokenIdx(
-                                                                141,
-                                                            ),
-                                                            ident: `unreachable`,
-                                                        },
+                                                SynExpr::Unreachable {
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        141,
                                                     ),
-                                                ),
-                                                SynExpr::Err(
-                                                    SynExprError::Original(
-                                                        OriginalSynExprError::UnrecognizedIdent {
-                                                            regional_token_idx: RegionalTokenIdx(
-                                                                145,
-                                                            ),
-                                                            ident: `unreachable`,
-                                                        },
+                                                },
+                                                SynExpr::Unreachable {
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        145,
                                                     ),
-                                                ),
+                                                },
                                                 SynExpr::CurrentSymbol {
                                                     ident: `pixel_pair_below`,
                                                     regional_token_idx: RegionalTokenIdx(
@@ -7864,26 +7814,16 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::Err(
-                                                    SynExprError::Original(
-                                                        OriginalSynExprError::UnrecognizedIdent {
-                                                            regional_token_idx: RegionalTokenIdx(
-                                                                169,
-                                                            ),
-                                                            ident: `unreachable`,
-                                                        },
+                                                SynExpr::Unreachable {
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        169,
                                                     ),
-                                                ),
-                                                SynExpr::Err(
-                                                    SynExprError::Original(
-                                                        OriginalSynExprError::UnrecognizedIdent {
-                                                            regional_token_idx: RegionalTokenIdx(
-                                                                173,
-                                                            ),
-                                                            ident: `unreachable`,
-                                                        },
+                                                },
+                                                SynExpr::Unreachable {
+                                                    regional_token_idx: RegionalTokenIdx(
+                                                        173,
                                                     ),
-                                                ),
+                                                },
                                                 SynExpr::Block {
                                                     stmts: ArenaIdxRange(
                                                         26..29,
@@ -10450,7 +10390,7 @@ Ok(
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 329,
+                                                            value: 328,
                                                         },
                                                     ),
                                                 ),
@@ -10474,7 +10414,7 @@ Ok(
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 330,
+                                                            value: 329,
                                                         },
                                                     ),
                                                 ),
@@ -10654,7 +10594,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 329,
+                                                                    value: 328,
                                                                 },
                                                             ),
                                                         ),
@@ -10674,7 +10614,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 330,
+                                                                    value: 329,
                                                                 },
                                                             ),
                                                         ),
@@ -10697,7 +10637,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 329,
+                                                                value: 328,
                                                             },
                                                         ),
                                                     ),
@@ -10714,7 +10654,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 330,
+                                                                value: 329,
                                                             },
                                                         ),
                                                     ),

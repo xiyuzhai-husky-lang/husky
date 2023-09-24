@@ -457,12 +457,11 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             }
             SynExpr::FunctionCall { .. } => (),
             SynExpr::Ritchie { .. } => (),
-            SynExpr::Sorry {
-                regional_token_idx: regional_token_idx,
-            } => todo!(),
-            SynExpr::Todo {
-                regional_token_idx: regional_token_idx,
-            } => self.add(*regional_token_idx, TokenInfo::Todo),
+            SynExpr::Sorry { regional_token_idx } => todo!(),
+            SynExpr::Todo { regional_token_idx } => self.add(*regional_token_idx, TokenInfo::Todo),
+            SynExpr::Unreachable { regional_token_idx } => {
+                self.add(*regional_token_idx, TokenInfo::Unreachable)
+            }
         }
     }
 

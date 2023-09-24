@@ -44,6 +44,7 @@ pub enum Keyword {
     Async,
     Sorry,
     Todo,
+    Unreachable,
 }
 
 impl std::fmt::Display for Keyword {
@@ -72,6 +73,7 @@ impl Keyword {
             Keyword::Async => "async",
             Keyword::Sorry => "sorry",
             Keyword::Todo => "todo",
+            Keyword::Unreachable => "unreachable",
         }
     }
 }

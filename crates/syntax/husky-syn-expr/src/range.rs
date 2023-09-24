@@ -383,12 +383,11 @@ impl<'a> SynExprRangeCalculator<'a> {
                     *rpar_regional_token_idx,
                 ),
             },
-            SynExpr::Sorry {
-                regional_token_idx: regional_token_idx,
-            } => todo!(),
-            SynExpr::Todo {
-                regional_token_idx: regional_token_idx,
-            } => RegionalTokenIdxRange::new_single(*regional_token_idx),
+            SynExpr::Sorry { regional_token_idx }
+            | SynExpr::Todo { regional_token_idx }
+            | SynExpr::Unreachable { regional_token_idx } => {
+                RegionalTokenIdxRange::new_single(*regional_token_idx)
+            }
             SynExpr::Err(error) => match error {
                 SynExprError::Original(error) => error.regional_token_idx_range(),
                 SynExprError::Derived(_) => todo!(),

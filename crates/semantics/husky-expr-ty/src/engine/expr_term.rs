@@ -314,6 +314,7 @@ impl<'a> ExprTypeEngine<'a> {
             SynExpr::Ritchie { .. } => todo!(),
             SynExpr::Sorry { regional_token_idx } => todo!(),
             SynExpr::Todo { regional_token_idx } => todo!(),
+            SynExpr::Unreachable { regional_token_idx } => todo!(),
             SynExpr::Err(_) => Err(DerivedExprTermError::ExprError.into()),
         }
     }

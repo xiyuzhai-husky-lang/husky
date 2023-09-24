@@ -1616,7 +1616,7 @@ Ok(
                 syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Unreachable,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1716,7 +1716,7 @@ Ok(
                 syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Unreachable,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1778,7 +1778,7 @@ Ok(
                 syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Unreachable,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 6,
@@ -1788,7 +1788,7 @@ Ok(
                 syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Unreachable,
             TokenInfo::None,
             TokenInfo::EntityNode(
                 ItemSynNodePath::MajorItem(
@@ -1956,7 +1956,7 @@ Ok(
                 syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Unreachable,
             TokenInfo::None,
             TokenInfo::EntityNode(
                 ItemSynNodePath::MajorItem(
@@ -2187,7 +2187,7 @@ Ok(
                 syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Unreachable,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -2327,7 +2327,7 @@ Ok(
                 syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Unreachable,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -2356,7 +2356,7 @@ Ok(
                 syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Unreachable,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -2481,7 +2481,7 @@ Ok(
                 syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Unreachable,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 7,
@@ -2491,7 +2491,7 @@ Ok(
                 syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Unreachable,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -2553,7 +2553,7 @@ Ok(
                 syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Unreachable,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 9,
@@ -2563,7 +2563,7 @@ Ok(
                 syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Unreachable,
             TokenInfo::None,
             TokenInfo::EntityNode(
                 ItemSynNodePath::MajorItem(

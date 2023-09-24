@@ -611,6 +611,7 @@ impl<'a> DeclarativeTermEngine<'a> {
             SynExpr::Todo {
                 regional_token_idx: token_idx,
             } => todo!(),
+            SynExpr::Unreachable { regional_token_idx } => todo!(),
         }
     }
 
