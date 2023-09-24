@@ -170,10 +170,10 @@ impl<'a> DeclarativeTermEngine<'a> {
                         )
                 }
                 ObeliskTypeConstraint::ExplicitRegularParameter {
-                    pattern_expr_idx: pattern_expr,
+                    syn_pattern_root,
                     ty_expr_idx: ty,
                 } => self.init_current_symbol_signatures_in_parenate_parameter(
-                    *pattern_expr,
+                    *syn_pattern_root,
                     *ty,
                     *symbols,
                 ),
@@ -185,8 +185,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                     self.symbol_declarative_term_region
                         .add_new_field_variable_symbol_signature(self.db, symbols.start(), ty)
                 }
-                ObeliskTypeConstraint::LetVariables { .. }
-                | ObeliskTypeConstraint::FrameVariable => {
+                ObeliskTypeConstraint::LetPattern { .. } | ObeliskTypeConstraint::FrameVariable => {
                     // need only to compute for decl region
                     return;
                 }
@@ -214,7 +213,7 @@ impl<'a> DeclarativeTermEngine<'a> {
     /// let variables, be variables and match variables are infered in `husky-expr-ty`
     fn init_current_symbol_signatures_in_parenate_parameter(
         &mut self,
-        pattern_expr: SynPatternExprIdx,
+        syn_pattern_root: SynPatternRoot,
         ty: SynExprIdx,
         symbols: CurrentSynSymbolIdxRange,
     ) {
@@ -233,7 +232,7 @@ impl<'a> DeclarativeTermEngine<'a> {
             }
             return;
         };
-        self.infer_pattern_tys_in_parenate_parameter(pattern_expr, ty);
+        self.infer_pattern_tys_in_parenate_parameter(syn_pattern_root, ty);
         for symbol in symbols {
             self.infer_current_symbol_signature_in_parenate_parameter(symbol)
         }

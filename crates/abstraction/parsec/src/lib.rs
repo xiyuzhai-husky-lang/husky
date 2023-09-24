@@ -1,3 +1,4 @@
+#![feature(let_chains)]
 mod list;
 mod rollback;
 mod seq;
@@ -40,7 +41,7 @@ where
     }
 }
 
-pub trait StreamParser: HasStreamState {
+pub trait IsStreamParser: HasStreamState {
     fn try_parse_option<P: TryParseOptionFromStream<Self>>(
         &mut self,
     ) -> Result<Option<P>, <P as TryParseOptionFromStream<Self>>::Error>;
@@ -85,7 +86,7 @@ pub trait StreamParser: HasStreamState {
         Self: Sized;
 }
 
-impl<SP> StreamParser for SP
+impl<SP> IsStreamParser for SP
 where
     SP: HasStreamState,
 {
@@ -162,7 +163,7 @@ where
 
 pub trait TryParseOptionFromStream<SP>: Sized
 where
-    SP: StreamParser + ?Sized,
+    SP: IsStreamParser + ?Sized,
 {
     type Error;
 
@@ -172,26 +173,26 @@ where
     ) -> Result<Option<Self>, Self::Error>;
 }
 
-pub trait TryParseFromStream<SP>: Sized
+pub trait TryParseFromStream<StreamParser>: Sized
 where
-    SP: StreamParser + ?Sized,
+    StreamParser: IsStreamParser + ?Sized,
 {
     type Error;
 
     /// no guarantee on stream state other than Ok(Some(_))
-    fn try_parse_from_stream(sp: &mut SP) -> Result<Self, Self::Error>;
+    fn try_parse_from_stream(sp: &mut StreamParser) -> Result<Self, Self::Error>;
 }
 
 pub trait ParseFromStream<SP>: Sized
 where
-    SP: StreamParser + ?Sized,
+    SP: IsStreamParser + ?Sized,
 {
     fn parse_from_stream(sp: &mut SP) -> Self;
 }
 
 pub trait TryParseOptionFromStreamWithContext<SP>: Sized
 where
-    SP: StreamParser + ?Sized,
+    SP: IsStreamParser + ?Sized,
 {
     type Error;
 

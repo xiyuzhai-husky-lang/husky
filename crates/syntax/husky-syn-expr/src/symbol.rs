@@ -11,7 +11,7 @@ pub use self::region::*;
 use crate::*;
 use husky_entity_syn_tree::{CratePrelude, ModuleSymbolContext, PreludeResult};
 use idx_arena::ordered_map::ArenaOrderedMap;
-use parsec::{StreamParser, TryParseFromStream};
+use parsec::{IsStreamParser, TryParseFromStream};
 use vec_like::SmallVecSet;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

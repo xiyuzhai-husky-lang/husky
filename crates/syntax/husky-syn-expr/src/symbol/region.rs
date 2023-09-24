@@ -46,14 +46,14 @@ pub struct SynSymbolRegion {
 pub enum ObeliskTypeConstraint {
     TemplateTypeParameter,
     ExplicitRegularParameter {
-        pattern_expr_idx: SynPatternExprIdx,
+        syn_pattern_root: SynPatternRoot,
         ty_expr_idx: SynExprIdx,
     },
     ExplicitVariadicParameter {
         ty: SynExprIdx,
     },
-    LetVariables {
-        pattern: SynPatternExprIdx,
+    LetPattern {
+        pattern: SynPatternRoot,
         ty: SynExprIdx,
     },
     FieldVariable {
@@ -234,20 +234,20 @@ impl SynSymbolRegion {
         &self.current_symbol_arena
     }
 
-    pub fn regular_parameter_pattern_ty_constraint(
-        &self,
-        target: SynPatternExprIdx,
-    ) -> Option<SynExprIdx> {
-        self.pattern_ty_constraints
-            .iter()
-            .find_map(|(pattern_ty_constraint, _)| match pattern_ty_constraint {
-                ObeliskTypeConstraint::ExplicitRegularParameter {
-                    pattern_expr_idx: pattern,
-                    ty_expr_idx: ty,
-                } if *pattern == target => Some(*ty),
-                _ => None,
-            })
-    }
+    // pub fn regular_parameter_pattern_ty_constraint(
+    //     &self,
+    //     target: SynPatternExprIdx,
+    // ) -> Option<SynExprIdx> {
+    //     self.pattern_ty_constraints
+    //         .iter()
+    //         .find_map(|(pattern_ty_constraint, _)| match pattern_ty_constraint {
+    //             ObeliskTypeConstraint::ExplicitRegularParameter {
+    //                 pattern_expr_idx: pattern,
+    //                 ty_expr_idx: ty,
+    //             } if *pattern == target => Some(*ty),
+    //             _ => None,
+    //         })
+    // }
 
     pub fn pattern_ty_constraints(&self) -> &[(ObeliskTypeConstraint, CurrentSynSymbolIdxRange)] {
         &self.pattern_ty_constraints

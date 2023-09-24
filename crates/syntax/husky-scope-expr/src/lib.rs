@@ -6,7 +6,7 @@ use husky_opr::Bracket;
 use husky_scope::Scope;
 use husky_token::*;
 use husky_vfs::{ModulePath, VfsDb};
-use parsec::{HasStreamState, StreamParser};
+use parsec::{HasStreamState, IsStreamParser};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VisibilityExpr {

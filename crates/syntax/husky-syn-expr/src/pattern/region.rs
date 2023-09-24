@@ -77,9 +77,9 @@ impl SynPatternExprRegion {
 
     pub fn pattern_expr_symbols(
         &self,
-        pattern_expr_idx: SynPatternExprIdx,
+        pattern_expr_idx: SynPatternRoot,
     ) -> &[(Ident, SynPatternSymbolIdx)] {
-        &self.pattern_symbol_maps[pattern_expr_idx]
+        &self.pattern_symbol_maps[pattern_expr_idx.0]
     }
 
     pub fn pattern_info(&self, pattern_expr_idx: SynPatternExprIdx) -> SynPatternExprEnvironment {

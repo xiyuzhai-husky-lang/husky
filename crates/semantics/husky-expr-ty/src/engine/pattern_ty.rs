@@ -3,21 +3,21 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn infer_pattern_and_symbols_ty(
         &mut self,
-        pattern_expr_idx: SynPatternExprIdx,
+        syn_pattern_root: SynPatternRoot,
         ty: FluffyTerm,
         symbols: CurrentSynSymbolIdxRange,
     ) {
-        self.save_pattern_ty(pattern_expr_idx, ty);
+        self.save_pattern_ty(syn_pattern_root.syn_pattern_expr_idx(), ty);
         for symbol in symbols {
             self.infer_new_current_symbol_ty(symbol)
         }
     }
 
     /// the way type inference works for pattern expressions is dual to that of regular expression
-    fn save_pattern_ty(&mut self, pattern_expr_idx: SynPatternExprIdx, ty: FluffyTerm) {
+    fn save_pattern_ty(&mut self, syn_pattern_expr_idx: SynPatternExprIdx, ty: FluffyTerm) {
         self.pattern_expr_ty_infos
-            .insert_new(pattern_expr_idx, PatternExprTypeInfo::new(Ok(ty)));
-        self.infer_subpattern_tys(pattern_expr_idx)
+            .insert_new(syn_pattern_expr_idx, PatternExprTypeInfo::new(Ok(ty)));
+        self.infer_subpattern_tys(syn_pattern_expr_idx)
     }
 
     /// subpattern expressions get its type from its parent

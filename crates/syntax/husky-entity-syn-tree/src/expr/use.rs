@@ -2,7 +2,7 @@ use super::*;
 use husky_opr::BinaryOpr;
 use husky_token::*;
 use original_error::OriginalError;
-use parsec::{StreamParser, StreamWrapper, TryParseOptionFromStream};
+use parsec::{IsStreamParser, StreamWrapper, TryParseOptionFromStream};
 use thiserror::Error;
 
 #[derive(Debug, PartialEq, Eq)]

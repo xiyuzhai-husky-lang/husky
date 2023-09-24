@@ -35,7 +35,7 @@ impl<'a, 'b> TryParseFromStream<SynDeclExprParser<'a>> for VariadicVariant {
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub enum SpecificParameterObelisk {
     Regular {
-        pattern: SynPatternExprIdx,
+        syn_pattern_root: SynPatternRoot,
         variables: CurrentSynSymbolIdxRange,
         colon: ColonRegionalToken,
         ty: SynExprIdx,
@@ -50,7 +50,7 @@ pub enum SpecificParameterObelisk {
         ty: SynExprIdx,
     },
     Keyed {
-        pattern: SynPatternExprIdx,
+        syn_pattern_root: SynPatternRoot,
         symbol_modifier_keyword_group: Option<EphemSymbolModifierRegionalTokenGroup>,
         ident_token: IdentRegionalToken,
         variable: CurrentSynSymbolIdx,
@@ -68,12 +68,10 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
-        if let Some(pattern_expr_idx) =
-            ctx.parse_pattern_expr(SynPatternExprEnvironment::Parameter)?
-        {
+        if let Some(syn_pattern_root) = ctx.try_parse_option()? {
             let symbols = ctx
                 .pattern_expr_region()
-                .pattern_expr_symbols(pattern_expr_idx);
+                .pattern_expr_symbols(syn_pattern_root);
             let access_start = ctx.save_state().next_regional_token_idx();
             let variables = symbols
                 .iter()
@@ -98,7 +96,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
             let variables = ctx.define_symbols(
                 variables,
                 Some(ObeliskTypeConstraint::ExplicitRegularParameter {
-                    pattern_expr_idx,
+                    syn_pattern_root,
                     ty_expr_idx,
                 }),
             );
@@ -106,7 +104,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
                 let SynPatternExpr::Ident {
                     symbol_modifier_keyword_group,
                     ident_token,
-                } = ctx.pattern_expr_region()[pattern_expr_idx]
+                } = ctx.pattern_expr_region()[syn_pattern_root.syn_pattern_expr_idx()]
                 else {
                     todo!()
                 };
@@ -121,7 +119,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
                     ))
                 };
                 Ok(Some(SpecificParameterObelisk::Keyed {
-                    pattern: pattern_expr_idx,
+                    syn_pattern_root,
                     symbol_modifier_keyword_group,
                     ident_token,
                     variable: variables.start(),
@@ -132,7 +130,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
                 }))
             } else {
                 Ok(Some(SpecificParameterObelisk::Regular {
-                    pattern: pattern_expr_idx,
+                    syn_pattern_root: syn_pattern_root,
                     variables,
                     colon,
                     ty: ty_expr_idx,

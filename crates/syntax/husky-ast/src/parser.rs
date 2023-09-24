@@ -9,7 +9,7 @@ use crate::*;
 use husky_entity_path::DisambiguatorRegistry;
 use husky_print_utils::p;
 use husky_token::*;
-use parsec::{HasStreamState, StreamParser, TryParseOptionFromStream};
+use parsec::{HasStreamState, IsStreamParser, TryParseOptionFromStream};
 use salsa::DebugWithDb;
 use utils::*;
 

@@ -28,7 +28,8 @@ impl<'a> ExprTypeEngine<'a> {
                     let_variable_obelisks
                         .as_ref()
                         .expect("must be okay")
-                        .pattern_expr_idx(),
+                        .syn_pattern_root()
+                        .syn_pattern_expr_idx(),
                 );
                 self.infer_new_expr_ty_discarded(
                     initial_value,
@@ -49,7 +50,7 @@ impl<'a> ExprTypeEngine<'a> {
             Some(ty) => {
                 match let_variable_obelisks {
                     Ok(let_variables_pattern) => self.infer_pattern_and_symbols_ty(
-                        let_variables_pattern.pattern_expr_idx(),
+                        let_variables_pattern.syn_pattern_root(),
                         ty,
                         let_variables_pattern.variables(),
                     ),

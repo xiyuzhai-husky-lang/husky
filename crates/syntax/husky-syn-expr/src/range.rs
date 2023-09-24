@@ -250,7 +250,7 @@ impl<'a> SynExprRangeCalculator<'a> {
             } => {
                 let start = self[src].start().regional_token_idx();
                 let end = if let Ok(target) = target {
-                    self[target.pattern_expr()].end()
+                    self[target.syn_pattern_root().syn_pattern_expr_idx()].end()
                 } else {
                     RegionalTokenIdxRangeEnd::new_after(*be_regional_token_idx)
                 };

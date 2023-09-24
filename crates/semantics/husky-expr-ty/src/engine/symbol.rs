@@ -28,15 +28,15 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn parameter_pattern_ty(&self, pattern_expr_idx: SynPatternExprIdx) -> EtherealTerm {
-        match self
-            .expr_region_data
-            .symbol_region()
-            .regular_parameter_pattern_ty_constraint(pattern_expr_idx)
-        {
-            Some(_) => todo!(),
-            None => todo!(),
-        }
-        todo!()
-    }
+    // fn parameter_pattern_ty(&self, pattern_expr_idx: SynPatternExprIdx) -> EtherealTerm {
+    //     match self
+    //         .expr_region_data
+    //         .symbol_region()
+    //         .regular_parameter_pattern_ty_constraint(pattern_expr_idx)
+    //     {
+    //         Some(_) => todo!(),
+    //         None => todo!(),
+    //     }
+    //     todo!()
+    // }
 }

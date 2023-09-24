@@ -7,7 +7,7 @@ pub fn parse_consecutive_list<Parser, Element, Error>(
     parser: &mut Parser,
 ) -> Result<Vec<Element>, Error>
 where
-    Parser: StreamParser,
+    Parser: IsStreamParser,
     Element: TryParseOptionFromStream<Parser, Error = Error>,
 {
     let mut elements = vec![];
@@ -21,7 +21,7 @@ pub fn parse_consecutive_vec_map<Parser, K, Element, Error>(
     parser: &mut Parser,
 ) -> Result<VecMap<Element>, Error>
 where
-    Parser: StreamParser,
+    Parser: IsStreamParser,
     K: Eq + Copy,
     Element: AsVecMapEntry<K = K> + TryParseOptionFromStream<Parser, Error = Error>,
 {
@@ -36,8 +36,13 @@ where
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct PunctuatedSmallList<Element, Separator, const N: usize, Error>
-where
+pub struct PunctuatedSmallList<
+    Element,
+    Separator,
+    Error,
+    const ALLOW_TRAILING_SEPARATOR: bool,
+    const N: usize,
+> where
     [Element; N]: smallvec::Array<Item = Element>,
     [Separator; N]: smallvec::Array<Item = Separator>,
 {
@@ -46,7 +51,8 @@ where
     phantom: std::marker::PhantomData<Error>,
 }
 
-impl<Element, Separator, const N: usize, Error> PunctuatedSmallList<Element, Separator, N, Error>
+impl<Element, Separator, Error, const ALLOW_TRAILING_SEPARATOR: bool, const N: usize>
+    PunctuatedSmallList<Element, Separator, Error, ALLOW_TRAILING_SEPARATOR, N>
 where
     [Element; N]: smallvec::Array<Item = Element>,
     [Separator; N]: smallvec::Array<Item = Separator>,
@@ -60,32 +66,48 @@ where
     }
 }
 
-impl<SP, Element, Separator, const N: usize, Error> TryParseFromStream<SP>
-    for PunctuatedSmallList<Element, Separator, N, Error>
+impl<
+        StreamParser,
+        Element,
+        Separator,
+        Error,
+        const ALLOW_TRAILING_SEPARATOR: bool,
+        const N: usize,
+    > TryParseFromStream<StreamParser>
+    for PunctuatedSmallList<Element, Separator, Error, ALLOW_TRAILING_SEPARATOR, N>
 where
     [Element; N]: smallvec::Array<Item = Element>,
     [Separator; N]: smallvec::Array<Item = Separator>,
-    SP: StreamParser + ?Sized,
-    Element: TryParseOptionFromStream<SP>,
-    Separator: TryParseOptionFromStream<SP>,
+    StreamParser: IsStreamParser + ?Sized,
+    Element: TryParseOptionFromStream<StreamParser>,
+    Separator: TryParseOptionFromStream<StreamParser>,
     Error: From<Element::Error> + From<Separator::Error>,
 {
     type Error = Error;
 
-    fn try_parse_from_stream(sp: &mut SP) -> Result<Self, Error> {
+    fn try_parse_from_stream(parser: &mut StreamParser) -> Result<Self, Error> {
         let mut elements = smallvec![];
         let mut separators = smallvec![];
+        // this will not be used if ALLOW_TRAILING_SEPARATOR is true
+        let mut saved_state: Option<StreamParser::State> = None;
         loop {
-            match sp.try_parse_option::<Element>() {
+            match parser.try_parse_option::<Element>() {
                 Ok(Some(element)) => {
                     elements.push(element);
-                    match sp.try_parse_option::<Separator>() {
-                        Ok(Some(separator)) => separators.push(separator),
-                        Ok(None) => break,
-                        Err(error) => return Err(error.into()),
-                    }
+                    saved_state = Some(parser.save_state());
+                    let Some(separator) = parser.try_parse_option::<Separator>()? else {
+                        break;
+                    };
+                    separators.push(separator)
                 }
-                Ok(None) => break,
+                Ok(None) => {
+                    if !ALLOW_TRAILING_SEPARATOR && let Some(saved_state) = saved_state  {  
+                        parser.rollback(saved_state);
+                        separators.pop();
+                        debug_assert_eq!(elements.len(), separators.len() + 1);
+                    }
+                    break;
+                }
                 Err(error) => return Err(error.into()),
             }
         }
@@ -101,7 +123,7 @@ pub fn parse_separated_list<SP, Element, Separator, Error>(
     ctx: &mut SP,
 ) -> (Vec<Element>, Vec<Separator>, Result<(), Error>)
 where
-    SP: StreamParser,
+    SP: IsStreamParser,
     Element: TryParseOptionFromStream<SP, Error = Error>,
     Separator: TryParseOptionFromStream<SP>,
     Error: From<<Separator as TryParseOptionFromStream<SP>>::Error>,
@@ -130,7 +152,7 @@ pub fn parse_separated_list2<Context, Element, Separator, E1, E2>(
     f: impl FnOnce(E1) -> E2,
 ) -> Result<(Vec<Element>, Vec<Separator>), E2>
 where
-    Context: StreamParser,
+    Context: IsStreamParser,
     Element: TryParseOptionFromStream<Context, Error = E1>,
     Separator: TryParseOptionFromStream<Context>,
     E1: From<<Separator as TryParseOptionFromStream<Context>>::Error>,
@@ -159,7 +181,7 @@ pub fn parse_separated_small_list2<Context, Element, Separator, E1, E2>(
     f: impl FnOnce(E1) -> E2,
 ) -> Result<(SmallVec<[Element; 2]>, SmallVec<[Separator; 2]>), E2>
 where
-    Context: StreamParser,
+    Context: IsStreamParser,
     Element: TryParseOptionFromStream<Context, Error = E1>,
     Separator: TryParseOptionFromStream<Context>,
     E1: From<<Separator as TryParseOptionFromStream<Context>>::Error>,
@@ -203,7 +225,7 @@ pub fn parse_separated_list_expected<Context, Element, Separator, E: OriginalErr
     f: impl FnOnce(<Context as HasStreamState>::State) -> E,
 ) -> (Vec<Element>, Vec<Separator>, Result<(), E::Error>)
 where
-    Context: StreamParser,
+    Context: IsStreamParser,
     Element: TryParseOptionFromStream<Context>,
     Separator: TryParseOptionFromStream<Context>,
     E::Error: From<<Element as TryParseOptionFromStream<Context>>::Error>,
@@ -252,7 +274,7 @@ pub fn parse_separated_small2_list_expected<Context, Element, Separator, E: Orig
     Result<(), E::Error>,
 )
 where
-    Context: StreamParser,
+    Context: IsStreamParser,
     Element: TryParseOptionFromStream<Context>,
     Separator: TryParseOptionFromStream<Context>,
     E::Error: From<<Element as TryParseOptionFromStream<Context>>::Error>,

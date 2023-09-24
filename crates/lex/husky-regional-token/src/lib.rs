@@ -22,7 +22,7 @@ use husky_opr::Bracket;
 use husky_token::TokenGroupStart;
 use husky_token::*;
 use husky_token_data::{db::TokenDataDb, *};
-use parsec::{HasStreamState, StreamParser, TryParseOptionFromStream};
+use parsec::{HasStreamState, IsStreamParser, TryParseOptionFromStream};
 use std::num::NonZeroU32;
 use thiserror::Error;
 
@@ -280,7 +280,7 @@ impl<'a> RegionalTokenStream<'a> {
 
 pub trait RegionalTokenStreamParser<'a>:
     HasStreamState<State = RegionalTokenStreamState>
-    + StreamParser
+    + IsStreamParser
     + core::borrow::BorrowMut<RegionalTokenStream<'a>>
 {
     fn token_stream(&self) -> &RegionalTokenStream<'a> {
@@ -296,7 +296,7 @@ pub trait RegionalTokenStreamParser<'a>:
 
 impl<'a, T> RegionalTokenStreamParser<'a> for T where
     T: HasStreamState<State = RegionalTokenStreamState>
-        + StreamParser
+        + IsStreamParser
         + core::borrow::BorrowMut<RegionalTokenStream<'a>>
 {
 }

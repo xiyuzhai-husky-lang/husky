@@ -16,7 +16,7 @@ impl<'a> HirLazyExprBuilder<'a> {
         let_variables_pattern: &LetPatternObelisk,
     ) -> HirLazyLetVariablesPattern {
         HirLazyLetVariablesPattern {
-            pattern_expr_idx: self.new_pattern_expr(let_variables_pattern.pattern_expr_idx()),
+            pattern_expr_idx: self.new_pattern_expr(let_variables_pattern.syn_pattern_root()),
             // variables: todo!(),
             ty: let_variables_pattern
                 .ty()

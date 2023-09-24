@@ -28,12 +28,12 @@ impl DeclarativeParenateParameters {
                 .map(|(i, parameter)| {
                     Ok(match parameter {
                         SpecificParameterObelisk::Regular {
-                            pattern,
+                            syn_pattern_root,
                             variables,
                             colon,
                             ty,
                         } => DeclarativeTermRitchieRegularParameter::new(
-                            expr_region_data.pattern_contract(*pattern),
+                            expr_region_data.pattern_contract(syn_pattern_root.syn_pattern_expr_idx()),
                             signature_region.expr_term(*ty).map_err(|_| {
                                 DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
                                     i.try_into().unwrap(),

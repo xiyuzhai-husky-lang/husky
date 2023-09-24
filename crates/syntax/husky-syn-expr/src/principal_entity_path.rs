@@ -5,7 +5,7 @@ pub use self::error::*;
 use crate::*;
 use husky_entity_path::MajorEntityPath;
 use husky_entity_syn_tree::EntitySynTreeError;
-use parsec::StreamParser;
+use parsec::IsStreamParser;
 use thiserror::Error;
 
 #[derive(Debug, PartialEq, Eq)]
