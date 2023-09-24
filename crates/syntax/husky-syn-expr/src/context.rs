@@ -157,7 +157,7 @@ impl<'a> SynExprContext<'a> {
     pub(crate) fn alloc_pattern_expr(
         &mut self,
         expr: SynPatternExpr,
-        env: SynPatternExprInfo,
+        env: SynPatternExprEnvironment,
     ) -> SynPatternExprIdx {
         self.syn_pattern_expr_region
             .alloc_one_pattern_expr(expr, env)

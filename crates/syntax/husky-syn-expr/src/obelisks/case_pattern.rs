@@ -18,7 +18,7 @@ where
         access_end: RegionalTokenIdxRangeEnd,
     ) -> SynExprResult<CasePatternObelisk> {
         let state = self.save_state();
-        let Some(pattern_expr) = self.parse_pattern_expr(SynPatternExprInfo::Let)? else {
+        let Some(pattern_expr) = self.parse_pattern_expr(SynPatternExprEnvironment::Case)? else {
             Err(OriginalSynExprError::ExpectedCasePattern(state))?
         };
         let symbols = self
