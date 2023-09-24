@@ -15,7 +15,7 @@ impl SynPatternExprRegion {
         // order matters
         let contract = expr.contract();
         let idx = self.pattern_expr_arena.alloc_one(expr);
-        let symbols = self.collect_symbols(idx);
+        let symbols = self.calc_symbols(idx);
         assert_eq!(idx.index(), self.pattern_symbol_maps.len());
         self.pattern_symbol_maps.insert_next(idx, symbols);
         self.pattern_expr_contracts.insert_next(idx, contract);
@@ -23,35 +23,47 @@ impl SynPatternExprRegion {
     }
 
     // expr must be allocated already
-    fn collect_symbols(
+    fn calc_symbols(
         &mut self,
         pattern_expr_idx: SynPatternExprIdx,
     ) -> IdentPairMap<SynPatternSymbolIdx> {
-        let symbols: IdentPairMap<SynPatternSymbolIdx> =
-            match self.pattern_expr_arena[pattern_expr_idx] {
-                SynPatternExpr::Literal(_) => Default::default(),
-                SynPatternExpr::Ident {
-                    symbol_modifier_tokens: contract,
-                    ident_token,
-                } => IdentPairMap::new_one_element_map((
-                    ident_token.ident(),
-                    self.alloc_new_symbol(SynPatternSymbol::Atom(pattern_expr_idx)),
-                )),
-                SynPatternExpr::TypeVariant { .. } => todo!(),
-                SynPatternExpr::Tuple { name, fields } => todo!(),
-                SynPatternExpr::Props { name, fields } => todo!(),
-                SynPatternExpr::OneOf { ref options } => todo!(),
-                SynPatternExpr::Binding {
-                    ident_token,
-                    asperand_token,
-                    src,
-                } => todo!(),
-                SynPatternExpr::Range {
-                    start,
-                    dot_dot_token,
-                    end,
-                } => todo!(),
-            };
+        let symbols: IdentPairMap<SynPatternSymbolIdx> = match self.pattern_expr_arena
+            [pattern_expr_idx]
+        {
+            SynPatternExpr::Literal { .. } => Default::default(),
+            SynPatternExpr::Ident {
+                symbol_modifier_tokens: contract,
+                ident_token,
+            } => IdentPairMap::new_one_element_map((
+                ident_token.ident(),
+                self.alloc_new_symbol(SynPatternSymbol::Atom(pattern_expr_idx)),
+            )),
+            SynPatternExpr::TypeVariantUnit { .. } => Default::default(),
+            SynPatternExpr::Tuple { name, fields } => todo!(),
+            SynPatternExpr::Props { name, fields } => todo!(),
+            SynPatternExpr::OneOf { ref options } => {
+                debug_assert!(options.elements().len() > 1);
+                let mut symbols =
+                    self.pattern_symbol_maps[options.elements()[0].syn_pattern_expr_idx()].clone();
+                for option in &options.elements()[1..] {
+                    let option_symbols = &self.pattern_symbol_maps[option.syn_pattern_expr_idx()];
+                    if option_symbols != &symbols {
+                        todo!()
+                    }
+                }
+                symbols
+            }
+            SynPatternExpr::Binding {
+                ident_token,
+                asperand_token,
+                src,
+            } => todo!(),
+            SynPatternExpr::Range {
+                start,
+                dot_dot_token,
+                end,
+            } => todo!(),
+        };
         symbols
     }
 

@@ -23,9 +23,9 @@ impl<'a> ExprTypeEngine<'a> {
     /// subpattern expressions get its type from its parent
     fn infer_subpattern_tys(&mut self, pattern_expr_idx: SynPatternExprIdx) {
         match self.expr_region_data[pattern_expr_idx] {
-            SynPatternExpr::Literal(_) => todo!(),
+            SynPatternExpr::Literal { .. } => todo!(),
             SynPatternExpr::Ident { .. } => (), // there is no subpattern to infer
-            SynPatternExpr::TypeVariant { .. } => todo!(),
+            SynPatternExpr::TypeVariantUnit { .. } => todo!(),
             SynPatternExpr::Tuple { name, fields } => todo!(),
             SynPatternExpr::Props { name, fields } => todo!(),
             SynPatternExpr::OneOf { ref options } => todo!(),

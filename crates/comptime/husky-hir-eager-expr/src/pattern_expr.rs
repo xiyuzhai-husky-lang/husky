@@ -1,11 +1,11 @@
 use crate::*;
-use husky_syn_expr::{LiteralData, SynPatternExpr, SynPatternExprIdx, SynPatternRoot};
+use husky_syn_expr::{SynPatternExpr, SynPatternExprIdx, SynPatternRoot};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum HirEagerPatternExpr {
     /// example: `1`
     /// todo: change this to primitive value data
-    Literal(LiteralData),
+    Literal(TermLiteral),
     /// example: `a`
     Ident {
         // symbol_modifier: Option<EphemSymbolModifier>,
@@ -61,7 +61,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         syn_pattern_expr_idx: SynPatternExprIdx,
     ) -> HirEagerPatternExpr {
         match self.syn_expr_region_data()[syn_pattern_expr_idx] {
-            SynPatternExpr::Literal(_) => todo!(),
+            SynPatternExpr::Literal { .. } => todo!(),
             SynPatternExpr::Ident {
                 symbol_modifier_tokens: symbol_modifier_keyword_group,
                 ident_token,
@@ -69,7 +69,7 @@ impl<'a> HirEagerExprBuilder<'a> {
                 // symbol_modifier: (),
                 ident: ident_token.ident(),
             },
-            SynPatternExpr::TypeVariant { .. } => todo!(),
+            SynPatternExpr::TypeVariantUnit { .. } => todo!(),
             SynPatternExpr::Tuple { name, fields } => todo!(),
             SynPatternExpr::Props { name, fields } => todo!(),
             SynPatternExpr::OneOf { ref options } => todo!(),

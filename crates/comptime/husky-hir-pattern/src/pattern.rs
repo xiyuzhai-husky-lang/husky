@@ -45,12 +45,12 @@ pub enum HirPatternData {
 impl HirPattern {
     pub fn new(builder: &impl BuildHirPattern, pattern_expr_idx: SynPatternExprIdx) -> Self {
         match builder.syn_pattern_expr_arena()[pattern_expr_idx] {
-            SynPatternExpr::Literal(_) => todo!(),
+            SynPatternExpr::Literal { .. } => todo!(),
             SynPatternExpr::Ident {
                 symbol_modifier_tokens: symbol_modifier_keyword_group,
                 ident_token,
             } => todo!(),
-            SynPatternExpr::TypeVariant { .. } => todo!(),
+            SynPatternExpr::TypeVariantUnit { .. } => todo!(),
             SynPatternExpr::Tuple { name, fields } => todo!(),
             SynPatternExpr::Props { name, fields } => todo!(),
             SynPatternExpr::OneOf { ref options } => todo!(),
