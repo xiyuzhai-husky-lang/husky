@@ -3108,7 +3108,7 @@ Ok(
                         },
                         body_with_syn_expr_region: Some(
                             (
-                                13,
+                                31,
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: Some(
@@ -3561,6 +3561,66 @@ Ok(
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        29,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        31,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            3,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Binary {
+                                                    lopd: 11,
+                                                    opr: Closed(
+                                                        BitOr,
+                                                    ),
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        30,
+                                                    ),
+                                                    ropd: 12,
+                                                },
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        37,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            2,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::UnrecognizedIdent {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                45,
+                                                            ),
+                                                            ident: `unreachable`,
+                                                        },
+                                                    ),
+                                                ),
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        47,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                ),
                                                 SynExpr::CurrentSymbol {
                                                     ident: `pixel_pair_below`,
                                                     regional_token_idx: RegionalTokenIdx(
@@ -3571,6 +3631,66 @@ Ok(
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        59,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            0,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        65,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        67,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            3,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Binary {
+                                                    lopd: 19,
+                                                    opr: Closed(
+                                                        BitOr,
+                                                    ),
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        66,
+                                                    ),
+                                                    ropd: 20,
+                                                },
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        73,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            2,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::UnrecognizedIdent {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                81,
+                                                            ),
+                                                            ident: `unreachable`,
+                                                        },
+                                                    ),
+                                                ),
                                                 SynExpr::CurrentSymbol {
                                                     ident: `pixel_pair_below`,
                                                     regional_token_idx: RegionalTokenIdx(
@@ -3581,9 +3701,69 @@ Ok(
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        89,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            0,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        91,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Binary {
+                                                    lopd: 25,
+                                                    opr: Closed(
+                                                        BitOr,
+                                                    ),
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        90,
+                                                    ),
+                                                    ropd: 26,
+                                                },
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        97,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            2,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::UnrecognizedIdent {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                105,
+                                                            ),
+                                                            ident: `unreachable`,
+                                                        },
+                                                    ),
+                                                ),
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::UnrecognizedIdent {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                109,
+                                                            ),
+                                                            ident: `unreachable`,
+                                                        },
+                                                    ),
+                                                ),
                                                 SynExpr::Block {
                                                     stmts: ArenaIdxRange(
-                                                        4..7,
+                                                        16..19,
                                                     ),
                                                 },
                                             ],
@@ -3624,6 +3804,24 @@ Ok(
                                         },
                                         stmt_arena: Arena {
                                             data: [
+                                                SynStmt::Eval {
+                                                    expr_idx: 13,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 14,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 15,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
                                                 SynStmt::Match {
                                                     match_token: MatchRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
@@ -3659,7 +3857,23 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                29,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    1..2,
+                                                                ),
+                                                            ),
                                                         },
                                                         SynCaseBranch {
                                                             vertical_token: VerticalRegionalToken(
@@ -3679,7 +3893,23 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                37,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    2..3,
+                                                                ),
+                                                            ),
                                                         },
                                                         SynCaseBranch {
                                                             vertical_token: VerticalRegionalToken(
@@ -3695,9 +3925,50 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Ok(
+                                                                HeavyArrowRegionalToken(
+                                                                    RegionalTokenIdx(
+                                                                        44,
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    3..4,
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 16,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 18,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 21,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 22,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 23,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
                                                 },
                                                 SynStmt::Match {
                                                     match_token: MatchRegionalToken {
@@ -3706,7 +3977,7 @@ Ok(
                                                         ),
                                                     },
                                                     match_expr: Ok(
-                                                        11,
+                                                        17,
                                                     ),
                                                     eol_with_token: Ok(
                                                         EolWithRegionalToken {
@@ -3734,7 +4005,23 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                59,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    6..7,
+                                                                ),
+                                                            ),
                                                         },
                                                         SynCaseBranch {
                                                             vertical_token: VerticalRegionalToken(
@@ -3754,7 +4041,23 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                65,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    7..8,
+                                                                ),
+                                                            ),
                                                         },
                                                         SynCaseBranch {
                                                             vertical_token: VerticalRegionalToken(
@@ -3774,7 +4077,23 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                73,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    8..9,
+                                                                ),
+                                                            ),
                                                         },
                                                         SynCaseBranch {
                                                             vertical_token: VerticalRegionalToken(
@@ -3790,9 +4109,38 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Ok(
+                                                                HeavyArrowRegionalToken(
+                                                                    RegionalTokenIdx(
+                                                                        80,
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    9..10,
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 27,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 28,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 29,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
                                                 },
                                                 SynStmt::Match {
                                                     match_token: MatchRegionalToken {
@@ -3801,7 +4149,7 @@ Ok(
                                                         ),
                                                     },
                                                     match_expr: Ok(
-                                                        12,
+                                                        24,
                                                     ),
                                                     eol_with_token: Ok(
                                                         EolWithRegionalToken {
@@ -3829,7 +4177,23 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                89,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    11..12,
+                                                                ),
+                                                            ),
                                                         },
                                                         SynCaseBranch {
                                                             vertical_token: VerticalRegionalToken(
@@ -3849,7 +4213,23 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                97,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    12..13,
+                                                                ),
+                                                            ),
                                                         },
                                                         SynCaseBranch {
                                                             vertical_token: VerticalRegionalToken(
@@ -3865,9 +4245,26 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Ok(
+                                                                HeavyArrowRegionalToken(
+                                                                    RegionalTokenIdx(
+                                                                        104,
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    13..14,
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 30,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
                                                 },
                                                 SynStmt::Let {
                                                     let_token: LetRegionalToken {
@@ -3958,9 +4355,21 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: Some(
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                23,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
                                                                 ArenaIdxRange(
-                                                                    1..2,
+                                                                    4..5,
                                                                 ),
                                                             ),
                                                         },
@@ -3982,7 +4391,23 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                47,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    5..6,
+                                                                ),
+                                                            ),
                                                         },
                                                         SynCaseBranch {
                                                             vertical_token: VerticalRegionalToken(
@@ -4002,9 +4427,21 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: Some(
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                53,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
                                                                 ArenaIdxRange(
-                                                                    2..3,
+                                                                    10..11,
                                                                 ),
                                                             ),
                                                         },
@@ -4026,9 +4463,21 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: Some(
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                83,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
                                                                 ArenaIdxRange(
-                                                                    3..4,
+                                                                    14..15,
                                                                 ),
                                                             ),
                                                         },
@@ -4046,7 +4495,18 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Ok(
+                                                                HeavyArrowRegionalToken(
+                                                                    RegionalTokenIdx(
+                                                                        108,
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    15..16,
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -4352,8 +4812,56 @@ Ok(
                                                 expr_idx: 8,
                                             },
                                             SynExprRoot {
-                                                kind: BlockExpr,
+                                                kind: EvalExpr,
                                                 expr_idx: 13,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 14,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 15,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 16,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 18,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 21,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 22,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 23,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 27,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 28,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 29,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 30,
+                                            },
+                                            SynExprRoot {
+                                                kind: BlockExpr,
+                                                expr_idx: 31,
                                             },
                                         ],
                                         has_self_lifetime: false,
@@ -4699,7 +5207,7 @@ Ok(
                         },
                         body_with_syn_expr_region: Some(
                             (
-                                17,
+                                24,
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: Some(
@@ -5119,9 +5627,79 @@ Ok(
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        30,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            0,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        32,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Binary {
+                                                    lopd: 17,
+                                                    opr: Closed(
+                                                        BitOr,
+                                                    ),
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        31,
+                                                    ),
+                                                    ropd: 18,
+                                                },
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        34,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            2,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Binary {
+                                                    lopd: 19,
+                                                    opr: Closed(
+                                                        BitOr,
+                                                    ),
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        33,
+                                                    ),
+                                                    ropd: 20,
+                                                },
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        40,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            3,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::UnrecognizedIdent {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                47,
+                                                            ),
+                                                            ident: `unreachable`,
+                                                        },
+                                                    ),
+                                                ),
                                                 SynExpr::Block {
                                                     stmts: ArenaIdxRange(
-                                                        1..3,
+                                                        4..6,
                                                     ),
                                                 },
                                             ],
@@ -5177,6 +5755,24 @@ Ok(
                                         },
                                         stmt_arena: Arena {
                                             data: [
+                                                SynStmt::Eval {
+                                                    expr_idx: 21,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 22,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 23,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
                                                 SynStmt::Let {
                                                     let_token: LetRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
@@ -5239,7 +5835,23 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                30,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    1..2,
+                                                                ),
+                                                            ),
                                                         },
                                                         SynCaseBranch {
                                                             vertical_token: VerticalRegionalToken(
@@ -5259,7 +5871,23 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                40,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    2..3,
+                                                                ),
+                                                            ),
                                                         },
                                                         SynCaseBranch {
                                                             vertical_token: VerticalRegionalToken(
@@ -5275,7 +5903,18 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Ok(
+                                                                HeavyArrowRegionalToken(
+                                                                    RegionalTokenIdx(
+                                                                        46,
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    3..4,
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -5416,8 +6055,20 @@ Ok(
                                                 expr_idx: 15,
                                             },
                                             SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 21,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 22,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 23,
+                                            },
+                                            SynExprRoot {
                                                 kind: BlockExpr,
-                                                expr_idx: 17,
+                                                expr_idx: 24,
                                             },
                                         ],
                                         has_self_lifetime: false,
@@ -5942,7 +6593,7 @@ Ok(
                         },
                         body_with_syn_expr_region: Some(
                             (
-                                16,
+                                51,
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: Some(
@@ -6465,6 +7116,56 @@ Ok(
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        29,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        35,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            2,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        37,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            3,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Binary {
+                                                    lopd: 12,
+                                                    opr: Closed(
+                                                        BitOr,
+                                                    ),
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        36,
+                                                    ),
+                                                    ropd: 13,
+                                                },
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::UnrecognizedIdent {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                45,
+                                                            ),
+                                                            ident: `unreachable`,
+                                                        },
+                                                    ),
+                                                ),
                                                 SynExpr::CurrentSymbol {
                                                     ident: `pixel_pair_below`,
                                                     regional_token_idx: RegionalTokenIdx(
@@ -6475,6 +7176,26 @@ Ok(
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        53,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            0,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        59,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                ),
                                                 SynExpr::InheritedSymbol {
                                                     ident: `inward_direction`,
                                                     regional_token_idx: RegionalTokenIdx(
@@ -6485,6 +7206,90 @@ Ok(
                                                         ident: `inward_direction`,
                                                     },
                                                 },
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::NoLeftOperandForBinaryOperator {
+                                                            binary_regional_token_idx: RegionalTokenIdx(
+                                                                72,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::UnresolvedSubitem {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                73,
+                                                            ),
+                                                            ident: `Down`,
+                                                        },
+                                                    ),
+                                                ),
+                                                SynExpr::Binary {
+                                                    lopd: 20,
+                                                    opr: ScopeResolution,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        72,
+                                                    ),
+                                                    ropd: 21,
+                                                },
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::NoLeftOperandForBinaryOperator {
+                                                            binary_regional_token_idx: RegionalTokenIdx(
+                                                                80,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::UnresolvedSubitem {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                81,
+                                                            ),
+                                                            ident: `Up`,
+                                                        },
+                                                    ),
+                                                ),
+                                                SynExpr::Binary {
+                                                    lopd: 23,
+                                                    opr: ScopeResolution,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        80,
+                                                    ),
+                                                    ropd: 24,
+                                                },
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::UnrecognizedIdent {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                89,
+                                                            ),
+                                                            ident: `unreachable`,
+                                                        },
+                                                    ),
+                                                ),
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        91,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            3,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::UnrecognizedIdent {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                99,
+                                                            ),
+                                                            ident: `unreachable`,
+                                                        },
+                                                    ),
+                                                ),
                                                 SynExpr::CurrentSymbol {
                                                     ident: `pixel_pair_below`,
                                                     regional_token_idx: RegionalTokenIdx(
@@ -6494,6 +7299,56 @@ Ok(
                                                     current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 2,
                                                     },
+                                                },
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        107,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            0,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        109,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            2,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Binary {
+                                                    lopd: 30,
+                                                    opr: Closed(
+                                                        BitOr,
+                                                    ),
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        108,
+                                                    ),
+                                                    ropd: 31,
+                                                },
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        111,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            3,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Binary {
+                                                    lopd: 32,
+                                                    opr: Closed(
+                                                        BitOr,
+                                                    ),
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        110,
+                                                    ),
+                                                    ropd: 33,
                                                 },
                                                 SynExpr::InheritedSymbol {
                                                     ident: `inward_direction`,
@@ -6505,6 +7360,80 @@ Ok(
                                                         ident: `inward_direction`,
                                                     },
                                                 },
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::NoLeftOperandForBinaryOperator {
+                                                            binary_regional_token_idx: RegionalTokenIdx(
+                                                                124,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::UnresolvedSubitem {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                125,
+                                                            ),
+                                                            ident: `Left`,
+                                                        },
+                                                    ),
+                                                ),
+                                                SynExpr::Binary {
+                                                    lopd: 36,
+                                                    opr: ScopeResolution,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        124,
+                                                    ),
+                                                    ropd: 37,
+                                                },
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::NoLeftOperandForBinaryOperator {
+                                                            binary_regional_token_idx: RegionalTokenIdx(
+                                                                132,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::UnresolvedSubitem {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                133,
+                                                            ),
+                                                            ident: `Right`,
+                                                        },
+                                                    ),
+                                                ),
+                                                SynExpr::Binary {
+                                                    lopd: 39,
+                                                    opr: ScopeResolution,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        132,
+                                                    ),
+                                                    ropd: 40,
+                                                },
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::UnrecognizedIdent {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                141,
+                                                            ),
+                                                            ident: `unreachable`,
+                                                        },
+                                                    ),
+                                                ),
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::UnrecognizedIdent {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                145,
+                                                            ),
+                                                            ident: `unreachable`,
+                                                        },
+                                                    ),
+                                                ),
                                                 SynExpr::CurrentSymbol {
                                                     ident: `pixel_pair_below`,
                                                     regional_token_idx: RegionalTokenIdx(
@@ -6515,9 +7444,69 @@ Ok(
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        153,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            0,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        155,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            2,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Binary {
+                                                    lopd: 45,
+                                                    opr: Closed(
+                                                        BitOr,
+                                                    ),
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        154,
+                                                    ),
+                                                    ropd: 46,
+                                                },
+                                                SynExpr::Literal(
+                                                    RegionalTokenIdx(
+                                                        161,
+                                                    ),
+                                                    Literal::Integer(
+                                                        UnspecifiedRegular(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                ),
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::UnrecognizedIdent {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                169,
+                                                            ),
+                                                            ident: `unreachable`,
+                                                        },
+                                                    ),
+                                                ),
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::UnrecognizedIdent {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                173,
+                                                            ),
+                                                            ident: `unreachable`,
+                                                        },
+                                                    ),
+                                                ),
                                                 SynExpr::Block {
                                                     stmts: ArenaIdxRange(
-                                                        7..10,
+                                                        26..29,
                                                     ),
                                                 },
                                             ],
@@ -6558,6 +7547,24 @@ Ok(
                                         },
                                         stmt_arena: Arena {
                                             data: [
+                                                SynStmt::Eval {
+                                                    expr_idx: 11,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 14,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 15,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
                                                 SynStmt::Match {
                                                     match_token: MatchRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
@@ -6593,7 +7600,23 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                29,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    1..2,
+                                                                ),
+                                                            ),
                                                         },
                                                         SynCaseBranch {
                                                             vertical_token: VerticalRegionalToken(
@@ -6613,7 +7636,23 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                35,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    2..3,
+                                                                ),
+                                                            ),
                                                         },
                                                         SynCaseBranch {
                                                             vertical_token: VerticalRegionalToken(
@@ -6629,9 +7668,50 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Ok(
+                                                                HeavyArrowRegionalToken(
+                                                                    RegionalTokenIdx(
+                                                                        44,
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    3..4,
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 17,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 18,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 22,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 25,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 26,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
                                                 },
                                                 SynStmt::Match {
                                                     match_token: MatchRegionalToken {
@@ -6640,7 +7720,7 @@ Ok(
                                                         ),
                                                     },
                                                     match_expr: Ok(
-                                                        12,
+                                                        19,
                                                     ),
                                                     eol_with_token: Ok(
                                                         EolWithRegionalToken {
@@ -6664,7 +7744,23 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                72,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    7..8,
+                                                                ),
+                                                            ),
                                                         },
                                                         SynCaseBranch {
                                                             vertical_token: VerticalRegionalToken(
@@ -6680,7 +7776,23 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                80,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    8..9,
+                                                                ),
+                                                            ),
                                                         },
                                                         SynCaseBranch {
                                                             vertical_token: VerticalRegionalToken(
@@ -6696,9 +7808,32 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Ok(
+                                                                HeavyArrowRegionalToken(
+                                                                    RegionalTokenIdx(
+                                                                        88,
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    9..10,
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 27,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 28,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
                                                 },
                                                 SynStmt::Match {
                                                     match_token: MatchRegionalToken {
@@ -6707,7 +7842,7 @@ Ok(
                                                         ),
                                                     },
                                                     match_expr: Ok(
-                                                        11,
+                                                        16,
                                                     ),
                                                     eol_with_token: Ok(
                                                         EolWithRegionalToken {
@@ -6735,7 +7870,23 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                53,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    5..6,
+                                                                ),
+                                                            ),
                                                         },
                                                         SynCaseBranch {
                                                             vertical_token: VerticalRegionalToken(
@@ -6755,7 +7906,23 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                59,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    6..7,
+                                                                ),
+                                                            ),
                                                         },
                                                         SynCaseBranch {
                                                             vertical_token: VerticalRegionalToken(
@@ -6775,9 +7942,21 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: Some(
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                65,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
                                                                 ArenaIdxRange(
-                                                                    2..3,
+                                                                    10..11,
                                                                 ),
                                                             ),
                                                         },
@@ -6799,7 +7978,23 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                91,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    11..12,
+                                                                ),
+                                                            ),
                                                         },
                                                         SynCaseBranch {
                                                             vertical_token: VerticalRegionalToken(
@@ -6815,9 +8010,44 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Ok(
+                                                                HeavyArrowRegionalToken(
+                                                                    RegionalTokenIdx(
+                                                                        98,
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    12..13,
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 34,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 38,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 41,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 42,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
                                                 },
                                                 SynStmt::Match {
                                                     match_token: MatchRegionalToken {
@@ -6826,7 +8056,7 @@ Ok(
                                                         ),
                                                     },
                                                     match_expr: Ok(
-                                                        14,
+                                                        35,
                                                     ),
                                                     eol_with_token: Ok(
                                                         EolWithRegionalToken {
@@ -6850,7 +8080,23 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                124,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    15..16,
+                                                                ),
+                                                            ),
                                                         },
                                                         SynCaseBranch {
                                                             vertical_token: VerticalRegionalToken(
@@ -6866,7 +8112,23 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                132,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    16..17,
+                                                                ),
+                                                            ),
                                                         },
                                                         SynCaseBranch {
                                                             vertical_token: VerticalRegionalToken(
@@ -6882,9 +8144,26 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Ok(
+                                                                HeavyArrowRegionalToken(
+                                                                    RegionalTokenIdx(
+                                                                        140,
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    17..18,
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 43,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
                                                 },
                                                 SynStmt::Match {
                                                     match_token: MatchRegionalToken {
@@ -6893,7 +8172,7 @@ Ok(
                                                         ),
                                                     },
                                                     match_expr: Ok(
-                                                        13,
+                                                        29,
                                                     ),
                                                     eol_with_token: Ok(
                                                         EolWithRegionalToken {
@@ -6921,7 +8200,23 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                107,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    14..15,
+                                                                ),
+                                                            ),
                                                         },
                                                         SynCaseBranch {
                                                             vertical_token: VerticalRegionalToken(
@@ -6941,9 +8236,21 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: Some(
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                117,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
                                                                 ArenaIdxRange(
-                                                                    4..5,
+                                                                    18..19,
                                                                 ),
                                                             ),
                                                         },
@@ -6961,9 +8268,38 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Ok(
+                                                                HeavyArrowRegionalToken(
+                                                                    RegionalTokenIdx(
+                                                                        144,
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    19..20,
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 47,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 48,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 49,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
                                                 },
                                                 SynStmt::Match {
                                                     match_token: MatchRegionalToken {
@@ -6972,7 +8308,7 @@ Ok(
                                                         ),
                                                     },
                                                     match_expr: Ok(
-                                                        15,
+                                                        44,
                                                     ),
                                                     eol_with_token: Ok(
                                                         EolWithRegionalToken {
@@ -7000,7 +8336,23 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                153,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    21..22,
+                                                                ),
+                                                            ),
                                                         },
                                                         SynCaseBranch {
                                                             vertical_token: VerticalRegionalToken(
@@ -7020,7 +8372,23 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                161,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    22..23,
+                                                                ),
+                                                            ),
                                                         },
                                                         SynCaseBranch {
                                                             vertical_token: VerticalRegionalToken(
@@ -7036,9 +8404,26 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Ok(
+                                                                HeavyArrowRegionalToken(
+                                                                    RegionalTokenIdx(
+                                                                        168,
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    23..24,
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 50,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
                                                 },
                                                 SynStmt::Let {
                                                     let_token: LetRegionalToken {
@@ -7129,9 +8514,21 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: Some(
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                23,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
                                                                 ArenaIdxRange(
-                                                                    1..2,
+                                                                    4..5,
                                                                 ),
                                                             ),
                                                         },
@@ -7153,9 +8550,21 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: Some(
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                47,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
                                                                 ArenaIdxRange(
-                                                                    3..4,
+                                                                    13..14,
                                                                 ),
                                                             ),
                                                         },
@@ -7177,9 +8586,21 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: Some(
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                101,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
                                                                 ArenaIdxRange(
-                                                                    5..6,
+                                                                    20..21,
                                                                 ),
                                                             ),
                                                         },
@@ -7201,9 +8622,21 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            stmts: Some(
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                147,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
                                                                 ArenaIdxRange(
-                                                                    6..7,
+                                                                    24..25,
                                                                 ),
                                                             ),
                                                         },
@@ -7221,7 +8654,18 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Ok(
+                                                                HeavyArrowRegionalToken(
+                                                                    RegionalTokenIdx(
+                                                                        172,
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    25..26,
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -7802,8 +9246,84 @@ Ok(
                                                 expr_idx: 8,
                                             },
                                             SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 11,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 14,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 15,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 17,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 18,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 22,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 25,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 26,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 27,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 28,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 34,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 38,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 41,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 42,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 43,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 47,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 48,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 49,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 50,
+                                            },
+                                            SynExprRoot {
                                                 kind: BlockExpr,
-                                                expr_idx: 16,
+                                                expr_idx: 51,
                                             },
                                         ],
                                         has_self_lifetime: false,
@@ -9521,7 +11041,7 @@ Ok(
                         },
                         body_with_syn_expr_region: Some(
                             (
-                                321,
+                                327,
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: Some(
@@ -12792,6 +14312,60 @@ Ok(
                                                     ),
                                                     ropd: 289,
                                                 },
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::NoLeftOperandForBinaryOperator {
+                                                            binary_regional_token_idx: RegionalTokenIdx(
+                                                                476,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::UnresolvedSubitem {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                477,
+                                                            ),
+                                                            ident: `Left`,
+                                                        },
+                                                    ),
+                                                ),
+                                                SynExpr::Binary {
+                                                    lopd: 291,
+                                                    opr: ScopeResolution,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        476,
+                                                    ),
+                                                    ropd: 292,
+                                                },
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::NoLeftOperandForBinaryOperator {
+                                                            binary_regional_token_idx: RegionalTokenIdx(
+                                                                486,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                                SynExpr::Err(
+                                                    SynExprError::Original(
+                                                        OriginalSynExprError::UnresolvedSubitem {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                487,
+                                                            ),
+                                                            ident: `Right`,
+                                                        },
+                                                    ),
+                                                ),
+                                                SynExpr::Binary {
+                                                    lopd: 294,
+                                                    opr: ScopeResolution,
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        486,
+                                                    ),
+                                                    ropd: 295,
+                                                },
                                                 SynExpr::CurrentSymbol {
                                                     ident: `inward_direction`,
                                                     regional_token_idx: RegionalTokenIdx(
@@ -12813,12 +14387,12 @@ Ok(
                                                     },
                                                 },
                                                 SynExpr::Binary {
-                                                    lopd: 291,
+                                                    lopd: 297,
                                                     opr: Assign,
                                                     opr_regional_token_idx: RegionalTokenIdx(
                                                         495,
                                                     ),
-                                                    ropd: 292,
+                                                    ropd: 298,
                                                 },
                                                 SynExpr::Literal(
                                                     RegionalTokenIdx(
@@ -12845,17 +14419,17 @@ Ok(
                                                     opr_regional_token_idx: RegionalTokenIdx(
                                                         500,
                                                     ),
-                                                    opd: 294,
+                                                    opd: 300,
                                                 },
                                                 SynExpr::Binary {
-                                                    lopd: 295,
+                                                    lopd: 301,
                                                     opr: Comparison(
                                                         Neq,
                                                     ),
                                                     opr_regional_token_idx: RegionalTokenIdx(
                                                         499,
                                                     ),
-                                                    ropd: 296,
+                                                    ropd: 302,
                                                 },
                                                 SynExpr::CurrentSymbol {
                                                     ident: `current_streak`,
@@ -12868,7 +14442,7 @@ Ok(
                                                     },
                                                 },
                                                 SynExpr::Suffix {
-                                                    opd: 298,
+                                                    opd: 304,
                                                     opr: Incr,
                                                     opr_regional_token_idx: RegionalTokenIdx(
                                                         504,
@@ -12899,7 +14473,7 @@ Ok(
                                                     opr_regional_token_idx: RegionalTokenIdx(
                                                         508,
                                                     ),
-                                                    opd: 300,
+                                                    opd: 306,
                                                 },
                                                 SynExpr::CurrentSymbol {
                                                     ident: `current_streak`,
@@ -12922,24 +14496,24 @@ Ok(
                                                     ),
                                                 ),
                                                 SynExpr::Binary {
-                                                    lopd: 301,
+                                                    lopd: 307,
                                                     opr: Comparison(
                                                         Eq,
                                                     ),
                                                     opr_regional_token_idx: RegionalTokenIdx(
                                                         507,
                                                     ),
-                                                    ropd: 302,
+                                                    ropd: 308,
                                                 },
                                                 SynExpr::Binary {
-                                                    lopd: 303,
+                                                    lopd: 309,
                                                     opr: Comparison(
                                                         Eq,
                                                     ),
                                                     opr_regional_token_idx: RegionalTokenIdx(
                                                         512,
                                                     ),
-                                                    ropd: 304,
+                                                    ropd: 310,
                                                 },
                                                 SynExpr::CurrentSymbol {
                                                     ident: `prev_streak1`,
@@ -12962,34 +14536,34 @@ Ok(
                                                     ),
                                                 ),
                                                 SynExpr::Binary {
-                                                    lopd: 305,
+                                                    lopd: 311,
                                                     opr: ShortCircuitLogic(
                                                         And,
                                                     ),
                                                     opr_regional_token_idx: RegionalTokenIdx(
                                                         510,
                                                     ),
-                                                    ropd: 306,
+                                                    ropd: 312,
                                                 },
                                                 SynExpr::Binary {
-                                                    lopd: 307,
+                                                    lopd: 313,
                                                     opr: Comparison(
                                                         Greater,
                                                     ),
                                                     opr_regional_token_idx: RegionalTokenIdx(
                                                         516,
                                                     ),
-                                                    ropd: 308,
+                                                    ropd: 314,
                                                 },
                                                 SynExpr::Binary {
-                                                    lopd: 309,
+                                                    lopd: 315,
                                                     opr: ShortCircuitLogic(
                                                         And,
                                                     ),
                                                     opr_regional_token_idx: RegionalTokenIdx(
                                                         514,
                                                     ),
-                                                    ropd: 310,
+                                                    ropd: 316,
                                                 },
                                                 SynExpr::CurrentSymbol {
                                                     ident: `contour`,
@@ -13002,7 +14576,7 @@ Ok(
                                                     },
                                                 },
                                                 SynExpr::MethodApplicationOrCall {
-                                                    self_argument: 312,
+                                                    self_argument: 318,
                                                     dot_regional_token_idx: RegionalTokenIdx(
                                                         520,
                                                     ),
@@ -13062,14 +14636,14 @@ Ok(
                                                     },
                                                 },
                                                 SynExpr::FunctionApplicationOrCall {
-                                                    function: 315,
+                                                    function: 321,
                                                     generic_arguments: None,
                                                     lpar_regional_token_idx: RegionalTokenIdx(
                                                         530,
                                                     ),
                                                     items: [
                                                         SynCommaListItem {
-                                                            expr_idx: 316,
+                                                            expr_idx: 322,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     532,
@@ -13077,7 +14651,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 317,
+                                                            expr_idx: 323,
                                                             comma_regional_token_idx: None,
                                                         },
                                                     ],
@@ -13086,7 +14660,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::MethodApplicationOrCall {
-                                                    self_argument: 314,
+                                                    self_argument: 320,
                                                     dot_regional_token_idx: RegionalTokenIdx(
                                                         526,
                                                     ),
@@ -13102,7 +14676,7 @@ Ok(
                                                     ),
                                                     items: [
                                                         SynCommaListItem {
-                                                            expr_idx: 318,
+                                                            expr_idx: 324,
                                                             comma_regional_token_idx: None,
                                                         },
                                                     ],
@@ -13122,7 +14696,7 @@ Ok(
                                                 },
                                                 SynExpr::Block {
                                                     stmts: ArenaIdxRange(
-                                                        57..62,
+                                                        59..64,
                                                     ),
                                                 },
                                             ],
@@ -13651,7 +15225,19 @@ Ok(
                                                     ),
                                                 },
                                                 SynStmt::Eval {
-                                                    expr_idx: 299,
+                                                    expr_idx: 293,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 296,
+                                                    eol_semicolon: Ok(
+                                                        None,
+                                                    ),
+                                                },
+                                                SynStmt::Eval {
+                                                    expr_idx: 305,
                                                     eol_semicolon: Ok(
                                                         None,
                                                     ),
@@ -13773,7 +15359,19 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            stmts: Some(
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                432,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
                                                                 ArenaIdxRange(
                                                                     23..26,
                                                                 ),
@@ -13793,7 +15391,19 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            stmts: Some(
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                455,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
                                                                 ArenaIdxRange(
                                                                     26..29,
                                                                 ),
@@ -13813,7 +15423,23 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                476,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    29..30,
+                                                                ),
+                                                            ),
                                                         },
                                                         SynCaseBranch {
                                                             vertical_token: VerticalRegionalToken(
@@ -13829,12 +15455,28 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            stmts: None,
+                                                            heavy_arrow_token: Err(
+                                                                Original(
+                                                                    ExpectedHeavyArrowAfterCasePattern(
+                                                                        RegionalTokenStreamState {
+                                                                            next_regional_token_idx: RegionalTokenIdx(
+                                                                                486,
+                                                                            ),
+                                                                            drained: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            stmts: Ok(
+                                                                ArenaIdxRange(
+                                                                    30..31,
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
                                                 SynStmt::Eval {
-                                                    expr_idx: 293,
+                                                    expr_idx: 299,
                                                     eol_semicolon: Ok(
                                                         None,
                                                     ),
@@ -13847,7 +15489,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            297,
+                                                            303,
                                                         ),
                                                         eol_colon: Ok(
                                                             Colon(
@@ -13859,14 +15501,14 @@ Ok(
                                                             ),
                                                         ),
                                                         stmts: ArenaIdxRange(
-                                                            29..30,
+                                                            31..32,
                                                         ),
                                                     },
                                                     elif_branches: [],
                                                     else_branch: None,
                                                 },
                                                 SynStmt::Eval {
-                                                    expr_idx: 313,
+                                                    expr_idx: 319,
                                                     eol_semicolon: Ok(
                                                         Some(
                                                             EolSemicolonRegionalToken {
@@ -14314,7 +15956,7 @@ Ok(
                                                         ),
                                                     ),
                                                     block: ArenaIdxRange(
-                                                        30..37,
+                                                        32..39,
                                                     ),
                                                 },
                                                 SynStmt::IfElse {
@@ -14325,7 +15967,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            311,
+                                                            317,
                                                         ),
                                                         eol_colon: Ok(
                                                             Colon(
@@ -14337,14 +15979,14 @@ Ok(
                                                             ),
                                                         ),
                                                         stmts: ArenaIdxRange(
-                                                            37..38,
+                                                            39..40,
                                                         ),
                                                     },
                                                     elif_branches: [],
                                                     else_branch: None,
                                                 },
                                                 SynStmt::Eval {
-                                                    expr_idx: 319,
+                                                    expr_idx: 325,
                                                     eol_semicolon: Ok(
                                                         None,
                                                     ),
@@ -14368,7 +16010,7 @@ Ok(
                                                         ),
                                                     ),
                                                     block: ArenaIdxRange(
-                                                        38..56,
+                                                        40..58,
                                                     ),
                                                 },
                                                 SynStmt::Let {
@@ -14522,7 +16164,7 @@ Ok(
                                                         ),
                                                     ),
                                                     block: ArenaIdxRange(
-                                                        56..57,
+                                                        58..59,
                                                     ),
                                                 },
                                                 SynStmt::Return {
@@ -14531,7 +16173,7 @@ Ok(
                                                             536,
                                                         ),
                                                     },
-                                                    result: 320,
+                                                    result: 326,
                                                 },
                                             ],
                                         },
@@ -15985,23 +17627,31 @@ Ok(
                                             },
                                             SynExprRoot {
                                                 kind: EvalExpr,
+                                                expr_idx: 296,
+                                            },
+                                            SynExprRoot {
+                                                kind: EvalExpr,
                                                 expr_idx: 299,
                                             },
                                             SynExprRoot {
                                                 kind: EvalExpr,
-                                                expr_idx: 313,
+                                                expr_idx: 305,
                                             },
                                             SynExprRoot {
                                                 kind: EvalExpr,
                                                 expr_idx: 319,
                                             },
                                             SynExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 325,
+                                            },
+                                            SynExprRoot {
                                                 kind: ReturnExpr,
-                                                expr_idx: 320,
+                                                expr_idx: 326,
                                             },
                                             SynExprRoot {
                                                 kind: BlockExpr,
-                                                expr_idx: 321,
+                                                expr_idx: 327,
                                             },
                                         ],
                                         has_self_lifetime: false,

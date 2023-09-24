@@ -1797,7 +1797,63 @@
             },
         ],
         extra_expr_errors: [],
-        expr_fluffy_terms: [],
+        expr_fluffy_terms: [
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+        ],
         symbol_tys: SymbolMap {
             inherited_symbol_map: [
                 SymbolType(
@@ -2664,6 +2720,26 @@
                     ),
                 },
             ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
         ],
         symbol_tys: SymbolMap {
             inherited_symbol_map: [
@@ -3499,7 +3575,68 @@
             },
         ],
         extra_expr_errors: [],
-        expr_fluffy_terms: [],
+        expr_fluffy_terms: [
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+        ],
         symbol_tys: SymbolMap {
             inherited_symbol_map: [
                 SymbolType(
@@ -13444,7 +13581,7 @@
                                             },
                                         },
                                         RegularOrVariadicCallListItem {
-                                            argument_expr_idx: 316,
+                                            argument_expr_idx: 322,
                                             separator: Comma(
                                                 RegionalTokenIdx(
                                                     532,
@@ -13469,7 +13606,7 @@
                                             },
                                         },
                                         RegularOrVariadicCallListItem {
-                                            argument_expr_idx: 317,
+                                            argument_expr_idx: 323,
                                             separator: None,
                                         },
                                     ),
@@ -13562,7 +13699,7 @@
                                                 },
                                             },
                                             RegularOrVariadicCallListItem {
-                                                argument_expr_idx: 318,
+                                                argument_expr_idx: 324,
                                                 separator: None,
                                             },
                                         ),
@@ -14950,7 +15087,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    294,
+                                    300,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: Some(
@@ -14983,7 +15120,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    300,
+                                    306,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: Some(
@@ -22372,7 +22509,7 @@
                             meta: ExpectationState {
                                 idx: 254,
                                 src: ExpectationSource {
-                                    expr_idx: 291,
+                                    expr_idx: 297,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -22391,7 +22528,7 @@
                             meta: ExpectationState {
                                 idx: 255,
                                 src: ExpectationSource {
-                                    expr_idx: 292,
+                                    expr_idx: 298,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -22418,7 +22555,7 @@
                             meta: ExpectationState {
                                 idx: 256,
                                 src: ExpectationSource {
-                                    expr_idx: 293,
+                                    expr_idx: 299,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -22445,7 +22582,7 @@
                             meta: ExpectationState {
                                 idx: 257,
                                 src: ExpectationSource {
-                                    expr_idx: 295,
+                                    expr_idx: 301,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -22466,7 +22603,7 @@
                             meta: ExpectationState {
                                 idx: 258,
                                 src: ExpectationSource {
-                                    expr_idx: 294,
+                                    expr_idx: 300,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -22497,7 +22634,7 @@
                             meta: ExpectationState {
                                 idx: 259,
                                 src: ExpectationSource {
-                                    expr_idx: 296,
+                                    expr_idx: 302,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -22526,7 +22663,7 @@
                             meta: ExpectationState {
                                 idx: 260,
                                 src: ExpectationSource {
-                                    expr_idx: 297,
+                                    expr_idx: 303,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -22551,7 +22688,7 @@
                             meta: ExpectationState {
                                 idx: 261,
                                 src: ExpectationSource {
-                                    expr_idx: 298,
+                                    expr_idx: 304,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -22580,7 +22717,7 @@
                             meta: ExpectationState {
                                 idx: 262,
                                 src: ExpectationSource {
-                                    expr_idx: 299,
+                                    expr_idx: 305,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -22607,7 +22744,7 @@
                             meta: ExpectationState {
                                 idx: 263,
                                 src: ExpectationSource {
-                                    expr_idx: 301,
+                                    expr_idx: 307,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -22628,7 +22765,7 @@
                             meta: ExpectationState {
                                 idx: 264,
                                 src: ExpectationSource {
-                                    expr_idx: 300,
+                                    expr_idx: 306,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -22659,7 +22796,7 @@
                             meta: ExpectationState {
                                 idx: 265,
                                 src: ExpectationSource {
-                                    expr_idx: 302,
+                                    expr_idx: 308,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -22696,7 +22833,7 @@
                             meta: ExpectationState {
                                 idx: 266,
                                 src: ExpectationSource {
-                                    expr_idx: 305,
+                                    expr_idx: 311,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -22723,7 +22860,7 @@
                             meta: ExpectationState {
                                 idx: 267,
                                 src: ExpectationSource {
-                                    expr_idx: 303,
+                                    expr_idx: 309,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -22754,7 +22891,7 @@
                             meta: ExpectationState {
                                 idx: 268,
                                 src: ExpectationSource {
-                                    expr_idx: 304,
+                                    expr_idx: 310,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -22791,7 +22928,7 @@
                             meta: ExpectationState {
                                 idx: 269,
                                 src: ExpectationSource {
-                                    expr_idx: 306,
+                                    expr_idx: 312,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -22826,7 +22963,7 @@
                             meta: ExpectationState {
                                 idx: 270,
                                 src: ExpectationSource {
-                                    expr_idx: 309,
+                                    expr_idx: 315,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -22853,7 +22990,7 @@
                             meta: ExpectationState {
                                 idx: 271,
                                 src: ExpectationSource {
-                                    expr_idx: 307,
+                                    expr_idx: 313,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -22884,7 +23021,7 @@
                             meta: ExpectationState {
                                 idx: 272,
                                 src: ExpectationSource {
-                                    expr_idx: 308,
+                                    expr_idx: 314,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -22921,7 +23058,7 @@
                             meta: ExpectationState {
                                 idx: 273,
                                 src: ExpectationSource {
-                                    expr_idx: 310,
+                                    expr_idx: 316,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -22948,7 +23085,7 @@
                             meta: ExpectationState {
                                 idx: 274,
                                 src: ExpectationSource {
-                                    expr_idx: 311,
+                                    expr_idx: 317,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -22973,7 +23110,7 @@
                             meta: ExpectationState {
                                 idx: 275,
                                 src: ExpectationSource {
-                                    expr_idx: 312,
+                                    expr_idx: 318,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -22992,7 +23129,7 @@
                             meta: ExpectationState {
                                 idx: 276,
                                 src: ExpectationSource {
-                                    expr_idx: 313,
+                                    expr_idx: 319,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -23011,7 +23148,7 @@
                             meta: ExpectationState {
                                 idx: 277,
                                 src: ExpectationSource {
-                                    expr_idx: 314,
+                                    expr_idx: 320,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -23032,7 +23169,7 @@
                             meta: ExpectationState {
                                 idx: 278,
                                 src: ExpectationSource {
-                                    expr_idx: 315,
+                                    expr_idx: 321,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -23112,7 +23249,7 @@
                             meta: ExpectationState {
                                 idx: 279,
                                 src: ExpectationSource {
-                                    expr_idx: 316,
+                                    expr_idx: 322,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -23147,7 +23284,7 @@
                             meta: ExpectationState {
                                 idx: 280,
                                 src: ExpectationSource {
-                                    expr_idx: 317,
+                                    expr_idx: 323,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -23182,7 +23319,7 @@
                             meta: ExpectationState {
                                 idx: 281,
                                 src: ExpectationSource {
-                                    expr_idx: 318,
+                                    expr_idx: 324,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -23217,7 +23354,7 @@
                             meta: ExpectationState {
                                 idx: 282,
                                 src: ExpectationSource {
-                                    expr_idx: 319,
+                                    expr_idx: 325,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -23252,7 +23389,7 @@
                             meta: ExpectationState {
                                 idx: 283,
                                 src: ExpectationSource {
-                                    expr_idx: 320,
+                                    expr_idx: 326,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -23287,7 +23424,7 @@
                             meta: ExpectationState {
                                 idx: 284,
                                 src: ExpectationSource {
-                                    expr_idx: 321,
+                                    expr_idx: 327,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {

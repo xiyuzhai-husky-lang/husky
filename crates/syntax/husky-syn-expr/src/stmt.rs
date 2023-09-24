@@ -263,3 +263,49 @@ impl<'a> SynStmtContext<'a> {
         }
     }
 }
+
+impl<'a, 'b> SynExprParser<'a, &'b mut SynExprContext<'a>> {
+    pub fn parse_inline_stmt(
+        &mut self,
+        block_end: RegionalTokenIdxRangeEnd,
+    ) -> SynExprResult<SynStmtIdxRange> {
+        let syn_stmt = match self.try_parse_option::<BasicStmtKeywordRegionalToken>()? {
+            Some(basic_stmt_keyword_token) => match basic_stmt_keyword_token {
+                BasicStmtKeywordRegionalToken::Return(return_token) => SynStmt::Return {
+                    return_token,
+                    result: self.parse_expr_expected2(
+                        None,
+                        ExprRootKind::ReturnExpr,
+                        OriginalSynExprError::ExpectedResult,
+                    ),
+                },
+                BasicStmtKeywordRegionalToken::Require(require_token) => SynStmt::Require {
+                    require_token,
+                    condition: self.parse_expr_expected2(
+                        Some(ExprEnvironment::Condition(block_end)),
+                        ExprRootKind::Condition,
+                        OriginalSynExprError::ExpectedCondition,
+                    ),
+                },
+                BasicStmtKeywordRegionalToken::Assert(assert_token) => SynStmt::Assert {
+                    assert_token,
+                    condition: self.parse_expr_expected2(
+                        Some(ExprEnvironment::Condition(block_end)),
+                        ExprRootKind::Condition,
+                        OriginalSynExprError::ExpectedCondition,
+                    ),
+                },
+                BasicStmtKeywordRegionalToken::Break(break_token) => SynStmt::Break { break_token },
+                _ => todo!("err"),
+            },
+            None => match self.parse_expr_root(None, ExprRootKind::EvalExpr) {
+                Some(expr_idx) => SynStmt::Eval {
+                    expr_idx,
+                    eol_semicolon: self.try_parse_option(),
+                },
+                None => todo!(),
+            },
+        };
+        Ok(self.context.alloc_inline_stmt(syn_stmt))
+    }
+}
