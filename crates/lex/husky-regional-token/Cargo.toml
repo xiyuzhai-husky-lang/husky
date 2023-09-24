@@ -21,3 +21,5 @@ husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-opr = { path = "../../kernel/husky-opr" }
+# utils
+husky-print-utils = { path = "../../utils/husky-print-utils" }

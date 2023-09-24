@@ -375,12 +375,13 @@ where
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenDataResult<Option<Self>> {
-        if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
+        let token_stream = ctx.token_stream_mut();
+        if let Some((regional_token_idx, token)) = token_stream.next_indexed() {
             match token {
-                TokenData::Keyword(Keyword::End(EndKeyword::With)) => {
-                    todo!()
-                    // Ok(Some(ElseRegionalToken { regional_token_idx }))
-                }
+                TokenData::Keyword(Keyword::End(EndKeyword::With)) => match token_stream.next() {
+                    Some(_) => Ok(None),
+                    None => Ok(Some(EolWithRegionalToken { regional_token_idx })),
+                },
                 TokenData::Error(error) => Err(error),
                 TokenData::Label(_)
                 | TokenData::Punctuation(_)
