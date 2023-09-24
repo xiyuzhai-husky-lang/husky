@@ -48,32 +48,53 @@ impl std::ops::SubAssign<usize> for TokenGroupRelativeTokenIndex {
     }
 }
 
+pub enum TokenGroupProductionState {
+    None,
+    Match,
+    MatchVertical,
+}
+
+enum ControlFlow {
+    Break,
+    Continue,
+}
+use husky_print_utils::p;
+use ControlFlow::*;
+
 // todo: move this to a root module called group
 pub(crate) fn produce_token_group_starts(
-    tokens: &[TokenData],
+    tokens_data: &[TokenData],
     token_ranges: &[TextRange],
 ) -> Vec<TokenGroupStart> {
     let line_starts = produce_line_starts(token_ranges);
     let mut i = 0;
-    let mut line_group_starts = vec![];
+    let mut token_group_starts = vec![];
+    let mut state = TokenGroupProductionState::None;
     while i < line_starts.len() {
         let line0_start = line_starts[i];
         let line0_indent = token_ranges[line0_start].start.col.0;
-        line_group_starts.push(TokenGroupStart::from_index(line0_start));
+        token_group_starts.push(TokenGroupStart::from_index(line0_start));
+        state = match tokens_data[line0_start] {
+            TokenData::Keyword(Keyword::Stmt(StmtKeyword::Match)) => {
+                TokenGroupProductionState::Match
+            }
+            TokenData::Punctuation(Punctuation::VERTICAL) => match state {
+                TokenGroupProductionState::None => TokenGroupProductionState::None,
+                TokenGroupProductionState::Match | TokenGroupProductionState::MatchVertical => {
+                    TokenGroupProductionState::MatchVertical
+                }
+            },
+            _ => TokenGroupProductionState::None,
+        };
         i = {
             let mut j = i + 1;
             while j < line_starts.len() {
-                let line_start1 = line_starts[j];
-                let line_start_token = &tokens[line_start1];
-                let line_indent1 = token_ranges[line_start1].start.col.0;
-                enum ControlFlow {
-                    Break,
-                    Continue,
-                }
-                use ControlFlow::*;
-                let flag = if line_indent1 > line0_indent {
-                    // detect an indentation
-                    match tokens[line_start1 - 1] {
+                let line1_start = line_starts[j];
+                let line1_start_token_data = &tokens_data[line1_start];
+                let line1_indent = token_ranges[line1_start].start.col.0;
+                let control_flow = if line1_indent > line0_indent {
+                    // detected an indentation
+                    match tokens_data[line1_start - 1] {
                         TokenData::Keyword(Keyword::End(_))
                         | TokenData::Punctuation(Punctuation::EQ)
                         | TokenData::Punctuation(Punctuation::HEAVY_ARROW)
@@ -84,7 +105,7 @@ pub(crate) fn produce_token_group_starts(
                             | Punctuation::LCURL
                             | Punctuation::LA_OR_LT,
                         ) => Continue,
-                        _ => match line_start_token {
+                        _ => match line1_start_token_data {
                             TokenData::Keyword(
                                 Keyword::Pronoun(_)
                                 | Keyword::Modifier(_)
@@ -95,22 +116,34 @@ pub(crate) fn produce_token_group_starts(
                             _ => Continue,
                         },
                     }
-                } else {
-                    if line_indent1 == line0_indent {
-                        match line_start_token {
-                            TokenData::Punctuation(
-                                Punctuation::RPAR
-                                | Punctuation::RBOX
-                                | Punctuation::RCURL
-                                | Punctuation::RA_OR_GT,
-                            ) => Continue,
-                            _ => Break,
-                        }
-                    } else {
-                        Break
+                } else if line1_indent == line0_indent {
+                    match line1_start_token_data {
+                        TokenData::Punctuation(
+                            Punctuation::RPAR
+                            | Punctuation::RBOX
+                            | Punctuation::RCURL
+                            | Punctuation::RA_OR_GT,
+                        ) => Continue,
+                        TokenData::Punctuation(Punctuation::VERTICAL) => match state {
+                            TokenGroupProductionState::None | TokenGroupProductionState::Match => {
+                                Break
+                            }
+                            TokenGroupProductionState::MatchVertical => {
+                                if tokens_data[line_starts[j - 1]..line1_start]
+                                    .contains(&TokenData::Punctuation(Punctuation::HEAVY_ARROW))
+                                {
+                                    Break
+                                } else {
+                                    Continue
+                                }
+                            }
+                        },
+                        _ => Break,
                     }
+                } else {
+                    Break
                 };
-                match flag {
+                match control_flow {
                     Break => break,
                     Continue => j += 1,
                 }
@@ -118,7 +151,7 @@ pub(crate) fn produce_token_group_starts(
             j
         }
     }
-    line_group_starts
+    token_group_starts
 }
 
 fn produce_line_starts(token_ranges: &[TextRange]) -> Vec<usize> {
