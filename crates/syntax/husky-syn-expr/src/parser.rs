@@ -208,8 +208,9 @@ where
 
     pub fn parse_pattern_expr(
         &mut self,
-        env: SynPatternExprInfo,
+        env: SynPatternExprEnvironment,
     ) -> SynExprResult<Option<SynPatternExprIdx>> {
+        todo!("overhaul this");
         let symbol_modifier_token_group = self.try_parse_option()?;
         let ident_token = match symbol_modifier_token_group {
             None => match self.try_parse_option::<IdentRegionalToken>()? {

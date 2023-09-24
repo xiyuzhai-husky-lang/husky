@@ -19,10 +19,10 @@ pub enum LiteralData {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum SynPatternExprInfo {
+pub enum SynPatternExprEnvironment {
     Parameter,
     Let,
-    Match,
+    Case,
     Be,
 }
 

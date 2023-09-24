@@ -17,7 +17,7 @@ impl<'a, 'b> SynDefnExprParser<'a, 'b> {
         access_end: RegionalTokenIdxRangeEnd,
     ) -> SynExprResult<LetPatternObelisk> {
         let state = self.save_state();
-        let Some(pattern) = self.parse_pattern_expr(SynPatternExprInfo::Let)? else {
+        let Some(pattern) = self.parse_pattern_expr(SynPatternExprEnvironment::Let)? else {
             Err(OriginalSynExprError::ExpectedLetPattern(state))?
         };
         let symbols = self.pattern_expr_region().pattern_expr_symbols(pattern);

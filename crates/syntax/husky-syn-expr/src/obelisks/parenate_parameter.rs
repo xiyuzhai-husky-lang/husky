@@ -68,7 +68,9 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
-        if let Some(pattern_expr_idx) = ctx.parse_pattern_expr(SynPatternExprInfo::Parameter)? {
+        if let Some(pattern_expr_idx) =
+            ctx.parse_pattern_expr(SynPatternExprEnvironment::Parameter)?
+        {
             let symbols = ctx
                 .pattern_expr_region()
                 .pattern_expr_symbols(pattern_expr_idx);

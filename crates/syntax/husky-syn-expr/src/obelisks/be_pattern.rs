@@ -18,7 +18,7 @@ where
         access_end: RegionalTokenIdxRangeEnd,
     ) -> SynExprResult<BePatternObelisk> {
         let state = self.save_state();
-        let Some(pattern_expr) = self.parse_pattern_expr(SynPatternExprInfo::Let)? else {
+        let Some(pattern_expr) = self.parse_pattern_expr(SynPatternExprEnvironment::Be)? else {
             Err(OriginalSynExprError::ExpectedBePattern(state))?
         };
         let symbols = self

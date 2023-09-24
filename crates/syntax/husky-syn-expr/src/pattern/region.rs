@@ -5,7 +5,7 @@ use super::*;
 pub struct SynPatternExprRegion {
     pattern_expr_arena: SynPatternExprArena,
     pattern_expr_contracts: SynPatternExprOrderedMap<Contract>,
-    pattern_infos: Vec<SynPatternExprInfo>,
+    pattern_infos: Vec<SynPatternExprEnvironment>,
     pattern_symbol_arena: SynPatternSymbolArena,
     pattern_symbol_maps: SynPatternExprOrderedMap<IdentPairMap<SynPatternSymbolIdx>>,
     pattern_symbol_modifiers: SynPatternSymbolOrderedMap<SymbolModifier>,
@@ -15,7 +15,7 @@ impl SynPatternExprRegion {
     pub fn alloc_one_pattern_expr(
         &mut self,
         expr: SynPatternExpr,
-        env: SynPatternExprInfo,
+        env: SynPatternExprEnvironment,
     ) -> SynPatternExprIdx {
         // order matters
         let contract = expr.contract();
@@ -82,7 +82,7 @@ impl SynPatternExprRegion {
         &self.pattern_symbol_maps[pattern_expr_idx]
     }
 
-    pub fn pattern_info(&self, pattern_expr_idx: SynPatternExprIdx) -> SynPatternExprInfo {
+    pub fn pattern_info(&self, pattern_expr_idx: SynPatternExprIdx) -> SynPatternExprEnvironment {
         self.pattern_infos[pattern_expr_idx.index()]
     }
 
