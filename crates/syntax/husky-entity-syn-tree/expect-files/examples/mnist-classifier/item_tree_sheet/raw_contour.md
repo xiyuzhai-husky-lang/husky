@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 204,
+                            ast_idx: 195,
                             ident_token: IdentToken {
                                 ident: `RawContour`,
                                 token_idx: TokenIdx(
@@ -59,7 +59,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 207,
+                            ast_idx: 198,
                             ident_token: IdentToken {
                                 ident: `Direction`,
                                 token_idx: TokenIdx(
@@ -111,7 +111,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 208,
+                            ast_idx: 199,
                             ident_token: IdentToken {
                                 ident: `get_pixel_pair`,
                                 token_idx: TokenIdx(
@@ -163,7 +163,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 209,
+                            ast_idx: 200,
                             ident_token: IdentToken {
                                 ident: `get_pixel_to_the_left`,
                                 token_idx: TokenIdx(
@@ -215,7 +215,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 210,
+                            ast_idx: 201,
                             ident_token: IdentToken {
                                 ident: `get_pixel_to_the_right`,
                                 token_idx: TokenIdx(
@@ -267,7 +267,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 211,
+                            ast_idx: 202,
                             ident_token: IdentToken {
                                 ident: `get_inward_direction`,
                                 token_idx: TokenIdx(
@@ -283,7 +283,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            67..70,
+                                            64..67,
                                         ),
                                     },
                                 ),
@@ -319,7 +319,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 212,
+                            ast_idx: 203,
                             ident_token: IdentToken {
                                 ident: `get_angle_change`,
                                 token_idx: TokenIdx(
@@ -335,7 +335,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            76..78,
+                                            71..73,
                                         ),
                                     },
                                 ),
@@ -371,7 +371,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 213,
+                            ast_idx: 204,
                             ident_token: IdentToken {
                                 ident: `get_outward_direction`,
                                 token_idx: TokenIdx(
@@ -387,7 +387,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            120..123,
+                                            111..114,
                                         ),
                                     },
                                 ),
@@ -423,7 +423,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 214,
+                            ast_idx: 205,
                             ident_token: IdentToken {
                                 ident: `StreakCache`,
                                 token_idx: TokenIdx(
@@ -469,7 +469,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 215,
+                            ast_idx: 206,
                             ident_token: IdentToken {
                                 ident: `get_concave_middle_point`,
                                 token_idx: TokenIdx(
@@ -485,7 +485,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            123..127,
+                                            114..118,
                                         ),
                                     },
                                 ),
@@ -519,7 +519,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 216,
+                            ast_idx: 207,
                             ident_token: IdentToken {
                                 ident: `find_raw_contours`,
                                 token_idx: TokenIdx(
@@ -535,7 +535,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            195..200,
+                                            186..191,
                                         ),
                                     },
                                 ),
@@ -694,7 +694,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -717,7 +717,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -740,7 +740,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -763,7 +763,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -786,7 +786,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -809,7 +809,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -832,7 +832,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -857,7 +857,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -896,7 +896,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -935,7 +935,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -974,7 +974,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -1013,7 +1013,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -1052,7 +1052,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -1091,7 +1091,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -1130,7 +1130,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -1169,7 +1169,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -1194,7 +1194,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 200,
+                            ast_idx: 191,
                             use_expr_idx: 1,
                         },
                     ),
@@ -1219,7 +1219,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 200,
+                            ast_idx: 191,
                             use_expr_idx: 1,
                         },
                     ),
@@ -1244,7 +1244,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 200,
+                            ast_idx: 191,
                             use_expr_idx: 1,
                         },
                     ),
@@ -1269,7 +1269,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 200,
+                            ast_idx: 191,
                             use_expr_idx: 1,
                         },
                     ),
@@ -1294,7 +1294,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 200,
+                            ast_idx: 191,
                             use_expr_idx: 1,
                         },
                     ),
@@ -1319,7 +1319,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 200,
+                            ast_idx: 191,
                             use_expr_idx: 1,
                         },
                     ),
@@ -1344,7 +1344,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 201,
+                            ast_idx: 192,
                             use_expr_idx: 4,
                         },
                     ),
@@ -1369,7 +1369,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 201,
+                            ast_idx: 192,
                             use_expr_idx: 4,
                         },
                     ),
@@ -1394,7 +1394,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 201,
+                            ast_idx: 192,
                             use_expr_idx: 4,
                         },
                     ),
@@ -1419,7 +1419,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 201,
+                            ast_idx: 192,
                             use_expr_idx: 4,
                         },
                     ),
@@ -1444,7 +1444,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 202,
+                            ast_idx: 193,
                             use_expr_idx: 7,
                         },
                     ),
@@ -1469,7 +1469,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 202,
+                            ast_idx: 193,
                             use_expr_idx: 7,
                         },
                     ),
@@ -1506,7 +1506,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 202,
+                            ast_idx: 193,
                             use_expr_idx: 7,
                         },
                     ),
@@ -1543,7 +1543,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 202,
+                            ast_idx: 193,
                             use_expr_idx: 7,
                         },
                     ),
@@ -1580,7 +1580,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 202,
+                            ast_idx: 193,
                             use_expr_idx: 7,
                         },
                     ),
@@ -1619,7 +1619,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -1658,7 +1658,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -1697,7 +1697,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -1736,7 +1736,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -1775,7 +1775,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -1814,7 +1814,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -1853,7 +1853,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -1904,7 +1904,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -1943,7 +1943,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -1982,7 +1982,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -2021,7 +2021,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -2060,7 +2060,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -2099,7 +2099,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -2138,7 +2138,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -2189,7 +2189,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -2240,7 +2240,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -2291,7 +2291,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -2330,7 +2330,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -2369,7 +2369,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -2408,7 +2408,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -2447,7 +2447,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -2498,7 +2498,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -2549,7 +2549,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -2600,7 +2600,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -2651,7 +2651,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -2702,7 +2702,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -2753,7 +2753,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -2804,7 +2804,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -2855,7 +2855,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 194,
                             use_expr_idx: 10,
                         },
                     ),
@@ -2888,7 +2888,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 205,
+                        ast_idx: 196,
                         impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 39,
@@ -2932,7 +2932,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 206,
+                        ast_idx: 197,
                         impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
                                 61,
@@ -2951,7 +2951,7 @@ Ok(
         once_use_rules: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 200,
+                    ast_idx: 191,
                     use_expr_idx: 3,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
@@ -2978,7 +2978,7 @@ Ok(
                     },
                 },
                 OnceUseRule {
-                    ast_idx: 201,
+                    ast_idx: 192,
                     use_expr_idx: 6,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
@@ -3005,7 +3005,7 @@ Ok(
                     },
                 },
                 OnceUseRule {
-                    ast_idx: 202,
+                    ast_idx: 193,
                     use_expr_idx: 9,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
@@ -3032,7 +3032,7 @@ Ok(
                     },
                 },
                 OnceUseRule {
-                    ast_idx: 203,
+                    ast_idx: 194,
                     use_expr_idx: 11,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
@@ -3059,7 +3059,7 @@ Ok(
                     },
                 },
                 OnceUseRule {
-                    ast_idx: 200,
+                    ast_idx: 191,
                     use_expr_idx: 2,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
@@ -3093,7 +3093,7 @@ Ok(
                     },
                 },
                 OnceUseRule {
-                    ast_idx: 201,
+                    ast_idx: 192,
                     use_expr_idx: 5,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
@@ -3127,7 +3127,7 @@ Ok(
                     },
                 },
                 OnceUseRule {
-                    ast_idx: 202,
+                    ast_idx: 193,
                     use_expr_idx: 8,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
@@ -3167,7 +3167,7 @@ Ok(
                 UseAllModuleSymbolsRule {
                     parent_module_path: `mnist_classifier`,
                     is_same_crate: true,
-                    ast_idx: 203,
+                    ast_idx: 194,
                     use_expr_idx: 10,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
@@ -3179,7 +3179,7 @@ Ok(
                 UseAllModuleSymbolsRule {
                     parent_module_path: `mnist_classifier::geom2d`,
                     is_same_crate: true,
-                    ast_idx: 200,
+                    ast_idx: 191,
                     use_expr_idx: 1,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
@@ -3191,7 +3191,7 @@ Ok(
                 UseAllModuleSymbolsRule {
                     parent_module_path: `mnist_classifier::connected_component`,
                     is_same_crate: true,
-                    ast_idx: 201,
+                    ast_idx: 192,
                     use_expr_idx: 4,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
@@ -3203,7 +3203,7 @@ Ok(
                 UseAllModuleSymbolsRule {
                     parent_module_path: `mnist_classifier::line_segment_sketch`,
                     is_same_crate: true,
-                    ast_idx: 202,
+                    ast_idx: 193,
                     use_expr_idx: 7,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
