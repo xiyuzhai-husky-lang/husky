@@ -103,6 +103,8 @@ pub enum OriginalSynExprError {
     ExpectedTraits(RegionalTokenStreamState),
     #[error("ExpectedKeyedWithDefaultParameterInitialValue")]
     ExpectedExplicitParameterDefaultValue(RegionalTokenStreamState),
+    #[error("expected `=>` after case pattern")]
+    ExpectedHeavyArrowAfterCasePattern(RegionalTokenStreamState),
     #[error("expected identifier after `.`")]
     ExpectedIdentAfterDot {
         dot_regional_token_idx: RegionalTokenIdx,
@@ -193,7 +195,8 @@ impl OriginalSynExprError {
             | OriginalSynExprError::ExpectedFunctionIdentAfterOpeningHtmlBra(token_stream_state)
             | OriginalSynExprError::ExpectedConstantImplicitParameterType(token_stream_state)
             | OriginalSynExprError::ExpectedTraits(token_stream_state)
-            | OriginalSynExprError::ExpectedExplicitParameterDefaultValue(token_stream_state) => {
+            | OriginalSynExprError::ExpectedExplicitParameterDefaultValue(token_stream_state)
+            | OriginalSynExprError::ExpectedHeavyArrowAfterCasePattern(token_stream_state) => {
                 let regional_token_idx = token_stream_state.next_regional_token_idx();
                 match token_stream_state.drained() {
                     true => RegionalTokenIdxRange::new_drained(regional_token_idx),

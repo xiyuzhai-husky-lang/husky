@@ -143,11 +143,15 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                     match_token,
                     match_expr,
                     eol_with_token,
-                    ..
+                    ref case_branches,
                 } => {
                     self.visit_syn_expr_result(match_expr);
                     self.visit_syn_expr_result(eol_with_token);
-                    // todo!()
+                    for case_branch in case_branches {
+                        self.visit_syn_expr_result(&case_branch.case_pattern);
+                        self.visit_syn_expr_result(&case_branch.heavy_arrow_token);
+                        self.visit_syn_expr_result(&case_branch.stmts);
+                    }
                 }
             }
         }
@@ -249,6 +253,9 @@ impl Diagnose for OriginalSynExprError {
             }
             OriginalSynExprError::ExpectedConstantImplicitParameterType(_) => {
                 format!("Syntax Error: expected constant implicit parameter type")
+            }
+            OriginalSynExprError::ExpectedHeavyArrowAfterCasePattern(token_stream_state) => {
+                format!("Syntax Error: expected `=>` after case pattern")
             }
             OriginalSynExprError::ExpectedBlock(_) => format!("Syntax Error: expected block"),
             OriginalSynExprError::UnterminatedList { .. } => {

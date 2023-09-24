@@ -285,7 +285,7 @@ where
                 },
                 PunctuationMapped::ForAll => todo!(),
                 PunctuationMapped::Exists => todo!(),
-                PunctuationMapped::HeavyArrow => todo!(),
+                PunctuationMapped::HeavyArrow => return TokenDisambiguationResult::Break(()),
             },
             TokenData::WordOpr(opr) => match opr {
                 WordOpr::And => DisambiguatedToken::BinaryOpr(

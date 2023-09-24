@@ -135,12 +135,16 @@ impl<'a> SynExprContext<'a> {
         &mut self.syn_expr_arena
     }
 
-    pub(crate) fn alloc_expr(&mut self, expr: SynExpr) -> SynExprIdx {
-        self.syn_expr_arena.alloc_one(expr)
+    pub(crate) fn alloc_expr(&mut self, syn_expr: SynExpr) -> SynExprIdx {
+        self.syn_expr_arena.alloc_one(syn_expr)
     }
 
-    pub(super) fn alloc_stmts(&mut self, stmts: Vec<SynStmt>) -> SynStmtIdxRange {
-        self.syn_stmt_arena.alloc_batch(stmts)
+    pub(crate) fn alloc_inline_stmt(&mut self, syn_stmt: SynStmt) -> SynStmtIdxRange {
+        SynStmtIdxRange::new_single(self.syn_stmt_arena.alloc_one(syn_stmt))
+    }
+
+    pub(super) fn alloc_stmts(&mut self, syn_stmts: Vec<SynStmt>) -> SynStmtIdxRange {
+        self.syn_stmt_arena.alloc_batch(syn_stmts)
     }
 
     pub(crate) fn alloc_expr_batch(
