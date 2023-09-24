@@ -78,7 +78,9 @@ Ok(
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
                                             SpecificParameterObelisk::Regular {
-                                                pattern: 1,
+                                                syn_pattern_root: SynPatternRoot(
+                                                    1,
+                                                ),
                                                 variables: ArenaIdxRange(
                                                     2..3,
                                                 ),
@@ -131,7 +133,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Trait(
@@ -201,7 +203,7 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     SynPatternExpr::Ident {
-                                                        symbol_modifier_keyword_group: Some(
+                                                        symbol_modifier_tokens: Some(
                                                             Mut(
                                                                 MutRegionalToken {
                                                                     regional_token_idx: RegionalTokenIdx(
@@ -224,9 +226,6 @@ Ok(
                                                     Move,
                                                 ],
                                             },
-                                            pattern_infos: [
-                                                Parameter,
-                                            ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
                                                     SynPatternSymbol::Atom(
@@ -299,7 +298,9 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr_idx: 1,
+                                                        syn_pattern_root: SynPatternRoot(
+                                                            1,
+                                                        ),
                                                         ty_expr_idx: 4,
                                                     },
                                                     ArenaIdxRange(
@@ -403,7 +404,9 @@ Ok(
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
                                             SpecificParameterObelisk::Regular {
-                                                pattern: 1,
+                                                syn_pattern_root: SynPatternRoot(
+                                                    1,
+                                                ),
                                                 variables: ArenaIdxRange(
                                                     2..3,
                                                 ),
@@ -415,7 +418,9 @@ Ok(
                                                 ty: 4,
                                             },
                                             SpecificParameterObelisk::Regular {
-                                                pattern: 2,
+                                                syn_pattern_root: SynPatternRoot(
+                                                    2,
+                                                ),
                                                 variables: ArenaIdxRange(
                                                     3..4,
                                                 ),
@@ -427,7 +432,9 @@ Ok(
                                                 ty: 5,
                                             },
                                             SpecificParameterObelisk::Regular {
-                                                pattern: 3,
+                                                syn_pattern_root: SynPatternRoot(
+                                                    3,
+                                                ),
                                                 variables: ArenaIdxRange(
                                                     4..5,
                                                 ),
@@ -491,7 +498,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Trait(
@@ -534,7 +541,7 @@ Ok(
                                                     argument_expr_idx: 3,
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 2,
+                                                    path_expr_idx: 2,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -544,7 +551,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 3,
+                                                    path_expr_idx: 3,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -611,7 +618,7 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     SynPatternExpr::Ident {
-                                                        symbol_modifier_keyword_group: Some(
+                                                        symbol_modifier_tokens: Some(
                                                             Mut(
                                                                 MutRegionalToken {
                                                                     regional_token_idx: RegionalTokenIdx(
@@ -628,7 +635,7 @@ Ok(
                                                         },
                                                     },
                                                     SynPatternExpr::Ident {
-                                                        symbol_modifier_keyword_group: None,
+                                                        symbol_modifier_tokens: None,
                                                         ident_token: IdentRegionalToken {
                                                             ident: `low`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -637,7 +644,7 @@ Ok(
                                                         },
                                                     },
                                                     SynPatternExpr::Ident {
-                                                        symbol_modifier_keyword_group: None,
+                                                        symbol_modifier_tokens: None,
                                                         ident_token: IdentRegionalToken {
                                                             ident: `high`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -654,11 +661,6 @@ Ok(
                                                     None,
                                                 ],
                                             },
-                                            pattern_infos: [
-                                                Parameter,
-                                                Parameter,
-                                                Parameter,
-                                            ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
                                                     SynPatternSymbol::Atom(
@@ -773,7 +775,9 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr_idx: 1,
+                                                        syn_pattern_root: SynPatternRoot(
+                                                            1,
+                                                        ),
                                                         ty_expr_idx: 4,
                                                     },
                                                     ArenaIdxRange(
@@ -782,7 +786,9 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr_idx: 2,
+                                                        syn_pattern_root: SynPatternRoot(
+                                                            2,
+                                                        ),
                                                         ty_expr_idx: 5,
                                                     },
                                                     ArenaIdxRange(
@@ -791,7 +797,9 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr_idx: 3,
+                                                        syn_pattern_root: SynPatternRoot(
+                                                            3,
+                                                        ),
                                                         ty_expr_idx: 6,
                                                     },
                                                     ArenaIdxRange(
@@ -903,7 +911,9 @@ Ok(
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
                                             SpecificParameterObelisk::Regular {
-                                                pattern: 1,
+                                                syn_pattern_root: SynPatternRoot(
+                                                    1,
+                                                ),
                                                 variables: ArenaIdxRange(
                                                     2..3,
                                                 ),
@@ -915,7 +925,9 @@ Ok(
                                                 ty: 4,
                                             },
                                             SpecificParameterObelisk::Regular {
-                                                pattern: 2,
+                                                syn_pattern_root: SynPatternRoot(
+                                                    2,
+                                                ),
                                                 variables: ArenaIdxRange(
                                                     3..4,
                                                 ),
@@ -927,7 +939,9 @@ Ok(
                                                 ty: 5,
                                             },
                                             SpecificParameterObelisk::Regular {
-                                                pattern: 3,
+                                                syn_pattern_root: SynPatternRoot(
+                                                    3,
+                                                ),
                                                 variables: ArenaIdxRange(
                                                     4..5,
                                                 ),
@@ -1001,7 +1015,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Trait(
@@ -1044,7 +1058,7 @@ Ok(
                                                     argument_expr_idx: 3,
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 2,
+                                                    path_expr_idx: 2,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -1054,7 +1068,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 3,
+                                                    path_expr_idx: 3,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -1064,7 +1078,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 4,
+                                                    path_expr_idx: 4,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -1146,7 +1160,7 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     SynPatternExpr::Ident {
-                                                        symbol_modifier_keyword_group: Some(
+                                                        symbol_modifier_tokens: Some(
                                                             Mut(
                                                                 MutRegionalToken {
                                                                     regional_token_idx: RegionalTokenIdx(
@@ -1163,7 +1177,7 @@ Ok(
                                                         },
                                                     },
                                                     SynPatternExpr::Ident {
-                                                        symbol_modifier_keyword_group: None,
+                                                        symbol_modifier_tokens: None,
                                                         ident_token: IdentRegionalToken {
                                                             ident: `low`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -1172,7 +1186,7 @@ Ok(
                                                         },
                                                     },
                                                     SynPatternExpr::Ident {
-                                                        symbol_modifier_keyword_group: None,
+                                                        symbol_modifier_tokens: None,
                                                         ident_token: IdentRegionalToken {
                                                             ident: `high`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -1189,11 +1203,6 @@ Ok(
                                                     None,
                                                 ],
                                             },
-                                            pattern_infos: [
-                                                Parameter,
-                                                Parameter,
-                                                Parameter,
-                                            ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
                                                     SynPatternSymbol::Atom(
@@ -1308,7 +1317,9 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr_idx: 1,
+                                                        syn_pattern_root: SynPatternRoot(
+                                                            1,
+                                                        ),
                                                         ty_expr_idx: 4,
                                                     },
                                                     ArenaIdxRange(
@@ -1317,7 +1328,9 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr_idx: 2,
+                                                        syn_pattern_root: SynPatternRoot(
+                                                            2,
+                                                        ),
                                                         ty_expr_idx: 5,
                                                     },
                                                     ArenaIdxRange(
@@ -1326,7 +1339,9 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr_idx: 3,
+                                                        syn_pattern_root: SynPatternRoot(
+                                                            3,
+                                                        ),
                                                         ty_expr_idx: 6,
                                                     },
                                                     ArenaIdxRange(
@@ -1454,7 +1469,6 @@ Ok(
                                             pattern_expr_contracts: ArenaMap {
                                                 data: [],
                                             },
-                                            pattern_infos: [],
                                             pattern_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -1572,7 +1586,6 @@ Ok(
                                             pattern_expr_contracts: ArenaMap {
                                                 data: [],
                                             },
-                                            pattern_infos: [],
                                             pattern_symbol_arena: Arena {
                                                 data: [],
                                             },

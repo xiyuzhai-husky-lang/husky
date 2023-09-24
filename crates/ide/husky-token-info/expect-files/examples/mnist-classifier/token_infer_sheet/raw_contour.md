@@ -1572,15 +1572,41 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Left`,
+                    },
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Up`,
+                    },
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
@@ -1594,9 +1620,22 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Down`,
+                    },
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1612,23 +1651,62 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Right`,
+                    },
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Left`,
+                    },
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Up`,
+                    },
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 4,
@@ -1656,15 +1734,41 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Right`,
+                    },
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Up`,
+                    },
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 5,
@@ -1823,9 +1927,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -2025,17 +2141,43 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Down`,
+                    },
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Left`,
+                    },
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
@@ -2061,15 +2203,41 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Right`,
+                    },
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Down`,
+                    },
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -2083,6 +2251,74 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Down`,
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Left`,
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Up`,
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Right`,
+                    },
+                ),
+            ),
+            TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 4,
                 current_symbol_kind: CurrentSynSymbolKind::CaseVariable {
@@ -2095,7 +2331,22 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Left`,
+                    },
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 5,
@@ -2110,11 +2361,10 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
             TokenInfo::CurrentSymbol {
-                current_symbol_idx: 6,
-                current_symbol_kind: CurrentSynSymbolKind::CaseVariable {
-                    pattern_symbol_idx: 6,
+                current_symbol_idx: 2,
+                current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                    pattern_symbol_idx: 2,
                 },
                 syn_expr_region: ExprRegionLeash(_),
             },
@@ -2124,6 +2374,112 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Up`,
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
+                inherited_symbol_idx: 4,
+                inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                    ident: `inward_direction`,
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Left`,
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Up`,
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Right`,
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Down`,
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 6,
+                current_symbol_kind: CurrentSynSymbolKind::CaseVariable {
+                    pattern_symbol_idx: 6,
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -2153,23 +2509,41 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Right`,
+                    },
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::InheritedSymbol {
-                inherited_symbol_idx: 4,
-                inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                    ident: `inward_direction`,
-                },
-                syn_expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Down`,
+                    },
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 8,
@@ -2181,84 +2555,10 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 9,
                 current_symbol_kind: CurrentSynSymbolKind::CaseVariable {
                     pattern_symbol_idx: 9,
-                },
-                syn_expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 10,
-                current_symbol_kind: CurrentSynSymbolKind::CaseVariable {
-                    pattern_symbol_idx: 10,
-                },
-                syn_expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 11,
-                current_symbol_kind: CurrentSynSymbolKind::CaseVariable {
-                    pattern_symbol_idx: 11,
-                },
-                syn_expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 2,
-                current_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                    pattern_symbol_idx: 2,
-                },
-                syn_expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 12,
-                current_symbol_kind: CurrentSynSymbolKind::CaseVariable {
-                    pattern_symbol_idx: 12,
-                },
-                syn_expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 13,
-                current_symbol_kind: CurrentSynSymbolKind::CaseVariable {
-                    pattern_symbol_idx: 13,
                 },
                 syn_expr_region: ExprRegionLeash(_),
             },
@@ -2603,7 +2903,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
                 current_symbol_kind: CurrentSynSymbolKind::FrameVariable(
-                    9,
+                    8,
                 ),
                 syn_expr_region: ExprRegionLeash(_),
             },
@@ -2632,7 +2932,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
                 current_symbol_kind: CurrentSynSymbolKind::FrameVariable(
-                    9,
+                    8,
                 ),
                 syn_expr_region: ExprRegionLeash(_),
             },
@@ -2661,7 +2961,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
                 current_symbol_kind: CurrentSynSymbolKind::FrameVariable(
-                    9,
+                    8,
                 ),
                 syn_expr_region: ExprRegionLeash(_),
             },
@@ -2713,7 +3013,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
                 current_symbol_kind: CurrentSynSymbolKind::FrameVariable(
-                    9,
+                    8,
                 ),
                 syn_expr_region: ExprRegionLeash(_),
             },
@@ -2795,7 +3095,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 8,
                 current_symbol_kind: CurrentSynSymbolKind::FrameVariable(
-                    53,
+                    52,
                 ),
                 syn_expr_region: ExprRegionLeash(_),
             },
@@ -2814,7 +3114,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 8,
                 current_symbol_kind: CurrentSynSymbolKind::FrameVariable(
-                    53,
+                    52,
                 ),
                 syn_expr_region: ExprRegionLeash(_),
             },
@@ -2855,7 +3155,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 8,
                 current_symbol_kind: CurrentSynSymbolKind::FrameVariable(
-                    53,
+                    52,
                 ),
                 syn_expr_region: ExprRegionLeash(_),
             },
@@ -2880,7 +3180,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 8,
                 current_symbol_kind: CurrentSynSymbolKind::FrameVariable(
-                    53,
+                    52,
                 ),
                 syn_expr_region: ExprRegionLeash(_),
             },
@@ -3758,15 +4058,22 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 26,
-                current_symbol_kind: CurrentSynSymbolKind::CaseVariable {
-                    pattern_symbol_idx: 24,
-                },
-                syn_expr_region: ExprRegionLeash(_),
-            },
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Up`,
+                    },
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 10,
@@ -3829,15 +4136,22 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 27,
-                current_symbol_kind: CurrentSynSymbolKind::CaseVariable {
-                    pattern_symbol_idx: 25,
-                },
-                syn_expr_region: ExprRegionLeash(_),
-            },
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Down`,
+                    },
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 10,
@@ -3898,35 +4212,73 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Left`,
+                    },
+                ),
+            ),
+            TokenInfo::None,
             TokenInfo::CurrentSymbol {
-                current_symbol_idx: 28,
-                current_symbol_kind: CurrentSynSymbolKind::CaseVariable {
-                    pattern_symbol_idx: 26,
+                current_symbol_idx: 11,
+                current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                    pattern_symbol_idx: 9,
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 11,
+                current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                    pattern_symbol_idx: 9,
                 },
                 syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ident: `Right`,
+                    },
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
-                current_symbol_idx: 29,
-                current_symbol_kind: CurrentSynSymbolKind::CaseVariable {
-                    pattern_symbol_idx: 27,
+                current_symbol_idx: 11,
+                current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                    pattern_symbol_idx: 9,
                 },
                 syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 11,
+                current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                    pattern_symbol_idx: 9,
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {

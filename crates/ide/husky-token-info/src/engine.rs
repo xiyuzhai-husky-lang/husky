@@ -283,6 +283,13 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
         self.sheet
             .add(regional_token_idx.token_idx(base), token_info)
     }
+
+    fn override_add(&mut self, regional_token_idx: RegionalTokenIdx, token_info: TokenInfo) {
+        let base = self.regional_token_idx_base;
+        self.sheet
+            .override_add(regional_token_idx.token_idx(base), token_info)
+    }
+
     fn visit_all(mut self) {
         for (expr_idx, expr) in self.expr_region_data.expr_arena().indexed_iter() {
             self.visit_expr(expr_idx, expr)
@@ -505,7 +512,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                         SynPatternExpr::Ident {
                             ident_token,
                             symbol_modifier_tokens: _,
-                        } => self.add(
+                        } => self.override_add(
                             ident_token.regional_token_idx(),
                             TokenInfo::CurrentSymbol {
                                 current_symbol_idx,

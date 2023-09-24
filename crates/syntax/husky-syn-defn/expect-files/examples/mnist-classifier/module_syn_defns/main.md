@@ -94,7 +94,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             SynExpr::PrincipalEntityPath {
-                                                item_path_expr: 1,
+                                                path_expr_idx: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -104,7 +104,7 @@ Ok(
                                                 ),
                                             },
                                             SynExpr::PrincipalEntityPath {
-                                                item_path_expr: 2,
+                                                path_expr_idx: 2,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -163,7 +163,6 @@ Ok(
                                         pattern_expr_contracts: ArenaMap {
                                             data: [],
                                         },
-                                        pattern_infos: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -218,7 +217,7 @@ Ok(
                                                     expr_arena: Arena {
                                                         data: [
                                                             SynExpr::PrincipalEntityPath {
-                                                                item_path_expr: 1,
+                                                                path_expr_idx: 1,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
                                                                         MajorItemPath::Type(
@@ -228,7 +227,7 @@ Ok(
                                                                 ),
                                                             },
                                                             SynExpr::PrincipalEntityPath {
-                                                                item_path_expr: 2,
+                                                                path_expr_idx: 2,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
                                                                         MajorItemPath::Type(
@@ -287,7 +286,6 @@ Ok(
                                                         pattern_expr_contracts: ArenaMap {
                                                             data: [],
                                                         },
-                                                        pattern_infos: [],
                                                         pattern_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -333,7 +331,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
@@ -350,7 +348,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 2,
+                                                    path_expr_idx: 2,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
@@ -367,7 +365,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 3,
+                                                    path_expr_idx: 3,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
@@ -384,7 +382,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 4,
+                                                    path_expr_idx: 4,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
@@ -401,7 +399,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 5,
+                                                    path_expr_idx: 5,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
@@ -418,7 +416,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 6,
+                                                    path_expr_idx: 6,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
@@ -435,7 +433,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 7,
+                                                    path_expr_idx: 7,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
@@ -452,7 +450,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 8,
+                                                    path_expr_idx: 8,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
@@ -469,7 +467,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 9,
+                                                    path_expr_idx: 9,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
@@ -486,7 +484,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 11,
+                                                    path_expr_idx: 11,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
                                                             TypeVariantPath {
@@ -497,7 +495,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 13,
+                                                    path_expr_idx: 13,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
                                                             TypeVariantPath {
@@ -818,7 +816,6 @@ Ok(
                                             pattern_expr_contracts: ArenaMap {
                                                 data: [],
                                             },
-                                            pattern_infos: [],
                                             pattern_symbol_arena: Arena {
                                                 data: [],
                                             },

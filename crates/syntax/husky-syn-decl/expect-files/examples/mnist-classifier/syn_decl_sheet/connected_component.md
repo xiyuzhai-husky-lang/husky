@@ -106,7 +106,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -116,7 +116,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 2,
+                                                    path_expr_idx: 2,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -126,7 +126,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 3,
+                                                    path_expr_idx: 3,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -136,7 +136,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 4,
+                                                    path_expr_idx: 4,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -221,7 +221,6 @@ Ok(
                                             pattern_expr_contracts: ArenaMap {
                                                 data: [],
                                             },
-                                            pattern_infos: [],
                                             pattern_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -512,7 +511,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -579,7 +578,6 @@ Ok(
                                             pattern_expr_contracts: ArenaMap {
                                                 data: [],
                                             },
-                                            pattern_infos: [],
                                             pattern_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -678,7 +676,9 @@ Ok(
                                 template_parameters: [],
                                 parenate_parameters: [
                                     SpecificParameterObelisk::Regular {
-                                        pattern: 1,
+                                        syn_pattern_root: SynPatternRoot(
+                                            1,
+                                        ),
                                         variables: ArenaIdxRange(
                                             1..2,
                                         ),
@@ -713,7 +713,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -730,7 +730,7 @@ Ok(
                                                     opd: 1,
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 2,
+                                                    path_expr_idx: 2,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -789,7 +789,7 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     SynPatternExpr::Ident {
-                                                        symbol_modifier_keyword_group: None,
+                                                        symbol_modifier_tokens: None,
                                                         ident_token: IdentRegionalToken {
                                                             ident: `ct`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -804,9 +804,6 @@ Ok(
                                                     None,
                                                 ],
                                             },
-                                            pattern_infos: [
-                                                Parameter,
-                                            ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
                                                     SynPatternSymbol::Atom(
@@ -852,7 +849,9 @@ Ok(
                                             pattern_ty_constraints: [
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr_idx: 1,
+                                                        syn_pattern_root: SynPatternRoot(
+                                                            1,
+                                                        ),
                                                         ty_expr_idx: 2,
                                                     },
                                                     ArenaIdxRange(
@@ -930,7 +929,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -970,7 +969,6 @@ Ok(
                                             pattern_expr_contracts: ArenaMap {
                                                 data: [],
                                             },
-                                            pattern_infos: [],
                                             pattern_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -1069,7 +1067,9 @@ Ok(
                                 template_parameters: [],
                                 parenate_parameters: [
                                     SpecificParameterObelisk::Regular {
-                                        pattern: 1,
+                                        syn_pattern_root: SynPatternRoot(
+                                            1,
+                                        ),
                                         variables: ArenaIdxRange(
                                             1..2,
                                         ),
@@ -1081,7 +1081,9 @@ Ok(
                                         ty: 1,
                                     },
                                     SpecificParameterObelisk::Regular {
-                                        pattern: 2,
+                                        syn_pattern_root: SynPatternRoot(
+                                            2,
+                                        ),
                                         variables: ArenaIdxRange(
                                             2..3,
                                         ),
@@ -1116,7 +1118,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -1126,7 +1128,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 2,
+                                                    path_expr_idx: 2,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -1136,7 +1138,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 3,
+                                                    path_expr_idx: 3,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -1203,7 +1205,7 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     SynPatternExpr::Ident {
-                                                        symbol_modifier_keyword_group: None,
+                                                        symbol_modifier_tokens: None,
                                                         ident_token: IdentRegionalToken {
                                                             ident: `a`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -1212,7 +1214,7 @@ Ok(
                                                         },
                                                     },
                                                     SynPatternExpr::Ident {
-                                                        symbol_modifier_keyword_group: None,
+                                                        symbol_modifier_tokens: None,
                                                         ident_token: IdentRegionalToken {
                                                             ident: `x`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -1228,10 +1230,6 @@ Ok(
                                                     None,
                                                 ],
                                             },
-                                            pattern_infos: [
-                                                Parameter,
-                                                Parameter,
-                                            ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
                                                     SynPatternSymbol::Atom(
@@ -1298,7 +1296,9 @@ Ok(
                                             pattern_ty_constraints: [
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr_idx: 1,
+                                                        syn_pattern_root: SynPatternRoot(
+                                                            1,
+                                                        ),
                                                         ty_expr_idx: 1,
                                                     },
                                                     ArenaIdxRange(
@@ -1307,7 +1307,9 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr_idx: 2,
+                                                        syn_pattern_root: SynPatternRoot(
+                                                            2,
+                                                        ),
                                                         ty_expr_idx: 2,
                                                     },
                                                     ArenaIdxRange(
@@ -1353,7 +1355,9 @@ Ok(
                                 template_parameters: [],
                                 parenate_parameters: [
                                     SpecificParameterObelisk::Regular {
-                                        pattern: 1,
+                                        syn_pattern_root: SynPatternRoot(
+                                            1,
+                                        ),
                                         variables: ArenaIdxRange(
                                             1..2,
                                         ),
@@ -1388,7 +1392,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -1407,7 +1411,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 2,
+                                                    path_expr_idx: 2,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -1463,7 +1467,7 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     SynPatternExpr::Ident {
-                                                        symbol_modifier_keyword_group: None,
+                                                        symbol_modifier_tokens: None,
                                                         ident_token: IdentRegionalToken {
                                                             ident: `img`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -1478,9 +1482,6 @@ Ok(
                                                     None,
                                                 ],
                                             },
-                                            pattern_infos: [
-                                                Parameter,
-                                            ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
                                                     SynPatternSymbol::Atom(
@@ -1526,7 +1527,9 @@ Ok(
                                             pattern_ty_constraints: [
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr_idx: 1,
+                                                        syn_pattern_root: SynPatternRoot(
+                                                            1,
+                                                        ),
                                                         ty_expr_idx: 1,
                                                     },
                                                     ArenaIdxRange(
@@ -1609,7 +1612,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             SynExpr::PrincipalEntityPath {
-                                                item_path_expr: 1,
+                                                path_expr_idx: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Trait(
@@ -1619,7 +1622,7 @@ Ok(
                                                 ),
                                             },
                                             SynExpr::PrincipalEntityPath {
-                                                item_path_expr: 2,
+                                                path_expr_idx: 2,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -1674,7 +1677,6 @@ Ok(
                                         pattern_expr_contracts: ArenaMap {
                                             data: [],
                                         },
-                                        pattern_infos: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -1778,7 +1780,7 @@ Ok(
                                                     expr_arena: Arena {
                                                         data: [
                                                             SynExpr::PrincipalEntityPath {
-                                                                item_path_expr: 1,
+                                                                path_expr_idx: 1,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
                                                                         MajorItemPath::Trait(
@@ -1788,7 +1790,7 @@ Ok(
                                                                 ),
                                                             },
                                                             SynExpr::PrincipalEntityPath {
-                                                                item_path_expr: 2,
+                                                                path_expr_idx: 2,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
                                                                         MajorItemPath::Type(
@@ -1843,7 +1845,6 @@ Ok(
                                                         pattern_expr_contracts: ArenaMap {
                                                             data: [],
                                                         },
-                                                        pattern_infos: [],
                                                         pattern_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -1904,7 +1905,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -1944,7 +1945,6 @@ Ok(
                                             pattern_expr_contracts: ArenaMap {
                                                 data: [],
                                             },
-                                            pattern_infos: [],
                                             pattern_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -2020,7 +2020,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             SynExpr::PrincipalEntityPath {
-                                                item_path_expr: 1,
+                                                path_expr_idx: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -2060,7 +2060,6 @@ Ok(
                                         pattern_expr_contracts: ArenaMap {
                                             data: [],
                                         },
-                                        pattern_infos: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -2149,7 +2148,7 @@ Ok(
                                                     expr_arena: Arena {
                                                         data: [
                                                             SynExpr::PrincipalEntityPath {
-                                                                item_path_expr: 1,
+                                                                path_expr_idx: 1,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
                                                                         MajorItemPath::Type(
@@ -2189,7 +2188,6 @@ Ok(
                                                         pattern_expr_contracts: ArenaMap {
                                                             data: [],
                                                         },
-                                                        pattern_infos: [],
                                                         pattern_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -2252,7 +2250,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -2296,7 +2294,6 @@ Ok(
                                             pattern_expr_contracts: ArenaMap {
                                                 data: [],
                                             },
-                                            pattern_infos: [],
                                             pattern_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -2386,7 +2383,7 @@ Ok(
                                                     expr_arena: Arena {
                                                         data: [
                                                             SynExpr::PrincipalEntityPath {
-                                                                item_path_expr: 1,
+                                                                path_expr_idx: 1,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
                                                                         MajorItemPath::Type(
@@ -2426,7 +2423,6 @@ Ok(
                                                         pattern_expr_contracts: ArenaMap {
                                                             data: [],
                                                         },
-                                                        pattern_infos: [],
                                                         pattern_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -2480,7 +2476,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -2520,7 +2516,6 @@ Ok(
                                             pattern_expr_contracts: ArenaMap {
                                                 data: [],
                                             },
-                                            pattern_infos: [],
                                             pattern_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -2610,7 +2605,7 @@ Ok(
                                                     expr_arena: Arena {
                                                         data: [
                                                             SynExpr::PrincipalEntityPath {
-                                                                item_path_expr: 1,
+                                                                path_expr_idx: 1,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
                                                                         MajorItemPath::Type(
@@ -2650,7 +2645,6 @@ Ok(
                                                         pattern_expr_contracts: ArenaMap {
                                                             data: [],
                                                         },
-                                                        pattern_infos: [],
                                                         pattern_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -2704,7 +2698,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -2744,7 +2738,6 @@ Ok(
                                             pattern_expr_contracts: ArenaMap {
                                                 data: [],
                                             },
-                                            pattern_infos: [],
                                             pattern_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -2834,7 +2827,7 @@ Ok(
                                                     expr_arena: Arena {
                                                         data: [
                                                             SynExpr::PrincipalEntityPath {
-                                                                item_path_expr: 1,
+                                                                path_expr_idx: 1,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
                                                                         MajorItemPath::Type(
@@ -2874,7 +2867,6 @@ Ok(
                                                         pattern_expr_contracts: ArenaMap {
                                                             data: [],
                                                         },
-                                                        pattern_infos: [],
                                                         pattern_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -2928,7 +2920,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -2968,7 +2960,6 @@ Ok(
                                             pattern_expr_contracts: ArenaMap {
                                                 data: [],
                                             },
-                                            pattern_infos: [],
                                             pattern_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -3058,7 +3049,7 @@ Ok(
                                                     expr_arena: Arena {
                                                         data: [
                                                             SynExpr::PrincipalEntityPath {
-                                                                item_path_expr: 1,
+                                                                path_expr_idx: 1,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
                                                                         MajorItemPath::Type(
@@ -3098,7 +3089,6 @@ Ok(
                                                         pattern_expr_contracts: ArenaMap {
                                                             data: [],
                                                         },
-                                                        pattern_infos: [],
                                                         pattern_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -3152,7 +3142,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -3192,7 +3182,6 @@ Ok(
                                             pattern_expr_contracts: ArenaMap {
                                                 data: [],
                                             },
-                                            pattern_infos: [],
                                             pattern_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -3282,7 +3271,7 @@ Ok(
                                                     expr_arena: Arena {
                                                         data: [
                                                             SynExpr::PrincipalEntityPath {
-                                                                item_path_expr: 1,
+                                                                path_expr_idx: 1,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
                                                                         MajorItemPath::Type(
@@ -3322,7 +3311,6 @@ Ok(
                                                         pattern_expr_contracts: ArenaMap {
                                                             data: [],
                                                         },
-                                                        pattern_infos: [],
                                                         pattern_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -3376,7 +3364,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -3416,7 +3404,6 @@ Ok(
                                             pattern_expr_contracts: ArenaMap {
                                                 data: [],
                                             },
-                                            pattern_infos: [],
                                             pattern_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -3506,7 +3493,7 @@ Ok(
                                                     expr_arena: Arena {
                                                         data: [
                                                             SynExpr::PrincipalEntityPath {
-                                                                item_path_expr: 1,
+                                                                path_expr_idx: 1,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
                                                                         MajorItemPath::Type(
@@ -3546,7 +3533,6 @@ Ok(
                                                         pattern_expr_contracts: ArenaMap {
                                                             data: [],
                                                         },
-                                                        pattern_infos: [],
                                                         pattern_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -3600,7 +3586,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -3640,7 +3626,6 @@ Ok(
                                             pattern_expr_contracts: ArenaMap {
                                                 data: [],
                                             },
-                                            pattern_infos: [],
                                             pattern_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -3730,7 +3715,7 @@ Ok(
                                                     expr_arena: Arena {
                                                         data: [
                                                             SynExpr::PrincipalEntityPath {
-                                                                item_path_expr: 1,
+                                                                path_expr_idx: 1,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
                                                                         MajorItemPath::Type(
@@ -3770,7 +3755,6 @@ Ok(
                                                         pattern_expr_contracts: ArenaMap {
                                                             data: [],
                                                         },
-                                                        pattern_infos: [],
                                                         pattern_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -3824,7 +3808,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -3864,7 +3848,6 @@ Ok(
                                             pattern_expr_contracts: ArenaMap {
                                                 data: [],
                                             },
-                                            pattern_infos: [],
                                             pattern_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -3930,7 +3913,9 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [
                                     SpecificParameterObelisk::Regular {
-                                        pattern: 1,
+                                        syn_pattern_root: SynPatternRoot(
+                                            1,
+                                        ),
                                         variables: ArenaIdxRange(
                                             1..2,
                                         ),
@@ -3969,7 +3954,7 @@ Ok(
                                                     expr_arena: Arena {
                                                         data: [
                                                             SynExpr::PrincipalEntityPath {
-                                                                item_path_expr: 1,
+                                                                path_expr_idx: 1,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
                                                                         MajorItemPath::Type(
@@ -4009,7 +3994,6 @@ Ok(
                                                         pattern_expr_contracts: ArenaMap {
                                                             data: [],
                                                         },
-                                                        pattern_infos: [],
                                                         pattern_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -4063,7 +4047,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -4073,7 +4057,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 2,
+                                                    path_expr_idx: 2,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -4125,7 +4109,7 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     SynPatternExpr::Ident {
-                                                        symbol_modifier_keyword_group: None,
+                                                        symbol_modifier_tokens: None,
                                                         ident_token: IdentRegionalToken {
                                                             ident: `k`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -4140,9 +4124,6 @@ Ok(
                                                     None,
                                                 ],
                                             },
-                                            pattern_infos: [
-                                                Parameter,
-                                            ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
                                                     SynPatternSymbol::Atom(
@@ -4188,7 +4169,9 @@ Ok(
                                             pattern_ty_constraints: [
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr_idx: 1,
+                                                        syn_pattern_root: SynPatternRoot(
+                                                            1,
+                                                        ),
                                                         ty_expr_idx: 1,
                                                     },
                                                     ArenaIdxRange(
@@ -4247,7 +4230,9 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [
                                     SpecificParameterObelisk::Regular {
-                                        pattern: 1,
+                                        syn_pattern_root: SynPatternRoot(
+                                            1,
+                                        ),
                                         variables: ArenaIdxRange(
                                             1..2,
                                         ),
@@ -4286,7 +4271,7 @@ Ok(
                                                     expr_arena: Arena {
                                                         data: [
                                                             SynExpr::PrincipalEntityPath {
-                                                                item_path_expr: 1,
+                                                                path_expr_idx: 1,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
                                                                         MajorItemPath::Type(
@@ -4326,7 +4311,6 @@ Ok(
                                                         pattern_expr_contracts: ArenaMap {
                                                             data: [],
                                                         },
-                                                        pattern_infos: [],
                                                         pattern_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -4380,7 +4364,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -4390,7 +4374,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 2,
+                                                    path_expr_idx: 2,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -4442,7 +4426,7 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     SynPatternExpr::Ident {
-                                                        symbol_modifier_keyword_group: None,
+                                                        symbol_modifier_tokens: None,
                                                         ident_token: IdentRegionalToken {
                                                             ident: `k`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -4457,9 +4441,6 @@ Ok(
                                                     None,
                                                 ],
                                             },
-                                            pattern_infos: [
-                                                Parameter,
-                                            ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
                                                     SynPatternSymbol::Atom(
@@ -4505,7 +4486,9 @@ Ok(
                                             pattern_ty_constraints: [
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr_idx: 1,
+                                                        syn_pattern_root: SynPatternRoot(
+                                                            1,
+                                                        ),
                                                         ty_expr_idx: 1,
                                                     },
                                                     ArenaIdxRange(

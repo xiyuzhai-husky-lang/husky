@@ -2652,7 +2652,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 13,
                 current_symbol_kind: CurrentSynSymbolKind::FrameVariable(
-                    105,
+                    104,
                 ),
                 syn_expr_region: ExprRegionLeash(_),
             },
@@ -2670,7 +2670,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 13,
                 current_symbol_kind: CurrentSynSymbolKind::FrameVariable(
-                    105,
+                    104,
                 ),
                 syn_expr_region: ExprRegionLeash(_),
             },
@@ -2689,7 +2689,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 13,
                 current_symbol_kind: CurrentSynSymbolKind::FrameVariable(
-                    105,
+                    104,
                 ),
                 syn_expr_region: ExprRegionLeash(_),
             },

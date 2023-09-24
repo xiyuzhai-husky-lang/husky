@@ -250,7 +250,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 592;\n\ntoken_line_group_idx = 70\n\ntoken = TokenData::Ident(\n    `Direction`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 592;\n\ntoken_line_group_idx = 70\n\ntoken = TokenData::Ident(\n    `Direction`,\n);\n\ntoken_info = TokenInfo::Entity(\n    EntityPath::MajorItem(\n        MajorItemPath::Type(\n            TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),\n        ),\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
