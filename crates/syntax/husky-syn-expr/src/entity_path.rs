@@ -50,12 +50,15 @@ where
                     Ok(subitem_path) => match subitem_path {
                         SubitemPath::Principal(path) => Ok(path),
                         SubitemPath::Associated => {
-                            return IdentifiableEntityPathExpr::ScopeResolution {
+                            let MajorEntityPath::MajorItem(parent_path) = parent_path else {
+                                unreachable!()
+                            };
+                            return IdentifiableEntityPathExpr::AssociatedItem {
                                 parent_expr_idx,
                                 parent_path,
                                 colon_colon_regional_token,
                                 ident_token,
-                            }
+                            };
                         }
                     },
                     Err(error) => Err(OriginalSynExprError::EntityTree {

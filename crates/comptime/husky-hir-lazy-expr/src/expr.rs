@@ -11,7 +11,7 @@ use husky_expr_ty::{
     MethodCallOrApplicationDisambiguation, SynExprDisambiguation,
 };
 use husky_opr::{BinaryOpr, PrefixOpr, SuffixOpr};
-use husky_syn_expr::{SynExpr, SynExprIdx};
+use husky_syn_expr::{IdentifiableEntityPathExpr, SynExpr, SynExprIdx};
 use husky_term_prelude::{RitchieKind, TermLiteral};
 use salsa::debug::ExpectWithDb;
 
@@ -123,8 +123,9 @@ impl ToHirLazy for SynExprIdx {
                 // ad hoc
                 HirLazyExpr::PrincipalEntityPath(path)
             }
-            SynExpr::ScopeResolution {
+            SynExpr::AssociatedItem {
                 parent_expr_idx,
+                parent_path,
                 colon_colon_regional_token,
                 ident_token,
             } => todo!(),
