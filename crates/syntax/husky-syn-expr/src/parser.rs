@@ -7,7 +7,8 @@ mod incomplete_expr;
 
 pub use self::env::*;
 
-use self::disambiguate_token::*;
+pub(crate) use self::disambiguate_token::*;
+
 use self::expr_stack::*;
 use self::incomplete_expr::*;
 use crate::symbol::*;
@@ -97,13 +98,13 @@ where
             self.env_stack.set(env);
         }
         loop {
-            let Some((token_idx, token)) = self.token_stream.next_indexed() else {
+            let Some((regional_token_idx, token_data)) = self.token_stream.next_indexed() else {
                 break;
             };
-            match self.disambiguate_token(token_idx, token) {
+            match self.disambiguate_token(regional_token_idx, token_data) {
                 ControlFlow::Continue(resolved_token) => self.accept_token(resolved_token),
                 ControlFlow::Break(_) => {
-                    self.rollback_raw(token_idx);
+                    self.rollback_raw(regional_token_idx);
                     break;
                 }
             }

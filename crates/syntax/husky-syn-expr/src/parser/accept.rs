@@ -9,41 +9,45 @@ impl<'a, C> SynExprParser<'a, C>
 where
     C: IsSynExprContext<'a>,
 {
-    pub(crate) fn accept_token(&mut self, token: DisambiguatedToken) {
+    pub(crate) fn accept_token(&mut self, token: DisambiguatedTokenData) {
         match token {
-            DisambiguatedToken::AtomicExpr(atom) => self.accept_atom(atom),
-            DisambiguatedToken::BinaryOpr(regional_token_idx, opr) => {
+            DisambiguatedTokenData::AtomicExpr(atom) => self.accept_atom(atom),
+            DisambiguatedTokenData::BinaryOpr(regional_token_idx, opr) => {
                 self.accept_binary_opr(opr, regional_token_idx)
             }
-            DisambiguatedToken::PrefixOpr(regional_token_idx, opr) => {
+            DisambiguatedTokenData::PrefixOpr(regional_token_idx, opr) => {
                 self.accept_prefix_opr(opr, regional_token_idx)
             }
-            DisambiguatedToken::SuffixOpr(regional_token_idx, opr) => {
+            DisambiguatedTokenData::SuffixOpr(regional_token_idx, opr) => {
                 self.accept_suffix_opr(opr, regional_token_idx)
             }
-            DisambiguatedToken::Bra(regional_token_idx, bra) => {
+            DisambiguatedTokenData::Bra(regional_token_idx, bra) => {
                 self.accept_list_start(bra, regional_token_idx)
             }
-            DisambiguatedToken::Ket(regional_token_idx, ket) => {
+            DisambiguatedTokenData::Ket(regional_token_idx, ket) => {
                 self.accept_list_end(ket, regional_token_idx)
             }
-            DisambiguatedToken::Dot(regional_token_idx) => self.accept_dot_opr(regional_token_idx),
-            DisambiguatedToken::Comma(regional_token_idx) => self.accept_comma(regional_token_idx),
-            DisambiguatedToken::Be(regional_token_idx) => {
+            DisambiguatedTokenData::Dot(regional_token_idx) => {
+                self.accept_dot_opr(regional_token_idx)
+            }
+            DisambiguatedTokenData::Comma(regional_token_idx) => {
+                self.accept_comma(regional_token_idx)
+            }
+            DisambiguatedTokenData::Be(regional_token_idx) => {
                 self.accept_be_pattern(regional_token_idx)
             }
-            DisambiguatedToken::ColonRightAfterLbox(colon_regional_token_idx) => {
+            DisambiguatedTokenData::ColonRightAfterLbox(colon_regional_token_idx) => {
                 self.accept_colon_right_after_lbox(colon_regional_token_idx)
             }
-            DisambiguatedToken::Ritchie(regional_token_idx, ritchie_kind) => {
+            DisambiguatedTokenData::Ritchie(regional_token_idx, ritchie_kind) => {
                 self.accept_ritchie(regional_token_idx, ritchie_kind)
             }
-            DisambiguatedToken::IncompleteKeywordArgument {
+            DisambiguatedTokenData::IncompleteKeywordArgument {
                 regional_token_idx,
                 ident,
                 eq_token,
             } => self.accept_incomplete_keyword_argument(regional_token_idx, ident, eq_token),
-            DisambiguatedToken::At(regional_token_idx) => self.accept_at(regional_token_idx),
+            DisambiguatedTokenData::At(regional_token_idx) => self.accept_at(regional_token_idx),
         }
     }
 
