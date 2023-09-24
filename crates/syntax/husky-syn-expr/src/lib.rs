@@ -269,6 +269,9 @@ pub enum SynExpr {
     Todo {
         regional_token_idx: RegionalTokenIdx,
     },
+    Unreachable {
+        regional_token_idx: RegionalTokenIdx,
+    },
     Err(SynExprError),
 }
 

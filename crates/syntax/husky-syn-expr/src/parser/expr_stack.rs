@@ -211,6 +211,7 @@ impl SynExpr {
                     } => todo!(),
                     SynExpr::Sorry { regional_token_idx } => todo!(),
                     SynExpr::Todo { regional_token_idx } => todo!(),
+                    SynExpr::Unreachable { regional_token_idx } => todo!(),
                     SynExpr::Err(e) => {
                         p!(e.debug(db));
                         todo!()
@@ -277,12 +278,9 @@ impl SynExpr {
             SynExpr::EmptyHtmlTag { .. } => BaseEntityPath::Err,
             SynExpr::FunctionCall { .. } => todo!(),
             SynExpr::Ritchie { .. } => todo!(),
-            SynExpr::Sorry {
-                regional_token_idx: regional_token_idx,
-            } => todo!(),
-            SynExpr::Todo {
-                regional_token_idx: regional_token_idx,
-            } => todo!(),
+            SynExpr::Sorry { regional_token_idx } => todo!(),
+            SynExpr::Todo { regional_token_idx } => todo!(),
+            SynExpr::Unreachable { regional_token_idx } => todo!(),
         }
     }
 }

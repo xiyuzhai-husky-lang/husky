@@ -363,6 +363,7 @@ impl ToHirEager for SynExprIdx {
             },
             SynExpr::Sorry { regional_token_idx } => todo!(),
             SynExpr::Todo { regional_token_idx } => HirEagerExpr::Todo,
+            SynExpr::Unreachable { regional_token_idx } => todo!(),
             SynExpr::Err(ref e) => {
                 unreachable!(
                     "e = {:?}, path = {:?}",

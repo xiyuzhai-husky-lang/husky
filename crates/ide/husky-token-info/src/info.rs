@@ -41,6 +41,7 @@ pub enum TokenInfo {
     UnitLeftParenthesis,
     UnitRightParenthesis,
     Todo,
+    Unreachable,
 }
 
 /// the purpose is to avoid extra debug with db in expr region

@@ -118,7 +118,7 @@ impl<'a> AstParser<'a> {
         Ok(match fst {
             TokenData::Keyword(kw) => match kw {
                 Keyword::Stmt(kw) => self.try_parse_stmt_after_keyword::<C>(token_group_idx, kw)?,
-                Keyword::Todo | Keyword::Sorry | Keyword::Pronoun(_) => {
+                Keyword::Todo | Keyword::Sorry | Keyword::Unreachable | Keyword::Pronoun(_) => {
                     self.try_parse_stmt::<C>(token_group_idx)?
                 }
                 Keyword::Modifier(_) => Err(OriginalAstError::UnexpectedPattern)?,

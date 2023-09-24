@@ -19,6 +19,7 @@ pub(crate) fn reserved_cowords(_db: &dyn TokenDb) -> VecPairMap<&'static str, Pr
             Keyword::Impl,
             Keyword::Sorry,
             Keyword::Todo,
+            Keyword::Unreachable,
             TypeEntityKeyword::Extern,
             TypeEntityKeyword::Struct,
             TypeEntityKeyword::Enum,

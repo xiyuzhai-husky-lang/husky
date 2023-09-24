@@ -409,6 +409,7 @@ impl<'a> ExprTypeEngine<'a> {
                 SynExprDisambiguation::Trivial,
                 Ok(self.term_menu.never().into()),
             )),
+            SynExpr::Unreachable { regional_token_idx } => todo!(),
             SynExpr::Err(_) => Err(DerivedExprTypeError::ExprError.into()),
         }
     }

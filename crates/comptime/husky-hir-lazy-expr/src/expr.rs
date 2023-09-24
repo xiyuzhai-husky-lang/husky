@@ -358,6 +358,7 @@ impl ToHirLazy for SynExprIdx {
             } => todo!(),
             SynExpr::Sorry { regional_token_idx } => todo!(),
             SynExpr::Todo { regional_token_idx } => todo!(),
+            SynExpr::Unreachable { regional_token_idx } => todo!(),
             SynExpr::Err(_) => todo!(),
         };
         builder.alloc_expr(*self, hir_lazy_expr)

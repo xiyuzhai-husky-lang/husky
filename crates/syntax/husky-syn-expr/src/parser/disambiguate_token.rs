@@ -60,6 +60,7 @@ where
                 }
                 Keyword::Sorry => DisambiguatedTokenData::Sorry { regional_token_idx },
                 Keyword::Todo => DisambiguatedTokenData::Todo { regional_token_idx },
+                Keyword::Unreachable => DisambiguatedTokenData::Unreachable { regional_token_idx },
                 _ => DisambiguatedTokenData::Err(
                     OriginalSynExprError::UnexpectedKeyword(regional_token_idx).into(),
                 ),
@@ -75,7 +76,7 @@ where
                     | IncompleteSynExpr::CallList { .. },
                 ) => match self.try_parse_err_as_none::<RegionalEqToken>() {
                     Some(eq_token) => DisambiguatedTokenData::IncompleteKeywordArgument {
-                        regional_token_idx: regional_token_idx,
+                        regional_token_idx,
                         ident,
                         eq_token,
                     },
@@ -471,12 +472,9 @@ where
                                 arguments,
                                 empty_html_ket,
                             } => todo!(),
-                            SynExpr::Sorry {
-                                regional_token_idx: regional_token_idx,
-                            } => todo!(),
-                            SynExpr::Todo {
-                                regional_token_idx: regional_token_idx,
-                            } => todo!(),
+                            SynExpr::Sorry { regional_token_idx } => todo!(),
+                            SynExpr::Todo { regional_token_idx } => todo!(),
+                            SynExpr::Unreachable { regional_token_idx } => todo!(),
                             SynExpr::Err(_) => todo!(),
                         }
                         todo!()
@@ -574,6 +572,9 @@ pub(crate) enum DisambiguatedTokenData {
     },
     /// todo is for runtime terms
     Todo {
+        regional_token_idx: RegionalTokenIdx,
+    },
+    Unreachable {
         regional_token_idx: RegionalTokenIdx,
     },
     UnrecognizedIdent {

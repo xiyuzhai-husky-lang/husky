@@ -2645,8 +2645,8 @@ Ok(
                     PunctuationMapped::HeavyArrow,
                 ),
             ),
-            TokenData::Ident(
-                `unreachable`,
+            TokenData::Keyword(
+                Keyword::Unreachable,
             ),
             TokenData::Punctuation(
                 Punctuation(
@@ -2823,8 +2823,8 @@ Ok(
                     PunctuationMapped::HeavyArrow,
                 ),
             ),
-            TokenData::Ident(
-                `unreachable`,
+            TokenData::Keyword(
+                Keyword::Unreachable,
             ),
             TokenData::Punctuation(
                 Punctuation(
@@ -2941,8 +2941,8 @@ Ok(
                     PunctuationMapped::HeavyArrow,
                 ),
             ),
-            TokenData::Ident(
-                `unreachable`,
+            TokenData::Keyword(
+                Keyword::Unreachable,
             ),
             TokenData::Punctuation(
                 Punctuation(
@@ -2957,8 +2957,8 @@ Ok(
                     PunctuationMapped::HeavyArrow,
                 ),
             ),
-            TokenData::Ident(
-                `unreachable`,
+            TokenData::Keyword(
+                Keyword::Unreachable,
             ),
             TokenData::Keyword(
                 Keyword::Fugitive(
@@ -3260,8 +3260,8 @@ Ok(
                     PunctuationMapped::HeavyArrow,
                 ),
             ),
-            TokenData::Ident(
-                `unreachable`,
+            TokenData::Keyword(
+                Keyword::Unreachable,
             ),
             TokenData::Keyword(
                 Keyword::Fugitive(
@@ -3574,8 +3574,8 @@ Ok(
                     PunctuationMapped::HeavyArrow,
                 ),
             ),
-            TokenData::Ident(
-                `unreachable`,
+            TokenData::Keyword(
+                Keyword::Unreachable,
             ),
             TokenData::Punctuation(
                 Punctuation(
@@ -3782,8 +3782,8 @@ Ok(
                     PunctuationMapped::HeavyArrow,
                 ),
             ),
-            TokenData::Ident(
-                `unreachable`,
+            TokenData::Keyword(
+                Keyword::Unreachable,
             ),
             TokenData::Punctuation(
                 Punctuation(
@@ -3828,8 +3828,8 @@ Ok(
                     PunctuationMapped::HeavyArrow,
                 ),
             ),
-            TokenData::Ident(
-                `unreachable`,
+            TokenData::Keyword(
+                Keyword::Unreachable,
             ),
             TokenData::Punctuation(
                 Punctuation(
@@ -4030,8 +4030,8 @@ Ok(
                     PunctuationMapped::HeavyArrow,
                 ),
             ),
-            TokenData::Ident(
-                `unreachable`,
+            TokenData::Keyword(
+                Keyword::Unreachable,
             ),
             TokenData::Punctuation(
                 Punctuation(
@@ -4046,8 +4046,8 @@ Ok(
                     PunctuationMapped::HeavyArrow,
                 ),
             ),
-            TokenData::Ident(
-                `unreachable`,
+            TokenData::Keyword(
+                Keyword::Unreachable,
             ),
             TokenData::Punctuation(
                 Punctuation(
@@ -4164,8 +4164,8 @@ Ok(
                     PunctuationMapped::HeavyArrow,
                 ),
             ),
-            TokenData::Ident(
-                `unreachable`,
+            TokenData::Keyword(
+                Keyword::Unreachable,
             ),
             TokenData::Punctuation(
                 Punctuation(
@@ -4180,8 +4180,8 @@ Ok(
                     PunctuationMapped::HeavyArrow,
                 ),
             ),
-            TokenData::Ident(
-                `unreachable`,
+            TokenData::Keyword(
+                Keyword::Unreachable,
             ),
             TokenData::Keyword(
                 Keyword::TypeEntity(

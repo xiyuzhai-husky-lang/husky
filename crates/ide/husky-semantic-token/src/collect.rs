@@ -89,6 +89,7 @@ fn token_to_semantic_token(
             })
         }
         TokenInfo::Todo => SemanticToken::Todo,
+        TokenInfo::Unreachable => SemanticToken::Unreachable,
     };
     Some(RangedSemanticToken {
         semantic_token,
