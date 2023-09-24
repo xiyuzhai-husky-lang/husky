@@ -16,7 +16,7 @@ impl SynPatternSymbol {
         match self {
             SynPatternSymbol::Atom(expr_idx) => match pattern_expr_arena[*expr_idx] {
                 SynPatternExpr::Ident {
-                    symbol_modifier_keyword_group,
+                    symbol_modifier_tokens: symbol_modifier_keyword_group,
                     ident_token,
                 } => SymbolModifier::new(symbol_modifier_keyword_group),
                 _ => unreachable!(),

@@ -177,16 +177,16 @@ impl<'a> SynExprRangeCalculator<'a> {
         match expr {
             SynPatternExpr::Literal(_) => todo!(),
             SynPatternExpr::Ident {
-                symbol_modifier_keyword_group,
+                symbol_modifier_tokens,
                 ident_token,
-            } => match symbol_modifier_keyword_group {
-                Some(EphemSymbolModifierRegionalTokenGroup::Mut(mut_token)) => {
+            } => match symbol_modifier_tokens {
+                Some(EphemSymbolModifierRegionalTokens::Mut(mut_token)) => {
                     RegionalTokenIdxRange::new_closed(
                         mut_token.regional_token_idx(),
                         ident_token.regional_token_idx(),
                     )
                 }
-                Some(EphemSymbolModifierRegionalTokenGroup::RefMut(ref_token, ..)) => {
+                Some(EphemSymbolModifierRegionalTokens::RefMut(ref_token, ..)) => {
                     RegionalTokenIdxRange::new_closed(
                         ref_token.regional_token_idx(),
                         ident_token.regional_token_idx(),
@@ -195,7 +195,7 @@ impl<'a> SynExprRangeCalculator<'a> {
                 Some(_) => todo!(),
                 None => RegionalTokenIdxRange::new_single(ident_token.regional_token_idx()),
             },
-            SynPatternExpr::Entity(_) => todo!(),
+            SynPatternExpr::TypeVariant { .. } => todo!(),
             SynPatternExpr::Tuple { name, fields } => todo!(),
             SynPatternExpr::Props { name, fields } => todo!(),
             SynPatternExpr::OneOf { options } => todo!(),
@@ -230,9 +230,9 @@ impl<'a> SynExprRangeCalculator<'a> {
             }
             SynExpr::Binary { lopd, ropd, .. } => self[lopd].join(self[ropd]),
             SynExpr::PrincipalEntityPath {
-                item_path_expr,
+                path_expr_idx,
                 opt_path,
-            } => self[*item_path_expr],
+            } => self[*path_expr_idx],
             SynExpr::AssociatedItem {
                 parent_expr_idx,
                 parent_path,

@@ -3,14 +3,12 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 // #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct SelfParameterObelisk {
-    ephem_symbol_modifier_token_group: Option<EphemSymbolModifierRegionalTokenGroup>,
+    ephem_symbol_modifier_token_group: Option<EphemSymbolModifierRegionalTokens>,
     self_value_token: SelfValueRegionalToken,
 }
 
 impl SelfParameterObelisk {
-    pub fn ephem_symbol_modifier_token_group(
-        &self,
-    ) -> Option<EphemSymbolModifierRegionalTokenGroup> {
+    pub fn ephem_symbol_modifier_token_group(&self) -> Option<EphemSymbolModifierRegionalTokens> {
         self.ephem_symbol_modifier_token_group
     }
 
@@ -29,14 +27,12 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SelfParameterOb
         let ephem_symbol_modifier_token_group = ctx.try_parse_option()?;
         if let Some(ephem_symbol_modifier_token_group) = ephem_symbol_modifier_token_group {
             match ephem_symbol_modifier_token_group {
-                EphemSymbolModifierRegionalTokenGroup::RefMut(_, None, _)
-                | EphemSymbolModifierRegionalTokenGroup::Ambersand(_, None)
-                | EphemSymbolModifierRegionalTokenGroup::AmbersandMut(_, None, _) => {
+                EphemSymbolModifierRegionalTokens::RefMut(_, None, _)
+                | EphemSymbolModifierRegionalTokens::Ambersand(_, None)
+                | EphemSymbolModifierRegionalTokens::AmbersandMut(_, None, _) => {
                     ctx.context.set_has_self_lifetime()
                 }
-                EphemSymbolModifierRegionalTokenGroup::At(_, None) => {
-                    ctx.context.set_has_self_place()
-                }
+                EphemSymbolModifierRegionalTokens::At(_, None) => ctx.context.set_has_self_place(),
                 _ => (),
             }
         }

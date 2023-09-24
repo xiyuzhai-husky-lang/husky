@@ -263,7 +263,7 @@ where
                     ),
                 ),
                 PunctuationMapped::DotDot => todo!(),
-                PunctuationMapped::DotDotDot => todo!(),
+                PunctuationMapped::DotDotDot => return TokenDisambiguationResult::Break(()),
                 PunctuationMapped::Star => DisambiguatedTokenData::BinaryOpr(
                     regional_token_idx,
                     BinaryOpr::Closed(BinaryClosedOpr::Mul),

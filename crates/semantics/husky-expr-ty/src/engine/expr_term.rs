@@ -203,7 +203,7 @@ impl<'a> ExprTypeEngine<'a> {
                 )
             }
             SynExpr::PrincipalEntityPath {
-                item_path_expr,
+                path_expr_idx,
                 opt_path,
             } => self.calc_item_path_term(expr_idx, opt_path),
             SynExpr::AssociatedItem {

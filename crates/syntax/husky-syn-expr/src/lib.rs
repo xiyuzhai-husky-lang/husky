@@ -89,7 +89,7 @@ impl BaseEntityPathInclination {
 pub enum SynExpr {
     Literal(RegionalTokenIdx, Literal),
     PrincipalEntityPath {
-        item_path_expr: PrincipalEntityPathExprIdx,
+        path_expr_idx: PrincipalEntityPathExprIdx,
         opt_path: Option<PrincipalEntityPath>,
     },
     AssociatedItem {
@@ -276,10 +276,10 @@ impl From<IdentifiableEntityPathExpr> for SynExpr {
     fn from(expr: IdentifiableEntityPathExpr) -> Self {
         match expr {
             IdentifiableEntityPathExpr::Principal {
-                item_path_expr,
+                path_expr_idx,
                 opt_path,
             } => SynExpr::PrincipalEntityPath {
-                item_path_expr,
+                path_expr_idx,
                 opt_path,
             },
             IdentifiableEntityPathExpr::AssociatedItem {

@@ -11,31 +11,57 @@ where
 {
     pub(crate) fn accept_token(&mut self, token: DisambiguatedTokenData) {
         match token {
-            DisambiguatedTokenData::Literal(_, _) => todo!(),
-            DisambiguatedTokenData::IdentifiableEntityPath(atom) => todo!(),
+            DisambiguatedTokenData::Literal(regional_token_idx, lit) => {
+                self.accept_atom(SynExpr::Literal(regional_token_idx, lit))
+            }
+            DisambiguatedTokenData::IdentifiableEntityPath(expr) => self.accept_atom(expr.into()),
             DisambiguatedTokenData::InheritedSymbol {
                 ident,
                 regional_token_idx,
                 inherited_symbol_idx,
                 inherited_symbol_kind,
-            } => todo!(),
+            } => self.accept_atom(SynExpr::InheritedSymbol {
+                ident,
+                regional_token_idx,
+                inherited_symbol_idx,
+                inherited_symbol_kind,
+            }),
             DisambiguatedTokenData::CurrentSymbol {
                 ident,
                 regional_token_idx,
                 current_symbol_idx,
                 current_symbol_kind,
-            } => todo!(),
-            DisambiguatedTokenData::SelfType(_) => todo!(),
-            DisambiguatedTokenData::SelfValue(i32) => todo!(),
+            } => self.accept_atom(SynExpr::CurrentSymbol {
+                ident,
+                regional_token_idx,
+                current_symbol_idx,
+                current_symbol_kind,
+            }),
+            DisambiguatedTokenData::SelfType(regional_token_idx) => {
+                self.accept_atom(SynExpr::SelfType(regional_token_idx))
+            }
+            DisambiguatedTokenData::SelfValue(regional_token_idx) => {
+                self.accept_atom(SynExpr::SelfValue(regional_token_idx))
+            }
             /// sorry is for comptime (say proof) terms
-            DisambiguatedTokenData::Sorry { regional_token_idx } => todo!(),
+            DisambiguatedTokenData::Sorry { regional_token_idx } => {
+                self.accept_atom(SynExpr::Sorry { regional_token_idx })
+            }
             /// todo is for runtime terms
-            DisambiguatedTokenData::Todo { regional_token_idx } => todo!(),
+            DisambiguatedTokenData::Todo { regional_token_idx } => {
+                self.accept_atom(SynExpr::Todo { regional_token_idx })
+            }
             DisambiguatedTokenData::UnrecognizedIdent {
                 regional_token_idx,
                 ident,
-            } => todo!(),
-            DisambiguatedTokenData::Err(_) => todo!(),
+            } => self.accept_atom(SynExpr::Err(
+                OriginalSynExprError::UnrecognizedIdent {
+                    regional_token_idx,
+                    ident,
+                }
+                .into(),
+            )),
+            DisambiguatedTokenData::Err(e) => self.accept_atom(SynExpr::Err(e)),
             // self.accept_atom(atom),
             DisambiguatedTokenData::BinaryOpr(regional_token_idx, opr) => {
                 self.accept_binary_opr(opr, regional_token_idx)

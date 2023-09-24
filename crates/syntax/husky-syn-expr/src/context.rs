@@ -15,7 +15,7 @@ pub struct SynExprContext<'a> {
     parent_syn_expr_region: Option<SynExprRegion>,
     syn_symbol_context: SynSymbolContextMut<'a>,
     syn_expr_arena: SynExprArena,
-    syn_principal_item_path_expr_arena: SynPrincipalEntityPathExprArena,
+    syn_principal_entity_path_expr_arena: SynPrincipalEntityPathExprArena,
     syn_pattern_expr_region: SynPatternExprRegion,
     syn_stmt_arena: SynStmtArena,
     syn_expr_roots: Vec<SynExprRoot>,
@@ -55,7 +55,7 @@ impl<'a> SynExprContext<'a> {
                 allow_self_value,
             ),
             syn_expr_arena: Default::default(),
-            syn_principal_item_path_expr_arena: Default::default(),
+            syn_principal_entity_path_expr_arena: Default::default(),
             syn_pattern_expr_region: Default::default(),
             syn_stmt_arena: Default::default(),
             syn_expr_roots: vec![],
@@ -70,7 +70,7 @@ impl<'a> SynExprContext<'a> {
             self.parent_syn_expr_region,
             self.path,
             self.syn_expr_arena,
-            self.syn_principal_item_path_expr_arena,
+            self.syn_principal_entity_path_expr_arena,
             self.syn_pattern_expr_region,
             self.syn_stmt_arena,
             self.syn_expr_roots,
@@ -154,20 +154,15 @@ impl<'a> SynExprContext<'a> {
         self.syn_expr_arena.alloc_batch(exprs)
     }
 
-    pub(crate) fn alloc_pattern_expr(
-        &mut self,
-        expr: SynPatternExpr,
-        env: SynPatternExprEnvironment,
-    ) -> SynPatternExprIdx {
-        self.syn_pattern_expr_region
-            .alloc_one_pattern_expr(expr, env)
+    pub(crate) fn alloc_pattern_expr(&mut self, expr: SynPatternExpr) -> SynPatternExprIdx {
+        self.syn_pattern_expr_region.alloc_one_pattern_expr(expr)
     }
 
     pub(crate) fn alloc_item_path_expr(
         &mut self,
         expr: PrincipalEntityPathExpr,
     ) -> PrincipalEntityPathExprIdx {
-        self.syn_principal_item_path_expr_arena.alloc_one(expr)
+        self.syn_principal_entity_path_expr_arena.alloc_one(expr)
     }
 
     pub fn crate_root_path(&self) -> ModulePath {
@@ -182,5 +177,13 @@ impl<'a> SynExprContext<'a> {
     pub fn set_has_self_place(&mut self) {
         debug_assert!(!self.has_self_place);
         self.has_self_place = true;
+    }
+
+    pub fn path(&self) -> RegionPath {
+        self.path
+    }
+
+    pub fn syn_principal_entity_path_expr_arena(&self) -> &SynPrincipalEntityPathExprArena {
+        &self.syn_principal_entity_path_expr_arena
     }
 }
