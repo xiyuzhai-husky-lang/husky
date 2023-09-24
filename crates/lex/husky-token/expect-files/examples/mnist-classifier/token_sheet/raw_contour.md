@@ -2547,11 +2547,6 @@ Ok(
                     PunctuationMapped::HeavyArrow,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
-                ),
-            ),
             TokenData::Keyword(
                 Keyword::Stmt(
                     Match,
@@ -2700,11 +2695,6 @@ Ok(
                     PunctuationMapped::HeavyArrow,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
-                ),
-            ),
             TokenData::Keyword(
                 Keyword::Stmt(
                     Match,
@@ -2851,11 +2841,6 @@ Ok(
             TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::HeavyArrow,
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
                 ),
             ),
             TokenData::Keyword(
@@ -3491,11 +3476,6 @@ Ok(
                     PunctuationMapped::HeavyArrow,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
-                ),
-            ),
             TokenData::Keyword(
                 Keyword::Stmt(
                     Match,
@@ -3614,11 +3594,6 @@ Ok(
                     PunctuationMapped::HeavyArrow,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
-                ),
-            ),
             TokenData::Keyword(
                 Keyword::Stmt(
                     Match,
@@ -3707,11 +3682,6 @@ Ok(
             TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::HeavyArrow,
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
                 ),
             ),
             TokenData::Keyword(
@@ -3878,11 +3848,6 @@ Ok(
                     PunctuationMapped::HeavyArrow,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
-                ),
-            ),
             TokenData::Keyword(
                 Keyword::Stmt(
                     Match,
@@ -3965,11 +3930,6 @@ Ok(
             TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::HeavyArrow,
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
                 ),
             ),
             TokenData::Keyword(
@@ -4104,11 +4064,6 @@ Ok(
             TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::HeavyArrow,
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
                 ),
             ),
             TokenData::Keyword(
@@ -6838,11 +6793,6 @@ Ok(
             ),
             TokenData::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Colon,
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
                     PunctuationMapped::Vertical,
                 ),
             ),
@@ -6862,11 +6812,6 @@ Ok(
             TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::HeavyArrow,
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
                 ),
             ),
             TokenData::Ident(
@@ -6980,11 +6925,6 @@ Ok(
             TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::HeavyArrow,
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
                 ),
             ),
             TokenData::Ident(
@@ -7670,47 +7610,52 @@ Ok(
             ),
             TokenGroupStart(
                 TokenIdx(
-                    526,
+                    525,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    529,
+                    528,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    531,
+                    530,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    537,
+                    536,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    543,
+                    542,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    547,
+                    546,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    553,
+                    552,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    557,
+                    555,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    560,
+                    558,
+                ),
+            ),
+            TokenGroupStart(
+                TokenIdx(
+                    564,
                 ),
             ),
             TokenGroupStart(
@@ -7720,22 +7665,22 @@ Ok(
             ),
             TokenGroupStart(
                 TokenIdx(
-                    568,
+                    572,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    574,
+                    578,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    580,
+                    582,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    584,
+                    585,
                 ),
             ),
             TokenGroupStart(
@@ -7745,37 +7690,37 @@ Ok(
             ),
             TokenGroupStart(
                 TokenIdx(
-                    591,
+                    590,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    593,
+                    596,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    599,
+                    602,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    605,
+                    606,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    609,
+                    610,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    613,
+                    624,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    627,
+                    649,
                 ),
             ),
             TokenGroupStart(
@@ -7785,42 +7730,42 @@ Ok(
             ),
             TokenGroupStart(
                 TokenIdx(
-                    655,
+                    654,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    657,
+                    656,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    659,
+                    662,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    665,
+                    667,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    670,
+                    671,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    674,
+                    694,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    697,
+                    703,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    706,
+                    712,
                 ),
             ),
             TokenGroupStart(
@@ -7835,22 +7780,22 @@ Ok(
             ),
             TokenGroupStart(
                 TokenIdx(
-                    722,
+                    721,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    725,
+                    727,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    731,
+                    729,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    733,
+                    735,
                 ),
             ),
             TokenGroupStart(
@@ -7860,47 +7805,47 @@ Ok(
             ),
             TokenGroupStart(
                 TokenIdx(
-                    743,
+                    742,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    747,
+                    745,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    750,
+                    751,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    756,
+                    757,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    762,
+                    760,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    766,
+                    763,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    769,
+                    771,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    777,
+                    779,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    785,
+                    783,
                 ),
             ),
             TokenGroupStart(
@@ -7910,7 +7855,12 @@ Ok(
             ),
             TokenGroupStart(
                 TokenIdx(
-                    795,
+                    793,
+                ),
+            ),
+            TokenGroupStart(
+                TokenIdx(
+                    796,
                 ),
             ),
             TokenGroupStart(
@@ -7920,32 +7870,27 @@ Ok(
             ),
             TokenGroupStart(
                 TokenIdx(
+                    801,
+                ),
+            ),
+            TokenGroupStart(
+                TokenIdx(
                     803,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    806,
+                    809,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    808,
+                    812,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    810,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    816,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    820,
+                    815,
                 ),
             ),
             TokenGroupStart(
@@ -7960,12 +7905,22 @@ Ok(
             ),
             TokenGroupStart(
                 TokenIdx(
+                    835,
+                ),
+            ),
+            TokenGroupStart(
+                TokenIdx(
                     839,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    843,
+                    842,
+                ),
+            ),
+            TokenGroupStart(
+                TokenIdx(
+                    845,
                 ),
             ),
             TokenGroupStart(
@@ -7975,47 +7930,37 @@ Ok(
             ),
             TokenGroupStart(
                 TokenIdx(
-                    851,
+                    853,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    854,
+                    859,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    856,
+                    863,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    862,
+                    867,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    868,
+                    879,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    872,
+                    891,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    876,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    888,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    900,
+                    899,
                 ),
             ),
             TokenGroupStart(
@@ -8030,17 +7975,17 @@ Ok(
             ),
             TokenGroupStart(
                 TokenIdx(
-                    926,
+                    944,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    953,
+                    958,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    967,
+                    968,
                 ),
             ),
             TokenGroupStart(
@@ -8050,12 +7995,12 @@ Ok(
             ),
             TokenGroupStart(
                 TokenIdx(
-                    986,
+                    984,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    993,
+                    995,
                 ),
             ),
             TokenGroupStart(
@@ -8065,67 +8010,72 @@ Ok(
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1013,
+                    1010,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1019,
+                    1016,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1025,
+                    1043,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1052,
+                    1050,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1059,
+                    1056,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1065,
+                    1066,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1075,
+                    1071,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1080,
+                    1083,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1092,
+                    1095,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1104,
+                    1105,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1114,
+                    1117,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1126,
+                    1121,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1130,
+                    1125,
+                ),
+            ),
+            TokenGroupStart(
+                TokenIdx(
+                    1129,
                 ),
             ),
             TokenGroupStart(
@@ -8135,42 +8085,37 @@ Ok(
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1138,
+                    1139,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1143,
+                    1144,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1148,
+                    1150,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1153,
+                    1156,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1159,
+                    1162,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1165,
+                    1179,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1171,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    1188,
+                    1192,
                 ),
             ),
             TokenGroupStart(
@@ -8180,87 +8125,97 @@ Ok(
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1210,
+                    1219,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1228,
+                    1222,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1231,
+                    1246,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1255,
+                    1257,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1266,
+                    1270,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1279,
+                    1274,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1283,
+                    1278,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1287,
+                    1292,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1301,
+                    1307,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1316,
+                    1310,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1319,
+                    1313,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1322,
+                    1331,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1340,
+                    1346,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1355,
+                    1350,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1359,
+                    1354,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1363,
+                    1356,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1365,
+                    1369,
+                ),
+            ),
+            TokenGroupStart(
+                TokenIdx(
+                    1372,
+                ),
+            ),
+            TokenGroupStart(
+                TokenIdx(
+                    1375,
                 ),
             ),
             TokenGroupStart(
@@ -8285,12 +8240,7 @@ Ok(
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1390,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    1393,
+                    1392,
                 ),
             ),
             TokenGroupStart(
@@ -8300,82 +8250,72 @@ Ok(
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1403,
+                    1400,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1408,
+                    1410,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1411,
+                    1415,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1421,
+                    1420,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1427,
+                    1423,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1432,
+                    1431,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1435,
+                    1441,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1443,
+                    1451,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1453,
+                    1454,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1463,
+                    1460,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1466,
+                    1462,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1472,
+                    1476,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1474,
+                    1482,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    1488,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    1494,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    1505,
+                    1493,
                 ),
             ),
         ],

@@ -323,7 +323,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_angle_change`,
                                 token_idx: TokenIdx(
-                                    614,
+                                    611,
                                 ),
                             },
                             block: Fugitive {
@@ -375,7 +375,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_outward_direction`,
                                 token_idx: TokenIdx(
-                                    675,
+                                    672,
                                 ),
                             },
                             block: Fugitive {
@@ -427,7 +427,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `StreakCache`,
                                 token_idx: TokenIdx(
-                                    877,
+                                    868,
                                 ),
                             },
                             block: Type {
@@ -473,7 +473,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_concave_middle_point`,
                                 token_idx: TokenIdx(
-                                    889,
+                                    880,
                                 ),
                             },
                             block: Fugitive {
@@ -523,7 +523,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `find_raw_contours`,
                                 token_idx: TokenIdx(
-                                    955,
+                                    946,
                                 ),
                             },
                             block: Fugitive {

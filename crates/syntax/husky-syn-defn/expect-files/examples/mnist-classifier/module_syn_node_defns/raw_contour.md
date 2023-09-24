@@ -3108,7 +3108,7 @@ Ok(
                         },
                         body_with_syn_expr_region: Some(
                             (
-                                12,
+                                10,
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: Some(
@@ -3551,19 +3551,6 @@ Ok(
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                SynExpr::Err(
-                                                    SynExprError::Original(
-                                                        OriginalSynExprError::UnexpectedKeyword(
-                                                            RegionalTokenIdx(
-                                                                21,
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                                SynExpr::ExplicitApplication {
-                                                    function_expr_idx: 9,
-                                                    argument_expr_idx: 10,
-                                                },
                                                 SynExpr::Block {
                                                     stmts: ArenaIdxRange(
                                                         1..4,
@@ -3668,19 +3655,14 @@ Ok(
                                                         ),
                                                     },
                                                     match_expr: Ok(
-                                                        11,
+                                                        9,
                                                     ),
-                                                    eol_with_token: Err(
-                                                        Original(
-                                                            ExpectedEolWithInMatchHead(
-                                                                RegionalTokenStreamState {
-                                                                    next_regional_token_idx: RegionalTokenIdx(
-                                                                        22,
-                                                                    ),
-                                                                    drained: true,
-                                                                },
+                                                    eol_with_token: Ok(
+                                                        EolWithRegionalToken {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                21,
                                                             ),
-                                                        ),
+                                                        },
                                                     ),
                                                 },
                                             ],
@@ -3791,7 +3773,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    113,
+                                                                    110,
                                                                 ),
                                                             ),
                                                         ),
@@ -3808,7 +3790,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    113,
+                                                                    110,
                                                                 ),
                                                             ),
                                                         ),
@@ -3834,7 +3816,7 @@ Ok(
                                             },
                                             SynExprRoot {
                                                 kind: BlockExpr,
-                                                expr_idx: 12,
+                                                expr_idx: 10,
                                             },
                                         ],
                                         has_self_lifetime: false,
@@ -4180,7 +4162,7 @@ Ok(
                         },
                         body_with_syn_expr_region: Some(
                             (
-                                19,
+                                17,
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: Some(
@@ -4600,19 +4582,6 @@ Ok(
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                SynExpr::Err(
-                                                    SynExprError::Original(
-                                                        OriginalSynExprError::UnexpectedKeyword(
-                                                            RegionalTokenIdx(
-                                                                28,
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                                SynExpr::ExplicitApplication {
-                                                    function_expr_idx: 16,
-                                                    argument_expr_idx: 17,
-                                                },
                                                 SynExpr::Block {
                                                     stmts: ArenaIdxRange(
                                                         1..3,
@@ -4705,19 +4674,14 @@ Ok(
                                                         ),
                                                     },
                                                     match_expr: Ok(
-                                                        18,
+                                                        16,
                                                     ),
-                                                    eol_with_token: Err(
-                                                        Original(
-                                                            ExpectedEolWithInMatchHead(
-                                                                RegionalTokenStreamState {
-                                                                    next_regional_token_idx: RegionalTokenIdx(
-                                                                        29,
-                                                                    ),
-                                                                    drained: true,
-                                                                },
+                                                    eol_with_token: Ok(
+                                                        EolWithRegionalToken {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                28,
                                                             ),
-                                                        ),
+                                                        },
                                                     ),
                                                 },
                                             ],
@@ -4820,7 +4784,7 @@ Ok(
                                             },
                                             SynExprRoot {
                                                 kind: BlockExpr,
-                                                expr_idx: 19,
+                                                expr_idx: 17,
                                             },
                                         ],
                                         has_self_lifetime: false,
@@ -5345,7 +5309,7 @@ Ok(
                         },
                         body_with_syn_expr_region: Some(
                             (
-                                12,
+                                10,
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: Some(
@@ -5858,19 +5822,6 @@ Ok(
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                SynExpr::Err(
-                                                    SynExprError::Original(
-                                                        OriginalSynExprError::UnexpectedKeyword(
-                                                            RegionalTokenIdx(
-                                                                21,
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                                SynExpr::ExplicitApplication {
-                                                    function_expr_idx: 9,
-                                                    argument_expr_idx: 10,
-                                                },
                                                 SynExpr::Block {
                                                     stmts: ArenaIdxRange(
                                                         1..4,
@@ -5975,19 +5926,14 @@ Ok(
                                                         ),
                                                     },
                                                     match_expr: Ok(
-                                                        11,
+                                                        9,
                                                     ),
-                                                    eol_with_token: Err(
-                                                        Original(
-                                                            ExpectedEolWithInMatchHead(
-                                                                RegionalTokenStreamState {
-                                                                    next_regional_token_idx: RegionalTokenIdx(
-                                                                        22,
-                                                                    ),
-                                                                    drained: true,
-                                                                },
+                                                    eol_with_token: Ok(
+                                                        EolWithRegionalToken {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                21,
                                                             ),
-                                                        ),
+                                                        },
                                                     ),
                                                 },
                                             ],
@@ -6107,7 +6053,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    180,
+                                                                    174,
                                                                 ),
                                                             ),
                                                         ),
@@ -6124,7 +6070,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    180,
+                                                                    174,
                                                                 ),
                                                             ),
                                                         ),
@@ -6150,7 +6096,7 @@ Ok(
                                             },
                                             SynExprRoot {
                                                 kind: BlockExpr,
-                                                expr_idx: 12,
+                                                expr_idx: 10,
                                             },
                                         ],
                                         has_self_lifetime: false,
@@ -7868,7 +7814,7 @@ Ok(
                         },
                         body_with_syn_expr_region: Some(
                             (
-                                293,
+                                291,
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: Some(
@@ -10837,23 +10783,10 @@ Ok(
                                                         pattern_symbol_idx: 22,
                                                     },
                                                 },
-                                                SynExpr::Err(
-                                                    SynExprError::Original(
-                                                        OriginalSynExprError::UnexpectedKeyword(
-                                                            RegionalTokenIdx(
-                                                                429,
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                                SynExpr::ExplicitApplication {
-                                                    function_expr_idx: 260,
-                                                    argument_expr_idx: 261,
-                                                },
                                                 SynExpr::CurrentSymbol {
                                                     ident: `inward_direction`,
                                                     regional_token_idx: RegionalTokenIdx(
-                                                        497,
+                                                        494,
                                                     ),
                                                     current_symbol_idx: 14,
                                                     current_symbol_kind: CurrentSynSymbolKind::LetVariable {
@@ -10863,7 +10796,7 @@ Ok(
                                                 SynExpr::CurrentSymbol {
                                                     ident: `outward_direction`,
                                                     regional_token_idx: RegionalTokenIdx(
-                                                        499,
+                                                        496,
                                                     ),
                                                     current_symbol_idx: 24,
                                                     current_symbol_kind: CurrentSynSymbolKind::LetVariable {
@@ -10871,16 +10804,16 @@ Ok(
                                                     },
                                                 },
                                                 SynExpr::Binary {
-                                                    lopd: 263,
+                                                    lopd: 261,
                                                     opr: Assign,
                                                     opr_regional_token_idx: RegionalTokenIdx(
-                                                        498,
+                                                        495,
                                                     ),
-                                                    ropd: 264,
+                                                    ropd: 262,
                                                 },
                                                 SynExpr::Literal(
                                                     RegionalTokenIdx(
-                                                        504,
+                                                        501,
                                                     ),
                                                     Literal::Integer(
                                                         UnspecifiedRegular(
@@ -10891,7 +10824,7 @@ Ok(
                                                 SynExpr::CurrentSymbol {
                                                     ident: `current_streak`,
                                                     regional_token_idx: RegionalTokenIdx(
-                                                        501,
+                                                        498,
                                                     ),
                                                     current_symbol_idx: 23,
                                                     current_symbol_kind: CurrentSynSymbolKind::LetVariable {
@@ -10901,24 +10834,24 @@ Ok(
                                                 SynExpr::Prefix {
                                                     opr: Minus,
                                                     opr_regional_token_idx: RegionalTokenIdx(
-                                                        503,
+                                                        500,
                                                     ),
-                                                    opd: 266,
+                                                    opd: 264,
                                                 },
                                                 SynExpr::Binary {
-                                                    lopd: 267,
+                                                    lopd: 265,
                                                     opr: Comparison(
                                                         Neq,
                                                     ),
                                                     opr_regional_token_idx: RegionalTokenIdx(
-                                                        502,
+                                                        499,
                                                     ),
-                                                    ropd: 268,
+                                                    ropd: 266,
                                                 },
                                                 SynExpr::CurrentSymbol {
                                                     ident: `current_streak`,
                                                     regional_token_idx: RegionalTokenIdx(
-                                                        506,
+                                                        503,
                                                     ),
                                                     current_symbol_idx: 23,
                                                     current_symbol_kind: CurrentSynSymbolKind::LetVariable {
@@ -10926,15 +10859,15 @@ Ok(
                                                     },
                                                 },
                                                 SynExpr::Suffix {
-                                                    opd: 270,
+                                                    opd: 268,
                                                     opr: Incr,
                                                     opr_regional_token_idx: RegionalTokenIdx(
-                                                        507,
+                                                        504,
                                                     ),
                                                 },
                                                 SynExpr::Literal(
                                                     RegionalTokenIdx(
-                                                        512,
+                                                        509,
                                                     ),
                                                     Literal::Integer(
                                                         UnspecifiedRegular(
@@ -10945,7 +10878,7 @@ Ok(
                                                 SynExpr::CurrentSymbol {
                                                     ident: `prev_angle_change1`,
                                                     regional_token_idx: RegionalTokenIdx(
-                                                        509,
+                                                        506,
                                                     ),
                                                     current_symbol_idx: 18,
                                                     current_symbol_kind: CurrentSynSymbolKind::LetVariable {
@@ -10955,14 +10888,14 @@ Ok(
                                                 SynExpr::Prefix {
                                                     opr: Minus,
                                                     opr_regional_token_idx: RegionalTokenIdx(
-                                                        511,
+                                                        508,
                                                     ),
-                                                    opd: 272,
+                                                    opd: 270,
                                                 },
                                                 SynExpr::CurrentSymbol {
                                                     ident: `current_streak`,
                                                     regional_token_idx: RegionalTokenIdx(
-                                                        514,
+                                                        511,
                                                     ),
                                                     current_symbol_idx: 23,
                                                     current_symbol_kind: CurrentSynSymbolKind::LetVariable {
@@ -10971,7 +10904,7 @@ Ok(
                                                 },
                                                 SynExpr::Literal(
                                                     RegionalTokenIdx(
-                                                        516,
+                                                        513,
                                                     ),
                                                     Literal::Integer(
                                                         UnspecifiedRegular(
@@ -10980,29 +10913,29 @@ Ok(
                                                     ),
                                                 ),
                                                 SynExpr::Binary {
+                                                    lopd: 271,
+                                                    opr: Comparison(
+                                                        Eq,
+                                                    ),
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        507,
+                                                    ),
+                                                    ropd: 272,
+                                                },
+                                                SynExpr::Binary {
                                                     lopd: 273,
                                                     opr: Comparison(
                                                         Eq,
                                                     ),
                                                     opr_regional_token_idx: RegionalTokenIdx(
-                                                        510,
+                                                        512,
                                                     ),
                                                     ropd: 274,
-                                                },
-                                                SynExpr::Binary {
-                                                    lopd: 275,
-                                                    opr: Comparison(
-                                                        Eq,
-                                                    ),
-                                                    opr_regional_token_idx: RegionalTokenIdx(
-                                                        515,
-                                                    ),
-                                                    ropd: 276,
                                                 },
                                                 SynExpr::CurrentSymbol {
                                                     ident: `prev_streak1`,
                                                     regional_token_idx: RegionalTokenIdx(
-                                                        518,
+                                                        515,
                                                     ),
                                                     current_symbol_idx: 21,
                                                     current_symbol_kind: CurrentSynSymbolKind::LetVariable {
@@ -11011,7 +10944,7 @@ Ok(
                                                 },
                                                 SynExpr::Literal(
                                                     RegionalTokenIdx(
-                                                        520,
+                                                        517,
                                                     ),
                                                     Literal::Integer(
                                                         UnspecifiedRegular(
@@ -11020,39 +10953,39 @@ Ok(
                                                     ),
                                                 ),
                                                 SynExpr::Binary {
-                                                    lopd: 277,
+                                                    lopd: 275,
                                                     opr: ShortCircuitLogic(
                                                         And,
                                                     ),
                                                     opr_regional_token_idx: RegionalTokenIdx(
-                                                        513,
+                                                        510,
+                                                    ),
+                                                    ropd: 276,
+                                                },
+                                                SynExpr::Binary {
+                                                    lopd: 277,
+                                                    opr: Comparison(
+                                                        Greater,
+                                                    ),
+                                                    opr_regional_token_idx: RegionalTokenIdx(
+                                                        516,
                                                     ),
                                                     ropd: 278,
                                                 },
                                                 SynExpr::Binary {
                                                     lopd: 279,
-                                                    opr: Comparison(
-                                                        Greater,
-                                                    ),
-                                                    opr_regional_token_idx: RegionalTokenIdx(
-                                                        519,
-                                                    ),
-                                                    ropd: 280,
-                                                },
-                                                SynExpr::Binary {
-                                                    lopd: 281,
                                                     opr: ShortCircuitLogic(
                                                         And,
                                                     ),
                                                     opr_regional_token_idx: RegionalTokenIdx(
-                                                        517,
+                                                        514,
                                                     ),
-                                                    ropd: 282,
+                                                    ropd: 280,
                                                 },
                                                 SynExpr::CurrentSymbol {
                                                     ident: `contour`,
                                                     regional_token_idx: RegionalTokenIdx(
-                                                        522,
+                                                        519,
                                                     ),
                                                     current_symbol_idx: 9,
                                                     current_symbol_kind: CurrentSynSymbolKind::LetVariable {
@@ -11060,29 +10993,29 @@ Ok(
                                                     },
                                                 },
                                                 SynExpr::MethodApplicationOrCall {
-                                                    self_argument: 284,
+                                                    self_argument: 282,
                                                     dot_regional_token_idx: RegionalTokenIdx(
-                                                        523,
+                                                        520,
                                                     ),
                                                     ident_token: IdentRegionalToken {
                                                         ident: `pop`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            524,
+                                                            521,
                                                         ),
                                                     },
                                                     generic_arguments: None,
                                                     lpar_regional_token_idx: RegionalTokenIdx(
-                                                        525,
+                                                        522,
                                                     ),
                                                     items: [],
                                                     rpar_regional_token_idx: RegionalTokenIdx(
-                                                        526,
+                                                        523,
                                                     ),
                                                 },
                                                 SynExpr::CurrentSymbol {
                                                     ident: `result`,
                                                     regional_token_idx: RegionalTokenIdx(
-                                                        528,
+                                                        525,
                                                     ),
                                                     current_symbol_idx: 1,
                                                     current_symbol_kind: CurrentSynSymbolKind::LetVariable {
@@ -11102,7 +11035,7 @@ Ok(
                                                 SynExpr::InheritedSymbol {
                                                     ident: `cc`,
                                                     regional_token_idx: RegionalTokenIdx(
-                                                        534,
+                                                        531,
                                                     ),
                                                     inherited_symbol_idx: 1,
                                                     inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
@@ -11112,7 +11045,7 @@ Ok(
                                                 SynExpr::CurrentSymbol {
                                                     ident: `contour`,
                                                     regional_token_idx: RegionalTokenIdx(
-                                                        536,
+                                                        533,
                                                     ),
                                                     current_symbol_idx: 9,
                                                     current_symbol_kind: CurrentSynSymbolKind::LetVariable {
@@ -11120,58 +11053,58 @@ Ok(
                                                     },
                                                 },
                                                 SynExpr::FunctionApplicationOrCall {
-                                                    function: 287,
+                                                    function: 285,
                                                     generic_arguments: None,
                                                     lpar_regional_token_idx: RegionalTokenIdx(
-                                                        533,
+                                                        530,
                                                     ),
                                                     items: [
                                                         SynCommaListItem {
-                                                            expr_idx: 288,
+                                                            expr_idx: 286,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
-                                                                    535,
+                                                                    532,
                                                                 ),
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 289,
+                                                            expr_idx: 287,
                                                             comma_regional_token_idx: None,
                                                         },
                                                     ],
                                                     rpar_regional_token_idx: RegionalTokenIdx(
-                                                        537,
+                                                        534,
                                                     ),
                                                 },
                                                 SynExpr::MethodApplicationOrCall {
-                                                    self_argument: 286,
+                                                    self_argument: 284,
                                                     dot_regional_token_idx: RegionalTokenIdx(
-                                                        529,
+                                                        526,
                                                     ),
                                                     ident_token: IdentRegionalToken {
                                                         ident: `push`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            530,
+                                                            527,
                                                         ),
                                                     },
                                                     generic_arguments: None,
                                                     lpar_regional_token_idx: RegionalTokenIdx(
-                                                        531,
+                                                        528,
                                                     ),
                                                     items: [
                                                         SynCommaListItem {
-                                                            expr_idx: 290,
+                                                            expr_idx: 288,
                                                             comma_regional_token_idx: None,
                                                         },
                                                     ],
                                                     rpar_regional_token_idx: RegionalTokenIdx(
-                                                        538,
+                                                        535,
                                                     ),
                                                 },
                                                 SynExpr::CurrentSymbol {
                                                     ident: `result`,
                                                     regional_token_idx: RegionalTokenIdx(
-                                                        540,
+                                                        537,
                                                     ),
                                                     current_symbol_idx: 1,
                                                     current_symbol_kind: CurrentSynSymbolKind::LetVariable {
@@ -11357,7 +11290,7 @@ Ok(
                                                         IdentRegionalToken {
                                                             ident: `RawContour`,
                                                             regional_token_idx: RegionalTokenIdx(
-                                                                532,
+                                                                529,
                                                             ),
                                                         },
                                                     ),
@@ -11673,7 +11606,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynStmt::Eval {
-                                                    expr_idx: 271,
+                                                    expr_idx: 269,
                                                     eol_semicolon: Ok(
                                                         None,
                                                     ),
@@ -11771,23 +11704,18 @@ Ok(
                                                         ),
                                                     },
                                                     match_expr: Ok(
-                                                        262,
+                                                        260,
                                                     ),
-                                                    eol_with_token: Err(
-                                                        Original(
-                                                            ExpectedEolWithInMatchHead(
-                                                                RegionalTokenStreamState {
-                                                                    next_regional_token_idx: RegionalTokenIdx(
-                                                                        430,
-                                                                    ),
-                                                                    drained: false,
-                                                                },
+                                                    eol_with_token: Ok(
+                                                        EolWithRegionalToken {
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                429,
                                                             ),
-                                                        ),
+                                                        },
                                                     ),
                                                 },
                                                 SynStmt::Eval {
-                                                    expr_idx: 265,
+                                                    expr_idx: 263,
                                                     eol_semicolon: Ok(
                                                         None,
                                                     ),
@@ -11796,17 +11724,17 @@ Ok(
                                                     if_branch: SynIfBranch {
                                                         if_token: IfRegionalToken {
                                                             regional_token_idx: RegionalTokenIdx(
-                                                                500,
+                                                                497,
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            269,
+                                                            267,
                                                         ),
                                                         eol_colon: Ok(
                                                             Colon(
                                                                 EolColonRegionalToken {
                                                                     regional_token_idx: RegionalTokenIdx(
-                                                                        505,
+                                                                        502,
                                                                     ),
                                                                 },
                                                             ),
@@ -11819,12 +11747,12 @@ Ok(
                                                     else_branch: None,
                                                 },
                                                 SynStmt::Eval {
-                                                    expr_idx: 285,
+                                                    expr_idx: 283,
                                                     eol_semicolon: Ok(
                                                         Some(
                                                             EolSemicolonRegionalToken {
                                                                 regional_token_idx: RegionalTokenIdx(
-                                                                    527,
+                                                                    524,
                                                                 ),
                                                             },
                                                         ),
@@ -12274,17 +12202,17 @@ Ok(
                                                     if_branch: SynIfBranch {
                                                         if_token: IfRegionalToken {
                                                             regional_token_idx: RegionalTokenIdx(
-                                                                508,
+                                                                505,
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            283,
+                                                            281,
                                                         ),
                                                         eol_colon: Ok(
                                                             Colon(
                                                                 EolColonRegionalToken {
                                                                     regional_token_idx: RegionalTokenIdx(
-                                                                        521,
+                                                                        518,
                                                                     ),
                                                                 },
                                                             ),
@@ -12297,7 +12225,7 @@ Ok(
                                                     else_branch: None,
                                                 },
                                                 SynStmt::Eval {
-                                                    expr_idx: 291,
+                                                    expr_idx: 289,
                                                     eol_semicolon: Ok(
                                                         None,
                                                     ),
@@ -12481,10 +12409,10 @@ Ok(
                                                 SynStmt::Return {
                                                     return_token: ReturnRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            539,
+                                                            536,
                                                         ),
                                                     },
-                                                    result: 292,
+                                                    result: 290,
                                                 },
                                             ],
                                         },
@@ -13129,7 +13057,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    541,
+                                                                    538,
                                                                 ),
                                                             ),
                                                         ),
@@ -13146,7 +13074,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    541,
+                                                                    538,
                                                                 ),
                                                             ),
                                                         ),
@@ -13248,7 +13176,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    539,
+                                                                    536,
                                                                 ),
                                                             ),
                                                         ),
@@ -13265,7 +13193,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    539,
+                                                                    536,
                                                                 ),
                                                             ),
                                                         ),
@@ -13282,7 +13210,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    539,
+                                                                    536,
                                                                 ),
                                                             ),
                                                         ),
@@ -13299,7 +13227,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    539,
+                                                                    536,
                                                                 ),
                                                             ),
                                                         ),
@@ -13316,7 +13244,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    539,
+                                                                    536,
                                                                 ),
                                                             ),
                                                         ),
@@ -13333,7 +13261,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    539,
+                                                                    536,
                                                                 ),
                                                             ),
                                                         ),
@@ -13350,7 +13278,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    539,
+                                                                    536,
                                                                 ),
                                                             ),
                                                         ),
@@ -13367,7 +13295,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    539,
+                                                                    536,
                                                                 ),
                                                             ),
                                                         ),
@@ -13384,7 +13312,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    539,
+                                                                    536,
                                                                 ),
                                                             ),
                                                         ),
@@ -13401,7 +13329,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    539,
+                                                                    536,
                                                                 ),
                                                             ),
                                                         ),
@@ -13418,7 +13346,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    539,
+                                                                    536,
                                                                 ),
                                                             ),
                                                         ),
@@ -13435,7 +13363,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    539,
+                                                                    536,
                                                                 ),
                                                             ),
                                                         ),
@@ -13452,7 +13380,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    539,
+                                                                    536,
                                                                 ),
                                                             ),
                                                         ),
@@ -13469,7 +13397,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    539,
+                                                                    536,
                                                                 ),
                                                             ),
                                                         ),
@@ -13486,7 +13414,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    539,
+                                                                    536,
                                                                 ),
                                                             ),
                                                         ),
@@ -13503,7 +13431,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    539,
+                                                                    536,
                                                                 ),
                                                             ),
                                                         ),
@@ -13520,7 +13448,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    508,
+                                                                    505,
                                                                 ),
                                                             ),
                                                         ),
@@ -13537,7 +13465,7 @@ Ok(
                                                         access_end: Some(
                                                             RegionalTokenIdxRangeEnd(
                                                                 RegionalTokenIdx(
-                                                                    508,
+                                                                    505,
                                                                 ),
                                                             ),
                                                         ),
@@ -13758,27 +13686,27 @@ Ok(
                                             },
                                             SynExprRoot {
                                                 kind: EvalExpr,
-                                                expr_idx: 265,
+                                                expr_idx: 263,
                                             },
                                             SynExprRoot {
                                                 kind: EvalExpr,
-                                                expr_idx: 271,
+                                                expr_idx: 269,
                                             },
                                             SynExprRoot {
                                                 kind: EvalExpr,
-                                                expr_idx: 285,
+                                                expr_idx: 283,
                                             },
                                             SynExprRoot {
                                                 kind: EvalExpr,
-                                                expr_idx: 291,
+                                                expr_idx: 289,
                                             },
                                             SynExprRoot {
                                                 kind: ReturnExpr,
-                                                expr_idx: 292,
+                                                expr_idx: 290,
                                             },
                                             SynExprRoot {
                                                 kind: BlockExpr,
-                                                expr_idx: 293,
+                                                expr_idx: 291,
                                             },
                                         ],
                                         has_self_lifetime: false,

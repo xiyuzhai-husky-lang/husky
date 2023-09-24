@@ -22,6 +22,7 @@ where
                     | ConnectionKeyword::Where
                     | ConnectionKeyword::Extends => return TokenDisambiguationResult::Break(()),
                 },
+                Keyword::End(_) => return TokenDisambiguationResult::Break(()),
                 Keyword::Pronoun(pronoun) => match pronoun {
                     PronounKeyword::Crate => {
                         let crate_root_path = self.context().crate_root_path();

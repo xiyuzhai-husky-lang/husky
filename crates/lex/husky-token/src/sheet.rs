@@ -282,99 +282,6 @@ impl<'a> TokenGroup<'a> {
     }
 }
 
-// todo: move this to a root module called group
-pub(crate) fn produce_token_group_starts(
-    tokens: &[TokenData],
-    token_ranges: &[TextRange],
-) -> Vec<TokenGroupStart> {
-    let line_starts = produce_line_starts(token_ranges);
-    let mut i = 0;
-    let mut line_group_starts = vec![];
-    while i < line_starts.len() {
-        let line0_start = line_starts[i];
-        let line0_indent = token_ranges[line0_start].start.col.0;
-        line_group_starts.push(TokenGroupStart::from_index(line0_start));
-        i = {
-            let mut j = i + 1;
-            while j < line_starts.len() {
-                let line_start1 = line_starts[j];
-                let line_start_token = &tokens[line_start1];
-                let line_indent1 = token_ranges[line_start1].start.col.0;
-                enum ControlFlow {
-                    Break,
-                    Continue,
-                }
-                use ControlFlow::*;
-                let flag = if line_indent1 > line0_indent {
-                    // detect an indentation
-                    match tokens[line_start1 - 1] {
-                        TokenData::Keyword(Keyword::End(_))
-                        | TokenData::Punctuation(Punctuation::EQ)
-                        | TokenData::Punctuation(Punctuation::COLON) => Break,
-                        TokenData::Punctuation(
-                            Punctuation::LPAR
-                            | Punctuation::LBOX
-                            | Punctuation::LCURL
-                            | Punctuation::LA_OR_LT,
-                        ) => Continue,
-                        _ => match line_start_token {
-                            TokenData::Keyword(
-                                Keyword::Pronoun(_)
-                                | Keyword::Modifier(_)
-                                | Keyword::End(_)
-                                | Keyword::Pub,
-                            ) => Continue,
-                            TokenData::Keyword(kw) => Break,
-                            _ => Continue,
-                        },
-                    }
-                } else {
-                    if line_indent1 == line0_indent {
-                        match line_start_token {
-                            TokenData::Punctuation(
-                                Punctuation::RPAR
-                                | Punctuation::RBOX
-                                | Punctuation::RCURL
-                                | Punctuation::RA_OR_GT,
-                            ) => Continue,
-                            _ => Break,
-                        }
-                    } else {
-                        Break
-                    }
-                };
-                match flag {
-                    Break => break,
-                    Continue => j += 1,
-                }
-            }
-            j
-        }
-    }
-    line_group_starts
-}
-
-fn produce_line_starts(token_ranges: &[TextRange]) -> Vec<usize> {
-    (0..token_ranges.len())
-        .filter_map(|line_start| {
-            if line_start == 0 {
-                Some(0)
-            } else if token_ranges[line_start - 1].end.line < token_ranges[line_start].start.line {
-                Some(line_start)
-            } else {
-                None
-            }
-        })
-        .collect()
-}
-
-fn produce_indents(token_group_starts: &[TokenGroupStart], token_ranges: &[TextRange]) -> Vec<u32> {
-    token_group_starts
-        .iter()
-        .map(|i| token_ranges[i.index()].start.j())
-        .collect()
-}
-
 impl RangedTokenSheet {
     pub fn new(
         db: &dyn TokenDb,
@@ -382,13 +289,13 @@ impl RangedTokenSheet {
         token_ranges: Vec<TextRange>,
         comments: Vec<Comment>,
     ) -> RangedTokenSheet {
-        let group_starts = produce_token_group_starts(&tokens, &token_ranges);
-        let indents = produce_indents(&group_starts, &token_ranges);
+        let token_group_starts = produce_token_group_starts(&tokens, &token_ranges);
+        let indents = produce_indents(&token_group_starts, &token_ranges);
         RangedTokenSheet {
             token_sheet: TokenSheet::new(
                 db,
                 TokenSheetData {
-                    token_group_starts: group_starts,
+                    token_group_starts,
                     tokens,
                     indents,
                 },
@@ -422,6 +329,13 @@ impl RangedTokenSheet {
             false => self.token_ranges[token_stream_state.next_token_idx().index()],
         }
     }
+}
+
+fn produce_indents(token_group_starts: &[TokenGroupStart], token_ranges: &[TextRange]) -> Vec<u32> {
+    token_group_starts
+        .iter()
+        .map(|i| token_ranges[i.index()].start.j())
+        .collect()
 }
 
 impl TokenSheetData {

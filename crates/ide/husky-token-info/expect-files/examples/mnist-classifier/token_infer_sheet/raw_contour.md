@@ -1644,9 +1644,6 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
             TokenInfo::EntityNode(
                 ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
@@ -1964,12 +1961,6 @@ Ok(
                 },
                 syn_expr_region: ExprRegionLeash(_),
             },
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -3615,9 +3606,6 @@ Ok(
                 },
                 syn_expr_region: ExprRegionLeash(_),
             },
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
