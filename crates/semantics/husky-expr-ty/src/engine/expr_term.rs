@@ -2,7 +2,7 @@ mod explicit_application;
 mod list;
 mod prefix;
 
-use husky_token_data::{BoolLiteral, FloatLiteral};
+use husky_token_data::{BoolLiteralData, FloatLiteralData};
 
 use super::*;
 
@@ -52,11 +52,11 @@ impl<'a> ExprTypeEngine<'a> {
             SynExpr::Literal(regional_token_idx, lit) => {
                 Ok(
                     EtherealTerm::Literal(match lit {
-                        Literal::Unit => TermLiteral::Unit,
-                        Literal::Char(_) => todo!(),
-                        Literal::String(val) => TermLiteral::String(val),
-                        Literal::Integer(ilit) => match ilit {
-                            IntegerLikeLiteral::UnspecifiedRegular(val) => {
+                        LiteralData::Unit => TermLiteral::Unit,
+                        LiteralData::Char(_) => todo!(),
+                        LiteralData::String(val) => TermLiteral::String(val),
+                        LiteralData::Integer(ilit) => match ilit {
+                            IntegerLikeLiteralData::UnspecifiedRegular(val) => {
                                 // todo: what if place is not none?
                                 let ty = self
                                     .expr_ty_infos
@@ -120,35 +120,35 @@ impl<'a> ExprTypeEngine<'a> {
                                     }
                                 }
                             }
-                            IntegerLikeLiteral::UnspecifiedLarge() => todo!(),
-                            IntegerLikeLiteral::I8(val) => TermLiteral::I8(val),
-                            IntegerLikeLiteral::I16(val) => TermLiteral::I16(val),
-                            IntegerLikeLiteral::I32(val) => TermLiteral::I32(val),
-                            IntegerLikeLiteral::I64(val) => {
+                            IntegerLikeLiteralData::UnspecifiedLarge() => todo!(),
+                            IntegerLikeLiteralData::I8(val) => TermLiteral::I8(val),
+                            IntegerLikeLiteralData::I16(val) => TermLiteral::I16(val),
+                            IntegerLikeLiteralData::I32(val) => TermLiteral::I32(val),
+                            IntegerLikeLiteralData::I64(val) => {
                                 TermLiteral::I64(TermI64Literal::new(self.db, val))
                             }
-                            IntegerLikeLiteral::I128(val) => {
+                            IntegerLikeLiteralData::I128(val) => {
                                 TermLiteral::I128(TermI128Literal::new(self.db, val))
                             }
-                            IntegerLikeLiteral::ISize(val) => {
+                            IntegerLikeLiteralData::ISize(val) => {
                                 TermLiteral::ISize(TermISizeLiteral::new(self.db, val))
                             }
-                            IntegerLikeLiteral::R8(val) => TermLiteral::R8(val),
-                            IntegerLikeLiteral::R16(val) => TermLiteral::R16(val),
-                            IntegerLikeLiteral::R32(val) => TermLiteral::R32(val),
-                            IntegerLikeLiteral::R64(val) => TermLiteral::R64(todo!()),
-                            IntegerLikeLiteral::R128(val) => TermLiteral::R128(todo!()),
-                            IntegerLikeLiteral::RSize(val) => TermLiteral::RSize(todo!()),
-                            IntegerLikeLiteral::U8(val) => TermLiteral::U8(val),
-                            IntegerLikeLiteral::U16(val) => TermLiteral::U16(val),
-                            IntegerLikeLiteral::U32(val) => TermLiteral::U32(val),
-                            IntegerLikeLiteral::U64(val) => TermLiteral::U64(todo!()),
-                            IntegerLikeLiteral::U128(val) => TermLiteral::U128(todo!()),
-                            IntegerLikeLiteral::USize(val) => TermLiteral::USize(todo!()),
+                            IntegerLikeLiteralData::R8(val) => TermLiteral::R8(val),
+                            IntegerLikeLiteralData::R16(val) => TermLiteral::R16(val),
+                            IntegerLikeLiteralData::R32(val) => TermLiteral::R32(val),
+                            IntegerLikeLiteralData::R64(val) => TermLiteral::R64(todo!()),
+                            IntegerLikeLiteralData::R128(val) => TermLiteral::R128(todo!()),
+                            IntegerLikeLiteralData::RSize(val) => TermLiteral::RSize(todo!()),
+                            IntegerLikeLiteralData::U8(val) => TermLiteral::U8(val),
+                            IntegerLikeLiteralData::U16(val) => TermLiteral::U16(val),
+                            IntegerLikeLiteralData::U32(val) => TermLiteral::U32(val),
+                            IntegerLikeLiteralData::U64(val) => TermLiteral::U64(todo!()),
+                            IntegerLikeLiteralData::U128(val) => TermLiteral::U128(todo!()),
+                            IntegerLikeLiteralData::USize(val) => TermLiteral::USize(todo!()),
                         },
-                        Literal::Float(lit) => {
+                        LiteralData::Float(lit) => {
                             match lit {
-                                FloatLiteral::Unspecified(lit) => {
+                                FloatLiteralData::Unspecified(lit) => {
                                     let ty = self
                                         .expr_ty_infos
                                         .get(expr_idx)
@@ -189,14 +189,14 @@ impl<'a> ExprTypeEngine<'a> {
                                         _ => Err(DerivedExprTermError::LiteralTypeNotResolved)?,
                                     }
                                 }
-                                FloatLiteral::F32(val) => TermLiteral::F32(val),
-                                FloatLiteral::F64(_) => todo!(),
+                                FloatLiteralData::F32(val) => TermLiteral::F32(val),
+                                FloatLiteralData::F64(_) => todo!(),
                             }
                         }
-                        Literal::TupleIndex(_) => todo!(),
-                        Literal::Bool(val) => match val {
-                            BoolLiteral::True => TermLiteral::Bool(true),
-                            BoolLiteral::False => TermLiteral::Bool(false),
+                        LiteralData::TupleIndex(_) => todo!(),
+                        LiteralData::Bool(val) => match val {
+                            BoolLiteralData::True => TermLiteral::Bool(true),
+                            BoolLiteralData::False => TermLiteral::Bool(false),
                         },
                     })
                     .into(),

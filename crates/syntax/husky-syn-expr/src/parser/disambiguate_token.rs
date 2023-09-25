@@ -550,19 +550,19 @@ where
 
 #[derive(Debug)]
 pub(crate) enum DisambiguatedTokenData {
-    Literal(RegionalTokenIdx, Literal),
+    Literal(RegionalTokenIdx, LiteralData),
     IdentifiableEntityPath(IdentifiableEntityPathExpr),
     InheritedSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
-        inherited_symbol_idx: InheritedSynSymbolIdx,
-        inherited_symbol_kind: InheritedSynSymbolKind,
+        inherited_symbol_idx: SynInheritedSymbolIdx,
+        inherited_symbol_kind: SynInheritedSymbolKind,
     },
     CurrentSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
-        current_symbol_idx: CurrentSynSymbolIdx,
-        current_symbol_kind: CurrentSynSymbolKind,
+        current_symbol_idx: SynCurrentSymbolIdx,
+        current_symbol_kind: SynCurrentSymbolKind,
     },
     SelfType(RegionalTokenIdx),
     SelfValue(RegionalTokenIdx),

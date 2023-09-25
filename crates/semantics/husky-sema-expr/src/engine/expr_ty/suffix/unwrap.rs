@@ -4,18 +4,18 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_unwrap_expr_ty_given_opd_ty(
         &mut self,
         opd_ty: FluffyTerm,
-    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
         todo!()
     }
 
     pub(super) fn calc_unwrap_expr_ty(
         &mut self,
         opd: SynExprIdx,
-    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
         let Some(opd_ty) = self.infer_new_expr_ty(opd, ExpectAnyOriginal) else {
             // p!(self.expr_region_data.path().debug(self.db));
             // todo!();
-            Err(DerivedExprTypeError::UnableToInferUnwrapOperand)?
+            Err(DerivedSemaExprError::UnableToInferUnwrapOperand)?
         };
         match opd_ty.data(self) {
             FluffyTermData::Literal(_) => todo!(),
@@ -29,7 +29,7 @@ impl<'a> ExprTypeEngine<'a> {
                     UnwrapOrComposeWithNotExprDisambiguation::Unwrap.into(),
                     Ok(ty_arguments[0]),
                 )),
-                _ => Err(OriginalExprTypeError::CannotUnwrap)?,
+                _ => Err(OriginalSemaExprError::CannotUnwrap)?,
             },
             FluffyTermData::Curry {
                 curry_kind,

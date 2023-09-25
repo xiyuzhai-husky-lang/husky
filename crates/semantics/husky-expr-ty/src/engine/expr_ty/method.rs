@@ -7,7 +7,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: SynExprIdx,
         self_argument: SynExprIdx,
         ident_token: IdentRegionalToken,
-        generic_arguments: Option<&SynGenericArgumentList>,
+        generic_arguments: Option<&SynTemplateArgumentList>,
         explicit_arguments: &[SynCommaListItem],
     ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(self_expr_ty) = self.infer_new_expr_ty(self_argument, ExpectAnyOriginal) else {

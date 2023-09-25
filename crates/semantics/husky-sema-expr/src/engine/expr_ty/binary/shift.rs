@@ -7,7 +7,7 @@ impl<'a> ExprTypeEngine<'a> {
         ropd: SynExprIdx,
         opr: BinaryShiftOpr,
         menu: &EtherealTermMenu,
-    ) -> ExprTypeResult<FluffyTerm> {
+    ) -> SemaExprResult<FluffyTerm> {
         // todo: don't use resolved
         let Some(lopd_ty) = self.infer_new_expr_ty(lopd, ExpectAnyOriginal) else {
             p!(self.path());
@@ -26,7 +26,7 @@ impl<'a> ExprTypeEngine<'a> {
                 _ => todo!(),
             }
             self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived);
-            Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred)?
+            Err(DerivedSemaExprError::BinaryOperationLeftOperandTypeNotInferred)?
         };
         match lopd_ty.data(self) {
             FluffyTermData::TypeOntology {
@@ -64,9 +64,9 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_num_ty_binary_shift_ropd_ty(
         &mut self,
         ropd: SynExprIdx,
-    ) -> ExprTypeResult<()> {
+    ) -> SemaExprResult<()> {
         let Some(ropd_ty) = self.infer_new_expr_ty(ropd, ExpectAnyOriginal) else {
-            Err(DerivedExprTypeError::BinaryShiftRightOperandTypeNotInferred)?
+            Err(DerivedSemaExprError::BinaryShiftRightOperandTypeNotInferred)?
         };
         match ropd_ty.data(self) {
             FluffyTermData::Literal(_) => todo!(),

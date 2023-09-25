@@ -36,7 +36,7 @@ pub(super) enum IncompleteSynExpr {
     CallList {
         opr: IncompleteCallListOpr,
         lpar_regional_token_idx: RegionalTokenIdx,
-        items: SmallVec<[CallListItem; 4]>,
+        items: SmallVec<[SynCallListItem; 4]>,
     },
     LambdaHead {
         // todo: use SmallVec

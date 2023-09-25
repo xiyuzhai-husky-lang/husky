@@ -6,9 +6,9 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: SynExprIdx,
         function: SynExprIdx,
         expr_ty_expectation: &impl ExpectFluffyTerm,
-        generic_arguments: Option<&SynGenericArgumentList>,
+        generic_arguments: Option<&SynTemplateArgumentList>,
         items: &[SynCommaListItem],
-    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
         let Some(outcome) = self.infer_new_expr_ty_for_outcome(
             function,
             ExpectEqsFunctionType::new(expr_ty_expectation.final_destination(self)),
@@ -16,7 +16,7 @@ impl<'a> ExprTypeEngine<'a> {
             for item in items {
                 self.infer_new_expr_ty(item.expr_idx(), ExpectAnyDerived);
             }
-            Err(DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred)?
+            Err(DerivedSemaExprError::ApplicationOrRitchieCallFunctionTypeNotInferred)?
         };
         if let Some(generic_arguments) = generic_arguments {
             todo!()
@@ -71,16 +71,16 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: SynExprIdx,
         function: SynExprIdx,
         final_destination: FinalDestination,
-        generic_arguments: Option<&SynGenericArgumentList>,
-        items: &[CallListItem],
-    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+        generic_arguments: Option<&SynTemplateArgumentList>,
+        items: &[SynCallListItem],
+    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
         let Some(outcome) = self
             .infer_new_expr_ty_for_outcome(function, ExpectEqsRitchieType::new(final_destination))
         else {
             for item in items {
                 self.infer_new_expr_ty(item.argument_expr_idx(), ExpectAnyDerived);
             }
-            Err(DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred)?
+            Err(DerivedSemaExprError::ApplicationOrRitchieCallFunctionTypeNotInferred)?
         };
         let ritchie_parameter_argument_matches = self.calc_ritchie_arguments_ty(
             expr_idx,

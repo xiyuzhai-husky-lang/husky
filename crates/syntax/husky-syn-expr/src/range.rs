@@ -22,10 +22,10 @@ pub(crate) fn expr_range_region(db: &dyn SynExprDb, expr_region: SynExprRegion) 
 //     DB::default().ast_expect_test_debug_with_db("expr_range_sheet", todo!());
 // }
 
-impl std::ops::Index<PrincipalEntityPathExprIdx> for ExprRangeRegion {
+impl std::ops::Index<SynPrincipalEntityPathExprIdx> for ExprRangeRegion {
     type Output = RegionalTokenIdxRange;
 
-    fn index(&self, index: PrincipalEntityPathExprIdx) -> &Self::Output {
+    fn index(&self, index: SynPrincipalEntityPathExprIdx) -> &Self::Output {
         &self.item_path_expr_ranges[index.index()]
     }
 }
@@ -54,18 +54,18 @@ struct SynExprRangeCalculator<'a> {
     stmt_ranges: SynStmtMap<RegionalTokenIdxRange>,
 }
 
-impl<'a> std::ops::Index<PrincipalEntityPathExprIdx> for SynExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<SynPrincipalEntityPathExprIdx> for SynExprRangeCalculator<'a> {
     type Output = RegionalTokenIdxRange;
 
-    fn index(&self, index: PrincipalEntityPathExprIdx) -> &Self::Output {
+    fn index(&self, index: SynPrincipalEntityPathExprIdx) -> &Self::Output {
         &self.principal_entity_path_expr_ranges[index.index()]
     }
 }
 
-impl<'a> std::ops::Index<&PrincipalEntityPathExprIdx> for SynExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<&SynPrincipalEntityPathExprIdx> for SynExprRangeCalculator<'a> {
     type Output = RegionalTokenIdxRange;
 
-    fn index(&self, index: &PrincipalEntityPathExprIdx) -> &Self::Output {
+    fn index(&self, index: &SynPrincipalEntityPathExprIdx) -> &Self::Output {
         &self.principal_entity_path_expr_ranges[index.index()]
     }
 }
@@ -153,14 +153,14 @@ impl<'a> SynExprRangeCalculator<'a> {
 
     fn calc_principal_entity_path_expr_range(
         &self,
-        expr: &PrincipalEntityPathExpr,
+        expr: &SynPrincipalEntityPathExpr,
     ) -> RegionalTokenIdxRange {
         match expr {
-            PrincipalEntityPathExpr::Root {
+            SynPrincipalEntityPathExpr::Root {
                 path_name_token,
                 principal_entity_path: item_path,
             } => RegionalTokenIdxRange::new_single(path_name_token.regional_token_idx()),
-            PrincipalEntityPathExpr::Subitem {
+            SynPrincipalEntityPathExpr::Subitem {
                 parent,
                 colon_colon_token,
                 ident_token,

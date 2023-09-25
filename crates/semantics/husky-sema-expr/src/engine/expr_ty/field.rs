@@ -6,13 +6,13 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         owner: SynExprIdx,
         ident_token: IdentRegionalToken,
-    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
         let Some(owner_ty) = self.infer_new_expr_ty(owner, ExpectAnyOriginal) else {
-            return Err(DerivedExprTypeError::FieldOwnerTypeNotInferred.into());
+            return Err(DerivedSemaExprError::FieldOwnerTypeNotInferred.into());
         };
         let field_dispatch = owner_ty
             .field_dispatch(self, ident_token.ident(), /* ad hoc: traits */ &[])
-            .into_result_or(OriginalExprTypeError::NoSuchField {
+            .into_result_or(OriginalSemaExprError::NoSuchField {
                 owner_ty,
                 ident_token,
             })?;

@@ -6,7 +6,7 @@ use super::*;
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct BePatternObelisk {
     pattern_expr: SynPatternRoot,
-    variables: CurrentSynSymbolIdxRange,
+    variables: SynCurrentSymbolIdxRange,
 }
 
 impl<'a, C> SynExprParser<'a, C>
@@ -28,11 +28,11 @@ where
         let symbols = symbols
             .iter()
             .map(|(ident, pattern_symbol)| {
-                CurrentSynSymbol::new(
+                SynCurrentSymbol::new(
                     self.pattern_expr_region(),
                     access_start,
                     Some(access_end),
-                    CurrentSynSymbolVariant::BeVariable {
+                    SynCurrentSymbolVariant::BeVariable {
                         ident: *ident,
                         pattern_symbol_idx: *pattern_symbol,
                     },
@@ -52,7 +52,7 @@ impl BePatternObelisk {
         self.pattern_expr
     }
 
-    pub fn variables(&self) -> CurrentSynSymbolIdxRange {
+    pub fn variables(&self) -> SynCurrentSymbolIdxRange {
         self.variables
     }
 }

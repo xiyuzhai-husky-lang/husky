@@ -6,12 +6,12 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: SynExprIdx,
         owner: SynExprIdx,
         indices: &[SynCommaListItem],
-    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
         let Some(owner_ty) = self.infer_new_expr_ty(owner, ExpectAnyOriginal) else {
             for index in indices {
                 self.infer_new_expr_ty(index.expr_idx(), ExpectAnyDerived);
             }
-            Err(DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred)?
+            Err(DerivedSemaExprError::ApplicationOrRitchieCallFunctionTypeNotInferred)?
         };
         match owner_ty.data(self) {
             FluffyTermData::Curry { .. } => todo!(),
@@ -33,23 +33,23 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: SynExprIdx,
         self_expr_ty: FluffyTerm,
         indices: &[SynCommaListItem],
-    ) -> ExprTypeResult<(FluffyIndexDispatch, ExprTypeResult<FluffyTerm>)> {
+    ) -> SemaExprResult<(FluffyIndexDispatch, SemaExprResult<FluffyTerm>)> {
         let index_tys: SmallVec<[FluffyTerm; 2]> = indices
             .iter()
             .map(|index| {
                 self.infer_new_expr_ty(index.expr_idx(), ExpectAnyOriginal)
-                    .ok_or(DerivedExprTypeError::UnableToInferIndexExprType.into())
+                    .ok_or(DerivedSemaExprError::UnableToInferIndexExprType.into())
             })
-            .collect::<ExprTypeResult<SmallVec<[_; 2]>>>()?;
+            .collect::<SemaExprResult<SmallVec<[_; 2]>>>()?;
         let index_ty = match index_tys.len() {
-            0 => Err(OriginalExprTypeError::ExpectedIndices)?,
+            0 => Err(OriginalSemaExprError::ExpectedIndices)?,
             1 => index_tys[0],
             _ => todo!(),
         };
         let index_disambiguation = self_expr_ty
             .dispatch_index(self, expr_idx, index_ty)
-            .into_result_or(OriginalExprTypeError::CannotIndexIntoType { self_expr_ty })?;
-        let expr_ty_result: ExprTypeResult<FluffyTerm> =
+            .into_result_or(OriginalSemaExprError::CannotIndexIntoType { self_expr_ty })?;
+        let expr_ty_result: SemaExprResult<FluffyTerm> =
             index_disambiguation.expr_ty_result().map_err(Into::into);
         Ok((index_disambiguation, expr_ty_result))
     }

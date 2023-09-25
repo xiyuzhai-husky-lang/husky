@@ -23,7 +23,7 @@ impl RangedPretoken {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) enum Pretoken {
     Certain(TokenData),
-    Literal(Literal),
+    Literal(LiteralData),
     NewLine,
     Ambiguous(AmbiguousPretoken),
     Comment,
@@ -36,15 +36,15 @@ impl From<AmbiguousPretoken> for Pretoken {
     }
 }
 
-impl From<IntegerLikeLiteral> for Pretoken {
-    fn from(val: IntegerLikeLiteral) -> Self {
-        Pretoken::Certain(TokenData::Literal(Literal::Integer(val)))
+impl From<IntegerLikeLiteralData> for Pretoken {
+    fn from(val: IntegerLikeLiteralData) -> Self {
+        Pretoken::Certain(TokenData::Literal(LiteralData::Integer(val)))
     }
 }
 
-impl From<FloatLiteral> for Pretoken {
-    fn from(val: FloatLiteral) -> Self {
-        Pretoken::Certain(TokenData::Literal(Literal::Float(val)))
+impl From<FloatLiteralData> for Pretoken {
+    fn from(val: FloatLiteralData) -> Self {
+        Pretoken::Certain(TokenData::Literal(LiteralData::Float(val)))
     }
 }
 
@@ -129,8 +129,8 @@ impl From<ConnectionKeyword> for Pretoken {
     }
 }
 
-impl From<BoolLiteral> for Pretoken {
-    fn from(value: BoolLiteral) -> Self {
+impl From<BoolLiteralData> for Pretoken {
+    fn from(value: BoolLiteralData) -> Self {
         Pretoken::Certain(value.into())
     }
 }
@@ -207,7 +207,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 Some('\'') => {
                     self.char_iter.next();
                     self.char_iter.next();
-                    Pretoken::Literal(Literal::Char(CharLiteral::Basic(fst)))
+                    Pretoken::Literal(LiteralData::Char(CharLiteralData::Basic(fst)))
                 }
                 _ => self.next_auxiliary_identifier(),
             },
@@ -272,7 +272,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
             self.eat_chars_with(|c| c.is_digit(radix));
             let float_suffix = self.get_str_slice_with(|c| c.is_alphanumeric());
             let token: Pretoken = match float_suffix {
-                "" => FloatLiteral::Unspecified(UnspecifiedFloatLiteral::new(
+                "" => FloatLiteralData::Unspecified(UnspecifiedFloatLiteral::new(
                     self.db,
                     std::mem::take(&mut self.buffer),
                 ))
@@ -291,7 +291,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
             let integer_suffix = self.get_str_slice_with(|c| c.is_alphanumeric());
             let token: Pretoken = match integer_suffix {
                 "" => match self.buffer.parse::<i128>() {
-                    Ok(i) => IntegerLikeLiteral::UnspecifiedRegular(i).into(),
+                    Ok(i) => IntegerLikeLiteralData::UnspecifiedRegular(i).into(),
                     Err(_) => todo!(),
                 },
                 "i8" => todo!(),
@@ -300,13 +300,13 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     let Ok(i) = self.buffer.parse() else {
                         return Pretoken::Err(TokenDataError::ParseIntError);
                     };
-                    IntegerLikeLiteral::I32(i).into()
+                    IntegerLikeLiteralData::I32(i).into()
                 }
                 "i64" => {
                     let Ok(i) = self.buffer.parse() else {
                         return Pretoken::Err(TokenDataError::ParseIntError);
                     };
-                    IntegerLikeLiteral::I64(i).into()
+                    IntegerLikeLiteralData::I64(i).into()
                 }
                 "i128" => todo!(),
                 "i256" => todo!(),
@@ -316,13 +316,13 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     let Ok(i) = self.buffer.parse() else {
                         return Pretoken::Err(TokenDataError::ParseIntError);
                     };
-                    IntegerLikeLiteral::R32(i).into()
+                    IntegerLikeLiteralData::R32(i).into()
                 }
                 "r64" => {
                     let Ok(i) = self.buffer.parse() else {
                         return Pretoken::Err(TokenDataError::ParseIntError);
                     };
-                    IntegerLikeLiteral::R64(i).into()
+                    IntegerLikeLiteralData::R64(i).into()
                 }
                 "r128" => todo!(),
                 "r256" => todo!(),
@@ -530,9 +530,9 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 c => s.push(c),
             }
         }
-        Ok(Pretoken::Literal(Literal::String(StringLiteral::new(
-            self.db, s,
-        ))))
+        Ok(Pretoken::Literal(LiteralData::String(
+            StringLiteralData::new(self.db, s),
+        )))
     }
 }
 

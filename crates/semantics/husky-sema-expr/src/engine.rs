@@ -20,7 +20,7 @@ use husky_ethereal_signature::HasEtherealSignatureTemplate;
 use husky_opr::PrefixOpr;
 use husky_print_utils::p;
 use husky_regional_token::{RegionalTokenIdx, RegionalTokensData};
-use husky_token_data::{IntegerLikeLiteral, Literal, TokenData};
+use husky_token_data::{IntegerLikeLiteralData, LiteralData, TokenData};
 use husky_vfs::Toolchain;
 use husky_vfs::VfsPathMenu;
 
@@ -32,9 +32,10 @@ pub(crate) struct ExprTypeEngine<'a> {
     expr_region_data: &'a SynExprRegionData,
     regional_tokens_data: RegionalTokensData<'a>,
     declarative_term_region: &'a DeclarativeTermRegion,
+    sema_expr_arena: SemaExprArena,
     fluffy_term_region: FluffyTermRegion,
     expr_ty_infos: SynExprMap<ExprTypeInfo>,
-    extra_expr_errors: Vec<(SynExprIdx, ExprTypeError)>,
+    extra_expr_errors: Vec<(SynExprIdx, SemaExprError)>,
     expr_terms: SynExprMap<ExprTermResult<FluffyTerm>>,
     symbol_terms: SymbolMap<FluffyTerm>,
     symbol_tys: SymbolMap<SymbolType>,
@@ -141,6 +142,7 @@ impl<'a> ExprTypeEngine<'a> {
             term_menu: db.ethereal_term_menu(toolchain),
             expr_region_data,
             declarative_term_region: db.declarative_term_region(syn_expr_region),
+            sema_expr_arena: Default::default(),
             fluffy_term_region: FluffyTermRegion::new(
                 parent_expr_ty_region.map(|r| r.fluffy_term_region()),
             ),
@@ -229,7 +231,7 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn add_expr_ty_error(&mut self, expr_idx: SynExprIdx, expr_ty_error: impl Into<ExprTypeError>) {
+    fn add_expr_ty_error(&mut self, expr_idx: SynExprIdx, expr_ty_error: impl Into<SemaExprError>) {
         self.extra_expr_errors
             .push((expr_idx, expr_ty_error.into()))
     }

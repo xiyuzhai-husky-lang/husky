@@ -20,7 +20,7 @@ use husky_ethereal_signature::HasEtherealSignatureTemplate;
 use husky_opr::PrefixOpr;
 use husky_print_utils::p;
 use husky_regional_token::{RegionalTokenIdx, RegionalTokensData};
-use husky_token_data::{IntegerLikeLiteral, Literal, TokenData};
+use husky_token_data::{IntegerLikeLiteralData, LiteralData, TokenData};
 use husky_vfs::Toolchain;
 use husky_vfs::VfsPathMenu;
 

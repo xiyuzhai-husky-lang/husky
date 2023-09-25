@@ -11,9 +11,9 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         path: Option<PrincipalEntityPath>,
         expr_ty_expectation: &impl ExpectFluffyTerm,
-    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
         let disambiguation = expr_ty_expectation.disambiguate_ty_path(self);
-        let path = path.ok_or(DerivedExprTypeError::EntityPathError)?;
+        let path = path.ok_or(DerivedSemaExprError::EntityPathError)?;
         let ty_result = match path {
             PrincipalEntityPath::Module(_) | PrincipalEntityPath::MajorItem(_) => {
                 Ok(path.ty(self.db, disambiguation)?.into())
@@ -29,7 +29,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         path: TypeVariantPath,
         expr_ty_expectation: &impl ExpectFluffyTerm,
-    ) -> ExprTypeResult<FluffyTerm> {
+    ) -> SemaExprResult<FluffyTerm> {
         let parent_ty_path = path.parent_ty_path(self.db);
         match path.ethereal_signature_template(self.db)? {
             TypeVariantEtherealSignatureTemplate::Props(_) => todo!(),

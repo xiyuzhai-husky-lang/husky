@@ -20,7 +20,7 @@ impl SymbolType {
     #[inline(always)]
     pub fn new_from_signature(
         engine: &mut impl FluffyTermEngine,
-        current_symbol_idx: CurrentSynSymbolIdx,
+        current_symbol_idx: SynCurrentSymbolIdx,
         signature: SymbolSignature,
     ) -> EtherealTermResult<Self> {
         let ty = EtherealTerm::ty_from_declarative(engine.db(), signature.ty()?)?;
@@ -29,7 +29,7 @@ impl SymbolType {
 
     pub fn new(
         engine: &mut impl FluffyTermEngine,
-        current_symbol_idx: CurrentSynSymbolIdx,
+        current_symbol_idx: SynCurrentSymbolIdx,
         ty: FluffyTerm,
     ) -> Self {
         // ad hoc

@@ -26,5 +26,5 @@ pub enum HirLiteral {
     RSize(usize),
     F32(NotNan<f32>),
     F64(NotNan<f64>),
-    StringLiteral(husky_term_prelude::StringLiteral),
+    StringLiteral(husky_term_prelude::StringLiteralData),
 }

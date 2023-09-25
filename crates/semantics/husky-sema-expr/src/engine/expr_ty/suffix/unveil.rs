@@ -11,7 +11,7 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_unveil_expr_ty(
         &mut self,
         opd: SynExprIdx,
-    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
         self.unveiler.initialize_if_not(self.return_ty, self.db);
         match self.unveiler {
             Unveiler::UniqueFullyInstantiated {
@@ -78,9 +78,9 @@ impl<'a> ExprTypeEngine<'a> {
                     FluffyTermBase::Place => todo!(),
                 }
             }
-            Unveiler::Nothing => Err(OriginalExprTypeError::CannotUnveil)?,
+            Unveiler::Nothing => Err(OriginalSemaExprError::CannotUnveil)?,
             Unveiler::ErrUnableToInferReturnTypeForUnveiling => {
-                Err(DerivedExprTypeError::UnableToInferReturnTypeForUnveiling)?
+                Err(DerivedSemaExprError::UnableToInferReturnTypeForUnveiling)?
             }
             Unveiler::ErrEtherealSignature(e) => Err(e.into()),
             Unveiler::Uninitialized => unreachable!(),
@@ -90,7 +90,7 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_unveil_expr_ty_given_opd_ty(
         &mut self,
         opd_ty: FluffyTerm,
-    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
         todo!()
     }
 }

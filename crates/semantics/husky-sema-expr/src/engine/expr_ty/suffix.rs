@@ -16,7 +16,7 @@ impl<'a> ExprTypeEngine<'a> {
         opd: SynExprIdx,
         opr: SuffixOpr,
         final_destination: FinalDestination,
-    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
         match opr {
             SuffixOpr::Incr | SuffixOpr::Attr => Ok((
                 SynExprDisambiguation::Trivial,
@@ -43,10 +43,10 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn calc_incr_or_attr_expr_ty(&mut self, opd: SynExprIdx) -> ExprTypeResult<FluffyTerm> {
+    fn calc_incr_or_attr_expr_ty(&mut self, opd: SynExprIdx) -> SemaExprResult<FluffyTerm> {
         let opd_ty = self
             .infer_new_expr_ty(opd, ExpectAnyOriginal)
-            .ok_or(DerivedExprTypeError::SuffixOperandTypeNotInferred)?;
+            .ok_or(DerivedSemaExprError::SuffixOperandTypeNotInferred)?;
         match opd_ty.data(self) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
@@ -90,7 +90,7 @@ impl<'a> ExprTypeEngine<'a> {
     //     &mut self,
     //     opd: SynExprIdx,
     //     expected_final_destination: FinalDestination,
-    // ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    // ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
     //     self.unveiler.initialize_if_not(self.return_ty, self.db);
     //     match self.unveiler {
     //         Unveiler::UniqueFullyInstantiated {
@@ -171,7 +171,7 @@ impl<'a> ExprTypeEngine<'a> {
     //         Unveiler::ErrUnableToInferReturnTypeForUnveiling
     //         | Unveiler::ErrEtherealSignature(_) => {
     //             self.infer_new_expr_ty_discarded(opd, ExpectAnyDerived);
-    //             Err(DerivedExprTypeError::UnveilerError)?
+    //             Err(DerivedSemaExprError::UnveilerError)?
     //         }
     //         Unveiler::Uninitialized => todo!(),
     //     }

@@ -12,7 +12,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: SynExprIdx,
         parent_path: MajorItemPath,
         ident_token: IdentRegionalToken,
-    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
         let parent_term: FluffyTerm = match parent_path {
             MajorItemPath::Type(path) => {
                 // ad hoc
@@ -35,7 +35,7 @@ impl<'a> ExprTypeEngine<'a> {
         // self.infer_new_expr_ty_discarded(parent_expr_idx, ExpectEqsCategory::new_any_sort());
         // let parent_term = self
         //     .infer_expr_term(parent_expr_idx)
-        //     .ok_or(DerivedExprTypeError::UnableToInferAssociatedItemParentTerm)?;
+        //     .ok_or(DerivedSemaExprError::UnableToInferAssociatedItemParentTerm)?;
         // match parent_term.static_dispatch(self, expr_idx, ident_token.ident(), /*ad hoc */ &[]) {
         //     JustOk(disambiguation) => match disambiguation {
         //         StaticDispatch::AssociatedFn(ref signature) => {

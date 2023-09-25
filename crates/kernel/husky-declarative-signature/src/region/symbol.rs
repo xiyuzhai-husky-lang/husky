@@ -69,7 +69,7 @@ impl SymbolDeclarativeTermRegion {
     pub(crate) fn add_new_template_parameter_symbol_signature(
         &mut self,
         db: &dyn DeclarativeSignatureDb,
-        idx: CurrentSynSymbolIdx,
+        idx: SynCurrentSymbolIdx,
         ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
         term_symbol: DeclarativeTermSymbol,
     ) {
@@ -89,7 +89,7 @@ impl SymbolDeclarativeTermRegion {
     pub(crate) fn add_new_parenate_parameter_symbol_signature(
         &mut self,
         db: &dyn DeclarativeSignatureDb,
-        current_symbol: CurrentSynSymbolIdx,
+        current_symbol: SynCurrentSymbolIdx,
         modifier: SymbolModifier,
         ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
     ) {
@@ -117,7 +117,7 @@ impl SymbolDeclarativeTermRegion {
     pub(crate) fn add_new_field_variable_symbol_signature(
         &mut self,
         db: &dyn DeclarativeSignatureDb,
-        current_symbol: CurrentSynSymbolIdx,
+        current_symbol: SynCurrentSymbolIdx,
         ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
     ) {
         self.add_new_current_symbol_signature(
@@ -137,7 +137,7 @@ impl SymbolDeclarativeTermRegion {
     fn add_new_current_symbol_signature(
         &mut self,
         db: &dyn DeclarativeSignatureDb,
-        idx: CurrentSynSymbolIdx,
+        idx: SynCurrentSymbolIdx,
         signature: SymbolSignature,
     ) {
         self.symbol_signatures.insert_next(idx, signature)
@@ -286,14 +286,14 @@ impl SymbolDeclarativeTermRegion {
 
     pub fn inherited_symbol_signature(
         &self,
-        inherited_symbol_idx: InheritedSynSymbolIdx,
+        inherited_symbol_idx: SynInheritedSymbolIdx,
     ) -> SymbolSignature {
         self.symbol_signatures[inherited_symbol_idx]
     }
 
     pub fn current_symbol_signature(
         &self,
-        current_symbol_idx: CurrentSynSymbolIdx,
+        current_symbol_idx: SynCurrentSymbolIdx,
     ) -> Option<SymbolSignature> {
         self.symbol_signatures
             .current_symbol_map()

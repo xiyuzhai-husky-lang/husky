@@ -18,7 +18,7 @@ pub enum SynExprDisambiguation {
     StaticDispatch(StaticDispatch),
     FunctionCall {
         ritchie_kind: RitchieKind,
-        ritchie_parameter_argument_matches: ExprTypeResult<RitchieParameterArgumentMatches>,
+        ritchie_parameter_argument_matches: SemaExprResult<RitchieParameterArgumentMatches>,
     },
 }
 
@@ -96,7 +96,7 @@ pub enum ListExprDisambiguation {
 pub enum MethodCallOrApplicationDisambiguation {
     MethodCall {
         method_dispatch: FluffyMethodDispatch,
-        ritchie_parameter_argument_matches: ExprTypeResult<RitchieParameterArgumentMatches>,
+        ritchie_parameter_argument_matches: SemaExprResult<RitchieParameterArgumentMatches>,
     },
 }
 

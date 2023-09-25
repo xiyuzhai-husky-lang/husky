@@ -8,7 +8,7 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn expr_ty_info_variant(
         &self,
         expr_idx: SynExprIdx,
-    ) -> ExprTypeResultRef<&SynExprDisambiguation> {
+    ) -> SemaExprResultRef<&SynExprDisambiguation> {
         self.expr_ty_infos[expr_idx].disambiguation()
     }
 
@@ -22,7 +22,7 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn expr_disambiguation(
         &self,
         expr_idx: SynExprIdx,
-    ) -> ExprTypeResultRef<&SynExprDisambiguation> {
+    ) -> SemaExprResultRef<&SynExprDisambiguation> {
         self.expr_ty_infos[expr_idx].disambiguation()
     }
 }

@@ -9,7 +9,7 @@ pub struct ExprTypeRegion {
     pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
     expr_ty_infos: SynExprMap<ExprTypeInfo>,
-    extra_expr_errors: Vec<(SynExprIdx, ExprTypeError)>,
+    extra_expr_errors: Vec<(SynExprIdx, SemaExprError)>,
     expr_fluffy_terms: SynExprMap<ExprTermResult<FluffyTerm>>,
     symbol_tys: SymbolMap<SymbolType>,
     symbol_terms: SymbolMap<FluffyTerm>,
@@ -25,7 +25,7 @@ impl ExprTypeRegion {
         pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
         pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
         expr_ty_infos: SynExprMap<ExprTypeInfo>,
-        extra_expr_errors: Vec<(SynExprIdx, ExprTypeError)>,
+        extra_expr_errors: Vec<(SynExprIdx, SemaExprError)>,
         expr_fluffy_terms: SynExprMap<ExprTermResult<FluffyTerm>>,
         symbol_terms: SymbolMap<FluffyTerm>,
         symbol_tys: SymbolMap<SymbolType>,
@@ -56,7 +56,7 @@ impl ExprTypeRegion {
         &self.expr_ty_infos
     }
 
-    pub fn extra_expr_ty_errors(&self) -> &[(SynExprIdx, ExprTypeError)] {
+    pub fn extra_expr_ty_errors(&self) -> &[(SynExprIdx, SemaExprError)] {
         &self.extra_expr_errors
     }
 
@@ -94,7 +94,7 @@ impl ExprTypeRegion {
     pub fn expr_disambiguation(
         &self,
         syn_expr_idx: SynExprIdx,
-    ) -> Option<ExprTypeResultRef<&SynExprDisambiguation>> {
+    ) -> Option<SemaExprResultRef<&SynExprDisambiguation>> {
         // ad hoc
         // todo: change this to always some
         self.expr_ty_infos
@@ -130,15 +130,15 @@ pub(crate) fn expr_ty_region(
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = FluffyTermDb)]
 pub(crate) struct PatternExprTypeInfo {
-    ty: PatternExprTypeResult<FluffyTerm>,
+    ty: PatternSemaExprResult<FluffyTerm>,
 }
 
 impl PatternExprTypeInfo {
-    pub(crate) fn new(ty: PatternExprTypeResult<FluffyTerm>) -> Self {
+    pub(crate) fn new(ty: PatternSemaExprResult<FluffyTerm>) -> Self {
         Self { ty }
     }
 
-    pub(crate) fn ty(&self) -> Result<&FluffyTerm, &PatternExprTypeError> {
+    pub(crate) fn ty(&self) -> Result<&FluffyTerm, &PatternSemaExprError> {
         self.ty.as_ref()
     }
 }

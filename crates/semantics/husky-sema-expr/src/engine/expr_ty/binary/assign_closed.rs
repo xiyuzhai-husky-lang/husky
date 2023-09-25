@@ -7,7 +7,7 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: SynExprIdx,
         opr: BinaryClosedOpr,
         ropd: SynExprIdx,
-    ) -> ExprTypeResult<FluffyTerm> {
+    ) -> SemaExprResult<FluffyTerm> {
         // let expr_eval_lifetime = self
         //     .fluffy_term_region
         //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);

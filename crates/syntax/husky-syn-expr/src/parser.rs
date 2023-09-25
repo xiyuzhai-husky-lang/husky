@@ -193,17 +193,17 @@ where
 
     pub(crate) fn define_symbol(
         &mut self,
-        variable: CurrentSynSymbol,
+        variable: SynCurrentSymbol,
         ty_constraint: Option<ObeliskTypeConstraint>,
-    ) -> CurrentSynSymbolIdx {
+    ) -> SynCurrentSymbolIdx {
         self.context_mut().define_symbol(variable, ty_constraint)
     }
 
     pub(crate) fn define_symbols(
         &mut self,
-        variables: impl IntoIterator<Item = CurrentSynSymbol>,
+        variables: impl IntoIterator<Item = SynCurrentSymbol>,
         ty_constraint: Option<ObeliskTypeConstraint>,
-    ) -> CurrentSynSymbolIdxRange {
+    ) -> SynCurrentSymbolIdxRange {
         self.context_mut().define_symbols(variables, ty_constraint)
     }
 

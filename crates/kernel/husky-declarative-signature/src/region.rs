@@ -11,8 +11,8 @@ use crate::*;
 
 use husky_entity_syn_tree::RegionPath;
 use husky_syn_expr::{
-    AllowSelfType, CurrentSynSymbolIdx, InheritedSynSymbolIdx, ParentSynSymbolIdx, SynExprIdx,
-    SynExprMap, SynExprRegion, SynPatternExprIdx, SynPatternExprMap, SynPatternSymbolMap,
+    AllowSelfType, ParentSynSymbolIdx, SynCurrentSymbolIdx, SynExprIdx, SynExprMap, SynExprRegion,
+    SynInheritedSymbolIdx, SynPatternExprIdx, SynPatternExprMap, SynPatternSymbolMap,
     SynSymbolRegion,
 };
 
@@ -53,7 +53,7 @@ impl DeclarativeTermRegion {
 
     pub fn current_symbol_signature(
         &self,
-        current_symbol_idx: CurrentSynSymbolIdx,
+        current_symbol_idx: SynCurrentSymbolIdx,
     ) -> Option<SymbolSignature> {
         self.term_symbol_region
             .current_symbol_signature(current_symbol_idx)

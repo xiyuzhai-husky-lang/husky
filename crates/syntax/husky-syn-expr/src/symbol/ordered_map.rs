@@ -2,8 +2,8 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SymbolOrderedMap<V> {
-    inherited_symbol_map: InheritedSynSymbolOrderedMap<V>,
-    current_symbol_map: CurrentSynSymbolOrderedMap<V>,
+    inherited_symbol_map: SynInheritedSymbolOrderedMap<V>,
+    current_symbol_map: SynCurrentSymbolOrderedMap<V>,
 }
 
 impl<V> SymbolOrderedMap<V> {
@@ -26,31 +26,31 @@ impl<V> SymbolOrderedMap<V> {
         }
     }
 
-    pub fn insert_next(&mut self, idx: CurrentSynSymbolIdx, v: V) {
+    pub fn insert_next(&mut self, idx: SynCurrentSymbolIdx, v: V) {
         self.current_symbol_map.insert_next(idx, v)
     }
 
-    pub fn inherited_symbol_map(&self) -> &InheritedSynSymbolOrderedMap<V> {
+    pub fn inherited_symbol_map(&self) -> &SynInheritedSymbolOrderedMap<V> {
         &self.inherited_symbol_map
     }
 
-    pub fn current_symbol_map(&self) -> &CurrentSynSymbolOrderedMap<V> {
+    pub fn current_symbol_map(&self) -> &SynCurrentSymbolOrderedMap<V> {
         &self.current_symbol_map
     }
 }
 
-impl<V> std::ops::Index<InheritedSynSymbolIdx> for SymbolOrderedMap<V> {
+impl<V> std::ops::Index<SynInheritedSymbolIdx> for SymbolOrderedMap<V> {
     type Output = V;
 
-    fn index(&self, index: InheritedSynSymbolIdx) -> &Self::Output {
+    fn index(&self, index: SynInheritedSymbolIdx) -> &Self::Output {
         &self.inherited_symbol_map[index]
     }
 }
 
-impl<V> std::ops::Index<CurrentSynSymbolIdx> for SymbolOrderedMap<V> {
+impl<V> std::ops::Index<SynCurrentSymbolIdx> for SymbolOrderedMap<V> {
     type Output = V;
 
-    fn index(&self, index: CurrentSynSymbolIdx) -> &Self::Output {
+    fn index(&self, index: SynCurrentSymbolIdx) -> &Self::Output {
         &self.current_symbol_map[index]
     }
 }

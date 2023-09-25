@@ -69,8 +69,8 @@ pub(crate) fn reserved_cowords(_db: &dyn TokenDb) -> VecPairMap<&'static str, Pr
             PronounKeyword::SelfValue,
             PronounKeyword::Super,
             EndKeyword::With,
-            BoolLiteral::True,
-            BoolLiteral::False,
+            BoolLiteralData::True,
+            BoolLiteralData::False,
         ]
         .into_iter(),
     )
