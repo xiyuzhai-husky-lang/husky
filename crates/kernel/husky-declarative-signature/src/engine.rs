@@ -6,7 +6,7 @@ use crate::*;
 use husky_opr::{BinaryOpr, PrefixOpr};
 use husky_print_utils::p;
 use husky_syn_expr::*;
-use husky_token_data::{IntegerLikeLiteral, Literal};
+use husky_token_data::{IntegerLikeLiteralData, LiteralData};
 use salsa::DebugWithDb;
 
 pub(super) struct DeclarativeTermEngine<'a> {
@@ -92,7 +92,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                     let (current_symbol_idx, current_symbol) = current_symbol_indexed_iter
                         .next()
                         .expect("ty constraint should match with current symbols");
-                    let CurrentSynSymbolVariant::TemplateParameter {
+                    let SynCurrentSymbolVariant::TemplateParameter {
                         syn_attrs,
                         annotated_variance_token,
                         template_parameter_variant,
@@ -215,7 +215,7 @@ impl<'a> DeclarativeTermEngine<'a> {
         &mut self,
         syn_pattern_root: SynPatternRoot,
         ty: SynExprIdx,
-        symbols: CurrentSynSymbolIdxRange,
+        symbols: SynCurrentSymbolIdxRange,
     ) {
         let Ok(ty) = self.infer_new_expr_term(ty) else {
             for symbol in symbols {
@@ -240,11 +240,11 @@ impl<'a> DeclarativeTermEngine<'a> {
 
     fn infer_current_symbol_signature_in_parenate_parameter(
         &mut self,
-        current_symbol_idx: CurrentSynSymbolIdx,
+        current_symbol_idx: SynCurrentSymbolIdx,
     ) {
         let current_symbol = &self.syn_expr_region_data.symbol_region()[current_symbol_idx];
         match current_symbol.variant() {
-            CurrentSynSymbolVariant::ParenateRegularParameter {
+            SynCurrentSymbolVariant::ParenateRegularParameter {
                 ident,
                 pattern_symbol_idx,
             } => {
@@ -339,36 +339,36 @@ impl<'a> DeclarativeTermEngine<'a> {
     fn calc_expr_term(&mut self, expr_idx: SynExprIdx) -> DeclarativeTermResult2<DeclarativeTerm> {
         match self.syn_expr_region_data.expr_arena()[expr_idx] {
             SynExpr::Literal(token_idx, literal) => match literal {
-                Literal::Unit => todo!(),
-                Literal::Char(_) => todo!(),
-                Literal::String(_) => todo!(),
-                Literal::Integer(literal) => match literal {
-                    IntegerLikeLiteral::UnspecifiedRegular(i) => Ok(DeclarativeTerm::Literal(
+                LiteralData::Unit => todo!(),
+                LiteralData::Char(_) => todo!(),
+                LiteralData::String(_) => todo!(),
+                LiteralData::Integer(literal) => match literal {
+                    IntegerLikeLiteralData::UnspecifiedRegular(i) => Ok(DeclarativeTerm::Literal(
                         UnresolvedTermLiteral::RegularInteger(i).into(),
                     )),
-                    IntegerLikeLiteral::UnspecifiedLarge() => todo!(),
-                    IntegerLikeLiteral::I8(_) => todo!(),
-                    IntegerLikeLiteral::I16(_) => todo!(),
-                    IntegerLikeLiteral::I32(_) => todo!(),
-                    IntegerLikeLiteral::I64(_) => todo!(),
-                    IntegerLikeLiteral::I128(_) => todo!(),
-                    IntegerLikeLiteral::ISize(_) => todo!(),
-                    IntegerLikeLiteral::R8(_) => todo!(),
-                    IntegerLikeLiteral::R16(_) => todo!(),
-                    IntegerLikeLiteral::R32(_) => todo!(),
-                    IntegerLikeLiteral::R64(_) => todo!(),
-                    IntegerLikeLiteral::R128(_) => todo!(),
-                    IntegerLikeLiteral::RSize(_) => todo!(),
-                    IntegerLikeLiteral::U8(_) => todo!(),
-                    IntegerLikeLiteral::U16(_) => todo!(),
-                    IntegerLikeLiteral::U32(_) => todo!(),
-                    IntegerLikeLiteral::U64(_) => todo!(),
-                    IntegerLikeLiteral::U128(_) => todo!(),
-                    IntegerLikeLiteral::USize(_) => todo!(),
+                    IntegerLikeLiteralData::UnspecifiedLarge() => todo!(),
+                    IntegerLikeLiteralData::I8(_) => todo!(),
+                    IntegerLikeLiteralData::I16(_) => todo!(),
+                    IntegerLikeLiteralData::I32(_) => todo!(),
+                    IntegerLikeLiteralData::I64(_) => todo!(),
+                    IntegerLikeLiteralData::I128(_) => todo!(),
+                    IntegerLikeLiteralData::ISize(_) => todo!(),
+                    IntegerLikeLiteralData::R8(_) => todo!(),
+                    IntegerLikeLiteralData::R16(_) => todo!(),
+                    IntegerLikeLiteralData::R32(_) => todo!(),
+                    IntegerLikeLiteralData::R64(_) => todo!(),
+                    IntegerLikeLiteralData::R128(_) => todo!(),
+                    IntegerLikeLiteralData::RSize(_) => todo!(),
+                    IntegerLikeLiteralData::U8(_) => todo!(),
+                    IntegerLikeLiteralData::U16(_) => todo!(),
+                    IntegerLikeLiteralData::U32(_) => todo!(),
+                    IntegerLikeLiteralData::U64(_) => todo!(),
+                    IntegerLikeLiteralData::U128(_) => todo!(),
+                    IntegerLikeLiteralData::USize(_) => todo!(),
                 },
-                Literal::Float(_) => todo!(),
-                Literal::TupleIndex(_) => todo!(),
-                Literal::Bool(_) => todo!(),
+                LiteralData::Float(_) => todo!(),
+                LiteralData::TupleIndex(_) => todo!(),
+                LiteralData::Bool(_) => todo!(),
             },
             SynExpr::PrincipalEntityPath { opt_path, .. } => match opt_path {
                 Some(path) => Ok(DeclarativeTerm::EntityPath(match path {
@@ -617,7 +617,7 @@ impl<'a> DeclarativeTermEngine<'a> {
 
     pub(crate) fn current_symbol_term(
         &self,
-        symbol: CurrentSynSymbolIdx,
+        symbol: SynCurrentSymbolIdx,
     ) -> Option<SymbolSignature> {
         self.symbol_declarative_term_region
             .current_symbol_signature(symbol)

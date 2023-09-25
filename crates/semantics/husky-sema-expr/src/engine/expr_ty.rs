@@ -96,7 +96,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: SynExprIdx,
         expr_ty_expectation: &impl ExpectFluffyTerm,
-    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
         match self.expr_region_data[expr_idx] {
             SynExpr::Literal(literal_token_idx, _) => Ok((
                 SynExprDisambiguation::Trivial,
@@ -124,7 +124,7 @@ impl<'a> ExprTypeEngine<'a> {
                     .get(inherited_symbol_idx)
                 {
                     Some(ty) => Ok((*ty).into()),
-                    None => Err(DerivedExprTypeError::InheritedSymbolTypeError.into()),
+                    None => Err(DerivedSemaExprError::InheritedSymbolTypeError.into()),
                 },
             )),
             SynExpr::CurrentSymbol {
@@ -149,14 +149,14 @@ impl<'a> ExprTypeEngine<'a> {
                         Left(self_ty_ty) => Ok(self_ty_ty.into()),
                         Right(_) => unreachable!(),
                     }, // todo: impl binding
-                    None => Err(DerivedExprTypeError::SelfTypeNotInferredForSelfValue.into()),
+                    None => Err(DerivedSemaExprError::SelfTypeNotInferredForSelfValue.into()),
                 },
             )),
             SynExpr::SelfValue(_) => Ok((
                 SynExprDisambiguation::Trivial,
                 match self.self_ty_term {
                     Some(self_ty) => Ok(self_ty.into()), // todo: impl binding
-                    None => Err(DerivedExprTypeError::SelfTypeNotInferredForSelfValue.into()),
+                    None => Err(DerivedSemaExprError::SelfTypeNotInferredForSelfValue.into()),
                 },
             )),
             SynExpr::Binary {
@@ -252,7 +252,7 @@ impl<'a> ExprTypeEngine<'a> {
             SynExpr::Bracketed { item, .. } => Ok((
                 SynExprDisambiguation::Trivial,
                 self.infer_new_expr_ty(item, expr_ty_expectation.clone())
-                    .ok_or(DerivedExprTypeError::BracketedItemTypeError.into()),
+                    .ok_or(DerivedSemaExprError::BracketedItemTypeError.into()),
             )),
             SynExpr::At {
                 at_regional_token_idx,
@@ -375,7 +375,7 @@ impl<'a> ExprTypeEngine<'a> {
             SynExpr::Block { stmts } => Ok((
                 SynExprDisambiguation::Trivial,
                 self.infer_new_block(stmts, expr_ty_expectation.clone())
-                    .ok_or(DerivedExprTypeError::BlockTypeError.into()),
+                    .ok_or(DerivedSemaExprError::BlockTypeError.into()),
             )),
             SynExpr::EmptyHtmlTag { .. } => Ok((
                 SynExprDisambiguation::Trivial,
@@ -410,7 +410,7 @@ impl<'a> ExprTypeEngine<'a> {
                 Ok(self.term_menu.never().into()),
             )),
             SynExpr::Unreachable { regional_token_idx } => todo!(),
-            SynExpr::Err(_) => Err(DerivedExprTypeError::ExprError.into()),
+            SynExpr::Err(_) => Err(DerivedSemaExprError::ExprError.into()),
         }
     }
 
@@ -420,7 +420,7 @@ impl<'a> ExprTypeEngine<'a> {
         function_expr_idx: SynExprIdx,
         argument_expr_idx: SynExprIdx,
         final_destination: FinalDestination,
-    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
         Ok((
             SynExprDisambiguation::Trivial,
             self.calc_function_application_expr_ty(

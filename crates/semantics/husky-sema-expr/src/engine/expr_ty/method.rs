@@ -7,9 +7,9 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: SynExprIdx,
         self_argument: SynExprIdx,
         ident_token: IdentRegionalToken,
-        generic_arguments: Option<&SynGenericArgumentList>,
+        generic_arguments: Option<&SynTemplateArgumentList>,
         explicit_arguments: &[SynCommaListItem],
-    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
         let Some(self_expr_ty) = self.infer_new_expr_ty(self_argument, ExpectAnyOriginal) else {
             if let Some(generic_arguments) = generic_arguments {
                 todo!()
@@ -17,11 +17,11 @@ impl<'a> ExprTypeEngine<'a> {
             for argument in explicit_arguments {
                 self.infer_new_expr_ty_discarded(argument.expr_idx(), ExpectAnyDerived);
             }
-            return Err(DerivedExprTypeError::MethodOwnerTypeNotInferred.into());
+            return Err(DerivedSemaExprError::MethodOwnerTypeNotInferred.into());
         };
         let method_dispatch = self_expr_ty
             .method_dispatch(self, expr_idx, ident_token)
-            .into_result_or(OriginalExprTypeError::NoMethodForType {
+            .into_result_or(OriginalSemaExprError::NoMethodForType {
                 self_expr_ty,
                 ident_token,
             })?;

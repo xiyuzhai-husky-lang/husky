@@ -5,7 +5,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         syn_pattern_root: SynPatternRoot,
         ty: FluffyTerm,
-        symbols: CurrentSynSymbolIdxRange,
+        symbols: SynCurrentSymbolIdxRange,
     ) {
         self.save_pattern_ty(syn_pattern_root.syn_pattern_expr_idx(), ty);
         for symbol in symbols {
@@ -42,7 +42,7 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn infer_new_current_symbol_ty(&mut self, current_symbol_idx: CurrentSynSymbolIdx) {
+    fn infer_new_current_symbol_ty(&mut self, current_symbol_idx: SynCurrentSymbolIdx) {
         if let Some(ty) = self.calc_new_current_symbol_ty(current_symbol_idx) {
             let ty = SymbolType::new(self, current_symbol_idx, ty);
             self.symbol_tys.insert_new(current_symbol_idx, ty)
@@ -51,32 +51,32 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_new_current_symbol_ty(
         &mut self,
-        current_symbol_idx: CurrentSynSymbolIdx,
+        current_symbol_idx: SynCurrentSymbolIdx,
     ) -> Option<FluffyTerm> {
         match self.expr_region_data[current_symbol_idx].variant() {
-            CurrentSynSymbolVariant::TemplateParameter {
+            SynCurrentSymbolVariant::TemplateParameter {
                 template_parameter_variant,
                 ..
             } => todo!(),
-            CurrentSynSymbolVariant::ParenateRegularParameter {
+            SynCurrentSymbolVariant::ParenateRegularParameter {
                 pattern_symbol_idx, ..
             } => todo!(),
-            CurrentSynSymbolVariant::LetVariable {
+            SynCurrentSymbolVariant::LetVariable {
                 pattern_symbol_idx, ..
             }
-            | CurrentSynSymbolVariant::BeVariable {
+            | SynCurrentSymbolVariant::BeVariable {
                 pattern_symbol_idx, ..
             }
-            | CurrentSynSymbolVariant::CaseVariable {
+            | SynCurrentSymbolVariant::CaseVariable {
                 pattern_symbol_idx, ..
             } => self.infer_new_pattern_symbol_ty(*pattern_symbol_idx),
-            CurrentSynSymbolVariant::FrameVariable { .. } => todo!(),
-            CurrentSynSymbolVariant::ParenateVariadicParameter { ident_token, .. } => todo!(),
-            CurrentSynSymbolVariant::SelfType => todo!(),
-            CurrentSynSymbolVariant::SelfValue {
+            SynCurrentSymbolVariant::FrameVariable { .. } => todo!(),
+            SynCurrentSymbolVariant::ParenateVariadicParameter { ident_token, .. } => todo!(),
+            SynCurrentSymbolVariant::SelfType => todo!(),
+            SynCurrentSymbolVariant::SelfValue {
                 symbol_modifier_keyword_group,
             } => todo!(),
-            CurrentSynSymbolVariant::FieldVariable { ident_token } => todo!(),
+            SynCurrentSymbolVariant::FieldVariable { ident_token } => todo!(),
         }
     }
 
@@ -98,7 +98,7 @@ impl<'a> ExprTypeEngine<'a> {
         match self.expr_region_data[pattern_symbol_idx] {
             SynPatternSymbol::Atom(pattern_expr_idx) => self
                 .get_pattern_expr_ty(pattern_expr_idx)
-                .ok_or(DerivedPatternSymbolTypeError::PatternExprTypeError.into()),
+                .ok_or(DerivedPatternSymbolTypeError::PatternSemaExprError.into()),
         }
     }
 

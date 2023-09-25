@@ -1,0 +1,17 @@
+[package]
+name = "husky-syn-opr"
+version = "0.0.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+# forks
+thin-vec = { path = "../../../forks/thin-vec" }
+# abstraction
+enum-class = { path = "../../abstraction/enum-class" }
+# lex
+husky-text = { path = "../../lex/husky-text" }
+# kernel
+husky-coword = { path = "../../kernel/husky-coword" }
+# utils
+husky-print-utils = { path = "../../utils/husky-print-utils" }

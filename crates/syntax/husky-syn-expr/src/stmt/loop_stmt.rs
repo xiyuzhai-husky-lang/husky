@@ -247,7 +247,7 @@ impl<'a> SynStmtContext<'a> {
                 ropd,
             } => {
                 let particulars = self.parse_for_between_particulars(lopd, ropd, comparison_opr);
-                let current_symbol_variant = CurrentSynSymbolVariant::FrameVariable {
+                let current_symbol_variant = SynCurrentSymbolVariant::FrameVariable {
                     expr_idx: particulars.for_between_loop_var_expr_idx,
                     ident: particulars.for_between_loop_var_ident,
                 };
@@ -257,7 +257,7 @@ impl<'a> SynStmtContext<'a> {
                     .start()
                     .regional_token_idx();
                 let access_end = self.ast_token_idx_range(body.end() - 1).end();
-                let frame_var_symbol = CurrentSynSymbol::new(
+                let frame_var_symbol = SynCurrentSymbol::new(
                     self.syn_pattern_expr_region(),
                     access_start,
                     Some(access_end),

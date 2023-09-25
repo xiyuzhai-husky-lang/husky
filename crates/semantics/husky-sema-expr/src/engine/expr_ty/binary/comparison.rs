@@ -5,7 +5,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         lopd: SynExprIdx,
         ropd: SynExprIdx,
-    ) -> Result<FluffyTerm, ExprTypeError> {
+    ) -> Result<FluffyTerm, SemaExprError> {
         let lopd_ty = self.infer_new_expr_ty(lopd, ExpectAnyOriginal);
         match lopd_ty {
             Some(destination) => {

@@ -5,6 +5,7 @@
 mod db;
 mod engine;
 mod error;
+mod expr;
 mod info;
 mod region;
 #[cfg(test)]
@@ -13,6 +14,7 @@ mod tests;
 pub use self::db::*;
 pub use self::engine::*;
 pub use self::error::*;
+pub use self::expr::*;
 pub use self::info::*;
 pub use self::region::*;
 

@@ -12,7 +12,7 @@ use husky_coword::Ident;
 use husky_entity_path::{ItemPath, TypeVariantPath};
 use husky_entity_taxonomy::FugitiveKind;
 use husky_print_utils::p;
-use idx_arena::{ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
+use idx_arena::{map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use ordered_float::NotNan;
 use parsec::{IsStreamParser, PunctuatedSmallList, TryParseOptionFromStream};
 
@@ -22,7 +22,7 @@ pub enum SynPatternExpr {
     /// example: `1`
     Literal {
         regional_token_idx: RegionalTokenIdx,
-        literal: Literal,
+        literal: LiteralData,
     },
     /// example: `a`
     Ident {
@@ -31,7 +31,7 @@ pub enum SynPatternExpr {
     },
     /// example: `A::B`
     TypeVariantUnit {
-        path_expr_idx: PrincipalEntityPathExprIdx,
+        path_expr_idx: SynPrincipalEntityPathExprIdx,
         path: TypeVariantPath,
     },
     /// example: `(a, b)`
@@ -227,14 +227,14 @@ where
 
 fn parse_overriding_ident_pattern<'a, C>(
     parser: &mut SynExprParser<'a, C>,
-    path_expr_idx: ArenaIdx<PrincipalEntityPathExpr>,
+    path_expr_idx: ArenaIdx<SynPrincipalEntityPathExpr>,
     symbol_modifier_tokens: Option<EphemSymbolModifierRegionalTokens>,
 ) -> Option<SynPatternExpr>
 where
     C: IsSynExprContext<'a>,
 {
     match parser.context().syn_principal_entity_path_expr_arena()[path_expr_idx] {
-        PrincipalEntityPathExpr::Root {
+        SynPrincipalEntityPathExpr::Root {
             path_name_token,
             principal_entity_path,
         } => match path_name_token {
@@ -246,7 +246,7 @@ where
             PathNameRegionalToken::SelfMod(_) => todo!(),
             PathNameRegionalToken::Super(_) => todo!(),
         },
-        PrincipalEntityPathExpr::Subitem {
+        SynPrincipalEntityPathExpr::Subitem {
             parent,
             colon_colon_token,
             ref ident_token,

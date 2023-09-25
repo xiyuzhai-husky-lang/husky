@@ -39,7 +39,7 @@ pub struct TermPreludeJar(
     TermRSizeLiteral,
     TermF64Literal,
     TermNatLiteral,
-    StringLiteral,
+    StringLiteralData,
 );
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

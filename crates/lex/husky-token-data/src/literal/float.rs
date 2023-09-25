@@ -3,7 +3,7 @@ use ordered_float::NotNan;
 use std::ops::Neg;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum FloatLiteral {
+pub enum FloatLiteralData {
     Unspecified(UnspecifiedFloatLiteral),
     F32(NotNan<f32>),
     F64(NotNan<f64>),
@@ -15,7 +15,7 @@ pub struct UnspecifiedFloatLiteral {
     pub data: String,
 }
 
-impl Neg for FloatLiteral {
+impl Neg for FloatLiteralData {
     type Output = Self;
 
     fn neg(self) -> Self::Output {

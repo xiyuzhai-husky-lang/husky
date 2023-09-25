@@ -8,21 +8,21 @@ impl<'a> ExprTypeEngine<'a> {
         naive_suffix_f_given_opd_ty: F1,
         naive_suffix_f: F2,
         application_composition_f: F3,
-    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)>
+    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)>
     where
         F1: FnOnce(
             &mut Self,
             FluffyTerm,
-        ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)>,
+        ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)>,
         F2: FnOnce(
             &mut Self,
             SynExprIdx,
-        ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)>,
+        ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)>,
         F3: FnOnce(
             &mut Self,
             SynExprIdx,
             FinalDestination,
-        ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)>,
+        ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)>,
     {
         match final_destination {
             FinalDestination::Sort => {
@@ -44,7 +44,7 @@ impl<'a> ExprTypeEngine<'a> {
                         FluffyTermData::Variable { ty } => todo!(),
                         FluffyTermData::TypeVariant { path } => todo!(),
                     },
-                    None => Err(DerivedExprTypeError::UnableToInferSuffixOperandType.into()),
+                    None => Err(DerivedSemaExprError::UnableToInferSuffixOperandType.into()),
                 }
             }
             _ => naive_suffix_f(self, opd),

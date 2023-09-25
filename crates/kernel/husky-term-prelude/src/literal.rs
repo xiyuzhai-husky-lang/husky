@@ -51,13 +51,13 @@ pub enum TermLiteral {
     /// 64-bit float literal
     F64(TermF64Literal),
     /// string literal
-    String(StringLiteral),
+    String(StringLiteralData),
     /// static lifetime
     StaticLifetime,
 }
 
 #[salsa::tracked(db = TermPreludeDb, jar = TermPreludeJar)]
-pub struct StringLiteral {
+pub struct StringLiteralData {
     data: String,
 }
 

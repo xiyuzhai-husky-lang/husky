@@ -20,7 +20,7 @@ where
     ) -> IdentifiableEntityPathExpr {
         let parent_expr_idx =
             self.context_mut()
-                .alloc_item_path_expr(PrincipalEntityPathExpr::Root {
+                .alloc_item_path_expr(SynPrincipalEntityPathExpr::Root {
                     path_name_token,
                     principal_entity_path: principal_item_path,
                 });
@@ -37,7 +37,7 @@ where
 
     fn parse_subitem_identifiable_path_expr(
         &mut self,
-        parent_expr_idx: PrincipalEntityPathExprIdx,
+        parent_expr_idx: SynPrincipalEntityPathExprIdx,
         parent_path: MajorEntityPath,
         colon_colon_regional_token: ColonColonRegionalToken,
     ) -> IdentifiableEntityPathExpr {
@@ -71,7 +71,7 @@ where
             Err(_) => todo!(),
         };
         let opt_path = path.as_ref().ok().copied();
-        let expr = PrincipalEntityPathExpr::Subitem {
+        let expr = SynPrincipalEntityPathExpr::Subitem {
             parent: parent_expr_idx,
             colon_colon_token: colon_colon_regional_token,
             ident_token,

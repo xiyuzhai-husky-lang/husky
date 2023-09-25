@@ -6,7 +6,7 @@ pub struct TraitObelisk {
 }
 
 impl TraitObelisk {
-    pub fn expr(&self) -> ArenaIdx<SynExpr> {
+    pub fn expr(&self) -> SynExprIdx {
         self.expr
     }
 }

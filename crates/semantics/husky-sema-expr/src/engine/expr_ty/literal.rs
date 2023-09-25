@@ -1,6 +1,6 @@
 use super::*;
 use husky_regional_token::RegionalTokenIdx;
-use husky_token_data::FloatLiteral;
+use husky_token_data::FloatLiteralData;
 
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_literal_expr_ty(
@@ -8,16 +8,16 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: SynExprIdx,
         literal_token_idx: RegionalTokenIdx,
         expectation: &impl ExpectFluffyTerm,
-    ) -> Result<FluffyTerm, ExprTypeError> {
+    ) -> Result<FluffyTerm, SemaExprError> {
         let literal_token: TokenData = self.token_data(literal_token_idx);
         match literal_token {
             TokenData::Literal(literal) => match literal {
-                Literal::Unit => todo!(),
-                Literal::Char(_) => todo!(),
-                Literal::String(_) => Ok(self.term_menu.static_str_ref().into()),
-                Literal::Integer(integer_literal) => match integer_literal {
-                    IntegerLikeLiteral::UnspecifiedRegular(_)
-                    | IntegerLikeLiteral::UnspecifiedLarge() => {
+                LiteralData::Unit => todo!(),
+                LiteralData::Char(_) => todo!(),
+                LiteralData::String(_) => Ok(self.term_menu.static_str_ref().into()),
+                LiteralData::Integer(integer_literal) => match integer_literal {
+                    IntegerLikeLiteralData::UnspecifiedRegular(_)
+                    | IntegerLikeLiteralData::UnspecifiedLarge() => {
                         // match in the order of most frequent to least frequent
                         Ok(match expectation
                             .destination()
@@ -59,27 +59,33 @@ impl<'a> ExprTypeEngine<'a> {
                         }
                         .into())
                     }
-                    IntegerLikeLiteral::I8(_) => Ok(self.term_menu.i8_ty_ontology().into()),
-                    IntegerLikeLiteral::I16(_) => Ok(self.term_menu.i16_ty_ontology().into()),
-                    IntegerLikeLiteral::I32(_) => Ok(self.term_menu.i32_ty_ontology().into()),
-                    IntegerLikeLiteral::I64(_) => Ok(self.term_menu.i64_ty_ontology().into()),
-                    IntegerLikeLiteral::I128(_) => Ok(self.term_menu.i128_ty_ontology().into()),
-                    IntegerLikeLiteral::ISize(_) => Ok(self.term_menu.isize_ty_ontology().into()),
-                    IntegerLikeLiteral::R8(_) => Ok(self.term_menu.r8_ty_ontology().into()),
-                    IntegerLikeLiteral::R16(_) => Ok(self.term_menu.r16_ty_ontology().into()),
-                    IntegerLikeLiteral::R32(_) => Ok(self.term_menu.r32_ty_ontology().into()),
-                    IntegerLikeLiteral::R64(_) => Ok(self.term_menu.r64_ty_ontology().into()),
-                    IntegerLikeLiteral::R128(_) => Ok(self.term_menu.r128_ty_ontology().into()),
-                    IntegerLikeLiteral::RSize(_) => Ok(self.term_menu.rsize_ty_ontology().into()),
-                    IntegerLikeLiteral::U8(_) => Ok(self.term_menu.u8_ty_ontology().into()),
-                    IntegerLikeLiteral::U16(_) => Ok(self.term_menu.u16_ty_ontology().into()),
-                    IntegerLikeLiteral::U32(_) => Ok(self.term_menu.u32_ty_ontology().into()),
-                    IntegerLikeLiteral::U64(_) => Ok(self.term_menu.u64_ty_ontology().into()),
-                    IntegerLikeLiteral::U128(_) => Ok(self.term_menu.u128_ty_ontology().into()),
-                    IntegerLikeLiteral::USize(_) => Ok(self.term_menu.usize_ty_ontology().into()),
+                    IntegerLikeLiteralData::I8(_) => Ok(self.term_menu.i8_ty_ontology().into()),
+                    IntegerLikeLiteralData::I16(_) => Ok(self.term_menu.i16_ty_ontology().into()),
+                    IntegerLikeLiteralData::I32(_) => Ok(self.term_menu.i32_ty_ontology().into()),
+                    IntegerLikeLiteralData::I64(_) => Ok(self.term_menu.i64_ty_ontology().into()),
+                    IntegerLikeLiteralData::I128(_) => Ok(self.term_menu.i128_ty_ontology().into()),
+                    IntegerLikeLiteralData::ISize(_) => {
+                        Ok(self.term_menu.isize_ty_ontology().into())
+                    }
+                    IntegerLikeLiteralData::R8(_) => Ok(self.term_menu.r8_ty_ontology().into()),
+                    IntegerLikeLiteralData::R16(_) => Ok(self.term_menu.r16_ty_ontology().into()),
+                    IntegerLikeLiteralData::R32(_) => Ok(self.term_menu.r32_ty_ontology().into()),
+                    IntegerLikeLiteralData::R64(_) => Ok(self.term_menu.r64_ty_ontology().into()),
+                    IntegerLikeLiteralData::R128(_) => Ok(self.term_menu.r128_ty_ontology().into()),
+                    IntegerLikeLiteralData::RSize(_) => {
+                        Ok(self.term_menu.rsize_ty_ontology().into())
+                    }
+                    IntegerLikeLiteralData::U8(_) => Ok(self.term_menu.u8_ty_ontology().into()),
+                    IntegerLikeLiteralData::U16(_) => Ok(self.term_menu.u16_ty_ontology().into()),
+                    IntegerLikeLiteralData::U32(_) => Ok(self.term_menu.u32_ty_ontology().into()),
+                    IntegerLikeLiteralData::U64(_) => Ok(self.term_menu.u64_ty_ontology().into()),
+                    IntegerLikeLiteralData::U128(_) => Ok(self.term_menu.u128_ty_ontology().into()),
+                    IntegerLikeLiteralData::USize(_) => {
+                        Ok(self.term_menu.usize_ty_ontology().into())
+                    }
                 },
-                Literal::Float(float_literal) => match float_literal {
-                    FloatLiteral::Unspecified(_) => {
+                LiteralData::Float(float_literal) => match float_literal {
+                    FloatLiteralData::Unspecified(_) => {
                         match expectation
                             .destination()
                             .map(|destination| destination.data(self))
@@ -107,11 +113,11 @@ impl<'a> ExprTypeEngine<'a> {
                             }
                         }
                     }
-                    FloatLiteral::F32(_) => todo!(),
-                    FloatLiteral::F64(_) => todo!(),
+                    FloatLiteralData::F32(_) => todo!(),
+                    FloatLiteralData::F64(_) => todo!(),
                 },
-                Literal::TupleIndex(_) => todo!(),
-                Literal::Bool(_) => Ok(self.term_menu.bool_ty_ontology().into()),
+                LiteralData::TupleIndex(_) => todo!(),
+                LiteralData::Bool(_) => Ok(self.term_menu.bool_ty_ontology().into()),
             },
             _ => unreachable!(),
         }

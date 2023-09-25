@@ -69,8 +69,8 @@ impl RegularValue {
 pub struct StringLiteralId(NonZeroU32);
 
 #[cfg(feature = "constant")]
-impl From<StringLiteral> for StringLiteralId {
-    fn from(lit: StringLiteral) -> Self {
+impl From<StringLiteralData> for StringLiteralId {
+    fn from(lit: StringLiteralData) -> Self {
         unsafe { std::mem::transmute(lit) }
     }
 }

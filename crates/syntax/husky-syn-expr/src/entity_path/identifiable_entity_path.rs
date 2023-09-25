@@ -8,11 +8,11 @@ use thiserror::Error;
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum IdentifiableEntityPathExpr {
     Principal {
-        path_expr_idx: PrincipalEntityPathExprIdx,
+        path_expr_idx: SynPrincipalEntityPathExprIdx,
         opt_path: Option<PrincipalEntityPath>,
     },
     AssociatedItem {
-        parent_expr_idx: PrincipalEntityPathExprIdx,
+        parent_expr_idx: SynPrincipalEntityPathExprIdx,
         parent_path: MajorItemPath,
         colon_colon_regional_token: ColonColonRegionalToken,
         ident_token: IdentRegionalToken,

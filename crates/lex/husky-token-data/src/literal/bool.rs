@@ -1,28 +1,28 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum BoolLiteral {
+pub enum BoolLiteralData {
     True,
     False,
 }
 
-impl BoolLiteral {
+impl BoolLiteralData {
     pub fn code(self) -> &'static str {
         match self {
-            BoolLiteral::True => "true",
-            BoolLiteral::False => "false",
+            BoolLiteralData::True => "true",
+            BoolLiteralData::False => "false",
         }
     }
 }
 
-impl From<BoolLiteral> for Literal {
-    fn from(value: BoolLiteral) -> Self {
-        Literal::Bool(value)
+impl From<BoolLiteralData> for LiteralData {
+    fn from(value: BoolLiteralData) -> Self {
+        LiteralData::Bool(value)
     }
 }
 
-impl From<BoolLiteral> for TokenData {
-    fn from(value: BoolLiteral) -> Self {
+impl From<BoolLiteralData> for TokenData {
+    fn from(value: BoolLiteralData) -> Self {
         TokenData::Literal(value.into())
     }
 }

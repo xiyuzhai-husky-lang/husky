@@ -94,9 +94,9 @@ impl<'a> SynExprContext<'a> {
     #[inline(always)]
     pub(crate) fn define_symbol(
         &mut self,
-        variable: CurrentSynSymbol,
+        variable: SynCurrentSymbol,
         ty_constraint: Option<ObeliskTypeConstraint>,
-    ) -> CurrentSynSymbolIdx {
+    ) -> SynCurrentSymbolIdx {
         self.syn_symbol_context
             .define_symbol(variable, ty_constraint)
     }
@@ -104,9 +104,9 @@ impl<'a> SynExprContext<'a> {
     #[inline(always)]
     pub(crate) fn define_symbols(
         &mut self,
-        variables: impl IntoIterator<Item = CurrentSynSymbol>,
+        variables: impl IntoIterator<Item = SynCurrentSymbol>,
         ty_constraint: Option<ObeliskTypeConstraint>,
-    ) -> CurrentSynSymbolIdxRange {
+    ) -> SynCurrentSymbolIdxRange {
         self.syn_symbol_context
             .define_symbols(variables, ty_constraint)
     }
@@ -160,8 +160,8 @@ impl<'a> SynExprContext<'a> {
 
     pub(crate) fn alloc_item_path_expr(
         &mut self,
-        expr: PrincipalEntityPathExpr,
-    ) -> PrincipalEntityPathExprIdx {
+        expr: SynPrincipalEntityPathExpr,
+    ) -> SynPrincipalEntityPathExprIdx {
         self.syn_principal_entity_path_expr_arena.alloc_one(expr)
     }
 

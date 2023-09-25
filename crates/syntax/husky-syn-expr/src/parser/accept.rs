@@ -1,4 +1,4 @@
-use crate::RegularOrVariadicCallListItem;
+use crate::SynRegularOrVariadicCallListItem;
 
 use super::*;
 use husky_print_utils::p;
@@ -177,7 +177,7 @@ where
                         IncompleteCommaListOpr::NewLambdaHead => todo!(),
                         IncompleteCommaListOpr::FunctionApplicationOrCall { function } => {
                             // ad hoc
-                            let generic_arguments: Option<SynGenericArgumentList> = None;
+                            let generic_arguments: Option<SynTemplateArgumentList> = None;
                             SynExpr::FunctionApplicationOrCall {
                                 function,
                                 generic_arguments,
@@ -206,7 +206,7 @@ where
                         IncompleteCommaListOpr::TemplateInstantiation { template } => {
                             SynExpr::TemplateInstantiation {
                                 template,
-                                generic_arguments: SynGenericArgumentList::new(
+                                generic_arguments: SynTemplateArgumentList::new(
                                     bra_regional_token_idx,
                                     items,
                                     ket_regional_token_idx,
@@ -405,7 +405,7 @@ where
                             items.push(SynCommaListItem::new(item, Some(comma_regional_token_idx)))
                         }
                         IncompleteSynExpr::CallList { items, .. } => items.push(
-                            RegularOrVariadicCallListItem::new(
+                            SynRegularOrVariadicCallListItem::new(
                                 item,
                                 CallListSeparator::Comma(comma_regional_token_idx),
                             )

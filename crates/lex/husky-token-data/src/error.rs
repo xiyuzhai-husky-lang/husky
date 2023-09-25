@@ -14,7 +14,7 @@ pub enum TokenDataError {
     #[error("unrecognized char")]
     UnrecognizedChar(char),
     #[error("ill-formed literal")]
-    IllFormedLiteral(Literal),
+    IllFormedLiteral(LiteralData),
     #[error("number pseudoliteral")]
     NumberPseudoLiteral(NumberPseudoLiteral),
     #[error("parse int error")]

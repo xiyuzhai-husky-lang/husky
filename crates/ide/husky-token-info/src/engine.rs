@@ -465,9 +465,9 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
         }
     }
 
-    fn visit_item_path_expr(&mut self, item_path_expr: &PrincipalEntityPathExpr) {
+    fn visit_item_path_expr(&mut self, item_path_expr: &SynPrincipalEntityPathExpr) {
         match item_path_expr {
-            PrincipalEntityPathExpr::Root {
+            SynPrincipalEntityPathExpr::Root {
                 principal_entity_path,
                 path_name_token,
                 ..
@@ -475,7 +475,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 path_name_token.regional_token_idx(),
                 TokenInfo::Entity((*principal_entity_path).into()),
             ),
-            PrincipalEntityPathExpr::Subitem {
+            SynPrincipalEntityPathExpr::Subitem {
                 path: Ok(path),
                 ident_token: Ok(ident_token),
                 ..
@@ -483,27 +483,27 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 ident_token.regional_token_idx(),
                 TokenInfo::Entity((*path).into()),
             ),
-            PrincipalEntityPathExpr::Subitem { .. } => (),
+            SynPrincipalEntityPathExpr::Subitem { .. } => (),
         }
     }
 
     fn visit_current_symbol(
         &mut self,
-        current_symbol_idx: CurrentSynSymbolIdx,
-        current_symbol: &CurrentSynSymbol,
+        current_symbol_idx: SynCurrentSymbolIdx,
+        current_symbol: &SynCurrentSymbol,
     ) {
         let current_symbol_kind = current_symbol.kind();
         match current_symbol_kind {
-            CurrentSynSymbolKind::LetVariable {
+            SynCurrentSymbolKind::LetVariable {
                 pattern_symbol_idx: pattern_symbol,
             }
-            | CurrentSynSymbolKind::BeVariable {
+            | SynCurrentSymbolKind::BeVariable {
                 pattern_symbol_idx: pattern_symbol,
             }
-            | CurrentSynSymbolKind::CaseVariable {
+            | SynCurrentSymbolKind::CaseVariable {
                 pattern_symbol_idx: pattern_symbol,
             }
-            | CurrentSynSymbolKind::ExplicitRegularParameter {
+            | SynCurrentSymbolKind::ExplicitRegularParameter {
                 pattern_symbol_idx: pattern_symbol,
             } => match self.expr_region_data[pattern_symbol] {
                 SynPatternSymbol::Atom(pattern_expr_idx) => {
@@ -523,8 +523,8 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                     }
                 }
             },
-            CurrentSynSymbolKind::FrameVariable(_) => (),
-            CurrentSynSymbolKind::ImplicitParameter {
+            SynCurrentSymbolKind::FrameVariable(_) => (),
+            SynCurrentSymbolKind::ImplicitParameter {
                 template_parameter_kind,
             } => match template_parameter_kind {
                 CurrentImplicitParameterSynSymbolKind::Type { ident_token } => self.add(
@@ -560,7 +560,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                     },
                 ),
             },
-            CurrentSynSymbolKind::ExplicitVariadicParameter { ident_token } => self.add(
+            SynCurrentSymbolKind::ExplicitVariadicParameter { ident_token } => self.add(
                 ident_token.regional_token_idx(),
                 TokenInfo::CurrentSymbol {
                     current_symbol_idx,
@@ -568,7 +568,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                     current_symbol_kind,
                 },
             ),
-            CurrentSynSymbolKind::FieldVariable { ident_token } => self.add(
+            SynCurrentSymbolKind::FieldVariable { ident_token } => self.add(
                 ident_token.regional_token_idx(),
                 TokenInfo::CurrentSymbol {
                     current_symbol_idx,

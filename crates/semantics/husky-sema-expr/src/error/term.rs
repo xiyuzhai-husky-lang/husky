@@ -15,8 +15,8 @@ impl From<EtherealTermError> for ExprTermError {
     }
 }
 
-impl From<&ExprTypeError> for ExprTermError {
-    fn from(value: &ExprTypeError) -> Self {
+impl From<&SemaExprError> for ExprTermError {
+    fn from(value: &SemaExprError) -> Self {
         todo!()
     }
 }
@@ -54,7 +54,7 @@ pub enum DerivedExprTermError {
     #[error("explicit application argument term not inferred")]
     ExplicitApplicationArgumentTermNotInferred,
     #[error("expr type error")]
-    ExprTypeError,
+    SemaExprError,
     #[error("literal type not resolved")]
     LiteralTypeNotResolved,
     #[error("TypeInfoNotInferred")]

@@ -1,10 +1,11 @@
 use super::*;
+use idx_arena::ArenaIdx;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
 pub struct SymbolMap<V> {
-    inherited_symbol_map: InheritedSynSymbolMap<V>,
-    current_symbol_map: CurrentSynSymbolMap<V>,
+    inherited_symbol_map: SynInheritedSymbolMap<V>,
+    current_symbol_map: SynCurrentSymbolMap<V>,
 }
 
 impl<V> SymbolMap<V> {
@@ -29,37 +30,37 @@ impl<V> SymbolMap<V> {
                     }
                     inherited_symbol_map
                 }
-                None => InheritedSynSymbolMap::new(inherited_symbol_arena),
+                None => SynInheritedSymbolMap::new(inherited_symbol_arena),
             },
-            current_symbol_map: CurrentSynSymbolMap::new(current_symbol_arena),
+            current_symbol_map: SynCurrentSymbolMap::new(current_symbol_arena),
         }
     }
 
-    pub fn insert_new(&mut self, idx: CurrentSynSymbolIdx, v: V) {
+    pub fn insert_new(&mut self, idx: SynCurrentSymbolIdx, v: V) {
         self.current_symbol_map.insert_new(idx, v)
     }
 
-    pub fn inherited_symbol_map(&self) -> &InheritedSynSymbolMap<V> {
+    pub fn inherited_symbol_map(&self) -> &SynInheritedSymbolMap<V> {
         &self.inherited_symbol_map
     }
 
-    pub fn current_symbol_map(&self) -> &CurrentSynSymbolMap<V> {
+    pub fn current_symbol_map(&self) -> &SynCurrentSymbolMap<V> {
         &self.current_symbol_map
     }
 }
 
-impl<V> std::ops::Index<InheritedSynSymbolIdx> for SymbolMap<V> {
+impl<V> std::ops::Index<SynInheritedSymbolIdx> for SymbolMap<V> {
     type Output = V;
 
-    fn index(&self, index: InheritedSynSymbolIdx) -> &Self::Output {
+    fn index(&self, index: SynInheritedSymbolIdx) -> &Self::Output {
         &self.inherited_symbol_map[index]
     }
 }
 
-impl<V> std::ops::Index<CurrentSynSymbolIdx> for SymbolMap<V> {
+impl<V> std::ops::Index<SynCurrentSymbolIdx> for SymbolMap<V> {
     type Output = V;
 
-    fn index(&self, index: CurrentSynSymbolIdx) -> &Self::Output {
+    fn index(&self, index: SynCurrentSymbolIdx) -> &Self::Output {
         &self.current_symbol_map[index]
     }
 }

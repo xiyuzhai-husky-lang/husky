@@ -129,10 +129,10 @@ impl std::ops::Index<SynStmtIdx> for SynExprRegionData {
         &self.stmt_arena[index]
     }
 }
-impl std::ops::Index<CurrentSynSymbolIdx> for SynExprRegionData {
-    type Output = CurrentSynSymbol;
+impl std::ops::Index<SynCurrentSymbolIdx> for SynExprRegionData {
+    type Output = SynCurrentSymbol;
 
-    fn index(&self, index: CurrentSynSymbolIdx) -> &Self::Output {
+    fn index(&self, index: SynCurrentSymbolIdx) -> &Self::Output {
         &self.symbol_region[index]
     }
 }

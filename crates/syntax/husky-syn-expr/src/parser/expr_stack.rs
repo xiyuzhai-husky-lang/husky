@@ -496,7 +496,7 @@ where
                                 bra_regional_token_idx,
                                 mut items,
                             } => {
-                                let mut items: SmallVec<[CallListItem; 4]> =
+                                let mut items: SmallVec<[SynCallListItem; 4]> =
                                     items.into_iter().map(Into::into).collect();
                                 items.push(
                                     KeyedCallListItem::new(

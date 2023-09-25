@@ -1,6 +1,6 @@
 use husky_entity_syn_tree::OnceUseRuleState;
 use husky_entity_taxonomy::{EntityKind, MajorItemConnectionKind, MajorItemKind, TypeKind};
-use husky_syn_expr::{CurrentSynSymbolKind, InheritedSynSymbolKind};
+use husky_syn_expr::{SynCurrentSymbolKind, SynInheritedSymbolKind};
 use husky_token_data::TokenData;
 
 use crate::*;
@@ -43,23 +43,23 @@ fn token_to_semantic_token(
             current_symbol_kind,
             ..
         } => match current_symbol_kind {
-            CurrentSynSymbolKind::LetVariable { .. }
-            | CurrentSynSymbolKind::BeVariable { .. }
-            | CurrentSynSymbolKind::CaseVariable { .. } => SemanticToken::Variable,
-            CurrentSynSymbolKind::ExplicitRegularParameter { .. } => SemanticToken::Parameter,
-            CurrentSynSymbolKind::FrameVariable(_) => SemanticToken::FrameVariable,
-            CurrentSynSymbolKind::ImplicitParameter { .. } => SemanticToken::ImplicitParameter,
-            CurrentSynSymbolKind::ExplicitVariadicParameter { .. } => SemanticToken::Parameter,
-            CurrentSynSymbolKind::FieldVariable { .. } => SemanticToken::Variable,
+            SynCurrentSymbolKind::LetVariable { .. }
+            | SynCurrentSymbolKind::BeVariable { .. }
+            | SynCurrentSymbolKind::CaseVariable { .. } => SemanticToken::Variable,
+            SynCurrentSymbolKind::ExplicitRegularParameter { .. } => SemanticToken::Parameter,
+            SynCurrentSymbolKind::FrameVariable(_) => SemanticToken::FrameVariable,
+            SynCurrentSymbolKind::ImplicitParameter { .. } => SemanticToken::ImplicitParameter,
+            SynCurrentSymbolKind::ExplicitVariadicParameter { .. } => SemanticToken::Parameter,
+            SynCurrentSymbolKind::FieldVariable { .. } => SemanticToken::Variable,
         },
         // SemanticToken::Variable,
         TokenInfo::InheritedSymbol {
             inherited_symbol_kind,
             ..
         } => match inherited_symbol_kind {
-            InheritedSynSymbolKind::ParenateParameter { .. } => SemanticToken::Parameter,
-            InheritedSynSymbolKind::TemplateParameter { .. } => SemanticToken::ImplicitParameter,
-            InheritedSynSymbolKind::FieldVariable { .. } => SemanticToken::Variable,
+            SynInheritedSymbolKind::ParenateParameter { .. } => SemanticToken::Parameter,
+            SynInheritedSymbolKind::TemplateParameter { .. } => SemanticToken::ImplicitParameter,
+            SynInheritedSymbolKind::FieldVariable { .. } => SemanticToken::Variable,
         },
         TokenInfo::SelfType => SemanticToken::SelfType,
         TokenInfo::SelfValue => SemanticToken::SelfValue,

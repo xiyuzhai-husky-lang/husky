@@ -17,26 +17,26 @@ use crate::*;
 /// follows mainly from <https://doc.rust-lang.org/reference/tokens.html#literals/>
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = TokenDataDb)]
-pub enum Literal {
+pub enum LiteralData {
     Unit,
-    Char(CharLiteral),
-    String(StringLiteral),
-    Integer(IntegerLikeLiteral),
-    Float(FloatLiteral),
-    TupleIndex(TupleIndexLiteral),
-    Bool(BoolLiteral),
+    Char(CharLiteralData),
+    String(StringLiteralData),
+    Integer(IntegerLikeLiteralData),
+    Float(FloatLiteralData),
+    TupleIndex(TupleIndexLiteralData),
+    Bool(BoolLiteralData),
 }
 
-impl Literal {
-    pub fn negative(self) -> Option<Literal> {
+impl LiteralData {
+    pub fn negative(self) -> Option<LiteralData> {
         match self {
-            Literal::Unit => None,
-            Literal::Integer(i) => Some(Literal::Integer(-i)),
-            Literal::Float(f) => Some(Literal::Float(-f)),
-            Literal::Bool(_) => None,
-            Literal::String(_) => None,
-            Literal::Char(_) => todo!(),
-            Literal::TupleIndex(_) => todo!(),
+            LiteralData::Unit => None,
+            LiteralData::Integer(i) => Some(LiteralData::Integer(-i)),
+            LiteralData::Float(f) => Some(LiteralData::Float(-f)),
+            LiteralData::Bool(_) => None,
+            LiteralData::String(_) => None,
+            LiteralData::Char(_) => todo!(),
+            LiteralData::TupleIndex(_) => todo!(),
         }
     }
 }
