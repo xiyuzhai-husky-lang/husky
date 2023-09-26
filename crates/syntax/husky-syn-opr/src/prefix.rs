@@ -2,15 +2,13 @@ use core::num::NonZeroUsize;
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum SynPrefixOpr {
-    Minus,                       // -
-    Not,                         // !$0
-    Tilde,                       // ~
-    Ref,                         // &
-    Vector,                      // []
-    Slice,                       // [:]
-    CyclicSlice,                 // [%]
-    Array(Option<NonZeroUsize>), // [_] or [<usize>]
-    Option,                      // ?
+    Minus,       // -
+    Not,         // !$0
+    Tilde,       // ~
+    Ref,         // &
+    Vector,      // []
+    Slice,       // [:]
+    CyclicSlice, // [%]
 }
 
 impl SynPrefixOpr {
@@ -54,11 +52,6 @@ impl SynPrefixOpr {
             SynPrefixOpr::Vector => "[]".into(),
             SynPrefixOpr::Slice => "[:]".into(),
             SynPrefixOpr::CyclicSlice => "[%]".into(),
-            SynPrefixOpr::Array(size) => match size {
-                Some(size) => format!("[{}]", size).into(),
-                None => "[_]".into(),
-            },
-            SynPrefixOpr::Option => todo!(),
         }
     }
 }

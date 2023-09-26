@@ -33,13 +33,13 @@ impl<'a> ExprTypeEngine<'a> {
         expr_expectation: impl ExpectFluffyTerm,
     ) -> Option<FluffyTerm> {
         match self.expr_region_data[stmt_idx] {
-            SynStmt::Let {
+            SynStmtData::Let {
                 let_token,
                 ref let_variables_pattern,
                 initial_value,
                 ..
             } => self.calc_let_stmt(let_variables_pattern, initial_value),
-            SynStmt::Return { result, .. } => {
+            SynStmtData::Return { result, .. } => {
                 match self.return_ty {
                     Some(return_ty) => {
                         self.infer_new_expr_ty_discarded(
@@ -53,16 +53,16 @@ impl<'a> ExprTypeEngine<'a> {
                 };
                 Some(self.term_menu.never().into())
             }
-            SynStmt::Require { condition, .. } => {
+            SynStmtData::Require { condition, .. } => {
                 self.infer_new_expr_ty_discarded(condition, ExpectConditionType);
                 Some(self.term_menu.unit_ty_ontology().into())
             }
-            SynStmt::Assert { condition, .. } => {
+            SynStmtData::Assert { condition, .. } => {
                 self.infer_new_expr_ty_discarded(condition, ExpectConditionType);
                 Some(self.term_menu.unit_ty_ontology().into())
             }
-            SynStmt::Break { .. } => Some(self.term_menu.never().into()),
-            SynStmt::Eval {
+            SynStmtData::Break { .. } => Some(self.term_menu.never().into()),
+            SynStmtData::Eval {
                 expr_idx,
                 eol_semicolon,
             } => match eol_semicolon {
@@ -70,7 +70,7 @@ impl<'a> ExprTypeEngine<'a> {
                 Ok(Some(_)) => self.infer_new_expr_ty(expr_idx, ExpectAnyOriginal),
                 Err(_) => self.infer_new_expr_ty(expr_idx, ExpectAnyDerived),
             },
-            SynStmt::ForBetween {
+            SynStmtData::ForBetween {
                 ref particulars,
                 frame_var_symbol_idx,
                 ref block,
@@ -119,12 +119,12 @@ impl<'a> ExprTypeEngine<'a> {
                 self.infer_new_block(*block, expr_expectation);
                 Some(self.term_menu.unit_ty_ontology().into())
             }
-            SynStmt::ForIn {
+            SynStmtData::ForIn {
                 ref condition,
                 block,
                 ..
             } => todo!(),
-            SynStmt::ForExt {
+            SynStmtData::ForExt {
                 ref particulars,
                 block,
                 ..
@@ -142,12 +142,12 @@ impl<'a> ExprTypeEngine<'a> {
                 self.infer_new_block(block, expr_expectation);
                 Some(self.term_menu.unit_ty_ontology().into())
             }
-            SynStmt::While {
+            SynStmtData::While {
                 ref condition,
                 block,
                 ..
             }
-            | SynStmt::DoWhile {
+            | SynStmtData::DoWhile {
                 ref condition,
                 block,
                 ..
@@ -159,7 +159,7 @@ impl<'a> ExprTypeEngine<'a> {
                 self.infer_new_block(block, expect_unit);
                 Some(self.term_menu.unit_ty_ontology().into())
             }
-            SynStmt::IfElse {
+            SynStmtData::IfElse {
                 ref if_branch,
                 ref elif_branches,
                 ref else_branch,
@@ -169,7 +169,7 @@ impl<'a> ExprTypeEngine<'a> {
                 else_branch.as_ref(),
                 expr_expectation,
             ),
-            SynStmt::Match { .. } => {
+            SynStmtData::Match { .. } => {
                 // todo: match
                 None
             }

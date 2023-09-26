@@ -7,7 +7,7 @@ pub use self::loop_stmt::*;
 use crate::*;
 use husky_syn_expr::{
     LetPatternObelisk, LoopBoundaryKind, LoopStep, SynForBetweenLoopBoundary,
-    SynForBetweenParticulars, SynForBetweenRange, SynStmt, SynStmtIdx, SynStmtIdxRange,
+    SynForBetweenParticulars, SynForBetweenRange, SynStmtData, SynStmtIdx, SynStmtIdxRange,
 };
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use salsa::debug::ExpectWithDb;
@@ -70,7 +70,7 @@ impl ToHirEager for SynStmtIdx {
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         Some(match builder.syn_expr_region_data()[*self] {
-            SynStmt::Let {
+            SynStmtData::Let {
                 let_token,
                 ref let_variables_pattern,
                 initial_value,
@@ -81,32 +81,32 @@ impl ToHirEager for SynStmtIdx {
                 ),
                 initial_value: initial_value.to_hir_eager(builder),
             },
-            SynStmt::Return {
+            SynStmtData::Return {
                 return_token,
                 result,
             } => HirEagerStmt::Return {
                 result: result.to_hir_eager(builder),
             },
-            SynStmt::Require {
+            SynStmtData::Require {
                 require_token,
                 condition,
             } => HirEagerStmt::Require {
                 condition: condition.to_hir_eager(builder),
             },
-            SynStmt::Assert {
+            SynStmtData::Assert {
                 assert_token,
                 condition,
             } => HirEagerStmt::Assert {
                 condition: condition.to_hir_eager(builder),
             },
-            SynStmt::Break { break_token } => HirEagerStmt::Break,
-            SynStmt::Eval {
+            SynStmtData::Break { break_token } => HirEagerStmt::Break,
+            SynStmtData::Eval {
                 expr_idx,
                 eol_semicolon,
             } => HirEagerStmt::Eval {
                 expr_idx: expr_idx.to_hir_eager(builder),
             },
-            SynStmt::ForBetween {
+            SynStmtData::ForBetween {
                 for_token,
                 ref particulars,
                 frame_var_symbol_idx,
@@ -116,13 +116,13 @@ impl ToHirEager for SynStmtIdx {
                 particulars: particulars.to_hir_eager(builder),
                 block: block.to_hir_eager(builder),
             },
-            SynStmt::ForIn {
+            SynStmtData::ForIn {
                 for_token,
                 ref condition,
                 ref eol_colon,
                 ref block,
             } => todo!(),
-            SynStmt::ForExt {
+            SynStmtData::ForExt {
                 forext_token,
                 ref particulars,
                 ref eol_colon,
@@ -131,7 +131,7 @@ impl ToHirEager for SynStmtIdx {
                 particulars: particulars.to_hir_eager(builder),
                 block: block.to_hir_eager(builder),
             },
-            SynStmt::While {
+            SynStmtData::While {
                 ref condition,
                 ref block,
                 ..
@@ -142,7 +142,7 @@ impl ToHirEager for SynStmtIdx {
                     .to_hir_eager(builder),
                 stmts: block.to_hir_eager(builder),
             },
-            SynStmt::DoWhile {
+            SynStmtData::DoWhile {
                 ref condition,
                 ref block,
                 ..
@@ -153,7 +153,7 @@ impl ToHirEager for SynStmtIdx {
                     .to_hir_eager(builder),
                 block: block.to_hir_eager(builder),
             },
-            SynStmt::IfElse {
+            SynStmtData::IfElse {
                 ref if_branch,
                 ref elif_branches,
                 ref else_branch,
@@ -167,7 +167,7 @@ impl ToHirEager for SynStmtIdx {
                     .as_ref()
                     .map(|else_branch| else_branch.to_hir_eager(builder)),
             },
-            SynStmt::Match { match_token, .. } => HirEagerStmt::Match {},
+            SynStmtData::Match { match_token, .. } => HirEagerStmt::Match {},
         })
     }
 }

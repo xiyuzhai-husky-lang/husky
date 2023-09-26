@@ -11,14 +11,9 @@ use husky_defn_ast::{DefnAst, DefnAstIdx, DefnAstIdxRange};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use parsec::IsStreamParser;
 
-pub type SynStmtArena = Arena<SynStmt>;
-pub type SynStmtIdx = ArenaIdx<SynStmt>;
-pub type SynStmtIdxRange = ArenaIdxRange<SynStmt>;
-pub type SynStmtMap<V> = ArenaMap<SynStmt, V>;
-
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
-pub enum SynStmt {
+pub enum SynStmtData {
     Let {
         let_token: LetRegionalToken,
         let_variables_pattern: SynExprResult<LetPatternObelisk>,
@@ -90,6 +85,11 @@ pub enum SynStmt {
     },
 }
 
+pub type SynStmtArena = Arena<SynStmtData>;
+pub type SynStmtIdx = ArenaIdx<SynStmtData>;
+pub type SynStmtIdxRange = ArenaIdxRange<SynStmtData>;
+pub type SynStmtMap<V> = ArenaMap<SynStmtData, V>;
+
 impl<'a> SynStmtContext<'a> {
     pub(crate) fn parse_stmts(&mut self, body: DefnAstIdxRange) -> SynStmtIdxRange {
         let block_end = self.fugitive_body_end(body);
@@ -102,12 +102,16 @@ impl<'a> SynStmtContext<'a> {
 
     pub fn parse_block_expr(&mut self, body: DefnAstIdxRange) -> SynExprIdx {
         let stmts = self.parse_stmts(body);
-        let expr = self.alloc_expr(SynExpr::Block { stmts });
+        let expr = self.alloc_expr(SynExprData::Block { stmts });
         self.add_expr_root(ExprRootKind::BlockExpr, expr);
         expr
     }
 
-    fn parse_stmt(&mut self, ast_idx: DefnAstIdx, block_end: RegionalTokenIdxRangeEnd) -> SynStmt {
+    fn parse_stmt(
+        &mut self,
+        ast_idx: DefnAstIdx,
+        block_end: RegionalTokenIdxRangeEnd,
+    ) -> SynStmtData {
         match self.defn_tokra_region_data()[ast_idx] {
             DefnAst::BasicStmtOrBranch {
                 regional_token_group_idx: token_group_idx,
@@ -117,7 +121,7 @@ impl<'a> SynStmtContext<'a> {
                 if_branch,
                 elif_branches,
                 else_branch,
-            } => SynStmt::IfElse {
+            } => SynStmtData::IfElse {
                 if_branch: self.parse_if_branch(if_branch),
                 elif_branches: self.parse_elif_branches(elif_branches),
                 else_branch: self.parse_else_branch(else_branch),
@@ -129,7 +133,7 @@ impl<'a> SynStmtContext<'a> {
                 ..
             } => {
                 let mut parser = self.expr_parser(token_group_idx);
-                SynStmt::Match {
+                SynStmtData::Match {
                     match_token: parser.try_parse_option().unwrap().unwrap(),
                     match_expr: parser.parse_expr_expected(
                         Some(ExprEnvironment::Condition(block_end)),
@@ -149,11 +153,11 @@ impl<'a> SynStmtContext<'a> {
         token_group_idx: RegionalTokenGroupIdx,
         block_end: RegionalTokenIdxRangeEnd,
         body: Option<DefnAstIdxRange>,
-    ) -> SynStmt {
+    ) -> SynStmtData {
         let mut parser = self.expr_parser(token_group_idx);
         match parser.try_parse_option::<BasicStmtKeywordRegionalToken>() {
             Ok(Some(basic_stmt_keyword_token)) => match basic_stmt_keyword_token {
-                BasicStmtKeywordRegionalToken::Let(let_token) => SynStmt::Let {
+                BasicStmtKeywordRegionalToken::Let(let_token) => SynStmtData::Let {
                     let_token,
                     let_variables_pattern: parser.parse_let_variables_pattern_expected(block_end),
                     assign_token: parser.try_parse_expected(OriginalSynExprError::ExpectedAssign),
@@ -163,7 +167,7 @@ impl<'a> SynStmtContext<'a> {
                         OriginalSynExprError::ExpectedInitialValue,
                     ),
                 },
-                BasicStmtKeywordRegionalToken::Return(return_token) => SynStmt::Return {
+                BasicStmtKeywordRegionalToken::Return(return_token) => SynStmtData::Return {
                     return_token,
                     result: parser.parse_expr_expected2(
                         None,
@@ -171,7 +175,7 @@ impl<'a> SynStmtContext<'a> {
                         OriginalSynExprError::ExpectedResult,
                     ),
                 },
-                BasicStmtKeywordRegionalToken::Require(require_token) => SynStmt::Require {
+                BasicStmtKeywordRegionalToken::Require(require_token) => SynStmtData::Require {
                     require_token,
                     condition: parser.parse_expr_expected2(
                         Some(ExprEnvironment::Condition(block_end)),
@@ -179,7 +183,7 @@ impl<'a> SynStmtContext<'a> {
                         OriginalSynExprError::ExpectedCondition,
                     ),
                 },
-                BasicStmtKeywordRegionalToken::Assert(assert_token) => SynStmt::Assert {
+                BasicStmtKeywordRegionalToken::Assert(assert_token) => SynStmtData::Assert {
                     assert_token,
                     condition: parser.parse_expr_expected2(
                         Some(ExprEnvironment::Condition(block_end)),
@@ -187,7 +191,9 @@ impl<'a> SynStmtContext<'a> {
                         OriginalSynExprError::ExpectedCondition,
                     ),
                 },
-                BasicStmtKeywordRegionalToken::Break(break_token) => SynStmt::Break { break_token },
+                BasicStmtKeywordRegionalToken::Break(break_token) => {
+                    SynStmtData::Break { break_token }
+                }
                 BasicStmtKeywordRegionalToken::For(for_token) => {
                     let expr = match parser
                         .parse_expr_expected(None, OriginalSynExprError::ExpectedCondition)
@@ -224,7 +230,7 @@ impl<'a> SynStmtContext<'a> {
                     )
                     .into()
                 }
-                BasicStmtKeywordRegionalToken::While(while_token) => SynStmt::While {
+                BasicStmtKeywordRegionalToken::While(while_token) => SynStmtData::While {
                     while_token,
                     condition: parser.parse_expr_expected(
                         Some(ExprEnvironment::Condition(block_end)),
@@ -235,7 +241,7 @@ impl<'a> SynStmtContext<'a> {
                 },
                 BasicStmtKeywordRegionalToken::Do(do_token) => {
                     match parser.try_parse_option::<WhileRegionalToken>() {
-                        Ok(Some(while_token)) => SynStmt::DoWhile {
+                        Ok(Some(while_token)) => SynStmtData::DoWhile {
                             do_token,
                             while_token,
                             condition: parser.parse_expr_expected(
@@ -253,7 +259,7 @@ impl<'a> SynStmtContext<'a> {
                 }
             },
             Ok(None) => match parser.parse_expr_root(None, ExprRootKind::EvalExpr) {
-                Some(expr_idx) => SynStmt::Eval {
+                Some(expr_idx) => SynStmtData::Eval {
                     expr_idx,
                     eol_semicolon: parser.try_parse_option(),
                 },
@@ -271,7 +277,7 @@ impl<'a, 'b> SynExprParser<'a, &'b mut SynExprContext<'a>> {
     ) -> SynExprResult<SynStmtIdxRange> {
         let syn_stmt = match self.try_parse_option::<BasicStmtKeywordRegionalToken>()? {
             Some(basic_stmt_keyword_token) => match basic_stmt_keyword_token {
-                BasicStmtKeywordRegionalToken::Return(return_token) => SynStmt::Return {
+                BasicStmtKeywordRegionalToken::Return(return_token) => SynStmtData::Return {
                     return_token,
                     result: self.parse_expr_expected2(
                         None,
@@ -279,7 +285,7 @@ impl<'a, 'b> SynExprParser<'a, &'b mut SynExprContext<'a>> {
                         OriginalSynExprError::ExpectedResult,
                     ),
                 },
-                BasicStmtKeywordRegionalToken::Require(require_token) => SynStmt::Require {
+                BasicStmtKeywordRegionalToken::Require(require_token) => SynStmtData::Require {
                     require_token,
                     condition: self.parse_expr_expected2(
                         Some(ExprEnvironment::Condition(block_end)),
@@ -287,7 +293,7 @@ impl<'a, 'b> SynExprParser<'a, &'b mut SynExprContext<'a>> {
                         OriginalSynExprError::ExpectedCondition,
                     ),
                 },
-                BasicStmtKeywordRegionalToken::Assert(assert_token) => SynStmt::Assert {
+                BasicStmtKeywordRegionalToken::Assert(assert_token) => SynStmtData::Assert {
                     assert_token,
                     condition: self.parse_expr_expected2(
                         Some(ExprEnvironment::Condition(block_end)),
@@ -295,11 +301,13 @@ impl<'a, 'b> SynExprParser<'a, &'b mut SynExprContext<'a>> {
                         OriginalSynExprError::ExpectedCondition,
                     ),
                 },
-                BasicStmtKeywordRegionalToken::Break(break_token) => SynStmt::Break { break_token },
+                BasicStmtKeywordRegionalToken::Break(break_token) => {
+                    SynStmtData::Break { break_token }
+                }
                 _ => todo!("err"),
             },
             None => match self.parse_expr_root(None, ExprRootKind::EvalExpr) {
-                Some(expr_idx) => SynStmt::Eval {
+                Some(expr_idx) => SynStmtData::Eval {
                     expr_idx,
                     eol_semicolon: self.try_parse_option(),
                 },

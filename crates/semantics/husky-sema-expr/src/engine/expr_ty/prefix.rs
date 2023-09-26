@@ -7,7 +7,7 @@ impl<'a> ExprTypeEngine<'a> {
         opr: PrefixOpr,
         opd: SynExprIdx,
         final_destination: FinalDestination,
-    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
+    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
         match opr {
             PrefixOpr::Minus => {
                 let opd_ty = self
@@ -22,7 +22,7 @@ impl<'a> ExprTypeEngine<'a> {
                         ty_ethereal_term,
                     } => match refined_ty_path {
                         Left(PreludeTypePath::Num(num_ty_path)) => {
-                            Ok((SynExprDisambiguation::Trivial, Ok(opd_ty)))
+                            Ok((SemaExprData::Trivial, Ok(opd_ty)))
                         }
                         _ => todo!(),
                     },
@@ -36,7 +36,7 @@ impl<'a> ExprTypeEngine<'a> {
                     } => todo!(),
                     FluffyTermData::Hole(hole_kind, _) => match hole_kind {
                         HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => {
-                            Ok((SynExprDisambiguation::Trivial, Ok(opd_ty)))
+                            Ok((SemaExprData::Trivial, Ok(opd_ty)))
                         }
                         HoleKind::ImplicitType => todo!(),
                         HoleKind::Any => todo!(),
@@ -54,16 +54,16 @@ impl<'a> ExprTypeEngine<'a> {
                 }
             }
             PrefixOpr::Not => {
-                self.infer_new_expr_ty_discarded(opd, ExpectConditionType);
+                self.build_new_expr_ty_discarded(opd, ExpectConditionType);
                 // here we differs from Rust, but agrees with C
                 Ok((
-                    SynExprDisambiguation::Trivial,
+                    SemaExprData::Trivial,
                     Ok(self.term_menu.bool_ty_ontology().into()),
                 ))
             }
             PrefixOpr::Tilde => match final_destination {
                 FinalDestination::Sort => Ok((
-                    SynExprDisambiguation::Tilde(TildeDisambiguation::Leash),
+                    SemaExprData::Tilde(TildeDisambiguation::Leash),
                     self.calc_function_application_expr_ty_aux(
                         expr_idx,
                         Variance::Covariant,
@@ -76,18 +76,15 @@ impl<'a> ExprTypeEngine<'a> {
                 FinalDestination::TypeOntology
                 | FinalDestination::AnyOriginal
                 | FinalDestination::AnyDerived => Ok((
-                    SynExprDisambiguation::Tilde(TildeDisambiguation::BitNot),
+                    SemaExprData::Tilde(TildeDisambiguation::BitNot),
                     self.calc_bitnot_expr_ty(opd),
                 )),
                 FinalDestination::Ritchie(_) => todo!(),
             },
             PrefixOpr::Ref => {
-                self.infer_new_expr_ty_discarded(opd, self.expect_ty0_subtype());
+                self.build_new_expr_ty_discarded(opd, self.expect_ty0_subtype());
                 // Should consider more cases, could also be taking references
-                Ok((
-                    SynExprDisambiguation::Trivial,
-                    Ok(self.term_menu.ty0().into()),
-                ))
+                Ok((SemaExprData::Trivial, Ok(self.term_menu.ty0().into())))
             }
             PrefixOpr::Vector => todo!(),
             PrefixOpr::Slice => todo!(),
@@ -95,11 +92,8 @@ impl<'a> ExprTypeEngine<'a> {
             PrefixOpr::Array(_) => todo!(),
             PrefixOpr::Option => {
                 // todo!("consider universe");
-                self.infer_new_expr_ty_discarded(opd, self.expect_ty0_subtype());
-                Ok((
-                    SynExprDisambiguation::Trivial,
-                    Ok(self.term_menu.ty0().into()),
-                ))
+                self.build_new_expr_ty_discarded(opd, self.expect_ty0_subtype());
+                Ok((SemaExprData::Trivial, Ok(self.term_menu.ty0().into())))
             }
         }
     }

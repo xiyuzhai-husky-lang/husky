@@ -1,6 +1,6 @@
 mod branch_stmt;
 
-use husky_syn_expr::{SynStmt, SynStmtIdx, SynStmtIdxRange};
+use husky_syn_expr::{SynStmtData, SynStmtIdx, SynStmtIdxRange};
 
 pub use self::branch_stmt::*;
 
@@ -42,7 +42,7 @@ impl ToHirLazy for SynStmtIdx {
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
         Some(match builder.syn_expr_region_data()[*self] {
-            SynStmt::Let {
+            SynStmtData::Let {
                 let_token,
                 ref let_variables_pattern,
                 initial_value,
@@ -53,37 +53,37 @@ impl ToHirLazy for SynStmtIdx {
                 ),
                 initial_value: initial_value.to_hir_lazy(builder),
             },
-            SynStmt::Return {
+            SynStmtData::Return {
                 return_token,
                 result,
             } => HirLazyStmt::Return {
                 result: result.to_hir_lazy(builder),
             },
-            SynStmt::Require {
+            SynStmtData::Require {
                 require_token,
                 condition,
             } => HirLazyStmt::Require {
                 condition: condition.to_hir_lazy(builder),
             },
-            SynStmt::Assert {
+            SynStmtData::Assert {
                 assert_token,
                 condition,
             } => HirLazyStmt::Assert {
                 condition: condition.to_hir_lazy(builder),
             },
-            SynStmt::Eval {
+            SynStmtData::Eval {
                 expr_idx,
                 eol_semicolon,
             } => HirLazyStmt::Eval {
                 expr_idx: expr_idx.to_hir_lazy(builder),
             },
-            SynStmt::Break { .. } => unreachable!(),
-            SynStmt::ForBetween { .. } => unreachable!(),
-            SynStmt::ForIn { .. } => unreachable!(),
-            SynStmt::ForExt { .. } => unreachable!(),
-            SynStmt::While { .. } => unreachable!(),
-            SynStmt::DoWhile { .. } => unreachable!(),
-            SynStmt::IfElse {
+            SynStmtData::Break { .. } => unreachable!(),
+            SynStmtData::ForBetween { .. } => unreachable!(),
+            SynStmtData::ForIn { .. } => unreachable!(),
+            SynStmtData::ForExt { .. } => unreachable!(),
+            SynStmtData::While { .. } => unreachable!(),
+            SynStmtData::DoWhile { .. } => unreachable!(),
+            SynStmtData::IfElse {
                 ref if_branch,
                 ref elif_branches,
                 ref else_branch,
@@ -97,7 +97,7 @@ impl ToHirLazy for SynStmtIdx {
                     .as_ref()
                     .map(|else_branch| else_branch.to_hir_lazy(builder)),
             },
-            SynStmt::Match { match_token, .. } => todo!(),
+            SynStmtData::Match { match_token, .. } => todo!(),
         })
     }
 }

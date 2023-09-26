@@ -19,10 +19,11 @@ use husky_syn_expr::{
 };
 use husky_term_prelude::RitchieKind;
 use husky_token_data::LiteralData;
-use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
+use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use smallvec::SmallVec;
 
-pub enum SemaExpr {
+#[derive(Debug, PartialEq, Eq)]
+pub enum SemaExprData {
     Literal(RegionalTokenIdx, LiteralData),
     PrincipalEntityPath {
         path_expr_idx: SynPrincipalEntityPathExprIdx,
@@ -77,8 +78,8 @@ pub enum SemaExpr {
     },
     // todo: implicit arguments
     ExplicitApplication {
-        function_expr_idx: SemaExprIdx,
-        argument_expr_idx: SemaExprIdx,
+        function_sema_expr_idx: SemaExprIdx,
+        argument_sema_expr_idx: SemaExprIdx,
     },
     FunctionCall {
         function: SemaExprIdx,
@@ -199,7 +200,56 @@ pub enum SemaExpr {
     Err(SemaExprError),
 }
 
-pub type SemaExprArena = Arena<SemaExpr>;
-pub type SemaExprIdx = ArenaIdx<SemaExpr>;
-pub type SemaExprIdxRange = ArenaIdxRange<SemaExpr>;
-pub type SemaExprMap<V> = ArenaMap<SemaExpr, V>;
+#[derive(Debug, PartialEq, Eq)]
+pub struct SemaExprEntry {
+    data: SemaExprData,
+    ty_result: SemaExprResult<FluffyTerm>,
+}
+
+impl SemaExprEntry {
+    pub fn data(&self) -> &SemaExprData {
+        &self.data
+    }
+
+    pub fn ty_result(&self) -> SemaExprResultRef<FluffyTerm> {
+        self.ty_result.as_ref().copied()
+    }
+}
+
+pub type SemaExprEntryResult = SemaExprResult<SemaExprEntry>;
+
+#[derive(Debug, Default, PartialEq, Eq)]
+pub struct SemaExprArena(Arena<SemaExprEntryResult>);
+
+impl SemaExprArena {
+    fn alloc_ok(
+        &mut self,
+        data: SemaExprData,
+        ty_result: SemaExprResult<FluffyTerm>,
+    ) -> SemaExprIdx {
+        SemaExprIdx(self.0.alloc_one(Ok(SemaExprEntry { data, ty_result })))
+    }
+
+    fn alloc_err(&mut self, e: SemaExprError) -> SemaExprIdx {
+        SemaExprIdx(self.0.alloc_one(Err(e)))
+    }
+
+    pub(crate) fn arena_ref(&self) -> SemaExprArenaRef {
+        self.0.arena_ref()
+    }
+}
+
+pub type SemaExprArenaRef<'a> = ArenaRef<'a, SemaExprEntryResult>;
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct SemaExprIdx(ArenaIdx<SemaExprEntryResult>);
+
+impl SemaExprIdx {
+    /// panic if there is any error
+    pub fn data<'a>(self, arena: SemaExprArenaRef<'a>) -> &'a SemaExprData {
+        &arena.get(self.0).unwrap().as_ref().unwrap().data
+    }
+}
+
+pub type SemaExprIdxRange = ArenaIdxRange<SemaExprEntryResult>;
+pub type SemaExprMap<V> = ArenaMap<SemaExprEntryResult, V>;

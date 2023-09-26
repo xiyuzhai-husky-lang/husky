@@ -4,16 +4,24 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_function_application_expr_ty(
         &mut self,
         expr_idx: SynExprIdx,
-        function_expr_idx: SynExprIdx,
-        argument_expr_idx: SynExprIdx,
+        function_syn_expr_idx: SynExprIdx,
+        argument_syn_expr_idx: SynExprIdx,
         final_destination: FinalDestination,
-    ) -> SemaExprResult<FluffyTerm> {
-        let Some(function_ty_outcome) = self.infer_new_expr_ty_for_outcome(
-            function_expr_idx,
+    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
+        let (function_sema_expr_idx, function_ty_outcome) = self.build_new_sema_expr_with_outcome(
+            function_syn_expr_idx,
             ExpectEqsFunctionType::new(final_destination),
-        ) else {
-            self.infer_new_expr_ty_discarded(argument_expr_idx, ExpectAnyDerived);
-            return Err(DerivedSemaExprError::ExplicitApplicationFunctionTypeNotInferred.into());
+        );
+        let Some(function_ty_outcome) = function_ty_outcome else {
+            let argument_sema_expr_idx =
+                self.build_new_expr_ty_discarded(argument_syn_expr_idx, ExpectAnyDerived);
+            return (
+                Ok(SemaExprData::ExplicitApplication {
+                    function_sema_expr_idx,
+                    argument_sema_expr_idx,
+                }),
+                Err(DerivedSemaExprError::ExplicitApplicationFunctionTypeNotInferred.into()),
+            );
         };
         match function_ty_outcome.variant() {
             ExpectEqsFunctionTypeOutcomeVariant::Curry {
@@ -23,51 +31,67 @@ impl<'a> ExprTypeEngine<'a> {
                 return_ty,
             } => self.calc_function_application_expr_ty_aux(
                 expr_idx,
+                function_sema_expr_idx,
                 *variance,
                 *parameter_symbol,
                 *parameter_ty,
                 *return_ty,
-                argument_expr_idx,
+                argument_syn_expr_idx,
             ),
             ExpectEqsFunctionTypeOutcomeVariant::Ritchie { .. } => {
-                self.infer_new_expr_ty_discarded(argument_expr_idx, ExpectAnyDerived);
-                Err(OriginalSemaExprError::ExpectedCurryButGotRitchieInstead.into())
+                let argument_sema_expr_idx =
+                    self.build_new_expr_ty_discarded(argument_syn_expr_idx, ExpectAnyDerived);
+                (
+                    Ok(SemaExprData::ExplicitApplication {
+                        function_sema_expr_idx,
+                        argument_sema_expr_idx,
+                    }),
+                    Err(OriginalSemaExprError::ExpectedCurryButGotRitchieInstead.into()),
+                )
             }
         }
     }
 
     pub(super) fn calc_function_application_expr_ty_aux(
         &mut self,
-        expr_idx: SynExprIdx,
+        syn_expr_idx: SynExprIdx,
+        function_sema_expr_idx: SemaExprIdx,
         variance: Variance,
         parameter_variable: Option<FluffyTerm>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
         argument_expr_idx: SynExprIdx,
-    ) -> SemaExprResult<FluffyTerm> {
-        let Some(argument_ty) =
-            self.infer_new_expr_ty(argument_expr_idx, ExpectCurryDestination::new(parameter_ty))
-        else {
-            Err(DerivedSemaExprError::UnableToInferFunctionApplicationArgumentType)?
+    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
+        let (argument_sema_expr_idx, argument_ty) =
+            self.infer_new_expr_ty(argument_expr_idx, ExpectCurryDestination::new(parameter_ty));
+        let data_result = Ok(SemaExprData::ExplicitApplication {
+            function_sema_expr_idx,
+            argument_sema_expr_idx,
+        });
+        let Some(argument_ty) = argument_ty else {
+            return (
+                data_result,
+                Err(DerivedSemaExprError::UnableToInferFunctionApplicationArgumentType.into()),
+            );
         };
         let shift =
             argument_ty.curry_parameter_count(self) - parameter_ty.curry_parameter_count(self);
         // needs also to check type
-        match shift {
-            0 => Ok(match parameter_variable {
-                Some(parameter_variable) => {
-                    let argument_term = self
-                        .infer_expr_term(argument_expr_idx)
-                        .ok_or(DerivedSemaExprError::UnableToInferArgumentTermForDependentType)?;
-                    return_ty.substitute_variable(
+        let ty_result = match shift {
+            0 => match parameter_variable {
+                Some(parameter_variable) => match self.infer_expr_term(argument_expr_idx) {
+                    Some(argument_term) => Ok(return_ty.substitute_variable(
                         self,
-                        expr_idx.into(),
+                        syn_expr_idx.into(),
                         parameter_variable,
                         argument_term,
-                    )
-                }
-                None => return_ty,
-            }),
+                    )),
+                    None => {
+                        Err(DerivedSemaExprError::UnableToInferArgumentTermForDependentType.into())
+                    }
+                },
+                None => Ok(return_ty),
+            },
             shift if shift < 0 => todo!("invalid"),
             shift => self
                 .synthesize_function_application_expr_ty(
@@ -79,6 +103,7 @@ impl<'a> ExprTypeEngine<'a> {
                     shift,
                 )
                 .map_err(Into::into),
-        }
+        };
+        return (data_result, ty_result);
     }
 }

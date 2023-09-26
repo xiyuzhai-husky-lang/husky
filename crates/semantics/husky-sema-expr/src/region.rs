@@ -4,12 +4,11 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SemaExprDb)]
-pub struct ExprTypeRegion {
+pub struct SemaExprRegion {
     path: RegionPath,
+    sema_expr_arena: SemaExprArena,
     pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
-    expr_ty_infos: SynExprMap<ExprTypeInfo>,
-    extra_expr_errors: Vec<(SynExprIdx, SemaExprError)>,
     expr_fluffy_terms: SynExprMap<ExprTermResult<FluffyTerm>>,
     symbol_tys: SymbolMap<SymbolType>,
     symbol_terms: SymbolMap<FluffyTerm>,
@@ -18,14 +17,13 @@ pub struct ExprTypeRegion {
     self_ty: Option<EtherealTerm>,
 }
 
-impl ExprTypeRegion {
+impl SemaExprRegion {
     pub(crate) fn new(
         db: &dyn SemaExprDb,
         path: RegionPath,
+        sema_expr_arena: SemaExprArena,
         pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
         pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
-        expr_ty_infos: SynExprMap<ExprTypeInfo>,
-        extra_expr_errors: Vec<(SynExprIdx, SemaExprError)>,
         expr_fluffy_terms: SynExprMap<ExprTermResult<FluffyTerm>>,
         symbol_terms: SymbolMap<FluffyTerm>,
         symbol_tys: SymbolMap<SymbolType>,
@@ -35,10 +33,9 @@ impl ExprTypeRegion {
     ) -> Self {
         Self {
             path,
+            sema_expr_arena,
             pattern_expr_ty_infos,
             pattern_symbol_ty_infos,
-            expr_ty_infos,
-            extra_expr_errors,
             expr_fluffy_terms,
             symbol_tys,
             symbol_terms,
@@ -50,14 +47,6 @@ impl ExprTypeRegion {
 
     pub fn path(&self) -> RegionPath {
         self.path
-    }
-
-    pub fn expr_ty_infos(&self) -> &SynExprMap<ExprTypeInfo> {
-        &self.expr_ty_infos
-    }
-
-    pub fn extra_expr_ty_errors(&self) -> &[(SynExprIdx, SemaExprError)] {
-        &self.extra_expr_errors
     }
 
     pub fn expr_fluffy_terms(&self) -> &SynExprMap<ExprTermResult<FluffyTerm>> {
@@ -90,38 +79,13 @@ impl ExprTypeRegion {
     pub fn self_ty(&self) -> Option<EtherealTerm> {
         self.self_ty
     }
-
-    pub fn expr_disambiguation(
-        &self,
-        syn_expr_idx: SynExprIdx,
-    ) -> Option<SemaExprResultRef<&SynExprDisambiguation>> {
-        // ad hoc
-        // todo: change this to always some
-        self.expr_ty_infos
-            .get(syn_expr_idx)
-            .map(|ty_info| ty_info.disambiguation())
-    }
-
-    #[track_caller]
-    pub fn expr_disambiguation_unwrapped(
-        &self,
-        syn_expr_idx: SynExprIdx,
-    ) -> &SynExprDisambiguation {
-        // ad hoc
-        // todo: change this to always some
-        self.expr_ty_infos
-            .get(syn_expr_idx)
-            .unwrap()
-            .disambiguation()
-            .unwrap()
-    }
 }
 
 #[salsa::tracked(jar = SemaExprJar, return_ref)]
 pub(crate) fn expr_ty_region(
     db: &dyn SemaExprDb,
     syn_expr_region: SynExprRegion,
-) -> ExprTypeRegion {
+) -> SemaExprRegion {
     let mut engine = ExprTypeEngine::new(db, syn_expr_region);
     engine.infer_all();
     engine.finish()

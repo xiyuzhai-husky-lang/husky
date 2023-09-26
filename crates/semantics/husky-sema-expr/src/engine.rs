@@ -34,8 +34,6 @@ pub(crate) struct ExprTypeEngine<'a> {
     declarative_term_region: &'a DeclarativeTermRegion,
     sema_expr_arena: SemaExprArena,
     fluffy_term_region: FluffyTermRegion,
-    expr_ty_infos: SynExprMap<ExprTypeInfo>,
-    extra_expr_errors: Vec<(SynExprIdx, SemaExprError)>,
     expr_terms: SynExprMap<ExprTermResult<FluffyTerm>>,
     symbol_terms: SymbolMap<FluffyTerm>,
     symbol_tys: SymbolMap<SymbolType>,
@@ -78,7 +76,7 @@ impl<'a> FluffyTermEngine<'a> for ExprTypeEngine<'a> {
 }
 
 impl<'a> std::ops::Index<SynExprIdx> for ExprTypeEngine<'a> {
-    type Output = SynExpr;
+    type Output = SynExprData;
 
     fn index(&self, index: SynExprIdx) -> &Self::Output {
         &self.expr_region_data[index]
@@ -146,8 +144,6 @@ impl<'a> ExprTypeEngine<'a> {
             fluffy_term_region: FluffyTermRegion::new(
                 parent_expr_ty_region.map(|r| r.fluffy_term_region()),
             ),
-            expr_ty_infos: SynExprMap::new(expr_region_data.expr_arena()),
-            extra_expr_errors: vec![],
             expr_terms: SynExprMap::new(expr_region_data.expr_arena()),
             symbol_terms: SymbolMap::new(
                 parent_expr_ty_region
@@ -189,24 +185,24 @@ impl<'a> ExprTypeEngine<'a> {
                 | ExprRootKind::TupleStructFieldType
                 | ExprRootKind::ConstantImplicitParameterType
                 | ExprRootKind::ExplicitParameterType
-                | ExprRootKind::AssociatedTypeTerm => self.infer_new_expr_ty_discarded(
+                | ExprRootKind::AssociatedTypeTerm => self.build_new_expr_ty_discarded(
                     root.expr_idx(),
                     ExpectEqsCategory::new_expect_eqs_ty_kind(),
                 ),
                 ExprRootKind::Trait => {
-                    self.infer_new_expr_ty_discarded(root.expr_idx(), ExpectAnyOriginal)
+                    self.build_new_expr_ty_discarded(root.expr_idx(), ExpectAnyOriginal)
                 }
                 ExprRootKind::BlockExpr => match self.return_ty {
-                    Some(return_ty) => self.infer_new_expr_ty_discarded(
+                    Some(return_ty) => self.build_new_expr_ty_discarded(
                         root.expr_idx(),
                         ExpectCoersion::new_move(return_ty.into()),
                     ),
-                    None => self.infer_new_expr_ty_discarded(root.expr_idx(), ExpectAnyDerived),
+                    None => self.build_new_expr_ty_discarded(root.expr_idx(), ExpectAnyDerived),
                 },
                 ExprRootKind::FieldBindInitialValue { ty_expr_idx }
                 | ExprRootKind::ExplicitParameterDefaultValue { ty_expr_idx } => {
                     match self.infer_expr_term(ty_expr_idx) {
-                        Some(ty) => self.infer_new_expr_ty_discarded(
+                        Some(ty) => self.build_new_expr_ty_discarded(
                             root.expr_idx(),
                             ExpectCoersion::new_move(ty),
                         ),
@@ -231,12 +227,7 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn add_expr_ty_error(&mut self, expr_idx: SynExprIdx, expr_ty_error: impl Into<SemaExprError>) {
-        self.extra_expr_errors
-            .push((expr_idx, expr_ty_error.into()))
-    }
-
-    pub(crate) fn finish(mut self) -> ExprTypeRegion {
+    pub(crate) fn finish(mut self) -> SemaExprRegion {
         // ad hoc, todo: enforce this
         // for expr_idx in self.expr_region_data.expr_arena().index_iter() {
         //     print_debug_expr!(self, expr_idx);
@@ -245,13 +236,12 @@ impl<'a> ExprTypeEngine<'a> {
         self.fluffy_term_region
             .finalize_unresolved_term_table(self.db, self.term_menu);
         self.infer_extra_expr_terms_in_preparation_for_hir();
-        ExprTypeRegion::new(
+        SemaExprRegion::new(
             self.db,
             self.expr_region_data.path(),
+            self.sema_expr_arena,
             self.pattern_expr_ty_infos,
             self.pattern_symbol_ty_infos,
-            self.expr_ty_infos,
-            self.extra_expr_errors,
             self.expr_terms,
             self.symbol_terms,
             self.symbol_tys,

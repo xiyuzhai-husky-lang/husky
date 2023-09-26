@@ -60,12 +60,12 @@ impl<'a> ExprTypeEngine<'a> {
                     } => todo!(),
                     FluffyBaseTypeData::Symbol { term } => todo!(),
                 };
-                self.infer_new_expr_ty_discarded(
+                self.build_new_expr_ty_discarded(
                     ropd,
                     ExpectCoersion::new(Contract::Move, ropd_ty_expected),
                 )
             }
-            None => self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived),
+            None => self.build_new_expr_ty_discarded(ropd, ExpectAnyDerived),
         };
         Ok(self.term_menu.unit_ty_ontology().into())
     }

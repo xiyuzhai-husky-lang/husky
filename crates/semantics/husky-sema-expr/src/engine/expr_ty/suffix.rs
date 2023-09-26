@@ -16,12 +16,11 @@ impl<'a> ExprTypeEngine<'a> {
         opd: SynExprIdx,
         opr: SuffixOpr,
         final_destination: FinalDestination,
-    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
+    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
         match opr {
-            SuffixOpr::Incr | SuffixOpr::Attr => Ok((
-                SynExprDisambiguation::Trivial,
-                self.calc_incr_or_attr_expr_ty(opd),
-            )),
+            SuffixOpr::Incr | SuffixOpr::Attr => {
+                Ok((SemaExprData::Trivial, self.calc_incr_or_attr_expr_ty(opd)))
+            }
             SuffixOpr::UnveilOrComposeWithOption => {
                 // self.calc_unveil_or_compose_with_option_expr_ty(opd, final_destination)
                 self.calc_ambiguous_suffix_expr_ty(
@@ -90,7 +89,7 @@ impl<'a> ExprTypeEngine<'a> {
     //     &mut self,
     //     opd: SynExprIdx,
     //     expected_final_destination: FinalDestination,
-    // ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
+    // ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
     //     self.unveiler.initialize_if_not(self.return_ty, self.db);
     //     match self.unveiler {
     //         Unveiler::UniqueFullyInstantiated {
@@ -107,7 +106,7 @@ impl<'a> ExprTypeEngine<'a> {
     //                         ExpectCoersion::new(Contract::Move, opd_ty.into()),
     //                     );
     //                     Ok((
-    //                         SynExprDisambiguation::UnveilOrComposeWithOption(
+    //                         SemaExprData::UnveilOrComposeWithOption(
     //                             UnveilOrComposeWithOptionExprDisambiguation::Unveil,
     //                         ),
     //                         Ok(unveil_output_ty.into()),

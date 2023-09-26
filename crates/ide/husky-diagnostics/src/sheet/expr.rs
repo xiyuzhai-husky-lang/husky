@@ -1,8 +1,8 @@
 use super::*;
 use husky_syn_defn::HasDefns;
 use husky_syn_expr::{
-    OriginalSynExprError, SynExpr, SynExprError, SynExprRegion, SynExprResult,
-    SynPrincipalEntityPathExpr, SynStmt,
+    OriginalSynExprError, SynExprData, SynExprError, SynExprRegion, SynExprResult,
+    SynPrincipalEntityPathExpr, SynStmtData,
 };
 use salsa::DebugWithDb;
 
@@ -50,14 +50,14 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
         let expr_region_data = syn_expr_region.data(self.db());
         for expr in expr_region_data.expr_arena().data() {
             match expr {
-                SynExpr::Err(SynExprError::Original(e)) => self.visit_atom(e),
+                SynExprData::Err(SynExprError::Original(e)) => self.visit_atom(e),
                 // self.visit_atom(e),
                 _ => (),
             }
         }
         for stmt in expr_region_data.stmt_arena().data() {
             match stmt {
-                SynStmt::Let {
+                SynStmtData::Let {
                     let_token,
                     let_variables_pattern,
                     assign_token,
@@ -66,21 +66,21 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                     self.visit_syn_expr_result(let_variables_pattern);
                     self.visit_syn_expr_result(assign_token);
                 }
-                SynStmt::Return {
+                SynStmtData::Return {
                     return_token,
                     result,
                 } => {}
-                SynStmt::Require {
+                SynStmtData::Require {
                     require_token,
                     condition,
                 } => {}
-                SynStmt::Assert {
+                SynStmtData::Assert {
                     assert_token,
                     condition,
                 } => {}
-                SynStmt::Break { break_token } => {}
-                SynStmt::Eval { eol_semicolon, .. } => {}
-                SynStmt::ForBetween {
+                SynStmtData::Break { break_token } => {}
+                SynStmtData::Eval { eol_semicolon, .. } => {}
+                SynStmtData::ForBetween {
                     for_token,
                     particulars,
                     eol_colon,
@@ -90,13 +90,13 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                     self.visit_syn_expr_result(&particulars.range);
                     self.visit_syn_expr_result(eol_colon);
                 }
-                SynStmt::ForIn {
+                SynStmtData::ForIn {
                     for_token,
                     condition,
                     eol_colon,
                     block,
                 } => todo!(),
-                SynStmt::ForExt {
+                SynStmtData::ForExt {
                     forext_token,
                     particulars,
                     eol_colon,
@@ -105,7 +105,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                     self.visit_syn_expr_result(eol_colon);
                     // todo: handle errors in particulars
                 }
-                SynStmt::While {
+                SynStmtData::While {
                     while_token,
                     condition,
                     eol_colon,
@@ -114,7 +114,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                     self.visit_syn_expr_result(condition);
                     self.visit_syn_expr_result(eol_colon);
                 }
-                SynStmt::DoWhile {
+                SynStmtData::DoWhile {
                     do_token,
                     while_token,
                     condition,
@@ -124,7 +124,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                     self.visit_syn_expr_result(condition);
                     self.visit_syn_expr_result(eol_colon);
                 }
-                SynStmt::IfElse {
+                SynStmtData::IfElse {
                     if_branch,
                     elif_branches,
                     else_branch,
@@ -139,7 +139,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                         self.visit_syn_expr_result(&else_branch.eol_colon);
                     }
                 }
-                SynStmt::Match {
+                SynStmtData::Match {
                     match_token,
                     match_expr,
                     eol_with_token,

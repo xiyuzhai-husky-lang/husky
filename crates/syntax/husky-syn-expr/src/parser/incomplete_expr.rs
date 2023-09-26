@@ -12,7 +12,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 pub(super) enum IncompleteSynExpr {
     Binary {
-        lopd: SynExpr,
+        lopd: SynExprData,
         punctuation: BinaryOpr,
         punctuation_regional_token_idx: RegionalTokenIdx,
     },
@@ -44,7 +44,7 @@ pub(super) enum IncompleteSynExpr {
         // start: TextPosition,
     },
     Application {
-        function: SynExpr,
+        function: SynExprData,
     },
     /// just needs the return type
     Ritchie {

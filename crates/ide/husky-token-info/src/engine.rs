@@ -310,15 +310,15 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
         }
     }
 
-    fn visit_expr(&mut self, expr_idx: SynExprIdx, expr: &SynExpr) {
+    fn visit_expr(&mut self, expr_idx: SynExprIdx, expr: &SynExprData) {
         match expr {
-            SynExpr::CurrentSymbol {
+            SynExprData::CurrentSymbol {
                 regional_token_idx,
                 current_symbol_idx,
                 current_symbol_kind,
                 ..
             }
-            | SynExpr::FrameVarDecl {
+            | SynExprData::FrameVarDecl {
                 regional_token_idx,
                 frame_var_symbol_idx: current_symbol_idx,
                 current_symbol_kind,
@@ -331,7 +331,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                     syn_expr_region: self.syn_expr_region,
                 },
             ),
-            SynExpr::InheritedSymbol {
+            SynExprData::InheritedSymbol {
                 regional_token_idx,
                 inherited_symbol_idx,
                 inherited_symbol_kind,
@@ -344,19 +344,19 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                     inherited_symbol_kind: *inherited_symbol_kind,
                 },
             ),
-            SynExpr::SelfType(regional_token_idx) => {
+            SynExprData::SelfType(regional_token_idx) => {
                 self.add(*regional_token_idx, TokenInfo::SelfType)
             }
-            SynExpr::SelfValue(regional_token_idx) => {
+            SynExprData::SelfValue(regional_token_idx) => {
                 self.add(*regional_token_idx, TokenInfo::SelfValue)
             }
-            SynExpr::Field { ident_token, .. } => {
+            SynExprData::Field { ident_token, .. } => {
                 self.add(ident_token.regional_token_idx(), TokenInfo::Field)
             }
-            SynExpr::MethodApplicationOrCall { ident_token, .. } => {
+            SynExprData::MethodApplicationOrCall { ident_token, .. } => {
                 self.add(ident_token.regional_token_idx(), TokenInfo::Method)
             }
-            SynExpr::At {
+            SynExprData::At {
                 at_regional_token_idx,
                 place_label_regional_token,
             } => {
@@ -366,26 +366,26 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 // ad hoc
                 // self.add(*at_regional_token_idx, TokenInfo::Method)
             }
-            SynExpr::Literal(_, _)
-            | SynExpr::PrincipalEntityPath { .. }
-            | SynExpr::AssociatedItem { .. }
-            | SynExpr::Binary { .. }
-            | SynExpr::Prefix { .. }
-            | SynExpr::Suffix { .. }
-            | SynExpr::TemplateInstantiation { .. }
-            | SynExpr::NewTuple { .. }
-            | SynExpr::List { .. }
-            | SynExpr::Bracketed { .. }
-            | SynExpr::Err(_)
-            | SynExpr::Block { .. }
-            | SynExpr::Be { .. } => (),
-            SynExpr::BoxColonList { .. } => (),
-            SynExpr::FunctionApplicationOrCall { function, .. }
-            | SynExpr::ExplicitApplication {
+            SynExprData::Literal(_, _)
+            | SynExprData::PrincipalEntityPath { .. }
+            | SynExprData::AssociatedItem { .. }
+            | SynExprData::Binary { .. }
+            | SynExprData::Prefix { .. }
+            | SynExprData::Suffix { .. }
+            | SynExprData::TemplateInstantiation { .. }
+            | SynExprData::NewTuple { .. }
+            | SynExprData::List { .. }
+            | SynExprData::Bracketed { .. }
+            | SynExprData::Err(_)
+            | SynExprData::Block { .. }
+            | SynExprData::Be { .. } => (),
+            SynExprData::BoxColonList { .. } => (),
+            SynExprData::FunctionApplicationOrCall { function, .. }
+            | SynExprData::ExplicitApplication {
                 function_expr_idx: function,
                 ..
             } => match self.expr_region_data[*function] {
-                SynExpr::List {
+                SynExprData::List {
                     lbox_regional_token_idx,
                     items: _,
                     rbox_regional_token_idx,
@@ -393,7 +393,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                     self.add(lbox_regional_token_idx, TokenInfo::BoxPrefix);
                     self.add(rbox_regional_token_idx, TokenInfo::BoxPrefix)
                 }
-                SynExpr::BoxColonList {
+                SynExprData::BoxColonList {
                     lbox_regional_token_idx,
                     colon_regional_token_idx,
                     rbox_regional_token_idx,
@@ -405,7 +405,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 }
                 _ => (),
             },
-            SynExpr::IndexOrCompositionWithList {
+            SynExprData::IndexOrCompositionWithList {
                 owner: _,
                 lbox_regional_token_idx: _,
                 items: _indices,
@@ -428,14 +428,14 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                     None | Some(Err(_)) => (),
                 }
             }
-            SynExpr::Unit {
+            SynExprData::Unit {
                 lpar_regional_token_idx,
                 rpar_regional_token_idx,
             } => {
                 self.add(*lpar_regional_token_idx, TokenInfo::UnitLeftParenthesis);
                 self.add(*rpar_regional_token_idx, TokenInfo::UnitRightParenthesis);
             }
-            SynExpr::EmptyHtmlTag {
+            SynExprData::EmptyHtmlTag {
                 empty_html_bra_idx,
                 function_ident,
                 ref arguments,
@@ -455,11 +455,13 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                     }
                 }
             }
-            SynExpr::FunctionCall { .. } => (),
-            SynExpr::Ritchie { .. } => (),
-            SynExpr::Sorry { regional_token_idx } => todo!(),
-            SynExpr::Todo { regional_token_idx } => self.add(*regional_token_idx, TokenInfo::Todo),
-            SynExpr::Unreachable { regional_token_idx } => {
+            SynExprData::FunctionCall { .. } => (),
+            SynExprData::Ritchie { .. } => (),
+            SynExprData::Sorry { regional_token_idx } => todo!(),
+            SynExprData::Todo { regional_token_idx } => {
+                self.add(*regional_token_idx, TokenInfo::Todo)
+            }
+            SynExprData::Unreachable { regional_token_idx } => {
                 self.add(*regional_token_idx, TokenInfo::Unreachable)
             }
         }

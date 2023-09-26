@@ -6,8 +6,9 @@ mod db;
 mod engine;
 mod error;
 mod expr;
-mod info;
+// mod info;
 mod region;
+mod stmt;
 #[cfg(test)]
 mod tests;
 
@@ -15,7 +16,8 @@ pub use self::db::*;
 pub use self::engine::*;
 pub use self::error::*;
 pub use self::expr::*;
-pub use self::info::*;
+pub use self::stmt::*;
+// pub use self::info::*;
 pub use self::region::*;
 
 use either::*;

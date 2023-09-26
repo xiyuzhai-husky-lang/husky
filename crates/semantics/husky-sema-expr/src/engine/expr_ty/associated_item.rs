@@ -12,7 +12,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: SynExprIdx,
         parent_path: MajorItemPath,
         ident_token: IdentRegionalToken,
-    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
+    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
         let parent_term: FluffyTerm = match parent_path {
             MajorItemPath::Type(path) => {
                 // ad hoc

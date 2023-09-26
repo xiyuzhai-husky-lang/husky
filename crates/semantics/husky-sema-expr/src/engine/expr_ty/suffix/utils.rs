@@ -8,21 +8,21 @@ impl<'a> ExprTypeEngine<'a> {
         naive_suffix_f_given_opd_ty: F1,
         naive_suffix_f: F2,
         application_composition_f: F3,
-    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)>
+    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>)
     where
         F1: FnOnce(
             &mut Self,
             FluffyTerm,
-        ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)>,
+        ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>),
         F2: FnOnce(
             &mut Self,
             SynExprIdx,
-        ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)>,
+        ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>),
         F3: FnOnce(
             &mut Self,
             SynExprIdx,
             FinalDestination,
-        ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)>,
+        ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>),
     {
         match final_destination {
             FinalDestination::Sort => {

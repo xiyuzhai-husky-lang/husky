@@ -8,7 +8,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: SynExprIdx,
         literal_token_idx: RegionalTokenIdx,
         expectation: &impl ExpectFluffyTerm,
-    ) -> Result<FluffyTerm, SemaExprError> {
+    ) -> SemaExprResult<FluffyTerm> {
         let literal_token: TokenData = self.token_data(literal_token_idx);
         match literal_token {
             TokenData::Literal(literal) => match literal {

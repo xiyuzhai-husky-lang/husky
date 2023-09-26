@@ -5,7 +5,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: SynExprIdx,
         items: SynExprIdxRange,
-    ) -> Result<FluffyTerm, SemaExprError> {
+    ) -> SemaExprResult<FluffyTerm> {
         todo!()
         // let element_ty: FluffyTerm = self
         //     .fluffy_term_region

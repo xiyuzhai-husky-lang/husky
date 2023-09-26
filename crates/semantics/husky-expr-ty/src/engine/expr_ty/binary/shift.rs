@@ -15,7 +15,7 @@ impl<'a> ExprTypeEngine<'a> {
             p!(self.symbol_tys.debug(self.db));
             todo!();
             match self.expr_region_data[lopd] {
-                SynExpr::CurrentSymbol {
+                SynExprData::CurrentSymbol {
                     ident,
                     regional_token_idx,
                     current_symbol_idx,

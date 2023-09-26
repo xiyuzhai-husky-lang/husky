@@ -115,7 +115,7 @@ impl SynExprRegionData {
 }
 
 impl std::ops::Index<SynExprIdx> for SynExprRegionData {
-    type Output = SynExpr;
+    type Output = SynExprData;
 
     fn index(&self, index: SynExprIdx) -> &Self::Output {
         &self.expr_arena[index]
@@ -123,7 +123,7 @@ impl std::ops::Index<SynExprIdx> for SynExprRegionData {
 }
 
 impl std::ops::Index<SynStmtIdx> for SynExprRegionData {
-    type Output = SynStmt;
+    type Output = SynStmtData;
 
     fn index(&self, index: SynStmtIdx) -> &Self::Output {
         &self.stmt_arena[index]

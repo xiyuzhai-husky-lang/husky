@@ -16,20 +16,20 @@ impl<'a> ExprTypeEngine<'a> {
                 for ritchie_match in &ritchie_matches {
                     match ritchie_match {
                         RitchieParameterArgumentMatch::Regular(param, item) => self
-                            .infer_new_expr_ty_discarded(
+                            .build_new_expr_ty_discarded(
                                 item.argument_expr_idx(),
                                 ExpectCoersion::new(param.contract(), param.ty()),
                             ),
                         RitchieParameterArgumentMatch::Variadic(param, items) => {
                             for item in items {
-                                self.infer_new_expr_ty_discarded(
+                                self.build_new_expr_ty_discarded(
                                     item.argument_expr_idx(),
                                     ExpectCoersion::new(param.contract(), param.ty()),
                                 )
                             }
                         }
                         RitchieParameterArgumentMatch::Keyed(param, item) => self
-                            .infer_new_expr_ty_discarded(
+                            .build_new_expr_ty_discarded(
                                 item.argument_expr_idx(),
                                 ExpectCoersion::new(param.contract(), param.ty()),
                             ),
@@ -39,7 +39,7 @@ impl<'a> ExprTypeEngine<'a> {
             }
             Err(e) => {
                 ritchie_arguments.for_each(|ritchie_argument| {
-                    self.infer_new_expr_ty_discarded(
+                    self.build_new_expr_ty_discarded(
                         ritchie_argument.argument_expr_idx(),
                         ExpectAnyDerived,
                     )
