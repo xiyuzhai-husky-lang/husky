@@ -11,7 +11,13 @@ pub enum SemaExprDataError {
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SemaExprDb)]
-pub enum OriginalSemaExprDataError {}
+pub enum OriginalSemaExprDataError {
+    #[error("RitchieParameterArgumentMismatch")]
+    RitchieParameterArgumentMismatch {
+        match_error: RitchieParameterArgumentMatchError,
+        ritchie_arguments: Vec<SemaExprIdx>,
+    },
+}
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SemaExprDb)]

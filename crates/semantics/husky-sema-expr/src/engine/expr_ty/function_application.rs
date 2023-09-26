@@ -19,7 +19,7 @@ impl<'a> ExprTypeEngine<'a> {
             let argument_sema_expr_idx =
                 self.build_new_expr_ty_discarded(argument_syn_expr_idx, ExpectAnyDerived);
             return (
-                Ok(SemaExprData::ExplicitApplication {
+                Ok(SemaExprData::Application {
                     function_sema_expr_idx,
                     argument_sema_expr_idx,
                 }),
@@ -45,7 +45,7 @@ impl<'a> ExprTypeEngine<'a> {
                 let argument_sema_expr_idx =
                     self.build_new_expr_ty_discarded(argument_syn_expr_idx, ExpectAnyDerived);
                 (
-                    Ok(SemaExprData::ExplicitApplication {
+                    Ok(SemaExprData::Application {
                         function_sema_expr_idx,
                         argument_sema_expr_idx,
                     }),
@@ -70,7 +70,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) {
         let (argument_sema_expr_idx, argument_ty) =
             self.build_new_expr_ty(argument_expr_idx, ExpectCurryDestination::new(parameter_ty));
-        let data_result = Ok(SemaExprData::ExplicitApplication {
+        let data_result = Ok(SemaExprData::Application {
             function_sema_expr_idx,
             argument_sema_expr_idx,
         });

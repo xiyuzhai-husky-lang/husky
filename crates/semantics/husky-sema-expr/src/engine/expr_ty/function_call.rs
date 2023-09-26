@@ -59,7 +59,7 @@ impl<'a> ExprTypeEngine<'a> {
                 parameter_ty,
                 return_ty,
             } => {
-                match items.len() {
+                let argument_sema_expr_idx = match items.len() {
                     0 => unreachable!(),
                     1 => self.build_new_expr_ty_discarded(
                         items.first().expect("len is 1").expr_idx(),
@@ -68,8 +68,14 @@ impl<'a> ExprTypeEngine<'a> {
                     // parameter_ty must be a tuple
                     // distribute the types for a tuple
                     _ => todo!(),
-                }
-                (Ok(SemaExprData::Application), Ok(*return_ty))
+                };
+                (
+                    Ok(SemaExprData::Application {
+                        function_sema_expr_idx,
+                        argument_sema_expr_idx,
+                    }),
+                    Ok(*return_ty),
+                )
             }
         }
     }
@@ -100,7 +106,7 @@ impl<'a> ExprTypeEngine<'a> {
             items.iter().copied(),
         );
         Ok((
-            SemaExprData::FunctionCall {
+            SemaExprData::FnCall {
                 ritchie_kind: outcome.ritchie_kind(),
                 ritchie_parameter_argument_matches,
             },

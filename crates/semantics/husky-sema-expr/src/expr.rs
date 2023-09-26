@@ -77,11 +77,18 @@ pub enum SemaExprData {
         opr_regional_token_idx: RegionalTokenIdx,
     },
     // todo: implicit arguments
-    ExplicitApplication {
+    Application {
         function_sema_expr_idx: SemaExprIdx,
         argument_sema_expr_idx: SemaExprIdx,
     },
-    FunctionCall {
+    FnCall {
+        function: SemaExprIdx,
+        generic_arguments: Option<SemaTemplateArgumentList>,
+        lpar_regional_token_idx: RegionalTokenIdx,
+        items: SmallVec<[SemaCallListItem; 4]>,
+        rpar_regional_token_idx: RegionalTokenIdx,
+    },
+    GnCall {
         function: SemaExprIdx,
         generic_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
@@ -114,7 +121,7 @@ pub enum SemaExprData {
         items: SmallVec<[SemaCommaListItem; 4]>,
         rpar_regional_token_idx: RegionalTokenIdx,
     },
-    MethodCall {
+    MethodFnCall {
         self_argument: SemaExprIdx,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,

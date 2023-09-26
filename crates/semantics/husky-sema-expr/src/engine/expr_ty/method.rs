@@ -7,14 +7,14 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: SynExprIdx,
         self_argument: SynExprIdx,
         ident_token: IdentRegionalToken,
-        generic_arguments: Option<&SynTemplateArgumentList>,
+        template_arguments: Option<&SynTemplateArgumentList>,
         explicit_arguments: &[SynCommaListItem],
     ) -> (
         SemaExprDataResult<SemaExprData>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
         let Some(self_expr_ty) = self.build_new_expr_ty(self_argument, ExpectAnyOriginal) else {
-            if let Some(generic_arguments) = generic_arguments {
+            if let Some(generic_arguments) = template_arguments {
                 todo!()
             }
             for argument in explicit_arguments {
@@ -36,14 +36,13 @@ impl<'a> ExprTypeEngine<'a> {
                     explicit_arguments.iter().copied().map(Into::into),
                 );
                 let return_ty = signature.return_ty();
-                Ok((
-                    MethodCallOrApplicationDisambiguation::MethodCall {
+                (
+                    Ok(SemaExprData::MethodFnCall {
                         method_dispatch,
                         ritchie_parameter_argument_matches,
-                    }
-                    .into(),
+                    }),
                     Ok(return_ty),
-                ))
+                )
             }
             MethodFluffySignature::MethodFunction(signature) => todo!(),
             MethodFluffySignature::MethodGn => todo!(),
