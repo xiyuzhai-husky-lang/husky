@@ -75,10 +75,6 @@ pub enum OriginalSemaExprTypeError {
     CannotUnveil,
     #[error("cannot unwrap")]
     CannotUnwrap,
-    #[error("unexpected argument")]
-    UnexpectedArgument,
-    #[error("missing argument")]
-    MissingArgument,
 }
 
 impl OriginalError for OriginalSemaExprTypeError {

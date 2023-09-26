@@ -8,7 +8,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: SynExprIdx,
         ritchie_parameters: &[FluffyTermRitchieParameter],
         ritchie_arguments: impl Iterator<Item = SynCallListItem> + Clone,
-    ) -> SemaExprTypeResult<RitchieParameterArgumentMatches> {
+    ) -> SemaExprDataResult<RitchieParameterArgumentMatches> {
         match RitchieParameterArgumentMatcher::new(ritchie_parameters, ritchie_arguments.clone())
             .match_all()
         {
@@ -37,14 +37,22 @@ impl<'a> ExprTypeEngine<'a> {
                 }
                 Ok(ritchie_matches)
             }
-            Err(e) => {
-                ritchie_arguments.for_each(|ritchie_argument| {
-                    self.build_new_expr_ty_discarded(
-                        ritchie_argument.argument_expr_idx(),
-                        ExpectAnyDerived,
-                    )
-                });
-                Err(e)
+            Err(match_error) => {
+                let ritchie_arguments = ritchie_arguments
+                    .map(|ritchie_argument| {
+                        self.build_new_expr_ty_discarded(
+                            ritchie_argument.argument_expr_idx(),
+                            ExpectAnyDerived,
+                        )
+                    })
+                    .collect();
+                Err(
+                    OriginalSemaExprDataError::RitchieParameterArgumentMismatch {
+                        match_error,
+                        ritchie_arguments,
+                    }
+                    .into(),
+                )
             }
         }
     }
@@ -52,6 +60,17 @@ impl<'a> ExprTypeEngine<'a> {
 
 mod matcher {
     use super::*;
+    use thiserror::Error;
+
+    #[derive(Debug, Error, PartialEq, Eq)]
+    #[salsa::debug_with_db(db = SemaExprDb)]
+    pub enum RitchieParameterArgumentMatchError {
+        #[error("unexpected argument")]
+        UnexpectedArgument,
+        #[error("missing argument")]
+        MissingArgument,
+    }
+    pub type RitchieParameterArgumentMatchResult<T> = Result<T, RitchieParameterArgumentMatchError>;
 
     #[derive(Debug, PartialEq, Eq)]
     pub enum RitchieParameterArgumentMatch {
@@ -92,17 +111,22 @@ mod matcher {
             }
         }
 
-        pub(super) fn match_all(mut self) -> SemaExprTypeResult<RitchieParameterArgumentMatches> {
+        pub(super) fn match_all(
+            mut self,
+        ) -> RitchieParameterArgumentMatchResult<RitchieParameterArgumentMatches> {
             for ritchie_parameter in self.ritchie_parameters {
                 self.match_step(*ritchie_parameter)?
             }
             match self.ritchie_call_items.next() {
-                Some(_) => Err(OriginalSemaExprTypeError::UnexpectedArgument)?,
+                Some(_) => Err(RitchieParameterArgumentMatchError::UnexpectedArgument)?,
                 None => Ok(self.ritchie_matches),
             }
         }
 
-        fn match_step(&mut self, param: FluffyTermRitchieParameter) -> SemaExprTypeResult<()> {
+        fn match_step(
+            &mut self,
+            param: FluffyTermRitchieParameter,
+        ) -> RitchieParameterArgumentMatchResult<()> {
             match param {
                 FluffyTermRitchieParameter::Regular(param) => match self.ritchie_call_items.next() {
                     Some(item) => match item {
@@ -111,7 +135,7 @@ mod matcher {
                             .push(RitchieParameterArgumentMatch::Regular(param, item))),
                         SynCallListItem::Keyed(_) => todo!(),
                     },
-                    None => Err(OriginalSemaExprTypeError::MissingArgument)?,
+                    None => Err(RitchieParameterArgumentMatchError::MissingArgument)?,
                 },
                 FluffyTermRitchieParameter::Variadic(param) => {
                     let mut items = vec![];
