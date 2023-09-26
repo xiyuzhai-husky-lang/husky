@@ -5,7 +5,10 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         opd: SynExprIdx,
         final_destination: FinalDestination,
-    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
+    ) -> (
+        SemaExprDataResult<SemaExprData>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
         todo!()
     }
 }

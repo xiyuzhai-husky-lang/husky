@@ -3,20 +3,35 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_function_application_or_call_expr_ty(
         &mut self,
-        expr_idx: SynExprIdx,
-        function: SynExprIdx,
+        syn_expr_idx: SynExprIdx,
+        function_syn_expr_idx: SynExprIdx,
         expr_ty_expectation: &impl ExpectFluffyTerm,
         generic_arguments: Option<&SynTemplateArgumentList>,
         items: &[SynCommaListItem],
-    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
-        let Some(outcome) = self.build_new_sema_expr_with_outcome(
-            function,
+    ) -> (
+        SemaExprDataResult<SemaExprData>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
+        let (function_sema_expr_idx, outcome) = self.build_new_sema_expr_with_outcome(
+            function_syn_expr_idx,
             ExpectEqsFunctionType::new(expr_ty_expectation.final_destination(self)),
-        ) else {
+        );
+        let Some(outcome) = outcome else {
             for item in items {
-                self.infer_new_expr_ty(item.expr_idx(), ExpectAnyDerived);
+                self.build_new_expr_ty_discarded(item.expr_idx(), ExpectAnyDerived);
             }
-            Err(DerivedSemaExprError::ApplicationOrRitchieCallFunctionTypeNotInferred)?
+            return (
+                Err(
+                    DerivedSemaExprDataError::ApplicationOrRitchieCallFunctionTypeNotInferred {
+                        function_sema_expr_idx,
+                    }
+                    .into(),
+                ),
+                Err(
+                    DerivedSemaExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred
+                        .into(),
+                ),
+            );
         };
         if let Some(generic_arguments) = generic_arguments {
             todo!()
@@ -27,18 +42,16 @@ impl<'a> ExprTypeEngine<'a> {
                 parameter_contracted_tys,
             } => {
                 let ritchie_parameter_argument_matches = self.calc_ritchie_arguments_ty(
-                    expr_idx,
+                    syn_expr_idx,
                     parameter_contracted_tys,
                     items.iter().copied().map(Into::into),
                 )?;
-                Ok((
-                    SemaExprData::ApplicationOrFunctionCall(
-                        ApplicationOrFunctionCallExprDisambiguation::FnCall {
-                            ritchie_parameter_argument_matches,
-                        },
-                    ),
+                (
+                    Ok(SemaExprData::FnCall {
+                        ritchie_parameter_argument_matches,
+                    }),
                     Ok(outcome.return_ty()),
-                ))
+                )
             }
             ExpectEqsFunctionTypeOutcomeVariant::Curry {
                 variance,
@@ -56,12 +69,7 @@ impl<'a> ExprTypeEngine<'a> {
                     // distribute the types for a tuple
                     _ => todo!(),
                 }
-                Ok((
-                    SemaExprData::ApplicationOrFunctionCall(
-                        ApplicationOrFunctionCallExprDisambiguation::Application,
-                    ),
-                    Ok(*return_ty),
-                ))
+                (Ok(SemaExprData::Application), Ok(*return_ty))
             }
         }
     }
@@ -73,15 +81,18 @@ impl<'a> ExprTypeEngine<'a> {
         final_destination: FinalDestination,
         generic_arguments: Option<&SynTemplateArgumentList>,
         items: &[SynCallListItem],
-    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
+    ) -> (
+        SemaExprDataResult<SemaExprData>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
         let Some(outcome) = self.build_new_sema_expr_with_outcome(
             function,
             ExpectEqsRitchieType::new(final_destination),
         ) else {
             for item in items {
-                self.infer_new_expr_ty(item.argument_expr_idx(), ExpectAnyDerived);
+                self.build_new_expr_ty(item.argument_expr_idx(), ExpectAnyDerived);
             }
-            Err(DerivedSemaExprError::ApplicationOrRitchieCallFunctionTypeNotInferred)?
+            Err(DerivedSemaExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred)?
         };
         let ritchie_parameter_argument_matches = self.calc_ritchie_arguments_ty(
             expr_idx,

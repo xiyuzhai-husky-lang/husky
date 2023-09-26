@@ -8,25 +8,34 @@ impl<'a> ExprTypeEngine<'a> {
         naive_suffix_f_given_opd_ty: F1,
         naive_suffix_f: F2,
         application_composition_f: F3,
-    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>)
+    ) -> (SemaExprIdx, SemaExprTypeResult<FluffyTerm>)
     where
         F1: FnOnce(
             &mut Self,
             FluffyTerm,
-        ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>),
+        ) -> (
+            SemaExprDataResult<SemaExprData>,
+            SemaExprTypeResult<FluffyTerm>,
+        ),
         F2: FnOnce(
             &mut Self,
             SynExprIdx,
-        ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>),
+        ) -> (
+            SemaExprDataResult<SemaExprData>,
+            SemaExprTypeResult<FluffyTerm>,
+        ),
         F3: FnOnce(
             &mut Self,
             SynExprIdx,
             FinalDestination,
-        ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>),
+        ) -> (
+            SemaExprDataResult<SemaExprData>,
+            SemaExprTypeResult<FluffyTerm>,
+        ),
     {
         match final_destination {
             FinalDestination::Sort => {
-                match self.infer_new_expr_ty(opd, ExpectFinalDestination::new(final_destination)) {
+                match self.build_new_expr_ty(opd, ExpectFinalDestination::new(final_destination)) {
                     Some(opd_ty) => match opd_ty.data(self) {
                         FluffyTermData::Literal(_) => todo!(),
                         FluffyTermData::TypeOntology { .. } => {
@@ -44,7 +53,7 @@ impl<'a> ExprTypeEngine<'a> {
                         FluffyTermData::Variable { ty } => todo!(),
                         FluffyTermData::TypeVariant { path } => todo!(),
                     },
-                    None => Err(DerivedSemaExprError::UnableToInferSuffixOperandType.into()),
+                    None => Err(DerivedSemaExprTypeError::UnableToInferSuffixOperandType.into()),
                 }
             }
             _ => naive_suffix_f(self, opd),

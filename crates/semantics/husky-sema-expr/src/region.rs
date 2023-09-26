@@ -9,7 +9,7 @@ pub struct SemaExprRegion {
     sema_expr_arena: SemaExprArena,
     pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
-    expr_fluffy_terms: SynExprMap<ExprTermResult<FluffyTerm>>,
+    expr_fluffy_terms: SynExprMap<SemaExprTermResult<FluffyTerm>>,
     symbol_tys: SymbolMap<SymbolType>,
     symbol_terms: SymbolMap<FluffyTerm>,
     fluffy_term_region: FluffyTermRegion,
@@ -24,7 +24,7 @@ impl SemaExprRegion {
         sema_expr_arena: SemaExprArena,
         pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
         pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
-        expr_fluffy_terms: SynExprMap<ExprTermResult<FluffyTerm>>,
+        expr_fluffy_terms: SynExprMap<SemaExprTermResult<FluffyTerm>>,
         symbol_terms: SymbolMap<FluffyTerm>,
         symbol_tys: SymbolMap<SymbolType>,
         fluffy_term_region: FluffyTermRegion,
@@ -49,14 +49,14 @@ impl SemaExprRegion {
         self.path
     }
 
-    pub fn expr_fluffy_terms(&self) -> &SynExprMap<ExprTermResult<FluffyTerm>> {
+    pub fn expr_fluffy_terms(&self) -> &SynExprMap<SemaExprTermResult<FluffyTerm>> {
         &self.expr_fluffy_terms
     }
 
     pub fn expr_fluffy_term(
         &self,
         syn_expr_idx: SynExprIdx,
-    ) -> Option<ExprTermResultRef<FluffyTerm>> {
+    ) -> Option<SemaExprTermResultRef<FluffyTerm>> {
         Some(self.expr_fluffy_terms.get(syn_expr_idx)?.as_ref().copied())
     }
 

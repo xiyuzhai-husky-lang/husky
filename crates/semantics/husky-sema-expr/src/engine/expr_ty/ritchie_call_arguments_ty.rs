@@ -8,7 +8,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: SynExprIdx,
         ritchie_parameters: &[FluffyTermRitchieParameter],
         ritchie_arguments: impl Iterator<Item = SynCallListItem> + Clone,
-    ) -> SemaExprResult<RitchieParameterArgumentMatches> {
+    ) -> SemaExprTypeResult<RitchieParameterArgumentMatches> {
         match RitchieParameterArgumentMatcher::new(ritchie_parameters, ritchie_arguments.clone())
             .match_all()
         {
@@ -92,17 +92,17 @@ mod matcher {
             }
         }
 
-        pub(super) fn match_all(mut self) -> SemaExprResult<RitchieParameterArgumentMatches> {
+        pub(super) fn match_all(mut self) -> SemaExprTypeResult<RitchieParameterArgumentMatches> {
             for ritchie_parameter in self.ritchie_parameters {
                 self.match_step(*ritchie_parameter)?
             }
             match self.ritchie_call_items.next() {
-                Some(_) => Err(OriginalSemaExprError::UnexpectedArgument)?,
+                Some(_) => Err(OriginalSemaExprTypeError::UnexpectedArgument)?,
                 None => Ok(self.ritchie_matches),
             }
         }
 
-        fn match_step(&mut self, param: FluffyTermRitchieParameter) -> SemaExprResult<()> {
+        fn match_step(&mut self, param: FluffyTermRitchieParameter) -> SemaExprTypeResult<()> {
             match param {
                 FluffyTermRitchieParameter::Regular(param) => match self.ritchie_call_items.next() {
                     Some(item) => match item {
@@ -111,7 +111,7 @@ mod matcher {
                             .push(RitchieParameterArgumentMatch::Regular(param, item))),
                         SynCallListItem::Keyed(_) => todo!(),
                     },
-                    None => Err(OriginalSemaExprError::MissingArgument)?,
+                    None => Err(OriginalSemaExprTypeError::MissingArgument)?,
                 },
                 FluffyTermRitchieParameter::Variadic(param) => {
                     let mut items = vec![];

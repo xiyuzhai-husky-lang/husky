@@ -2,7 +2,7 @@ use parsec::HasStreamState;
 
 use super::*;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct BePatternObelisk {
     pattern_expr: SynPatternRoot,

@@ -7,11 +7,11 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: SynExprIdx,
         opr: BinaryClosedOpr,
         ropd: SynExprIdx,
-    ) -> SemaExprResult<FluffyTerm> {
+    ) -> SemaExprTypeResult<FluffyTerm> {
         // let expr_eval_lifetime = self
         //     .fluffy_term_region
         //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
-        match self.infer_new_expr_ty(lopd, ExpectAnyOriginal) {
+        match self.build_new_expr_ty(lopd, ExpectAnyOriginal) {
             Some(lopd_ty) => {
                 let lopd_base_ty = lopd_ty.base_ty_data(self);
                 match lopd_ty.place() {

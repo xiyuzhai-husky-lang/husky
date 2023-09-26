@@ -42,12 +42,12 @@ impl<'a> ExprTypeEngine<'a> {
     fn save_new_expr_term(
         &mut self,
         expr_idx: SynExprIdx,
-        term_result: ExprTermResult<FluffyTerm>,
+        term_result: SemaExprTermResult<FluffyTerm>,
     ) {
         self.expr_terms.insert_new(expr_idx, term_result)
     }
 
-    fn calc_expr_term(&mut self, expr_idx: SynExprIdx) -> ExprTermResult<FluffyTerm> {
+    fn calc_expr_term(&mut self, expr_idx: SynExprIdx) -> SemaExprTermResult<FluffyTerm> {
         todo!()
         // match self.expr_region_data[expr_idx] {
         //     SynExprData::Literal(regional_token_idx, lit) => {
@@ -325,7 +325,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: SynExprIdx,
         path: Option<PrincipalEntityPath>,
-    ) -> ExprTermResult<FluffyTerm> {
+    ) -> SemaExprTermResult<FluffyTerm> {
         todo!()
         // match path {
         //     Some(path) => match path {

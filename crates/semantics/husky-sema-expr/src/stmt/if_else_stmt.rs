@@ -27,17 +27,17 @@ impl SemaIfBranch {
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaElifBranch {
     pub elif_token: ElifRegionalToken,
-    pub condition: SemaExprResult<SemaExprIdx>,
-    pub eol_colon: SemaExprResult<EolRegionalToken>,
+    pub condition: SemaExprTypeResult<SemaExprIdx>,
+    pub eol_colon: SemaExprTypeResult<EolRegionalToken>,
     pub stmts: SemaStmtIdxRange,
 }
 
 impl SemaElifBranch {
-    pub fn condition(&self) -> Result<SemaExprIdx, &SemaExprError> {
+    pub fn condition(&self) -> Result<SemaExprIdx, &SemaExprTypeError> {
         self.condition.as_ref().copied()
     }
 
-    pub fn eol_colon(&self) -> Result<EolRegionalToken, &SemaExprError> {
+    pub fn eol_colon(&self) -> Result<EolRegionalToken, &SemaExprTypeError> {
         self.eol_colon.as_ref().copied()
     }
 
@@ -49,7 +49,7 @@ impl SemaElifBranch {
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaElseBranch {
     pub else_token: ElseRegionalToken,
-    pub eol_colon: SemaExprResult<EolRegionalToken>,
+    pub eol_colon: SemaExprTypeResult<EolRegionalToken>,
     pub stmts: SemaStmtIdxRange,
 }
 

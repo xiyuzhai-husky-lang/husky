@@ -64,7 +64,7 @@ pub enum SemaExprData {
     Be {
         src: SemaExprIdx,
         be_regional_token_idx: RegionalTokenIdx,
-        target: SynExprResult<BePatternObelisk>,
+        target: BePatternObelisk,
     },
     Prefix {
         opr: PrefixOpr,
@@ -72,7 +72,7 @@ pub enum SemaExprData {
         opd: SemaExprIdx,
     },
     Suffix {
-        opd: SemaExprIdx,
+        opd_sema_expr_idx: SemaExprIdx,
         opr: SuffixOpr,
         opr_regional_token_idx: RegionalTokenIdx,
     },
@@ -153,18 +153,18 @@ pub enum SemaExprData {
     Index {
         owner: SemaExprIdx,
         lbox_regional_token_idx: RegionalTokenIdx,
-        items: SmallVec<[SynCommaListItem; 4]>,
+        items: SmallVec<[SemaCommaListItem; 4]>,
         rbox_regional_token_idx: RegionalTokenIdx,
     },
     CompositionWithList {
         owner: SemaExprIdx,
         lbox_regional_token_idx: RegionalTokenIdx,
-        items: SmallVec<[SynCommaListItem; 4]>,
+        items: SmallVec<[SemaCommaListItem; 4]>,
         rbox_regional_token_idx: RegionalTokenIdx,
     },
     List {
         lbox_regional_token_idx: RegionalTokenIdx,
-        items: SmallVec<[SynCommaListItem; 4]>,
+        items: SmallVec<[SemaCommaListItem; 4]>,
         rbox_regional_token_idx: RegionalTokenIdx,
     },
     /// [:] means Slice
@@ -173,11 +173,20 @@ pub enum SemaExprData {
     BoxColonList {
         lbox_regional_token_idx: RegionalTokenIdx,
         colon_regional_token_idx: RegionalTokenIdx,
+        items: SmallVec<[SemaCommaListItem; 4]>,
+        rbox_regional_token_idx: RegionalTokenIdx,
+    },
+    ListFunctor {
+        lbox_regional_token_idx: RegionalTokenIdx,
+        rbox_regional_token_idx: RegionalTokenIdx,
+    },
+    ArrayFunctor {
+        lbox_regional_token_idx: RegionalTokenIdx,
         items: SmallVec<[SynCommaListItem; 4]>,
         rbox_regional_token_idx: RegionalTokenIdx,
     },
     Block {
-        stmts: SynStmtIdxRange,
+        stmts: SemaStmtIdxRange,
     },
     // todo: handle container
     EmptyHtmlTag {
@@ -197,41 +206,45 @@ pub enum SemaExprData {
     Unreachable {
         regional_token_idx: RegionalTokenIdx,
     },
-    Err(SemaExprError),
+    Err(SemaExprTypeError),
 }
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaExprEntry {
-    data: SemaExprData,
-    ty_result: SemaExprResult<FluffyTerm>,
+    data_result: SemaExprDataResult<SemaExprData>,
+    ty_result: SemaExprTypeResult<FluffyTerm>,
 }
 
 impl SemaExprEntry {
+    /// use this when there is no error guaranteed
     pub fn data(&self) -> &SemaExprData {
-        &self.data
+        self.data_result
+            .as_ref()
+            .expect("use this when there is no error guaranteed")
     }
 
-    pub fn ty_result(&self) -> SemaExprResultRef<FluffyTerm> {
+    pub fn data_result<'a>(&'a self) -> SemaExprDataResultRef<'a, &'a SemaExprData> {
+        self.data_result.as_ref()
+    }
+
+    pub fn ty_result(&self) -> SemaExprTypeResultRef<FluffyTerm> {
         self.ty_result.as_ref().copied()
     }
 }
 
-pub type SemaExprEntryResult = SemaExprResult<SemaExprEntry>;
-
 #[derive(Debug, Default, PartialEq, Eq)]
-pub struct SemaExprArena(Arena<SemaExprEntryResult>);
+pub struct SemaExprArena(Arena<SemaExprEntry>);
 
 impl SemaExprArena {
-    fn alloc_ok(
+    fn alloc_one(
         &mut self,
-        data: SemaExprData,
-        ty_result: SemaExprResult<FluffyTerm>,
+        data_result: SemaExprDataResult<SemaExprData>,
+        ty_result: SemaExprTypeResult<FluffyTerm>,
     ) -> SemaExprIdx {
-        SemaExprIdx(self.0.alloc_one(Ok(SemaExprEntry { data, ty_result })))
-    }
-
-    fn alloc_err(&mut self, e: SemaExprError) -> SemaExprIdx {
-        SemaExprIdx(self.0.alloc_one(Err(e)))
+        SemaExprIdx(self.0.alloc_one(SemaExprEntry {
+            data_result,
+            ty_result,
+        }))
     }
 
     pub(crate) fn arena_ref(&self) -> SemaExprArenaRef {
@@ -239,17 +252,17 @@ impl SemaExprArena {
     }
 }
 
-pub type SemaExprArenaRef<'a> = ArenaRef<'a, SemaExprEntryResult>;
+pub type SemaExprArenaRef<'a> = ArenaRef<'a, SemaExprEntry>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct SemaExprIdx(ArenaIdx<SemaExprEntryResult>);
+pub struct SemaExprIdx(ArenaIdx<SemaExprEntry>);
 
 impl SemaExprIdx {
     /// panic if there is any error
     pub fn data<'a>(self, arena: SemaExprArenaRef<'a>) -> &'a SemaExprData {
-        &arena.get(self.0).unwrap().as_ref().unwrap().data
+        arena.index(self.0).data()
     }
 }
 
-pub type SemaExprIdxRange = ArenaIdxRange<SemaExprEntryResult>;
-pub type SemaExprMap<V> = ArenaMap<SemaExprEntryResult, V>;
+pub type SemaExprIdxRange = ArenaIdxRange<SemaExprEntry>;
+pub type SemaExprMap<V> = ArenaMap<SemaExprEntry, V>;

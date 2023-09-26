@@ -34,7 +34,7 @@ pub(crate) struct ExprTypeEngine<'a> {
     declarative_term_region: &'a DeclarativeTermRegion,
     sema_expr_arena: SemaExprArena,
     fluffy_term_region: FluffyTermRegion,
-    expr_terms: SynExprMap<ExprTermResult<FluffyTerm>>,
+    expr_terms: SynExprMap<SemaExprTermResult<FluffyTerm>>,
     symbol_terms: SymbolMap<FluffyTerm>,
     symbol_tys: SymbolMap<SymbolType>,
     pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,

@@ -74,8 +74,9 @@ impl<'a, T> ArenaRef<'a, T> {
         })
     }
 
-    pub fn get(self, idx: ArenaIdx<T>) -> Option<&'a T> {
-        self.data.get(idx.index())
+    #[track_caller]
+    pub fn index(self, idx: ArenaIdx<T>) -> &'a T {
+        self.data.get(idx.index()).unwrap()
     }
 }
 

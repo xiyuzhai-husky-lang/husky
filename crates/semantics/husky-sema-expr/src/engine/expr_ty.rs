@@ -27,7 +27,7 @@ pub(crate) enum ExprTypeResolveProgress<E: ExpectFluffyTerm> {
 }
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn infer_new_expr_ty<E: ExpectFluffyTerm>(
+    pub(super) fn build_new_expr_ty<E: ExpectFluffyTerm>(
         &mut self,
         expr_idx: SynExprIdx,
         expr_ty_expectation: E,
@@ -101,12 +101,15 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: SynExprIdx,
         expr_ty_expectation: &impl ExpectFluffyTerm,
-    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
+    ) -> (
+        SemaExprDataResult<SemaExprData>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
         match self.expr_region_data[expr_idx] {
-            SynExprData::Literal(literal_token_idx, literal_data) => Ok((
-                SemaExprData::Literal(literal_token_idx, literal_data),
+            SynExprData::Literal(literal_token_idx, literal_data) => (
+                Ok(SemaExprData::Literal(literal_token_idx, literal_data)),
                 self.calc_literal_expr_ty(expr_idx, literal_token_idx, expr_ty_expectation),
-            )),
+            ),
             SynExprData::PrincipalEntityPath {
                 path_expr_idx,
                 opt_path,
@@ -122,69 +125,83 @@ impl<'a> ExprTypeEngine<'a> {
                 regional_token_idx,
                 inherited_symbol_idx,
                 inherited_symbol_kind,
-            } => Ok((
-                SemaExprData::InheritedSymbol {
+            } => (
+                Ok(SemaExprData::InheritedSymbol {
                     ident,
                     regional_token_idx,
                     inherited_symbol_idx,
                     inherited_symbol_kind,
-                },
+                }),
                 match self
                     .symbol_tys
                     .inherited_symbol_map()
                     .get(inherited_symbol_idx)
                 {
                     Some(ty) => Ok((*ty).into()),
-                    None => Err(DerivedSemaExprError::InheritedSymbolTypeError.into()),
+                    None => Err(DerivedSemaExprTypeError::InheritedSymbolTypeError.into()),
                 },
-            )),
+            ),
             SynExprData::CurrentSymbol {
                 ident,
                 regional_token_idx,
                 current_symbol_idx,
                 current_symbol_kind,
-            } => Ok((
-                SemaExprData::CurrentSymbol {
+            } => (
+                Ok(SemaExprData::CurrentSymbol {
                     ident,
                     regional_token_idx,
                     current_symbol_idx,
                     current_symbol_kind,
-                },
+                }),
                 self.get_current_symbol_ty(expr_idx, current_symbol_idx),
-            )),
+            ),
             SynExprData::FrameVarDecl {
                 ident,
                 frame_var_symbol_idx: current_symbol_idx,
                 current_symbol_kind,
                 ..
             } => todo!(),
-            SynExprData::SelfType(regional_token_idx) => Ok((
-                SemaExprData::SelfType(regional_token_idx),
+            SynExprData::SelfType(regional_token_idx) => (
+                Ok(SemaExprData::SelfType(regional_token_idx)),
                 match self.self_ty_term {
                     Some(self_ty) => match self_ty.ty_unchecked(self.db)? {
                         Left(self_ty_ty) => Ok(self_ty_ty.into()),
                         Right(_) => unreachable!(),
                     }, // todo: impl binding
-                    None => Err(DerivedSemaExprError::SelfTypeNotInferredForSelfValue.into()),
+                    None => Err(DerivedSemaExprTypeError::SelfTypeNotInferredForSelfValue.into()),
                 },
-            )),
-            SynExprData::SelfValue(regional_token_idx) => Ok((
-                SemaExprData::SelfType(regional_token_idx),
+            ),
+            SynExprData::SelfValue(regional_token_idx) => (
+                Ok(SemaExprData::SelfType(regional_token_idx)),
                 match self.self_ty_term {
                     Some(self_ty) => Ok(self_ty.into()), // todo: impl binding
-                    None => Err(DerivedSemaExprError::SelfTypeNotInferredForSelfValue.into()),
+                    None => Err(DerivedSemaExprTypeError::SelfTypeNotInferredForSelfValue.into()),
                 },
-            )),
+            ),
             SynExprData::Binary {
-                lopd, opr, ropd, ..
-            } => Ok((
-                SemaExprData::Trivial,
-                self.calc_binary_expr_ty(expr_idx, lopd, opr, ropd),
-            )),
-            SynExprData::Be {
-                src, ref target, ..
+                lopd,
+                opr,
+                opr_regional_token_idx,
+                ropd,
             } => {
-                match self.infer_new_expr_ty(src, ExpectAnyOriginal) {
+                let (lopd, ropd, ty_result) = self.calc_binary_expr_ty(expr_idx, lopd, opr, ropd);
+                (
+                    Ok(SemaExprData::Binary {
+                        lopd,
+                        opr,
+                        opr_regional_token_idx,
+                        ropd,
+                    }),
+                    ty_result,
+                )
+            }
+            SynExprData::Be {
+                src,
+                be_regional_token_idx,
+                ref target,
+            } => {
+                let (src, src_ty) = self.build_new_expr_ty(src, ExpectAnyOriginal);
+                match src_ty {
                     Some(src_ty) => match target {
                         Ok(target) => self.infer_pattern_and_symbols_ty(
                             target.syn_pattern_root(),
@@ -195,10 +212,15 @@ impl<'a> ExprTypeEngine<'a> {
                     },
                     None => (),
                 };
-                Ok((
-                    SemaExprData::Trivial,
-                    Ok(self.term_menu.bool_ty_ontology().into()),
-                ))
+                let data_result = target
+                    .as_ref()
+                    .map(|&target| SemaExprData::Be {
+                        src,
+                        be_regional_token_idx,
+                        target,
+                    })
+                    .map_err(|e| e.into());
+                (data_result, Ok(self.term_menu.bool_ty_ontology().into()))
             }
             SynExprData::Prefix { opr, opd, .. } => self.calc_prefix_expr_ty(
                 expr_idx,
@@ -206,12 +228,26 @@ impl<'a> ExprTypeEngine<'a> {
                 opd,
                 expr_ty_expectation.final_destination(self),
             ),
-            SynExprData::Suffix { opd, opr, .. } => self.calc_suffix_expr_ty(
-                expr_idx,
+            SynExprData::Suffix {
                 opd,
                 opr,
-                expr_ty_expectation.final_destination(self),
-            ),
+                opr_regional_token_idx,
+            } => {
+                let (opd_sema_expr_idx, ty_result) = self.calc_suffix_expr_ty(
+                    expr_idx,
+                    opd,
+                    opr,
+                    expr_ty_expectation.final_destination(self),
+                );
+                (
+                    Ok(SemaExprData::Suffix {
+                        opd_sema_expr_idx,
+                        opr,
+                        opr_regional_token_idx,
+                    }),
+                    ty_result,
+                )
+            }
             SynExprData::FunctionApplicationOrCall {
                 function,
                 ref generic_arguments,
@@ -271,34 +307,35 @@ impl<'a> ExprTypeEngine<'a> {
                 rpar_regional_token_idx,
             } => {
                 let (item, infer_new_expr_ty) =
-                    self.infer_new_expr_ty(item, expr_ty_expectation.clone());
-                Ok((
-                    SemaExprData::Bracketed {
+                    self.build_new_expr_ty(item, expr_ty_expectation.clone());
+                (
+                    Ok(SemaExprData::Bracketed {
                         lpar_regional_token_idx,
                         item,
                         rpar_regional_token_idx,
-                    },
-                    infer_new_expr_ty.ok_or(DerivedSemaExprError::BracketedItemTypeError.into()),
-                ))
+                    }),
+                    infer_new_expr_ty
+                        .ok_or(DerivedSemaExprTypeError::BracketedItemTypeError.into()),
+                )
             }
             SynExprData::At {
                 at_regional_token_idx,
                 place_label_regional_token,
-            } => Ok((
-                SemaExprData::At {
+            } => (
+                Ok(SemaExprData::At {
                     at_regional_token_idx,
                     place_label_regional_token,
-                },
+                }),
                 Ok(self.term_menu.ex_inv_ty0_to_ty0().into()),
-            )),
+            ),
             SynExprData::Unit {
                 lpar_regional_token_idx,
                 rpar_regional_token_idx,
-            } => Ok((
-                SemaExprData::Unit {
+            } => (
+                Ok(SemaExprData::Unit {
                     lpar_regional_token_idx,
                     rpar_regional_token_idx,
-                },
+                }),
                 match expr_ty_expectation.final_destination(self) {
                     FinalDestination::Sort => Ok(self.term_menu.ty0().into()),
                     FinalDestination::TypeOntology
@@ -306,24 +343,37 @@ impl<'a> ExprTypeEngine<'a> {
                     | FinalDestination::AnyDerived => Ok(self.term_menu.unit_ty_ontology().into()),
                     FinalDestination::Ritchie(_) => todo!(),
                 },
-            )),
+            ),
             SynExprData::NewTuple { ref items, .. } => todo!(),
             SynExprData::IndexOrCompositionWithList {
                 owner,
                 items: ref indices,
                 ..
             } => self.calc_index_or_compose_with_list_expr_ty(expr_idx, owner, indices),
-            SynExprData::List { ref items, .. } => {
-                Ok(match expr_ty_expectation.disambiguate_ty_path(self) {
+            SynExprData::List {
+                lbox_regional_token_idx,
+                ref items,
+                rbox_regional_token_idx,
+            } => {
+                match expr_ty_expectation.disambiguate_ty_path(self) {
                     TypePathDisambiguation::OntologyConstructor => {
                         // ad hoc, assume universe is 1
                         match items.len() {
                             0 => (
-                                SemaExprData::ListFunctor.into(),
+                                Ok(SemaExprData::ListFunctor {
+                                    lbox_regional_token_idx,
+                                    rbox_regional_token_idx,
+                                }
+                                .into()),
                                 Ok(self.term_menu.ex_co_ty0_to_ty0().into()),
                             ),
                             1 => (
-                                SemaExprData::ArrayFunctor.into(),
+                                Ok(SemaExprData::ArrayFunctor {
+                                    lbox_regional_token_idx,
+                                    items: todo!(),
+                                    rbox_regional_token_idx,
+                                }
+                                .into()),
                                 Ok(self.term_menu.ex_co_ty0_to_ty0().into()),
                             ),
                             _ => {
@@ -405,34 +455,36 @@ impl<'a> ExprTypeEngine<'a> {
                             .map_err(|_| todo!()),
                         )
                     }
-                })
+                }
             }
             SynExprData::BoxColonList { ref items, .. } => match items.len() {
-                0 => Ok((
-                    SemaExprData::BoxColonList {
+                0 => (
+                    Ok(SemaExprData::BoxColonList {
                         lbox_regional_token_idx: todo!(),
                         colon_regional_token_idx: todo!(),
                         items: todo!(),
                         rbox_regional_token_idx: todo!(),
-                    },
+                    }),
                     Ok(self.term_menu.ex_co_ty0_to_ty0().into()),
-                )),
+                ),
                 _ => todo!(),
             },
-            SynExprData::Block { stmts } => Ok((
-                SemaExprData::Trivial,
-                self.infer_new_block(stmts, expr_ty_expectation.clone())
-                    .ok_or(DerivedSemaExprError::BlockTypeError.into()),
-            )),
-            SynExprData::EmptyHtmlTag { .. } => Ok((
-                SemaExprData::EmptyHtmlTag {
+            SynExprData::Block { stmts } => {
+                let (stmts, block_ty) = self.infer_new_block(stmts, expr_ty_expectation.clone());
+                (
+                    Ok(SemaExprData::Block { stmts }),
+                    block_ty.ok_or(DerivedSemaExprTypeError::BlockTypeError.into()),
+                )
+            }
+            SynExprData::EmptyHtmlTag { .. } => (
+                Ok(SemaExprData::EmptyHtmlTag {
                     empty_html_bra_idx: todo!(),
                     function_ident: todo!(),
                     arguments: todo!(),
                     empty_html_ket: todo!(),
-                },
+                }),
                 Ok(self.term_menu.html_ty_ontology().into()),
-            )),
+            ),
             SynExprData::Ritchie {
                 ref parameter_ty_items,
                 return_ty_expr,
@@ -447,16 +499,31 @@ impl<'a> ExprTypeEngine<'a> {
                 return_ty_expr.map(|return_ty_expr| {
                     self.build_new_expr_ty_discarded(return_ty_expr, self.expect_ty0_subtype())
                 });
-                Ok((SemaExprData::Trivial, Ok(self.term_menu.ty0().into())))
+                (
+                    Ok(SemaExprData::Ritchie {
+                        ritchie_kind_regional_token_idx: (),
+                        ritchie_kind: (),
+                        lpar_token: (),
+                        parameter_ty_items: (),
+                        rpar_regional_token_idx: (),
+                        light_arrow_token: (),
+                        return_ty_expr: (),
+                    }),
+                    Ok(self.term_menu.ty0().into()),
+                )
             }
             SynExprData::Sorry {
                 regional_token_idx: token_idx,
             } => todo!(),
-            SynExprData::Todo {
-                regional_token_idx: token_idx,
-            } => Ok((SemaExprData::Trivial, Ok(self.term_menu.never().into()))),
+            SynExprData::Todo { regional_token_idx } => (
+                Ok(SemaExprData::Todo { regional_token_idx }),
+                Ok(self.term_menu.never().into()),
+            ),
             SynExprData::Unreachable { regional_token_idx } => todo!(),
-            SynExprData::Err(_) => Err(DerivedSemaExprError::ExprError.into()),
+            SynExprData::Err(_) => (
+                Err(DerivedSemaExprDataError::SynExpr.into()),
+                Err(DerivedSemaExprTypeError::SynExprError.into()),
+            ),
         }
     }
 
@@ -466,18 +533,15 @@ impl<'a> ExprTypeEngine<'a> {
         function_expr_idx: SynExprIdx,
         argument_expr_idx: SynExprIdx,
         final_destination: FinalDestination,
-    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
-        (
-            Ok(SemaExprData::ExplicitApplication {
-                function_sema_expr_idx: (),
-                argument_sema_expr_idx: (),
-            }),
-            self.calc_function_application_expr_ty(
-                expr_idx,
-                function_expr_idx,
-                argument_expr_idx,
-                final_destination,
-            ),
+    ) -> (
+        SemaExprDataResult<SemaExprData>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
+        self.calc_function_application_expr_ty(
+            expr_idx,
+            function_expr_idx,
+            argument_expr_idx,
+            final_destination,
         )
     }
 }
