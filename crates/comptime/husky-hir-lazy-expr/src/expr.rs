@@ -11,7 +11,7 @@ use husky_expr_ty::{
     MethodCallOrApplicationDisambiguation, SynExprDisambiguation,
 };
 use husky_opr::{BinaryOpr, PrefixOpr, SuffixOpr};
-use husky_syn_expr::{IdentifiableEntityPathExpr, SynExpr, SynExprIdx};
+use husky_syn_expr::{IdentifiableEntityPathExpr, SynExprData, SynExprIdx};
 use husky_term_prelude::{RitchieKind, TermLiteral};
 use salsa::debug::ExpectWithDb;
 
@@ -109,13 +109,13 @@ impl ToHirLazy for SynExprIdx {
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
         let hir_lazy_expr = match builder.syn_expr_region_data()[*self] {
-            SynExpr::Literal(_, _) => {
+            SynExprData::Literal(_, _) => {
                 let EtherealTerm::Literal(lit) = builder.expr_term(*self) else {
                     unreachable!()
                 };
                 HirLazyExpr::Literal(lit)
             }
-            SynExpr::PrincipalEntityPath {
+            SynExprData::PrincipalEntityPath {
                 path_expr_idx,
                 opt_path,
             } => {
@@ -123,40 +123,40 @@ impl ToHirLazy for SynExprIdx {
                 // ad hoc
                 HirLazyExpr::PrincipalEntityPath(path)
             }
-            SynExpr::AssociatedItem {
+            SynExprData::AssociatedItem {
                 parent_expr_idx,
                 parent_path,
                 colon_colon_regional_token,
                 ident_token,
             } => todo!(),
-            SynExpr::InheritedSymbol {
+            SynExprData::InheritedSymbol {
                 ident,
                 regional_token_idx,
                 inherited_symbol_idx,
                 inherited_symbol_kind,
             } => todo!(),
-            SynExpr::CurrentSymbol {
+            SynExprData::CurrentSymbol {
                 ident,
                 regional_token_idx,
                 current_symbol_idx,
                 current_symbol_kind,
             } => HirLazyExpr::CurrentSymbol { ident },
-            SynExpr::FrameVarDecl {
+            SynExprData::FrameVarDecl {
                 regional_token_idx,
                 ident,
                 frame_var_symbol_idx,
                 current_symbol_kind,
             } => todo!(),
-            SynExpr::SelfType(_) => todo!(),
-            SynExpr::SelfValue(_) => todo!(),
-            SynExpr::Binary {
+            SynExprData::SelfType(_) => todo!(),
+            SynExprData::SelfValue(_) => todo!(),
+            SynExprData::Binary {
                 lopd, opr, ropd, ..
             } => HirLazyExpr::Binary {
                 lopd: lopd.to_hir_lazy(builder),
                 opr,
                 ropd: ropd.to_hir_lazy(builder),
             },
-            SynExpr::Be {
+            SynExprData::Be {
                 src,
                 be_regional_token_idx,
                 ref target,
@@ -167,15 +167,15 @@ impl ToHirLazy for SynExprIdx {
                     .expect_with_db(builder.db(), "hir stage no errors")
                     .to_hir_lazy(builder),
             },
-            SynExpr::Prefix { opr, opd, .. } => HirLazyExpr::Prefix {
+            SynExprData::Prefix { opr, opd, .. } => HirLazyExpr::Prefix {
                 opr,
                 opd: opd.to_hir_lazy(builder),
             },
-            SynExpr::Suffix { opd, opr, .. } => HirLazyExpr::Suffix {
+            SynExprData::Suffix { opd, opr, .. } => HirLazyExpr::Suffix {
                 opr,
                 opd: opd.to_hir_lazy(builder),
             },
-            SynExpr::FunctionApplicationOrCall {
+            SynExprData::FunctionApplicationOrCall {
                 function,
                 ref generic_arguments,
                 lpar_regional_token_idx,
@@ -204,7 +204,7 @@ impl ToHirLazy for SynExprIdx {
                     } => unreachable!(),
                 }
             }
-            SynExpr::Ritchie {
+            SynExprData::Ritchie {
                 ritchie_kind_regional_token_idx,
                 ritchie_kind,
                 lpar_token,
@@ -213,7 +213,7 @@ impl ToHirLazy for SynExprIdx {
                 light_arrow_token,
                 return_ty_expr,
             } => todo!(),
-            SynExpr::FunctionCall {
+            SynExprData::FunctionCall {
                 function,
                 ref generic_arguments,
                 lpar_regional_token_idx,
@@ -242,13 +242,13 @@ impl ToHirLazy for SynExprIdx {
                     RitchieKind::GnType => todo!(),
                 }
             }
-            SynExpr::Field {
+            SynExprData::Field {
                 owner, ident_token, ..
             } => HirLazyExpr::Field {
                 owner: owner.to_hir_lazy(builder),
                 ident: ident_token.ident(),
             },
-            SynExpr::MethodApplicationOrCall {
+            SynExprData::MethodApplicationOrCall {
                 self_argument,
                 dot_regional_token_idx,
                 ident_token,
@@ -281,33 +281,33 @@ impl ToHirLazy for SynExprIdx {
                     }
                 }
             }
-            SynExpr::TemplateInstantiation {
+            SynExprData::TemplateInstantiation {
                 template,
                 ref generic_arguments,
             } => todo!(),
-            SynExpr::ExplicitApplication {
+            SynExprData::ExplicitApplication {
                 function_expr_idx,
                 argument_expr_idx,
             } => todo!(),
-            SynExpr::At {
+            SynExprData::At {
                 at_regional_token_idx,
                 place_label_regional_token,
             } => todo!(),
-            SynExpr::Unit {
+            SynExprData::Unit {
                 lpar_regional_token_idx,
                 rpar_regional_token_idx,
             } => todo!(),
-            SynExpr::Bracketed {
+            SynExprData::Bracketed {
                 lpar_regional_token_idx,
                 item,
                 rpar_regional_token_idx,
             } => todo!(),
-            SynExpr::NewTuple {
+            SynExprData::NewTuple {
                 lpar_regional_token_idx,
                 ref items,
                 rpar_regional_token_idx,
             } => todo!(),
-            SynExpr::IndexOrCompositionWithList {
+            SynExprData::IndexOrCompositionWithList {
                 owner,
                 lbox_regional_token_idx,
                 ref items,
@@ -331,7 +331,7 @@ impl ToHirLazy for SynExprIdx {
                     }
                 }
             }
-            SynExpr::List {
+            SynExprData::List {
                 lbox_regional_token_idx,
                 ref items,
                 rbox_regional_token_idx,
@@ -341,25 +341,25 @@ impl ToHirLazy for SynExprIdx {
                     .map(|item| item.expr_idx().to_hir_lazy(builder))
                     .collect(),
             },
-            SynExpr::BoxColonList {
+            SynExprData::BoxColonList {
                 lbox_regional_token_idx,
                 colon_regional_token_idx,
                 ref items,
                 rbox_regional_token_idx,
             } => todo!(),
-            SynExpr::Block { stmts } => HirLazyExpr::Block {
+            SynExprData::Block { stmts } => HirLazyExpr::Block {
                 stmts: stmts.to_hir_lazy(builder),
             },
-            SynExpr::EmptyHtmlTag {
+            SynExprData::EmptyHtmlTag {
                 empty_html_bra_idx,
                 function_ident,
                 ref arguments,
                 empty_html_ket,
             } => todo!(),
-            SynExpr::Sorry { regional_token_idx } => todo!(),
-            SynExpr::Todo { regional_token_idx } => todo!(),
-            SynExpr::Unreachable { regional_token_idx } => todo!(),
-            SynExpr::Err(_) => todo!(),
+            SynExprData::Sorry { regional_token_idx } => todo!(),
+            SynExprData::Todo { regional_token_idx } => todo!(),
+            SynExprData::Unreachable { regional_token_idx } => todo!(),
+            SynExprData::Err(_) => todo!(),
         };
         builder.alloc_expr(*self, hir_lazy_expr)
     }

@@ -17,22 +17,22 @@ use smallvec::smallvec;
 #[derive(Default, Debug)]
 pub(crate) struct ExprStack {
     incomplete_exprs: Vec<(IncompleteSynExpr, Precedence)>,
-    complete_expr: Option<SynExpr>,
+    complete_expr: Option<SynExprData>,
 }
 
 pub(super) enum TopSynExpr {
     Unfinished(IncompleteSynExpr),
-    Finished(SynExpr),
+    Finished(SynExprData),
 }
 
 pub(super) enum TopExprRef<'a> {
     Incomplete(&'a IncompleteSynExpr),
-    Finished(&'a SynExpr),
+    Finished(&'a SynExprData),
     None,
 }
 
-impl From<SynExpr> for TopSynExpr {
-    fn from(v: SynExpr) -> Self {
+impl From<SynExprData> for TopSynExpr {
+    fn from(v: SynExprData) -> Self {
         Self::Finished(v)
     }
 }
@@ -51,85 +51,87 @@ impl ExprStack {
     }
 }
 
-impl SynExpr {
+impl SynExprData {
     pub fn base_item_path(&self, db: &dyn SynExprDb, arena: &SynExprArena) -> BaseEntityPath {
         match self {
-            SynExpr::Literal(_, _) => BaseEntityPath::None,
-            SynExpr::PrincipalEntityPath {
+            SynExprData::Literal(_, _) => BaseEntityPath::None,
+            SynExprData::PrincipalEntityPath {
                 path_expr_idx,
                 opt_path,
             } => match opt_path {
                 &Some(path) => BaseEntityPath::Some(path.into()),
                 None => todo!(),
             },
-            SynExpr::AssociatedItem {
+            SynExprData::AssociatedItem {
                 parent_expr_idx,
                 parent_path,
                 colon_colon_regional_token,
                 ident_token,
             } => todo!(),
-            SynExpr::InheritedSymbol { .. } | SynExpr::CurrentSymbol { .. } => BaseEntityPath::None,
-            SynExpr::SelfValue(_) => todo!(),
-            SynExpr::SelfType(_) => BaseEntityPath::SelfType,
-            SynExpr::Binary {
+            SynExprData::InheritedSymbol { .. } | SynExprData::CurrentSymbol { .. } => {
+                BaseEntityPath::None
+            }
+            SynExprData::SelfValue(_) => todo!(),
+            SynExprData::SelfType(_) => BaseEntityPath::SelfType,
+            SynExprData::Binary {
                 lopd,
                 opr,
                 opr_regional_token_idx: punctuation_regional_token_idx,
                 ropd,
             } => {
                 match &arena[lopd] {
-                    SynExpr::Literal(_, _) => todo!(),
-                    SynExpr::PrincipalEntityPath { .. } => todo!(),
-                    SynExpr::AssociatedItem { .. } => todo!(),
-                    SynExpr::InheritedSymbol {
+                    SynExprData::Literal(_, _) => todo!(),
+                    SynExprData::PrincipalEntityPath { .. } => todo!(),
+                    SynExprData::AssociatedItem { .. } => todo!(),
+                    SynExprData::InheritedSymbol {
                         ident,
                         regional_token_idx,
                         inherited_symbol_idx,
                         inherited_symbol_kind,
                     } => todo!(),
-                    SynExpr::CurrentSymbol {
+                    SynExprData::CurrentSymbol {
                         ident,
                         regional_token_idx,
                         current_symbol_idx,
                         current_symbol_kind,
                     } => todo!(),
-                    SynExpr::FrameVarDecl {
+                    SynExprData::FrameVarDecl {
                         regional_token_idx,
                         ident,
                         frame_var_symbol_idx,
                         current_symbol_kind,
                     } => todo!(),
-                    SynExpr::SelfType(_) => todo!(),
-                    SynExpr::SelfValue(_) => todo!(),
-                    SynExpr::Binary {
+                    SynExprData::SelfType(_) => todo!(),
+                    SynExprData::SelfValue(_) => todo!(),
+                    SynExprData::Binary {
                         lopd,
                         opr,
                         opr_regional_token_idx,
                         ropd,
                     } => todo!(),
-                    SynExpr::Be {
+                    SynExprData::Be {
                         src,
                         be_regional_token_idx,
                         target,
                     } => todo!(),
-                    SynExpr::Prefix {
+                    SynExprData::Prefix {
                         opr,
                         opr_regional_token_idx,
                         opd,
                     } => todo!(),
-                    SynExpr::Suffix {
+                    SynExprData::Suffix {
                         opd,
                         opr,
                         opr_regional_token_idx,
                     } => todo!(),
-                    SynExpr::FunctionApplicationOrCall {
+                    SynExprData::FunctionApplicationOrCall {
                         function,
                         generic_arguments,
                         lpar_regional_token_idx,
                         items,
                         rpar_regional_token_idx,
                     } => todo!(),
-                    SynExpr::Ritchie {
+                    SynExprData::Ritchie {
                         ritchie_kind_regional_token_idx,
                         ritchie_kind,
                         lpar_token,
@@ -138,19 +140,19 @@ impl SynExpr {
                         light_arrow_token,
                         return_ty_expr,
                     } => todo!(),
-                    SynExpr::FunctionCall {
+                    SynExprData::FunctionCall {
                         function,
                         generic_arguments,
                         lpar_regional_token_idx,
                         items,
                         rpar_regional_token_idx,
                     } => todo!(),
-                    SynExpr::Field {
+                    SynExprData::Field {
                         owner,
                         dot_regional_token_idx,
                         ident_token,
                     } => todo!(),
-                    SynExpr::MethodApplicationOrCall {
+                    SynExprData::MethodApplicationOrCall {
                         self_argument,
                         dot_regional_token_idx,
                         ident_token,
@@ -159,92 +161,92 @@ impl SynExpr {
                         items,
                         rpar_regional_token_idx,
                     } => todo!(),
-                    SynExpr::TemplateInstantiation {
+                    SynExprData::TemplateInstantiation {
                         template,
                         generic_arguments,
                     } => todo!(),
-                    SynExpr::ExplicitApplication {
+                    SynExprData::ExplicitApplication {
                         function_expr_idx,
                         argument_expr_idx,
                     } => todo!(),
-                    SynExpr::At {
+                    SynExprData::At {
                         at_regional_token_idx,
                         place_label_regional_token,
                     } => todo!(),
-                    SynExpr::Unit {
+                    SynExprData::Unit {
                         lpar_regional_token_idx,
                         rpar_regional_token_idx,
                     } => todo!(),
-                    SynExpr::Bracketed {
+                    SynExprData::Bracketed {
                         lpar_regional_token_idx,
                         item,
                         rpar_regional_token_idx,
                     } => todo!(),
-                    SynExpr::NewTuple {
+                    SynExprData::NewTuple {
                         lpar_regional_token_idx,
                         items,
                         rpar_regional_token_idx,
                     } => todo!(),
-                    SynExpr::IndexOrCompositionWithList {
+                    SynExprData::IndexOrCompositionWithList {
                         owner,
                         lbox_regional_token_idx,
                         items,
                         rbox_regional_token_idx,
                     } => todo!(),
-                    SynExpr::List {
+                    SynExprData::List {
                         lbox_regional_token_idx,
                         items,
                         rbox_regional_token_idx,
                     } => todo!(),
-                    SynExpr::BoxColonList {
+                    SynExprData::BoxColonList {
                         lbox_regional_token_idx,
                         colon_regional_token_idx,
                         items,
                         rbox_regional_token_idx,
                     } => todo!(),
-                    SynExpr::Block { stmts } => todo!(),
-                    SynExpr::EmptyHtmlTag {
+                    SynExprData::Block { stmts } => todo!(),
+                    SynExprData::EmptyHtmlTag {
                         empty_html_bra_idx,
                         function_ident,
                         arguments,
                         empty_html_ket,
                     } => todo!(),
-                    SynExpr::Sorry { regional_token_idx } => todo!(),
-                    SynExpr::Todo { regional_token_idx } => todo!(),
-                    SynExpr::Unreachable { regional_token_idx } => todo!(),
-                    SynExpr::Err(e) => {
+                    SynExprData::Sorry { regional_token_idx } => todo!(),
+                    SynExprData::Todo { regional_token_idx } => todo!(),
+                    SynExprData::Unreachable { regional_token_idx } => todo!(),
+                    SynExprData::Err(e) => {
                         p!(e.debug(db));
                         todo!()
                     }
                 };
                 todo!()
             }
-            SynExpr::Prefix { .. } => todo!(),
-            SynExpr::Suffix { .. } => todo!(),
-            SynExpr::Field { .. } => BaseEntityPath::None,
-            SynExpr::MethodApplicationOrCall { .. } => BaseEntityPath::None,
-            SynExpr::ExplicitApplication {
+            SynExprData::Prefix { .. } => todo!(),
+            SynExprData::Suffix { .. } => todo!(),
+            SynExprData::Field { .. } => BaseEntityPath::None,
+            SynExprData::MethodApplicationOrCall { .. } => BaseEntityPath::None,
+            SynExprData::ExplicitApplication {
                 function_expr_idx: function,
                 argument_expr_idx: argument,
             } => todo!(),
-            SynExpr::FunctionApplicationOrCall { .. } => todo!(),
-            SynExpr::At {
+            SynExprData::FunctionApplicationOrCall { .. } => todo!(),
+            SynExprData::At {
                 at_regional_token_idx,
                 place_label_regional_token,
             } => todo!(),
             // although unit is a valid item,
             // but unit doesn't contains any subitem, so effectively none
             // ad hoc
-            SynExpr::Unit { .. } => BaseEntityPath::None,
-            SynExpr::NewTuple {
+            SynExprData::Unit { .. } => BaseEntityPath::None,
+            SynExprData::NewTuple {
                 lpar_regional_token_idx,
                 items,
                 rpar_regional_token_idx,
                 ..
             } => todo!(),
-            SynExpr::List { .. } => BaseEntityPath::None,
-            SynExpr::Bracketed { item, .. } => arena[item].base_item_path(db, arena),
-            SynExpr::Err(e) => BaseEntityPath::Uncertain {
+            SynExprData::List { .. } => BaseEntityPath::None,
+            SynExprData::Bracketed { item, .. } => arena[item].base_item_path(db, arena),
+            SynExprData::Err(e) => BaseEntityPath::Uncertain {
                 inclination: match e {
                     SynExprError::Original(OriginalSynExprError::UnrecognizedIdent {
                         ident,
@@ -254,33 +256,33 @@ impl SynExpr {
                     _ => BaseEntityPathInclination::FunctionOrLocalValue,
                 },
             },
-            SynExpr::TemplateInstantiation { template, .. } => {
+            SynExprData::TemplateInstantiation { template, .. } => {
                 arena[template].base_item_path(db, arena)
             }
-            SynExpr::Block { stmts } => BaseEntityPath::None,
-            SynExpr::Be {
+            SynExprData::Block { stmts } => BaseEntityPath::None,
+            SynExprData::Be {
                 src,
                 be_regional_token_idx,
                 target,
             } => todo!(),
-            SynExpr::BoxColonList { .. } => todo!(),
-            SynExpr::FrameVarDecl {
+            SynExprData::BoxColonList { .. } => todo!(),
+            SynExprData::FrameVarDecl {
                 regional_token_idx,
                 ident,
                 ..
             } => todo!(),
-            SynExpr::IndexOrCompositionWithList {
+            SynExprData::IndexOrCompositionWithList {
                 owner,
                 lbox_regional_token_idx,
                 items: indices,
                 rbox_regional_token_idx,
             } => arena[owner].base_item_path(db, arena),
-            SynExpr::EmptyHtmlTag { .. } => BaseEntityPath::Err,
-            SynExpr::FunctionCall { .. } => todo!(),
-            SynExpr::Ritchie { .. } => todo!(),
-            SynExpr::Sorry { regional_token_idx } => todo!(),
-            SynExpr::Todo { regional_token_idx } => todo!(),
-            SynExpr::Unreachable { regional_token_idx } => todo!(),
+            SynExprData::EmptyHtmlTag { .. } => BaseEntityPath::Err,
+            SynExprData::FunctionCall { .. } => todo!(),
+            SynExprData::Ritchie { .. } => todo!(),
+            SynExprData::Sorry { regional_token_idx } => todo!(),
+            SynExprData::Todo { regional_token_idx } => todo!(),
+            SynExprData::Unreachable { regional_token_idx } => todo!(),
         }
     }
 }
@@ -289,7 +291,7 @@ impl<'a, C> SynExprParser<'a, C>
 where
     C: IsSynExprContext<'a>,
 {
-    pub(super) fn complete_expr(&self) -> Option<&SynExpr> {
+    pub(super) fn complete_expr(&self) -> Option<&SynExprData> {
         self.stack.complete_expr.as_ref()
     }
 
@@ -346,18 +348,18 @@ where
         }
     }
 
-    pub(super) fn take_complete_expr(&mut self) -> Option<SynExpr> {
+    pub(super) fn take_complete_expr(&mut self) -> Option<SynExprData> {
         std::mem::take(&mut self.stack.complete_expr)
     }
 
-    pub(super) fn set_complete_expr(&mut self, expr: SynExpr) {
+    pub(super) fn set_complete_expr(&mut self, expr: SynExprData) {
         debug_assert!(self.complete_expr().is_none());
         self.stack.complete_expr = Some(expr)
     }
 
     fn reduce_aux(
         &mut self,
-        f: impl Fn(&mut Self, Option<SynExpr>, IncompleteSynExpr) -> TopSynExpr,
+        f: impl Fn(&mut Self, Option<SynExprData>, IncompleteSynExpr) -> TopSynExpr,
     ) {
         let complete_expr = self.take_complete_expr();
         let Some((incomplete_expr, _)) = self.stack.incomplete_exprs.pop() else {
@@ -385,13 +387,13 @@ where
                     let lopd = self.context_mut().alloc_expr(lopd);
                     let finished_expr = self.take_complete_expr();
                     self.stack.complete_expr = Some(match finished_expr {
-                        Some(ropd) => SynExpr::Binary {
+                        Some(ropd) => SynExprData::Binary {
                             lopd,
                             opr: punctuation,
                             opr_regional_token_idx: punctuation_regional_token_idx,
                             ropd: self.context_mut().alloc_expr(ropd),
                         },
-                        None => SynExpr::Err(
+                        None => SynExprData::Err(
                             OriginalSynExprError::NoRightOperandForBinaryOperator {
                                 punctuation,
                                 punctuation_regional_token_idx,
@@ -404,7 +406,7 @@ where
                     let argument = self.take_complete_expr().expect("");
                     let function = self.context_mut().alloc_expr(function);
                     let argument = self.context_mut().alloc_expr(argument);
-                    self.stack.complete_expr = Some(SynExpr::ExplicitApplication {
+                    self.stack.complete_expr = Some(SynExprData::ExplicitApplication {
                         function_expr_idx: function,
                         argument_expr_idx: argument,
                     })
@@ -415,12 +417,12 @@ where
                 } => {
                     let finished_expr = self.take_complete_expr();
                     self.stack.complete_expr = Some(match finished_expr {
-                        Some(opd) => SynExpr::Prefix {
+                        Some(opd) => SynExprData::Prefix {
                             opr: punctuation,
                             opr_regional_token_idx: punctuation_regional_token_idx,
                             opd: self.context_mut().alloc_expr(opd),
                         },
-                        None => SynExpr::Err(
+                        None => SynExprData::Err(
                             OriginalSynExprError::NoOperandForPrefixOperator {
                                 prefix: punctuation,
                                 prefix_regional_token_idx: punctuation_regional_token_idx,
@@ -433,7 +435,7 @@ where
                     bra_regional_token_idx,
                     ..
                 } => {
-                    self.stack.complete_expr = Some(SynExpr::Err(
+                    self.stack.complete_expr = Some(SynExprData::Err(
                         OriginalSynExprError::UnterminatedList {
                             bra_regional_token_idx,
                         }
@@ -447,7 +449,7 @@ where
                 } => {
                     p!(prev_precedence, next_precedence);
                     todo!();
-                    self.stack.complete_expr = Some(SynExpr::Err(
+                    self.stack.complete_expr = Some(SynExprData::Err(
                         OriginalSynExprError::UnterminatedFunctionCallKeyedArgumentList {
                             bra_regional_token_idx: lpar_regional_token_idx,
                         }
@@ -464,7 +466,7 @@ where
                 } => {
                     let finished_expr = self.take_complete_expr();
                     self.stack.complete_expr = Some(match finished_expr {
-                        Some(return_ty) => SynExpr::Ritchie {
+                        Some(return_ty) => SynExprData::Ritchie {
                             ritchie_kind_regional_token_idx,
                             ritchie_kind,
                             lpar_token,
@@ -473,7 +475,7 @@ where
                             light_arrow_token: Some(light_arrow_token),
                             return_ty_expr: Some(self.context_mut().alloc_expr(return_ty)),
                         },
-                        None => SynExpr::Err(
+                        None => SynExprData::Err(
                             OriginalSynExprError::ExpectedTypeAfterLightArrow { light_arrow_token }
                                 .into(),
                         ),
@@ -541,7 +543,7 @@ where
     /// use this when the incoming token might change the nature of the top expression
     pub(super) fn take_complete_and_push_to_top(
         &mut self,
-        f: impl FnOnce(&mut Self, Option<SynExpr>) -> TopSynExpr,
+        f: impl FnOnce(&mut Self, Option<SynExprData>) -> TopSynExpr,
     ) {
         let complete_expr = self.take_complete_expr();
         let top_expr = f(self, complete_expr);

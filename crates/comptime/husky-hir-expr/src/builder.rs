@@ -5,7 +5,7 @@ use husky_expr_ty::{MethodCallOrApplicationDisambiguation, SynExprDisambiguation
 use husky_fluffy_term::MethodFluffySignature;
 use husky_hir_eager_expr::builder::HirEagerExprBuilder;
 use husky_hir_lazy_expr::builder::HirLazyExprBuilder;
-use husky_syn_expr::{SynExpr, SynExprRegion};
+use husky_syn_expr::{SynExprData, SynExprRegion};
 
 pub enum HirExprBuilder<'a> {
     Eager(HirEagerExprBuilder<'a>),
@@ -34,21 +34,21 @@ fn expr_region_contains_gn(db: &dyn HirExprDb, syn_expr_region: SynExprRegion) -
     let expr_ty_region = db.expr_ty_region(syn_expr_region);
     for (syn_expr_idx, syn_expr) in syn_expr_region_data.expr_arena().indexed_iter() {
         match syn_expr {
-            SynExpr::Literal(_, _) => (),
-            SynExpr::PrincipalEntityPath {
+            SynExprData::Literal(_, _) => (),
+            SynExprData::PrincipalEntityPath {
                 opt_path: Some(PrincipalEntityPath::MajorItem(MajorItemPath::Fugitive(path))),
                 ..
             } => match path.fugitive_kind(db) {
                 FugitiveKind::Gn => return true,
                 FugitiveKind::Fn | FugitiveKind::AliasType | FugitiveKind::Val => (),
             },
-            SynExpr::AssociatedItem {
+            SynExprData::AssociatedItem {
                 parent_expr_idx,
                 parent_path,
                 colon_colon_regional_token,
                 ident_token,
             } => todo!(),
-            SynExpr::MethodApplicationOrCall {
+            SynExprData::MethodApplicationOrCall {
                 self_argument,
                 dot_regional_token_idx,
                 ident_token,

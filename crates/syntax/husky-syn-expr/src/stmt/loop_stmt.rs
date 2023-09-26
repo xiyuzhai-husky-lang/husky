@@ -238,9 +238,9 @@ impl<'a> SynStmtContext<'a> {
         expr: SynExprIdx,
         eol_colon: SynExprResult<EolRegionalToken>,
         body: DefnAstIdxRange,
-    ) -> SynStmt {
+    ) -> SynStmtData {
         match self.syn_expr_arena()[expr] {
-            SynExpr::Binary {
+            SynExprData::Binary {
                 lopd,
                 opr: BinaryOpr::Comparison(comparison_opr),
                 opr_regional_token_idx,
@@ -271,14 +271,14 @@ impl<'a> SynStmtContext<'a> {
                     .start();
                 self.syn_expr_arena_mut().set(
                     particulars.for_between_loop_var_expr_idx,
-                    SynExpr::FrameVarDecl {
+                    SynExprData::FrameVarDecl {
                         regional_token_idx: particulars.for_between_loop_var_regional_token_idx,
                         ident: particulars.for_between_loop_var_ident,
                         frame_var_symbol_idx,
                         current_symbol_kind,
                     },
                 );
-                SynStmt::ForBetween {
+                SynStmtData::ForBetween {
                     for_token,
                     particulars,
                     frame_var_symbol_idx,
@@ -286,12 +286,12 @@ impl<'a> SynStmtContext<'a> {
                     block: self.parse_stmts(body),
                 }
             }
-            SynExpr::Binary {
+            SynExprData::Binary {
                 lopd,
                 opr: BinaryOpr::In,
                 opr_regional_token_idx,
                 ropd,
-            } => SynStmt::ForIn {
+            } => SynStmtData::ForIn {
                 for_token,
                 condition: todo!(),
                 eol_colon,
@@ -311,7 +311,7 @@ impl<'a> SynStmtContext<'a> {
         let lopd_expr = &self.syn_expr_arena()[lopd];
         let ropd_expr = &self.syn_expr_arena()[ropd];
         // todo: parse with
-        if let SynExpr::Err(SynExprError::Original(UnrecognizedIdent {
+        if let SynExprData::Err(SynExprError::Original(UnrecognizedIdent {
             regional_token_idx,
             ident,
         })) = lopd_expr
@@ -325,8 +325,8 @@ impl<'a> SynStmtContext<'a> {
                     ropd,
                 )),
             }
-            // SynExpr::Err(SynExprError::Original(UnrecognizedIdent {..})) will be changed to Ok
-        } else if let SynExpr::Err(SynExprError::Original(UnrecognizedIdent {
+            // SynExprData::Err(SynExprError::Original(UnrecognizedIdent {..})) will be changed to Ok
+        } else if let SynExprData::Err(SynExprError::Original(UnrecognizedIdent {
             regional_token_idx,
             ident,
         })) = ropd_expr
@@ -343,7 +343,7 @@ impl<'a> SynStmtContext<'a> {
         } else {
             let final_comparison = comparison_opr;
             match lopd_expr {
-                SynExpr::Binary {
+                SynExprData::Binary {
                     lopd: llopd,
                     opr: BinaryOpr::Comparison(initial_comparison),
                     opr_regional_token_idx,
@@ -351,7 +351,7 @@ impl<'a> SynStmtContext<'a> {
                 } => {
                     let lropd_expr = &self.syn_expr_arena()[lropd];
                     match lropd_expr {
-                        SynExpr::Err(SynExprError::Original(UnrecognizedIdent {
+                        SynExprData::Err(SynExprError::Original(UnrecognizedIdent {
                             regional_token_idx,
                             ident,
                         })) => SynForBetweenParticulars {
@@ -380,8 +380,8 @@ impl<'a> SynStmtContext<'a> {
         expr: SynExprIdx,
         eol_colon: SynExprResult<EolRegionalToken>,
         body: DefnAstIdxRange,
-    ) -> SynStmt {
-        let SynExpr::Binary {
+    ) -> SynStmtData {
+        let SynExprData::Binary {
             lopd: forext_loop_var_expr_idx,
             opr: BinaryOpr::Comparison(opr),
             opr_regional_token_idx,
@@ -392,13 +392,13 @@ impl<'a> SynStmtContext<'a> {
         };
         let (forext_loop_var_ident, forext_loop_var_regional_token_idx) =
             match self.syn_expr_arena()[forext_loop_var_expr_idx] {
-                SynExpr::InheritedSymbol {
+                SynExprData::InheritedSymbol {
                     ident,
                     regional_token_idx,
                     inherited_symbol_idx,
                     inherited_symbol_kind,
                 } => (ident, regional_token_idx),
-                SynExpr::CurrentSymbol {
+                SynExprData::CurrentSymbol {
                     ident,
                     regional_token_idx,
                     current_symbol_idx,
@@ -413,7 +413,7 @@ impl<'a> SynStmtContext<'a> {
             opr,
             bound_expr,
         );
-        SynStmt::ForExt {
+        SynStmtData::ForExt {
             forext_token,
             particulars,
             eol_colon,

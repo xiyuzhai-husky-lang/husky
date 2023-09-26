@@ -7,7 +7,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         stmts: SynStmtIdxRange,
         expr_expectation: impl ExpectFluffyTerm,
-    ) -> Option<FluffyTerm> {
+    ) -> (SemaStmtIdxRange, Option<FluffyTerm>) {
         for stmt in stmts.start()..(stmts.end() - 1) {
             self.infer_new_nonlast_stmt(stmt)
         }
@@ -23,7 +23,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         stmt_idx: SynStmtIdx,
         expr_expectation: impl ExpectFluffyTerm,
-    ) -> Option<FluffyTerm> {
+    ) -> SemaStmtEntryResult {
         self.calc_stmt(stmt_idx, expr_expectation)
     }
 
@@ -33,36 +33,36 @@ impl<'a> ExprTypeEngine<'a> {
         expr_expectation: impl ExpectFluffyTerm,
     ) -> Option<FluffyTerm> {
         match self.expr_region_data[stmt_idx] {
-            SynStmt::Let {
+            SynStmtData::Let {
                 let_token,
                 ref let_variables_pattern,
                 initial_value,
                 ..
             } => self.calc_let_stmt(let_variables_pattern, initial_value),
-            SynStmt::Return { result, .. } => {
+            SynStmtData::Return { result, .. } => {
                 match self.return_ty {
                     Some(return_ty) => {
-                        self.infer_new_expr_ty_discarded(
+                        self.build_new_expr_ty_discarded(
                             result,
                             ExpectCoersion::new_move(return_ty.into()),
                         );
                     }
                     None => {
-                        self.infer_new_expr_ty_discarded(result, ExpectAnyDerived);
+                        self.build_new_expr_ty_discarded(result, ExpectAnyDerived);
                     }
                 };
                 Some(self.term_menu.never().into())
             }
-            SynStmt::Require { condition, .. } => {
-                self.infer_new_expr_ty_discarded(condition, ExpectConditionType);
+            SynStmtData::Require { condition, .. } => {
+                self.build_new_expr_ty_discarded(condition, ExpectConditionType);
                 Some(self.term_menu.unit_ty_ontology().into())
             }
-            SynStmt::Assert { condition, .. } => {
-                self.infer_new_expr_ty_discarded(condition, ExpectConditionType);
+            SynStmtData::Assert { condition, .. } => {
+                self.build_new_expr_ty_discarded(condition, ExpectConditionType);
                 Some(self.term_menu.unit_ty_ontology().into())
             }
-            SynStmt::Break { .. } => Some(self.term_menu.never().into()),
-            SynStmt::Eval {
+            SynStmtData::Break { .. } => Some(self.term_menu.never().into()),
+            SynStmtData::Eval {
                 expr_idx,
                 eol_semicolon,
             } => match eol_semicolon {
@@ -70,7 +70,7 @@ impl<'a> ExprTypeEngine<'a> {
                 Ok(Some(_)) => self.infer_new_expr_ty(expr_idx, ExpectAnyOriginal),
                 Err(_) => self.infer_new_expr_ty(expr_idx, ExpectAnyDerived),
             },
-            SynStmt::ForBetween {
+            SynStmtData::ForBetween {
                 ref particulars,
                 frame_var_symbol_idx,
                 ref block,
@@ -81,7 +81,7 @@ impl<'a> ExprTypeEngine<'a> {
                     todo!()
                 };
                 if let Some(bound_expr) = range.initial_boundary.bound_expr {
-                    match self.infer_new_expr_ty_for_outcome(bound_expr, ExpectIntType) {
+                    match self.build_new_sema_expr_with_outcome(bound_expr, ExpectIntType) {
                         Some(num_ty_outcome) => {
                             expected_frame_var_ty = Some(num_ty_outcome.placeless_num_ty())
                         }
@@ -91,7 +91,7 @@ impl<'a> ExprTypeEngine<'a> {
                 if let Some(bound_expr) = range.final_boundary.bound_expr {
                     match expected_frame_var_ty {
                         Some(expected_frame_var_ty) => {
-                            self.infer_new_expr_ty_discarded(
+                            self.build_new_expr_ty_discarded(
                                 bound_expr,
                                 ExpectCoersion::new_pure(self, expected_frame_var_ty),
                             );
@@ -119,12 +119,12 @@ impl<'a> ExprTypeEngine<'a> {
                 self.infer_new_block(*block, expr_expectation);
                 Some(self.term_menu.unit_ty_ontology().into())
             }
-            SynStmt::ForIn {
+            SynStmtData::ForIn {
                 ref condition,
                 block,
                 ..
             } => todo!(),
-            SynStmt::ForExt {
+            SynStmtData::ForExt {
                 ref particulars,
                 block,
                 ..
@@ -134,7 +134,7 @@ impl<'a> ExprTypeEngine<'a> {
                 else {
                     todo!()
                 };
-                self.infer_new_expr_ty_discarded(
+                self.build_new_expr_ty_discarded(
                     particulars.bound_expr,
                     ExpectCoersion::new_pure(self, forext_loop_var_ty),
                 );
@@ -142,24 +142,24 @@ impl<'a> ExprTypeEngine<'a> {
                 self.infer_new_block(block, expr_expectation);
                 Some(self.term_menu.unit_ty_ontology().into())
             }
-            SynStmt::While {
+            SynStmtData::While {
                 ref condition,
                 block,
                 ..
             }
-            | SynStmt::DoWhile {
+            | SynStmtData::DoWhile {
                 ref condition,
                 block,
                 ..
             } => {
                 condition.as_ref().copied().map(|condition| {
-                    self.infer_new_expr_ty_discarded(condition, ExpectConditionType)
+                    self.build_new_expr_ty_discarded(condition, ExpectConditionType)
                 });
                 let expect_unit = self.expect_unit();
                 self.infer_new_block(block, expect_unit);
                 Some(self.term_menu.unit_ty_ontology().into())
             }
-            SynStmt::IfElse {
+            SynStmtData::IfElse {
                 ref if_branch,
                 ref elif_branches,
                 ref else_branch,
@@ -169,7 +169,7 @@ impl<'a> ExprTypeEngine<'a> {
                 else_branch.as_ref(),
                 expr_expectation,
             ),
-            SynStmt::Match { .. } => {
+            SynStmtData::Match { .. } => {
                 // todo: match
                 None
             }
@@ -195,7 +195,7 @@ impl<'a> ExprTypeEngine<'a> {
                 .condition
                 .as_ref()
                 .copied()
-                .map(|condition| self.infer_new_expr_ty_discarded(condition, ExpectConditionType));
+                .map(|condition| self.build_new_expr_ty_discarded(condition, ExpectConditionType));
             branch_tys.visit_branch(self, elif_branch.stmts);
         }
         if let Some(else_branch) = else_branch {

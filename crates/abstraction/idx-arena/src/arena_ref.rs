@@ -14,7 +14,7 @@ impl<'a, T> Clone for ArenaRef<'a, T> {
 impl<'a, T> Copy for ArenaRef<'a, T> {}
 
 impl<T> Arena<T> {
-    pub fn to_ref<'a>(&'a self) -> ArenaRef<'a, T> {
+    pub fn arena_ref<'a>(&'a self) -> ArenaRef<'a, T> {
         ArenaRef { data: self.data() }
     }
 }
@@ -72,6 +72,10 @@ impl<'a, T> ArenaRef<'a, T> {
             let raw = self.data.len() - raw_rev - 1;
             (ArenaIdx::new(raw), &self.data[raw])
         })
+    }
+
+    pub fn get(self, idx: ArenaIdx<T>) -> Option<&'a T> {
+        self.data.get(idx.index())
     }
 }
 

@@ -11,7 +11,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         path: Option<PrincipalEntityPath>,
         expr_ty_expectation: &impl ExpectFluffyTerm,
-    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
+    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
         let disambiguation = expr_ty_expectation.disambiguate_ty_path(self);
         let path = path.ok_or(DerivedSemaExprError::EntityPathError)?;
         let ty_result = match path {

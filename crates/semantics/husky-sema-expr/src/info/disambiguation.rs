@@ -3,7 +3,7 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SemaExprDb)]
 #[enum_class::from_variants]
-pub enum SynExprDisambiguation {
+pub enum SemaExprData {
     Trivial,
     IndexOrComposeWithList(IndexOrComposeWithListExprDisambiguation),
     UnveilOrComposeWithOption(UnveilOrComposeWithOptionExprDisambiguation),
@@ -22,10 +22,10 @@ pub enum SynExprDisambiguation {
     },
 }
 
-impl SynExprDisambiguation {
+impl SemaExprData {
     pub(crate) fn list_expr_disambiguation(&self) -> Option<ListExprDisambiguation> {
         match self {
-            SynExprDisambiguation::List(disambiguation) => Some(*disambiguation),
+            SemaExprData::List(disambiguation) => Some(*disambiguation),
             _ => None,
         }
     }

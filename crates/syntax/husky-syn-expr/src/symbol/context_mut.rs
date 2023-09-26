@@ -37,7 +37,7 @@ impl<'a> SynSymbolContextMut<'a> {
             .map(|e| Symbol::PrincipalEntity(e.path(db))))
     }
 
-    fn exprs(&self) -> &[SynExpr] {
+    fn exprs(&self) -> &[SynExprData] {
         todo!()
     }
 

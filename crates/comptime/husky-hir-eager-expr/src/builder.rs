@@ -2,7 +2,9 @@ use crate::*;
 use husky_ethereal_term::EtherealTerm;
 use husky_expr_ty::{ExprTypeRegion, SynExprDisambiguation};
 use husky_fluffy_term::{FluffyTerm, FluffyTermBase};
-use husky_syn_expr::{SynExpr, SynExprIdx, SynExprRegion, SynExprRegionData, SynStmt, SynStmtIdx};
+use husky_syn_expr::{
+    SynExprData, SynExprIdx, SynExprRegion, SynExprRegionData, SynStmtData, SynStmtIdx,
+};
 use salsa::DebugWithDb;
 
 pub struct HirEagerExprBuilder<'a> {

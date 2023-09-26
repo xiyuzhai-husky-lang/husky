@@ -5,25 +5,11 @@ impl<'a> ExprTypeEngine<'a> {
         self.expr_region_data.path_ref().debug(self.db)
     }
 
-    pub(super) fn expr_ty_info_variant(
-        &self,
-        expr_idx: SynExprIdx,
-    ) -> SemaExprResultRef<&SynExprDisambiguation> {
-        self.expr_ty_infos[expr_idx].disambiguation()
-    }
-
     pub(crate) fn debug<'b>(
         &self,
         t: &'b impl salsa::DebugWithDb<dyn SemaExprDb + 'a>,
     ) -> salsa::DebugWith<'b, dyn SemaExprDb + 'a> {
         t.debug(self.db())
-    }
-
-    pub(super) fn expr_disambiguation(
-        &self,
-        expr_idx: SynExprIdx,
-    ) -> SemaExprResultRef<&SynExprDisambiguation> {
-        self.expr_ty_infos[expr_idx].disambiguation()
     }
 }
 

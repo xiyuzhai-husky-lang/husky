@@ -12,7 +12,7 @@ where
     pub(crate) fn accept_token(&mut self, token: DisambiguatedTokenData) {
         match token {
             DisambiguatedTokenData::Literal(regional_token_idx, lit) => {
-                self.accept_atom(SynExpr::Literal(regional_token_idx, lit))
+                self.accept_atom(SynExprData::Literal(regional_token_idx, lit))
             }
             DisambiguatedTokenData::IdentifiableEntityPath(expr) => self.accept_atom(expr.into()),
             DisambiguatedTokenData::InheritedSymbol {
@@ -20,7 +20,7 @@ where
                 regional_token_idx,
                 inherited_symbol_idx,
                 inherited_symbol_kind,
-            } => self.accept_atom(SynExpr::InheritedSymbol {
+            } => self.accept_atom(SynExprData::InheritedSymbol {
                 ident,
                 regional_token_idx,
                 inherited_symbol_idx,
@@ -31,40 +31,40 @@ where
                 regional_token_idx,
                 current_symbol_idx,
                 current_symbol_kind,
-            } => self.accept_atom(SynExpr::CurrentSymbol {
+            } => self.accept_atom(SynExprData::CurrentSymbol {
                 ident,
                 regional_token_idx,
                 current_symbol_idx,
                 current_symbol_kind,
             }),
             DisambiguatedTokenData::SelfType(regional_token_idx) => {
-                self.accept_atom(SynExpr::SelfType(regional_token_idx))
+                self.accept_atom(SynExprData::SelfType(regional_token_idx))
             }
             DisambiguatedTokenData::SelfValue(regional_token_idx) => {
-                self.accept_atom(SynExpr::SelfValue(regional_token_idx))
+                self.accept_atom(SynExprData::SelfValue(regional_token_idx))
             }
             /// sorry is for comptime (say proof) terms
             DisambiguatedTokenData::Sorry { regional_token_idx } => {
-                self.accept_atom(SynExpr::Sorry { regional_token_idx })
+                self.accept_atom(SynExprData::Sorry { regional_token_idx })
             }
             /// todo is for runtime terms
             DisambiguatedTokenData::Todo { regional_token_idx } => {
-                self.accept_atom(SynExpr::Todo { regional_token_idx })
+                self.accept_atom(SynExprData::Todo { regional_token_idx })
             }
             DisambiguatedTokenData::Unreachable { regional_token_idx } => {
-                self.accept_atom(SynExpr::Unreachable { regional_token_idx })
+                self.accept_atom(SynExprData::Unreachable { regional_token_idx })
             }
             DisambiguatedTokenData::UnrecognizedIdent {
                 regional_token_idx,
                 ident,
-            } => self.accept_atom(SynExpr::Err(
+            } => self.accept_atom(SynExprData::Err(
                 OriginalSynExprError::UnrecognizedIdent {
                     regional_token_idx,
                     ident,
                 }
                 .into(),
             )),
-            DisambiguatedTokenData::Err(e) => self.accept_atom(SynExpr::Err(e)),
+            DisambiguatedTokenData::Err(e) => self.accept_atom(SynExprData::Err(e)),
             // self.accept_atom(atom),
             DisambiguatedTokenData::BinaryOpr(regional_token_idx, opr) => {
                 self.accept_binary_opr(opr, regional_token_idx)
@@ -127,7 +127,7 @@ where
                     }
                     match opr {
                         IncompleteCommaListOpr::UnitOrBracketedOrNewTuple => match items.last() {
-                            None => SynExpr::Unit {
+                            None => SynExprData::Unit {
                                 lpar_regional_token_idx: bra_regional_token_idx,
                                 rpar_regional_token_idx: ket_regional_token_idx,
                             },
@@ -135,13 +135,13 @@ where
                                 if items.len() == 1
                                     && last_item.comma_regional_token_idx().is_none()
                                 {
-                                    SynExpr::Bracketed {
+                                    SynExprData::Bracketed {
                                         lpar_regional_token_idx: bra_regional_token_idx,
                                         item: last_item.expr_idx(),
                                         rpar_regional_token_idx: ket_regional_token_idx,
                                     }
                                 } else {
-                                    SynExpr::NewTuple {
+                                    SynExprData::NewTuple {
                                         lpar_regional_token_idx: bra_regional_token_idx,
                                         items,
                                         rpar_regional_token_idx: ket_regional_token_idx,
@@ -151,7 +151,7 @@ where
                         }
                         .into(),
                         IncompleteCommaListOpr::Index { owner } => {
-                            SynExpr::IndexOrCompositionWithList {
+                            SynExprData::IndexOrCompositionWithList {
                                 owner,
                                 lbox_regional_token_idx: bra_regional_token_idx,
                                 items,
@@ -159,7 +159,7 @@ where
                             }
                             .into()
                         }
-                        IncompleteCommaListOpr::BoxList => SynExpr::List {
+                        IncompleteCommaListOpr::BoxList => SynExprData::List {
                             lbox_regional_token_idx: bra_regional_token_idx,
                             items,
                             rbox_regional_token_idx: ket_regional_token_idx,
@@ -167,7 +167,7 @@ where
                         .into(),
                         IncompleteCommaListOpr::BoxColonList {
                             colon_regional_token_idx,
-                        } => SynExpr::BoxColonList {
+                        } => SynExprData::BoxColonList {
                             lbox_regional_token_idx: bra_regional_token_idx,
                             colon_regional_token_idx,
                             items,
@@ -178,7 +178,7 @@ where
                         IncompleteCommaListOpr::FunctionApplicationOrCall { function } => {
                             // ad hoc
                             let generic_arguments: Option<SynTemplateArgumentList> = None;
-                            SynExpr::FunctionApplicationOrCall {
+                            SynExprData::FunctionApplicationOrCall {
                                 function,
                                 generic_arguments,
                                 lpar_regional_token_idx: bra_regional_token_idx,
@@ -193,7 +193,7 @@ where
                             dot_regional_token_idx,
                             ident_token,
                             generic_arguments,
-                        } => SynExpr::MethodApplicationOrCall {
+                        } => SynExprData::MethodApplicationOrCall {
                             self_argument: self_expr,
                             dot_regional_token_idx,
                             ident_token,
@@ -204,7 +204,7 @@ where
                         }
                         .into(),
                         IncompleteCommaListOpr::TemplateInstantiation { template } => {
-                            SynExpr::TemplateInstantiation {
+                            SynExprData::TemplateInstantiation {
                                 template,
                                 generic_arguments: SynTemplateArgumentList::new(
                                     bra_regional_token_idx,
@@ -243,7 +243,7 @@ where
                 IncompleteCallListOpr::FunctionCall {
                     function,
                     generic_arguments,
-                } => self.set_complete_expr(SynExpr::FunctionCall {
+                } => self.set_complete_expr(SynExprData::FunctionCall {
                     function,
                     generic_arguments,
                     lpar_regional_token_idx,
@@ -294,7 +294,7 @@ where
         }
     }
 
-    fn accept_atom(&mut self, atom: SynExpr) {
+    fn accept_atom(&mut self, atom: SynExprData) {
         self.push_top_syn_expr(atom.into())
     }
 
@@ -318,7 +318,7 @@ where
         punctuation_regional_token_idx: RegionalTokenIdx,
     ) {
         self.take_complete_and_push_to_top(|this, top_expr| match top_expr {
-            Some(expr) => SynExpr::Suffix {
+            Some(expr) => SynExprData::Suffix {
                 opd: this.context_mut().alloc_expr(expr),
                 opr: punctuation,
                 opr_regional_token_idx: punctuation_regional_token_idx,
@@ -358,7 +358,7 @@ where
                                 items: smallvec![],
                             }
                             .into(),
-                            Ok(None) => SynExpr::Field {
+                            Ok(None) => SynExprData::Field {
                                 owner: self_expr,
                                 dot_regional_token_idx,
                                 ident_token,
@@ -371,7 +371,7 @@ where
                             todo!()
                         }
                     },
-                    _ => SynExpr::Err(
+                    _ => SynExprData::Err(
                         OriginalSynExprError::ExpectedIdentAfterDot {
                             dot_regional_token_idx,
                         }
@@ -380,7 +380,7 @@ where
                     .into(),
                 }
             }
-            None => SynExpr::Err(
+            None => SynExprData::Err(
                 OriginalSynExprError::ExpectedExprBeforeDot {
                     dot_regional_token_idx,
                 }
@@ -442,7 +442,7 @@ where
 
     fn accept_be_pattern(&mut self, be_regional_token_idx: RegionalTokenIdx) {
         self.reduce(Precedence::Be);
-        let src = self.take_complete_expr().unwrap_or(SynExpr::Err(
+        let src = self.take_complete_expr().unwrap_or(SynExprData::Err(
             OriginalSynExprError::ExpectedItemBeforeBe {
                 be_regional_token_idx,
             }
@@ -457,7 +457,7 @@ where
             },
             None => todo!(),
         };
-        let expr = SynExpr::Be {
+        let expr = SynExprData::Be {
             src,
             be_regional_token_idx,
             target: self.parse_be_variables_pattern_expected(end),
@@ -471,7 +471,7 @@ where
         binary_regional_token_idx: RegionalTokenIdx,
     ) {
         self.reduce(binary.into());
-        let lopd = self.take_complete_expr().unwrap_or(SynExpr::Err(
+        let lopd = self.take_complete_expr().unwrap_or(SynExprData::Err(
             OriginalSynExprError::NoLeftOperandForBinaryOperator {
                 binary_regional_token_idx,
             }
@@ -555,7 +555,7 @@ where
                     .into(),
                     None => todo!(),
                 },
-                Bracket::Curl => SynExpr::Err(
+                Bracket::Curl => SynExprData::Err(
                     OriginalSynExprError::UnexpectedLeftCurlyBrace(bra_regional_token_idx).into(),
                 )
                 .into(),
@@ -565,14 +565,14 @@ where
                         OriginalSynExprError::ExpectedFunctionIdentAfterOpeningHtmlBra,
                     ) {
                         Ok(function_ident) => function_ident,
-                        Err(e) => return SynExpr::Err(e).into(),
+                        Err(e) => return SynExprData::Err(e).into(),
                     };
                     let arguments = match parse_consecutive_vec_map(parser) {
                         Ok(arguments) => arguments,
-                        Err(e) => return SynExpr::Err(e).into(),
+                        Err(e) => return SynExprData::Err(e).into(),
                     };
                     match parser.try_parse_option::<EmptyHtmlKetRegionalToken>() {
-                        Ok(Some(empty_html_ket)) => SynExpr::EmptyHtmlTag {
+                        Ok(Some(empty_html_ket)) => SynExprData::EmptyHtmlTag {
                             empty_html_bra_idx: bra_regional_token_idx,
                             function_ident,
                             arguments,
@@ -630,7 +630,7 @@ where
     fn accept_at(&mut self, at_regional_token_idx: RegionalTokenIdx) {
         let place_label_regional_token = self.try_parse_err_as_none();
         self.push_top_syn_expr(
-            SynExpr::At {
+            SynExprData::At {
                 at_regional_token_idx,
                 place_label_regional_token,
             }

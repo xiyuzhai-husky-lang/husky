@@ -338,7 +338,7 @@ impl<'a> DeclarativeTermEngine<'a> {
 
     fn calc_expr_term(&mut self, expr_idx: SynExprIdx) -> DeclarativeTermResult2<DeclarativeTerm> {
         match self.syn_expr_region_data.expr_arena()[expr_idx] {
-            SynExpr::Literal(token_idx, literal) => match literal {
+            SynExprData::Literal(token_idx, literal) => match literal {
                 LiteralData::Unit => todo!(),
                 LiteralData::Char(_) => todo!(),
                 LiteralData::String(_) => todo!(),
@@ -370,7 +370,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 LiteralData::TupleIndex(_) => todo!(),
                 LiteralData::Bool(_) => todo!(),
             },
-            SynExpr::PrincipalEntityPath { opt_path, .. } => match opt_path {
+            SynExprData::PrincipalEntityPath { opt_path, .. } => match opt_path {
                 Some(path) => Ok(DeclarativeTerm::EntityPath(match path {
                     PrincipalEntityPath::Module(_) => todo!(),
                     PrincipalEntityPath::MajorItem(path) => match path {
@@ -384,13 +384,13 @@ impl<'a> DeclarativeTermEngine<'a> {
                 })),
                 None => Err(DerivedDeclarativeTermError2::InvalidEntityPath.into()),
             },
-            SynExpr::AssociatedItem {
+            SynExprData::AssociatedItem {
                 parent_expr_idx,
                 parent_path,
                 colon_colon_regional_token,
                 ident_token,
             } => todo!(),
-            SynExpr::InheritedSymbol {
+            SynExprData::InheritedSymbol {
                 inherited_symbol_idx,
                 ..
             } => self
@@ -399,7 +399,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 .term_symbol()
                 .map(Into::into)
                 .ok_or(DerivedDeclarativeTermError2::InheritedSymbolIsNotValidTerm.into()),
-            SynExpr::CurrentSymbol {
+            SynExprData::CurrentSymbol {
                 current_symbol_idx, ..
             } => Ok(self
                 .symbol_declarative_term_region
@@ -408,16 +408,16 @@ impl<'a> DeclarativeTermEngine<'a> {
                 .term_symbol()
                 .ok_or(OriginalDeclarativeTermError2::InvalidSymbolForTerm)?
                 .into()),
-            SynExpr::FrameVarDecl { .. } => unreachable!(),
-            SynExpr::SelfType(_) => self
+            SynExprData::FrameVarDecl { .. } => unreachable!(),
+            SynExprData::SelfType(_) => self
                 .symbol_declarative_term_region
                 .self_ty_term()
                 .ok_or(DerivedDeclarativeTermError2::SelfTypeNotAllowedInThisRegion.into()),
-            SynExpr::SelfValue(_) => self
+            SynExprData::SelfValue(_) => self
                 .symbol_declarative_term_region
                 .self_ty_term()
                 .ok_or(DerivedDeclarativeTermError2::SelfValueNotAllowedInThisRegion.into()),
-            SynExpr::Binary {
+            SynExprData::Binary {
                 lopd, opr, ropd, ..
             } => {
                 let Ok(lopd) = self.infer_new_expr_term(lopd) else {
@@ -454,8 +454,8 @@ impl<'a> DeclarativeTermEngine<'a> {
                     BinaryOpr::In => todo!(),
                 }
             }
-            SynExpr::Be { .. } => todo!(),
-            SynExpr::Prefix { opr, opd, .. } => {
+            SynExprData::Be { .. } => todo!(),
+            SynExprData::Prefix { opr, opd, .. } => {
                 let Ok(opd) = self.infer_new_expr_term(opd) else {
                     return Err(
                         DerivedDeclarativeTermError2::CannotInferOperandDeclarativeTermInPrefix
@@ -478,11 +478,11 @@ impl<'a> DeclarativeTermEngine<'a> {
                 };
                 Ok(DeclarativeTermExplicitApplication::new(self.db, tmpl, opd).into())
             }
-            SynExpr::Suffix { .. } => todo!(),
-            SynExpr::Field { .. } => todo!(),
-            SynExpr::MethodApplicationOrCall { .. } => todo!(),
-            SynExpr::TemplateInstantiation { .. } => todo!(),
-            SynExpr::FunctionApplicationOrCall {
+            SynExprData::Suffix { .. } => todo!(),
+            SynExprData::Field { .. } => todo!(),
+            SynExprData::MethodApplicationOrCall { .. } => todo!(),
+            SynExprData::TemplateInstantiation { .. } => todo!(),
+            SynExprData::FunctionApplicationOrCall {
                 function,
                 ref generic_arguments,
                 ref items,
@@ -518,7 +518,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 )
                 .into())
             }
-            SynExpr::ExplicitApplication {
+            SynExprData::ExplicitApplication {
                 function_expr_idx: function,
                 argument_expr_idx: argument,
             } => {
@@ -530,12 +530,12 @@ impl<'a> DeclarativeTermEngine<'a> {
                 };
                 Ok(DeclarativeTermExplicitApplication::new(self.db, function, argument).into())
             }
-            SynExpr::NewTuple { ref items, .. } => {
+            SynExprData::NewTuple { ref items, .. } => {
                 p!(self.syn_expr_region_data.path().debug(self.db));
                 p!(items.len());
                 todo!()
             }
-            SynExpr::List { ref items, .. } => {
+            SynExprData::List { ref items, .. } => {
                 let items = items
                     .iter()
                     .map(|item| self.infer_new_expr_term(item.expr_idx()))
@@ -547,15 +547,15 @@ impl<'a> DeclarativeTermEngine<'a> {
                 )
                 .into())
             }
-            SynExpr::BoxColonList { ref items, .. } => match items.len() {
+            SynExprData::BoxColonList { ref items, .. } => match items.len() {
                 0 => Ok(self.declarative_term_menu.slice_ty_path()),
                 _ => todo!(),
             },
-            SynExpr::Bracketed { item, .. } => self.infer_new_expr_term(item),
-            SynExpr::Block { stmts: _ } => todo!(),
-            SynExpr::IndexOrCompositionWithList { .. } => todo!(),
-            SynExpr::Err(ref e) => Err(DerivedDeclarativeTermError2::ExprError.into()),
-            SynExpr::At {
+            SynExprData::Bracketed { item, .. } => self.infer_new_expr_term(item),
+            SynExprData::Block { stmts: _ } => todo!(),
+            SynExprData::IndexOrCompositionWithList { .. } => todo!(),
+            SynExprData::Err(ref e) => Err(DerivedDeclarativeTermError2::ExprError.into()),
+            SynExprData::At {
                 at_regional_token_idx,
                 place_label_regional_token,
             } => match place_label_regional_token {
@@ -570,15 +570,15 @@ impl<'a> DeclarativeTermEngine<'a> {
                     None => todo!(),
                 },
             },
-            SynExpr::Unit { .. } => Ok(self.declarative_term_menu.unit()),
-            SynExpr::EmptyHtmlTag {
+            SynExprData::Unit { .. } => Ok(self.declarative_term_menu.unit()),
+            SynExprData::EmptyHtmlTag {
                 empty_html_bra_idx: langle_token_idx,
                 function_ident,
                 ref arguments,
                 empty_html_ket,
             } => todo!(),
-            SynExpr::FunctionCall { .. } => todo!(),
-            SynExpr::Ritchie {
+            SynExprData::FunctionCall { .. } => todo!(),
+            SynExprData::Ritchie {
                 ritchie_kind,
                 ref parameter_ty_items,
                 return_ty_expr,
@@ -605,13 +605,13 @@ impl<'a> DeclarativeTermEngine<'a> {
                         .into(),
                 )
             }
-            SynExpr::Sorry {
+            SynExprData::Sorry {
                 regional_token_idx: token_idx,
             } => todo!(),
-            SynExpr::Todo {
+            SynExprData::Todo {
                 regional_token_idx: token_idx,
             } => todo!(),
-            SynExpr::Unreachable { regional_token_idx } => todo!(),
+            SynExprData::Unreachable { regional_token_idx } => todo!(),
         }
     }
 

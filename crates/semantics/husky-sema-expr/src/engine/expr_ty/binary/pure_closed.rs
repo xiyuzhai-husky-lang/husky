@@ -7,12 +7,12 @@ impl<'a> ExprTypeEngine<'a> {
         ropd: SynExprIdx,
         opr: BinaryClosedOpr,
         menu: &EtherealTermMenu,
-    ) -> Result<FluffyTerm, SemaExprError> {
+    ) -> SemaExprResult<FluffyTerm> {
         let Some(lopd_ty) = self.infer_new_expr_ty(lopd, ExpectAnyOriginal) else {
-            self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived);
+            self.build_new_expr_ty_discarded(ropd, ExpectAnyDerived);
             Err(DerivedSemaExprError::BinaryOperationLeftOperandTypeNotInferred)?
         };
-        self.infer_new_expr_ty_discarded(ropd, ExpectCoersion::new_pure(self, lopd_ty));
+        self.build_new_expr_ty_discarded(ropd, ExpectCoersion::new_pure(self, lopd_ty));
         match lopd_ty.data(self) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {

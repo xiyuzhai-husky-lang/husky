@@ -11,7 +11,7 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_unveil_expr_ty(
         &mut self,
         opd: SynExprIdx,
-    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
+    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
         self.unveiler.initialize_if_not(self.return_ty, self.db);
         match self.unveiler {
             Unveiler::UniqueFullyInstantiated {
@@ -19,7 +19,7 @@ impl<'a> ExprTypeEngine<'a> {
                 unveil_output_ty,
                 ..
             } => {
-                self.infer_new_expr_ty_discarded(
+                self.build_new_expr_ty_discarded(
                     opd,
                     ExpectCoersion::new(Contract::Move, opd_ty.into()),
                 );
@@ -90,7 +90,7 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_unveil_expr_ty_given_opd_ty(
         &mut self,
         opd_ty: FluffyTerm,
-    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
+    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
         todo!()
     }
 }

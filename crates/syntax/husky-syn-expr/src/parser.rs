@@ -180,7 +180,7 @@ where
                 Some(expr_idx) => expr_idx,
                 None => self
                     .context_mut()
-                    .alloc_expr(SynExpr::Err(err(state).into())),
+                    .alloc_expr(SynExprData::Err(err(state).into())),
             }
         };
         self.context_mut().add_expr_root(expr_root_kind, expr_idx);

@@ -8,8 +8,8 @@ impl<'a> ExprTypeEngine<'a> {
         expr_ty_expectation: &impl ExpectFluffyTerm,
         generic_arguments: Option<&SynTemplateArgumentList>,
         items: &[SynCommaListItem],
-    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
-        let Some(outcome) = self.infer_new_expr_ty_for_outcome(
+    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
+        let Some(outcome) = self.build_new_sema_expr_with_outcome(
             function,
             ExpectEqsFunctionType::new(expr_ty_expectation.final_destination(self)),
         ) else {
@@ -32,7 +32,7 @@ impl<'a> ExprTypeEngine<'a> {
                     items.iter().copied().map(Into::into),
                 )?;
                 Ok((
-                    SynExprDisambiguation::ApplicationOrFunctionCall(
+                    SemaExprData::ApplicationOrFunctionCall(
                         ApplicationOrFunctionCallExprDisambiguation::FnCall {
                             ritchie_parameter_argument_matches,
                         },
@@ -48,7 +48,7 @@ impl<'a> ExprTypeEngine<'a> {
             } => {
                 match items.len() {
                     0 => unreachable!(),
-                    1 => self.infer_new_expr_ty_discarded(
+                    1 => self.build_new_expr_ty_discarded(
                         items.first().expect("len is 1").expr_idx(),
                         ExpectCoersion::new_const(*parameter_ty),
                     ),
@@ -57,7 +57,7 @@ impl<'a> ExprTypeEngine<'a> {
                     _ => todo!(),
                 }
                 Ok((
-                    SynExprDisambiguation::ApplicationOrFunctionCall(
+                    SemaExprData::ApplicationOrFunctionCall(
                         ApplicationOrFunctionCallExprDisambiguation::Application,
                     ),
                     Ok(*return_ty),
@@ -73,10 +73,11 @@ impl<'a> ExprTypeEngine<'a> {
         final_destination: FinalDestination,
         generic_arguments: Option<&SynTemplateArgumentList>,
         items: &[SynCallListItem],
-    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
-        let Some(outcome) = self
-            .infer_new_expr_ty_for_outcome(function, ExpectEqsRitchieType::new(final_destination))
-        else {
+    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
+        let Some(outcome) = self.build_new_sema_expr_with_outcome(
+            function,
+            ExpectEqsRitchieType::new(final_destination),
+        ) else {
             for item in items {
                 self.infer_new_expr_ty(item.argument_expr_idx(), ExpectAnyDerived);
             }
@@ -88,7 +89,7 @@ impl<'a> ExprTypeEngine<'a> {
             items.iter().copied(),
         );
         Ok((
-            SynExprDisambiguation::FunctionCall {
+            SemaExprData::FunctionCall {
                 ritchie_kind: outcome.ritchie_kind(),
                 ritchie_parameter_argument_matches,
             },

@@ -63,7 +63,7 @@ impl<'a> SynStmtContext<'a> {
     pub(crate) fn parse_root_body(&mut self) -> SynExprIdx {
         let body = self.defn_tokra_region_data.root_body();
         let stmts = self.parse_stmts(body);
-        let expr = SynExpr::Block { stmts };
+        let expr = SynExprData::Block { stmts };
         let expr = self.alloc_expr(expr);
         self.expr_context
             .add_expr_root(ExprRootKind::BlockExpr, expr);

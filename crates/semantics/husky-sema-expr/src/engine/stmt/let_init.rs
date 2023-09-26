@@ -9,7 +9,7 @@ impl<'a> ExprTypeEngine<'a> {
         let annotated_pattern_ty = match let_variable_obelisks {
             Ok(pattern) => match pattern.ty() {
                 Some(ty) => {
-                    self.infer_new_expr_ty_discarded(
+                    self.build_new_expr_ty_discarded(
                         ty,
                         ExpectEqsCategory::new_expect_eqs_ty_kind(),
                     );
@@ -31,7 +31,7 @@ impl<'a> ExprTypeEngine<'a> {
                         .syn_pattern_root()
                         .syn_pattern_expr_idx(),
                 );
-                self.infer_new_expr_ty_discarded(
+                self.build_new_expr_ty_discarded(
                     initial_value,
                     ExpectCoersion::new(contract, pattern_ty),
                 );

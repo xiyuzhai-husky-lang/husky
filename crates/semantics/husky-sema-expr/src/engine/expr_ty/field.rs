@@ -6,7 +6,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         owner: SynExprIdx,
         ident_token: IdentRegionalToken,
-    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
+    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
         let Some(owner_ty) = self.infer_new_expr_ty(owner, ExpectAnyOriginal) else {
             return Err(DerivedSemaExprError::FieldOwnerTypeNotInferred.into());
         };

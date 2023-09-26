@@ -10,7 +10,7 @@ use vec_like::SmallVecMap;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
-pub enum SynExpr {
+pub enum SynExprData {
     Literal(RegionalTokenIdx, LiteralData),
     PrincipalEntityPath {
         path_expr_idx: SynPrincipalEntityPathExprIdx,
@@ -199,13 +199,13 @@ pub enum SynExpr {
     Err(SynExprError),
 }
 
-impl From<IdentifiableEntityPathExpr> for SynExpr {
+impl From<IdentifiableEntityPathExpr> for SynExprData {
     fn from(expr: IdentifiableEntityPathExpr) -> Self {
         match expr {
             IdentifiableEntityPathExpr::Principal {
                 path_expr_idx,
                 opt_path,
-            } => SynExpr::PrincipalEntityPath {
+            } => SynExprData::PrincipalEntityPath {
                 path_expr_idx,
                 opt_path,
             },
@@ -214,7 +214,7 @@ impl From<IdentifiableEntityPathExpr> for SynExpr {
                 parent_path,
                 colon_colon_regional_token,
                 ident_token,
-            } => SynExpr::AssociatedItem {
+            } => SynExprData::AssociatedItem {
                 parent_expr_idx,
                 parent_path,
                 colon_colon_regional_token,
@@ -224,10 +224,10 @@ impl From<IdentifiableEntityPathExpr> for SynExpr {
     }
 }
 
-pub type SynExprArena = Arena<SynExpr>;
-pub type SynExprIdx = ArenaIdx<SynExpr>;
-pub type SynExprIdxRange = ArenaIdxRange<SynExpr>;
-pub type SynExprMap<V> = ArenaMap<SynExpr, V>;
+pub type SynExprArena = Arena<SynExprData>;
+pub type SynExprIdx = ArenaIdx<SynExprData>;
+pub type SynExprIdxRange = ArenaIdxRange<SynExprData>;
+pub type SynExprMap<V> = ArenaMap<SynExprData, V>;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SynTemplateArgumentList {

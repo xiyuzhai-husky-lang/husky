@@ -31,7 +31,7 @@ impl<'a> ExprTypeEngine<'a> {
             return;
         }
         match self.expr_region_data[syn_expr_idx] {
-            SynExpr::Literal(_, _) => (),
+            SynExprData::Literal(_, _) => (),
             _ => return,
         }
         let term_result = self.calc_expr_term(syn_expr_idx);
@@ -49,7 +49,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_expr_term(&mut self, expr_idx: SynExprIdx) -> ExprTermResult<FluffyTerm> {
         match self.expr_region_data[expr_idx] {
-            SynExpr::Literal(regional_token_idx, lit) => {
+            SynExprData::Literal(regional_token_idx, lit) => {
                 Ok(
                     EtherealTerm::Literal(match lit {
                         LiteralData::Unit => TermLiteral::Unit,
@@ -202,23 +202,23 @@ impl<'a> ExprTypeEngine<'a> {
                     .into(),
                 )
             }
-            SynExpr::PrincipalEntityPath {
+            SynExprData::PrincipalEntityPath {
                 path_expr_idx,
                 opt_path,
             } => self.calc_item_path_term(expr_idx, opt_path),
-            SynExpr::AssociatedItem {
+            SynExprData::AssociatedItem {
                 parent_expr_idx,
                 parent_path,
                 colon_colon_regional_token,
                 ident_token,
             } => todo!(),
-            SynExpr::InheritedSymbol {
+            SynExprData::InheritedSymbol {
                 ident,
                 regional_token_idx,
                 inherited_symbol_idx,
                 inherited_symbol_kind,
             } => todo!(),
-            SynExpr::CurrentSymbol {
+            SynExprData::CurrentSymbol {
                 ident,
                 regional_token_idx,
                 current_symbol_idx,
@@ -237,57 +237,57 @@ impl<'a> ExprTypeEngine<'a> {
                 },
                 None => todo!(),
             },
-            SynExpr::FrameVarDecl {
+            SynExprData::FrameVarDecl {
                 regional_token_idx,
                 ident,
                 frame_var_symbol_idx: current_symbol_idx,
                 current_symbol_kind,
             } => todo!(),
-            SynExpr::SelfType(_) => todo!(),
-            SynExpr::SelfValue(_) => todo!(),
-            SynExpr::Binary {
+            SynExprData::SelfType(_) => todo!(),
+            SynExprData::SelfValue(_) => todo!(),
+            SynExprData::Binary {
                 lopd,
                 opr,
                 opr_regional_token_idx,
                 ropd,
             } => todo!(),
-            SynExpr::Be { .. } => todo!(),
-            SynExpr::Prefix {
+            SynExprData::Be { .. } => todo!(),
+            SynExprData::Prefix {
                 opr,
                 opr_regional_token_idx,
                 opd,
             } => self.calc_prefix_expr_term(expr_idx, opr, opd),
-            SynExpr::Suffix {
+            SynExprData::Suffix {
                 opd,
                 opr: punctuation,
                 opr_regional_token_idx: punctuation_regional_token_idx,
             } => todo!(),
-            SynExpr::FunctionApplicationOrCall { .. } => todo!(),
-            SynExpr::FunctionCall { .. } => todo!(),
-            SynExpr::Field {
+            SynExprData::FunctionApplicationOrCall { .. } => todo!(),
+            SynExprData::FunctionCall { .. } => todo!(),
+            SynExprData::Field {
                 owner,
                 dot_regional_token_idx,
                 ident_token,
             } => todo!(),
-            SynExpr::MethodApplicationOrCall { .. } => todo!(),
-            SynExpr::TemplateInstantiation { .. } => todo!(),
-            SynExpr::ExplicitApplication {
+            SynExprData::MethodApplicationOrCall { .. } => todo!(),
+            SynExprData::TemplateInstantiation { .. } => todo!(),
+            SynExprData::ExplicitApplication {
                 function_expr_idx: function,
                 argument_expr_idx: argument,
             } => {
                 // todo: implicit arguments
                 self.calc_explicit_application_expr_term(expr_idx, function, argument)
             }
-            SynExpr::Bracketed {
+            SynExprData::Bracketed {
                 lpar_regional_token_idx,
                 item,
                 rpar_regional_token_idx,
             } => Err(todo!()),
-            SynExpr::NewTuple { .. } => todo!(),
-            SynExpr::List { ref items, .. } => self.calc_list_expr_term(expr_idx, items),
-            SynExpr::BoxColonList { .. } => todo!(),
-            SynExpr::Block { stmts } => todo!(),
-            SynExpr::IndexOrCompositionWithList {
+            SynExprData::NewTuple { .. } => todo!(),
+            SynExprData::List { ref items, .. } => self.calc_list_expr_term(expr_idx, items),
+            SynExprData::BoxColonList { .. } => todo!(),
+            SynExprData::Block { stmts } => todo!(),
+            SynExprData::IndexOrCompositionWithList {
                 owner,
                 lbox_regional_token_idx,
                 ref items,
@@ -297,25 +297,25 @@ impl<'a> ExprTypeEngine<'a> {
                 Err(e) => Err(DerivedExprTermError::ExprTypeError.into()),
                 Ok(_) => unreachable!(),
             },
-            SynExpr::EmptyHtmlTag {
+            SynExprData::EmptyHtmlTag {
                 empty_html_bra_idx: langle_regional_token_idx,
                 function_ident,
                 ref arguments,
                 empty_html_ket,
             } => todo!(),
-            SynExpr::At {
+            SynExprData::At {
                 at_regional_token_idx,
                 place_label_regional_token,
             } => todo!(),
-            SynExpr::Unit {
+            SynExprData::Unit {
                 lpar_regional_token_idx,
                 rpar_regional_token_idx,
             } => todo!(),
-            SynExpr::Ritchie { .. } => todo!(),
-            SynExpr::Sorry { regional_token_idx } => todo!(),
-            SynExpr::Todo { regional_token_idx } => todo!(),
-            SynExpr::Unreachable { regional_token_idx } => todo!(),
-            SynExpr::Err(_) => Err(DerivedExprTermError::ExprError.into()),
+            SynExprData::Ritchie { .. } => todo!(),
+            SynExprData::Sorry { regional_token_idx } => todo!(),
+            SynExprData::Todo { regional_token_idx } => todo!(),
+            SynExprData::Unreachable { regional_token_idx } => todo!(),
+            SynExprData::Err(_) => Err(DerivedExprTermError::ExprError.into()),
         }
     }
 

@@ -38,7 +38,7 @@ impl<'a> ExprTypeEngine<'a> {
             BinaryOpr::ScopeResolution => Err(OriginalSemaExprError::TodoScopeResolution.into()),
             BinaryOpr::Curry => self.calc_curry_expr_ty(lopd, ropd),
             BinaryOpr::As => self.calc_as_expr_ty(ropd, lopd),
-            BinaryOpr::Ins => self.calc_ins_expr_ty(ropd),
+            BinaryOpr::Ins => self.calc_ins_sema_expr(ropd),
             BinaryOpr::In => todo!(),
         }
     }
@@ -47,13 +47,13 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         lopd: SynExprIdx,
         ropd: SynExprIdx,
-    ) -> Result<FluffyTerm, SemaExprError> {
-        self.infer_new_expr_ty_discarded(lopd, self.expect_argument_ty_bool());
-        self.infer_new_expr_ty_discarded(ropd, self.expect_argument_ty_bool());
+    ) -> SemaExprResult<FluffyTerm> {
+        self.build_new_expr_ty_discarded(lopd, self.expect_argument_ty_bool());
+        self.build_new_expr_ty_discarded(ropd, self.expect_argument_ty_bool());
         Ok(self.term_menu.bool_ty_ontology().into())
     }
 
-    fn calc_ins_expr_ty(&mut self, ropd: SynExprIdx) -> Result<FluffyTerm, SemaExprError> {
+    fn calc_ins_sema_expr(&mut self, ropd: SynExprIdx) -> SemaExprResult<FluffyTerm> {
         let Some(ropd_ty) = self.infer_new_expr_ty(ropd, ExpectAnyOriginal) else {
             return Err(DerivedSemaExprError::BinaryOperationRightOperandTypeNotInferred.into());
         };
@@ -79,12 +79,12 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         ropd: SynExprIdx,
         lopd: SynExprIdx,
-    ) -> Result<FluffyTerm, SemaExprError> {
-        self.infer_new_expr_ty_discarded(ropd, ExpectEqsCategory::new_any_sort());
+    ) -> SemaExprResult<FluffyTerm> {
+        self.build_new_expr_ty_discarded(ropd, ExpectEqsCategory::new_any_sort());
         let Some(ropd_term) = self.infer_expr_term(ropd) else {
             return Err(DerivedSemaExprError::AsOperationRightOperandTermNotInferred.into());
         };
-        self.infer_new_expr_ty_discarded(lopd, ExpectCasting::new(ropd_term));
+        self.build_new_expr_ty_discarded(lopd, ExpectCasting::new(ropd_term));
         Ok(ropd_term)
     }
 
@@ -92,12 +92,14 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         lopd: SynExprIdx,
         ropd: SynExprIdx,
-    ) -> Result<FluffyTerm, SemaExprError> {
+    ) -> SemaExprResult<FluffyTerm> {
         let expect_any_sort = ExpectEqsCategory::new_any_sort();
-        let Some(lopd_universe) = self.infer_new_expr_ty_for_outcome(lopd, expect_any_sort) else {
+        let Some(lopd_universe) = self.build_new_sema_expr_with_outcome(lopd, expect_any_sort)
+        else {
             return Err(DerivedSemaExprError::BinaryOperationLeftOperandTypeNotInferred.into());
         };
-        let Some(ropd_universe) = self.infer_new_expr_ty_for_outcome(ropd, expect_any_sort) else {
+        let Some(ropd_universe) = self.build_new_sema_expr_with_outcome(ropd, expect_any_sort)
+        else {
             return Err(DerivedSemaExprError::BinaryOperationRightOperandTypeNotInferred.into());
         };
         todo!()
@@ -109,14 +111,14 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: SynExprIdx,
         lopd: SynExprIdx,
         ropd: SynExprIdx,
-    ) -> Result<FluffyTerm, SemaExprError> {
+    ) -> SemaExprResult<FluffyTerm> {
         // self
         //     .fluffy_term_region
         //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
-        match self.infer_new_expr_ty_for_outcome(lopd, ExpectAnyOriginal) {
+        match self.build_new_sema_expr_with_outcome(lopd, ExpectAnyOriginal) {
             Some(_) => todo!(),
             None => {
-                self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived);
+                self.build_new_expr_ty_discarded(ropd, ExpectAnyDerived);
             }
         };
         Ok(self.term_menu.unit_ty_ontology().into())
@@ -128,7 +130,7 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: SynExprIdx,
         opr: BinaryShiftOpr,
         ropd: SynExprIdx,
-    ) -> Result<FluffyTerm, SemaExprError> {
+    ) -> SemaExprResult<FluffyTerm> {
         todo!()
         // let expr_eval_lifetime = self
         //     .fluffy_term_region

@@ -6,7 +6,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: SynExprIdx,
         owner: SynExprIdx,
         indices: &[SynCommaListItem],
-    ) -> SemaExprResult<(SynExprDisambiguation, SemaExprResult<FluffyTerm>)> {
+    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
         let Some(owner_ty) = self.infer_new_expr_ty(owner, ExpectAnyOriginal) else {
             for index in indices {
                 self.infer_new_expr_ty(index.expr_idx(), ExpectAnyDerived);
@@ -19,7 +19,7 @@ impl<'a> ExprTypeEngine<'a> {
                 let (index_disambiguation, expr_ty) =
                     self.calc_index_expr_ty(expr_idx, owner_ty, indices)?;
                 Ok((
-                    SynExprDisambiguation::IndexOrComposeWithList(
+                    SemaExprData::IndexOrComposeWithList(
                         IndexOrComposeWithListExprDisambiguation::Index(index_disambiguation),
                     ),
                     expr_ty,
