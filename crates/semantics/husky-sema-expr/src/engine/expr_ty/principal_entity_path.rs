@@ -11,25 +11,38 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         path: Option<PrincipalEntityPath>,
         expr_ty_expectation: &impl ExpectFluffyTerm,
-    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
+    ) -> (
+        SemaExprDataResult<SemaExprData>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
         let disambiguation = expr_ty_expectation.disambiguate_ty_path(self);
-        let path = path.ok_or(DerivedSemaExprError::EntityPathError)?;
+        let data = match disambiguation {
+            TypePathDisambiguation::OntologyConstructor => todo!(),
+            TypePathDisambiguation::InstanceConstructor => todo!(),
+        };
+        let Some(path) = path else {
+            return (
+                Ok(data),
+                Err(DerivedSemaExprTypeError::EntityPathError.into()),
+            );
+        };
         let ty_result = match path {
-            PrincipalEntityPath::Module(_) | PrincipalEntityPath::MajorItem(_) => {
-                Ok(path.ty(self.db, disambiguation)?.into())
-            }
+            PrincipalEntityPath::Module(_) | PrincipalEntityPath::MajorItem(_) => path
+                .ty(self.db, disambiguation)
+                .map(Into::into)
+                .map_err(Into::into),
             PrincipalEntityPath::TypeVariant(path) => {
                 self.calc_ty_variant_path_expr_ty(path, expr_ty_expectation)
             }
         };
-        Ok((disambiguation.into(), ty_result))
+        (Ok(data), ty_result)
     }
 
     fn calc_ty_variant_path_expr_ty(
         &mut self,
         path: TypeVariantPath,
         expr_ty_expectation: &impl ExpectFluffyTerm,
-    ) -> SemaExprResult<FluffyTerm> {
+    ) -> SemaExprTypeResult<FluffyTerm> {
         let parent_ty_path = path.parent_ty_path(self.db);
         match path.ethereal_signature_template(self.db)? {
             TypeVariantEtherealSignatureTemplate::Props(_) => todo!(),

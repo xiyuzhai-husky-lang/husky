@@ -5,13 +5,13 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: SynExprIdx,
         current_symbol_idx: SynCurrentSymbolIdx,
-    ) -> SemaExprResult<FluffyTerm> {
+    ) -> SemaExprTypeResult<FluffyTerm> {
         Ok(self
             .symbol_tys
             .current_symbol_map()
             .get(current_symbol_idx)
             .copied()
-            .ok_or(DerivedSemaExprError::CurrentSymbolTypeError)?
+            .ok_or(DerivedSemaExprTypeError::CurrentSymbolTypeError)?
             .into())
     }
 }

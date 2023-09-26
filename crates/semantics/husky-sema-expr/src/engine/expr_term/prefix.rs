@@ -6,7 +6,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: SynExprIdx,
         opr: PrefixOpr,
         opd: SynExprIdx,
-    ) -> ExprTermResult<FluffyTerm> {
+    ) -> SemaExprTermResult<FluffyTerm> {
         todo!()
         // let Some(opd_term) = self.infer_expr_term(opd) else {
         //     return Err(DerivedExprTermError::PrefixOprTermNotInferred.into());

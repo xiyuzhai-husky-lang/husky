@@ -7,12 +7,15 @@ impl<'a> ExprTypeEngine<'a> {
         opr: PrefixOpr,
         opd: SynExprIdx,
         final_destination: FinalDestination,
-    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
+    ) -> (
+        SemaExprDataResult<SemaExprData>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
         match opr {
             PrefixOpr::Minus => {
                 let opd_ty = self
-                    .infer_new_expr_ty(opd, ExpectAnyOriginal)
-                    .ok_or(DerivedSemaExprError::PrefixOperandTypeNotInferred)?;
+                    .build_new_expr_ty(opd, ExpectAnyOriginal)
+                    .ok_or(DerivedSemaExprTypeError::PrefixOperandTypeNotInferred)?;
                 match opd_ty.data(self) {
                     FluffyTermData::Literal(_) => todo!(),
                     FluffyTermData::TypeOntology {
@@ -98,9 +101,9 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn calc_bitnot_expr_ty(&mut self, opd: SynExprIdx) -> SemaExprResult<FluffyTerm> {
-        let Some(ty) = self.infer_new_expr_ty(opd, ExpectIntType) else {
-            Err(DerivedSemaExprError::BitNotOperandTypeNotInferred)?
+    fn calc_bitnot_expr_ty(&mut self, opd: SynExprIdx) -> SemaExprTypeResult<FluffyTerm> {
+        let Some(ty) = self.build_new_expr_ty(opd, ExpectIntType) else {
+            Err(DerivedSemaExprTypeError::BitNotOperandTypeNotInferred)?
         };
         match ty.data(self) {
             FluffyTermData::Literal(_) => todo!(),

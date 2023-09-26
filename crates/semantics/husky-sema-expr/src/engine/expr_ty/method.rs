@@ -9,19 +9,22 @@ impl<'a> ExprTypeEngine<'a> {
         ident_token: IdentRegionalToken,
         generic_arguments: Option<&SynTemplateArgumentList>,
         explicit_arguments: &[SynCommaListItem],
-    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
-        let Some(self_expr_ty) = self.infer_new_expr_ty(self_argument, ExpectAnyOriginal) else {
+    ) -> (
+        SemaExprDataResult<SemaExprData>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
+        let Some(self_expr_ty) = self.build_new_expr_ty(self_argument, ExpectAnyOriginal) else {
             if let Some(generic_arguments) = generic_arguments {
                 todo!()
             }
             for argument in explicit_arguments {
                 self.build_new_expr_ty_discarded(argument.expr_idx(), ExpectAnyDerived);
             }
-            return Err(DerivedSemaExprError::MethodOwnerTypeNotInferred.into());
+            return Err(DerivedSemaExprTypeError::MethodOwnerTypeNotInferred.into());
         };
         let method_dispatch = self_expr_ty
             .method_dispatch(self, expr_idx, ident_token)
-            .into_result_or(OriginalSemaExprError::NoMethodForType {
+            .into_result_or(OriginalSemaExprTypeError::NoMethodForType {
                 self_expr_ty,
                 ident_token,
             })?;

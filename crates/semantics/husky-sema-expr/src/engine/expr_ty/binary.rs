@@ -19,7 +19,7 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: SynExprIdx,
         opr: BinaryOpr,
         ropd: SynExprIdx,
-    ) -> SemaExprResult<FluffyTerm> {
+    ) -> (SemaExprIdx, SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
         let menu = self.term_menu;
         match opr {
             BinaryOpr::Closed(opr) => self.calc_binary_closed_expr_ty(lopd, ropd, opr, menu),
@@ -35,7 +35,10 @@ impl<'a> ExprTypeEngine<'a> {
             BinaryOpr::AssignShift(opr) => {
                 self.calc_binary_assign_shift_expr_ty(expr_idx, lopd, opr, ropd)
             }
-            BinaryOpr::ScopeResolution => Err(OriginalSemaExprError::TodoScopeResolution.into()),
+            BinaryOpr::ScopeResolution => {
+                todo!()
+                // Err(OriginalSemaExprTypeError::TodoScopeResolution.into())
+            }
             BinaryOpr::Curry => self.calc_curry_expr_ty(lopd, ropd),
             BinaryOpr::As => self.calc_as_expr_ty(ropd, lopd),
             BinaryOpr::Ins => self.calc_ins_sema_expr(ropd),
@@ -47,15 +50,23 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         lopd: SynExprIdx,
         ropd: SynExprIdx,
-    ) -> SemaExprResult<FluffyTerm> {
-        self.build_new_expr_ty_discarded(lopd, self.expect_argument_ty_bool());
-        self.build_new_expr_ty_discarded(ropd, self.expect_argument_ty_bool());
-        Ok(self.term_menu.bool_ty_ontology().into())
+    ) -> (SemaExprIdx, SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
+        let lopd_sema_expr_idx =
+            self.build_new_expr_ty_discarded(lopd, self.expect_argument_ty_bool());
+        let ropd_sema_expr_idx =
+            self.build_new_expr_ty_discarded(ropd, self.expect_argument_ty_bool());
+        (
+            lopd_sema_expr_idx,
+            ropd_sema_expr_idx,
+            Ok(self.term_menu.bool_ty_ontology().into()),
+        )
     }
 
-    fn calc_ins_sema_expr(&mut self, ropd: SynExprIdx) -> SemaExprResult<FluffyTerm> {
-        let Some(ropd_ty) = self.infer_new_expr_ty(ropd, ExpectAnyOriginal) else {
-            return Err(DerivedSemaExprError::BinaryOperationRightOperandTypeNotInferred.into());
+    fn calc_ins_sema_expr(&mut self, ropd: SynExprIdx) -> SemaExprTypeResult<FluffyTerm> {
+        let Some(ropd_ty) = self.build_new_expr_ty(ropd, ExpectAnyOriginal) else {
+            return Err(
+                DerivedSemaExprTypeError::BinaryOperationRightOperandTypeNotInferred.into(),
+            );
         };
         // todo
         // match ropd_ty {
@@ -79,10 +90,10 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         ropd: SynExprIdx,
         lopd: SynExprIdx,
-    ) -> SemaExprResult<FluffyTerm> {
+    ) -> SemaExprTypeResult<FluffyTerm> {
         self.build_new_expr_ty_discarded(ropd, ExpectEqsCategory::new_any_sort());
         let Some(ropd_term) = self.infer_expr_term(ropd) else {
-            return Err(DerivedSemaExprError::AsOperationRightOperandTermNotInferred.into());
+            return Err(DerivedSemaExprTypeError::AsOperationRightOperandTermNotInferred.into());
         };
         self.build_new_expr_ty_discarded(lopd, ExpectCasting::new(ropd_term));
         Ok(ropd_term)
@@ -92,15 +103,17 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         lopd: SynExprIdx,
         ropd: SynExprIdx,
-    ) -> SemaExprResult<FluffyTerm> {
+    ) -> SemaExprTypeResult<FluffyTerm> {
         let expect_any_sort = ExpectEqsCategory::new_any_sort();
         let Some(lopd_universe) = self.build_new_sema_expr_with_outcome(lopd, expect_any_sort)
         else {
-            return Err(DerivedSemaExprError::BinaryOperationLeftOperandTypeNotInferred.into());
+            return Err(DerivedSemaExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into());
         };
         let Some(ropd_universe) = self.build_new_sema_expr_with_outcome(ropd, expect_any_sort)
         else {
-            return Err(DerivedSemaExprError::BinaryOperationRightOperandTypeNotInferred.into());
+            return Err(
+                DerivedSemaExprTypeError::BinaryOperationRightOperandTypeNotInferred.into(),
+            );
         };
         todo!()
         // Ok(EtherealTerm::new_category(x_u.max(y_u)).into())
@@ -111,7 +124,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: SynExprIdx,
         lopd: SynExprIdx,
         ropd: SynExprIdx,
-    ) -> SemaExprResult<FluffyTerm> {
+    ) -> SemaExprTypeResult<FluffyTerm> {
         // self
         //     .fluffy_term_region
         //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
@@ -130,7 +143,7 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: SynExprIdx,
         opr: BinaryShiftOpr,
         ropd: SynExprIdx,
-    ) -> SemaExprResult<FluffyTerm> {
+    ) -> SemaExprTypeResult<FluffyTerm> {
         todo!()
         // let expr_eval_lifetime = self
         //     .fluffy_term_region
@@ -145,7 +158,7 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     fn infer_basic_assign_ropd_ty(&mut self, lopd_ty: FluffyTerm, ropd: SynExprIdx) {
-        let ropd_ty = self.infer_new_expr_ty(ropd, ExpectAnyOriginal);
+        let ropd_ty = self.build_new_expr_ty(ropd, ExpectAnyOriginal);
         let Some(ropd_ty) = ropd_ty else { return };
         todo!()
         // let lopd_ty = match lopd_ty {

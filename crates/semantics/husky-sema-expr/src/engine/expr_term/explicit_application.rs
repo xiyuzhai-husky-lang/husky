@@ -8,7 +8,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: SynExprIdx,
         function: SynExprIdx,
         argument: SynExprIdx,
-    ) -> ExprTermResult<FluffyTerm> {
+    ) -> SemaExprTermResult<FluffyTerm> {
         // todo: implicit arguments
         let function = self
             .infer_expr_term(function)

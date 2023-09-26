@@ -66,9 +66,9 @@ impl<'a> ExprTypeEngine<'a> {
                 expr_idx,
                 eol_semicolon,
             } => match eol_semicolon {
-                Ok(None) => self.infer_new_expr_ty(expr_idx, expr_expectation),
-                Ok(Some(_)) => self.infer_new_expr_ty(expr_idx, ExpectAnyOriginal),
-                Err(_) => self.infer_new_expr_ty(expr_idx, ExpectAnyDerived),
+                Ok(None) => self.build_new_expr_ty(expr_idx, expr_expectation),
+                Ok(Some(_)) => self.build_new_expr_ty(expr_idx, ExpectAnyOriginal),
+                Err(_) => self.build_new_expr_ty(expr_idx, ExpectAnyDerived),
             },
             SynStmtData::ForBetween {
                 ref particulars,
@@ -97,7 +97,7 @@ impl<'a> ExprTypeEngine<'a> {
                             );
                         }
                         None => {
-                            if let Some(ty) = self.infer_new_expr_ty(bound_expr, ExpectAnyOriginal)
+                            if let Some(ty) = self.build_new_expr_ty(bound_expr, ExpectAnyOriginal)
                             {
                                 expected_frame_var_ty = Some(ty)
                             }
@@ -130,7 +130,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => {
                 let Some(forext_loop_var_ty) =
-                    self.infer_new_expr_ty(particulars.forext_loop_var_expr_idx, ExpectIntType)
+                    self.build_new_expr_ty(particulars.forext_loop_var_expr_idx, ExpectIntType)
                 else {
                     todo!()
                 };
@@ -188,7 +188,7 @@ impl<'a> ExprTypeEngine<'a> {
             .condition
             .as_ref()
             .copied()
-            .map(|condition| self.infer_new_expr_ty(condition, ExpectConditionType));
+            .map(|condition| self.build_new_expr_ty(condition, ExpectConditionType));
         branch_tys.visit_branch(self, if_branch.stmts);
         for elif_branch in elif_branches {
             elif_branch

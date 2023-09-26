@@ -38,7 +38,7 @@ impl<'a> ExprTypeEngine<'a> {
                 Some(pattern_ty)
             }
             None => {
-                self.infer_new_expr_ty(
+                self.build_new_expr_ty(
                     initial_value,
                     // ad hoc
                     ExpectAnyOriginal,

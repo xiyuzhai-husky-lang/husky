@@ -7,7 +7,10 @@ impl<'a> ExprTypeEngine<'a> {
         function_syn_expr_idx: SynExprIdx,
         argument_syn_expr_idx: SynExprIdx,
         final_destination: FinalDestination,
-    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
+    ) -> (
+        SemaExprDataResult<SemaExprData>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
         let (function_sema_expr_idx, function_ty_outcome) = self.build_new_sema_expr_with_outcome(
             function_syn_expr_idx,
             ExpectEqsFunctionType::new(final_destination),
@@ -20,7 +23,7 @@ impl<'a> ExprTypeEngine<'a> {
                     function_sema_expr_idx,
                     argument_sema_expr_idx,
                 }),
-                Err(DerivedSemaExprError::ExplicitApplicationFunctionTypeNotInferred.into()),
+                Err(DerivedSemaExprTypeError::ExplicitApplicationFunctionTypeNotInferred.into()),
             );
         };
         match function_ty_outcome.variant() {
@@ -46,7 +49,7 @@ impl<'a> ExprTypeEngine<'a> {
                         function_sema_expr_idx,
                         argument_sema_expr_idx,
                     }),
-                    Err(OriginalSemaExprError::ExpectedCurryButGotRitchieInstead.into()),
+                    Err(OriginalSemaExprTypeError::ExpectedCurryButGotRitchieInstead.into()),
                 )
             }
         }
@@ -61,9 +64,12 @@ impl<'a> ExprTypeEngine<'a> {
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
         argument_expr_idx: SynExprIdx,
-    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
+    ) -> (
+        SemaExprDataResult<SemaExprData>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
         let (argument_sema_expr_idx, argument_ty) =
-            self.infer_new_expr_ty(argument_expr_idx, ExpectCurryDestination::new(parameter_ty));
+            self.build_new_expr_ty(argument_expr_idx, ExpectCurryDestination::new(parameter_ty));
         let data_result = Ok(SemaExprData::ExplicitApplication {
             function_sema_expr_idx,
             argument_sema_expr_idx,
@@ -71,7 +77,7 @@ impl<'a> ExprTypeEngine<'a> {
         let Some(argument_ty) = argument_ty else {
             return (
                 data_result,
-                Err(DerivedSemaExprError::UnableToInferFunctionApplicationArgumentType.into()),
+                Err(DerivedSemaExprTypeError::UnableToInferFunctionApplicationArgumentType.into()),
             );
         };
         let shift =
@@ -86,9 +92,9 @@ impl<'a> ExprTypeEngine<'a> {
                         parameter_variable,
                         argument_term,
                     )),
-                    None => {
-                        Err(DerivedSemaExprError::UnableToInferArgumentTermForDependentType.into())
-                    }
+                    None => Err(
+                        DerivedSemaExprTypeError::UnableToInferArgumentTermForDependentType.into(),
+                    ),
                 },
                 None => Ok(return_ty),
             },

@@ -2,21 +2,21 @@ use super::*;
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SemaExprDb)]
-pub enum ExprTermError {
+pub enum SemaExprTermError {
     #[error("original expr term error: {0}")]
     Original(#[from] OriginalExprTermError),
     #[error("derived expr term error: {0}")]
     Derived(#[from] DerivedExprTermError),
 }
 
-impl From<EtherealTermError> for ExprTermError {
+impl From<EtherealTermError> for SemaExprTermError {
     fn from(value: EtherealTermError) -> Self {
         todo!()
     }
 }
 
-impl From<&SemaExprError> for ExprTermError {
-    fn from(value: &SemaExprError) -> Self {
+impl From<&SemaExprTypeError> for SemaExprTermError {
+    fn from(value: &SemaExprTypeError) -> Self {
         todo!()
     }
 }
@@ -61,5 +61,5 @@ pub enum DerivedExprTermError {
     TypeInfoNotInferred,
 }
 
-pub type ExprTermResult<T> = Result<T, ExprTermError>;
-pub type ExprTermResultRef<'a, T> = Result<T, &'a ExprTermError>;
+pub type SemaExprTermResult<T> = Result<T, SemaExprTermError>;
+pub type SemaExprTermResultRef<'a, T> = Result<T, &'a SemaExprTermError>;

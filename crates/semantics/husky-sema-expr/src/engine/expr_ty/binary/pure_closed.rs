@@ -7,13 +7,18 @@ impl<'a> ExprTypeEngine<'a> {
         ropd: SynExprIdx,
         opr: BinaryClosedOpr,
         menu: &EtherealTermMenu,
-    ) -> SemaExprResult<FluffyTerm> {
-        let Some(lopd_ty) = self.infer_new_expr_ty(lopd, ExpectAnyOriginal) else {
-            self.build_new_expr_ty_discarded(ropd, ExpectAnyDerived);
-            Err(DerivedSemaExprError::BinaryOperationLeftOperandTypeNotInferred)?
+    ) -> (SemaExprIdx, SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
+        let (lopd, lopd_ty) = self.build_new_expr_ty(lopd, ExpectAnyOriginal);
+        let Some(lopd_ty) = lopd_ty else {
+            let ropd = self.build_new_expr_ty_discarded(ropd, ExpectAnyDerived);
+            return (
+                lopd,
+                ropd,
+                Err(DerivedSemaExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into()),
+            );
         };
-        self.build_new_expr_ty_discarded(ropd, ExpectCoersion::new_pure(self, lopd_ty));
-        match lopd_ty.data(self) {
+        let ropd = self.build_new_expr_ty_discarded(ropd, ExpectCoersion::new_pure(self, lopd_ty));
+        let ty_result = match lopd_ty.data(self) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
                 ty_path,
@@ -49,6 +54,7 @@ impl<'a> ExprTypeEngine<'a> {
             FluffyTermData::Symbol { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
-        }
+        };
+        (lopd, ropd, ty_result)
     }
 }

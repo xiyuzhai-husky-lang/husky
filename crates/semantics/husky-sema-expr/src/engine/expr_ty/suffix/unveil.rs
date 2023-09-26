@@ -11,7 +11,10 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_unveil_expr_ty(
         &mut self,
         opd: SynExprIdx,
-    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
+    ) -> (
+        SemaExprDataResult<SemaExprData>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
         self.unveiler.initialize_if_not(self.return_ty, self.db);
         match self.unveiler {
             Unveiler::UniqueFullyInstantiated {
@@ -29,7 +32,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ))
             }
             Unveiler::UniquePartiallyInstanted { template } => {
-                let Some(opd_ty) = self.infer_new_expr_ty(opd, ExpectAnyOriginal) else {
+                let Some(opd_ty) = self.build_new_expr_ty(opd, ExpectAnyOriginal) else {
                     p!(self.expr_region_data.path().debug(self.db));
                     p!(self.expr_region_data[opd].debug(self.db));
                     todo!()
@@ -78,9 +81,9 @@ impl<'a> ExprTypeEngine<'a> {
                     FluffyTermBase::Place => todo!(),
                 }
             }
-            Unveiler::Nothing => Err(OriginalSemaExprError::CannotUnveil)?,
+            Unveiler::Nothing => Err(OriginalSemaExprTypeError::CannotUnveil)?,
             Unveiler::ErrUnableToInferReturnTypeForUnveiling => {
-                Err(DerivedSemaExprError::UnableToInferReturnTypeForUnveiling)?
+                Err(DerivedSemaExprTypeError::UnableToInferReturnTypeForUnveiling)?
             }
             Unveiler::ErrEtherealSignature(e) => Err(e.into()),
             Unveiler::Uninitialized => unreachable!(),
@@ -90,7 +93,10 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_unveil_expr_ty_given_opd_ty(
         &mut self,
         opd_ty: FluffyTerm,
-    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
+    ) -> (
+        SemaExprDataResult<SemaExprData>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
         todo!()
     }
 }

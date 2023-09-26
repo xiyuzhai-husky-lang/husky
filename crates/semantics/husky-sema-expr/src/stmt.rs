@@ -61,20 +61,20 @@ pub enum SemaStmtData {
     ForExt {
         forext_token: ForextRegionalToken,
         particulars: SemaForextParticulars,
-        eol_colon: SemaExprResult<EolRegionalToken>,
+        eol_colon: SemaExprTypeResult<EolRegionalToken>,
         block: SemaStmtIdxRange,
     },
     While {
         while_token: WhileRegionalToken,
-        condition: SemaExprResult<SemaExprIdx>,
-        eol_colon: SemaExprResult<EolRegionalToken>,
+        condition: SemaExprTypeResult<SemaExprIdx>,
+        eol_colon: SemaExprTypeResult<EolRegionalToken>,
         block: SemaStmtIdxRange,
     },
     DoWhile {
         do_token: DoRegionalToken,
         while_token: WhileRegionalToken,
-        condition: SemaExprResult<SemaExprIdx>,
-        eol_colon: SemaExprResult<EolRegionalToken>,
+        condition: SemaExprTypeResult<SemaExprIdx>,
+        eol_colon: SemaExprTypeResult<EolRegionalToken>,
         block: SemaStmtIdxRange,
     },
     IfElse {
@@ -84,18 +84,18 @@ pub enum SemaStmtData {
     },
     Match {
         match_token: MatchRegionalToken,
-        match_expr: SemaExprResult<SemaExprIdx>,
-        eol_with_token: SemaExprResult<EolWithRegionalToken>,
+        match_expr: SemaExprTypeResult<SemaExprIdx>,
+        eol_with_token: SemaExprTypeResult<EolWithRegionalToken>,
         case_branches: Vec<SemaCaseBranch>,
     },
 }
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaStmtEntry {
-    data: SemaExprResult<SemaStmtData>,
-    ty_result: SemaExprResult<FluffyTerm>,
+    data: SemaExprTypeResult<SemaStmtData>,
+    ty_result: SemaExprTypeResult<FluffyTerm>,
 }
-pub type SemaStmtEntryResult = SemaExprResult<SemaStmtEntry>;
+pub type SemaStmtEntryResult = SemaExprTypeResult<SemaStmtEntry>;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaStmtArena(Arena<SemaStmtEntry>);

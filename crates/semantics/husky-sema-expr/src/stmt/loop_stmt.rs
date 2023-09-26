@@ -10,7 +10,7 @@ pub struct SemaForBetweenParticulars {
     pub for_between_loop_var_regional_token_idx: RegionalTokenIdx,
     pub for_between_loop_var_ident: Ident,
     pub for_between_loop_var_expr_idx: SemaExprIdx,
-    pub range: SemaExprResult<SemaForBetweenRange>,
+    pub range: SemaExprTypeResult<SemaForBetweenRange>,
 }
 
 #[derive(Debug, PartialEq, Eq)]

@@ -16,10 +16,11 @@ impl<'a> ExprTypeEngine<'a> {
         opd: SynExprIdx,
         opr: SuffixOpr,
         final_destination: FinalDestination,
-    ) -> (SemaExprResult<SemaExprData>, SemaExprResult<FluffyTerm>) {
+    ) -> (SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
         match opr {
             SuffixOpr::Incr | SuffixOpr::Attr => {
-                Ok((SemaExprData::Trivial, self.calc_incr_or_attr_expr_ty(opd)))
+                let (opd_sema_expr_idx, opd_ty) = self.build_new_expr_ty(opd, ExpectAnyOriginal);
+                (opd_sema_expr_idx, self.calc_incr_or_decr_expr_ty(opd_ty))
             }
             SuffixOpr::UnveilOrComposeWithOption => {
                 // self.calc_unveil_or_compose_with_option_expr_ty(opd, final_destination)
@@ -42,10 +43,11 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn calc_incr_or_attr_expr_ty(&mut self, opd: SynExprIdx) -> SemaExprResult<FluffyTerm> {
-        let opd_ty = self
-            .infer_new_expr_ty(opd, ExpectAnyOriginal)
-            .ok_or(DerivedSemaExprError::SuffixOperandTypeNotInferred)?;
+    fn calc_incr_or_decr_expr_ty(
+        &mut self,
+        opd_ty: Option<FluffyTerm>,
+    ) -> SemaExprTypeResult<FluffyTerm> {
+        let opd_ty = opd_ty.ok_or(DerivedSemaExprTypeError::SuffixOperandTypeNotInferred)?;
         match opd_ty.data(self) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
