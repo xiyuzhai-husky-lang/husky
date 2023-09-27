@@ -417,7 +417,7 @@ where
                                 self_argument,
                                 dot_regional_token_idx,
                                 ident_token,
-                                generic_arguments,
+                                template_arguments: generic_arguments,
                                 lpar_regional_token_idx,
                                 items,
                                 rpar_regional_token_idx,

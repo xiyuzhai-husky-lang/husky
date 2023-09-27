@@ -55,11 +55,6 @@ pub enum OriginalSemaExprTypeError {
     AmbiguousListExpr,
     #[error("AmbiguousTildeExpr")]
     AmbiguousTildeExpr,
-    #[error("no such method")]
-    NoMethodForType {
-        self_expr_ty: FluffyTerm,
-        ident_token: IdentRegionalToken,
-    },
     #[error("ExpectedCurryButGotRitchieInstead")]
     ExpectedCurryButGotRitchieInstead,
     #[error("CannotIndexIntoType")]

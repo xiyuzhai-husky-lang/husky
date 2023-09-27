@@ -6,9 +6,12 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: SynExprIdx,
         self_argument: SynExprIdx,
+        dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
         template_arguments: Option<&SynTemplateArgumentList>,
+        lpar_regional_token_idx: RegionalTokenIdx,
         list_items: &[SynCommaListItem],
+        rpar_regional_token_idx: RegionalTokenIdx,
     ) -> (
         SemaExprDataResult<SemaExprData>,
         SemaExprTypeResult<FluffyTerm>,
@@ -34,13 +37,16 @@ impl<'a> ExprTypeEngine<'a> {
                 Err(DerivedSemaExprTypeError::MethodOwnerTypeNotInferred.into()),
             );
         };
-        let method_dispatch = self_expr_ty
+        let method_dynamic_dispatch = match self_expr_ty
             .method_dispatch(self, expr_idx, ident_token)
-            .into_result_or(OriginalSemaExprTypeError::NoMethodForType {
+            .into_result_or(OriginalSemaExprDataError::NoSuchMethod {
                 self_expr_ty,
                 ident_token,
-            })?;
-        match method_dispatch.signature() {
+            }) {
+            Ok(method_dynamic_dispatch) => method_dynamic_dispatch,
+            Err(e) => return (Err(e), Err(todo!())),
+        };
+        match method_dynamic_dispatch.signature() {
             MethodFluffySignature::MethodFn(signature) => {
                 let ritchie_parameter_argument_matches = self.calc_ritchie_arguments_ty(
                     expr_idx,
@@ -48,10 +54,17 @@ impl<'a> ExprTypeEngine<'a> {
                     list_items.iter().copied().map(Into::into),
                 );
                 let return_ty = signature.return_ty();
+                let ritchie_parameter_argument_matches = todo!();
                 (
                     Ok(SemaExprData::MethodFnCall {
-                        method_dispatch,
-                        ritchie_parameter_argument_matches,
+                        self_argument_sema_expr_idx,
+                        dot_regional_token_idx,
+                        ident_token,
+                        method_dynamic_dispatch,
+                        template_arguments: todo!(),
+                        lpar_regional_token_idx: todo!(),
+                        ritchie_parameter_argument_matches: todo!(),
+                        rpar_regional_token_idx: todo!(),
                     }),
                     Ok(return_ty),
                 )

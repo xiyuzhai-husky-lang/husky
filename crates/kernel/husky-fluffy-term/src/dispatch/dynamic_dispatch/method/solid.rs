@@ -14,7 +14,7 @@ impl SolidTerm {
         ident: Ident,
         available_traits: &[TraitPath],
         mut indirections: FluffyTermDynamicDispatchIndirections,
-    ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
+    ) -> FluffyTermMaybeResult<FluffyTermMethodDynamicDispatch> {
         match self.data(engine) {
             SolidTermData::TypeOntology {
                 path,

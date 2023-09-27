@@ -85,7 +85,7 @@ pub enum SemaExprData {
         function: SemaExprIdx,
         generic_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
-        items: SmallVec<[SemaCallListItem; 4]>,
+        ritchie_parameter_argument_matches: SmallVec<[SemaCallListItem; 4]>,
         rpar_regional_token_idx: RegionalTokenIdx,
     },
     GnCall {
@@ -123,12 +123,13 @@ pub enum SemaExprData {
         rpar_regional_token_idx: RegionalTokenIdx,
     },
     MethodFnCall {
-        self_argument: SemaExprIdx,
+        self_argument_sema_expr_idx: SemaExprIdx,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
+        method_dynamic_dispatch: FluffyTermMethodDynamicDispatch,
         template_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
-        items: SmallVec<[SemaCommaListItem; 4]>,
+        ritchie_parameter_argument_matches: SmallVec<[SemaCommaListItem; 4]>,
         rpar_regional_token_idx: RegionalTokenIdx,
     },
     TemplateInstantiation {

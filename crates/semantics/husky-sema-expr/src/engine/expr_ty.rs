@@ -291,16 +291,21 @@ impl<'a> ExprTypeEngine<'a> {
             } => self.calc_field_expr_ty(owner, dot_regional_token_idx, ident_token),
             SynExprData::MethodApplicationOrCall {
                 self_argument,
+                dot_regional_token_idx,
                 ident_token,
-                ref generic_arguments,
+                lpar_regional_token_idx,
+                template_arguments: ref generic_arguments,
                 ref items,
-                ..
+                rpar_regional_token_idx,
             } => self.calc_method_application_or_call_ty(
                 expr_idx,
                 self_argument,
+                dot_regional_token_idx,
                 ident_token,
+                lpar_regional_token_idx,
                 generic_arguments.as_ref(),
                 items,
+                rpar_regional_token_idx,
             ),
             SynExprData::TemplateInstantiation {
                 template,

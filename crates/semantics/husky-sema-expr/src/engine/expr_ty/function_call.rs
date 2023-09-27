@@ -91,10 +91,11 @@ impl<'a> ExprTypeEngine<'a> {
         SemaExprDataResult<SemaExprData>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
-        let Some(outcome) = self.build_new_sema_expr_with_outcome(
+        let (function_sema_expr_idx, outcome) = self.build_new_sema_expr_with_outcome(
             function,
             ExpectEqsRitchieType::new(final_destination),
-        ) else {
+        );
+        let Some(outcome) = outcome else {
             for item in items {
                 self.build_new_expr_ty(item.argument_expr_idx(), ExpectAnyDerived);
             }
@@ -105,12 +106,16 @@ impl<'a> ExprTypeEngine<'a> {
             outcome.parameter_contracted_tys(),
             items.iter().copied(),
         );
-        Ok((
-            SemaExprData::FnCall {
+        (
+            Ok(SemaExprData::FnCall {
                 ritchie_kind: outcome.ritchie_kind(),
+                function: todo!(),
+                generic_arguments: todo!(),
+                lpar_regional_token_idx: todo!(),
                 ritchie_parameter_argument_matches,
-            },
+                rpar_regional_token_idx: todo!(),
+            }),
             Ok(outcome.return_ty()),
-        ))
+        )
     }
 }

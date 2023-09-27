@@ -52,7 +52,7 @@ fn expr_region_contains_gn(db: &dyn HirExprDb, syn_expr_region: SynExprRegion) -
                 self_argument,
                 dot_regional_token_idx,
                 ident_token,
-                generic_arguments,
+                template_arguments,
                 lpar_regional_token_idx,
                 items,
                 rpar_regional_token_idx,

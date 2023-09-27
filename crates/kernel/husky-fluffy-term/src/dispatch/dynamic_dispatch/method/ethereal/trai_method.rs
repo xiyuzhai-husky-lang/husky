@@ -12,7 +12,7 @@ impl HasFluffyTraitMethodDispatch for EtherealTerm {
         ident_token: IdentRegionalToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
         mut indirections: FluffyTermDynamicDispatchIndirections,
-    ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
+    ) -> FluffyTermMaybeResult<FluffyTermMethodDynamicDispatch> {
         let db = engine.db();
         let mut matches: SmallVec<[(); 2]> = Default::default();
         let application_expansion = self.application_expansion(db);

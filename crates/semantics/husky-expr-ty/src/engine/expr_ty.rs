@@ -226,7 +226,7 @@ impl<'a> ExprTypeEngine<'a> {
             SynExprData::MethodApplicationOrCall {
                 self_argument,
                 ident_token,
-                ref generic_arguments,
+                template_arguments: ref generic_arguments,
                 ref items,
                 ..
             } => self.calc_method_application_or_call_ty(
