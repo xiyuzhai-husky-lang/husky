@@ -8,7 +8,7 @@ impl HasFluffyTraitMethodDispatch for SolidTerm {
         ident_token: IdentRegionalToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
         indirections: FluffyTermDynamicDispatchIndirections,
-    ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
+    ) -> FluffyTermMaybeResult<FluffyTermMethodDynamicDispatch> {
         match self.data(engine) {
             SolidTermData::TypeOntology {
                 path,

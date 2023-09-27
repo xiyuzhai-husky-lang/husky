@@ -22,6 +22,11 @@ pub enum OriginalSemaExprDataError {
         owner_ty: FluffyTerm,
         ident_token: IdentRegionalToken,
     },
+    #[error("no such method")]
+    NoSuchMethod {
+        self_expr_ty: FluffyTerm,
+        ident_token: IdentRegionalToken,
+    },
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -33,6 +38,7 @@ pub enum DerivedSemaExprDataError {
     ApplicationOrRitchieCallFunctionTypeNotInferred { function_sema_expr_idx: SemaExprIdx },
     #[error("MethodOwnerTypeNotInferred")]
     MethodOwnerTypeNotInferred {
+        self_argument_sema_expr_idx: SemaExprIdx,
         list_item_sema_expr_idxs: Vec<SemaExprIdx>,
     },
     #[error("FieldOwnerTypeNotInferred")]

@@ -95,7 +95,7 @@ pub enum ListExprDisambiguation {
 #[salsa::debug_with_db(db = ExprTypeDb)]
 pub enum MethodCallOrApplicationDisambiguation {
     MethodCall {
-        method_dispatch: FluffyMethodDynamicDispatch,
+        method_dispatch: FluffyTermMethodDynamicDispatch,
         ritchie_parameter_argument_matches: ExprTypeResult<RitchieParameterArgumentMatches>,
     },
 }

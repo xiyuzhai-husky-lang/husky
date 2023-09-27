@@ -118,7 +118,7 @@ pub enum SynExprData {
         self_argument: SynExprIdx,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
-        generic_arguments: Option<SynTemplateArgumentList>,
+        template_arguments: Option<SynTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
         items: SmallVec<[SynCommaListItem; 4]>,
         rpar_regional_token_idx: RegionalTokenIdx,

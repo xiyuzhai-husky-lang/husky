@@ -7,7 +7,7 @@ impl HasFluffyTypeMethodDispatch for EtherealTerm {
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
         indirections: FluffyTermDynamicDispatchIndirections,
-    ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
+    ) -> FluffyTermMaybeResult<FluffyTermMethodDynamicDispatch> {
         // todo: check scope
         match self {
             EtherealTerm::EntityPath(TermEntityPath::TypeOntology(ty_path)) => {
@@ -37,7 +37,7 @@ fn ethereal_ty_ontology_path_ty_method_dispatch(
     ty_path: TypePath,
     ident_token: IdentRegionalToken,
     indirections: FluffyTermDynamicDispatchIndirections,
-) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
+) -> FluffyTermMaybeResult<FluffyTermMethodDynamicDispatch> {
     ethereal_ty_method_dispatch_aux(engine, expr_idx, ty_path, &[], ident_token, indirections)
 }
 
@@ -47,7 +47,7 @@ fn ethereal_term_application_ty_method_dispatch(
     ty_term: EtherealTermApplication,
     ident_token: IdentRegionalToken,
     indirections: FluffyTermDynamicDispatchIndirections,
-) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
+) -> FluffyTermMaybeResult<FluffyTermMethodDynamicDispatch> {
     let application_expansion = ty_term.application_expansion(engine.db());
     match application_expansion.function() {
         TermFunctionReduced::TypeOntology(ty_path) => ethereal_ty_method_dispatch_aux(
@@ -69,7 +69,7 @@ fn ethereal_ty_method_dispatch_aux(
     arguments: &[EtherealTerm],
     ident_token: IdentRegionalToken,
     mut indirections: FluffyTermDynamicDispatchIndirections,
-) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
+) -> FluffyTermMaybeResult<FluffyTermMethodDynamicDispatch> {
     match ty_path.refine(engine.db()) {
         Left(PreludeTypePath::Indirection(prelude_indirection_ty_path)) => {
             match prelude_indirection_ty_path {
