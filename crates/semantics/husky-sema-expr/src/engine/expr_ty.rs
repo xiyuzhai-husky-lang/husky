@@ -234,9 +234,14 @@ impl<'a> ExprTypeEngine<'a> {
                     .map_err(|e| e.into());
                 (data_result, Ok(self.term_menu.bool_ty_ontology().into()))
             }
-            SynExprData::Prefix { opr, opd, .. } => self.calc_prefix_expr_ty(
+            SynExprData::Prefix {
+                opr,
+                opr_regional_token_idx,
+                opd,
+            } => self.calc_prefix_expr_ty(
                 expr_idx,
                 opr,
+                opr_regional_token_idx,
                 opd,
                 expr_ty_expectation.final_destination(self),
             ),
@@ -262,15 +267,18 @@ impl<'a> ExprTypeEngine<'a> {
             }
             SynExprData::FunctionApplicationOrCall {
                 function,
-                generic_arguments: ref template_arguments,
+                ref template_arguments,
+                lpar_regional_token_idx,
                 ref items,
-                ..
+                rpar_regional_token_idx,
             } => self.calc_function_application_or_call_expr_ty(
                 expr_idx,
                 function,
                 expr_ty_expectation,
                 template_arguments.as_ref(),
+                lpar_regional_token_idx,
                 items,
+                rpar_regional_token_idx,
             ),
             SynExprData::FunctionCall {
                 function,
@@ -302,8 +310,8 @@ impl<'a> ExprTypeEngine<'a> {
                 self_argument,
                 dot_regional_token_idx,
                 ident_token,
-                lpar_regional_token_idx,
                 generic_arguments.as_ref(),
+                lpar_regional_token_idx,
                 items,
                 rpar_regional_token_idx,
             ),

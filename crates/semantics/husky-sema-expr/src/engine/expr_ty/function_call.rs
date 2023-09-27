@@ -7,7 +7,9 @@ impl<'a> ExprTypeEngine<'a> {
         function_syn_expr_idx: SynExprIdx,
         expr_ty_expectation: &impl ExpectFluffyTerm,
         generic_arguments: Option<&SynTemplateArgumentList>,
+        lpar_regional_token_idx: RegionalTokenIdx,
         items: &[SynCommaListItem],
+        rpar_regional_token_idx: RegionalTokenIdx,
     ) -> (
         SemaExprDataResult<SemaExprData>,
         SemaExprTypeResult<FluffyTerm>,
@@ -41,14 +43,21 @@ impl<'a> ExprTypeEngine<'a> {
                 ritchie_kind,
                 parameter_contracted_tys,
             } => {
-                let ritchie_parameter_argument_matches = self.calc_ritchie_arguments_ty(
+                let ritchie_parameter_argument_matches = match self.calc_ritchie_arguments_ty(
                     syn_expr_idx,
                     parameter_contracted_tys,
                     items.iter().copied().map(Into::into),
-                )?;
+                ) {
+                    Ok(ritchie_parameter_argument_matches) => ritchie_parameter_argument_matches,
+                    Err(_) => return todo!(),
+                };
                 (
                     Ok(SemaExprData::FnCall {
+                        function_sema_expr_idx,
+                        template_arguments: todo!(),
+                        lpar_regional_token_idx,
                         ritchie_parameter_argument_matches,
+                        rpar_regional_token_idx,
                     }),
                     Ok(outcome.return_ty()),
                 )
@@ -99,23 +108,34 @@ impl<'a> ExprTypeEngine<'a> {
             for item in items {
                 self.build_new_expr_ty(item.argument_expr_idx(), ExpectAnyDerived);
             }
-            Err(DerivedSemaExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred)?
+            return (
+                Err(todo!()),
+                Err(
+                    DerivedSemaExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred
+                        .into(),
+                ),
+            );
         };
-        let ritchie_parameter_argument_matches = self.calc_ritchie_arguments_ty(
+        let ritchie_parameter_argument_matches = match self.calc_ritchie_arguments_ty(
             expr_idx,
             outcome.parameter_contracted_tys(),
             items.iter().copied(),
-        );
-        (
-            Ok(SemaExprData::FnCall {
-                ritchie_kind: outcome.ritchie_kind(),
-                function: todo!(),
-                generic_arguments: todo!(),
+        ) {
+            Ok(ritchie_parameter_argument_matches) => ritchie_parameter_argument_matches,
+            Err(e) => return todo!(),
+        };
+        let data = match outcome.ritchie_kind() {
+            RitchieKind::FnType => SemaExprData::FnCall {
+                function_sema_expr_idx: todo!(),
+                template_arguments: todo!(),
                 lpar_regional_token_idx: todo!(),
                 ritchie_parameter_argument_matches,
                 rpar_regional_token_idx: todo!(),
-            }),
-            Ok(outcome.return_ty()),
-        )
+            },
+            RitchieKind::FnTrait => todo!(),
+            RitchieKind::FnMutTrait => todo!(),
+            RitchieKind::GnType => todo!(),
+        };
+        (Ok(data), Ok(outcome.return_ty()))
     }
 }

@@ -484,7 +484,7 @@ impl<'a> DeclarativeTermEngine<'a> {
             SynExprData::TemplateInstantiation { .. } => todo!(),
             SynExprData::FunctionApplicationOrCall {
                 function,
-                ref generic_arguments,
+                template_arguments: ref generic_arguments,
                 ref items,
                 ..
             } => {

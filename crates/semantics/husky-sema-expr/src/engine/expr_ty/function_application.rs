@@ -32,15 +32,24 @@ impl<'a> ExprTypeEngine<'a> {
                 parameter_symbol,
                 parameter_ty,
                 return_ty,
-            } => self.calc_function_application_expr_ty_aux(
-                expr_idx,
-                function_sema_expr_idx,
-                *variance,
-                *parameter_symbol,
-                *parameter_ty,
-                *return_ty,
-                argument_syn_expr_idx,
-            ),
+            } => {
+                let (argument_sema_expr_idx, ty_result) = self
+                    .calc_function_application_expr_ty_aux(
+                        expr_idx,
+                        *variance,
+                        *parameter_symbol,
+                        *parameter_ty,
+                        *return_ty,
+                        argument_syn_expr_idx,
+                    );
+                (
+                    Ok(SemaExprData::Application {
+                        function_sema_expr_idx,
+                        argument_sema_expr_idx,
+                    }),
+                    ty_result,
+                )
+            }
             ExpectEqsFunctionTypeOutcomeVariant::Ritchie { .. } => {
                 let argument_sema_expr_idx =
                     self.build_new_expr_ty_discarded(argument_syn_expr_idx, ExpectAnyDerived);
@@ -55,28 +64,21 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
+    /// returns (argument_sema_expr_idx, ty_result)
     pub(super) fn calc_function_application_expr_ty_aux(
         &mut self,
         syn_expr_idx: SynExprIdx,
-        function_sema_expr_idx: SemaExprIdx,
         variance: Variance,
         parameter_variable: Option<FluffyTerm>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
         argument_expr_idx: SynExprIdx,
-    ) -> (
-        SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FluffyTerm>,
-    ) {
+    ) -> (SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
         let (argument_sema_expr_idx, argument_ty) =
             self.build_new_expr_ty(argument_expr_idx, ExpectCurryDestination::new(parameter_ty));
-        let data_result = Ok(SemaExprData::Application {
-            function_sema_expr_idx,
-            argument_sema_expr_idx,
-        });
         let Some(argument_ty) = argument_ty else {
             return (
-                data_result,
+                argument_sema_expr_idx,
                 Err(DerivedSemaExprTypeError::UnableToInferFunctionApplicationArgumentType.into()),
             );
         };
@@ -110,6 +112,6 @@ impl<'a> ExprTypeEngine<'a> {
                 )
                 .map_err(Into::into),
         };
-        return (data_result, ty_result);
+        return (argument_sema_expr_idx, ty_result);
     }
 }
