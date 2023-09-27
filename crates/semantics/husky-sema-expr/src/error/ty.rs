@@ -168,6 +168,8 @@ pub enum DerivedSemaExprTypeError {
     UnveilerError,
     #[error("UnableToInferUnwrapOperand")]
     UnableToInferUnwrapOperand,
+    #[error("EvalExprTypeNotInferred")]
+    EvalExprTypeNotInferred,
 }
 
 pub type SemaExprTypeResult<T> = Result<T, SemaExprTypeError>;

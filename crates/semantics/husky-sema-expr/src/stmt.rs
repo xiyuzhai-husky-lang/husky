@@ -92,10 +92,21 @@ pub enum SemaStmtData {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaStmtEntry {
-    data: SemaExprTypeResult<SemaStmtData>,
+    data_result: SemaExprDataResult<SemaStmtData>,
     ty_result: SemaExprTypeResult<FluffyTerm>,
 }
-pub type SemaStmtEntryResult = SemaExprTypeResult<SemaStmtEntry>;
+
+impl SemaStmtEntry {
+    pub fn new(
+        data_result: SemaExprDataResult<SemaStmtData>,
+        ty_result: SemaExprTypeResult<FluffyTerm>,
+    ) -> Self {
+        Self {
+            data_result,
+            ty_result,
+        }
+    }
+}
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaStmtArena(Arena<SemaStmtEntry>);
