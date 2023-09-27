@@ -100,7 +100,7 @@ pub enum SynExprData {
         light_arrow_token: Option<LightArrowRegionalToken>,
         /// it's guaranteed that `return_ty_expr` is some if and only if
         /// `light_arrow_token` is some
-        return_ty_expr: Option<SynExprIdx>,
+        return_ty_syn_expr_idx: Option<SynExprIdx>,
     },
     FunctionCall {
         function: SynExprIdx,

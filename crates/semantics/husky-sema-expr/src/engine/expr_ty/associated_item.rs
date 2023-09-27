@@ -13,7 +13,7 @@ impl<'a> ExprTypeEngine<'a> {
         parent_path: MajorItemPath,
         ident_token: IdentRegionalToken,
     ) -> (
-        SemaExprDataResult<SemaExprData>,
+        SemaExprDataResult<StaticDispatch>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
         let parent_term: FluffyTerm = match parent_path {
@@ -26,10 +26,10 @@ impl<'a> ExprTypeEngine<'a> {
             MajorItemPath::Fugitive(_) => todo!(),
         };
         match parent_term.static_dispatch(self, expr_idx, ident_token.ident(), /*ad hoc */ &[]) {
-            JustOk(disambiguation) => match disambiguation {
+            JustOk(static_dispatch) => match static_dispatch {
                 StaticDispatch::AssociatedFn(ref signature) => {
                     let ty = signature.ty();
-                    Ok((disambiguation.into(), Ok(ty)))
+                    (Ok(static_dispatch), Ok(ty))
                 }
             },
             JustErr(_) => todo!(),

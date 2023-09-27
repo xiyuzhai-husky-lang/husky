@@ -177,7 +177,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn infer_all_exprs(&mut self) {
         for root in self.expr_region_data.roots() {
-            match root.kind() {
+            let sema_expr_idx = match root.kind() {
                 ExprRootKind::SelfType
                 | ExprRootKind::ReturnType
                 | ExprRootKind::ReturnType
@@ -214,16 +214,17 @@ impl<'a> ExprTypeEngine<'a> {
                 | ExprRootKind::HtmlArgumentExpr
                 | ExprRootKind::LetStmtType
                 | ExprRootKind::LetStmtInitialValue
-                | ExprRootKind::EvalExpr => (),
+                | ExprRootKind::EvalExpr => continue,
                 ExprRootKind::Snippet => todo!(),
                 ExprRootKind::Traits =>
                 /* ad hoc */
                 {
-                    ()
+                    continue
                 }
                 // todo!(),
                 ExprRootKind::ValExpr => todo!(),
-            }
+            };
+            todo!()
         }
     }
 

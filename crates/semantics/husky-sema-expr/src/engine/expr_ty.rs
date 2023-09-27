@@ -119,7 +119,18 @@ impl<'a> ExprTypeEngine<'a> {
                 parent_path,
                 colon_colon_regional_token,
                 ident_token,
-            } => self.calc_associated_item_ty(expr_idx, parent_path, ident_token),
+            } => {
+                let (static_dispatch_result, ty_result) =
+                    self.calc_associated_item_ty(expr_idx, parent_path, ident_token);
+                let data_result =
+                    static_dispatch_result.map(|static_dispatch| SemaExprData::AssociatedItem {
+                        parent_expr_idx,
+                        parent_path,
+                        colon_colon_regional_token,
+                        ident_token,
+                    });
+                (data_result, ty_result)
+            }
             SynExprData::InheritedSymbol {
                 ident,
                 regional_token_idx,
@@ -164,9 +175,10 @@ impl<'a> ExprTypeEngine<'a> {
             SynExprData::SelfType(regional_token_idx) => (
                 Ok(SemaExprData::SelfType(regional_token_idx)),
                 match self.self_ty_term {
-                    Some(self_ty) => match self_ty.ty_unchecked(self.db)? {
-                        Left(self_ty_ty) => Ok(self_ty_ty.into()),
-                        Right(_) => unreachable!(),
+                    Some(self_ty) => match self_ty.ty_unchecked(self.db) {
+                        Ok(Left(self_ty_ty)) => Ok(self_ty_ty.into()),
+                        Err(e) => Err(e.into()),
+                        Ok(Right(_)) => unreachable!(),
                     }, // todo: impl binding
                     None => Err(DerivedSemaExprTypeError::SelfTypeNotInferredForSelfValue.into()),
                 },
@@ -250,14 +262,14 @@ impl<'a> ExprTypeEngine<'a> {
             }
             SynExprData::FunctionApplicationOrCall {
                 function,
-                ref generic_arguments,
+                generic_arguments: ref template_arguments,
                 ref items,
                 ..
             } => self.calc_function_application_or_call_expr_ty(
                 expr_idx,
                 function,
                 expr_ty_expectation,
-                generic_arguments.as_ref(),
+                template_arguments.as_ref(),
                 items,
             ),
             SynExprData::FunctionCall {
@@ -273,8 +285,10 @@ impl<'a> ExprTypeEngine<'a> {
                 items,
             ),
             SynExprData::Field {
-                owner, ident_token, ..
-            } => self.calc_field_expr_ty(owner, ident_token),
+                owner,
+                dot_regional_token_idx,
+                ident_token,
+            } => self.calc_field_expr_ty(owner, dot_regional_token_idx, ident_token),
             SynExprData::MethodApplicationOrCall {
                 self_argument,
                 ident_token,
@@ -445,7 +459,11 @@ impl<'a> ExprTypeEngine<'a> {
                             );
                         }
                         (
-                            SemaExprData::NewList.into(),
+                            Ok(SemaExprData::NewList {
+                                lbox_regional_token_idx,
+                                items: todo!(),
+                                rbox_regional_token_idx,
+                            }),
                             FluffyTerm::new_application(
                                 self,
                                 expr_idx,
@@ -487,8 +505,12 @@ impl<'a> ExprTypeEngine<'a> {
             ),
             SynExprData::Ritchie {
                 ref parameter_ty_items,
-                return_ty_expr,
-                ..
+                return_ty_syn_expr_idx,
+                ritchie_kind_regional_token_idx,
+                ritchie_kind,
+                lpar_token,
+                rpar_regional_token_idx,
+                light_arrow_token,
             } => {
                 for parameter_ty in parameter_ty_items {
                     self.build_new_expr_ty_discarded(
@@ -496,18 +518,22 @@ impl<'a> ExprTypeEngine<'a> {
                         self.expect_ty0_subtype(),
                     );
                 }
-                return_ty_expr.map(|return_ty_expr| {
-                    self.build_new_expr_ty_discarded(return_ty_expr, self.expect_ty0_subtype())
-                });
+                let return_ty_sema_expr_idx =
+                    return_ty_syn_expr_idx.map(|return_ty_syn_expr_idx| {
+                        self.build_new_expr_ty_discarded(
+                            return_ty_syn_expr_idx,
+                            self.expect_ty0_subtype(),
+                        )
+                    });
                 (
                     Ok(SemaExprData::Ritchie {
-                        ritchie_kind_regional_token_idx: (),
-                        ritchie_kind: (),
-                        lpar_token: (),
-                        parameter_ty_items: (),
-                        rpar_regional_token_idx: (),
-                        light_arrow_token: (),
-                        return_ty_expr: (),
+                        ritchie_kind_regional_token_idx,
+                        ritchie_kind,
+                        lpar_token,
+                        parameter_ty_items: todo!(),
+                        rpar_regional_token_idx,
+                        light_arrow_token,
+                        return_ty_sema_expr_idx,
                     }),
                     Ok(self.term_menu.ty0().into()),
                 )

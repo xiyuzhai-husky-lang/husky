@@ -227,7 +227,7 @@ impl ToHirEager for SynExprIdx {
                 ref parameter_ty_items,
                 rpar_regional_token_idx,
                 light_arrow_token,
-                return_ty_expr,
+                return_ty_syn_expr_idx: return_ty_expr,
             } => todo!(),
             SynExprData::FunctionCall {
                 function,

@@ -7,11 +7,12 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: SynExprIdx,
         opr: BinaryClosedOpr,
         ropd: SynExprIdx,
-    ) -> SemaExprTypeResult<FluffyTerm> {
+    ) -> (SemaExprIdx, SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
         // let expr_eval_lifetime = self
         //     .fluffy_term_region
         //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
-        match self.build_new_expr_ty(lopd, ExpectAnyOriginal) {
+        let (lopd_sema_expr_idx, lopd_ty) = self.build_new_expr_ty(lopd, ExpectAnyOriginal);
+        let ropd_sema_expr_idx = match lopd_ty {
             Some(lopd_ty) => {
                 let lopd_base_ty = lopd_ty.base_ty_data(self);
                 match lopd_ty.place() {
@@ -67,6 +68,10 @@ impl<'a> ExprTypeEngine<'a> {
             }
             None => self.build_new_expr_ty_discarded(ropd, ExpectAnyDerived),
         };
-        Ok(self.term_menu.unit_ty_ontology().into())
+        (
+            lopd_sema_expr_idx,
+            ropd_sema_expr_idx,
+            Ok(self.term_menu.unit_ty_ontology().into()),
+        )
     }
 }

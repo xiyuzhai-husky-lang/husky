@@ -55,11 +55,6 @@ pub enum OriginalSemaExprTypeError {
     AmbiguousListExpr,
     #[error("AmbiguousTildeExpr")]
     AmbiguousTildeExpr,
-    #[error("no such field")]
-    NoSuchField {
-        owner_ty: FluffyTerm,
-        ident_token: IdentRegionalToken,
-    },
     #[error("no such method")]
     NoMethodForType {
         self_expr_ty: FluffyTerm,

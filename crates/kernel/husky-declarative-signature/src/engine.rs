@@ -581,7 +581,7 @@ impl<'a> DeclarativeTermEngine<'a> {
             SynExprData::Ritchie {
                 ritchie_kind,
                 ref parameter_ty_items,
-                return_ty_expr,
+                return_ty_syn_expr_idx: return_ty_expr,
                 ..
             } => {
                 let parameter_tys: SmallVec<[_; 2]> = parameter_ty_items

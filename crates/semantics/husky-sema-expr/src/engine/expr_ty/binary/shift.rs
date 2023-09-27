@@ -7,9 +7,10 @@ impl<'a> ExprTypeEngine<'a> {
         ropd: SynExprIdx,
         opr: BinaryShiftOpr,
         menu: &EtherealTermMenu,
-    ) -> SemaExprTypeResult<FluffyTerm> {
+    ) -> (SemaExprIdx, SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
         // todo: don't use resolved
-        let Some(lopd_ty) = self.build_new_expr_ty(lopd, ExpectAnyOriginal) else {
+        let (lopd_sema_expr_idx, lopd_ty) = self.build_new_expr_ty(lopd, ExpectAnyOriginal);
+        let Some(lopd_ty) = lopd_ty else {
             p!(self.path());
             p!(self.expr_region_data[lopd].debug(self.db));
             p!(self.symbol_tys.debug(self.db));
@@ -25,21 +26,23 @@ impl<'a> ExprTypeEngine<'a> {
                 }
                 _ => todo!(),
             }
-            self.build_new_expr_ty_discarded(ropd, ExpectAnyDerived);
-            Err(DerivedSemaExprTypeError::BinaryOperationLeftOperandTypeNotInferred)?
+            let ropd_sema_expr_idx = self.build_new_expr_ty_discarded(ropd, ExpectAnyDerived);
+            return (
+                lopd_sema_expr_idx,
+                ropd_sema_expr_idx,
+                Err(DerivedSemaExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into()),
+            );
         };
         match lopd_ty.data(self) {
             FluffyTermData::TypeOntology {
                 refined_ty_path: Left(PreludeTypePath::Num(_)),
                 ..
             }
-            | FluffyTermData::Hole(
-                HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType,
-                _,
-            ) => {
-                self.calc_num_ty_binary_shift_ropd_ty(ropd)?;
-                Ok(lopd_ty)
+            | FluffyTermData::Hole(HoleKind::UnspecifiedIntegerType, _) => {
+                let ropd_sema_expr_idx = self.build_new_expr_ty_discarded(ropd, ExpectIntType);
+                (lopd_sema_expr_idx, ropd_sema_expr_idx, Ok(lopd_ty))
             }
+            FluffyTermData::Hole(HoleKind::UnspecifiedFloatType, _) => todo!(),
             // FluffyTermData::TypeOntologyAtPlace {
             //     place,
             //     ty_path: path,
@@ -61,28 +64,25 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    pub(super) fn calc_num_ty_binary_shift_ropd_ty(
-        &mut self,
-        ropd: SynExprIdx,
-    ) -> SemaExprTypeResult<()> {
-        let Some(ropd_ty) = self.build_new_expr_ty(ropd, ExpectAnyOriginal) else {
-            Err(DerivedSemaExprTypeError::BinaryShiftRightOperandTypeNotInferred)?
-        };
-        match ropd_ty.data(self) {
-            FluffyTermData::Literal(_) => todo!(),
-            FluffyTermData::TypeOntology {
-                refined_ty_path: Left(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
-                ..
-            }
-            | FluffyTermData::Hole(HoleKind::UnspecifiedIntegerType, _) => Ok(()),
-            FluffyTermData::TypeOntology { .. } => todo!(),
-            FluffyTermData::Curry { .. } => todo!(),
-            FluffyTermData::Hole(_, _) => todo!(),
-            FluffyTermData::Category(_) => todo!(),
-            FluffyTermData::Ritchie { .. } => todo!(),
-            FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Variable { ty } => todo!(),
-            FluffyTermData::TypeVariant { path } => todo!(),
-        }
-    }
+    // pub(super) fn calc_num_ty_binary_shift_ropd_ty(
+    //     &mut self,
+    //     ropd: SynExprIdx,
+    // ) -> SemaExprTypeResult<()> {
+    //     match ropd_ty.data(self) {
+    //         FluffyTermData::Literal(_) => todo!(),
+    //         FluffyTermData::TypeOntology {
+    //             refined_ty_path: Left(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
+    //             ..
+    //         }
+    //         | FluffyTermData::Hole(HoleKind::UnspecifiedIntegerType, _) => Ok(()),
+    //         FluffyTermData::TypeOntology { .. } => todo!(),
+    //         FluffyTermData::Curry { .. } => todo!(),
+    //         FluffyTermData::Hole(_, _) => todo!(),
+    //         FluffyTermData::Category(_) => todo!(),
+    //         FluffyTermData::Ritchie { .. } => todo!(),
+    //         FluffyTermData::Symbol { .. } => todo!(),
+    //         FluffyTermData::Variable { ty } => todo!(),
+    //         FluffyTermData::TypeVariant { path } => todo!(),
+    //     }
+    // }
 }
