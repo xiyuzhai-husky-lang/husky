@@ -2,6 +2,7 @@
 #![feature(if_let_guard)]
 #![feature(trait_upcasting)]
 #![feature(const_trait_impl)]
+#![allow(unused, warnings)]
 mod db;
 mod engine;
 mod error;

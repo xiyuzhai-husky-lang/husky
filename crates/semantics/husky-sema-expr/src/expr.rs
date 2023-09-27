@@ -105,12 +105,13 @@ pub enum SemaExprData {
         light_arrow_token: Option<LightArrowRegionalToken>,
         /// it's guaranteed that `return_ty_expr` is some if and only if
         /// `light_arrow_token` is some
-        return_ty_expr: Option<SemaExprIdx>,
+        return_ty_sema_expr_idx: Option<SemaExprIdx>,
     },
     Field {
-        owner: SemaExprIdx,
+        owner_sema_expr_idx: SemaExprIdx,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
+        field_dispatch: FluffyFieldDispatch,
     },
     MethodApplication {
         self_argument: SemaExprIdx,
@@ -189,7 +190,12 @@ pub enum SemaExprData {
     },
     ArrayFunctor {
         lbox_regional_token_idx: RegionalTokenIdx,
-        items: SmallVec<[SynCommaListItem; 4]>,
+        items: SmallVec<[SemaCommaListItem; 4]>,
+        rbox_regional_token_idx: RegionalTokenIdx,
+    },
+    NewList {
+        lbox_regional_token_idx: RegionalTokenIdx,
+        items: SmallVec<[SemaCommaListItem; 4]>,
         rbox_regional_token_idx: RegionalTokenIdx,
     },
     Block {

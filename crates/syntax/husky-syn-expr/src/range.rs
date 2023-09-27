@@ -371,7 +371,7 @@ impl<'a> SynExprRangeCalculator<'a> {
             SynExprData::Ritchie {
                 ritchie_kind_regional_token_idx,
                 rpar_regional_token_idx,
-                return_ty_expr,
+                return_ty_syn_expr_idx: return_ty_expr,
                 ..
             } => match return_ty_expr {
                 Some(return_ty_expr) => RegionalTokenIdxRange::new(

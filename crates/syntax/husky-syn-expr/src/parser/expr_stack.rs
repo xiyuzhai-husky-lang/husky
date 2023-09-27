@@ -138,7 +138,7 @@ impl SynExprData {
                         parameter_ty_items,
                         rpar_regional_token_idx,
                         light_arrow_token,
-                        return_ty_expr,
+                        return_ty_syn_expr_idx: return_ty_expr,
                     } => todo!(),
                     SynExprData::FunctionCall {
                         function,
@@ -473,7 +473,7 @@ where
                             parameter_ty_items: argument_tys,
                             rpar_regional_token_idx,
                             light_arrow_token: Some(light_arrow_token),
-                            return_ty_expr: Some(self.context_mut().alloc_expr(return_ty)),
+                            return_ty_syn_expr_idx: Some(self.context_mut().alloc_expr(return_ty)),
                         },
                         None => SynExprData::Err(
                             OriginalSynExprError::ExpectedTypeAfterLightArrow { light_arrow_token }

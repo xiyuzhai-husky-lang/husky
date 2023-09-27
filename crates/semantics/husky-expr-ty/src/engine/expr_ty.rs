@@ -383,7 +383,7 @@ impl<'a> ExprTypeEngine<'a> {
             )),
             SynExprData::Ritchie {
                 ref parameter_ty_items,
-                return_ty_expr,
+                return_ty_syn_expr_idx: return_ty_expr,
                 ..
             } => {
                 for parameter_ty in parameter_ty_items {
