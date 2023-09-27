@@ -69,7 +69,7 @@ pub enum SemaExprData {
     Prefix {
         opr: PrefixOpr,
         opr_regional_token_idx: RegionalTokenIdx,
-        opd: SemaExprIdx,
+        opd_sema_expr_idx: SemaExprIdx,
     },
     Suffix {
         opd_sema_expr_idx: SemaExprIdx,
@@ -82,17 +82,17 @@ pub enum SemaExprData {
         argument_sema_expr_idx: SemaExprIdx,
     },
     FnCall {
-        function: SemaExprIdx,
-        generic_arguments: Option<SemaTemplateArgumentList>,
+        function_sema_expr_idx: SemaExprIdx,
+        template_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
-        ritchie_parameter_argument_matches: SmallVec<[SemaCallListItem; 4]>,
+        ritchie_parameter_argument_matches: RitchieParameterArgumentMatches,
         rpar_regional_token_idx: RegionalTokenIdx,
     },
     GnCall {
         function: SemaExprIdx,
         generic_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
-        items: SmallVec<[SemaCallListItem; 4]>,
+        ritchie_parameter_argument_matches: RitchieParameterArgumentMatches,
         rpar_regional_token_idx: RegionalTokenIdx,
     },
     /// function type or trait
@@ -129,7 +129,7 @@ pub enum SemaExprData {
         method_dynamic_dispatch: FluffyTermMethodDynamicDispatch,
         template_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
-        ritchie_parameter_argument_matches: SmallVec<[SemaCommaListItem; 4]>,
+        ritchie_parameter_argument_matches: RitchieParameterArgumentMatches,
         rpar_regional_token_idx: RegionalTokenIdx,
     },
     TemplateInstantiation {

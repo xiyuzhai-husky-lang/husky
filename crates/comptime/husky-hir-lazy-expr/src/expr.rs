@@ -177,7 +177,7 @@ impl ToHirLazy for SynExprIdx {
             },
             SynExprData::FunctionApplicationOrCall {
                 function,
-                ref generic_arguments,
+                template_arguments: ref generic_arguments,
                 lpar_regional_token_idx,
                 ref items,
                 rpar_regional_token_idx,

@@ -387,7 +387,7 @@ where
                             } => todo!(),
                             SynExprData::FunctionApplicationOrCall {
                                 function,
-                                generic_arguments,
+                                template_arguments: generic_arguments,
                                 lpar_regional_token_idx,
                                 items,
                                 rpar_regional_token_idx,

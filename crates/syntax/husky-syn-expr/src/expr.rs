@@ -85,7 +85,7 @@ pub enum SynExprData {
     ///   - `f` is a Ritchie function, this is a Ritchie function call with zero element
     FunctionApplicationOrCall {
         function: SynExprIdx,
-        generic_arguments: Option<SynTemplateArgumentList>,
+        template_arguments: Option<SynTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
         items: SmallVec<[SynCommaListItem; 4]>,
         rpar_regional_token_idx: RegionalTokenIdx,

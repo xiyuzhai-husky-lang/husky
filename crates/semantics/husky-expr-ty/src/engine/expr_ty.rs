@@ -198,7 +198,7 @@ impl<'a> ExprTypeEngine<'a> {
             ),
             SynExprData::FunctionApplicationOrCall {
                 function,
-                ref generic_arguments,
+                template_arguments: ref generic_arguments,
                 ref items,
                 ..
             } => self.calc_function_application_or_call_expr_ty(

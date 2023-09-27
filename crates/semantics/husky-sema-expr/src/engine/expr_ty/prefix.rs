@@ -5,6 +5,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: SynExprIdx,
         opr: PrefixOpr,
+        opr_regional_token_idx: RegionalTokenIdx,
         opd: SynExprIdx,
         final_destination: FinalDestination,
     ) -> (
@@ -13,9 +14,13 @@ impl<'a> ExprTypeEngine<'a> {
     ) {
         match opr {
             PrefixOpr::Minus => {
-                let opd_ty = self
-                    .build_new_expr_ty(opd, ExpectAnyOriginal)
-                    .ok_or(DerivedSemaExprTypeError::PrefixOperandTypeNotInferred)?;
+                let (opd_sema_expr_idx, opd_ty) = self.build_new_expr_ty(opd, ExpectAnyOriginal);
+                let Some(opd_ty) = opd_ty else {
+                    return (
+                        Err(todo!()),
+                        Err(DerivedSemaExprTypeError::PrefixOperandTypeNotInferred.into()),
+                    );
+                };
                 match opd_ty.data(self) {
                     FluffyTermData::Literal(_) => todo!(),
                     FluffyTermData::TypeOntology {
@@ -24,9 +29,14 @@ impl<'a> ExprTypeEngine<'a> {
                         ty_arguments: arguments,
                         ty_ethereal_term,
                     } => match refined_ty_path {
-                        Left(PreludeTypePath::Num(num_ty_path)) => {
-                            Ok((SemaExprData::Trivial, Ok(opd_ty)))
-                        }
+                        Left(PreludeTypePath::Num(num_ty_path)) => (
+                            Ok(SemaExprData::Prefix {
+                                opr: todo!(),
+                                opr_regional_token_idx,
+                                opd_sema_expr_idx,
+                            }),
+                            Ok(opd_ty),
+                        ),
                         _ => todo!(),
                     },
                     FluffyTermData::Curry {
@@ -57,37 +67,66 @@ impl<'a> ExprTypeEngine<'a> {
                 }
             }
             PrefixOpr::Not => {
-                self.build_new_expr_ty_discarded(opd, ExpectConditionType);
+                let opd_sema_expr_idx = self.build_new_expr_ty_discarded(opd, ExpectConditionType);
                 // here we differs from Rust, but agrees with C
-                Ok((
-                    SemaExprData::Trivial,
+                (
+                    Ok(SemaExprData::Prefix {
+                        opr: todo!(),
+                        opr_regional_token_idx,
+                        opd_sema_expr_idx,
+                    }),
                     Ok(self.term_menu.bool_ty_ontology().into()),
-                ))
+                )
             }
             PrefixOpr::Tilde => match final_destination {
-                FinalDestination::Sort => Ok((
-                    SemaExprData::Tilde(TildeDisambiguation::Leash),
-                    self.calc_function_application_expr_ty_aux(
-                        expr_idx,
-                        Variance::Covariant,
-                        None,
-                        self.term_menu.ty0().into(),
-                        self.term_menu.ty0().into(),
-                        opd,
-                    ),
-                )),
+                FinalDestination::Sort => {
+                    let (opd_sema_expr_idx, ty_result) = self
+                        .calc_function_application_expr_ty_aux(
+                            expr_idx,
+                            Variance::Covariant,
+                            None,
+                            self.term_menu.ty0().into(),
+                            self.term_menu.ty0().into(),
+                            opd,
+                        );
+                    (
+                        Ok(SemaExprData::Prefix {
+                            opr: todo!(),
+                            opr_regional_token_idx,
+                            opd_sema_expr_idx,
+                        }),
+                        // Tilde(TildeDisambiguation::Leash),
+                        ty_result,
+                    )
+                }
                 FinalDestination::TypeOntology
                 | FinalDestination::AnyOriginal
-                | FinalDestination::AnyDerived => Ok((
-                    SemaExprData::Tilde(TildeDisambiguation::BitNot),
-                    self.calc_bitnot_expr_ty(opd),
-                )),
+                | FinalDestination::AnyDerived => {
+                    let (opd_sema_expr_idx, opd_ty) = self.build_new_expr_ty(opd, ExpectIntType);
+                    (
+                        Ok(SemaExprData::Prefix {
+                            opr: todo!(),
+                            opr_regional_token_idx,
+                            opd_sema_expr_idx,
+                        }),
+                        // Tilde(TildeDisambiguation::BitNot)),
+                        self.calc_bitnot_expr_ty(opd_ty),
+                    )
+                }
                 FinalDestination::Ritchie(_) => todo!(),
             },
             PrefixOpr::Ref => {
-                self.build_new_expr_ty_discarded(opd, self.expect_ty0_subtype());
+                let opd_sema_expr_idx =
+                    self.build_new_expr_ty_discarded(opd, self.expect_ty0_subtype());
                 // Should consider more cases, could also be taking references
-                Ok((SemaExprData::Trivial, Ok(self.term_menu.ty0().into())))
+                (
+                    Ok(SemaExprData::Prefix {
+                        opr: todo!(),
+                        opr_regional_token_idx,
+                        opd_sema_expr_idx,
+                    }),
+                    Ok(self.term_menu.ty0().into()),
+                )
             }
             PrefixOpr::Vector => todo!(),
             PrefixOpr::Slice => todo!(),
@@ -95,17 +134,26 @@ impl<'a> ExprTypeEngine<'a> {
             PrefixOpr::Array(_) => todo!(),
             PrefixOpr::Option => {
                 // todo!("consider universe");
-                self.build_new_expr_ty_discarded(opd, self.expect_ty0_subtype());
-                Ok((SemaExprData::Trivial, Ok(self.term_menu.ty0().into())))
+                let opd_sema_expr_idx =
+                    self.build_new_expr_ty_discarded(opd, self.expect_ty0_subtype());
+                (
+                    Ok(SemaExprData::Prefix {
+                        opr: todo!(),
+                        opr_regional_token_idx,
+                        opd_sema_expr_idx,
+                    }),
+                    Ok(self.term_menu.ty0().into()),
+                )
             }
         }
     }
 
-    fn calc_bitnot_expr_ty(&mut self, opd: SynExprIdx) -> SemaExprTypeResult<FluffyTerm> {
-        let Some(ty) = self.build_new_expr_ty(opd, ExpectIntType) else {
-            Err(DerivedSemaExprTypeError::BitNotOperandTypeNotInferred)?
-        };
-        match ty.data(self) {
+    fn calc_bitnot_expr_ty(
+        &mut self,
+        opd_ty: Option<FluffyTerm>,
+    ) -> SemaExprTypeResult<FluffyTerm> {
+        let opd_ty = opd_ty.ok_or(DerivedSemaExprTypeError::BitNotOperandTypeNotInferred)?;
+        match opd_ty.data(self) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
                 ty_path,
@@ -134,7 +182,7 @@ impl<'a> ExprTypeEngine<'a> {
                             | PreludeIntTypePath::R32
                             | PreludeIntTypePath::R64
                             | PreludeIntTypePath::R128
-                            | PreludeIntTypePath::RSize) => Ok(ty),
+                            | PreludeIntTypePath::RSize) => Ok(opd_ty),
                         },
                         PreludeNumTypePath::Float(_) => todo!(),
                     },
