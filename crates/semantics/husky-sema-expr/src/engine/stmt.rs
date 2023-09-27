@@ -8,22 +8,28 @@ impl<'a> ExprTypeEngine<'a> {
         stmts: SynStmtIdxRange,
         expr_expectation: impl ExpectFluffyTerm,
     ) -> (SemaStmtIdxRange, Option<FluffyTerm>) {
+        let mut stmt_entries = vec![];
         for stmt in stmts.start()..(stmts.end() - 1) {
-            self.infer_new_nonlast_stmt(stmt)
+            let (data_result, ty_result) = self.infer_new_nonlast_stmt(stmt);
+            stmt_entries.push(SemaStmtEntry::new(data_result, ty_result))
         }
-        self.infer_new_last_stmt(stmts.end() - 1, expr_expectation)
+        self.infer_new_stmt(stmts.end() - 1, expr_expectation);
+        todo!()
     }
 
-    fn infer_new_nonlast_stmt(&mut self, stmt_idx: SynStmtIdx) {
+    fn infer_new_nonlast_stmt(&mut self, stmt_idx: SynStmtIdx) -> SemaStmtEntry {
         let expect_unit = self.expect_unit();
         self.calc_stmt(stmt_idx, expect_unit);
     }
 
-    fn infer_new_last_stmt(
+    fn infer_new_stmt(
         &mut self,
         stmt_idx: SynStmtIdx,
         expr_expectation: impl ExpectFluffyTerm,
-    ) -> SemaStmtEntryResult {
+    ) -> (
+        SemaExprDataResult<SemaStmtData>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
         self.calc_stmt(stmt_idx, expr_expectation)
     }
 
@@ -31,7 +37,10 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         stmt_idx: SynStmtIdx,
         expr_expectation: impl ExpectFluffyTerm,
-    ) -> Option<FluffyTerm> {
+    ) -> (
+        SemaExprDataResult<SemaStmtData>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
         match self.expr_region_data[stmt_idx] {
             SynStmtData::Let {
                 let_token,
@@ -51,25 +60,39 @@ impl<'a> ExprTypeEngine<'a> {
                         self.build_new_expr_ty_discarded(result, ExpectAnyDerived);
                     }
                 };
-                Some(self.term_menu.never().into())
+                (todo!(), Ok(self.term_menu.never().into()))
             }
             SynStmtData::Require { condition, .. } => {
                 self.build_new_expr_ty_discarded(condition, ExpectConditionType);
-                Some(self.term_menu.unit_ty_ontology().into())
+                (todo!(), Ok(self.term_menu.unit_ty_ontology().into()))
             }
             SynStmtData::Assert { condition, .. } => {
                 self.build_new_expr_ty_discarded(condition, ExpectConditionType);
-                Some(self.term_menu.unit_ty_ontology().into())
+                (todo!(), Ok(self.term_menu.unit_ty_ontology().into()))
             }
-            SynStmtData::Break { .. } => Some(self.term_menu.never().into()),
+            SynStmtData::Break { .. } => (todo!(), Ok(self.term_menu.never().into())),
             SynStmtData::Eval {
                 expr_idx,
                 eol_semicolon,
-            } => match eol_semicolon {
-                Ok(None) => self.build_new_expr_ty(expr_idx, expr_expectation),
-                Ok(Some(_)) => self.build_new_expr_ty(expr_idx, ExpectAnyOriginal),
-                Err(_) => self.build_new_expr_ty(expr_idx, ExpectAnyDerived),
-            },
+            } => {
+                let (sema_expr_idx, ty) = match eol_semicolon {
+                    Ok(None) => self.build_new_expr_ty(expr_idx, expr_expectation),
+                    Ok(Some(_)) => {
+                        let (sema_expr_idx, expr_ty) =
+                            self.build_new_expr_ty(expr_idx, ExpectAnyOriginal);
+                        let ty = match expr_ty {
+                            Some(_) => todo!(),
+                            None => todo!(),
+                        };
+                        todo!("unit or never")
+                    }
+                    Err(_) => self.build_new_expr_ty(expr_idx, ExpectAnyDerived),
+                };
+                (
+                    todo!(),
+                    ty.ok_or(DerivedSemaExprTypeError::EvalExprTypeNotInferred.into()),
+                )
+            }
             SynStmtData::ForBetween {
                 ref particulars,
                 frame_var_symbol_idx,
@@ -224,7 +247,8 @@ impl<Expectation: ExpectFluffyTerm> BranchTypes<Expectation> {
     }
 
     fn visit_branch(&mut self, engine: &mut ExprTypeEngine, block: SynStmtIdxRange) {
-        match engine.infer_new_block(block, self.expr_expectation.clone()) {
+        let (stmts, new_block_ty) = engine.infer_new_block(block, self.expr_expectation.clone());
+        match new_block_ty {
             Some(new_block_ty)
                 if new_block_ty.base_resolved(engine)
                     == FluffyTermBase::Ethereal(EtherealTerm::EntityPath(
