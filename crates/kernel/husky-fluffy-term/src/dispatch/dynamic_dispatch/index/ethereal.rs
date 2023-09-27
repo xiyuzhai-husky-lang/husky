@@ -10,7 +10,7 @@ pub(super) fn ethereal_owner_ty_index_dispatch(
     owner_ty: EtherealTerm,
     index_ty: FluffyTerm,
     indirections: FluffyTermDynamicDispatchIndirections,
-) -> FluffyTermMaybeResult<FluffyIndexDispatch> {
+) -> FluffyTermMaybeResult<FluffyIndexDynamicDispatch> {
     ethereal_owner_ty_index_dispatch_aux(engine, expr_idx, owner_ty, index_ty, indirections)
 }
 
@@ -20,7 +20,7 @@ pub(super) fn ethereal_owner_ty_index_dispatch_aux(
     owner_ty: EtherealTerm,
     index_ty: FluffyTerm,
     mut indirections: FluffyTermDynamicDispatchIndirections,
-) -> FluffyTermMaybeResult<FluffyIndexDispatch> {
+) -> FluffyTermMaybeResult<FluffyIndexDynamicDispatch> {
     let db = engine.db();
     let owner_ty_application_expansion = owner_ty.application_expansion(db);
     let TermFunctionReduced::TypeOntology(ty_path) = owner_ty_application_expansion.function()
@@ -40,7 +40,10 @@ pub(super) fn ethereal_owner_ty_index_dispatch_aux(
     )
     .into_result_option()?
     {
-        return JustOk(FluffyIndexDispatch::new(indirections, index_signature));
+        return JustOk(FluffyIndexDynamicDispatch::new(
+            indirections,
+            index_signature,
+        ));
     };
     // indirections
     match refined_ty_path {

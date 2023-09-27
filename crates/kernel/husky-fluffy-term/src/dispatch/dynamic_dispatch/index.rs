@@ -7,7 +7,7 @@ use self::hollow::*;
 use self::solid::*;
 use super::*;
 
-pub type FluffyIndexDispatch = FluffyDynamicDispatch<FluffyIndexSignature>;
+pub type FluffyIndexDynamicDispatch = FluffyDynamicDispatch<FluffyIndexSignature>;
 
 impl FluffyTerm {
     pub fn dispatch_index(
@@ -15,7 +15,7 @@ impl FluffyTerm {
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
         index_ty: FluffyTerm,
-    ) -> FluffyTermMaybeResult<FluffyIndexDispatch> {
+    ) -> FluffyTermMaybeResult<FluffyIndexDynamicDispatch> {
         self.dispatch_index_aux(
             engine,
             expr_idx,
@@ -30,7 +30,7 @@ impl FluffyTerm {
         expr_idx: SynExprIdx,
         index_ty: FluffyTerm,
         mut indirections: FluffyTermDynamicDispatchIndirections,
-    ) -> FluffyTermMaybeResult<FluffyIndexDispatch> {
+    ) -> FluffyTermMaybeResult<FluffyIndexDynamicDispatch> {
         match self.base_resolved(engine) {
             FluffyTermBase::Ethereal(owner_ty) => {
                 ethereal_owner_ty_index_dispatch(engine, expr_idx, owner_ty, index_ty, indirections)

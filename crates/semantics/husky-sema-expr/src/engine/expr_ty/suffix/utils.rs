@@ -35,11 +35,13 @@ impl<'a> ExprTypeEngine<'a> {
     {
         match final_destination {
             FinalDestination::Sort => {
-                match self.build_new_expr_ty(opd, ExpectFinalDestination::new(final_destination)) {
+                let (opd_sema_expr_idx, opd_ty) =
+                    self.build_new_expr_ty(opd, ExpectFinalDestination::new(final_destination));
+                match opd_ty {
                     Some(opd_ty) => match opd_ty.data(self) {
                         FluffyTermData::Literal(_) => todo!(),
                         FluffyTermData::TypeOntology { .. } => {
-                            naive_suffix_f_given_opd_ty(self, opd_ty)
+                            (opd_sema_expr_idx, naive_suffix_f_given_opd_ty(self, opd_ty))
                         }
                         FluffyTermData::Curry { .. } => todo!(),
                         FluffyTermData::Hole(_, _) => todo!(),

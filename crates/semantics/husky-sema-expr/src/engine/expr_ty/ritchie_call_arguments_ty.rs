@@ -13,28 +13,28 @@ impl<'a> ExprTypeEngine<'a> {
             .match_all()
         {
             Ok(ritchie_matches) => {
-                for ritchie_match in &ritchie_matches {
-                    match ritchie_match {
-                        RitchieParameterArgumentMatch::Regular(param, item) => self
-                            .build_new_expr_ty_discarded(
-                                item.argument_expr_idx(),
-                                ExpectCoersion::new(param.contract(), param.ty()),
-                            ),
-                        RitchieParameterArgumentMatch::Variadic(param, items) => {
-                            for item in items {
-                                self.build_new_expr_ty_discarded(
-                                    item.argument_expr_idx(),
-                                    ExpectCoersion::new(param.contract(), param.ty()),
-                                )
-                            }
-                        }
-                        RitchieParameterArgumentMatch::Keyed(param, item) => self
-                            .build_new_expr_ty_discarded(
-                                item.argument_expr_idx(),
-                                ExpectCoersion::new(param.contract(), param.ty()),
-                            ),
-                    }
-                }
+                // for ritchie_match in &ritchie_matches {
+                //     match ritchie_match {
+                //         RitchieParameterArgumentMatch::Regular(param, item) => self
+                //             .build_new_expr_ty_discarded(
+                //                 item.argument_expr_idx(),
+                //                 ExpectCoersion::new(param.contract(), param.ty()),
+                //             ),
+                //         RitchieParameterArgumentMatch::Variadic(param, items) => {
+                //             for item in items {
+                //                 self.build_new_expr_ty_discarded(
+                //                     item.argument_expr_idx(),
+                //                     ExpectCoersion::new(param.contract(), param.ty()),
+                //                 )
+                //             }
+                //         }
+                //         RitchieParameterArgumentMatch::Keyed(param, item) => self
+                //             .build_new_expr_ty_discarded(
+                //                 item.argument_expr_idx(),
+                //                 ExpectCoersion::new(param.contract(), param.ty()),
+                //             ),
+                //     }
+                // }
                 Ok(ritchie_matches)
             }
             Err(match_error) => {
@@ -74,14 +74,11 @@ mod matcher {
 
     #[derive(Debug, PartialEq, Eq)]
     pub enum RitchieParameterArgumentMatch {
-        Regular(
-            FluffyTermRitchieRegularParameter,
-            SynRegularOrVariadicCallListItem,
-        ),
+        Regular(FluffyTermRitchieRegularParameter, SemaRegularCallListItem),
         Variadic(
             FluffyTermRitchieVariadicParameter,
             // use vec to save enum size
-            Vec<SynRegularOrVariadicCallListItem>,
+            Vec<SemaVariadicCallListItem>,
         ),
         Keyed(FluffyTermRitchieKeyedParameter, KeyedCallListItem),
     }
@@ -130,9 +127,11 @@ mod matcher {
             match param {
                 FluffyTermRitchieParameter::Regular(param) => match self.ritchie_call_items.next() {
                     Some(item) => match item {
-                        SynCallListItem::RegularOrVariadic(item) => Ok(self
+                        SynCallListItem::RegularOrVariadic(item) =>{
+                            let item = todo!();
+                             Ok(self
                             .ritchie_matches
-                            .push(RitchieParameterArgumentMatch::Regular(param, item))),
+                            .push(RitchieParameterArgumentMatch::Regular(param, item)))},
                         SynCallListItem::Keyed(_) => todo!(),
                     },
                     None => Err(RitchieParameterArgumentMatchError::MissingArgument)?,
@@ -143,6 +142,7 @@ mod matcher {
                         .ritchie_call_items
                         .next_if(|item| matches!(item, SynCallListItem::RegularOrVariadic(_)))
                     {
+                        let item :SemaVariadicCallListItem= todo!();
                         items.push(item);
                         match item.separator() {
                             CallListSeparator::None | CallListSeparator::Comma(_) => (),

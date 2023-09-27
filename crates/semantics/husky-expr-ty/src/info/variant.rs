@@ -13,7 +13,7 @@ pub enum SynExprDisambiguation {
     List(ListExprDisambiguation),
     Application(ApplicationDisambiguation),
     Tilde(TildeDisambiguation),
-    FieldDispatch(FluffyFieldDispatch),
+    FieldDispatch(FluffyFieldDyanmicDispatch),
     MethodCallOrApplication(MethodCallOrApplicationDisambiguation),
     StaticDispatch(StaticDispatch),
     FunctionCall {
@@ -35,7 +35,7 @@ impl SynExprDisambiguation {
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = ExprTypeDb)]
 pub enum IndexOrComposeWithListExprDisambiguation {
-    Index(FluffyIndexDispatch),
+    Index(FluffyIndexDynamicDispatch),
     ComposeWithList,
 }
 
@@ -95,7 +95,7 @@ pub enum ListExprDisambiguation {
 #[salsa::debug_with_db(db = ExprTypeDb)]
 pub enum MethodCallOrApplicationDisambiguation {
     MethodCall {
-        method_dispatch: FluffyMethodDispatch,
+        method_dispatch: FluffyMethodDynamicDispatch,
         ritchie_parameter_argument_matches: ExprTypeResult<RitchieParameterArgumentMatches>,
     },
 }
