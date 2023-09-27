@@ -9,7 +9,7 @@ pub(super) fn ethereal_ty_field_dispatch(
     ty_term: EtherealTerm,
     ident: Ident,
     indirections: FluffyTermDynamicDispatchIndirections,
-) -> FluffyTermMaybeResult<FluffyFieldDispatch> {
+) -> FluffyTermMaybeResult<FluffyFieldDyanmicDispatch> {
     // divide into cases for memoization
     match ty_term {
         EtherealTerm::EntityPath(TermEntityPath::TypeOntology(ty_path)) => {
@@ -27,7 +27,7 @@ pub(crate) fn ethereal_ty_ontology_path_ty_field_dispatch(
     ty_path: TypePath,
     ident: Ident,
     indirections: FluffyTermDynamicDispatchIndirections,
-) -> FluffyTermMaybeResult<FluffyFieldDispatch> {
+) -> FluffyTermMaybeResult<FluffyFieldDyanmicDispatch> {
     ethereal_ty_field_dispatch_aux(db, ty_path, &[], ident, indirections)
 }
 
@@ -36,7 +36,7 @@ pub(crate) fn ethereal_term_application_ty_field_dispatch(
     ty_term: EtherealTermApplication,
     ident: Ident,
     indirections: FluffyTermDynamicDispatchIndirections,
-) -> FluffyTermMaybeResult<FluffyFieldDispatch> {
+) -> FluffyTermMaybeResult<FluffyFieldDyanmicDispatch> {
     let application_expansion = ty_term.application_expansion(db);
     match application_expansion.function() {
         TermFunctionReduced::TypeOntology(ty_path) => ethereal_ty_field_dispatch_aux(
@@ -56,7 +56,7 @@ fn ethereal_ty_field_dispatch_aux<'a>(
     arguments: &'a [EtherealTerm],
     ident: Ident,
     mut indirections: FluffyTermDynamicDispatchIndirections,
-) -> FluffyTermMaybeResult<FluffyFieldDispatch> {
+) -> FluffyTermMaybeResult<FluffyFieldDyanmicDispatch> {
     match ty_path.refine(db) {
         Left(PreludeTypePath::Indirection(prelude_indirection_ty_path)) => {
             match prelude_indirection_ty_path {
@@ -78,7 +78,7 @@ fn ethereal_ty_field_dispatch_aux<'a>(
         .regular_field_ethereal_signature(db, arguments, ident)
         .into_result_option()?
     {
-        return JustOk(FluffyFieldDispatch {
+        return JustOk(FluffyFieldDyanmicDispatch {
             indirections,
             ty_path,
             signature: regular_field_ethereal_signature.into(),
@@ -89,7 +89,7 @@ fn ethereal_ty_field_dispatch_aux<'a>(
         .ty_memoized_field_ethereal_signature(db, arguments, ident)
         .into_result_option()?
     {
-        return JustOk(FluffyFieldDispatch {
+        return JustOk(FluffyFieldDyanmicDispatch {
             indirections,
             ty_path,
             signature: memoized_field_ethereal_signature.into(),

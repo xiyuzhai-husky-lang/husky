@@ -33,7 +33,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: SynExprIdx,
         self_expr_ty: FluffyTerm,
         indices: &[SynCommaListItem],
-    ) -> ExprTypeResult<(FluffyIndexDispatch, ExprTypeResult<FluffyTerm>)> {
+    ) -> ExprTypeResult<(FluffyIndexDynamicDispatch, ExprTypeResult<FluffyTerm>)> {
         let index_tys: SmallVec<[FluffyTerm; 2]> = indices
             .iter()
             .map(|index| {

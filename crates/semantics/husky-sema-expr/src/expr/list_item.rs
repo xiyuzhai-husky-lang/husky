@@ -27,95 +27,12 @@ impl SemaCommaListItem {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[enum_class::from_variants]
-pub enum SemaCallListItem {
-    RegularOrVariadic(SemaRegularOrVariadicCallListItem),
-    Keyed(SemaKeyedCallListItem),
-}
-
-impl From<SemaCommaListItem> for SemaCallListItem {
-    fn from(item: SemaCommaListItem) -> Self {
-        SemaCallListItem::RegularOrVariadic(SemaRegularOrVariadicCallListItem {
-            argument_expr_idx: item.expr_idx,
-            separator: match item.comma_regional_token_idx {
-                Some(comma_regional_token_idx) => {
-                    CallListSeparator::Comma(comma_regional_token_idx)
-                }
-                None => CallListSeparator::None,
-            },
-        })
-    }
-}
-
-impl SemaCallListItem {
-    pub fn new_regular(argument_expr_idx: SemaExprIdx, comma: Option<RegionalTokenIdx>) -> Self {
-        SemaCallListItem::RegularOrVariadic(SemaRegularOrVariadicCallListItem {
-            separator: match comma {
-                Some(comma_regional_token_idx) => {
-                    CallListSeparator::Comma(comma_regional_token_idx)
-                }
-                None => CallListSeparator::None,
-            },
-            argument_expr_idx,
-        })
-    }
-
-    pub fn separator(&self) -> CallListSeparator {
-        match self {
-            SemaCallListItem::RegularOrVariadic(SemaRegularOrVariadicCallListItem {
-                separator,
-                ..
-            })
-            | SemaCallListItem::Keyed(SemaKeyedCallListItem { separator, .. }) => *separator,
-        }
-    }
-
-    pub(crate) fn set_separator(&mut self, new_separator: CallListSeparator) {
-        match self {
-            SemaCallListItem::RegularOrVariadic(SemaRegularOrVariadicCallListItem {
-                separator,
-                ..
-            })
-            | SemaCallListItem::Keyed(SemaKeyedCallListItem { separator, .. }) => {
-                debug_assert_eq!(*separator, CallListSeparator::None);
-                *separator = new_separator
-            }
-        }
-    }
-
-    pub fn argument_expr_idx(&self) -> SemaExprIdx {
-        match self {
-            SemaCallListItem::RegularOrVariadic(SemaRegularOrVariadicCallListItem {
-                argument_expr_idx,
-                ..
-            })
-            | SemaCallListItem::Keyed(SemaKeyedCallListItem {
-                argument_expr_idx, ..
-            }) => *argument_expr_idx,
-        }
-    }
-}
-
-#[test]
-fn call_list_item_field_alignment() {
-    // todo
-    //     let a =
-    // CallListItem::RegularOrVariadic(RegularOrVariadicCallListItem {
-    //     separator, ..
-    // })
-    // | CallListItem::Keyed(SemaKeyedCallListItem { separator, .. }) => {
-    //     debug_assert_eq!(*separator, CallListSeparator::None);
-    //     *separator = new_separator
-    // }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct SemaRegularOrVariadicCallListItem {
+pub struct SemaRegularCallListItem {
     argument_expr_idx: SemaExprIdx,
     separator: CallListSeparator,
 }
 
-impl SemaRegularOrVariadicCallListItem {
+impl SemaRegularCallListItem {
     pub(crate) fn new(argument_expr_idx: SemaExprIdx, separator: CallListSeparator) -> Self {
         Self {
             argument_expr_idx,
@@ -125,6 +42,29 @@ impl SemaRegularOrVariadicCallListItem {
 
     pub fn argument_expr_idx(&self) -> SemaExprIdx {
         self.argument_expr_idx
+    }
+
+    pub fn separator(&self) -> CallListSeparator {
+        self.separator
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct SemaVariadicCallListItem {
+    argument_sema_expr_idx: SemaExprIdx,
+    separator: CallListSeparator,
+}
+
+impl SemaVariadicCallListItem {
+    pub(crate) fn new(argument_sema_expr_idx: SemaExprIdx, separator: CallListSeparator) -> Self {
+        Self {
+            argument_sema_expr_idx,
+            separator,
+        }
+    }
+
+    pub fn argument_expr_idx(&self) -> SemaExprIdx {
+        self.argument_sema_expr_idx
     }
 
     pub fn separator(&self) -> CallListSeparator {
@@ -170,11 +110,4 @@ impl SemaKeyedCallListItem {
     pub fn separator(&self) -> CallListSeparator {
         self.separator
     }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum CallListSeparator {
-    None,
-    Comma(RegionalTokenIdx),
-    Semicolon(RegionalTokenIdx),
 }

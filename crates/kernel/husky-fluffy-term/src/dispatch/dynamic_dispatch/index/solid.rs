@@ -6,7 +6,7 @@ impl SolidTerm {
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
         index_ty: FluffyTerm,
-    ) -> FluffyTermMaybeResult<FluffyIndexDispatch> {
+    ) -> FluffyTermMaybeResult<FluffyIndexDynamicDispatch> {
         self.disambiguate_index_aux(
             engine,
             expr_idx,
@@ -21,7 +21,7 @@ impl SolidTerm {
         expr_idx: SynExprIdx,
         index_ty: FluffyTerm,
         mut indirections: FluffyTermDynamicDispatchIndirections,
-    ) -> FluffyTermMaybeResult<FluffyIndexDispatch> {
+    ) -> FluffyTermMaybeResult<FluffyIndexDynamicDispatch> {
         let db = engine.db();
         match self.data(engine) {
             SolidTermData::TypeOntology {

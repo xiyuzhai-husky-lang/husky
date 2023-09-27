@@ -111,7 +111,7 @@ pub enum SemaExprData {
         owner_sema_expr_idx: SemaExprIdx,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
-        field_dispatch: FluffyFieldDispatch,
+        field_dispatch: FluffyFieldDyanmicDispatch,
     },
     MethodApplication {
         self_argument: SemaExprIdx,
@@ -163,6 +163,7 @@ pub enum SemaExprData {
         lbox_regional_token_idx: RegionalTokenIdx,
         items: SmallVec<[SemaCommaListItem; 4]>,
         rbox_regional_token_idx: RegionalTokenIdx,
+        index_dynamic_dispatch: FluffyIndexDynamicDispatch,
     },
     CompositionWithList {
         owner: SemaExprIdx,

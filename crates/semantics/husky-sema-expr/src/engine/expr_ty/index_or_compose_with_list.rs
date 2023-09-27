@@ -10,23 +10,34 @@ impl<'a> ExprTypeEngine<'a> {
         SemaExprDataResult<SemaExprData>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
-        let Some(owner_ty) = self.build_new_expr_ty(owner, ExpectAnyOriginal) else {
+        let (owner_sema_expr_idx, owner_ty) = self.build_new_expr_ty(owner, ExpectAnyOriginal);
+        let Some(owner_ty) = owner_ty else {
             for index in indices {
                 self.build_new_expr_ty(index.expr_idx(), ExpectAnyDerived);
             }
-            Err(DerivedSemaExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred)?
+            return (
+                todo!(),
+                Err(
+                    DerivedSemaExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred
+                        .into(),
+                ),
+            );
         };
         match owner_ty.data(self) {
             FluffyTermData::Curry { .. } => todo!(),
             _ => {
-                let (index_disambiguation, expr_ty) =
+                let (index_dynamic_dispatch, expr_ty) =
                     self.calc_index_expr_ty(expr_idx, owner_ty, indices)?;
-                Ok((
-                    SemaExprData::IndexOrComposeWithList(
-                        IndexOrComposeWithListExprDisambiguation::Index(index_disambiguation),
-                    ),
+                (
+                    Ok(SemaExprData::Index {
+                        owner: todo!(),
+                        lbox_regional_token_idx: todo!(),
+                        items: todo!(),
+                        rbox_regional_token_idx: todo!(),
+                        index_dynamic_dispatch,
+                    }),
                     expr_ty,
-                ))
+                )
             }
         }
     }
@@ -36,7 +47,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: SynExprIdx,
         self_expr_ty: FluffyTerm,
         indices: &[SynCommaListItem],
-    ) -> SemaExprTypeResult<(FluffyIndexDispatch, SemaExprTypeResult<FluffyTerm>)> {
+    ) -> SemaExprTypeResult<(FluffyIndexDynamicDispatch, SemaExprTypeResult<FluffyTerm>)> {
         let index_tys: SmallVec<[FluffyTerm; 2]> = indices
             .iter()
             .map(|index| {
