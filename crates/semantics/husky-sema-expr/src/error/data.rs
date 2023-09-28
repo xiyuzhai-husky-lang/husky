@@ -49,6 +49,11 @@ pub enum DerivedSemaExprDataError {
     FieldOwnerTypeNotInferred { owner_sema_expr_idx: SemaExprIdx },
     #[error("UnableToInferIndexExprType")]
     UnableToInferIndexExprType,
+    #[error("UnveilOutputTemplate")]
+    UnveilOutputTemplate {
+        opd_sema_expr_idx: SemaExprIdx,
+        e: EtherealSignatureError,
+    },
 }
 
 impl From<&SynExprError> for SemaExprDataError {

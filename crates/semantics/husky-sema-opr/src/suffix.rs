@@ -4,4 +4,6 @@ pub enum SemaSuffixOpr {
     Decr,
     Unveil,
     ComposeWithOption,
+    Unwrap,
+    ComposeWithNot,
 }
