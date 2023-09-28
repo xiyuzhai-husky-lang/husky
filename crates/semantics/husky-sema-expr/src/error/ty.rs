@@ -57,10 +57,6 @@ pub enum OriginalSemaExprTypeError {
     AmbiguousTildeExpr,
     #[error("ExpectedCurryButGotRitchieInstead")]
     ExpectedCurryButGotRitchieInstead,
-    #[error("CannotIndexIntoType")]
-    CannotIndexIntoType { self_expr_ty: FluffyTerm },
-    #[error("expected indices")]
-    ExpectedIndices,
     #[error("cannot unveil")]
     CannotUnveil,
     #[error("cannot unwrap")]
@@ -150,8 +146,6 @@ pub enum DerivedSemaExprTypeError {
     FluffyTermError(#[from] FluffyTermError),
     #[error("SuffixOperandTypeNotInferred")]
     SuffixOperandTypeNotInferred,
-    #[error("UnableToInferIndexExprType")]
-    UnableToInferIndexExprType,
     #[error("UnableToInferSuffixOperandType")]
     UnableToInferSuffixOperandType,
     #[error("UnableToInferFunctionApplicationArgumentType")]

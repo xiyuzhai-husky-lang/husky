@@ -160,7 +160,7 @@ impl Punctuation {
         BinaryComparisonOpr::Geq,
     )));
     pub const INCR: Self = Self(PunctuationMapped::Suffix(SuffixOpr::Incr));
-    pub const DECR: Self = Self(PunctuationMapped::Suffix(SuffixOpr::Attr));
+    pub const DECR: Self = Self(PunctuationMapped::Suffix(SuffixOpr::Decr));
     /// `!`
     pub const EXCLAMATION: Self = Self(PunctuationMapped::Exclamation);
     /// `!!`

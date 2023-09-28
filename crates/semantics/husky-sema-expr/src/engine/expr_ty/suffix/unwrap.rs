@@ -5,7 +5,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         opd_ty: FluffyTerm,
     ) -> (
-        SemaExprDataResult<SemaExprData>,
+        SemaExprDataResult<SemaSuffixOpr>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
         todo!()
@@ -15,10 +15,11 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         opd: SynExprIdx,
     ) -> (
-        SemaExprDataResult<SemaExprData>,
+        SemaExprDataResult<(SemaExprIdx, SemaSuffixOpr)>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
-        let Some(opd_ty) = self.build_new_expr_ty(opd, ExpectAnyOriginal) else {
+        let (opd_sema_expr_idx, opd_ty) = self.build_new_expr_ty(opd, ExpectAnyOriginal);
+        let Some(opd_ty) = opd_ty else {
             // p!(self.expr_region_data.path().debug(self.db));
             // todo!();
             Err(DerivedSemaExprTypeError::UnableToInferUnwrapOperand)?
@@ -31,11 +32,10 @@ impl<'a> ExprTypeEngine<'a> {
                 ty_arguments,
                 ty_ethereal_term,
             } => match refined_ty_path {
-                Left(PreludeTypePath::Option | PreludeTypePath::Result) => Ok((
-                    UnwrapOrComposeWithNotExprDisambiguation::Unwrap.into(),
-                    Ok(ty_arguments[0]),
-                )),
-                _ => Err(OriginalSemaExprTypeError::CannotUnwrap)?,
+                Left(PreludeTypePath::Option | PreludeTypePath::Result) => {
+                    (Ok(SemaExprData::Unwrap.into()), Ok(ty_arguments[0]))
+                }
+                _ => return (todo!(), Err(OriginalSemaExprTypeError::CannotUnwrap.into())),
             },
             FluffyTermData::Curry {
                 curry_kind,

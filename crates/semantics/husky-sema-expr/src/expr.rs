@@ -14,6 +14,7 @@ use husky_regional_token::{
     ColonColonRegionalToken, EmptyHtmlKetRegionalToken, IdentRegionalToken,
     LightArrowRegionalToken, LparRegionalToken, PlaceLabelRegionalToken, RegionalTokenIdx,
 };
+use husky_sema_opr::suffix::SemaSuffixOpr;
 use husky_syn_expr::{
     SynInheritedSymbolIdx, SynInheritedSymbolKind, SynPrincipalEntityPathExprIdx,
 };
@@ -73,7 +74,7 @@ pub enum SemaExprData {
     },
     Suffix {
         opd_sema_expr_idx: SemaExprIdx,
-        opr: SuffixOpr,
+        opr: SemaSuffixOpr,
         opr_regional_token_idx: RegionalTokenIdx,
     },
     // todo: implicit arguments
@@ -162,7 +163,7 @@ pub enum SemaExprData {
     Index {
         owner: SemaExprIdx,
         lbox_regional_token_idx: RegionalTokenIdx,
-        items: SmallVec<[SemaCommaListItem; 4]>,
+        indices: SmallVec<[SemaCommaListItem; 4]>,
         rbox_regional_token_idx: RegionalTokenIdx,
         index_dynamic_dispatch: FluffyIndexDynamicDispatch,
     },

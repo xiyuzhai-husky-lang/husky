@@ -1,4 +1,5 @@
 use super::*;
+use husky_sema_opr::suffix::SemaSuffixOpr;
 
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_ambiguous_suffix_expr_ty<F1, F2, F3>(
@@ -7,31 +8,41 @@ impl<'a> ExprTypeEngine<'a> {
         final_destination: FinalDestination,
         naive_suffix_f_given_opd_ty: F1,
         naive_suffix_f: F2,
-        application_composition_f: F3,
-    ) -> (SemaExprIdx, SemaExprTypeResult<FluffyTerm>)
+        application_composition_f_given_opd_ty: F3,
+    ) -> (
+        SemaExprDataResult<(SemaExprIdx, SemaSuffixOpr)>,
+        SemaExprTypeResult<FluffyTerm>,
+    )
     where
         F1: FnOnce(
             &mut Self,
             FluffyTerm,
         ) -> (
-            SemaExprDataResult<SemaExprData>,
+            SemaExprDataResult<SemaSuffixOpr>,
             SemaExprTypeResult<FluffyTerm>,
         ),
         F2: FnOnce(
             &mut Self,
             SynExprIdx,
         ) -> (
-            SemaExprDataResult<SemaExprData>,
+            SemaExprDataResult<(SemaExprIdx, SemaSuffixOpr)>,
             SemaExprTypeResult<FluffyTerm>,
         ),
         F3: FnOnce(
             &mut Self,
-            SynExprIdx,
-            FinalDestination,
+            FluffyTerm,
         ) -> (
-            SemaExprDataResult<SemaExprData>,
+            SemaExprDataResult<SemaSuffixOpr>,
             SemaExprTypeResult<FluffyTerm>,
         ),
+        // F3: FnOnce(
+        //     &mut Self,
+        //     SynExprIdx,
+        //     FinalDestination,
+        // ) -> (
+        //     SemaExprDataResult<SemaExprData>,
+        //     SemaExprTypeResult<FluffyTerm>,
+        // ),
     {
         match final_destination {
             FinalDestination::Sort => {
@@ -41,7 +52,12 @@ impl<'a> ExprTypeEngine<'a> {
                     Some(opd_ty) => match opd_ty.data(self) {
                         FluffyTermData::Literal(_) => todo!(),
                         FluffyTermData::TypeOntology { .. } => {
-                            (opd_sema_expr_idx, naive_suffix_f_given_opd_ty(self, opd_ty))
+                            let (sema_opr_result, ty_result) =
+                                naive_suffix_f_given_opd_ty(self, opd_ty);
+                            (
+                                sema_opr_result.map(|sema_opr| (opd_sema_expr_idx, sema_opr)),
+                                ty_result,
+                            )
                         }
                         FluffyTermData::Curry { .. } => todo!(),
                         FluffyTermData::Hole(_, _) => todo!(),
@@ -55,7 +71,10 @@ impl<'a> ExprTypeEngine<'a> {
                         FluffyTermData::Variable { ty } => todo!(),
                         FluffyTermData::TypeVariant { path } => todo!(),
                     },
-                    None => Err(DerivedSemaExprTypeError::UnableToInferSuffixOperandType.into()),
+                    None => (
+                        todo!(),
+                        Err(DerivedSemaExprTypeError::UnableToInferSuffixOperandType.into()),
+                    ),
                 }
             }
             _ => naive_suffix_f(self, opd),

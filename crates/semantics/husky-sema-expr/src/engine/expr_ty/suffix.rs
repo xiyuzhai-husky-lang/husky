@@ -7,38 +7,53 @@ mod utils;
 pub(crate) use self::unveil::*;
 
 use super::*;
+use husky_sema_opr::suffix::SemaSuffixOpr;
 use maybe_result::*;
 
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_suffix_expr_ty(
         &mut self,
         expr_idx: SynExprIdx,
-        opd: SynExprIdx,
+        opd_syn_expr_idx: SynExprIdx,
         opr: SuffixOpr,
         final_destination: FinalDestination,
-    ) -> (SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
+    ) -> (
+        SemaExprDataResult<(SemaExprIdx, SemaSuffixOpr)>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
         match opr {
-            SuffixOpr::Incr | SuffixOpr::Attr => {
-                let (opd_sema_expr_idx, opd_ty) = self.build_new_expr_ty(opd, ExpectAnyOriginal);
-                (opd_sema_expr_idx, self.calc_incr_or_decr_expr_ty(opd_ty))
+            SuffixOpr::Incr => {
+                let (opd_sema_expr_idx, opd_ty) =
+                    self.build_new_expr_ty(opd_syn_expr_idx, ExpectAnyOriginal);
+                (
+                    Ok((opd_sema_expr_idx, SemaSuffixOpr::Incr)),
+                    self.calc_incr_or_decr_expr_ty(opd_ty),
+                )
+            }
+            SuffixOpr::Decr => {
+                let (opd_sema_expr_idx, opd_ty) =
+                    self.build_new_expr_ty(opd_syn_expr_idx, ExpectAnyOriginal);
+                (
+                    Ok((opd_sema_expr_idx, SemaSuffixOpr::Decr)),
+                    self.calc_incr_or_decr_expr_ty(opd_ty),
+                )
             }
             SuffixOpr::UnveilOrComposeWithOption => {
                 // self.calc_unveil_or_compose_with_option_expr_ty(opd, final_destination)
                 self.calc_ambiguous_suffix_expr_ty(
-                    opd,
+                    opd_syn_expr_idx,
                     final_destination,
                     Self::calc_unveil_expr_ty_given_opd_ty,
                     Self::calc_unveil_expr_ty,
-                    Self::calc_compose_with_option_expr_ty,
-                    // Self::calc_compose_with_option_expr_ty_give_opd_ty,
+                    Self::calc_compose_with_option_expr_ty_given_opd_ty,
                 )
             }
             SuffixOpr::UnwrapOrComposeWithNot => self.calc_ambiguous_suffix_expr_ty(
-                opd,
+                opd_syn_expr_idx,
                 final_destination,
                 Self::calc_unwrap_expr_ty_given_opd_ty,
                 Self::calc_unwrap_expr_ty,
-                Self::calc_compose_with_not_expr_ty,
+                Self::calc_compose_with_not_expr_ty_given_opd_ty,
             ),
         }
     }

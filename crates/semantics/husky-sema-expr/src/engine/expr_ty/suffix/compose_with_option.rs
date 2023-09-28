@@ -1,4 +1,5 @@
 use super::*;
+use husky_sema_opr::suffix::SemaSuffixOpr;
 
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_compose_with_option_expr_ty(
@@ -12,11 +13,11 @@ impl<'a> ExprTypeEngine<'a> {
         todo!()
     }
 
-    pub(super) fn calc_compose_with_option_expr_ty_give_opd_ty(
+    pub(super) fn calc_compose_with_option_expr_ty_given_opd_ty(
         &mut self,
         opd_ty: FluffyTerm,
     ) -> (
-        SemaExprDataResult<SemaExprData>,
+        SemaExprDataResult<SemaSuffixOpr>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
         match opd_ty.data(self) {

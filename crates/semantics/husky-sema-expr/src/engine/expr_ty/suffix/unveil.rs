@@ -12,7 +12,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         opd: SynExprIdx,
     ) -> (
-        SemaExprDataResult<SemaExprData>,
+        SemaExprDataResult<(SemaExprIdx, SemaSuffixOpr)>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
         self.unveiler.initialize_if_not(self.return_ty, self.db);
@@ -22,17 +22,18 @@ impl<'a> ExprTypeEngine<'a> {
                 unveil_output_ty,
                 ..
             } => {
-                self.build_new_expr_ty_discarded(
+                let opd_sema_expr_idx = self.build_new_expr_ty_discarded(
                     opd,
                     ExpectCoersion::new(Contract::Move, opd_ty.into()),
                 );
-                Ok((
-                    UnveilOrComposeWithOptionExprDisambiguation::Unveil.into(),
+                (
+                    Ok((opd_sema_expr_idx, SemaSuffixOpr::Unveil)),
                     Ok(unveil_output_ty.into()),
-                ))
+                )
             }
             Unveiler::UniquePartiallyInstanted { template } => {
-                let Some(opd_ty) = self.build_new_expr_ty(opd, ExpectAnyOriginal) else {
+                let (opd_sema_expr_idx, opd_ty) = self.build_new_expr_ty(opd, ExpectAnyOriginal);
+                let Some(opd_ty) = opd_ty else {
                     p!(self.expr_region_data.path().debug(self.db));
                     p!(self.expr_region_data[opd].debug(self.db));
                     todo!()
@@ -61,16 +62,21 @@ impl<'a> ExprTypeEngine<'a> {
                     FluffyTermBase::Ethereal(opd_ty) => {
                         match template.instantiate_trai(&[opd_ty], self.db) {
                             JustOk(template) => {
-                                let Some(output_ty_template) = template
-                                    .associated_output_template(self.db)?
-                                    .try_into_signature(self.db)
+                                let associated_output_template = match template
+                                    .associated_output_template(self.db)
+                                {
+                                    Ok(associated_output_template) => associated_output_template,
+                                    Err(e) => return (Err(e.into()), Err(e.into())),
+                                };
+                                let Some(output_ty_template) =
+                                    associated_output_template.try_into_signature(self.db)
                                 else {
                                     todo!()
                                 };
-                                Ok((
-                                    UnveilOrComposeWithOptionExprDisambiguation::Unveil.into(),
+                                (
+                                    Ok((opd_sema_expr_idx, SemaSuffixOpr::Unveil)),
                                     Ok(output_ty_template.ty_term().into()),
-                                ))
+                                )
                             }
                             JustErr(_) => todo!(),
                             Nothing => todo!(),
@@ -94,7 +100,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         opd_ty: FluffyTerm,
     ) -> (
-        SemaExprDataResult<SemaExprData>,
+        SemaExprDataResult<SemaSuffixOpr>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
         todo!()

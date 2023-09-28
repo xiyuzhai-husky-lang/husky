@@ -5,11 +5,10 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: SynExprIdx,
         opr: PrefixOpr,
-        opr_regional_token_idx: RegionalTokenIdx,
         opd: SynExprIdx,
         final_destination: FinalDestination,
     ) -> (
-        SemaExprDataResult<SemaExprData>,
+        SemaExprDataResult<(SemaExprIdx, PrefixOpr)>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
         match opr {
@@ -29,14 +28,9 @@ impl<'a> ExprTypeEngine<'a> {
                         ty_arguments: arguments,
                         ty_ethereal_term,
                     } => match refined_ty_path {
-                        Left(PreludeTypePath::Num(num_ty_path)) => (
-                            Ok(SemaExprData::Prefix {
-                                opr: todo!(),
-                                opr_regional_token_idx,
-                                opd_sema_expr_idx,
-                            }),
-                            Ok(opd_ty),
-                        ),
+                        Left(PreludeTypePath::Num(num_ty_path)) => {
+                            (Ok((opd_sema_expr_idx, opr)), Ok(opd_ty))
+                        }
                         _ => todo!(),
                     },
                     FluffyTermData::Curry {
@@ -49,7 +43,7 @@ impl<'a> ExprTypeEngine<'a> {
                     } => todo!(),
                     FluffyTermData::Hole(hole_kind, _) => match hole_kind {
                         HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => {
-                            Ok((SemaExprData::Trivial, Ok(opd_ty)))
+                            (Ok((opd_sema_expr_idx, opr)), Ok(opd_ty))
                         }
                         HoleKind::ImplicitType => todo!(),
                         HoleKind::Any => todo!(),
@@ -70,11 +64,7 @@ impl<'a> ExprTypeEngine<'a> {
                 let opd_sema_expr_idx = self.build_new_expr_ty_discarded(opd, ExpectConditionType);
                 // here we differs from Rust, but agrees with C
                 (
-                    Ok(SemaExprData::Prefix {
-                        opr: todo!(),
-                        opr_regional_token_idx,
-                        opd_sema_expr_idx,
-                    }),
+                    Ok((opd_sema_expr_idx, opr)),
                     Ok(self.term_menu.bool_ty_ontology().into()),
                 )
             }
@@ -90,11 +80,7 @@ impl<'a> ExprTypeEngine<'a> {
                             opd,
                         );
                     (
-                        Ok(SemaExprData::Prefix {
-                            opr: todo!(),
-                            opr_regional_token_idx,
-                            opd_sema_expr_idx,
-                        }),
+                        Ok((opd_sema_expr_idx, opr)),
                         // Tilde(TildeDisambiguation::Leash),
                         ty_result,
                     )
@@ -104,11 +90,7 @@ impl<'a> ExprTypeEngine<'a> {
                 | FinalDestination::AnyDerived => {
                     let (opd_sema_expr_idx, opd_ty) = self.build_new_expr_ty(opd, ExpectIntType);
                     (
-                        Ok(SemaExprData::Prefix {
-                            opr: todo!(),
-                            opr_regional_token_idx,
-                            opd_sema_expr_idx,
-                        }),
+                        Ok((opd_sema_expr_idx, opr)),
                         // Tilde(TildeDisambiguation::BitNot)),
                         self.calc_bitnot_expr_ty(opd_ty),
                     )
@@ -120,11 +102,7 @@ impl<'a> ExprTypeEngine<'a> {
                     self.build_new_expr_ty_discarded(opd, self.expect_ty0_subtype());
                 // Should consider more cases, could also be taking references
                 (
-                    Ok(SemaExprData::Prefix {
-                        opr: todo!(),
-                        opr_regional_token_idx,
-                        opd_sema_expr_idx,
-                    }),
+                    Ok((opd_sema_expr_idx, opr)),
                     Ok(self.term_menu.ty0().into()),
                 )
             }
@@ -137,11 +115,7 @@ impl<'a> ExprTypeEngine<'a> {
                 let opd_sema_expr_idx =
                     self.build_new_expr_ty_discarded(opd, self.expect_ty0_subtype());
                 (
-                    Ok(SemaExprData::Prefix {
-                        opr: todo!(),
-                        opr_regional_token_idx,
-                        opd_sema_expr_idx,
-                    }),
+                    Ok((opd_sema_expr_idx, opr)),
                     Ok(self.term_menu.ty0().into()),
                 )
             }

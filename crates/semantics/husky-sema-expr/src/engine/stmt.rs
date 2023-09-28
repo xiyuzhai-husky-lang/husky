@@ -103,30 +103,37 @@ impl<'a> ExprTypeEngine<'a> {
                 let Ok(ref range) = particulars.range else {
                     todo!()
                 };
-                if let Some(bound_expr) = range.initial_boundary.bound_expr {
-                    match self.build_new_sema_expr_with_outcome(bound_expr, ExpectIntType) {
-                        Some(num_ty_outcome) => {
-                            expected_frame_var_ty = Some(num_ty_outcome.placeless_num_ty())
-                        }
-                        None => (),
+                let initial_bound_sema_expr_idx = match range.initial_boundary.bound_expr {
+                    Some(bound_expr) => {
+                        let (bound_sema_expr_idx, num_ty_outcome) =
+                            self.build_new_sema_expr_with_outcome(bound_expr, ExpectIntType);
+                        match num_ty_outcome {
+                            Some(num_ty_outcome) => {
+                                expected_frame_var_ty = Some(num_ty_outcome.placeless_num_ty())
+                            }
+                            None => (),
+                        };
+                        Some(bound_sema_expr_idx)
                     }
-                }
-                if let Some(bound_expr) = range.final_boundary.bound_expr {
-                    match expected_frame_var_ty {
-                        Some(expected_frame_var_ty) => {
-                            self.build_new_expr_ty_discarded(
-                                bound_expr,
-                                ExpectCoersion::new_pure(self, expected_frame_var_ty),
-                            );
-                        }
+                    None => None,
+                };
+                let final_bound_sema_expr_idx = match range.final_boundary.bound_expr {
+                    Some(bound_expr) => match expected_frame_var_ty {
+                        Some(expected_frame_var_ty) => Some(self.build_new_expr_ty_discarded(
+                            bound_expr,
+                            ExpectCoersion::new_pure(self, expected_frame_var_ty),
+                        )),
                         None => {
-                            if let Some(ty) = self.build_new_expr_ty(bound_expr, ExpectAnyOriginal)
-                            {
+                            let (final_bound_sema_expr_idx, ty) =
+                                self.build_new_expr_ty(bound_expr, ExpectAnyOriginal);
+                            if let Some(ty) = ty {
                                 expected_frame_var_ty = Some(ty)
                             }
+                            Some(final_bound_sema_expr_idx)
                         }
-                    }
-                }
+                    },
+                    None => None,
+                };
                 if let Some(expected_frame_var_ty) = expected_frame_var_ty {
                     let place = Place::ImmutableStackOwned {
                         location: frame_var_symbol_idx
@@ -140,7 +147,7 @@ impl<'a> ExprTypeEngine<'a> {
                 }
                 let expr_expectation = self.expect_unit();
                 self.infer_new_block(*block, expr_expectation);
-                Some(self.term_menu.unit_ty_ontology().into())
+                (todo!(), Ok(self.term_menu.unit_ty_ontology().into()))
             }
             SynStmtData::ForIn {
                 ref condition,
@@ -152,9 +159,9 @@ impl<'a> ExprTypeEngine<'a> {
                 block,
                 ..
             } => {
-                let Some(forext_loop_var_ty) =
-                    self.build_new_expr_ty(particulars.forext_loop_var_expr_idx, ExpectIntType)
-                else {
+                let (forext_loop_var_sema_expr_idx, forext_loop_var_ty) =
+                    self.build_new_expr_ty(particulars.forext_loop_var_expr_idx, ExpectIntType);
+                let Some(forext_loop_var_ty) = forext_loop_var_ty else {
                     todo!()
                 };
                 self.build_new_expr_ty_discarded(
@@ -163,7 +170,7 @@ impl<'a> ExprTypeEngine<'a> {
                 );
                 let expr_expectation = self.expect_unit();
                 self.infer_new_block(block, expr_expectation);
-                Some(self.term_menu.unit_ty_ontology().into())
+                (todo!(), Ok(self.term_menu.unit_ty_ontology().into()))
             }
             SynStmtData::While {
                 ref condition,
@@ -180,7 +187,7 @@ impl<'a> ExprTypeEngine<'a> {
                 });
                 let expect_unit = self.expect_unit();
                 self.infer_new_block(block, expect_unit);
-                Some(self.term_menu.unit_ty_ontology().into())
+                (todo!(), Ok(self.term_menu.unit_ty_ontology().into()))
             }
             SynStmtData::IfElse {
                 ref if_branch,
@@ -194,7 +201,8 @@ impl<'a> ExprTypeEngine<'a> {
             ),
             SynStmtData::Match { .. } => {
                 // todo: match
-                None
+                // None
+                todo!()
             }
         }
     }

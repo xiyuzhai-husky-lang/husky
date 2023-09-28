@@ -4,9 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
-
 thiserror.workspace = true
 smallvec.workspace = true
 either.workspace = true
@@ -32,6 +30,8 @@ husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
 # lex
 husky-token-data = { path = "../../lex/husky-token-data" }
 husky-regional-token = { path = "../../lex/husky-regional-token" }
+# semantics
+husky-sema-opr = { path = "../../semantics/husky-sema-opr" }
 # syntax
 husky-opr = { path = "../../kernel/husky-opr" }
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
