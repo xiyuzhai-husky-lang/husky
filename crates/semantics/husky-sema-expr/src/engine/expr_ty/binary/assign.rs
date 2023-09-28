@@ -1,3 +1,3 @@
 use super::*;
 
-impl<'a> ExprTypeEngine<'a> {}
+impl<'a> SemaExprEngine<'a> {}

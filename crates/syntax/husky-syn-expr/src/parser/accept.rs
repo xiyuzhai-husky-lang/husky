@@ -137,7 +137,7 @@ where
                                 {
                                     SynExprData::Bracketed {
                                         lpar_regional_token_idx: bra_regional_token_idx,
-                                        item: last_item.expr_idx(),
+                                        item: last_item.syn_expr_idx(),
                                         rpar_regional_token_idx: ket_regional_token_idx,
                                     }
                                 } else {
@@ -615,7 +615,7 @@ where
         &mut self,
         key_regional_token_idx: RegionalTokenIdx,
         key: Ident,
-        eq_token: RegionalEqToken,
+        eq_token: EqRegionalToken,
     ) {
         self.push_top_syn_expr(
             IncompleteSynExpr::KeyedArgument {

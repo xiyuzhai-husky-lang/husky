@@ -91,9 +91,9 @@ impl SynExprRegionData {
     }
 
     pub fn return_ty(&self) -> Option<SynExprIdx> {
-        self.roots
-            .iter()
-            .find_map(|root| (root.kind() == ExprRootKind::ReturnType).then_some(root.expr_idx()))
+        self.roots.iter().find_map(|root| {
+            (root.kind() == ExprRootKind::ReturnType).then_some(root.syn_expr_idx())
+        })
     }
 
     pub fn self_ty(&self) -> Option<SynExprIdx> {

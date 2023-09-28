@@ -290,7 +290,7 @@ pub enum DerivedSynExprError {
 }
 
 pub type SynExprResult<T> = Result<T, SynExprError>;
-pub type ExprResultRef<'a, T> = Result<T, &'a SynExprError>;
+pub type SynExprResultRef<'a, T> = Result<T, &'a SynExprError>;
 
 // impl<'a, 'b> FromAbsent<RegionalRcurlToken, ExprParseContext<'a, 'b>> for OriginalExprError {
 //     fn new_absent_error(state: <ExprParseContext<'a, 'b> as HasParseState>::State) -> Self {

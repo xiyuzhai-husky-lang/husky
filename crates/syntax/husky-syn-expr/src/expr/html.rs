@@ -4,7 +4,7 @@ use crate::*;
 pub enum SynHtmlArgumentExpr {
     Expanded {
         property_ident: IdentRegionalToken,
-        eq: RegionalEqToken,
+        eq: EqRegionalToken,
         lcurl: LcurlRegionalToken,
         expr: SynExprIdx,
         rcurl: RcurlRegionalToken,

@@ -8,7 +8,6 @@ mod eqs_category;
 mod eqs_function_ty;
 mod eqs_ritchie_ty;
 mod final_destination;
-mod ins_sort;
 mod int_ty;
 mod subtype;
 
@@ -22,7 +21,6 @@ pub use self::eqs_category::*;
 pub use self::eqs_function_ty::*;
 pub use self::eqs_ritchie_ty::*;
 pub use self::final_destination::*;
-pub use self::ins_sort::*;
 pub use self::int_ty::*;
 pub use self::subtype::*;
 
@@ -38,8 +36,6 @@ use thiserror::Error;
 pub enum Expectation {
     ExplicitlyConvertible(ExpectCasting),
     ImplicitlyConvertible(ExpectCoersion),
-    /// expect term to be an instance of Type u for some universe
-    InsSort(ExpectInsSort),
     EqsSort(ExpectEqsCategory),
     FrameVariableType,
     EqsExactly(ExpectSubtype),
@@ -72,7 +68,6 @@ impl Expectation {
             Expectation::FrameVariableType => todo!(),
             Expectation::EqsFunctionType(epn) => epn.resolve(db, terms, meta),
             Expectation::EqsRitchieType(epn) => epn.resolve(db, terms, meta),
-            Expectation::InsSort(epn) => epn.resolve(db, terms, meta),
             Expectation::EqsExactly(epn) => epn.resolve(db, terms, meta),
             Expectation::AnyOriginal(epn) => epn.resolve(db, terms, meta),
             Expectation::AnyDerived(epn) => epn.resolve(db, terms, meta),
@@ -161,7 +156,6 @@ pub type FluffyTermExpectationIdx = ArenaIdx<FluffyTermExpectationEntry>;
 pub enum FluffyTermExpectationOutcome {
     ExplicitlyConvertible(ExpectExplicitlyConvertibleOutcome),
     ImplicitlyConvertible(Coersion),
-    InsSort(ExpectInsSortOutcome),
     EqsSort(TermUniverse),
     Subtype(ExpectSubtypeOutcome),
     EqsFunctionCallType(ExpectEqsFunctionTypeOutcome),
@@ -175,7 +169,6 @@ impl FluffyTermExpectationOutcome {
         match self {
             FluffyTermExpectationOutcome::ExplicitlyConvertible(_) => todo!(),
             FluffyTermExpectationOutcome::ImplicitlyConvertible(_) => todo!(),
-            FluffyTermExpectationOutcome::InsSort(result) => result.resolved(),
             FluffyTermExpectationOutcome::EqsSort(_) => todo!(),
             FluffyTermExpectationOutcome::Subtype(result) => result.resolved(),
             FluffyTermExpectationOutcome::EqsFunctionCallType(_) => todo!(),

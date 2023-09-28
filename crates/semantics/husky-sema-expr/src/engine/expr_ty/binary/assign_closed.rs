@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_binary_assign_closed_expr_ty(
         &mut self,
         expr_idx: SynExprIdx,
@@ -11,7 +11,8 @@ impl<'a> ExprTypeEngine<'a> {
         // let expr_eval_lifetime = self
         //     .fluffy_term_region
         //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
-        let (lopd_sema_expr_idx, lopd_ty) = self.build_new_expr_ty(lopd, ExpectAnyOriginal);
+        let (lopd_sema_expr_idx, lopd_ty) =
+            self.build_sema_expr_with_its_ty_returned(lopd, ExpectAnyOriginal);
         let ropd_sema_expr_idx = match lopd_ty {
             Some(lopd_ty) => {
                 let lopd_base_ty = lopd_ty.base_ty_data(self);
@@ -61,12 +62,9 @@ impl<'a> ExprTypeEngine<'a> {
                     } => todo!(),
                     FluffyBaseTypeData::Symbol { term } => todo!(),
                 };
-                self.build_new_expr_ty_discarded(
-                    ropd,
-                    ExpectCoersion::new(Contract::Move, ropd_ty_expected),
-                )
+                self.build_sema_expr(ropd, ExpectCoersion::new(Contract::Move, ropd_ty_expected))
             }
-            None => self.build_new_expr_ty_discarded(ropd, ExpectAnyDerived),
+            None => self.build_sema_expr(ropd, ExpectAnyDerived),
         };
         (
             lopd_sema_expr_idx,

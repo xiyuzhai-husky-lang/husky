@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_binary_closed_expr_ty(
         &mut self,
         lopd: SynExprIdx,
@@ -8,16 +8,16 @@ impl<'a> ExprTypeEngine<'a> {
         opr: BinaryClosedOpr,
         menu: &EtherealTermMenu,
     ) -> (SemaExprIdx, SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
-        let (lopd, lopd_ty) = self.build_new_expr_ty(lopd, ExpectAnyOriginal);
+        let (lopd, lopd_ty) = self.build_sema_expr_with_its_ty_returned(lopd, ExpectAnyOriginal);
         let Some(lopd_ty) = lopd_ty else {
-            let ropd = self.build_new_expr_ty_discarded(ropd, ExpectAnyDerived);
+            let ropd = self.build_sema_expr(ropd, ExpectAnyDerived);
             return (
                 lopd,
                 ropd,
                 Err(DerivedSemaExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into()),
             );
         };
-        let ropd = self.build_new_expr_ty_discarded(ropd, ExpectCoersion::new_pure(self, lopd_ty));
+        let ropd = self.build_sema_expr(ropd, ExpectCoersion::new_pure(self, lopd_ty));
         let ty_result = match lopd_ty.data(self) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {

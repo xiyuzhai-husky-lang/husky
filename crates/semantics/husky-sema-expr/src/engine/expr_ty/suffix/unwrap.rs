@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_unwrap_expr_ty_given_opd_ty(
         &mut self,
         opd_ty: FluffyTerm,
@@ -18,7 +18,8 @@ impl<'a> ExprTypeEngine<'a> {
         SemaExprDataResult<(SemaExprIdx, SemaSuffixOpr)>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
-        let (opd_sema_expr_idx, opd_ty) = self.build_new_expr_ty(opd, ExpectAnyOriginal);
+        let (opd_sema_expr_idx, opd_ty) =
+            self.build_sema_expr_with_its_ty_returned(opd, ExpectAnyOriginal);
         let Some(opd_ty) = opd_ty else {
             // p!(self.expr_region_data.path().debug(self.db));
             // todo!();

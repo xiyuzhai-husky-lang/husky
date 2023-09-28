@@ -8,6 +8,8 @@ use crate::*;
 pub struct SemaExprRegion {
     path: RegionPath,
     sema_expr_arena: SemaExprArena,
+    sema_stmt_arena: SemaStmtArena,
+    syn_expr_root_sema_expr_idx_table: VecPairMap<SynExprIdx, SemaExprIdx>,
     pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
     sema_expr_terms: VecPairMap<SemaExprIdx, SemaExprTermResult<FluffyTerm>>,
@@ -23,6 +25,8 @@ impl SemaExprRegion {
         db: &dyn SemaExprDb,
         path: RegionPath,
         sema_expr_arena: SemaExprArena,
+        sema_stmt_arena: SemaStmtArena,
+        syn_expr_root_sema_expr_idx_table: VecPairMap<SynExprIdx, SemaExprIdx>,
         pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
         pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
         expr_fluffy_terms: VecPairMap<SemaExprIdx, SemaExprTermResult<FluffyTerm>>,
@@ -35,6 +39,8 @@ impl SemaExprRegion {
         Self {
             path,
             sema_expr_arena,
+            sema_stmt_arena,
+            syn_expr_root_sema_expr_idx_table,
             pattern_expr_ty_infos,
             pattern_symbol_ty_infos,
             sema_expr_terms: expr_fluffy_terms,
@@ -92,7 +98,7 @@ pub(crate) fn sema_expr_region(
     db: &dyn SemaExprDb,
     syn_expr_region: SynExprRegion,
 ) -> SemaExprRegion {
-    let mut engine = ExprTypeEngine::new(db, syn_expr_region);
+    let mut engine = SemaExprEngine::new(db, syn_expr_region);
     engine.infer_all();
     engine.finish()
 }

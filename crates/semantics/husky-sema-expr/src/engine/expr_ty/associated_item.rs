@@ -6,7 +6,7 @@ use husky_ethereal_signature::{
 use husky_regional_token::IdentRegionalToken;
 use maybe_result::*;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_associated_item_ty(
         &mut self,
         expr_idx: SynExprIdx,

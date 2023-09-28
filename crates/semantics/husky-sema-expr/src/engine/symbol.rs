@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     pub(super) fn infer_current_parameter_symbols(&mut self) {
         for current_symbol_idx in self
             .syn_expr_region_data

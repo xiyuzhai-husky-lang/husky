@@ -8,22 +8,22 @@ pub use self::match_stmt::*;
 
 use husky_regional_token::{
     AssertRegionalToken, BreakRegionalToken, DoRegionalToken, EolRegionalToken,
-    EolSemicolonRegionalToken, EolWithRegionalToken, ForextRegionalToken, LetRegionalToken,
-    MatchRegionalToken, RegionalEqToken, RequireRegionalToken, ReturnRegionalToken,
+    EolSemicolonRegionalToken, EolWithRegionalToken, EqRegionalToken, ForextRegionalToken,
+    LetRegionalToken, MatchRegionalToken, RequireRegionalToken, ReturnRegionalToken,
     StmtForRegionalToken, WhileRegionalToken,
 };
 use husky_token_data::TokenDataResult;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 
-use crate::*;
+use crate::{obelisks::let_pattern_obelisk::LetPatternSemaObelisk, *};
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum SemaStmtData {
     Let {
         let_token: LetRegionalToken,
-        let_variables_pattern: LetPatternSynObelisk,
-        assign_token: RegionalEqToken,
-        initial_value: SemaExprIdx,
+        let_pattern_sema_obelisk: LetPatternSemaObelisk,
+        eq_token: EqRegionalToken,
+        initial_value_sema_expr_idx: SemaExprIdx,
     },
     Return {
         return_token: ReturnRegionalToken,
@@ -41,7 +41,7 @@ pub enum SemaStmtData {
         break_token: BreakRegionalToken,
     },
     Eval {
-        expr_idx: SemaExprIdx,
+        sema_expr_idx: SemaExprIdx,
         // todo: change this to EolOrEolSemicolonToken
         eol_semicolon: TokenDataResult<Option<EolSemicolonRegionalToken>>,
     },
@@ -96,24 +96,36 @@ pub struct SemaStmtEntry {
     ty_result: SemaExprTypeResult<FluffyTerm>,
 }
 
-impl SemaStmtEntry {
-    pub fn new(
-        data_result: SemaExprDataResult<SemaStmtData>,
-        ty_result: SemaExprTypeResult<FluffyTerm>,
-    ) -> Self {
-        Self {
+#[derive(Debug, Default)]
+pub(crate) struct SemaStmtBatch {
+    entries: SmallVec<[SemaStmtEntry; 8]>,
+}
+
+impl SemaStmtBatch {
+    pub(crate) fn add(
+        &mut self,
+        (data_result, ty_result): (
+            SemaExprDataResult<SemaStmtData>,
+            SemaExprTypeResult<FluffyTerm>,
+        ),
+    ) {
+        self.entries.push(SemaStmtEntry {
             data_result,
             ty_result,
-        }
+        })
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, Default, PartialEq, Eq)]
 pub struct SemaStmtArena(Arena<SemaStmtEntry>);
 
-pub struct SemaStmtArenaRef<'a>(ArenaRef<'a, SemaStmtEntry>);
+impl SemaStmtArena {
+    pub(crate) fn alloc_batch(&mut self, batch: SemaStmtBatch) -> SemaStmtIdxRange {
+        SemaStmtIdxRange(self.0.alloc_batch(batch.entries))
+    }
+}
 
-impl SemaStmtArena {}
+pub struct SemaStmtArenaRef<'a>(ArenaRef<'a, SemaStmtEntry>);
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct SemaStmtIdx(ArenaIdx<SemaStmtEntry>);

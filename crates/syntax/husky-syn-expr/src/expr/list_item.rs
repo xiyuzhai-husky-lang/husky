@@ -2,23 +2,23 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SynCommaListItem {
-    expr_idx: SynExprIdx,
+    syn_expr_idx: SynExprIdx,
     comma_regional_token_idx: Option<RegionalTokenIdx>,
 }
 
 impl SynCommaListItem {
     pub(crate) fn new(
-        expr_idx: SynExprIdx,
+        syn_expr_idx: SynExprIdx,
         comma_regional_token_idx: Option<RegionalTokenIdx>,
     ) -> Self {
         Self {
-            expr_idx,
+            syn_expr_idx,
             comma_regional_token_idx,
         }
     }
 
-    pub fn expr_idx(self) -> SynExprIdx {
-        self.expr_idx
+    pub fn syn_expr_idx(self) -> SynExprIdx {
+        self.syn_expr_idx
     }
 
     pub fn comma_regional_token_idx(self) -> Option<RegionalTokenIdx> {
@@ -36,7 +36,7 @@ pub enum SynCallListItem {
 impl From<SynCommaListItem> for SynCallListItem {
     fn from(item: SynCommaListItem) -> Self {
         SynCallListItem::RegularOrVariadic(SynRegularOrVariadicCallListItem {
-            argument_expr_idx: item.expr_idx,
+            argument_expr_idx: item.syn_expr_idx,
             separator: match item.comma_regional_token_idx {
                 Some(comma_regional_token_idx) => {
                     CallListSeparator::Comma(comma_regional_token_idx)

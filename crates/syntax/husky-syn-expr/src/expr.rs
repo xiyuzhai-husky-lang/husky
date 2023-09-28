@@ -92,8 +92,8 @@ pub enum SynExprData {
     },
     /// function type or trait
     Ritchie {
-        ritchie_kind_regional_token_idx: RegionalTokenIdx,
         ritchie_kind: RitchieKind,
+        ritchie_kind_regional_token_idx: RegionalTokenIdx,
         lpar_token: LparRegionalToken,
         parameter_ty_items: SmallVec<[SynCommaListItem; 4]>,
         rpar_regional_token_idx: RegionalTokenIdx,

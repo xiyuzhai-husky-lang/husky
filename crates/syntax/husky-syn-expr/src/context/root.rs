@@ -3,20 +3,20 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SynExprRoot {
     kind: ExprRootKind,
-    expr_idx: SynExprIdx,
+    syn_expr_idx: SynExprIdx,
 }
 
 impl SynExprRoot {
-    fn new(kind: ExprRootKind, expr_idx: SynExprIdx) -> Self {
-        Self { kind, expr_idx }
+    fn new(kind: ExprRootKind, syn_expr_idx: SynExprIdx) -> Self {
+        Self { kind, syn_expr_idx }
     }
 
     pub fn kind(&self) -> ExprRootKind {
         self.kind
     }
 
-    pub fn expr_idx(&self) -> SynExprIdx {
-        self.expr_idx
+    pub fn syn_expr_idx(&self) -> SynExprIdx {
+        self.syn_expr_idx
     }
 }
 

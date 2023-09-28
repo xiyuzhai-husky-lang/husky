@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_index_or_compose_with_list_expr_ty(
         &mut self,
         expr_idx: SynExprIdx,
@@ -10,10 +10,11 @@ impl<'a> ExprTypeEngine<'a> {
         SemaExprDataResult<SemaExprData>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
-        let (owner_sema_expr_idx, owner_ty) = self.build_new_expr_ty(owner, ExpectAnyOriginal);
+        let (owner_sema_expr_idx, owner_ty) =
+            self.build_sema_expr_with_its_ty_returned(owner, ExpectAnyOriginal);
         let Some(owner_ty) = owner_ty else {
             for index in indices {
-                self.build_new_expr_ty(index.expr_idx(), ExpectAnyDerived);
+                self.build_sema_expr_with_its_ty_returned(index.syn_expr_idx(), ExpectAnyDerived);
             }
             return (
                 todo!(),
@@ -56,7 +57,7 @@ impl<'a> ExprTypeEngine<'a> {
 
         for index in indices {
             let (index_sema_expr_idx, index_ty) =
-                self.build_new_expr_ty(index.expr_idx(), ExpectAnyOriginal);
+                self.build_sema_expr_with_its_ty_returned(index.syn_expr_idx(), ExpectAnyOriginal);
             let Some(index_ty) = index_ty else {
                 return Err(DerivedSemaExprDataError::UnableToInferIndexExprType.into());
             };

@@ -52,13 +52,12 @@ fn collect_expr_ty_diagnostics(
         }
     }
     for sema_expr_entry in sema_expr_region.sema_expr_arena_ref().iter() {
-        todo!()
-        // match ty_info.ty() {
-        //     Err(SemaExprTypeError::Original(error)) => {
-        //         diagnostics.push((expr_idx, error).to_diagnostic(&ctx))
-        //     }
-        //     _ => (),
-        // }
+        if let Some(e) = sema_expr_entry.original_data_error() {
+            diagnostics.push(e.to_diagnostic(&ctx))
+        }
+        if let Some(e) = sema_expr_entry.original_data_error() {
+            diagnostics.push(e.to_diagnostic(&ctx))
+        }
     }
     let fluffy_term_region = sema_expr_region.fluffy_term_region();
     for (src, error) in fluffy_term_region.hollow_terms().errors() {

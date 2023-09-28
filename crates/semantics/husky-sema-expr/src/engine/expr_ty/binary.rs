@@ -7,7 +7,7 @@ mod shift;
 
 use super::*;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     /// .
     ///
     /// # Errors
@@ -51,10 +51,8 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: SynExprIdx,
         ropd: SynExprIdx,
     ) -> (SemaExprIdx, SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
-        let lopd_sema_expr_idx =
-            self.build_new_expr_ty_discarded(lopd, self.expect_argument_ty_bool());
-        let ropd_sema_expr_idx =
-            self.build_new_expr_ty_discarded(ropd, self.expect_argument_ty_bool());
+        let lopd_sema_expr_idx = self.build_sema_expr(lopd, self.expect_argument_ty_bool());
+        let ropd_sema_expr_idx = self.build_sema_expr(ropd, self.expect_argument_ty_bool());
         (
             lopd_sema_expr_idx,
             ropd_sema_expr_idx,
@@ -67,9 +65,10 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: SynExprIdx,
         ropd: SynExprIdx,
     ) -> (SemaExprIdx, SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
-        let (ropd_sema_expr_idx, ropd_ty) = self.build_new_expr_ty(ropd, ExpectAnyOriginal);
+        let (ropd_sema_expr_idx, ropd_ty) =
+            self.build_sema_expr_with_its_ty_returned(ropd, ExpectAnyOriginal);
         let Some(ropd_ty) = ropd_ty else {
-            let lopd_sema_expr_idx = self.build_new_expr_ty_discarded(lopd, ExpectAnyDerived);
+            let lopd_sema_expr_idx = self.build_sema_expr(lopd, ExpectAnyDerived);
             return (
                 lopd_sema_expr_idx,
                 ropd_sema_expr_idx,
@@ -104,18 +103,16 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: SynExprIdx,
         ropd: SynExprIdx,
     ) -> (SemaExprIdx, SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
-        let ropd_sema_expr_idx =
-            self.build_new_expr_ty_discarded(ropd, ExpectEqsCategory::new_any_sort());
+        let ropd_sema_expr_idx = self.build_sema_expr(ropd, ExpectEqsCategory::new_any_sort());
         let Some(ropd_term) = self.infer_expr_term(ropd_sema_expr_idx) else {
-            let lopd_sema_expr_idx = self.build_new_expr_ty_discarded(lopd, ExpectAnyDerived);
+            let lopd_sema_expr_idx = self.build_sema_expr(lopd, ExpectAnyDerived);
             return (
                 lopd_sema_expr_idx,
                 ropd_sema_expr_idx,
                 Err(DerivedSemaExprTypeError::AsOperationRightOperandTermNotInferred.into()),
             );
         };
-        let lopd_sema_expr_idx =
-            self.build_new_expr_ty_discarded(lopd, ExpectCasting::new(ropd_term));
+        let lopd_sema_expr_idx = self.build_sema_expr(lopd, ExpectCasting::new(ropd_term));
         (lopd_sema_expr_idx, ropd_sema_expr_idx, Ok(ropd_term))
     }
 
@@ -126,7 +123,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> (SemaExprIdx, SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
         let expect_any_sort = ExpectEqsCategory::new_any_sort();
         let (lopd_sema_expr_idx, lopd_universe) =
-            self.build_new_sema_expr_with_outcome(lopd, expect_any_sort);
+            self.build_sema_expr_with_outcome(lopd, expect_any_sort);
         let Some(lopd_universe) = lopd_universe else {
             return (
                 lopd_sema_expr_idx,
@@ -135,7 +132,7 @@ impl<'a> ExprTypeEngine<'a> {
             );
         };
         let (ropd_sema_expr_idx, ropd_universe) =
-            self.build_new_sema_expr_with_outcome(ropd, expect_any_sort);
+            self.build_sema_expr_with_outcome(ropd, expect_any_sort);
         let Some(ropd_universe) = ropd_universe else {
             return (
                 lopd_sema_expr_idx,
@@ -157,10 +154,10 @@ impl<'a> ExprTypeEngine<'a> {
         //     .fluffy_term_region
         //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
         let (lopd_sema_expr_idx, lopd_ty) =
-            self.build_new_sema_expr_with_outcome(lopd, ExpectAnyOriginal);
+            self.build_sema_expr_with_outcome(lopd, ExpectAnyOriginal);
         let ropd_sema_expr_idx = match lopd_ty {
             Some(_) => todo!(),
-            None => self.build_new_expr_ty_discarded(ropd, ExpectAnyDerived),
+            None => self.build_sema_expr(ropd, ExpectAnyDerived),
         };
         (
             lopd_sema_expr_idx,
@@ -190,7 +187,8 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     fn infer_basic_assign_ropd_ty(&mut self, lopd_ty: FluffyTerm, ropd: SynExprIdx) {
-        let (ropd_sema_expr_idx, ropd_ty) = self.build_new_expr_ty(ropd, ExpectAnyOriginal);
+        let (ropd_sema_expr_idx, ropd_ty) =
+            self.build_sema_expr_with_its_ty_returned(ropd, ExpectAnyOriginal);
         let Some(ropd_ty) = ropd_ty else { return };
         todo!()
         // let lopd_ty = match lopd_ty {

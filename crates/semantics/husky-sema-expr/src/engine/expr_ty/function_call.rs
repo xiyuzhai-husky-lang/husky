@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_function_application_or_call_expr_ty(
         &mut self,
         syn_expr_idx: SynExprIdx,
@@ -14,13 +14,13 @@ impl<'a> ExprTypeEngine<'a> {
         SemaExprDataResult<SemaExprData>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
-        let (function_sema_expr_idx, outcome) = self.build_new_sema_expr_with_outcome(
+        let (function_sema_expr_idx, outcome) = self.build_sema_expr_with_outcome(
             function_syn_expr_idx,
             ExpectEqsFunctionType::new(expr_ty_expectation.final_destination(self)),
         );
         let Some(outcome) = outcome else {
             for item in items {
-                self.build_new_expr_ty_discarded(item.expr_idx(), ExpectAnyDerived);
+                self.build_sema_expr(item.syn_expr_idx(), ExpectAnyDerived);
             }
             return (
                 Err(
@@ -70,8 +70,8 @@ impl<'a> ExprTypeEngine<'a> {
             } => {
                 let argument_sema_expr_idx = match items.len() {
                     0 => unreachable!(),
-                    1 => self.build_new_expr_ty_discarded(
-                        items.first().expect("len is 1").expr_idx(),
+                    1 => self.build_sema_expr(
+                        items.first().expect("len is 1").syn_expr_idx(),
                         ExpectCoersion::new_const(*parameter_ty),
                     ),
                     // parameter_ty must be a tuple
@@ -100,13 +100,14 @@ impl<'a> ExprTypeEngine<'a> {
         SemaExprDataResult<SemaExprData>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
-        let (function_sema_expr_idx, outcome) = self.build_new_sema_expr_with_outcome(
-            function,
-            ExpectEqsRitchieType::new(final_destination),
-        );
+        let (function_sema_expr_idx, outcome) = self
+            .build_sema_expr_with_outcome(function, ExpectEqsRitchieType::new(final_destination));
         let Some(outcome) = outcome else {
             for item in items {
-                self.build_new_expr_ty(item.argument_expr_idx(), ExpectAnyDerived);
+                self.build_sema_expr_with_its_ty_returned(
+                    item.argument_expr_idx(),
+                    ExpectAnyDerived,
+                );
             }
             return (
                 Err(todo!()),

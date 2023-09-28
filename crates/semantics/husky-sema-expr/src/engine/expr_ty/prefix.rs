@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_prefix_expr_ty(
         &mut self,
         expr_idx: SynExprIdx,
@@ -13,7 +13,8 @@ impl<'a> ExprTypeEngine<'a> {
     ) {
         match opr {
             PrefixOpr::Minus => {
-                let (opd_sema_expr_idx, opd_ty) = self.build_new_expr_ty(opd, ExpectAnyOriginal);
+                let (opd_sema_expr_idx, opd_ty) =
+                    self.build_sema_expr_with_its_ty_returned(opd, ExpectAnyOriginal);
                 let Some(opd_ty) = opd_ty else {
                     return (
                         Err(todo!()),
@@ -61,7 +62,7 @@ impl<'a> ExprTypeEngine<'a> {
                 }
             }
             PrefixOpr::Not => {
-                let opd_sema_expr_idx = self.build_new_expr_ty_discarded(opd, ExpectConditionType);
+                let opd_sema_expr_idx = self.build_sema_expr(opd, ExpectConditionType);
                 // here we differs from Rust, but agrees with C
                 (
                     Ok((opd_sema_expr_idx, opr)),
@@ -88,7 +89,8 @@ impl<'a> ExprTypeEngine<'a> {
                 FinalDestination::TypeOntology
                 | FinalDestination::AnyOriginal
                 | FinalDestination::AnyDerived => {
-                    let (opd_sema_expr_idx, opd_ty) = self.build_new_expr_ty(opd, ExpectIntType);
+                    let (opd_sema_expr_idx, opd_ty) =
+                        self.build_sema_expr_with_its_ty_returned(opd, ExpectIntType);
                     (
                         Ok((opd_sema_expr_idx, opr)),
                         // Tilde(TildeDisambiguation::BitNot)),
@@ -98,8 +100,7 @@ impl<'a> ExprTypeEngine<'a> {
                 FinalDestination::Ritchie(_) => todo!(),
             },
             PrefixOpr::Ref => {
-                let opd_sema_expr_idx =
-                    self.build_new_expr_ty_discarded(opd, self.expect_ty0_subtype());
+                let opd_sema_expr_idx = self.build_sema_expr(opd, self.expect_ty0_subtype());
                 // Should consider more cases, could also be taking references
                 (
                     Ok((opd_sema_expr_idx, opr)),
@@ -112,8 +113,7 @@ impl<'a> ExprTypeEngine<'a> {
             PrefixOpr::Array(_) => todo!(),
             PrefixOpr::Option => {
                 // todo!("consider universe");
-                let opd_sema_expr_idx =
-                    self.build_new_expr_ty_discarded(opd, self.expect_ty0_subtype());
+                let opd_sema_expr_idx = self.build_sema_expr(opd, self.expect_ty0_subtype());
                 (
                     Ok((opd_sema_expr_idx, opr)),
                     Ok(self.term_menu.ty0().into()),

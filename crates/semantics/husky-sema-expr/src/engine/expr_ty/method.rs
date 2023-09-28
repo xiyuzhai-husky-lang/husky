@@ -1,7 +1,7 @@
 use super::*;
 use husky_regional_token::IdentRegionalToken;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_method_application_or_call_ty(
         &mut self,
         expr_idx: SynExprIdx,
@@ -17,16 +17,14 @@ impl<'a> ExprTypeEngine<'a> {
         SemaExprTypeResult<FluffyTerm>,
     ) {
         let (self_argument_sema_expr_idx, self_argument_ty) =
-            self.build_new_expr_ty(self_argument, ExpectAnyOriginal);
+            self.build_sema_expr_with_its_ty_returned(self_argument, ExpectAnyOriginal);
         let Some(self_expr_ty) = self_argument_ty else {
             if let Some(generic_arguments) = template_arguments {
                 todo!()
             }
             let list_items = list_items
                 .iter()
-                .map(|list_item| {
-                    self.build_new_expr_ty_discarded(list_item.expr_idx(), ExpectAnyDerived)
-                })
+                .map(|list_item| self.build_sema_expr(list_item.syn_expr_idx(), ExpectAnyDerived))
                 .collect();
             return (
                 Err(DerivedSemaExprDataError::MethodOwnerTypeNotInferred {
@@ -48,23 +46,25 @@ impl<'a> ExprTypeEngine<'a> {
         };
         match method_dynamic_dispatch.signature() {
             MethodFluffySignature::MethodFn(signature) => {
-                let ritchie_parameter_argument_matches = self.calc_ritchie_arguments_ty(
+                let return_ty = signature.return_ty();
+                let ritchie_parameter_argument_matches = match self.calc_ritchie_arguments_ty(
                     expr_idx,
                     signature.nonself_parameter_contracted_tys(),
                     list_items.iter().copied().map(Into::into),
-                );
-                let return_ty = signature.return_ty();
-                let ritchie_parameter_argument_matches = todo!();
+                ) {
+                    Ok(ritchie_parameter_argument_matches) => ritchie_parameter_argument_matches,
+                    Err(_) => todo!(),
+                };
                 (
                     Ok(SemaExprData::MethodFnCall {
                         self_argument_sema_expr_idx,
                         dot_regional_token_idx,
                         ident_token,
                         method_dynamic_dispatch,
-                        template_arguments: todo!(),
-                        lpar_regional_token_idx: todo!(),
-                        ritchie_parameter_argument_matches: todo!(),
-                        rpar_regional_token_idx: todo!(),
+                        template_arguments: template_arguments.map(|_| todo!()),
+                        lpar_regional_token_idx,
+                        ritchie_parameter_argument_matches,
+                        rpar_regional_token_idx,
                     }),
                     Ok(return_ty),
                 )

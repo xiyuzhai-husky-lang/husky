@@ -1,7 +1,7 @@
 use super::*;
 use husky_sema_opr::suffix::SemaSuffixOpr;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_ambiguous_suffix_expr_ty<F1, F2, F3>(
         &mut self,
         opd: SynExprIdx,
@@ -46,8 +46,10 @@ impl<'a> ExprTypeEngine<'a> {
     {
         match final_destination {
             FinalDestination::Sort => {
-                let (opd_sema_expr_idx, opd_ty) =
-                    self.build_new_expr_ty(opd, ExpectFinalDestination::new(final_destination));
+                let (opd_sema_expr_idx, opd_ty) = self.build_sema_expr_with_its_ty_returned(
+                    opd,
+                    ExpectFinalDestination::new(final_destination),
+                );
                 match opd_ty {
                     Some(opd_ty) => match opd_ty.data(self) {
                         FluffyTermData::Literal(_) => todo!(),

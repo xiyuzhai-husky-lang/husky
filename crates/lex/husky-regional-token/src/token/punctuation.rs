@@ -81,7 +81,7 @@ define_specific_punctuation_regional_token!(
     ","
 );
 
-define_specific_punctuation_regional_token!(RegionalEqToken, EQ, regional_eq_token_works, "=");
+define_specific_punctuation_regional_token!(EqRegionalToken, EQ, regional_eq_token_works, "=");
 
 define_specific_punctuation_regional_token!(
     LparRegionalToken,
@@ -231,8 +231,6 @@ define_specific_punctuation_regional_token!(
     colon_eq_regional_token_works,
     ":="
 );
-
-define_specific_punctuation_regional_token!(EqRegionalToken, EQ, eq_regional_token_works, "=");
 
 /// `:` at the end of line
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

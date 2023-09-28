@@ -56,7 +56,7 @@ pub enum SpecificParameterObelisk {
         variable: SynCurrentSymbolIdx,
         colon: ColonRegionalToken,
         ty: SynExprIdx,
-        eq_token: RegionalEqToken,
+        eq_token: EqRegionalToken,
         // todo: change this to custom enum
         default: Either<UnderscoreRegionalToken, SynExprIdx>,
     },
@@ -100,7 +100,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
                     ty_expr_idx,
                 }),
             );
-            if let Some(eq_token) = ctx.try_parse_option::<RegionalEqToken>()? {
+            if let Some(eq_token) = ctx.try_parse_option::<EqRegionalToken>()? {
                 let SynPatternExpr::Ident {
                     symbol_modifier_tokens: symbol_modifier_keyword_group,
                     ident_token,

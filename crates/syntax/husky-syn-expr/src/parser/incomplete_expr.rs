@@ -58,7 +58,7 @@ pub(super) enum IncompleteSynExpr {
     KeyedArgument {
         key_regional_token_idx: RegionalTokenIdx,
         key: Ident,
-        eq_token: RegionalEqToken,
+        eq_token: EqRegionalToken,
     },
 }
 

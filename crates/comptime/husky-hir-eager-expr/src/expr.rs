@@ -110,11 +110,11 @@ impl ToHirEager for SemaExprIdx {
             }),
             SemaExprData::PrincipalEntityPath {
                 path_expr_idx,
-                opt_path,
+                path,
+                ty_path_disambiguation,
             } => {
-                let path = opt_path.expect("whatever");
                 // ad hoc
-                HirEagerExpr::PrincipalEntityPath(path)
+                HirEagerExpr::PrincipalEntityPath(*path)
             }
             SemaExprData::AssociatedItem {
                 parent_expr_idx,
