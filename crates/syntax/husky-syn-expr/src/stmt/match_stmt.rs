@@ -4,7 +4,7 @@ use husky_defn_ast::DefnAst;
 #[derive(Debug, PartialEq, Eq)]
 pub struct SynCaseBranch {
     pub vertical_token: VerticalRegionalToken,
-    pub case_pattern: SynExprResult<CasePatternObelisk>,
+    pub case_pattern: SynExprResult<CasePatternSynObelisk>,
     pub heavy_arrow_token: SynExprResult<HeavyArrowRegionalToken>,
     pub stmts: SynExprResult<SynStmtIdxRange>,
 }

@@ -1,6 +1,9 @@
 use super::*;
 use husky_fluffy_term::*;
-use husky_sema_expr::{ExprTermError, ExprTypeError, OriginalExprTermError, OriginalExprTypeError};
+use husky_sema_expr::{
+    OriginalExprTermError, OriginalSemaExprDataError, OriginalSemaExprTypeError, SemaExprTermError,
+    SemaExprTypeError,
+};
 use husky_syn_defn::HasDefns;
 use husky_syn_expr::{SynExprIdx, SynExprRegion};
 use salsa::{DebugWithDb, DisplayWithDb};
@@ -41,32 +44,23 @@ fn collect_expr_ty_diagnostics(
     diagnostics: &mut Vec<Diagnostic>,
 ) {
     let ctx: RegionDiagnosticsContext = RegionDiagnosticsContext::new(db, syn_expr_region);
-    let expr_ty_region = ctx.expr_ty_region();
-    for (expr_idx, fluffy_term_result) in expr_ty_region.expr_fluffy_terms().key_value_iter() {
+    let sema_expr_region = ctx.sema_expr_region();
+    for (expr_idx, fluffy_term_result) in sema_expr_region.sema_expr_terms() {
         match fluffy_term_result {
-            Err(ExprTermError::Original(error)) => {
-                diagnostics.push((expr_idx, error).to_diagnostic(&ctx))
-            }
+            Err(SemaExprTermError::Original(error)) => diagnostics.push(error.to_diagnostic(&ctx)),
             _ => (),
         }
     }
-    for (expr_idx, ty_info) in expr_ty_region.expr_ty_infos().key_value_iter() {
-        match ty_info.ty() {
-            Err(ExprTypeError::Original(error)) => {
-                diagnostics.push((expr_idx, error).to_diagnostic(&ctx))
-            }
-            _ => (),
-        }
+    for sema_expr_entry in sema_expr_region.sema_expr_arena_ref().iter() {
+        todo!()
+        // match ty_info.ty() {
+        //     Err(SemaExprTypeError::Original(error)) => {
+        //         diagnostics.push((expr_idx, error).to_diagnostic(&ctx))
+        //     }
+        //     _ => (),
+        // }
     }
-    for (expr_idx, error) in expr_ty_region.extra_expr_ty_errors() {
-        match error {
-            ExprTypeError::Original(error) => {
-                diagnostics.push((*expr_idx, error).to_diagnostic(&ctx))
-            }
-            _ => (),
-        }
-    }
-    let fluffy_term_region = expr_ty_region.fluffy_term_region();
+    let fluffy_term_region = sema_expr_region.fluffy_term_region();
     for (src, error) in fluffy_term_region.hollow_terms().errors() {
         diagnostics.push((src, error).to_diagnostic(&ctx))
     }
@@ -79,7 +73,7 @@ fn collect_expr_ty_diagnostics(
     }
 }
 
-impl Diagnose for (SynExprIdx, &'_ OriginalExprTermError) {
+impl Diagnose for OriginalExprTermError {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
     fn message(&self, _db: &RegionDiagnosticsContext) -> String {
@@ -97,45 +91,13 @@ impl Diagnose for (SynExprIdx, &'_ OriginalExprTermError) {
     }
 }
 
-impl Diagnose for (SynExprIdx, &'_ OriginalExprTypeError) {
+impl Diagnose for OriginalSemaExprDataError {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
     fn message(&self, ctx: &RegionDiagnosticsContext) -> String {
         // MOM
-        match self.1 {
-            OriginalExprTypeError::UnresolvedTerm => {
-                format!("Type Error: UnresolvedTerm")
-            }
-            OriginalExprTypeError::TypeMethodTypeError => format!("TypeError: "),
-            OriginalExprTypeError::TypeCallTypeError => format!("TypeError: "),
-            OriginalExprTypeError::TodoScopeResolution => {
-                format!("Type Error: TodoScopeResolution")
-            }
-            OriginalExprTypeError::TodoBoxColon => {
-                format!("Type Error: TodoBoxColon")
-            }
-            OriginalExprTypeError::FinalDestination => {
-                format!("Type Error: final destination")
-            }
-            OriginalExprTypeError::FugitivePathTypeError => {
-                format!("Type Error: form path error")
-            }
-            OriginalExprTypeError::AmbiguousTypePath => {
-                format!("Type Error: AmbiguousTypePath")
-            }
-            OriginalExprTypeError::RitchieCallWrongNumberOfArguments {
-                number_of_nonself_parameters,
-                number_of_nonself_arguments,
-            } => {
-                format!("expected {number_of_nonself_parameters} argument, found {number_of_nonself_arguments}")
-            }
-            OriginalExprTypeError::AmbiguousListExpr => {
-                format!("Type Error: AmbiguateListExpr")
-            }
-            OriginalExprTypeError::AmbiguousTildeExpr => {
-                format!("Type Error: AmbiguateTildeExpr")
-            }
-            OriginalExprTypeError::NoSuchField {
+        match self {
+            OriginalSemaExprDataError::NoSuchField {
                 owner_ty,
                 ident_token,
             } => {
@@ -145,7 +107,7 @@ impl Diagnose for (SynExprIdx, &'_ OriginalExprTypeError) {
                     owner_ty.show(ctx.db(), ctx.fluffy_term_region().terms())
                 )
             }
-            OriginalExprTypeError::NoMethodForType {
+            OriginalSemaExprDataError::NoSuchMethod {
                 self_expr_ty,
                 ident_token,
             } => {
@@ -155,29 +117,91 @@ impl Diagnose for (SynExprIdx, &'_ OriginalExprTypeError) {
                     self_expr_ty.show(ctx.db(), ctx.fluffy_term_region().terms()) // ad hoc
                 )
             }
-            OriginalExprTypeError::ExpectedCurryButGotRitchieInstead => {
-                format!("Type Error: expected curry but got Ritchie instead")
-            }
-            OriginalExprTypeError::ExpectedIndices => {
+            OriginalSemaExprDataError::ExpectedIndices => {
                 format!("Type Error: expected indices")
             }
-            OriginalExprTypeError::CannotIndexIntoType { self_expr_ty } => {
+            OriginalSemaExprDataError::CannotIndexIntoType { self_expr_ty } => {
                 format!(
                     "Type Error: cannot index into type `{}`",
                     self_expr_ty.show(ctx.db(), ctx.fluffy_term_region().terms())
                 )
             }
-            OriginalExprTypeError::CannotUnveil => {
+            OriginalSemaExprDataError::RitchieParameterArgumentMismatch {
+                match_error,
+                ritchie_arguments,
+            } => todo!(), // OriginalSemaExprDataError::UnexpectedArgument => {
+                          //     format!("Type Error: unexpected argument")
+                          // }
+                          // OriginalSemaExprDataError::MissingArgument => {
+                          //     format!("Type Error: missing argument")
+                          // }
+        }
+    }
+
+    fn severity(&self) -> DiagnosticSeverity {
+        DiagnosticSeverity::Error
+    }
+
+    fn range(&self, ctx: &RegionDiagnosticsContext) -> TextRange {
+        todo!()
+        // match self {
+        //     OriginalSemaExprTypeError::NoSuchField { ident_token, .. } => {
+        //         ctx.token_text_range(ident_token.regional_token_idx())
+        //     }
+        //     OriginalSemaExprTypeError::NoMethodForType { ident_token, .. } => {
+        //         ctx.token_text_range(ident_token.regional_token_idx())
+        //     }
+        //     _ => ctx.expr_text_range(self.0),
+        // }
+    }
+}
+
+impl Diagnose for OriginalSemaExprTypeError {
+    type Context<'a> = RegionDiagnosticsContext<'a>;
+
+    fn message(&self, ctx: &RegionDiagnosticsContext) -> String {
+        // MOM
+        match self {
+            OriginalSemaExprTypeError::UnresolvedTerm => {
+                format!("Type Error: UnresolvedTerm")
+            }
+            OriginalSemaExprTypeError::TypeMethodTypeError => format!("TypeError: "),
+            OriginalSemaExprTypeError::TypeCallTypeError => format!("TypeError: "),
+            OriginalSemaExprTypeError::TodoScopeResolution => {
+                format!("Type Error: TodoScopeResolution")
+            }
+            OriginalSemaExprTypeError::TodoBoxColon => {
+                format!("Type Error: TodoBoxColon")
+            }
+            OriginalSemaExprTypeError::FinalDestination => {
+                format!("Type Error: final destination")
+            }
+            OriginalSemaExprTypeError::FugitivePathTypeError => {
+                format!("Type Error: form path error")
+            }
+            OriginalSemaExprTypeError::AmbiguousTypePath => {
+                format!("Type Error: AmbiguousTypePath")
+            }
+            OriginalSemaExprTypeError::RitchieCallWrongNumberOfArguments {
+                number_of_nonself_parameters,
+                number_of_nonself_arguments,
+            } => {
+                format!("expected {number_of_nonself_parameters} argument, found {number_of_nonself_arguments}")
+            }
+            OriginalSemaExprTypeError::AmbiguousListExpr => {
+                format!("Type Error: AmbiguateListExpr")
+            }
+            OriginalSemaExprTypeError::AmbiguousTildeExpr => {
+                format!("Type Error: AmbiguateTildeExpr")
+            }
+            OriginalSemaExprTypeError::ExpectedCurryButGotRitchieInstead => {
+                format!("Type Error: expected curry but got Ritchie instead")
+            }
+            OriginalSemaExprTypeError::CannotUnveil => {
                 format!("Type Error: cannot unveil")
             }
-            OriginalExprTypeError::CannotUnwrap => {
+            OriginalSemaExprTypeError::CannotUnwrap => {
                 format!("Type Error: cannot unwrap")
-            }
-            OriginalExprTypeError::UnexpectedArgument => {
-                format!("Type Error: unexpected argument")
-            }
-            OriginalExprTypeError::MissingArgument => {
-                format!("Type Error: missing argument")
             }
         }
     }
@@ -187,15 +211,16 @@ impl Diagnose for (SynExprIdx, &'_ OriginalExprTypeError) {
     }
 
     fn range(&self, ctx: &RegionDiagnosticsContext) -> TextRange {
-        match self.1 {
-            OriginalExprTypeError::NoSuchField { ident_token, .. } => {
-                ctx.token_text_range(ident_token.regional_token_idx())
-            }
-            OriginalExprTypeError::NoMethodForType { ident_token, .. } => {
-                ctx.token_text_range(ident_token.regional_token_idx())
-            }
-            _ => ctx.expr_text_range(self.0),
-        }
+        todo!()
+        // match self {
+        //     OriginalSemaExprTypeError::NoSuchField { ident_token, .. } => {
+        //         ctx.token_text_range(ident_token.regional_token_idx())
+        //     }
+        //     OriginalSemaExprTypeError::NoMethodForType { ident_token, .. } => {
+        //         ctx.token_text_range(ident_token.regional_token_idx())
+        //     }
+        //     _ => ctx.expr_text_range(self.0),
+        // }
     }
 }
 

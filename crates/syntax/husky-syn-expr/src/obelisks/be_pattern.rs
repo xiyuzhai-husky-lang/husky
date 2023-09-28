@@ -4,7 +4,7 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub struct BePatternObelisk {
+pub struct BePatternSynObelisk {
     pattern_expr: SynPatternRoot,
     variables: SynCurrentSymbolIdxRange,
 }
@@ -16,7 +16,7 @@ where
     pub(crate) fn parse_be_variables_pattern_expected(
         &mut self,
         access_end: RegionalTokenIdxRangeEnd,
-    ) -> SynExprResult<BePatternObelisk> {
+    ) -> SynExprResult<BePatternSynObelisk> {
         let state = self.save_state();
         let Some(pattern_expr) = self.try_parse_option()? else {
             Err(OriginalSynExprError::ExpectedBePattern(state))?
@@ -40,14 +40,14 @@ where
             })
             .collect::<Vec<_>>();
         let variables = self.define_symbols(symbols, None);
-        Ok(BePatternObelisk {
+        Ok(BePatternSynObelisk {
             pattern_expr,
             variables,
         })
     }
 }
 
-impl BePatternObelisk {
+impl BePatternSynObelisk {
     pub fn syn_pattern_root(&self) -> SynPatternRoot {
         self.pattern_expr
     }

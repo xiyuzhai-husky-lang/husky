@@ -1,3 +1,4 @@
+use husky_sema_expr::{SemaElifBranch, SemaElseBranch, SemaIfBranch};
 use husky_syn_expr::{SynElifBranch, SynElseBranch, SynIfBranch};
 
 use super::*;
@@ -18,16 +19,12 @@ impl HirEagerIfBranch {
     }
 }
 
-impl ToHirEager for SynIfBranch {
+impl ToHirEager for SemaIfBranch {
     type Output = HirEagerIfBranch;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         HirEagerIfBranch {
-            condition: self
-                .condition
-                .as_ref()
-                .expect("hir stage no error")
-                .to_hir_eager(builder),
+            condition: self.condition().to_hir_eager(builder),
             stmts: self.stmts().to_hir_eager(builder),
         }
     }
@@ -49,17 +46,13 @@ impl HirEagerElifBranch {
     }
 }
 
-impl ToHirEager for SynElifBranch {
+impl ToHirEager for SemaElifBranch {
     type Output = HirEagerElifBranch;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         HirEagerElifBranch {
-            condition: self
-                .condition
-                .as_ref()
-                .expect("hir stage no error")
-                .to_hir_eager(builder),
-            stmts: self.stmts.to_hir_eager(builder),
+            condition: self.condition().to_hir_eager(builder),
+            stmts: self.stmts().to_hir_eager(builder),
         }
     }
 }
@@ -75,7 +68,7 @@ impl HirEagerElseBranch {
     }
 }
 
-impl ToHirEager for SynElseBranch {
+impl ToHirEager for SemaElseBranch {
     type Output = HirEagerElseBranch;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {

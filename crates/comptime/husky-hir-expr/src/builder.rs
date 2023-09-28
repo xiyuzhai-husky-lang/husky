@@ -4,7 +4,6 @@ use husky_entity_taxonomy::FugitiveKind;
 use husky_fluffy_term::MethodFluffySignature;
 use husky_hir_eager_expr::builder::HirEagerExprBuilder;
 use husky_hir_lazy_expr::builder::HirLazyExprBuilder;
-use husky_sema_expr::{MethodCallOrApplicationDisambiguation, SynExprDisambiguation};
 use husky_syn_expr::{SynExprData, SynExprRegion};
 
 pub enum HirExprBuilder<'a> {
@@ -31,7 +30,7 @@ impl<'a> HirExprBuilder<'a> {
 #[salsa::tracked(jar = HirExprJar)]
 fn expr_region_contains_gn(db: &dyn HirExprDb, syn_expr_region: SynExprRegion) -> bool {
     let syn_expr_region_data = syn_expr_region.data(db);
-    let expr_ty_region = db.expr_ty_region(syn_expr_region);
+    let sema_expr_region = db.sema_expr_region(syn_expr_region);
     for (syn_expr_idx, syn_expr) in syn_expr_region_data.expr_arena().indexed_iter() {
         match syn_expr {
             SynExprData::Literal(_, _) => (),
@@ -57,21 +56,22 @@ fn expr_region_contains_gn(db: &dyn HirExprDb, syn_expr_region: SynExprRegion) -
                 items,
                 rpar_regional_token_idx,
             } => {
-                let SynExprDisambiguation::MethodCallOrApplication(disambiguation) =
-                    expr_ty_region.expr_disambiguation_unwrapped(syn_expr_idx)
-                else {
-                    unreachable!()
-                };
-                match disambiguation {
-                    MethodCallOrApplicationDisambiguation::MethodCall {
-                        method_dispatch,
-                        ritchie_parameter_argument_matches,
-                    } => match method_dispatch.signature() {
-                        MethodFluffySignature::MethodFn(_) => (),
-                        MethodFluffySignature::MethodFunction(_) => (),
-                        MethodFluffySignature::MethodGn => return true,
-                    },
-                }
+                todo!()
+                // let SynExprDisambiguation::MethodCallOrApplication(disambiguation) =
+                //     sema_expr_region.expr_disambiguation_unwrapped(syn_expr_idx)
+                // else {
+                //     unreachable!()
+                // };
+                // match disambiguation {
+                //     MethodCallOrApplicationDisambiguation::MethodCall {
+                //         method_dispatch,
+                //         ritchie_parameter_argument_matches,
+                //     } => match method_dispatch.signature() {
+                //         MethodFluffySignature::MethodFn(_) => (),
+                //         MethodFluffySignature::MethodFunction(_) => (),
+                //         MethodFluffySignature::MethodGn => return true,
+                //     },
+                // }
             }
             _ => (),
         }

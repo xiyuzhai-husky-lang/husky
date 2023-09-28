@@ -66,7 +66,7 @@ pub enum SemaExprData {
     Be {
         src: SemaExprIdx,
         be_regional_token_idx: RegionalTokenIdx,
-        target: BePatternObelisk,
+        target: BePatternSynObelisk,
     },
     Prefix {
         opr: PrefixOpr,
@@ -233,7 +233,6 @@ pub enum SemaExprData {
     Unreachable {
         regional_token_idx: RegionalTokenIdx,
     },
-    Err(SemaExprTypeError),
 }
 
 #[derive(Debug, PartialEq, Eq)]

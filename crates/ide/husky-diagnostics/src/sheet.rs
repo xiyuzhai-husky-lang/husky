@@ -1,17 +1,17 @@
 mod ast;
 mod decl;
 mod defn;
-mod entity_tree;
-mod expr;
-mod expr_ty;
+mod sema_expr;
+mod syn_expr;
+mod syn_tree;
 mod token;
 
 pub(crate) use self::ast::*;
 pub(crate) use self::decl::*;
 pub(crate) use self::defn::*;
-pub(crate) use self::entity_tree::*;
-pub(crate) use self::expr::*;
-pub(crate) use self::expr_ty::*;
+pub(crate) use self::sema_expr::*;
+pub(crate) use self::syn_expr::*;
+pub(crate) use self::syn_tree::*;
 pub(crate) use self::token::*;
 use husky_print_utils::p;
 

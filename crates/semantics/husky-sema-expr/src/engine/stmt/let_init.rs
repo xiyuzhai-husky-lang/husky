@@ -3,7 +3,7 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_let_stmt(
         &mut self,
-        let_variable_obelisks: &SynExprResult<LetPatternObelisk>,
+        let_variable_obelisks: &SynExprResult<LetPatternSynObelisk>,
         initial_value: SynExprIdx,
     ) -> (
         SemaExprDataResult<SemaStmtData>,

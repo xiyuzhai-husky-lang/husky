@@ -1,5 +1,6 @@
 mod branch_stmt;
 
+use husky_sema_expr::{SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
 use husky_syn_expr::{SynStmtData, SynStmtIdx, SynStmtIdxRange};
 
 pub use self::branch_stmt::*;
@@ -37,53 +38,53 @@ pub type HirLazyStmtIdx = ArenaIdx<HirLazyStmt>;
 pub type HirLazyStmtIdxRange = ArenaIdxRange<HirLazyStmt>;
 pub type HirLazyStmtMap<V> = ArenaMap<HirLazyStmt, V>;
 
-impl ToHirLazy for SynStmtIdx {
+impl ToHirLazy for SemaStmtIdx {
     type Output = Option<HirLazyStmt>;
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
-        Some(match builder.syn_expr_region_data()[*self] {
-            SynStmtData::Let {
+        Some(match self.data(todo!()) {
+            SemaStmtData::Let {
                 let_token,
-                ref let_variables_pattern,
+                let_variables_pattern,
                 initial_value,
                 ..
             } => HirLazyStmt::Let {
                 pattern: builder.new_let_variables_pattern(
-                    let_variables_pattern.as_ref().expect("hir stage no error"),
+                    todo!(), // let_variables_pattern.as_ref().expect("hir stage no error"),
                 ),
                 initial_value: initial_value.to_hir_lazy(builder),
             },
-            SynStmtData::Return {
+            SemaStmtData::Return {
                 return_token,
                 result,
             } => HirLazyStmt::Return {
                 result: result.to_hir_lazy(builder),
             },
-            SynStmtData::Require {
+            SemaStmtData::Require {
                 require_token,
                 condition,
             } => HirLazyStmt::Require {
                 condition: condition.to_hir_lazy(builder),
             },
-            SynStmtData::Assert {
+            SemaStmtData::Assert {
                 assert_token,
                 condition,
             } => HirLazyStmt::Assert {
                 condition: condition.to_hir_lazy(builder),
             },
-            SynStmtData::Eval {
+            SemaStmtData::Eval {
                 expr_idx,
                 eol_semicolon,
             } => HirLazyStmt::Eval {
                 expr_idx: expr_idx.to_hir_lazy(builder),
             },
-            SynStmtData::Break { .. } => unreachable!(),
-            SynStmtData::ForBetween { .. } => unreachable!(),
-            SynStmtData::ForIn { .. } => unreachable!(),
-            SynStmtData::ForExt { .. } => unreachable!(),
-            SynStmtData::While { .. } => unreachable!(),
-            SynStmtData::DoWhile { .. } => unreachable!(),
-            SynStmtData::IfElse {
+            SemaStmtData::Break { .. } => unreachable!(),
+            SemaStmtData::ForBetween { .. } => unreachable!(),
+            SemaStmtData::ForIn { .. } => unreachable!(),
+            SemaStmtData::ForExt { .. } => unreachable!(),
+            SemaStmtData::While { .. } => unreachable!(),
+            SemaStmtData::DoWhile { .. } => unreachable!(),
+            SemaStmtData::IfElse {
                 ref if_branch,
                 ref elif_branches,
                 ref else_branch,
@@ -97,26 +98,26 @@ impl ToHirLazy for SynStmtIdx {
                     .as_ref()
                     .map(|else_branch| else_branch.to_hir_lazy(builder)),
             },
-            SynStmtData::Match { match_token, .. } => todo!(),
+            SemaStmtData::Match { match_token, .. } => todo!(),
         })
     }
 }
 
-impl ToHirLazy for SynStmtIdxRange {
+impl ToHirLazy for SemaStmtIdxRange {
     type Output = HirLazyStmtIdxRange;
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
-        let mut syn_stmt_indices: Vec<SynStmtIdx> = vec![];
+        let mut sema_stmt_indices: Vec<SemaStmtIdx> = vec![];
         let mut hir_lazy_stmts: Vec<HirLazyStmt> = vec![];
-        for syn_stmt_idx in self {
-            match syn_stmt_idx.to_hir_lazy(builder) {
+        for sema_stmt_idx in self {
+            match sema_stmt_idx.to_hir_lazy(builder) {
                 Some(hir_lazy_stmt) => {
-                    syn_stmt_indices.push(syn_stmt_idx);
+                    sema_stmt_indices.push(sema_stmt_idx);
                     hir_lazy_stmts.push(hir_lazy_stmt)
                 }
                 None => todo!(),
             }
         }
-        builder.alloc_stmts(syn_stmt_indices, hir_lazy_stmts)
+        builder.alloc_stmts(sema_stmt_indices, hir_lazy_stmts)
     }
 }

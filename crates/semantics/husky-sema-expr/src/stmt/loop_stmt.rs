@@ -7,10 +7,28 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SemaExprDb)]
 pub struct SemaForBetweenParticulars {
-    pub for_between_loop_var_regional_token_idx: RegionalTokenIdx,
-    pub for_between_loop_var_ident: Ident,
-    pub for_between_loop_var_expr_idx: SemaExprIdx,
-    pub range: SemaExprTypeResult<SemaForBetweenRange>,
+    for_between_loop_var_regional_token_idx: RegionalTokenIdx,
+    for_between_loop_var_ident: Ident,
+    for_between_loop_var_expr_idx: SemaExprIdx,
+    range: SemaForBetweenRange,
+}
+
+impl SemaForBetweenParticulars {
+    pub fn for_between_loop_var_regional_token_idx(&self) -> RegionalTokenIdx {
+        self.for_between_loop_var_regional_token_idx
+    }
+
+    pub fn for_between_loop_var_ident(&self) -> Ident {
+        self.for_between_loop_var_ident
+    }
+
+    pub fn for_between_loop_var_expr_idx(&self) -> SemaExprIdx {
+        self.for_between_loop_var_expr_idx
+    }
+
+    pub fn range(&self) -> &SemaForBetweenRange {
+        &self.range
+    }
 }
 
 #[derive(Debug, PartialEq, Eq)]

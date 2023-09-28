@@ -12,9 +12,7 @@ use husky_entity_syn_tree::{
     ParentUseExpr,
 };
 use husky_entity_taxonomy::EntityKind;
-use husky_sema_expr::{
-    IndexOrComposeWithListExprDisambiguation, SemaExprRegion, SynExprDisambiguation,
-};
+use husky_sema_expr::SemaExprRegion;
 use husky_syn_expr::*;
 
 pub(crate) struct TokenInfoEngine<'a> {
@@ -249,7 +247,7 @@ struct DeclTokenInfoEngine<'a, 'b> {
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     expr_region_data: &'a SynExprRegionData,
-    expr_ty_region: &'a SemaExprRegion,
+    sema_expr_region: &'a SemaExprRegion,
     sheet: &'b mut TokenInfoSheet,
     syn_expr_region: ExprRegionLeash,
     regional_token_idx_base: RegionalTokenIdxBase,
@@ -268,7 +266,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             ast_sheet: engine.ast_sheet,
             sheet: &mut engine.sheet,
             expr_region_data,
-            expr_ty_region: db.expr_ty_region(syn_expr_region),
+            sema_expr_region: db.sema_expr_region(syn_expr_region),
             syn_expr_region: syn_expr_region.into(),
             regional_token_idx_base: match expr_region_data.path() {
                 RegionPath::Snippet(_) => todo!(),
@@ -413,20 +411,21 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             } => {
                 // ad hoc
                 // this should always be some
-                match self.expr_ty_region.expr_disambiguation(expr_idx) {
-                    Some(Ok(disambiguation)) => match disambiguation {
-                        SynExprDisambiguation::IndexOrComposeWithList(disambiguation) => {
-                            match disambiguation {
-                                IndexOrComposeWithListExprDisambiguation::Index(_) => (),
-                                IndexOrComposeWithListExprDisambiguation::ComposeWithList => {
-                                    todo!()
-                                }
-                            }
-                        }
-                        _ => unreachable!(),
-                    },
-                    None | Some(Err(_)) => (),
-                }
+                todo!()
+                // match self.sema_expr_region.expr_disambiguation(expr_idx) {
+                //     Some(Ok(disambiguation)) => match disambiguation {
+                //         SynExprDisambiguation::IndexOrComposeWithList(disambiguation) => {
+                //             match disambiguation {
+                //                 IndexOrComposeWithListExprDisambiguation::Index(_) => (),
+                //                 IndexOrComposeWithListExprDisambiguation::ComposeWithList => {
+                //                     todo!()
+                //                 }
+                //             }
+                //         }
+                //         _ => unreachable!(),
+                //     },
+                //     None | Some(Err(_)) => (),
+                // }
             }
             SynExprData::Unit {
                 lpar_regional_token_idx,

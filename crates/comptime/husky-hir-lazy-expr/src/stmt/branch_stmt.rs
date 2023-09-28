@@ -1,3 +1,4 @@
+use husky_sema_expr::{SemaElifBranch, SemaElseBranch, SemaIfBranch};
 use husky_syn_expr::{SynElifBranch, SynElseBranch, SynIfBranch};
 
 use super::*;
@@ -18,16 +19,12 @@ impl HirLazyIfBranch {
     }
 }
 
-impl ToHirLazy for SynIfBranch {
+impl ToHirLazy for SemaIfBranch {
     type Output = HirLazyIfBranch;
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
         HirLazyIfBranch {
-            condition: self
-                .condition
-                .as_ref()
-                .expect("hir stage no error")
-                .to_hir_lazy(builder),
+            condition: self.condition().to_hir_lazy(builder),
             stmts: self.stmts().to_hir_lazy(builder),
         }
     }
@@ -49,17 +46,13 @@ impl HirLazyElifBranch {
     }
 }
 
-impl ToHirLazy for SynElifBranch {
+impl ToHirLazy for SemaElifBranch {
     type Output = HirLazyElifBranch;
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
         HirLazyElifBranch {
-            condition: self
-                .condition
-                .as_ref()
-                .expect("hir stage no error")
-                .to_hir_lazy(builder),
-            stmts: self.stmts.to_hir_lazy(builder),
+            condition: self.condition().to_hir_lazy(builder),
+            stmts: self.stmts().to_hir_lazy(builder),
         }
     }
 }
@@ -75,7 +68,7 @@ impl HirLazyElseBranch {
     }
 }
 
-impl ToHirLazy for SynElseBranch {
+impl ToHirLazy for SemaElseBranch {
     type Output = HirLazyElseBranch;
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {

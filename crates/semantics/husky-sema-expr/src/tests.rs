@@ -64,7 +64,7 @@ fn decl_expr_ty_regions(db: &DB, module_path: ModulePath) -> Vec<&SemaExprRegion
         .decls(db)
         .iter()
         .copied()
-        .filter_map(|(_, decl)| Some(db.expr_ty_region(decl.syn_expr_region(db)?)))
+        .filter_map(|(_, decl)| Some(db.sema_expr_region(decl.syn_expr_region(db)?)))
         .collect()
 }
 
@@ -80,7 +80,7 @@ fn defn_expr_ty_regions(db: &DB, module_path: ModulePath) -> Vec<&SemaExprRegion
     defns
         .iter()
         .copied()
-        .filter_map(|defn| Some(db.expr_ty_region(defn.syn_expr_region(db)?)))
+        .filter_map(|defn| Some(db.sema_expr_region(defn.syn_expr_region(db)?)))
         .collect()
 }
 
