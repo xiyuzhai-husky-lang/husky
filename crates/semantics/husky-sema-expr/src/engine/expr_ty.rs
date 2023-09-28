@@ -238,32 +238,47 @@ impl<'a> ExprTypeEngine<'a> {
                 opr,
                 opr_regional_token_idx,
                 opd,
-            } => self.calc_prefix_expr_ty(
-                expr_idx,
-                opr,
-                opr_regional_token_idx,
-                opd,
-                expr_ty_expectation.final_destination(self),
-            ),
+            } => {
+                let (opd_sema_expr_idx_and_opr_result, ty_result) = self.calc_prefix_expr_ty(
+                    expr_idx,
+                    opr,
+                    opd,
+                    expr_ty_expectation.final_destination(self),
+                );
+                match opd_sema_expr_idx_and_opr_result {
+                    Ok((opd_sema_expr_idx, opr)) => (
+                        Ok(SemaExprData::Prefix {
+                            opr,
+                            opr_regional_token_idx,
+                            opd_sema_expr_idx,
+                        }),
+                        ty_result,
+                    ),
+                    Err(_) => todo!(),
+                }
+            }
             SynExprData::Suffix {
                 opd,
                 opr,
                 opr_regional_token_idx,
             } => {
-                let (opd_sema_expr_idx, ty_result) = self.calc_suffix_expr_ty(
+                let (opd_sema_expr_idx_and_opr_result, ty_result) = self.calc_suffix_expr_ty(
                     expr_idx,
                     opd,
                     opr,
                     expr_ty_expectation.final_destination(self),
                 );
-                (
-                    Ok(SemaExprData::Suffix {
-                        opd_sema_expr_idx,
-                        opr,
-                        opr_regional_token_idx,
-                    }),
-                    ty_result,
-                )
+                match opd_sema_expr_idx_and_opr_result {
+                    Ok((opd_sema_expr_idx, opr)) => (
+                        Ok(SemaExprData::Suffix {
+                            opd_sema_expr_idx,
+                            opr,
+                            opr_regional_token_idx,
+                        }),
+                        ty_result,
+                    ),
+                    Err(_) => todo!(),
+                }
             }
             SynExprData::FunctionApplicationOrCall {
                 function,

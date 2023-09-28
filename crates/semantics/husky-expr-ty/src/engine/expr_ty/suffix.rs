@@ -18,7 +18,7 @@ impl<'a> ExprTypeEngine<'a> {
         final_destination: FinalDestination,
     ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         match opr {
-            SuffixOpr::Incr | SuffixOpr::Attr => Ok((
+            SuffixOpr::Incr | SuffixOpr::Decr => Ok((
                 SynExprDisambiguation::Trivial,
                 self.calc_incr_or_attr_expr_ty(opd),
             )),

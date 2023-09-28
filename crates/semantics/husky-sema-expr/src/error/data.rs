@@ -27,6 +27,10 @@ pub enum OriginalSemaExprDataError {
         self_expr_ty: FluffyTerm,
         ident_token: IdentRegionalToken,
     },
+    #[error("expected indices")]
+    ExpectedIndices,
+    #[error("CannotIndexIntoType")]
+    CannotIndexIntoType { self_expr_ty: FluffyTerm },
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -43,6 +47,8 @@ pub enum DerivedSemaExprDataError {
     },
     #[error("FieldOwnerTypeNotInferred")]
     FieldOwnerTypeNotInferred { owner_sema_expr_idx: SemaExprIdx },
+    #[error("UnableToInferIndexExprType")]
+    UnableToInferIndexExprType,
 }
 
 impl From<&SynExprError> for SemaExprDataError {
