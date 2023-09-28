@@ -22,7 +22,10 @@ impl<'a> ExprTypeEngine<'a> {
         let Some(opd_ty) = opd_ty else {
             // p!(self.expr_region_data.path().debug(self.db));
             // todo!();
-            Err(DerivedSemaExprTypeError::UnableToInferUnwrapOperand)?
+            return (
+                Err(todo!()),
+                Err(DerivedSemaExprTypeError::UnableToInferUnwrapOperand.into()),
+            );
         };
         match opd_ty.data(self) {
             FluffyTermData::Literal(_) => todo!(),
@@ -32,9 +35,10 @@ impl<'a> ExprTypeEngine<'a> {
                 ty_arguments,
                 ty_ethereal_term,
             } => match refined_ty_path {
-                Left(PreludeTypePath::Option | PreludeTypePath::Result) => {
-                    (Ok(SemaExprData::Unwrap.into()), Ok(ty_arguments[0]))
-                }
+                Left(PreludeTypePath::Option | PreludeTypePath::Result) => (
+                    Ok((opd_sema_expr_idx, SemaSuffixOpr::Unwrap)),
+                    Ok(ty_arguments[0]),
+                ),
                 _ => return (todo!(), Err(OriginalSemaExprTypeError::CannotUnwrap.into())),
             },
             FluffyTermData::Curry {

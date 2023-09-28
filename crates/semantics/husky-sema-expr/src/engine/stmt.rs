@@ -17,9 +17,15 @@ impl<'a> ExprTypeEngine<'a> {
         todo!()
     }
 
-    fn infer_new_nonlast_stmt(&mut self, stmt_idx: SynStmtIdx) -> SemaStmtEntry {
+    fn infer_new_nonlast_stmt(
+        &mut self,
+        stmt_idx: SynStmtIdx,
+    ) -> (
+        SemaExprDataResult<SemaStmtData>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
         let expect_unit = self.expect_unit();
-        self.calc_stmt(stmt_idx, expect_unit);
+        self.calc_stmt(stmt_idx, expect_unit)
     }
 
     fn infer_new_stmt(
@@ -213,7 +219,10 @@ impl<'a> ExprTypeEngine<'a> {
         elif_branches: &[SynElifBranch],
         else_branch: Option<&SynElseBranch>,
         expr_expectation: impl ExpectFluffyTerm,
-    ) -> Option<FluffyTerm> {
+    ) -> (
+        SemaExprDataResult<SemaStmtData>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
         let mut branch_tys = BranchTypes::new(expr_expectation);
         if_branch
             .condition
@@ -233,7 +242,8 @@ impl<'a> ExprTypeEngine<'a> {
             branch_tys.visit_branch(self, else_branch.stmts);
         }
         // exhaustive iff else branch exists
-        branch_tys.merge(else_branch.is_some(), &self.term_menu)
+        branch_tys.merge(else_branch.is_some(), &self.term_menu);
+        todo!()
     }
 }
 

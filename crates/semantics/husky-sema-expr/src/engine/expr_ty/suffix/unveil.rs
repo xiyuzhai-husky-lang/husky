@@ -10,7 +10,7 @@ use maybe_result::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_unveil_expr_ty(
         &mut self,
-        opd: SynExprIdx,
+        opd_syn_expr_idx: SynExprIdx,
     ) -> (
         SemaExprDataResult<(SemaExprIdx, SemaSuffixOpr)>,
         SemaExprTypeResult<FluffyTerm>,
@@ -23,7 +23,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => {
                 let opd_sema_expr_idx = self.build_new_expr_ty_discarded(
-                    opd,
+                    opd_syn_expr_idx,
                     ExpectCoersion::new(Contract::Move, opd_ty.into()),
                 );
                 (
@@ -32,10 +32,11 @@ impl<'a> ExprTypeEngine<'a> {
                 )
             }
             Unveiler::UniquePartiallyInstanted { template } => {
-                let (opd_sema_expr_idx, opd_ty) = self.build_new_expr_ty(opd, ExpectAnyOriginal);
+                let (opd_sema_expr_idx, opd_ty) =
+                    self.build_new_expr_ty(opd_syn_expr_idx, ExpectAnyOriginal);
                 let Some(opd_ty) = opd_ty else {
                     p!(self.expr_region_data.path().debug(self.db));
-                    p!(self.expr_region_data[opd].debug(self.db));
+                    p!(self.expr_region_data[opd_syn_expr_idx].debug(self.db));
                     todo!()
                 };
                 let reduced_opd_ty: FluffyTerm = match opd_ty.base_ty_data(self) {
@@ -62,12 +63,20 @@ impl<'a> ExprTypeEngine<'a> {
                     FluffyTermBase::Ethereal(opd_ty) => {
                         match template.instantiate_trai(&[opd_ty], self.db) {
                             JustOk(template) => {
-                                let associated_output_template = match template
-                                    .associated_output_template(self.db)
-                                {
-                                    Ok(associated_output_template) => associated_output_template,
-                                    Err(e) => return (Err(e.into()), Err(e.into())),
-                                };
+                                let associated_output_template =
+                                    match template.associated_output_template(self.db) {
+                                        Ok(associated_output_template) => {
+                                            associated_output_template
+                                        }
+                                        Err(e) => return (
+                                            Err(DerivedSemaExprDataError::UnveilOutputTemplate {
+                                                opd_sema_expr_idx,
+                                                e,
+                                            }
+                                            .into()),
+                                            Err(e.into()),
+                                        ),
+                                    };
                                 let Some(output_ty_template) =
                                     associated_output_template.try_into_signature(self.db)
                                 else {
@@ -87,11 +96,15 @@ impl<'a> ExprTypeEngine<'a> {
                     FluffyTermBase::Place => todo!(),
                 }
             }
-            Unveiler::Nothing => Err(OriginalSemaExprTypeError::CannotUnveil)?,
-            Unveiler::ErrUnableToInferReturnTypeForUnveiling => {
-                Err(DerivedSemaExprTypeError::UnableToInferReturnTypeForUnveiling)?
-            }
-            Unveiler::ErrEtherealSignature(e) => Err(e.into()),
+            Unveiler::Nothing => (
+                Err(todo!()),
+                Err(OriginalSemaExprTypeError::CannotUnveil.into()),
+            ),
+            Unveiler::ErrUnableToInferReturnTypeForUnveiling => (
+                Err(todo!()),
+                Err(DerivedSemaExprTypeError::UnableToInferReturnTypeForUnveiling.into()),
+            ),
+            Unveiler::ErrEtherealSignature(e) => (Err(todo!()), Err(e.into())),
             Unveiler::Uninitialized => unreachable!(),
         }
     }
