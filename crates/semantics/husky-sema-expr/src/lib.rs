@@ -41,5 +41,5 @@ use tests::*;
 pub struct SemaExprJar(
     ty_ontology_path_unveil_impl_block_signature_templates,
     ty_ontology_application_unveil_impl_block_signature_templates,
-    expr_ty_region,
+    sema_expr_region,
 );

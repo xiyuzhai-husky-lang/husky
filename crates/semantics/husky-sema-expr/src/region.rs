@@ -10,7 +10,7 @@ pub struct SemaExprRegion {
     sema_expr_arena: SemaExprArena,
     pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
-    expr_fluffy_terms: VecPairMap<SemaExprIdx, SemaExprTermResult<FluffyTerm>>,
+    sema_expr_terms: VecPairMap<SemaExprIdx, SemaExprTermResult<FluffyTerm>>,
     symbol_tys: SymbolMap<SymbolType>,
     symbol_terms: SymbolMap<FluffyTerm>,
     fluffy_term_region: FluffyTermRegion,
@@ -37,7 +37,7 @@ impl SemaExprRegion {
             sema_expr_arena,
             pattern_expr_ty_infos,
             pattern_symbol_ty_infos,
-            expr_fluffy_terms,
+            sema_expr_terms: expr_fluffy_terms,
             symbol_tys,
             symbol_terms,
             fluffy_term_region,
@@ -50,8 +50,12 @@ impl SemaExprRegion {
         self.path
     }
 
-    pub fn expr_fluffy_terms(&self) -> &[(SemaExprIdx, SemaExprTermResult<FluffyTerm>)] {
-        &self.expr_fluffy_terms
+    pub fn sema_expr_arena_ref<'a>(&'a self) -> SemaExprArenaRef<'a> {
+        self.sema_expr_arena.arena_ref()
+    }
+
+    pub fn sema_expr_terms(&self) -> &[(SemaExprIdx, SemaExprTermResult<FluffyTerm>)] {
+        &self.sema_expr_terms
     }
 
     pub fn expr_fluffy_term(
@@ -84,7 +88,7 @@ impl SemaExprRegion {
 }
 
 #[salsa::tracked(jar = SemaExprJar, return_ref)]
-pub(crate) fn expr_ty_region(
+pub(crate) fn sema_expr_region(
     db: &dyn SemaExprDb,
     syn_expr_region: SynExprRegion,
 ) -> SemaExprRegion {

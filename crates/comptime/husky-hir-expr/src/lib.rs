@@ -10,6 +10,7 @@ use self::builder::*;
 use self::db::*;
 use husky_hir_eager_expr::*;
 use husky_hir_lazy_expr::*;
+use husky_sema_expr::SemaExprIdx;
 use husky_syn_expr::SynExprIdx;
 
 pub trait ToHir {
@@ -25,7 +26,7 @@ pub enum HirExprIdx {
     Lazy(HirLazyExprIdx),
 }
 
-impl ToHir for SynExprIdx {
+impl ToHir for SemaExprIdx {
     type Output = HirExprIdx;
 
     fn to_hir(&self, builder: &mut HirExprBuilder) -> Self::Output {

@@ -12,7 +12,7 @@ use salsa::DebugWithDb;
 pub struct HirEagerExprBuilder<'a> {
     db: &'a dyn HirEagerExprDb,
     syn_expr_region_data: &'a SynExprRegionData,
-    expr_ty_region: &'a SemaExprRegion,
+    sema_expr_region: &'a SemaExprRegion,
     expr_arena: HirEagerExprArena,
     stmt_arena: HirEagerStmtArena,
     pattern_expr_arena: HirEagerPatternExprArena,
@@ -23,7 +23,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         Self {
             db,
             syn_expr_region_data: syn_expr_region.data(db),
-            expr_ty_region: db.expr_ty_region(syn_expr_region),
+            sema_expr_region: db.sema_expr_region(syn_expr_region),
             expr_arena: Default::default(),
             pattern_expr_arena: Default::default(),
             stmt_arena: Default::default(),
@@ -80,11 +80,11 @@ impl<'a> HirEagerExprBuilder<'a> {
     pub(crate) fn expr_term(&self, sema_expr_idx: SemaExprIdx) -> EtherealTerm {
         // ad hoc
         // match self
-        //     .expr_ty_region
+        //     .sema_expr_region
         //     .expr_fluffy_term(syn_expr_idx)
         //     .expect("hir stage some")
         //     .expect("hir stage ok")
-        //     .base_resolved_inner(self.expr_ty_region.fluffy_term_region().terms())
+        //     .base_resolved_inner(self.sema_expr_region.fluffy_term_region().terms())
         // {
         //     FluffyTermBase::Ethereal(term) => term,
         //     FluffyTermBase::Solid(_) => todo!(),

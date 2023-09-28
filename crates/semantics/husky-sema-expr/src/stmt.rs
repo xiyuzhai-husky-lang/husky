@@ -21,7 +21,7 @@ use crate::*;
 pub enum SemaStmtData {
     Let {
         let_token: LetRegionalToken,
-        let_variables_pattern: LetPatternObelisk,
+        let_variables_pattern: LetPatternSynObelisk,
         assign_token: RegionalEqToken,
         initial_value: SemaExprIdx,
     },

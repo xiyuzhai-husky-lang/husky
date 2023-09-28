@@ -7,10 +7,7 @@ pub use self::html::*;
 use crate::*;
 use husky_entity_path::PrincipalEntityPath;
 use husky_opr::{BinaryOpr, PrefixOpr, SuffixOpr};
-use husky_sema_expr::{
-    ApplicationOrFunctionCallExprDisambiguation, IndexOrComposeWithListExprDisambiguation,
-    MethodCallOrApplicationDisambiguation, SemaExprData, SemaExprIdx, SynExprDisambiguation,
-};
+use husky_sema_expr::{SemaExprData, SemaExprIdx};
 use husky_syn_expr::{IdentifiableEntityPathExpr, SynExprData, SynExprIdx};
 use husky_term_prelude::{RitchieKind, TermLiteral};
 use salsa::debug::ExpectWithDb;
@@ -52,10 +49,10 @@ pub enum HirLazyExpr {
     },
     Prefix {
         opr: PrefixOpr,
-        opd: HirLazyExprIdx,
+        opd_hir_expr_idx: HirLazyExprIdx,
     },
     Suffix {
-        opd: HirLazyExprIdx,
+        opd_hir_expr_idx: HirLazyExprIdx,
         opr: SuffixOpr,
     },
     FnCall {
@@ -72,10 +69,10 @@ pub enum HirLazyExpr {
         owner: HirLazyExprIdx,
         ident: Ident,
     },
-    MethodCall {
+    MethodFnCall {
         self_argument: HirLazyExprIdx,
         ident: Ident,
-        generic_arguments: Option<HirLazyGenericArgumentList>,
+        template_arguments: Option<HirLazyGenericArgumentList>,
         item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
     },
     NewTuple {
@@ -141,7 +138,7 @@ impl ToHirLazy for SemaExprIdx {
                 regional_token_idx,
                 current_symbol_idx,
                 current_symbol_kind,
-            } => HirLazyExpr::CurrentSymbol { ident },
+            } => HirLazyExpr::CurrentSymbol { ident: *ident },
             SemaExprData::FrameVarDecl {
                 regional_token_idx,
                 ident,
@@ -154,7 +151,7 @@ impl ToHirLazy for SemaExprIdx {
                 lopd, opr, ropd, ..
             } => HirLazyExpr::Binary {
                 lopd: lopd.to_hir_lazy(builder),
-                opr,
+                opr: todo!(),
                 ropd: ropd.to_hir_lazy(builder),
             },
             SemaExprData::Be {
@@ -163,48 +160,41 @@ impl ToHirLazy for SemaExprIdx {
                 ref target,
             } => HirLazyExpr::Be {
                 src: src.to_hir_lazy(builder),
-                target: target
-                    .as_ref()
-                    .expect_with_db(builder.db(), "hir stage no errors")
-                    .to_hir_lazy(builder),
+                target: target.to_hir_lazy(builder),
             },
-            SemaExprData::Prefix { opr, opd, .. } => HirLazyExpr::Prefix {
+            SemaExprData::Prefix {
                 opr,
-                opd: opd.to_hir_lazy(builder),
+                opd_sema_expr_idx,
+                ..
+            } => HirLazyExpr::Prefix {
+                opr: todo!(),
+                opd_hir_expr_idx: opd_sema_expr_idx.to_hir_lazy(builder),
             },
-            SemaExprData::Suffix { opd, opr, .. } => HirLazyExpr::Suffix {
+            SemaExprData::Suffix {
+                opd_sema_expr_idx,
                 opr,
-                opd: opd.to_hir_lazy(builder),
+                ..
+            } => HirLazyExpr::Suffix {
+                opr: todo!(),
+                opd_hir_expr_idx: opd_sema_expr_idx.to_hir_lazy(builder),
             },
-            SemaExprData::FunctionApplicationOrCall {
-                function,
-                template_arguments: ref generic_arguments,
-                lpar_regional_token_idx,
-                ref items,
-                rpar_regional_token_idx,
+            SemaExprData::Application {
+                function_sema_expr_idx,
+                argument_sema_expr_idx,
             } => {
-                let SynExprDisambiguation::ApplicationOrFunctionCall(disambiguation) =
-                    builder.expr_disambiguation(*self)
-                else {
-                    unreachable!()
-                };
-                match disambiguation {
-                    ApplicationOrFunctionCallExprDisambiguation::Application => {
-                        todo!()
-                    }
-                    ApplicationOrFunctionCallExprDisambiguation::FnCall {
-                        ritchie_parameter_argument_matches,
-                    } => HirLazyExpr::FnCall {
-                        function: function.to_hir_lazy(builder),
-                        generic_arguments: generic_arguments.as_ref().map(|_| todo!()),
-                        item_groups: builder
-                            .new_call_list_item_groups(ritchie_parameter_argument_matches),
-                    },
-                    ApplicationOrFunctionCallExprDisambiguation::GnCall {
-                        ritchie_parameter_argument_matches,
-                    } => unreachable!(),
-                }
+                todo!()
             }
+            SemaExprData::FnCall {
+                function_sema_expr_idx,
+                template_arguments,
+                ritchie_parameter_argument_matches,
+                ..
+            } => HirLazyExpr::FnCall {
+                function: function_sema_expr_idx.to_hir_lazy(builder),
+                generic_arguments: template_arguments.as_ref().map(|_| todo!()),
+                item_groups: builder.new_call_list_item_groups(ritchie_parameter_argument_matches),
+            },
+            SemaExprData::GnCall { .. } => unreachable!(),
             SemaExprData::Ritchie {
                 ritchie_kind_regional_token_idx,
                 ritchie_kind,
@@ -214,42 +204,15 @@ impl ToHirLazy for SemaExprIdx {
                 light_arrow_token,
                 return_ty_sema_expr_idx,
             } => todo!(),
-            SemaExprData::FunctionCall {
-                function,
-                ref generic_arguments,
-                lpar_regional_token_idx,
-                ref items,
-                rpar_regional_token_idx,
-            } => {
-                let SynExprDisambiguation::FunctionCall {
-                    ritchie_kind,
-                    ritchie_parameter_argument_matches,
-                } = builder.expr_disambiguation(*self)
-                else {
-                    unreachable!()
-                };
-                let ritchie_parameter_argument_matches = ritchie_parameter_argument_matches
-                    .as_ref()
-                    .expect("hir stage no errors");
-                match ritchie_kind {
-                    RitchieKind::FnType => HirLazyExpr::FnCall {
-                        function: function.to_hir_lazy(builder),
-                        generic_arguments: generic_arguments.as_ref().map(|_| todo!()),
-                        item_groups: builder
-                            .new_call_list_item_groups(ritchie_parameter_argument_matches),
-                    },
-                    RitchieKind::FnTrait => todo!(),
-                    RitchieKind::FnMutTrait => todo!(),
-                    RitchieKind::GnType => todo!(),
-                }
-            }
             SemaExprData::Field {
-                owner, ident_token, ..
+                owner_sema_expr_idx,
+                ident_token,
+                ..
             } => HirLazyExpr::Field {
-                owner: owner.to_hir_lazy(builder),
+                owner: owner_sema_expr_idx.to_hir_lazy(builder),
                 ident: ident_token.ident(),
             },
-            SemaExprData::MethodApplicationOrCall {
+            SemaExprData::MethodApplication {
                 self_argument,
                 dot_regional_token_idx,
                 ident_token,
@@ -258,37 +221,27 @@ impl ToHirLazy for SemaExprIdx {
                 ref items,
                 rpar_regional_token_idx,
             } => {
-                // todo: method application should be ignored
-                let SynExprDisambiguation::MethodCallOrApplication(disambiguation) =
-                    builder.expr_disambiguation(*self)
-                else {
-                    unreachable!()
-                };
-                match disambiguation {
-                    MethodCallOrApplicationDisambiguation::MethodCall {
-                        method_dispatch,
-                        ritchie_parameter_argument_matches,
-                    } => {
-                        let ritchie_parameter_argument_matches = ritchie_parameter_argument_matches
-                            .as_ref()
-                            .expect("hir stage no errors");
-                        HirLazyExpr::MethodCall {
-                            self_argument: self_argument.to_hir_lazy(builder),
-                            ident: ident_token.ident(),
-                            generic_arguments: generic_arguments.as_ref().map(|_| todo!()),
-                            item_groups: builder
-                                .new_call_list_item_groups(ritchie_parameter_argument_matches),
-                        }
-                    }
-                }
+                todo!()
+            }
+            SemaExprData::MethodFnCall {
+                self_argument_sema_expr_idx,
+                ident_token,
+                template_arguments,
+                ritchie_parameter_argument_matches,
+                method_dynamic_dispatch,
+                ..
+            } => HirLazyExpr::MethodFnCall {
+                self_argument: self_argument_sema_expr_idx.to_hir_lazy(builder),
+                ident: ident_token.ident(),
+                template_arguments: template_arguments.as_ref().map(|_| todo!()),
+                item_groups: builder.new_call_list_item_groups(ritchie_parameter_argument_matches),
+            },
+            SemaExprData::MethodGnCall { .. } => {
+                todo!()
             }
             SemaExprData::TemplateInstantiation {
                 template,
-                ref generic_arguments,
-            } => todo!(),
-            SemaExprData::ExplicitApplication {
-                function_expr_idx,
-                argument_expr_idx,
+                ref template_arguments,
             } => todo!(),
             SemaExprData::At {
                 at_regional_token_idx,
@@ -308,38 +261,25 @@ impl ToHirLazy for SemaExprIdx {
                 ref items,
                 rpar_regional_token_idx,
             } => todo!(),
-            SemaExprData::IndexOrCompositionWithList {
-                owner,
-                lbox_regional_token_idx,
-                ref items,
-                rbox_regional_token_idx,
-            } => {
-                let SynExprDisambiguation::IndexOrComposeWithList(disambiguation) =
-                    builder.expr_disambiguation(*self)
-                else {
-                    unreachable!()
-                };
-                match disambiguation {
-                    IndexOrComposeWithListExprDisambiguation::Index(_) => HirLazyExpr::Index {
-                        owner: owner.to_hir_lazy(builder),
-                        items: items
-                            .iter()
-                            .map(|item| item.expr_idx().to_hir_lazy(builder))
-                            .collect(),
-                    },
-                    IndexOrComposeWithListExprDisambiguation::ComposeWithList => {
-                        todo!()
-                    }
-                }
+            SemaExprData::Index {
+                owner_sema_expr_idx,
+                indices,
+                index_dynamic_dispatch,
+                ..
+            } => HirLazyExpr::Index {
+                owner: owner_sema_expr_idx.to_hir_lazy(builder),
+                items: indices
+                    .iter()
+                    .map(|item| item.sema_expr_idx().to_hir_lazy(builder))
+                    .collect(),
+            },
+            SemaExprData::CompositionWithList { owner, items, .. } => {
+                todo!()
             }
-            SemaExprData::List {
-                lbox_regional_token_idx,
-                ref items,
-                rbox_regional_token_idx,
-            } => HirLazyExpr::List {
+            SemaExprData::List { items, .. } => HirLazyExpr::List {
                 items: items
                     .iter()
-                    .map(|item| item.expr_idx().to_hir_lazy(builder))
+                    .map(|item| item.sema_expr_idx().to_hir_lazy(builder))
                     .collect(),
             },
             SemaExprData::BoxColonList {
@@ -360,7 +300,20 @@ impl ToHirLazy for SemaExprIdx {
             SemaExprData::Sorry { regional_token_idx } => todo!(),
             SemaExprData::Todo { regional_token_idx } => todo!(),
             SemaExprData::Unreachable { regional_token_idx } => todo!(),
-            SemaExprData::Err(_) => todo!(),
+            SemaExprData::ListFunctor {
+                lbox_regional_token_idx,
+                rbox_regional_token_idx,
+            } => todo!(),
+            SemaExprData::ArrayFunctor {
+                lbox_regional_token_idx,
+                items,
+                rbox_regional_token_idx,
+            } => todo!(),
+            SemaExprData::NewList {
+                lbox_regional_token_idx,
+                items,
+                rbox_regional_token_idx,
+            } => todo!(),
         };
         builder.alloc_expr(*self, hir_lazy_expr)
     }

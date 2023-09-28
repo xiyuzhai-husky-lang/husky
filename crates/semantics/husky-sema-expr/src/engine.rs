@@ -125,7 +125,7 @@ impl<'a> ExprTypeEngine<'a> {
         let pattern_expr_region = expr_region_data.pattern_expr_region();
         let toolchain = syn_expr_region.toolchain(db);
         let parent_expr_ty_region =
-            parent_expr_region.map(|parent_expr_region| db.expr_ty_region(parent_expr_region));
+            parent_expr_region.map(|parent_expr_region| db.sema_expr_region(parent_expr_region));
         let regional_tokens_data = match expr_region_data.path() {
             RegionPath::Snippet(_) => todo!(),
             RegionPath::Decl(path) => path.decl_tokra_region(db).tokens_data(db),
