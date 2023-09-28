@@ -12,10 +12,10 @@ impl<'a> ExprTypeEngine<'a> {
         let (lopd_sema_expr_idx, lopd_ty) = self.build_new_expr_ty(lopd, ExpectAnyOriginal);
         let Some(lopd_ty) = lopd_ty else {
             p!(self.path());
-            p!(self.expr_region_data[lopd].debug(self.db));
+            p!(self.syn_expr_region_data[lopd].debug(self.db));
             p!(self.symbol_tys.debug(self.db));
             todo!();
-            match self.expr_region_data[lopd] {
+            match self.syn_expr_region_data[lopd] {
                 SynExprData::CurrentSymbol {
                     ident,
                     regional_token_idx,

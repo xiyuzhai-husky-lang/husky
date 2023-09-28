@@ -22,7 +22,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     /// subpattern expressions get its type from its parent
     fn infer_subpattern_tys(&mut self, pattern_expr_idx: SynPatternExprIdx) {
-        match self.expr_region_data[pattern_expr_idx] {
+        match self.syn_expr_region_data[pattern_expr_idx] {
             SynPatternExpr::Literal { .. } => todo!(),
             SynPatternExpr::Ident { .. } => (), // there is no subpattern to infer
             SynPatternExpr::TypeVariantUnit { .. } => todo!(),
@@ -53,7 +53,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         current_symbol_idx: SynCurrentSymbolIdx,
     ) -> Option<FluffyTerm> {
-        match self.expr_region_data[current_symbol_idx].variant() {
+        match self.syn_expr_region_data[current_symbol_idx].variant() {
             SynCurrentSymbolVariant::TemplateParameter {
                 template_parameter_variant,
                 ..
@@ -95,7 +95,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         pattern_symbol_idx: SynPatternSymbolIdx,
     ) -> PatternSymbolTypeResult<FluffyTerm> {
-        match self.expr_region_data[pattern_symbol_idx] {
+        match self.syn_expr_region_data[pattern_symbol_idx] {
             SynPatternSymbol::Atom(pattern_expr_idx) => self
                 .get_pattern_expr_ty(pattern_expr_idx)
                 .ok_or(DerivedPatternSymbolTypeError::PatternSemaExprError.into()),

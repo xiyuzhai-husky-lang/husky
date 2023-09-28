@@ -8,46 +8,50 @@ use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
     /// perform this during finish stage
-    pub(super) fn infer_expr_term(&mut self, syn_expr_idx: SynExprIdx) -> Option<FluffyTerm> {
-        if let Some(term) = self.expr_terms.get(syn_expr_idx) {
-            return term.as_ref().ok().copied();
+    pub(super) fn infer_expr_term(&mut self, sema_expr_idx: SemaExprIdx) -> Option<FluffyTerm> {
+        if let Some(term_result) = self.sema_expr_term_results.get_value(sema_expr_idx) {
+            return term_result.as_ref().ok().copied();
         }
-        let term_result = self.calc_expr_term(syn_expr_idx);
+        let term_result = self.calc_expr_term(sema_expr_idx);
         let term = term_result.as_ref().ok().copied();
-        self.save_new_expr_term(syn_expr_idx, term_result);
+        self.save_new_expr_term(sema_expr_idx, term_result);
         term
     }
 
     /// clear all holes before using this
     pub(super) fn infer_extra_expr_terms_in_preparation_for_hir(&mut self) {
-        for syn_expr_idx in self.expr_region_data.expr_arena().index_iter() {
-            self.infer_extra_expr_term_in_preparation_for_hir(syn_expr_idx)
+        for syn_expr_idx in self.sema_expr_arena.index_iter() {
+            let sema_expr_idx = todo!();
+            self.infer_extra_expr_term_in_preparation_for_hir(sema_expr_idx)
         }
     }
 
     // helpful for hir stage
-    fn infer_extra_expr_term_in_preparation_for_hir(&mut self, syn_expr_idx: SynExprIdx) {
-        if let Some(term) = self.expr_terms.get(syn_expr_idx) {
+    fn infer_extra_expr_term_in_preparation_for_hir(&mut self, sema_expr_idx: SemaExprIdx) {
+        if let Some(_) = self.sema_expr_term_results.get_value(sema_expr_idx) {
             return;
         }
-        match self.expr_region_data[syn_expr_idx] {
-            SynExprData::Literal(_, _) => (),
-            _ => return,
-        }
-        let term_result = self.calc_expr_term(syn_expr_idx);
-        let term = term_result.as_ref().ok().copied();
-        self.save_new_expr_term(syn_expr_idx, term_result)
+        todo!()
+        // match self.syn_expr_region_data[sema_expr_idx] {
+        //     SynExprData::Literal(_, _) => (),
+        //     _ => return,
+        // }
+        // let term_result = self.calc_expr_term(sema_expr_idx);
+        // let term = term_result.as_ref().ok().copied();
+        // self.save_new_expr_term(sema_expr_idx, term_result)
     }
 
     fn save_new_expr_term(
         &mut self,
-        expr_idx: SynExprIdx,
+        expr_idx: SemaExprIdx,
         term_result: SemaExprTermResult<FluffyTerm>,
     ) {
-        self.expr_terms.insert_new(expr_idx, term_result)
+        self.sema_expr_term_results
+            .insert_new((expr_idx, term_result))
+            .expect("todo")
     }
 
-    fn calc_expr_term(&mut self, expr_idx: SynExprIdx) -> SemaExprTermResult<FluffyTerm> {
+    fn calc_expr_term(&mut self, expr_idx: SemaExprIdx) -> SemaExprTermResult<FluffyTerm> {
         todo!()
         // match self.expr_region_data[expr_idx] {
         //     SynExprData::Literal(regional_token_idx, lit) => {

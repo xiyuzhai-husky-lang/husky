@@ -346,9 +346,16 @@ where
 }
 
 impl<K, V> VecPairMap<K, V> {
+    pub fn get_value(&self, key: K) -> Option<&V>
+    where
+        K: Copy + Eq,
+    {
+        self.get_entry(key).map(|(_, v)| v)
+    }
+
     pub fn get_value_mut_or_insert_default(&mut self, key: K) -> &mut V
     where
-        K: Copy + PartialEq,
+        K: Copy + Eq,
         V: Default,
     {
         match self.entries.iter_mut().find(|(key1, _)| *key1 == key) {
@@ -362,7 +369,7 @@ impl<K, V> VecPairMap<K, V> {
 
     pub fn get_value_mut_or_insert(&mut self, key: K, v: V) -> &mut V
     where
-        K: Copy + PartialEq,
+        K: Copy + Eq,
     {
         match self.entries.iter_mut().find(|(key1, _)| *key1 == key) {
             Some(entry) => unsafe { wild_utils::arb_ref(&mut entry.1) },
@@ -375,7 +382,7 @@ impl<K, V> VecPairMap<K, V> {
 
     pub fn get_value_mut_or_insert_with(&mut self, key: K, f: impl FnOnce() -> V) -> &mut V
     where
-        K: Copy + PartialEq,
+        K: Copy + Eq,
     {
         match self.entries.iter_mut().find(|(key1, _)| *key1 == key) {
             Some(entry) => unsafe { wild_utils::arb_ref(&mut entry.1) },
@@ -389,7 +396,7 @@ impl<K, V> VecPairMap<K, V> {
     #[inline(always)]
     pub fn update_value_or_insert(&mut self, key: K, update: impl FnOnce(&mut V), v: V)
     where
-        K: Copy + PartialEq,
+        K: Copy + Eq,
     {
         match self.entries.iter_mut().find(|(key1, _)| *key1 == key) {
             Some(entry) => unsafe { update(&mut entry.1) },
@@ -404,7 +411,7 @@ impl<K, V> VecPairMap<K, V> {
         update: impl FnOnce(&mut V),
         f: impl FnOnce() -> V,
     ) where
-        K: Copy + PartialEq,
+        K: Copy + Eq,
     {
         match self.entries.iter_mut().find(|(key1, _)| *key1 == key) {
             Some(entry) => unsafe { update(&mut entry.1) },
