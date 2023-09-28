@@ -5,6 +5,7 @@ pub use self::branch_stmt::*;
 pub use self::loop_stmt::*;
 
 use crate::*;
+use husky_sema_expr::{SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
 use husky_syn_expr::{
     LetPatternObelisk, LoopBoundaryKind, LoopStep, SynForBetweenLoopBoundary,
     SynForBetweenParticulars, SynForBetweenRange, SynStmtData, SynStmtIdx, SynStmtIdxRange,
@@ -65,48 +66,46 @@ pub type HirEagerStmtIdx = ArenaIdx<HirEagerStmt>;
 pub type HirEagerStmtIdxRange = ArenaIdxRange<HirEagerStmt>;
 pub type HirEagerStmtMap<V> = ArenaMap<HirEagerStmt, V>;
 
-impl ToHirEager for SynStmtIdx {
+impl ToHirEager for SemaStmtIdx {
     type Output = Option<HirEagerStmt>;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
-        Some(match builder.syn_expr_region_data()[*self] {
-            SynStmtData::Let {
+        Some(match self.data(builder.sema_stmt_arena_ref()) {
+            SemaStmtData::Let {
                 let_token,
                 ref let_variables_pattern,
                 initial_value,
                 ..
             } => HirEagerStmt::Let {
-                pattern: builder.new_let_variables_pattern(
-                    let_variables_pattern.as_ref().expect("hir stage no error"),
-                ),
+                pattern: builder.new_let_variables_pattern(let_variables_pattern),
                 initial_value: initial_value.to_hir_eager(builder),
             },
-            SynStmtData::Return {
+            SemaStmtData::Return {
                 return_token,
                 result,
             } => HirEagerStmt::Return {
                 result: result.to_hir_eager(builder),
             },
-            SynStmtData::Require {
+            SemaStmtData::Require {
                 require_token,
                 condition,
             } => HirEagerStmt::Require {
                 condition: condition.to_hir_eager(builder),
             },
-            SynStmtData::Assert {
+            SemaStmtData::Assert {
                 assert_token,
                 condition,
             } => HirEagerStmt::Assert {
                 condition: condition.to_hir_eager(builder),
             },
-            SynStmtData::Break { break_token } => HirEagerStmt::Break,
-            SynStmtData::Eval {
+            SemaStmtData::Break { break_token } => HirEagerStmt::Break,
+            SemaStmtData::Eval {
                 expr_idx,
                 eol_semicolon,
             } => HirEagerStmt::Eval {
                 expr_idx: expr_idx.to_hir_eager(builder),
             },
-            SynStmtData::ForBetween {
+            SemaStmtData::ForBetween {
                 for_token,
                 ref particulars,
                 frame_var_symbol_idx,
@@ -116,13 +115,13 @@ impl ToHirEager for SynStmtIdx {
                 particulars: particulars.to_hir_eager(builder),
                 block: block.to_hir_eager(builder),
             },
-            SynStmtData::ForIn {
+            SemaStmtData::ForIn {
                 for_token,
                 ref condition,
                 ref eol_colon,
                 ref block,
             } => todo!(),
-            SynStmtData::ForExt {
+            SemaStmtData::ForExt {
                 forext_token,
                 ref particulars,
                 ref eol_colon,
@@ -131,7 +130,7 @@ impl ToHirEager for SynStmtIdx {
                 particulars: particulars.to_hir_eager(builder),
                 block: block.to_hir_eager(builder),
             },
-            SynStmtData::While {
+            SemaStmtData::While {
                 ref condition,
                 ref block,
                 ..
@@ -142,7 +141,7 @@ impl ToHirEager for SynStmtIdx {
                     .to_hir_eager(builder),
                 stmts: block.to_hir_eager(builder),
             },
-            SynStmtData::DoWhile {
+            SemaStmtData::DoWhile {
                 ref condition,
                 ref block,
                 ..
@@ -153,7 +152,7 @@ impl ToHirEager for SynStmtIdx {
                     .to_hir_eager(builder),
                 block: block.to_hir_eager(builder),
             },
-            SynStmtData::IfElse {
+            SemaStmtData::IfElse {
                 ref if_branch,
                 ref elif_branches,
                 ref else_branch,
@@ -167,26 +166,26 @@ impl ToHirEager for SynStmtIdx {
                     .as_ref()
                     .map(|else_branch| else_branch.to_hir_eager(builder)),
             },
-            SynStmtData::Match { match_token, .. } => HirEagerStmt::Match {},
+            SemaStmtData::Match { match_token, .. } => HirEagerStmt::Match {},
         })
     }
 }
 
-impl ToHirEager for SynStmtIdxRange {
+impl ToHirEager for SemaStmtIdxRange {
     type Output = HirEagerStmtIdxRange;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
-        let mut syn_stmt_indices: Vec<SynStmtIdx> = vec![];
+        let mut sema_stmt_indices: Vec<SemaStmtIdx> = vec![];
         let mut hir_eager_stmts: Vec<HirEagerStmt> = vec![];
-        for syn_stmt_idx in self {
-            match syn_stmt_idx.to_hir_eager(builder) {
+        for sema_stmt_idx in self {
+            match sema_stmt_idx.to_hir_eager(builder) {
                 Some(hir_eager_stmt) => {
-                    syn_stmt_indices.push(syn_stmt_idx);
+                    sema_stmt_indices.push(sema_stmt_idx);
                     hir_eager_stmts.push(hir_eager_stmt)
                 }
                 None => todo!(),
             }
         }
-        builder.alloc_stmts(syn_stmt_indices, hir_eager_stmts)
+        builder.alloc_stmts(sema_stmt_indices, hir_eager_stmts)
     }
 }

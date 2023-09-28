@@ -1,10 +1,10 @@
 use crate::{db::HirExprDb, *};
 use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
 use husky_entity_taxonomy::FugitiveKind;
-use husky_expr_ty::{MethodCallOrApplicationDisambiguation, SynExprDisambiguation};
 use husky_fluffy_term::MethodFluffySignature;
 use husky_hir_eager_expr::builder::HirEagerExprBuilder;
 use husky_hir_lazy_expr::builder::HirLazyExprBuilder;
+use husky_sema_expr::{MethodCallOrApplicationDisambiguation, SynExprDisambiguation};
 use husky_syn_expr::{SynExprData, SynExprRegion};
 
 pub enum HirExprBuilder<'a> {

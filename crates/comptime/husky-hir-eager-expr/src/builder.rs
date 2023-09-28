@@ -1,7 +1,9 @@
 use crate::*;
 use husky_ethereal_term::EtherealTerm;
-use husky_expr_ty::{ExprTypeRegion, SynExprDisambiguation};
 use husky_fluffy_term::{FluffyTerm, FluffyTermBase};
+use husky_sema_expr::{
+    SemaExprArenaRef, SemaExprIdx, SemaExprRegion, SemaStmtArenaRef, SemaStmtIdx,
+};
 use husky_syn_expr::{
     SynExprData, SynExprIdx, SynExprRegion, SynExprRegionData, SynStmtData, SynStmtIdx,
 };
@@ -10,7 +12,7 @@ use salsa::DebugWithDb;
 pub struct HirEagerExprBuilder<'a> {
     db: &'a dyn HirEagerExprDb,
     syn_expr_region_data: &'a SynExprRegionData,
-    expr_ty_region: &'a ExprTypeRegion,
+    expr_ty_region: &'a SemaExprRegion,
     expr_arena: HirEagerExprArena,
     stmt_arena: HirEagerStmtArena,
     pattern_expr_arena: HirEagerPatternExprArena,
@@ -32,19 +34,27 @@ impl<'a> HirEagerExprBuilder<'a> {
         self.syn_expr_region_data
     }
 
+    pub fn sema_expr_arena_ref(&self) -> SemaExprArenaRef<'a> {
+        todo!()
+    }
+
+    pub fn sema_stmt_arena_ref(&self) -> SemaStmtArenaRef<'a> {
+        todo!()
+    }
+
     pub(crate) fn alloc_stmts(
         &mut self,
-        syn_stmt_indices: Vec<SynStmtIdx>,
+        sema_stmt_indices: Vec<SemaStmtIdx>,
         hir_eager_stmts: Vec<HirEagerStmt>,
     ) -> HirEagerStmtIdxRange {
-        debug_assert_eq!(syn_stmt_indices.len(), hir_eager_stmts.len());
+        debug_assert_eq!(sema_stmt_indices.len(), hir_eager_stmts.len());
         // todo: record syn_stmt_indices in source map
         self.stmt_arena.alloc_batch(hir_eager_stmts)
     }
 
     pub(crate) fn alloc_expr(
         &mut self,
-        syn_expr_idx: SynExprIdx,
+        sema_expr_idx: SemaExprIdx,
         hir_eager_expr: HirEagerExpr,
     ) -> HirEagerExprIdx {
         // todo: record syn_expr_idx in source map
@@ -67,45 +77,21 @@ impl<'a> HirEagerExprBuilder<'a> {
         self.db
     }
 
-    // pub fn expr_ty_region(&self) -> &'a ExprTypeRegion {
-    //     self.expr_ty_region
-    // }
-
-    #[track_caller]
-    pub(crate) fn expr_disambiguation(
-        &self,
-        syn_expr_idx: SynExprIdx,
-    ) -> &'a SynExprDisambiguation {
-        let Some(Ok(disambiguation)) = self.expr_ty_region.expr_disambiguation(syn_expr_idx) else {
-            unreachable!(
-                r#"
-    syn_expr = {:?},
-    path = {:?},
-    self.expr_ty_region.expr_disambiguation(syn_expr_idx) = {:#?}"#,
-                self.syn_expr_region_data[syn_expr_idx].debug(self.db),
-                self.path(),
-                self.expr_ty_region
-                    .expr_disambiguation(syn_expr_idx)
-                    .debug(self.db)
-            )
-        };
-        disambiguation
-    }
-
-    pub(crate) fn expr_term(&self, syn_expr_idx: SynExprIdx) -> EtherealTerm {
+    pub(crate) fn expr_term(&self, sema_expr_idx: SemaExprIdx) -> EtherealTerm {
         // ad hoc
-        match self
-            .expr_ty_region
-            .expr_fluffy_term(syn_expr_idx)
-            .expect("hir stage some")
-            .expect("hir stage ok")
-            .base_resolved_inner(self.expr_ty_region.fluffy_term_region().terms())
-        {
-            FluffyTermBase::Ethereal(term) => term,
-            FluffyTermBase::Solid(_) => todo!(),
-            FluffyTermBase::Hollow(_) => todo!(),
-            FluffyTermBase::Place => todo!(),
-        }
+        // match self
+        //     .expr_ty_region
+        //     .expr_fluffy_term(syn_expr_idx)
+        //     .expect("hir stage some")
+        //     .expect("hir stage ok")
+        //     .base_resolved_inner(self.expr_ty_region.fluffy_term_region().terms())
+        // {
+        //     FluffyTermBase::Ethereal(term) => term,
+        //     FluffyTermBase::Solid(_) => todo!(),
+        //     FluffyTermBase::Hollow(_) => todo!(),
+        //     FluffyTermBase::Place => todo!(),
+        // }
+        todo!()
     }
 
     pub fn finish(self) -> HirEagerExprRegion {

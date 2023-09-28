@@ -1,6 +1,6 @@
 use super::*;
-use husky_expr_ty::{ExprTermError, ExprTypeError, OriginalExprTermError, OriginalExprTypeError};
 use husky_fluffy_term::*;
+use husky_sema_expr::{ExprTermError, ExprTypeError, OriginalExprTermError, OriginalExprTypeError};
 use husky_syn_defn::HasDefns;
 use husky_syn_expr::{SynExprIdx, SynExprRegion};
 use salsa::{DebugWithDb, DisplayWithDb};

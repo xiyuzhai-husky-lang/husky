@@ -1,13 +1,13 @@
 use crate::*;
-use husky_expr_ty::{ExprTypeRegion, SynExprDisambiguation};
 use husky_fluffy_term::FluffyTermBase;
+use husky_sema_expr::{SemaExprIdx, SemaExprRegion};
 use husky_syn_expr::{SynExprIdx, SynExprRegion, SynExprRegionData, SynStmtIdx};
 use salsa::DebugWithDb;
 
 pub struct HirLazyExprBuilder<'a> {
     db: &'a dyn HirLazyExprDb,
     syn_expr_region_data: &'a SynExprRegionData,
-    expr_ty_region: &'a ExprTypeRegion,
+    expr_ty_region: &'a SemaExprRegion,
     expr_arena: HirLazyExprArena,
     stmt_arena: HirLazyStmtArena,
     pattern_expr_arena: HirLazyPatternExprArena,
@@ -64,32 +64,11 @@ impl<'a> HirLazyExprBuilder<'a> {
         format!("{:?}", self.syn_expr_region_data.path().debug(self.db))
     }
 
-    #[track_caller]
-    pub(crate) fn expr_disambiguation(
-        &self,
-        syn_expr_idx: SynExprIdx,
-    ) -> &'a SynExprDisambiguation {
-        let Some(Ok(disambiguation)) = self.expr_ty_region.expr_disambiguation(syn_expr_idx) else {
-            unreachable!(
-                r#"
-    syn_expr = {:?},
-    path = {:?},
-    self.expr_ty_region.expr_disambiguation(syn_expr_idx) = {:#?}"#,
-                self.syn_expr_region_data[syn_expr_idx].debug(self.db),
-                self.path(),
-                self.expr_ty_region
-                    .expr_disambiguation(syn_expr_idx)
-                    .debug(self.db)
-            )
-        };
-        disambiguation
-    }
-
-    pub(crate) fn expr_term(&self, syn_expr_idx: SynExprIdx) -> EtherealTerm {
+    pub(crate) fn expr_term(&self, sema_expr_idx: SemaExprIdx) -> EtherealTerm {
         // ad hoc
         match self
             .expr_ty_region
-            .expr_fluffy_term(syn_expr_idx)
+            .expr_fluffy_term(sema_expr_idx)
             .expect("hir stage some")
             .expect("hir stage ok")
             .base_resolved_inner(self.expr_ty_region.fluffy_term_region().terms())

@@ -6,11 +6,11 @@ pub use self::html::*;
 
 use crate::*;
 use husky_entity_path::PrincipalEntityPath;
-use husky_expr_ty::{
+use husky_opr::{BinaryOpr, PrefixOpr, SuffixOpr};
+use husky_sema_expr::{
     ApplicationOrFunctionCallExprDisambiguation, IndexOrComposeWithListExprDisambiguation,
     MethodCallOrApplicationDisambiguation, SynExprDisambiguation,
 };
-use husky_opr::{BinaryOpr, PrefixOpr, SuffixOpr};
 use husky_syn_expr::{IdentifiableEntityPathExpr, SynExprData, SynExprIdx};
 use husky_term_prelude::{RitchieKind, TermLiteral};
 use salsa::debug::ExpectWithDb;

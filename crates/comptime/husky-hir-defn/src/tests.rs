@@ -12,11 +12,11 @@ use husky_entity_path::{EntityPathJar, MajorItemPath, TypePath};
 use husky_entity_syn_tree::{helpers::paths::module_item_paths, EntitySynTreeDb, EntitySynTreeJar};
 use husky_ethereal_signature::EtherealSignatureJar;
 use husky_ethereal_term::EtherealTermJar;
-use husky_expr_ty::ExprTypeJar;
 use husky_fluffy_term::FluffyTermJar;
 use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;
 use husky_print_utils::p;
+use husky_sema_expr::SemaExprJar;
 use husky_syn_decl::{SynDeclDb, SynDeclJar};
 use husky_syn_defn::SynDefnJar;
 use husky_syn_expr::SynExprJar;
@@ -49,7 +49,7 @@ use husky_toml_token::TomlTokenJar;
     EtherealTermJar,
     EtherealSignatureJar,
     FluffyTermJar,
-    ExprTypeJar,
+    SemaExprJar,
     husky_hir_ty::db::HirTypeJar,
     husky_hir_eager_expr::db::HirEagerExprJar,
     husky_hir_lazy_expr::db::HirLazyExprJar,

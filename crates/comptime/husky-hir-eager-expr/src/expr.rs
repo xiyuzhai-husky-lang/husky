@@ -6,11 +6,8 @@ pub use self::html::*;
 
 use crate::*;
 use husky_ethereal_term::EtherealTerm;
-use husky_expr_ty::{
-    ApplicationOrFunctionCallExprDisambiguation, IndexOrComposeWithListExprDisambiguation,
-    MethodCallOrApplicationDisambiguation, RitchieParameterArgumentMatch, SynExprDisambiguation,
-};
 use husky_fluffy_term::StaticDispatch;
+use husky_sema_expr::{RitchieParameterArgumentMatch, SemaExprData, SemaExprIdx};
 use husky_syn_expr::{IdentifiableEntityPathExpr, SynExprData, SynExprIdx, SynStmtIdx};
 use salsa::debug::ExpectWithDb;
 use vec_like::VecMap;
@@ -52,25 +49,25 @@ pub enum HirEagerExpr {
     },
     Prefix {
         opr: PrefixOpr,
-        opd: HirEagerExprIdx,
+        opd_hir_expr_idx: HirEagerExprIdx,
     },
     Suffix {
-        opd: HirEagerExprIdx,
+        opd_hir_expr_idx: HirEagerExprIdx,
         opr: SuffixOpr,
     },
     FnCall {
-        function: HirEagerExprIdx,
-        generic_arguments: Option<HirEagerGenericArgumentList>,
+        function_hir_expr_idx: HirEagerExprIdx,
+        template_arguments: Option<HirEagerGenericArgumentList>,
         item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
     },
     Field {
-        owner: HirEagerExprIdx,
+        owner_hir_expr_idx: HirEagerExprIdx,
         ident: Ident,
     },
     MethodCall {
         self_argument: HirEagerExprIdx,
         ident: Ident,
-        generic_arguments: Option<HirEagerGenericArgumentList>,
+        template_arguments: Option<HirEagerGenericArgumentList>,
         item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
     },
     NewTuple {
@@ -78,7 +75,7 @@ pub enum HirEagerExpr {
         items: SmallVec<[HirEagerExprIdx; 4]>,
     },
     Index {
-        owner: HirEagerExprIdx,
+        owner_hir_expr_idx: HirEagerExprIdx,
         items: SmallVec<[HirEagerExprIdx; 4]>,
     },
     List {
@@ -102,16 +99,16 @@ pub struct HirEagerGenericArgumentList {/*todo */}
 #[cfg(feature = "rust-syn-gen")]
 impl Expr {}
 
-impl ToHirEager for SynExprIdx {
+impl ToHirEager for SemaExprIdx {
     type Output = HirEagerExprIdx;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
-        let hir_eager_expr = match builder.syn_expr_region_data()[*self] {
-            SynExprData::Literal(_, _) => HirEagerExpr::Literal(match builder.expr_term(*self) {
+        let hir_eager_expr = match self.data(builder.sema_expr_arena_ref()) {
+            SemaExprData::Literal(_, _) => HirEagerExpr::Literal(match builder.expr_term(*self) {
                 EtherealTerm::Literal(lit) => lit,
                 _ => unreachable!(),
             }),
-            SynExprData::PrincipalEntityPath {
+            SemaExprData::PrincipalEntityPath {
                 path_expr_idx,
                 opt_path,
             } => {
@@ -119,234 +116,178 @@ impl ToHirEager for SynExprIdx {
                 // ad hoc
                 HirEagerExpr::PrincipalEntityPath(path)
             }
-            SynExprData::AssociatedItem {
+            SemaExprData::AssociatedItem {
                 parent_expr_idx,
                 parent_path,
                 colon_colon_regional_token,
                 ident_token,
-            } => {
-                let SynExprDisambiguation::StaticDispatch(dispatch) =
-                    builder.expr_disambiguation(*self)
-                else {
-                    unreachable!()
-                };
-                match dispatch {
-                    StaticDispatch::AssociatedFn(_) => HirEagerExpr::AssociatedFn,
-                }
-            }
-            SynExprData::InheritedSymbol {
+                static_dispatch,
+            } => match static_dispatch {
+                StaticDispatch::AssociatedFn(_) => HirEagerExpr::AssociatedFn,
+            },
+            SemaExprData::InheritedSymbol {
                 ident,
                 regional_token_idx,
                 inherited_symbol_idx,
                 inherited_symbol_kind,
-            } => HirEagerExpr::InheritedSymbol { ident },
-            SynExprData::CurrentSymbol {
+            } => HirEagerExpr::InheritedSymbol { ident: *ident },
+            SemaExprData::CurrentSymbol {
                 ident,
                 regional_token_idx,
                 current_symbol_idx,
                 current_symbol_kind,
-            } => HirEagerExpr::CurrentSymbol { ident },
-            SynExprData::FrameVarDecl {
+            } => HirEagerExpr::CurrentSymbol { ident: *ident },
+            SemaExprData::FrameVarDecl {
                 regional_token_idx,
                 ident,
                 frame_var_symbol_idx,
                 current_symbol_kind,
             } => todo!(),
-            SynExprData::SelfType(_) => HirEagerExpr::SelfType,
-            SynExprData::SelfValue(_) => HirEagerExpr::SelfValue,
-            SynExprData::Binary {
+            SemaExprData::SelfType(_) => HirEagerExpr::SelfType,
+            SemaExprData::SelfValue(_) => HirEagerExpr::SelfValue,
+            SemaExprData::Binary {
                 lopd,
                 opr,
                 opr_regional_token_idx,
                 ropd,
             } => HirEagerExpr::Binary {
                 lopd: lopd.to_hir_eager(builder),
-                opr,
+                opr: *opr,
                 ropd: ropd.to_hir_eager(builder),
             },
-            SynExprData::Be {
+            SemaExprData::Be {
                 src,
                 be_regional_token_idx,
                 ref target,
             } => HirEagerExpr::Be {
                 src: src.to_hir_eager(builder),
-                target: target
-                    .as_ref()
-                    .expect_with_db(builder.db(), "hir stage no errors")
-                    .to_hir_eager(builder),
+                target: target.to_hir_eager(builder),
             },
-            SynExprData::Prefix {
+            SemaExprData::Prefix {
                 opr,
                 opr_regional_token_idx,
-                opd,
+                opd_sema_expr_idx,
             } => HirEagerExpr::Prefix {
-                opr,
-                opd: opd.to_hir_eager(builder),
+                opr: todo!(),
+                opd_hir_expr_idx: opd_sema_expr_idx.to_hir_eager(builder),
             },
-            SynExprData::Suffix {
-                opd,
+            SemaExprData::Suffix {
+                opd_sema_expr_idx,
                 opr,
                 opr_regional_token_idx,
             } => HirEagerExpr::Suffix {
                 opr,
-                opd: opd.to_hir_eager(builder),
+                opd_hir_expr_idx: opd_sema_expr_idx.to_hir_eager(builder),
             },
-            SynExprData::FunctionApplicationOrCall {
-                function,
-                template_arguments: ref generic_arguments,
+            SemaExprData::Application {
+                function_sema_expr_idx,
+                argument_sema_expr_idx,
+            } => todo!(),
+            SemaExprData::FnCall {
+                function_sema_expr_idx,
+                template_arguments,
                 lpar_regional_token_idx,
-                ref items,
+                ritchie_parameter_argument_matches,
                 rpar_regional_token_idx,
-            } => {
-                let SynExprDisambiguation::ApplicationOrFunctionCall(disambiguation) =
-                    builder.expr_disambiguation(*self)
-                else {
-                    unreachable!()
-                };
-                match disambiguation {
-                    ApplicationOrFunctionCallExprDisambiguation::Application => {
-                        todo!()
-                    }
-                    ApplicationOrFunctionCallExprDisambiguation::FnCall {
-                        ritchie_parameter_argument_matches,
-                    } => HirEagerExpr::FnCall {
-                        function: function.to_hir_eager(builder),
-                        generic_arguments: generic_arguments.as_ref().map(|_| todo!()),
-                        item_groups: builder
-                            .new_call_list_item_groups(ritchie_parameter_argument_matches),
-                    },
-                    ApplicationOrFunctionCallExprDisambiguation::GnCall {
-                        ritchie_parameter_argument_matches,
-                    } => unreachable!(),
-                }
-            }
-            SynExprData::Ritchie {
+            } => HirEagerExpr::FnCall {
+                function_hir_expr_idx: function_sema_expr_idx.to_hir_eager(builder),
+                template_arguments: template_arguments.as_ref().map(|_| todo!()),
+                item_groups: builder.new_call_list_item_groups(ritchie_parameter_argument_matches),
+            },
+            SemaExprData::GnCall { .. } => unreachable!(),
+            SemaExprData::Ritchie {
                 ritchie_kind_regional_token_idx,
                 ritchie_kind,
                 lpar_token,
                 ref parameter_ty_items,
                 rpar_regional_token_idx,
                 light_arrow_token,
-                return_ty_syn_expr_idx: return_ty_expr,
+                return_ty_sema_expr_idx,
             } => todo!(),
-            SynExprData::FunctionCall {
-                function,
-                ref generic_arguments,
-                lpar_regional_token_idx,
-                ref items,
-                rpar_regional_token_idx,
-            } => todo!(),
-            SynExprData::Field {
-                owner,
+            SemaExprData::Field {
+                owner_sema_expr_idx,
                 dot_regional_token_idx,
                 ident_token,
+                field_dispatch,
             } => HirEagerExpr::Field {
-                owner: owner.to_hir_eager(builder),
+                owner_hir_expr_idx: owner_sema_expr_idx.to_hir_eager(builder),
                 ident: ident_token.ident(),
             },
-            SynExprData::MethodApplicationOrCall {
-                self_argument,
-                dot_regional_token_idx,
+            SemaExprData::MethodApplication { .. } => todo!(),
+            SemaExprData::MethodFnCall {
+                self_argument_sema_expr_idx,
                 ident_token,
-                template_arguments: ref generic_arguments,
+                template_arguments,
                 lpar_regional_token_idx,
-                ref items,
+                ritchie_parameter_argument_matches,
                 rpar_regional_token_idx,
-            } => {
-                // todo: method application should be ignored
-                let SynExprDisambiguation::MethodCallOrApplication(disambiguation) =
-                    builder.expr_disambiguation(*self)
-                else {
-                    unreachable!()
-                };
-                match disambiguation {
-                    MethodCallOrApplicationDisambiguation::MethodCall {
-                        method_dispatch,
-                        ritchie_parameter_argument_matches,
-                    } => {
-                        let ritchie_parameter_argument_matches = ritchie_parameter_argument_matches
-                            .as_ref()
-                            .expect("hir stage no errors");
-                        HirEagerExpr::MethodCall {
-                            self_argument: self_argument.to_hir_eager(builder),
-                            ident: ident_token.ident(),
-                            generic_arguments: generic_arguments.as_ref().map(|_| todo!()),
-                            item_groups: builder
-                                .new_call_list_item_groups(ritchie_parameter_argument_matches),
-                        }
-                    }
-                }
+                ..
+            } => HirEagerExpr::MethodCall {
+                self_argument: self_argument_sema_expr_idx.to_hir_eager(builder),
+                ident: ident_token.ident(),
+                template_arguments: template_arguments.as_ref().map(|_| todo!()),
+                item_groups: builder.new_call_list_item_groups(ritchie_parameter_argument_matches),
+            },
+            SemaExprData::MethodGnCall { .. } => {
+                todo!()
             }
-            SynExprData::TemplateInstantiation {
+            SemaExprData::TemplateInstantiation {
                 template,
-                ref generic_arguments,
+                ref template_arguments,
             } => todo!(),
-            SynExprData::ExplicitApplication {
-                function_expr_idx,
-                argument_expr_idx,
-            } => todo!(),
-            SynExprData::At {
+            SemaExprData::At {
                 at_regional_token_idx,
                 place_label_regional_token,
             } => todo!(),
-            SynExprData::Unit {
+            SemaExprData::Unit {
                 lpar_regional_token_idx,
                 rpar_regional_token_idx,
             } => todo!(),
-            SynExprData::Bracketed {
+            SemaExprData::Bracketed {
                 lpar_regional_token_idx,
                 item,
                 rpar_regional_token_idx,
             } => return item.to_hir_eager(builder),
-            SynExprData::NewTuple {
+            SemaExprData::NewTuple {
                 lpar_regional_token_idx,
                 ref items,
                 rpar_regional_token_idx,
             } => todo!(),
-            SynExprData::IndexOrCompositionWithList {
-                owner,
+            SemaExprData::Index {
+                owner_sema_expr_idx,
                 lbox_regional_token_idx,
-                ref items,
+                indices,
                 ..
-            } => {
-                let SynExprDisambiguation::IndexOrComposeWithList(disambiguation) =
-                    builder.expr_disambiguation(*self)
-                else {
-                    unreachable!()
-                };
-                match disambiguation {
-                    IndexOrComposeWithListExprDisambiguation::Index(_) => HirEagerExpr::Index {
-                        owner: owner.to_hir_eager(builder),
-                        items: items
-                            .iter()
-                            .map(|item| item.expr_idx().to_hir_eager(builder))
-                            .collect(),
-                    },
-                    IndexOrComposeWithListExprDisambiguation::ComposeWithList => {
-                        todo!()
-                    }
-                }
+            } => HirEagerExpr::Index {
+                owner_hir_expr_idx: owner_sema_expr_idx.to_hir_eager(builder),
+                items: indices
+                    .iter()
+                    .map(|item| item.sema_expr_idx().to_hir_eager(builder))
+                    .collect(),
+            },
+            SemaExprData::CompositionWithList { .. } => {
+                todo!()
             }
-            SynExprData::List {
+            SemaExprData::List {
                 lbox_regional_token_idx,
                 ref items,
                 rbox_regional_token_idx,
             } => HirEagerExpr::List {
                 items: items
                     .iter()
-                    .map(|item| item.expr_idx().to_hir_eager(builder))
+                    .map(|item| item.sema_expr_idx().to_hir_eager(builder))
                     .collect(),
             },
-            SynExprData::BoxColonList {
+            SemaExprData::BoxColonList {
                 lbox_regional_token_idx,
                 colon_regional_token_idx,
                 ref items,
                 rbox_regional_token_idx,
             } => todo!(),
-            SynExprData::Block { stmts } => HirEagerExpr::Block {
+            SemaExprData::Block { stmts } => HirEagerExpr::Block {
                 stmts: stmts.to_hir_eager(builder),
             },
-            SynExprData::EmptyHtmlTag {
+            SemaExprData::EmptyHtmlTag {
                 empty_html_bra_idx,
                 function_ident,
                 ref arguments,
@@ -361,10 +302,10 @@ impl ToHirEager for SynExprIdx {
                     )
                 },
             },
-            SynExprData::Sorry { regional_token_idx } => todo!(),
-            SynExprData::Todo { regional_token_idx } => HirEagerExpr::Todo,
-            SynExprData::Unreachable { regional_token_idx } => todo!(),
-            SynExprData::Err(ref e) => {
+            SemaExprData::Sorry { regional_token_idx } => todo!(),
+            SemaExprData::Todo { regional_token_idx } => HirEagerExpr::Todo,
+            SemaExprData::Unreachable { regional_token_idx } => todo!(),
+            SemaExprData::Err(ref e) => {
                 unreachable!(
                     "e = {:?}, path = {:?}",
                     e.debug(builder.db()),

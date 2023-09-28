@@ -128,6 +128,7 @@ impl<'a> ExprTypeEngine<'a> {
                         parent_path,
                         colon_colon_regional_token,
                         ident_token,
+                        static_dispatch,
                     });
                 (data_result, ty_result)
             }
