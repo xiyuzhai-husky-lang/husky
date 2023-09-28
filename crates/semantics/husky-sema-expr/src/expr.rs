@@ -277,6 +277,10 @@ impl SemaExprArena {
     pub(crate) fn arena_ref(&self) -> SemaExprArenaRef {
         self.0.arena_ref()
     }
+
+    pub(crate) fn index_iter(&self) -> impl Iterator<Item = SemaExprIdx> {
+        self.0.index_iter().map(SemaExprIdx)
+    }
 }
 
 pub type SemaExprArenaRef<'a> = ArenaRef<'a, SemaExprEntry>;

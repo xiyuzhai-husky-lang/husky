@@ -47,7 +47,7 @@ impl<'a> ExprTypeEngine<'a> {
         SemaExprDataResult<SemaStmtData>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
-        match self.expr_region_data[stmt_idx] {
+        match self.syn_expr_region_data[stmt_idx] {
             SynStmtData::Let {
                 let_token,
                 ref let_variables_pattern,
@@ -143,7 +143,7 @@ impl<'a> ExprTypeEngine<'a> {
                 if let Some(expected_frame_var_ty) = expected_frame_var_ty {
                     let place = Place::ImmutableStackOwned {
                         location: frame_var_symbol_idx
-                            .into_local_symbol_idx(self.expr_region_data)
+                            .into_local_symbol_idx(self.syn_expr_region_data)
                             .into(),
                     };
                     let frame_var_symbol_ty =

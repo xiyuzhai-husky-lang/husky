@@ -2,7 +2,7 @@ use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
     pub(crate) fn path(&self) -> salsa::DebugWith<'a, dyn SemaExprDb + 'a> {
-        self.expr_region_data.path_ref().debug(self.db)
+        self.syn_expr_region_data.path_ref().debug(self.db)
     }
 
     pub(crate) fn debug<'b>(

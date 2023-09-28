@@ -105,7 +105,7 @@ impl<'a> ExprTypeEngine<'a> {
         SemaExprDataResult<SemaExprData>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
-        match self.expr_region_data[expr_idx] {
+        match self.syn_expr_region_data[expr_idx] {
             SynExprData::Literal(literal_token_idx, literal_data) => (
                 Ok(SemaExprData::Literal(literal_token_idx, literal_data)),
                 self.calc_literal_expr_ty(expr_idx, literal_token_idx, expr_ty_expectation),

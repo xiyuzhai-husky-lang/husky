@@ -10,13 +10,14 @@ impl<'a> ExprTypeEngine<'a> {
         argument: SynExprIdx,
     ) -> SemaExprTermResult<FluffyTerm> {
         // todo: implicit arguments
-        let function = self
-            .infer_expr_term(function)
-            .ok_or(DerivedExprTermError::ExplicitApplicationFunctionTermNotInferred)?;
-        let argument = self
-            .infer_expr_term(argument)
-            .ok_or(DerivedExprTermError::ExplicitApplicationArgumentTermNotInferred)?;
-        FluffyTerm::new_application(self, expr_idx, function, argument)
-            .map_err(|e| DerivedExprTermError::ExplicitApplicationTerm(e).into())
+        todo!()
+        // let function = self
+        //     .infer_expr_term(function)
+        //     .ok_or(DerivedExprTermError::ExplicitApplicationFunctionTermNotInferred)?;
+        // let argument = self
+        //     .infer_expr_term(argument)
+        //     .ok_or(DerivedExprTermError::ExplicitApplicationArgumentTermNotInferred)?;
+        // FluffyTerm::new_application(self, expr_idx, function, argument)
+        //     .map_err(|e| DerivedExprTermError::ExplicitApplicationTerm(e).into())
     }
 }

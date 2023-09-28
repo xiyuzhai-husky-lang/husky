@@ -176,7 +176,7 @@ impl ToHirEager for SemaExprIdx {
                 opr,
                 opr_regional_token_idx,
             } => HirEagerExpr::Suffix {
-                opr,
+                opr: todo!(),
                 opd_hir_expr_idx: opd_sema_expr_idx.to_hir_eager(builder),
             },
             SemaExprData::Application {
@@ -312,6 +312,20 @@ impl ToHirEager for SemaExprIdx {
                     builder.path()
                 )
             }
+            SemaExprData::ListFunctor {
+                lbox_regional_token_idx,
+                rbox_regional_token_idx,
+            } => todo!(),
+            SemaExprData::ArrayFunctor {
+                lbox_regional_token_idx,
+                items,
+                rbox_regional_token_idx,
+            } => todo!(),
+            SemaExprData::NewList {
+                lbox_regional_token_idx,
+                items,
+                rbox_regional_token_idx,
+            } => todo!(),
         };
         builder.alloc_expr(*self, hir_eager_expr)
     }

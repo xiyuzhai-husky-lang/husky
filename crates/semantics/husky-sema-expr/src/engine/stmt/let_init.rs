@@ -12,11 +12,11 @@ impl<'a> ExprTypeEngine<'a> {
         let annotated_pattern_ty = match let_variable_obelisks {
             Ok(pattern) => match pattern.ty() {
                 Some(ty) => {
-                    self.build_new_expr_ty_discarded(
+                    let ty_sema_expr_idx = self.build_new_expr_ty_discarded(
                         ty,
                         ExpectEqsCategory::new_expect_eqs_ty_kind(),
                     );
-                    self.infer_expr_term(ty)
+                    self.infer_expr_term(ty_sema_expr_idx)
                 }
                 None => None,
             },
@@ -27,7 +27,7 @@ impl<'a> ExprTypeEngine<'a> {
         };
         let (initial_value_sema_expr_idx, pattern_ty) = match annotated_pattern_ty {
             Some(pattern_ty) => {
-                let contract = self.expr_region_data.pattern_contract(
+                let contract = self.syn_expr_region_data.pattern_contract(
                     let_variable_obelisks
                         .as_ref()
                         .expect("must be okay")

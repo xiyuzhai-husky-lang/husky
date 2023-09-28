@@ -3,7 +3,7 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn infer_current_parameter_symbols(&mut self) {
         for current_symbol_idx in self
-            .expr_region_data
+            .syn_expr_region_data
             .symbol_region()
             .current_symbol_index_iter()
         {

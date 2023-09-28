@@ -1,4 +1,5 @@
 use husky_print_utils::p;
+use vec_like::VecPairMap;
 
 use crate::*;
 
@@ -9,7 +10,7 @@ pub struct SemaExprRegion {
     sema_expr_arena: SemaExprArena,
     pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
-    expr_fluffy_terms: SemaExprMap<SemaExprTermResult<FluffyTerm>>,
+    expr_fluffy_terms: VecPairMap<SemaExprIdx, SemaExprTermResult<FluffyTerm>>,
     symbol_tys: SymbolMap<SymbolType>,
     symbol_terms: SymbolMap<FluffyTerm>,
     fluffy_term_region: FluffyTermRegion,
@@ -24,7 +25,7 @@ impl SemaExprRegion {
         sema_expr_arena: SemaExprArena,
         pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
         pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
-        expr_fluffy_terms: SemaExprMap<SemaExprTermResult<FluffyTerm>>,
+        expr_fluffy_terms: VecPairMap<SemaExprIdx, SemaExprTermResult<FluffyTerm>>,
         symbol_terms: SymbolMap<FluffyTerm>,
         symbol_tys: SymbolMap<SymbolType>,
         fluffy_term_region: FluffyTermRegion,
@@ -49,7 +50,7 @@ impl SemaExprRegion {
         self.path
     }
 
-    pub fn expr_fluffy_terms(&self) -> &SemaExprMap<SemaExprTermResult<FluffyTerm>> {
+    pub fn expr_fluffy_terms(&self) -> &[(SemaExprIdx, SemaExprTermResult<FluffyTerm>)] {
         &self.expr_fluffy_terms
     }
 
@@ -57,7 +58,8 @@ impl SemaExprRegion {
         &self,
         sema_expr_idx: SemaExprIdx,
     ) -> Option<SemaExprTermResultRef<FluffyTerm>> {
-        Some(self.expr_fluffy_terms.get(sema_expr_idx)?.as_ref().copied())
+        todo!()
+        // Some(self.expr_fluffy_terms.get(sema_expr_idx)?.as_ref().copied())
     }
 
     pub fn symbol_terms(&self) -> &SymbolMap<FluffyTerm> {

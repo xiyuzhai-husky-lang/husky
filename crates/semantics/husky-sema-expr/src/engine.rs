@@ -23,18 +23,19 @@ use husky_regional_token::{RegionalTokenIdx, RegionalTokensData};
 use husky_token_data::{IntegerLikeLiteralData, LiteralData, TokenData};
 use husky_vfs::Toolchain;
 use husky_vfs::VfsPathMenu;
+use vec_like::VecPairMap;
 
 pub(crate) struct ExprTypeEngine<'a> {
     db: &'a dyn SemaExprDb,
     toolchain: Toolchain,
     item_path_menu: &'a ItemPathMenu,
     term_menu: &'a EtherealTermMenu,
-    expr_region_data: &'a SynExprRegionData,
+    syn_expr_region_data: &'a SynExprRegionData,
     regional_tokens_data: RegionalTokensData<'a>,
     declarative_term_region: &'a DeclarativeTermRegion,
     sema_expr_arena: SemaExprArena,
     fluffy_term_region: FluffyTermRegion,
-    expr_terms: SynExprMap<SemaExprTermResult<FluffyTerm>>,
+    sema_expr_term_results: VecPairMap<SemaExprIdx, SemaExprTermResult<FluffyTerm>>,
     symbol_terms: SymbolMap<FluffyTerm>,
     symbol_tys: SymbolMap<SymbolType>,
     pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
@@ -59,7 +60,7 @@ impl<'a> FluffyTermEngine<'a> for ExprTypeEngine<'a> {
     }
 
     fn expr_region_data(&self) -> &'a SynExprRegionData {
-        self.expr_region_data
+        self.syn_expr_region_data
     }
 
     fn item_path_menu(&self) -> &'a ItemPathMenu {
@@ -79,7 +80,7 @@ impl<'a> std::ops::Index<SynExprIdx> for ExprTypeEngine<'a> {
     type Output = SynExprData;
 
     fn index(&self, index: SynExprIdx) -> &Self::Output {
-        &self.expr_region_data[index]
+        &self.syn_expr_region_data[index]
     }
 }
 
@@ -138,13 +139,14 @@ impl<'a> ExprTypeEngine<'a> {
             toolchain,
             item_path_menu: db.item_path_menu(toolchain),
             term_menu: db.ethereal_term_menu(toolchain),
-            expr_region_data,
+            syn_expr_region_data: expr_region_data,
             declarative_term_region: db.declarative_term_region(syn_expr_region),
             sema_expr_arena: Default::default(),
             fluffy_term_region: FluffyTermRegion::new(
                 parent_expr_ty_region.map(|r| r.fluffy_term_region()),
             ),
-            expr_terms: SynExprMap::new(expr_region_data.expr_arena()),
+            sema_expr_term_results: todo!(),
+            // SemaExprMap::new(expr_region_data.expr_arena()),
             symbol_terms: SymbolMap::new(
                 parent_expr_ty_region
                     .map(|parent_expr_ty_region| parent_expr_ty_region.symbol_terms()),
@@ -176,7 +178,7 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     fn infer_all_exprs(&mut self) {
-        for root in self.expr_region_data.roots() {
+        for root in self.syn_expr_region_data.roots() {
             let sema_expr_idx = match root.kind() {
                 ExprRootKind::SelfType
                 | ExprRootKind::ReturnType
@@ -201,6 +203,7 @@ impl<'a> ExprTypeEngine<'a> {
                 },
                 ExprRootKind::FieldBindInitialValue { ty_expr_idx }
                 | ExprRootKind::ExplicitParameterDefaultValue { ty_expr_idx } => {
+                    let ty_expr_idx = todo!();
                     match self.infer_expr_term(ty_expr_idx) {
                         Some(ty) => self.build_new_expr_ty_discarded(
                             root.expr_idx(),
@@ -239,11 +242,11 @@ impl<'a> ExprTypeEngine<'a> {
         self.infer_extra_expr_terms_in_preparation_for_hir();
         SemaExprRegion::new(
             self.db,
-            self.expr_region_data.path(),
+            self.syn_expr_region_data.path(),
             self.sema_expr_arena,
             self.pattern_expr_ty_infos,
             self.pattern_symbol_ty_infos,
-            self.expr_terms,
+            self.sema_expr_term_results,
             self.symbol_terms,
             self.symbol_tys,
             self.fluffy_term_region,
@@ -257,7 +260,7 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     pub(crate) fn expr_region_data(&self) -> &SynExprRegionData {
-        self.expr_region_data
+        self.syn_expr_region_data
     }
 
     pub(crate) fn item_path_menu(&self) -> &ItemPathMenu {

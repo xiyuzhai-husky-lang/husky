@@ -35,8 +35,8 @@ impl<'a> ExprTypeEngine<'a> {
                 let (opd_sema_expr_idx, opd_ty) =
                     self.build_new_expr_ty(opd_syn_expr_idx, ExpectAnyOriginal);
                 let Some(opd_ty) = opd_ty else {
-                    p!(self.expr_region_data.path().debug(self.db));
-                    p!(self.expr_region_data[opd_syn_expr_idx].debug(self.db));
+                    p!(self.syn_expr_region_data.path().debug(self.db));
+                    p!(self.syn_expr_region_data[opd_syn_expr_idx].debug(self.db));
                     todo!()
                 };
                 let reduced_opd_ty: FluffyTerm = match opd_ty.base_ty_data(self) {

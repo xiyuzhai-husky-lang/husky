@@ -72,10 +72,12 @@ impl<'a> ExprTypeEngine<'a> {
         parameter_variable: Option<FluffyTerm>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
-        argument_expr_idx: SynExprIdx,
+        argument_syn_expr_idx: SynExprIdx,
     ) -> (SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
-        let (argument_sema_expr_idx, argument_ty) =
-            self.build_new_expr_ty(argument_expr_idx, ExpectCurryDestination::new(parameter_ty));
+        let (argument_sema_expr_idx, argument_ty) = self.build_new_expr_ty(
+            argument_syn_expr_idx,
+            ExpectCurryDestination::new(parameter_ty),
+        );
         let Some(argument_ty) = argument_ty else {
             return (
                 argument_sema_expr_idx,
@@ -87,7 +89,7 @@ impl<'a> ExprTypeEngine<'a> {
         // needs also to check type
         let ty_result = match shift {
             0 => match parameter_variable {
-                Some(parameter_variable) => match self.infer_expr_term(argument_expr_idx) {
+                Some(parameter_variable) => match self.infer_expr_term(argument_sema_expr_idx) {
                     Some(argument_term) => Ok(return_ty.substitute_variable(
                         self,
                         syn_expr_idx.into(),

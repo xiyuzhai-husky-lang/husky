@@ -106,7 +106,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> (SemaExprIdx, SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
         let ropd_sema_expr_idx =
             self.build_new_expr_ty_discarded(ropd, ExpectEqsCategory::new_any_sort());
-        let Some(ropd_term) = self.infer_expr_term(ropd) else {
+        let Some(ropd_term) = self.infer_expr_term(ropd_sema_expr_idx) else {
             let lopd_sema_expr_idx = self.build_new_expr_ty_discarded(lopd, ExpectAnyDerived);
             return (
                 lopd_sema_expr_idx,
