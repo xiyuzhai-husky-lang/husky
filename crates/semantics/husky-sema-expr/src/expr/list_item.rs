@@ -17,7 +17,7 @@ impl SemaCommaListItem {
         }
     }
 
-    pub fn expr_idx(self) -> SemaExprIdx {
+    pub fn sema_expr_idx(self) -> SemaExprIdx {
         self.expr_idx
     }
 

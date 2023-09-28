@@ -55,7 +55,7 @@ husky-toml-token = { path = "../../lex/husky-toml-token" }
 husky-text = { path = "../../lex/husky-text", features = ["lsp_support"] }
 # semantics
 husky-manifest = { path = "../../semantics/husky-manifest" }
-husky-expr-ty = { path = "../../semantics/husky-expr-ty" }
+husky-sema-expr = { path = "../../semantics/husky-sema-expr" }
 husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }

@@ -1,5 +1,5 @@
 use super::*;
-use husky_expr_ty::RitchieParameterArgumentMatch;
+use husky_sema_expr::RitchieParameterArgumentMatch;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]

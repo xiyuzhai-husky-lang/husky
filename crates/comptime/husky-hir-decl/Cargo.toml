@@ -43,7 +43,7 @@ husky-declarative-ty = { path = "../../kernel/husky-declarative-ty" }
 husky-declarative-signature = { path = "../../kernel/husky-declarative-signature" }
 husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
 # semantics
-husky-expr-ty = { path = "../../semantics/husky-expr-ty" }
+husky-sema-expr = { path = "../../semantics/husky-sema-expr" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }
 husky-toml-ast = { path = "../../syntax/husky-toml-ast" }

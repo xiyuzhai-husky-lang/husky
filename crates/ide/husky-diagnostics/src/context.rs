@@ -4,11 +4,11 @@ use husky_entity_syn_tree::{
     helpers::tokra_region::{HasDeclTokraRegion, HasSynDefnTokraRegion},
     RegionPath,
 };
-use husky_expr_ty::*;
 use husky_fluffy_term::FluffyTermRegion;
 use husky_regional_token::{
     RegionalTokenIdx, RegionalTokenIdxBase, RegionalTokenIdxRange, RegionalTokenStreamState,
 };
+use husky_sema_expr::*;
 use husky_syn_expr::{ExprRangeRegion, SynExprIdx, SynExprRegion, SynExprRegionData};
 use husky_token::{TokenGroupIdx, TokenIdx, TokenIdxRange, TokenStreamState};
 
@@ -84,7 +84,7 @@ pub(crate) struct RegionDiagnosticsContext<'a> {
     token_sheet_data: &'a TokenSheetData,
     ranged_token_sheet: &'a RangedTokenSheet,
     syn_expr_region_data: &'a SynExprRegionData,
-    expr_ty_region: &'a ExprTypeRegion,
+    expr_ty_region: &'a SemaExprRegion,
     expr_range_region: &'a ExprRangeRegion,
     regional_token_idx_base: RegionalTokenIdxBase,
 }
@@ -125,7 +125,7 @@ impl<'a> RegionDiagnosticsContext<'a> {
         self.ranged_token_sheet
     }
 
-    pub(crate) fn expr_ty_region(&self) -> &ExprTypeRegion {
+    pub(crate) fn expr_ty_region(&self) -> &SemaExprRegion {
         self.expr_ty_region
     }
 

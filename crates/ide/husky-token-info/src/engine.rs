@@ -12,8 +12,8 @@ use husky_entity_syn_tree::{
     ParentUseExpr,
 };
 use husky_entity_taxonomy::EntityKind;
-use husky_expr_ty::{
-    ExprTypeRegion, IndexOrComposeWithListExprDisambiguation, SynExprDisambiguation,
+use husky_sema_expr::{
+    IndexOrComposeWithListExprDisambiguation, SemaExprRegion, SynExprDisambiguation,
 };
 use husky_syn_expr::*;
 
@@ -249,7 +249,7 @@ struct DeclTokenInfoEngine<'a, 'b> {
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     expr_region_data: &'a SynExprRegionData,
-    expr_ty_region: &'a ExprTypeRegion,
+    expr_ty_region: &'a SemaExprRegion,
     sheet: &'b mut TokenInfoSheet,
     syn_expr_region: ExprRegionLeash,
     regional_token_idx_base: RegionalTokenIdxBase,

@@ -13,7 +13,7 @@ reserve = { path = "../../abstraction/reserve" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # infer
-husky-expr-ty = { path = "../../semantics/husky-expr-ty" }
+husky-sema-expr = { path = "../../semantics/husky-sema-expr" }
 # kernel
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }

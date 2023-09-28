@@ -13,7 +13,7 @@ use husky_regional_token::{
     StmtForRegionalToken, WhileRegionalToken,
 };
 use husky_token_data::TokenDataResult;
-use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
+use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 
 use crate::*;
 
@@ -111,10 +111,39 @@ impl SemaStmtEntry {
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaStmtArena(Arena<SemaStmtEntry>);
 
+pub struct SemaStmtArenaRef<'a>(ArenaRef<'a, SemaStmtEntry>);
+
 impl SemaStmtArena {}
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct SemaStmtIdx(ArenaIdx<SemaStmtEntry>);
 
-pub type SemaStmtIdxRange = ArenaIdxRange<SemaStmtEntry>;
+impl SemaStmtIdx {
+    pub fn data<'a>(self, arena_ref: SemaStmtArenaRef<'a>) -> &'a SemaStmtData {
+        todo!()
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct SemaStmtIdxRange(ArenaIdxRange<SemaStmtEntry>);
+
+impl SemaStmtIdxRange {
+    pub fn iter(&self) -> impl Iterator<Item = SemaStmtIdx> {
+        self.0.into_iter().map(SemaStmtIdx)
+    }
+}
+
+impl IntoIterator for &SemaStmtIdxRange {
+    type Item = SemaStmtIdx;
+
+    type IntoIter = std::iter::Map<
+        <ArenaIdxRange<stmt::SemaStmtEntry> as IntoIterator>::IntoIter,
+        fn(ArenaIdx<SemaStmtEntry>) -> SemaStmtIdx,
+    >;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.0.into_iter().map(SemaStmtIdx)
+    }
+}
+
 pub type SemaStmtMap<V> = ArenaMap<SemaStmtEntry, V>;

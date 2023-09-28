@@ -35,6 +35,7 @@ pub enum SemaExprData {
         parent_path: MajorItemPath,
         colon_colon_regional_token: ColonColonRegionalToken,
         ident_token: IdentRegionalToken,
+        static_dispatch: StaticDispatch,
     },
     InheritedSymbol {
         ident: Ident,
@@ -91,7 +92,7 @@ pub enum SemaExprData {
     },
     GnCall {
         function: SemaExprIdx,
-        generic_arguments: Option<SemaTemplateArgumentList>,
+        template_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
         ritchie_parameter_argument_matches: RitchieParameterArgumentMatches,
         rpar_regional_token_idx: RegionalTokenIdx,
@@ -133,6 +134,16 @@ pub enum SemaExprData {
         ritchie_parameter_argument_matches: RitchieParameterArgumentMatches,
         rpar_regional_token_idx: RegionalTokenIdx,
     },
+    MethodGnCall {
+        self_argument_sema_expr_idx: SemaExprIdx,
+        dot_regional_token_idx: RegionalTokenIdx,
+        ident_token: IdentRegionalToken,
+        method_dynamic_dispatch: FluffyTermMethodDynamicDispatch,
+        template_arguments: Option<SemaTemplateArgumentList>,
+        lpar_regional_token_idx: RegionalTokenIdx,
+        ritchie_parameter_argument_matches: RitchieParameterArgumentMatches,
+        rpar_regional_token_idx: RegionalTokenIdx,
+    },
     TemplateInstantiation {
         template: SemaExprIdx,
         template_arguments: SemaTemplateArgumentList,
@@ -161,7 +172,7 @@ pub enum SemaExprData {
     /// - application `$owner [$items]` where `$owner` is of type `List _ -> S`
     /// the cases are determined by whether `$owner` is of curry type
     Index {
-        owner: SemaExprIdx,
+        owner_sema_expr_idx: SemaExprIdx,
         lbox_regional_token_idx: RegionalTokenIdx,
         indices: SmallVec<[SemaCommaListItem; 4]>,
         rbox_regional_token_idx: RegionalTokenIdx,

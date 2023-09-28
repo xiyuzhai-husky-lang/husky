@@ -55,5 +55,5 @@ husky-corgi-config-ast = { path = "../../syntax/husky-corgi-config-ast" }
 # infer
 husky-manifest = { path = "../../semantics/husky-manifest" }
 husky-declarative-signature = { path = "../../kernel/husky-declarative-signature" }
-husky-expr-ty = { path = "../../semantics/husky-expr-ty" }
+husky-sema-expr = { path = "../../semantics/husky-sema-expr" }
 husky-corgi-config = { path = "../../semantics/husky-corgi-config" }

@@ -9,7 +9,7 @@ salsa = { path = "../../abstraction/salsa" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # infer
-husky-expr-ty = { path = "../../semantics/husky-expr-ty" }
+husky-sema-expr = { path = "../../semantics/husky-sema-expr" }
 # kernel
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }

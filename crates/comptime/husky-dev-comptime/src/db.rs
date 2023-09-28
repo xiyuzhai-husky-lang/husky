@@ -30,7 +30,7 @@ use std::panic::RefUnwindSafe;
     husky_syn_decl::SynDeclJar,
     husky_syn_defn::SynDefnJar,
     // semantics
-    husky_expr_ty::ExprTypeJar,
+    husky_sema_expr::SemaExprJar,
     husky_corgi_config::CorgiConfigJar,
     husky_manifest::ManifestJar
 )]
