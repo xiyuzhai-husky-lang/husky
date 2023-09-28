@@ -114,12 +114,9 @@ impl ToHirLazy for SemaExprIdx {
             }
             SemaExprData::PrincipalEntityPath {
                 path_expr_idx,
-                opt_path,
-            } => {
-                let path = opt_path.expect("whatever");
-                // ad hoc
-                HirLazyExpr::PrincipalEntityPath(path)
-            }
+                path,
+                ty_path_disambiguation,
+            } => HirLazyExpr::PrincipalEntityPath(*path),
             SemaExprData::AssociatedItem {
                 parent_expr_idx,
                 parent_path,

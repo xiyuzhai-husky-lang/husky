@@ -273,7 +273,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 | ExprRootKind::ExplicitParameterDefaultValue { .. }
                 | ExprRootKind::AssociatedTypeTerm => (),
                 ExprRootKind::SelfType => {
-                    let self_ty_term = self.infer_new_expr_term(expr_root.expr_idx()).ok();
+                    let self_ty_term = self.infer_new_expr_term(expr_root.syn_expr_idx()).ok();
                     self.symbol_declarative_term_region
                         .set_self_ty_term(self_ty_term);
                     continue;
@@ -293,7 +293,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 // ad hoc
                 ExprRootKind::Traits => (),
             }
-            self.cache_new_expr_term(expr_root.expr_idx())
+            self.cache_new_expr_term(expr_root.syn_expr_idx())
         }
     }
 
@@ -507,7 +507,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 };
                 let items = items
                     .into_iter()
-                    .map(|item| self.infer_new_expr_term(item.expr_idx()))
+                    .map(|item| self.infer_new_expr_term(item.syn_expr_idx()))
                     .collect::<DeclarativeTermResult2<_>>()?;
                 Ok(DeclarativeTermExplicitApplicationOrRitchieCall::new(
                     self.db,
@@ -538,7 +538,7 @@ impl<'a> DeclarativeTermEngine<'a> {
             SynExprData::List { ref items, .. } => {
                 let items = items
                     .iter()
-                    .map(|item| self.infer_new_expr_term(item.expr_idx()))
+                    .map(|item| self.infer_new_expr_term(item.syn_expr_idx()))
                     .collect::<DeclarativeTermResult2<Vec<_>>>()?;
                 Ok(DeclarativeTermList::new(
                     self.db,
@@ -591,7 +591,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                         Ok(DeclarativeTermRitchieRegularParameter::new(
                             // todo: handle &mut !!
                             Contract::None,
-                            self.infer_new_expr_term(parameter_ty_item.expr_idx())?,
+                            self.infer_new_expr_term(parameter_ty_item.syn_expr_idx())?,
                         )
                         .into())
                     })

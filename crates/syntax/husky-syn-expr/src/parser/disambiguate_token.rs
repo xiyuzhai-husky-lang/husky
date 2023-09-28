@@ -74,7 +74,7 @@ where
                         ..
                     }
                     | IncompleteSynExpr::CallList { .. },
-                ) => match self.try_parse_err_as_none::<RegionalEqToken>() {
+                ) => match self.try_parse_err_as_none::<EqRegionalToken>() {
                     Some(eq_token) => DisambiguatedTokenData::IncompleteKeywordArgument {
                         regional_token_idx,
                         ident,
@@ -595,7 +595,7 @@ pub(crate) enum DisambiguatedTokenData {
     IncompleteKeywordArgument {
         regional_token_idx: RegionalTokenIdx,
         ident: Ident,
-        eq_token: RegionalEqToken,
+        eq_token: EqRegionalToken,
     },
     At(RegionalTokenIdx),
 }

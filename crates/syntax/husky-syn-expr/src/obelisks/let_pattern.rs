@@ -3,7 +3,7 @@ use parsec::HasStreamState;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = EntitySynTreeDb)]
+// #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct LetPatternSynObelisk {
     syn_pattern_root: SynPatternRoot,
     variables: SynCurrentSymbolIdxRange,
@@ -68,11 +68,15 @@ impl LetPatternSynObelisk {
         self.syn_pattern_root
     }
 
-    pub fn ty(&self) -> Option<SynExprIdx> {
+    pub fn variables(&self) -> SynCurrentSymbolIdxRange {
+        self.variables
+    }
+
+    pub fn ty_syn_expr_idx(&self) -> Option<SynExprIdx> {
         self.ty
     }
 
-    pub fn variables(&self) -> SynCurrentSymbolIdxRange {
-        self.variables
+    pub fn colon_token(&self) -> SynExprResultRef<Option<ColonRegionalToken>> {
+        self.colon_token.as_ref().copied()
     }
 }

@@ -1,7 +1,7 @@
 use super::*;
 use husky_sema_opr::suffix::SemaSuffixOpr;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_compose_with_option_expr_ty(
         &mut self,
         opd: SynExprIdx,

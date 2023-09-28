@@ -2,7 +2,7 @@ pub use self::matcher::*;
 
 use super::*;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_ritchie_arguments_ty(
         &mut self,
         expr_idx: SynExprIdx,
@@ -40,10 +40,7 @@ impl<'a> ExprTypeEngine<'a> {
             Err(match_error) => {
                 let ritchie_arguments = ritchie_arguments
                     .map(|ritchie_argument| {
-                        self.build_new_expr_ty_discarded(
-                            ritchie_argument.argument_expr_idx(),
-                            ExpectAnyDerived,
-                        )
+                        self.build_sema_expr(ritchie_argument.argument_expr_idx(), ExpectAnyDerived)
                     })
                     .collect();
                 Err(

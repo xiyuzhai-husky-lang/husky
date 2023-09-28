@@ -45,8 +45,8 @@ impl ToHirLazy for SemaStmtIdx {
         Some(match self.data(todo!()) {
             SemaStmtData::Let {
                 let_token,
-                let_variables_pattern,
-                initial_value,
+                let_pattern_sema_obelisk: let_variables_pattern,
+                initial_value_sema_expr_idx: initial_value,
                 ..
             } => HirLazyStmt::Let {
                 pattern: builder.new_let_variables_pattern(
@@ -73,7 +73,7 @@ impl ToHirLazy for SemaStmtIdx {
                 condition: condition.to_hir_lazy(builder),
             },
             SemaStmtData::Eval {
-                expr_idx,
+                sema_expr_idx: expr_idx,
                 eol_semicolon,
             } => HirLazyStmt::Eval {
                 expr_idx: expr_idx.to_hir_lazy(builder),

@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_function_application_expr_ty(
         &mut self,
         expr_idx: SynExprIdx,
@@ -11,13 +11,13 @@ impl<'a> ExprTypeEngine<'a> {
         SemaExprDataResult<SemaExprData>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
-        let (function_sema_expr_idx, function_ty_outcome) = self.build_new_sema_expr_with_outcome(
+        let (function_sema_expr_idx, function_ty_outcome) = self.build_sema_expr_with_outcome(
             function_syn_expr_idx,
             ExpectEqsFunctionType::new(final_destination),
         );
         let Some(function_ty_outcome) = function_ty_outcome else {
             let argument_sema_expr_idx =
-                self.build_new_expr_ty_discarded(argument_syn_expr_idx, ExpectAnyDerived);
+                self.build_sema_expr(argument_syn_expr_idx, ExpectAnyDerived);
             return (
                 Ok(SemaExprData::Application {
                     function_sema_expr_idx,
@@ -52,7 +52,7 @@ impl<'a> ExprTypeEngine<'a> {
             }
             ExpectEqsFunctionTypeOutcomeVariant::Ritchie { .. } => {
                 let argument_sema_expr_idx =
-                    self.build_new_expr_ty_discarded(argument_syn_expr_idx, ExpectAnyDerived);
+                    self.build_sema_expr(argument_syn_expr_idx, ExpectAnyDerived);
                 (
                     Ok(SemaExprData::Application {
                         function_sema_expr_idx,
@@ -74,7 +74,7 @@ impl<'a> ExprTypeEngine<'a> {
         return_ty: FluffyTerm,
         argument_syn_expr_idx: SynExprIdx,
     ) -> (SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
-        let (argument_sema_expr_idx, argument_ty) = self.build_new_expr_ty(
+        let (argument_sema_expr_idx, argument_ty) = self.build_sema_expr_with_its_ty_returned(
             argument_syn_expr_idx,
             ExpectCurryDestination::new(parameter_ty),
         );

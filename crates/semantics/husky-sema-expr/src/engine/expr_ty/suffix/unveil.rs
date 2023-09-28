@@ -7,7 +7,7 @@ use husky_ethereal_signature::{
 };
 use maybe_result::*;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_unveil_expr_ty(
         &mut self,
         opd_syn_expr_idx: SynExprIdx,
@@ -22,7 +22,7 @@ impl<'a> ExprTypeEngine<'a> {
                 unveil_output_ty,
                 ..
             } => {
-                let opd_sema_expr_idx = self.build_new_expr_ty_discarded(
+                let opd_sema_expr_idx = self.build_sema_expr(
                     opd_syn_expr_idx,
                     ExpectCoersion::new(Contract::Move, opd_ty.into()),
                 );
@@ -33,7 +33,7 @@ impl<'a> ExprTypeEngine<'a> {
             }
             Unveiler::UniquePartiallyInstanted { template } => {
                 let (opd_sema_expr_idx, opd_ty) =
-                    self.build_new_expr_ty(opd_syn_expr_idx, ExpectAnyOriginal);
+                    self.build_sema_expr_with_its_ty_returned(opd_syn_expr_idx, ExpectAnyOriginal);
                 let Some(opd_ty) = opd_ty else {
                     p!(self.syn_expr_region_data.path().debug(self.db));
                     p!(self.syn_expr_region_data[opd_syn_expr_idx].debug(self.db));

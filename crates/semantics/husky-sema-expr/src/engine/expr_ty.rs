@@ -26,75 +26,68 @@ pub(crate) enum ExprTypeResolveProgress<E: ExpectFluffyTerm> {
     ResolvedErr,
 }
 
-impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn build_new_expr_ty<E: ExpectFluffyTerm>(
+impl<'a> SemaExprEngine<'a> {
+    pub(super) fn build_sema_expr_with_its_ty_returned<E: ExpectFluffyTerm>(
         &mut self,
         expr_idx: SynExprIdx,
         expr_ty_expectation: E,
     ) -> (SemaExprIdx, Option<FluffyTerm>) {
-        todo!()
-        // self.infer_new_expr_ty_aux(expr_idx, expr_ty_expectation);
-        // self.expr_ty_infos[expr_idx].ty().ok()
+        let (sema_expr_idx, _) = self.build_sema_expr_aux(expr_idx, expr_ty_expectation);
+        (sema_expr_idx, self.sema_expr_arena[sema_expr_idx].ty())
     }
 
     /// infer the type of a new expression but don't need the result for now
-    pub(super) fn build_new_expr_ty_discarded<E: ExpectFluffyTerm>(
+    pub(crate) fn build_sema_expr<E: ExpectFluffyTerm>(
         &mut self,
         expr_idx: SynExprIdx,
         expr_ty_expectation: E,
     ) -> SemaExprIdx {
-        todo!();
-        // self.infer_new_expr_ty_aux(expr_idx, expr_ty_expectation);
+        let (sema_expr_idx, _) = self.build_sema_expr_aux(expr_idx, expr_ty_expectation);
+        sema_expr_idx
     }
 
     #[inline(always)]
-    pub(super) fn build_new_sema_expr_with_outcome<E: ExpectFluffyTerm>(
+    pub(super) fn build_sema_expr_with_outcome<E: ExpectFluffyTerm>(
         &mut self,
-        expr_idx: SynExprIdx,
+        syn_expr_idx: SynExprIdx,
         expr_ty_expectation: E,
     ) -> (SemaExprIdx, Option<E::Outcome>)
     where
         E::Outcome: Clone,
     {
-        todo!()
-        // let expectation_idx = self.infer_new_expr_ty_aux(expr_idx, expr_ty_expectation);
-        // self.fluffy_term_region
-        //     .resolve_as_much_as_possible(self.db());
-        // let outcome = match expectation_idx {
-        //     Some(expectation_idx) => self.fluffy_term_region[expectation_idx]
-        //         .resolve_progress()
-        //         .outcome::<E>()
-        //         .cloned(),
-        //     None => None,
-        // };
-        // outcome
+        let (sema_expr_idx, expectation_idx) =
+            self.build_sema_expr_aux(syn_expr_idx, expr_ty_expectation);
+        self.fluffy_term_region
+            .resolve_as_much_as_possible(self.db());
+        let outcome = match expectation_idx {
+            Some(expectation_idx) => self.fluffy_term_region[expectation_idx]
+                .resolve_progress()
+                .outcome::<E>()
+                .cloned(),
+            None => None,
+        };
+        (sema_expr_idx, outcome)
     }
 
     #[inline(always)]
-    fn infer_new_expr_ty_aux<E: ExpectFluffyTerm>(
+    fn build_sema_expr_aux<E: ExpectFluffyTerm>(
         &mut self,
         expr_idx: SynExprIdx,
         expr_ty_expectation: E,
-    ) -> Option<FluffyTermExpectationIdx> {
-        todo!()
-        // let ty_result = self.calc_expr_ty(expr_idx, &expr_ty_expectation);
-        // let expectation_idx = match ty_result {
-        //     Ok((_, Ok(ty))) => self.fluffy_term_region.add_expectation(
-        //         ExpectationSource::new_expr(expr_idx),
-        //         ty,
-        //         expr_ty_expectation,
-        //     ),
-        //     _ => Default::default(),
-        // };
-        // self.save_new_expr_ty(expr_idx, ExprTypeInfo::new(ty_result, expectation_idx));
-        // self.fluffy_term_region
-        //     .resolve_as_much_as_possible(self.db());
-        // expectation_idx
-    }
-
-    fn save_new_expr_ty(&mut self, expr_idx: SynExprIdx) {
-        todo!()
-        // self.expr_ty_infos.insert_new(expr_idx, info)
+    ) -> (SemaExprIdx, Option<FluffyTermExpectationIdx>) {
+        let (data_result, ty_result) = self.calc_expr_ty(expr_idx, &expr_ty_expectation);
+        let expectation_idx = match ty_result {
+            Ok(ty) => self.fluffy_term_region.add_expectation(
+                ExpectationSource::new_expr(expr_idx),
+                ty,
+                expr_ty_expectation,
+            ),
+            _ => None,
+        };
+        let sema_expr_idx = self.sema_expr_arena.alloc_one(data_result, ty_result);
+        self.fluffy_term_region
+            .resolve_as_much_as_possible(self.db());
+        (sema_expr_idx, expectation_idx)
     }
 
     fn calc_expr_ty(
@@ -113,7 +106,30 @@ impl<'a> ExprTypeEngine<'a> {
             SynExprData::PrincipalEntityPath {
                 path_expr_idx,
                 opt_path,
-            } => self.calc_principal_item_path_expr_ty(opt_path, expr_ty_expectation),
+            } => match opt_path {
+                Some(path) => {
+                    let ty_path_disambiguation = expr_ty_expectation.disambiguate_ty_path(self);
+                    let ty_result = self.calc_principal_item_path_expr_ty(
+                        path,
+                        expr_ty_expectation,
+                        ty_path_disambiguation,
+                    );
+                    (
+                        Ok(SemaExprData::PrincipalEntityPath {
+                            path_expr_idx,
+                            path,
+                            ty_path_disambiguation,
+                        }),
+                        ty_result,
+                    )
+                }
+                None => {
+                    // let Some(path) = path else {
+                    //     Err(DerivedSemaExprTypeError::EntityPathError)?
+                    // };
+                    todo!()
+                }
+            },
             SynExprData::AssociatedItem {
                 parent_expr_idx,
                 parent_path,
@@ -213,7 +229,8 @@ impl<'a> ExprTypeEngine<'a> {
                 be_regional_token_idx,
                 ref target,
             } => {
-                let (src, src_ty) = self.build_new_expr_ty(src, ExpectAnyOriginal);
+                let (src, src_ty) =
+                    self.build_sema_expr_with_its_ty_returned(src, ExpectAnyOriginal);
                 match src_ty {
                     Some(src_ty) => match target {
                         Ok(target) => self.infer_pattern_and_symbols_ty(
@@ -350,7 +367,7 @@ impl<'a> ExprTypeEngine<'a> {
                 rpar_regional_token_idx,
             } => {
                 let (item, infer_new_expr_ty) =
-                    self.build_new_expr_ty(item, expr_ty_expectation.clone());
+                    self.build_sema_expr_with_its_ty_returned(item, expr_ty_expectation.clone());
                 (
                     Ok(SemaExprData::Bracketed {
                         lpar_regional_token_idx,
@@ -482,8 +499,8 @@ impl<'a> ExprTypeEngine<'a> {
                             None => self.new_hole(expr_idx, HoleKind::Any).into(),
                         };
                         for item in items {
-                            self.build_new_expr_ty_discarded(
-                                item.expr_idx(),
+                            self.build_sema_expr(
+                                item.syn_expr_idx(),
                                 ExpectCoersion::new_move(element_ty),
                             );
                         }
@@ -504,13 +521,18 @@ impl<'a> ExprTypeEngine<'a> {
                     }
                 }
             }
-            SynExprData::BoxColonList { ref items, .. } => match items.len() {
+            SynExprData::BoxColonList {
+                lbox_regional_token_idx,
+                colon_regional_token_idx,
+                rbox_regional_token_idx,
+                ref items,
+            } => match items.len() {
                 0 => (
                     Ok(SemaExprData::BoxColonList {
-                        lbox_regional_token_idx: todo!(),
-                        colon_regional_token_idx: todo!(),
-                        items: todo!(),
-                        rbox_regional_token_idx: todo!(),
+                        lbox_regional_token_idx,
+                        colon_regional_token_idx,
+                        items: items.iter().map(|item| todo!()).collect(),
+                        rbox_regional_token_idx,
                     }),
                     Ok(self.term_menu.ex_co_ty0_to_ty0().into()),
                 ),
@@ -533,33 +555,33 @@ impl<'a> ExprTypeEngine<'a> {
                 Ok(self.term_menu.html_ty_ontology().into()),
             ),
             SynExprData::Ritchie {
-                ref parameter_ty_items,
-                return_ty_syn_expr_idx,
-                ritchie_kind_regional_token_idx,
                 ritchie_kind,
+                ritchie_kind_regional_token_idx,
                 lpar_token,
+                ref parameter_ty_items,
                 rpar_regional_token_idx,
                 light_arrow_token,
+                return_ty_syn_expr_idx,
             } => {
-                for parameter_ty in parameter_ty_items {
-                    self.build_new_expr_ty_discarded(
-                        parameter_ty.expr_idx(),
-                        self.expect_ty0_subtype(),
-                    );
-                }
-                let return_ty_sema_expr_idx =
-                    return_ty_syn_expr_idx.map(|return_ty_syn_expr_idx| {
-                        self.build_new_expr_ty_discarded(
-                            return_ty_syn_expr_idx,
+                let parameter_ty_items = parameter_ty_items
+                    .iter()
+                    .map(|&syn_comma_list_item| {
+                        self.build_sema_comma_list_item(
+                            syn_comma_list_item,
                             self.expect_ty0_subtype(),
                         )
+                    })
+                    .collect();
+                let return_ty_sema_expr_idx =
+                    return_ty_syn_expr_idx.map(|return_ty_syn_expr_idx| {
+                        self.build_sema_expr(return_ty_syn_expr_idx, self.expect_ty0_subtype())
                     });
                 (
                     Ok(SemaExprData::Ritchie {
                         ritchie_kind_regional_token_idx,
                         ritchie_kind,
                         lpar_token,
-                        parameter_ty_items: todo!(),
+                        parameter_ty_items,
                         rpar_regional_token_idx,
                         light_arrow_token,
                         return_ty_sema_expr_idx,

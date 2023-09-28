@@ -1,7 +1,7 @@
 use super::*;
 use husky_regional_token::IdentRegionalToken;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_field_expr_ty(
         &mut self,
         owner: SynExprIdx,
@@ -11,7 +11,8 @@ impl<'a> ExprTypeEngine<'a> {
         SemaExprDataResult<SemaExprData>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
-        let (owner_sema_expr_idx, owner_ty) = self.build_new_expr_ty(owner, ExpectAnyOriginal);
+        let (owner_sema_expr_idx, owner_ty) =
+            self.build_sema_expr_with_its_ty_returned(owner, ExpectAnyOriginal);
         let Some(owner_ty) = owner_ty else {
             return (
                 Err(DerivedSemaExprDataError::FieldOwnerTypeNotInferred {

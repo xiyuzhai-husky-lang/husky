@@ -69,7 +69,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
                         OriginalSynExprError::ExpectedValueForFieldBindInitialization,
                     ),
                 })
-            } else if let Some(_) = ctx.try_parse_option::<RegionalEqToken>()? {
+            } else if let Some(_) = ctx.try_parse_option::<EqRegionalToken>()? {
                 todo!()
             } else {
                 None

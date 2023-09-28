@@ -2,23 +2,27 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SemaCommaListItem {
-    expr_idx: SemaExprIdx,
+    sema_expr_idx: SemaExprIdx,
     comma_regional_token_idx: Option<RegionalTokenIdx>,
 }
 
-impl SemaCommaListItem {
-    pub(crate) fn new(
-        expr_idx: SemaExprIdx,
-        comma_regional_token_idx: Option<RegionalTokenIdx>,
-    ) -> Self {
-        Self {
-            expr_idx,
-            comma_regional_token_idx,
+impl<'a> SemaExprEngine<'a> {
+    pub(crate) fn build_sema_comma_list_item<E: ExpectFluffyTerm>(
+        &mut self,
+        syn_comma_list_item: SynCommaListItem,
+        expr_ty_expectation: E,
+    ) -> SemaCommaListItem {
+        SemaCommaListItem {
+            sema_expr_idx: self
+                .build_sema_expr(syn_comma_list_item.syn_expr_idx(), expr_ty_expectation),
+            comma_regional_token_idx: syn_comma_list_item.comma_regional_token_idx(),
         }
     }
+}
 
+impl SemaCommaListItem {
     pub fn sema_expr_idx(self) -> SemaExprIdx {
-        self.expr_idx
+        self.sema_expr_idx
     }
 
     pub fn comma_regional_token_idx(self) -> Option<RegionalTokenIdx> {

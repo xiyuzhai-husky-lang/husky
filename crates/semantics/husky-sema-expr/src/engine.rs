@@ -25,7 +25,7 @@ use husky_vfs::Toolchain;
 use husky_vfs::VfsPathMenu;
 use vec_like::VecPairMap;
 
-pub(crate) struct ExprTypeEngine<'a> {
+pub(crate) struct SemaExprEngine<'a> {
     db: &'a dyn SemaExprDb,
     toolchain: Toolchain,
     item_path_menu: &'a ItemPathMenu,
@@ -34,6 +34,8 @@ pub(crate) struct ExprTypeEngine<'a> {
     regional_tokens_data: RegionalTokensData<'a>,
     declarative_term_region: &'a DeclarativeTermRegion,
     sema_expr_arena: SemaExprArena,
+    sema_stmt_arena: SemaStmtArena,
+    syn_expr_root_sema_expr_idx_table: VecPairMap<SynExprIdx, SemaExprIdx>,
     fluffy_term_region: FluffyTermRegion,
     sema_expr_term_results: VecPairMap<SemaExprIdx, SemaExprTermResult<FluffyTerm>>,
     symbol_terms: SymbolMap<FluffyTerm>,
@@ -47,7 +49,7 @@ pub(crate) struct ExprTypeEngine<'a> {
     trai_in_use_items_table: EntityTreeResultRef<'a, TraitInUseItemsTable<'a>>,
 }
 
-impl<'a> FluffyTermEngine<'a> for ExprTypeEngine<'a> {
+impl<'a> FluffyTermEngine<'a> for SemaExprEngine<'a> {
     fn db(&self) -> &'a dyn FluffyTermDb {
         self.db
     }
@@ -76,7 +78,7 @@ impl<'a> FluffyTermEngine<'a> for ExprTypeEngine<'a> {
     }
 }
 
-impl<'a> std::ops::Index<SynExprIdx> for ExprTypeEngine<'a> {
+impl<'a> std::ops::Index<SynExprIdx> for SemaExprEngine<'a> {
     type Output = SynExprData;
 
     fn index(&self, index: SynExprIdx) -> &Self::Output {
@@ -84,7 +86,7 @@ impl<'a> std::ops::Index<SynExprIdx> for ExprTypeEngine<'a> {
     }
 }
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     pub(crate) fn new(db: &'a dyn SemaExprDb, syn_expr_region: SynExprRegion) -> Self {
         let expr_region_data = syn_expr_region.data(db);
         // todo: improve this
@@ -141,12 +143,13 @@ impl<'a> ExprTypeEngine<'a> {
             term_menu: db.ethereal_term_menu(toolchain),
             syn_expr_region_data: expr_region_data,
             declarative_term_region: db.declarative_term_region(syn_expr_region),
-            sema_expr_arena: Default::default(),
+            sema_expr_arena: SemaExprArena::default(),
+            sema_stmt_arena: SemaStmtArena::default(),
+            syn_expr_root_sema_expr_idx_table: Default::default(),
             fluffy_term_region: FluffyTermRegion::new(
                 parent_expr_ty_region.map(|r| r.fluffy_term_region()),
             ),
-            sema_expr_term_results: todo!(),
-            // SemaExprMap::new(expr_region_data.expr_arena()),
+            sema_expr_term_results: Default::default(),
             symbol_terms: SymbolMap::new(
                 parent_expr_ty_region
                     .map(|parent_expr_ty_region| parent_expr_ty_region.symbol_terms()),
@@ -187,28 +190,25 @@ impl<'a> ExprTypeEngine<'a> {
                 | ExprRootKind::TupleStructFieldType
                 | ExprRootKind::ConstantImplicitParameterType
                 | ExprRootKind::ExplicitParameterType
-                | ExprRootKind::AssociatedTypeTerm => self.build_new_expr_ty_discarded(
-                    root.expr_idx(),
+                | ExprRootKind::AssociatedTypeTerm => self.build_sema_expr(
+                    root.syn_expr_idx(),
                     ExpectEqsCategory::new_expect_eqs_ty_kind(),
                 ),
-                ExprRootKind::Trait => {
-                    self.build_new_expr_ty_discarded(root.expr_idx(), ExpectAnyOriginal)
-                }
+                ExprRootKind::Trait => self.build_sema_expr(root.syn_expr_idx(), ExpectAnyOriginal),
                 ExprRootKind::BlockExpr => match self.return_ty {
-                    Some(return_ty) => self.build_new_expr_ty_discarded(
-                        root.expr_idx(),
+                    Some(return_ty) => self.build_sema_expr(
+                        root.syn_expr_idx(),
                         ExpectCoersion::new_move(return_ty.into()),
                     ),
-                    None => self.build_new_expr_ty_discarded(root.expr_idx(), ExpectAnyDerived),
+                    None => self.build_sema_expr(root.syn_expr_idx(), ExpectAnyDerived),
                 },
                 ExprRootKind::FieldBindInitialValue { ty_expr_idx }
                 | ExprRootKind::ExplicitParameterDefaultValue { ty_expr_idx } => {
                     let ty_expr_idx = todo!();
                     match self.infer_expr_term(ty_expr_idx) {
-                        Some(ty) => self.build_new_expr_ty_discarded(
-                            root.expr_idx(),
-                            ExpectCoersion::new_move(ty),
-                        ),
+                        Some(ty) => {
+                            self.build_sema_expr(root.syn_expr_idx(), ExpectCoersion::new_move(ty))
+                        }
                         _ => todo!(),
                     }
                 }
@@ -227,7 +227,9 @@ impl<'a> ExprTypeEngine<'a> {
                 // todo!(),
                 ExprRootKind::ValExpr => todo!(),
             };
-            todo!()
+            self.syn_expr_root_sema_expr_idx_table
+                .insert_new((root.syn_expr_idx(), sema_expr_idx))
+                .expect("impossible")
         }
     }
 
@@ -244,6 +246,8 @@ impl<'a> ExprTypeEngine<'a> {
             self.db,
             self.syn_expr_region_data.path(),
             self.sema_expr_arena,
+            self.sema_stmt_arena,
+            self.syn_expr_root_sema_expr_idx_table,
             self.pattern_expr_ty_infos,
             self.pattern_symbol_ty_infos,
             self.sema_expr_term_results,

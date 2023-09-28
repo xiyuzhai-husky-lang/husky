@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     pub(super) fn get_current_symbol_ty(
         &mut self,
         expr_idx: SynExprIdx,

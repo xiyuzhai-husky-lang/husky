@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_list_expr_term(
         &mut self,
         expr_idx: SynExprIdx,

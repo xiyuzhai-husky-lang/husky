@@ -6,7 +6,7 @@ use husky_token_data::{BoolLiteralData, FloatLiteralData};
 
 use super::*;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     /// perform this during finish stage
     pub(super) fn infer_expr_term(&mut self, sema_expr_idx: SemaExprIdx) -> Option<FluffyTerm> {
         if let Some(term_result) = self.sema_expr_term_results.get_value(sema_expr_idx) {
@@ -20,8 +20,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     /// clear all holes before using this
     pub(super) fn infer_extra_expr_terms_in_preparation_for_hir(&mut self) {
-        for syn_expr_idx in self.sema_expr_arena.index_iter() {
-            let sema_expr_idx = todo!();
+        for sema_expr_idx in self.sema_expr_arena.index_iter() {
             self.infer_extra_expr_term_in_preparation_for_hir(sema_expr_idx)
         }
     }
@@ -31,14 +30,14 @@ impl<'a> ExprTypeEngine<'a> {
         if let Some(_) = self.sema_expr_term_results.get_value(sema_expr_idx) {
             return;
         }
-        todo!()
-        // match self.syn_expr_region_data[sema_expr_idx] {
-        //     SynExprData::Literal(_, _) => (),
-        //     _ => return,
-        // }
-        // let term_result = self.calc_expr_term(sema_expr_idx);
-        // let term = term_result.as_ref().ok().copied();
-        // self.save_new_expr_term(sema_expr_idx, term_result)
+        // ad hoc
+        match sema_expr_idx.data(self.sema_expr_arena.arena_ref()) {
+            SemaExprData::Literal(_, _) => (),
+            _ => return,
+        }
+        let term_result = self.calc_expr_term(sema_expr_idx);
+        let term = term_result.as_ref().ok().copied();
+        self.save_new_expr_term(sema_expr_idx, term_result)
     }
 
     fn save_new_expr_term(

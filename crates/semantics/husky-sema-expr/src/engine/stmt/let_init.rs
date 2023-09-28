@@ -1,47 +1,54 @@
+use husky_regional_token::{EqRegionalToken, LetRegionalToken};
+
 use super::*;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_let_stmt(
         &mut self,
-        let_variable_obelisks: &SynExprResult<LetPatternSynObelisk>,
+        let_token: LetRegionalToken,
+        let_pattern_syn_obelisk: &'a SynExprResult<LetPatternSynObelisk>,
+        eq_token: &SynExprResult<EqRegionalToken>,
         initial_value: SynExprIdx,
     ) -> (
         SemaExprDataResult<SemaStmtData>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
-        let annotated_pattern_ty = match let_variable_obelisks {
-            Ok(pattern) => match pattern.ty() {
-                Some(ty) => {
-                    let ty_sema_expr_idx = self.build_new_expr_ty_discarded(
-                        ty,
-                        ExpectEqsCategory::new_expect_eqs_ty_kind(),
-                    );
-                    self.infer_expr_term(ty_sema_expr_idx)
+        let (let_pattern_sema_obelisk, annotated_pattern_ty) =
+            match let_pattern_syn_obelisk.as_ref() {
+                Ok(let_pattern_syn_obelisk) => {
+                    let let_pattern_sema_obelisk =
+                        match self.build_let_pattern_sema_obelisk(let_pattern_syn_obelisk) {
+                            Ok(let_pattern_sema_obelisk) => let_pattern_sema_obelisk,
+                            Err(_) => todo!(),
+                        };
+                    (
+                        let_pattern_sema_obelisk,
+                        match let_pattern_sema_obelisk.ty_sema_expr_idx() {
+                            Some(ty_sema_expr_idx) => self.infer_expr_term(ty_sema_expr_idx),
+                            None => None,
+                        },
+                    )
                 }
-                None => None,
-            },
-            Err(e) => {
-                p!(e.debug(self.db()));
-                todo!()
-            }
-        };
+                Err(e) => {
+                    p!(e.debug(self.db()));
+                    todo!()
+                }
+            };
         let (initial_value_sema_expr_idx, pattern_ty) = match annotated_pattern_ty {
             Some(pattern_ty) => {
                 let contract = self.syn_expr_region_data.pattern_contract(
-                    let_variable_obelisks
+                    let_pattern_syn_obelisk
                         .as_ref()
                         .expect("must be okay")
                         .syn_pattern_root()
                         .syn_pattern_expr_idx(),
                 );
-                let initial_value_sema_expr_idx = self.build_new_expr_ty_discarded(
-                    initial_value,
-                    ExpectCoersion::new(contract, pattern_ty),
-                );
+                let initial_value_sema_expr_idx =
+                    self.build_sema_expr(initial_value, ExpectCoersion::new(contract, pattern_ty));
                 (initial_value_sema_expr_idx, Some(pattern_ty))
             }
             None => {
-                self.build_new_expr_ty(
+                self.build_sema_expr_with_its_ty_returned(
                     initial_value,
                     // ad hoc
                     ExpectAnyOriginal,
@@ -51,7 +58,7 @@ impl<'a> ExprTypeEngine<'a> {
         let ty_result = match pattern_ty {
             Some(ty) if ty == self.term_menu.never().into() => Ok(self.term_menu.never().into()),
             Some(ty) => {
-                match let_variable_obelisks {
+                match let_pattern_syn_obelisk {
                     Ok(let_variables_pattern) => self.infer_pattern_and_symbols_ty(
                         let_variables_pattern.syn_pattern_root(),
                         ty,
@@ -63,6 +70,18 @@ impl<'a> ExprTypeEngine<'a> {
             }
             None => Ok(self.term_menu.unit_ty_ontology().into()),
         };
-        (todo!(), ty_result)
+        let eq_token = match eq_token {
+            Ok(eq_token) => *eq_token,
+            Err(_) => todo!(),
+        };
+        (
+            Ok(SemaStmtData::Let {
+                let_token,
+                let_pattern_sema_obelisk,
+                eq_token,
+                initial_value_sema_expr_idx,
+            }),
+            ty_result,
+        )
     }
 }

@@ -73,11 +73,11 @@ impl ToHirEager for SemaStmtIdx {
         Some(match self.data(builder.sema_stmt_arena_ref()) {
             SemaStmtData::Let {
                 let_token,
-                ref let_variables_pattern,
-                initial_value,
+                ref let_pattern_sema_obelisk,
+                initial_value_sema_expr_idx: initial_value,
                 ..
             } => HirEagerStmt::Let {
-                pattern: builder.new_let_variables_pattern(let_variables_pattern),
+                pattern: builder.new_let_variables_pattern(let_pattern_sema_obelisk),
                 initial_value: initial_value.to_hir_eager(builder),
             },
             SemaStmtData::Return {
@@ -100,7 +100,7 @@ impl ToHirEager for SemaStmtIdx {
             },
             SemaStmtData::Break { break_token } => HirEagerStmt::Break,
             SemaStmtData::Eval {
-                expr_idx,
+                sema_expr_idx: expr_idx,
                 eol_semicolon,
             } => HirEagerStmt::Eval {
                 expr_idx: expr_idx.to_hir_eager(builder),

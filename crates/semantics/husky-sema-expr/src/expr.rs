@@ -28,7 +28,8 @@ pub enum SemaExprData {
     Literal(RegionalTokenIdx, LiteralData),
     PrincipalEntityPath {
         path_expr_idx: SynPrincipalEntityPathExprIdx,
-        opt_path: Option<PrincipalEntityPath>,
+        path: PrincipalEntityPath,
+        ty_path_disambiguation: TypePathDisambiguation,
     },
     AssociatedItem {
         parent_expr_idx: SynPrincipalEntityPathExprIdx,
@@ -256,13 +257,31 @@ impl SemaExprEntry {
     pub fn ty_result(&self) -> SemaExprTypeResultRef<FluffyTerm> {
         self.ty_result.as_ref().copied()
     }
+
+    pub(crate) fn ty(&self) -> Option<FluffyTerm> {
+        self.ty_result.as_ref().ok().copied()
+    }
+
+    pub fn original_data_error(&self) -> Option<&OriginalSemaExprDataError> {
+        match self.data_result {
+            Err(SemaExprDataError::Original(ref e)) => Some(e),
+            _ => None,
+        }
+    }
+
+    pub fn original_ty_error(&self) -> Option<&OriginalSemaExprTypeError> {
+        match self.ty_result {
+            Err(SemaExprTypeError::Original(ref e)) => Some(e),
+            _ => None,
+        }
+    }
 }
 
 #[derive(Debug, Default, PartialEq, Eq)]
 pub struct SemaExprArena(Arena<SemaExprEntry>);
 
 impl SemaExprArena {
-    fn alloc_one(
+    pub(crate) fn alloc_one(
         &mut self,
         data_result: SemaExprDataResult<SemaExprData>,
         ty_result: SemaExprTypeResult<FluffyTerm>,
@@ -279,6 +298,14 @@ impl SemaExprArena {
 
     pub(crate) fn index_iter(&self) -> impl Iterator<Item = SemaExprIdx> {
         self.0.index_iter().map(SemaExprIdx)
+    }
+}
+
+impl std::ops::Index<SemaExprIdx> for SemaExprArena {
+    type Output = SemaExprEntry;
+
+    fn index(&self, idx: SemaExprIdx) -> &Self::Output {
+        &self.0[idx.0]
     }
 }
 

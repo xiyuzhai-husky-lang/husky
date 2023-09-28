@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     pub(crate) fn path(&self) -> salsa::DebugWith<'a, dyn SemaExprDb + 'a> {
         self.syn_expr_region_data.path_ref().debug(self.db)
     }

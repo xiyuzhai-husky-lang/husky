@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_binary_shift_expr_ty(
         &mut self,
         lopd: SynExprIdx,
@@ -9,7 +9,8 @@ impl<'a> ExprTypeEngine<'a> {
         menu: &EtherealTermMenu,
     ) -> (SemaExprIdx, SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
         // todo: don't use resolved
-        let (lopd_sema_expr_idx, lopd_ty) = self.build_new_expr_ty(lopd, ExpectAnyOriginal);
+        let (lopd_sema_expr_idx, lopd_ty) =
+            self.build_sema_expr_with_its_ty_returned(lopd, ExpectAnyOriginal);
         let Some(lopd_ty) = lopd_ty else {
             p!(self.path());
             p!(self.syn_expr_region_data[lopd].debug(self.db));
@@ -26,7 +27,7 @@ impl<'a> ExprTypeEngine<'a> {
                 }
                 _ => todo!(),
             }
-            let ropd_sema_expr_idx = self.build_new_expr_ty_discarded(ropd, ExpectAnyDerived);
+            let ropd_sema_expr_idx = self.build_sema_expr(ropd, ExpectAnyDerived);
             return (
                 lopd_sema_expr_idx,
                 ropd_sema_expr_idx,
@@ -39,7 +40,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             }
             | FluffyTermData::Hole(HoleKind::UnspecifiedIntegerType, _) => {
-                let ropd_sema_expr_idx = self.build_new_expr_ty_discarded(ropd, ExpectIntType);
+                let ropd_sema_expr_idx = self.build_sema_expr(ropd, ExpectIntType);
                 (lopd_sema_expr_idx, ropd_sema_expr_idx, Ok(lopd_ty))
             }
             FluffyTermData::Hole(HoleKind::UnspecifiedFloatType, _) => todo!(),

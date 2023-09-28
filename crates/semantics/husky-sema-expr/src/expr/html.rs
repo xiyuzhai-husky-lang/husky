@@ -1,4 +1,4 @@
-use husky_regional_token::{LcurlRegionalToken, RcurlRegionalToken, RegionalEqToken};
+use husky_regional_token::{EqRegionalToken, LcurlRegionalToken, RcurlRegionalToken};
 
 use super::*;
 
@@ -6,7 +6,7 @@ use super::*;
 pub enum SemaHtmlArgumentExpr {
     Expanded {
         property_ident: IdentRegionalToken,
-        eq: RegionalEqToken,
+        eq: EqRegionalToken,
         lcurl: LcurlRegionalToken,
         expr: SemaExprIdx,
         rcurl: RcurlRegionalToken,

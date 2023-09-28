@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     pub(super) fn infer_pattern_and_symbols_ty(
         &mut self,
         syn_pattern_root: SynPatternRoot,

@@ -2,7 +2,7 @@ use super::*;
 use husky_regional_token::RegionalTokenIdx;
 use husky_token_data::FloatLiteralData;
 
-impl<'a> ExprTypeEngine<'a> {
+impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_literal_expr_ty(
         &mut self,
         expr_idx: SynExprIdx,
