@@ -27,7 +27,7 @@ pub(crate) enum ExprTypeResolveProgress<E: ExpectFluffyTerm> {
 }
 
 impl<'a> SemaExprEngine<'a> {
-    pub(super) fn build_sema_expr_with_its_ty_returned<E: ExpectFluffyTerm>(
+    pub(crate) fn build_sema_expr_with_its_ty_returned<E: ExpectFluffyTerm>(
         &mut self,
         expr_idx: SynExprIdx,
         expr_ty_expectation: E,
