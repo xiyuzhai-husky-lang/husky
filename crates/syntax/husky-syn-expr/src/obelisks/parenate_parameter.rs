@@ -114,7 +114,9 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
                 } else {
                     Right(ctx.parse_expr_expected2(
                         Some(ExprEnvironment::WithinBracketedParameterList(Bracket::Par)),
-                        ExprRootKind::ExplicitParameterDefaultValue { ty_expr_idx },
+                        ExprRootKind::ExplicitParameterDefaultValue {
+                            ty_syn_expr_idx: ty_expr_idx,
+                        },
                         OriginalSynExprError::ExpectedExplicitParameterDefaultValue,
                     ))
                 };

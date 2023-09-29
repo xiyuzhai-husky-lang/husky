@@ -30,7 +30,7 @@ impl SynCommaListItem {
 #[enum_class::from_variants]
 pub enum SynCallListItem {
     RegularOrVariadic(SynRegularOrVariadicCallListItem),
-    Keyed(KeyedCallListItem),
+    Keyed(SynKeyedCallListItem),
 }
 
 impl From<SynCommaListItem> for SynCallListItem {
@@ -66,7 +66,7 @@ impl SynCallListItem {
                 separator,
                 ..
             })
-            | SynCallListItem::Keyed(KeyedCallListItem { separator, .. }) => *separator,
+            | SynCallListItem::Keyed(SynKeyedCallListItem { separator, .. }) => *separator,
         }
     }
 
@@ -76,7 +76,7 @@ impl SynCallListItem {
                 separator,
                 ..
             })
-            | SynCallListItem::Keyed(KeyedCallListItem { separator, .. }) => {
+            | SynCallListItem::Keyed(SynKeyedCallListItem { separator, .. }) => {
                 debug_assert_eq!(*separator, CallListSeparator::None);
                 *separator = new_separator
             }
@@ -89,7 +89,7 @@ impl SynCallListItem {
                 argument_expr_idx,
                 ..
             })
-            | SynCallListItem::Keyed(KeyedCallListItem {
+            | SynCallListItem::Keyed(SynKeyedCallListItem {
                 argument_expr_idx, ..
             }) => *argument_expr_idx,
         }
@@ -133,14 +133,14 @@ impl SynRegularOrVariadicCallListItem {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct KeyedCallListItem {
+pub struct SynKeyedCallListItem {
     key_regional_token_idx: RegionalTokenIdx,
     key: Ident,
     argument_expr_idx: SynExprIdx,
     separator: CallListSeparator,
 }
 
-impl KeyedCallListItem {
+impl SynKeyedCallListItem {
     pub(crate) fn new(
         key_regional_token_idx: RegionalTokenIdx,
         key: Ident,
@@ -163,7 +163,7 @@ impl KeyedCallListItem {
         self.key
     }
 
-    pub fn argument_expr_idx(&self) -> SynExprIdx {
+    pub fn argument_syn_expr_idx(&self) -> SynExprIdx {
         self.argument_expr_idx
     }
 

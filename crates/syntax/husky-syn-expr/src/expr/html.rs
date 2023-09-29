@@ -12,6 +12,7 @@ pub enum SynHtmlArgumentExpr {
     Shortened {
         lcurl: LcurlRegionalToken,
         property_ident: IdentRegionalToken,
+        // todo: add SymbolIdx
         rcurl: RcurlRegionalToken,
     },
 }

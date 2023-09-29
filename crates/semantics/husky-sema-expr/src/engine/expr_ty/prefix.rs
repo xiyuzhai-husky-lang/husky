@@ -1,14 +1,15 @@
 use super::*;
+use husky_sema_opr::prefix::SemaPrefixOpr;
 
 impl<'a> SemaExprEngine<'a> {
-    pub(super) fn calc_prefix_expr_ty(
+    pub(super) fn build_prefix_sema_expr(
         &mut self,
         expr_idx: SynExprIdx,
         opr: PrefixOpr,
         opd: SynExprIdx,
         final_destination: FinalDestination,
     ) -> (
-        SemaExprDataResult<(SemaExprIdx, PrefixOpr)>,
+        SemaExprDataResult<(SemaExprIdx, SemaPrefixOpr)>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
         match opr {
@@ -30,7 +31,7 @@ impl<'a> SemaExprEngine<'a> {
                         ty_ethereal_term,
                     } => match refined_ty_path {
                         Left(PreludeTypePath::Num(num_ty_path)) => {
-                            (Ok((opd_sema_expr_idx, opr)), Ok(opd_ty))
+                            (Ok((opd_sema_expr_idx, SemaPrefixOpr::Minus)), Ok(opd_ty))
                         }
                         _ => todo!(),
                     },
@@ -44,7 +45,7 @@ impl<'a> SemaExprEngine<'a> {
                     } => todo!(),
                     FluffyTermData::Hole(hole_kind, _) => match hole_kind {
                         HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => {
-                            (Ok((opd_sema_expr_idx, opr)), Ok(opd_ty))
+                            (Ok((opd_sema_expr_idx, SemaPrefixOpr::Minus)), Ok(opd_ty))
                         }
                         HoleKind::ImplicitType => todo!(),
                         HoleKind::Any => todo!(),
@@ -65,7 +66,7 @@ impl<'a> SemaExprEngine<'a> {
                 let opd_sema_expr_idx = self.build_sema_expr(opd, ExpectConditionType);
                 // here we differs from Rust, but agrees with C
                 (
-                    Ok((opd_sema_expr_idx, opr)),
+                    Ok((opd_sema_expr_idx, SemaPrefixOpr::Not)),
                     Ok(self.term_menu.bool_ty_ontology().into()),
                 )
             }
@@ -80,11 +81,7 @@ impl<'a> SemaExprEngine<'a> {
                             self.term_menu.ty0().into(),
                             opd,
                         );
-                    (
-                        Ok((opd_sema_expr_idx, opr)),
-                        // Tilde(TildeDisambiguation::Leash),
-                        ty_result,
-                    )
+                    (Ok((opd_sema_expr_idx, SemaPrefixOpr::Leash)), ty_result)
                 }
                 FinalDestination::TypeOntology
                 | FinalDestination::AnyOriginal
@@ -92,8 +89,7 @@ impl<'a> SemaExprEngine<'a> {
                     let (opd_sema_expr_idx, opd_ty) =
                         self.build_sema_expr_with_its_ty_returned(opd, ExpectIntType);
                     (
-                        Ok((opd_sema_expr_idx, opr)),
-                        // Tilde(TildeDisambiguation::BitNot)),
+                        Ok((opd_sema_expr_idx, SemaPrefixOpr::BitNot)),
                         self.calc_bitnot_expr_ty(opd_ty),
                     )
                 }
@@ -103,19 +99,15 @@ impl<'a> SemaExprEngine<'a> {
                 let opd_sema_expr_idx = self.build_sema_expr(opd, self.expect_ty0_subtype());
                 // Should consider more cases, could also be taking references
                 (
-                    Ok((opd_sema_expr_idx, opr)),
+                    Ok((opd_sema_expr_idx, SemaPrefixOpr::Ref)),
                     Ok(self.term_menu.ty0().into()),
                 )
             }
-            PrefixOpr::Vector => todo!(),
-            PrefixOpr::Slice => todo!(),
-            PrefixOpr::CyclicSlice => todo!(),
-            PrefixOpr::Array(_) => todo!(),
             PrefixOpr::Option => {
                 // todo!("consider universe");
                 let opd_sema_expr_idx = self.build_sema_expr(opd, self.expect_ty0_subtype());
                 (
-                    Ok((opd_sema_expr_idx, opr)),
+                    Ok((opd_sema_expr_idx, SemaPrefixOpr::Option)),
                     Ok(self.term_menu.ty0().into()),
                 )
             }

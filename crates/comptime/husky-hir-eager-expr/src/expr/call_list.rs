@@ -11,7 +11,7 @@ pub enum HirEagerCallListItemGroup {
 impl<'a> HirEagerExprBuilder<'a> {
     pub(super) fn new_call_list_item_groups(
         &mut self,
-        pams: &[RitchieParameterArgumentMatch],
+        pams: &[SemaRitchieParameterArgumentMatch],
     ) -> SmallVec<[HirEagerCallListItemGroup; 4]> {
         pams.iter()
             .map(|pam| self.new_call_list_item_group(pam))
@@ -20,14 +20,14 @@ impl<'a> HirEagerExprBuilder<'a> {
 
     fn new_call_list_item_group(
         &mut self,
-        pam: &RitchieParameterArgumentMatch,
+        pam: &SemaRitchieParameterArgumentMatch,
     ) -> HirEagerCallListItemGroup {
         match pam {
-            RitchieParameterArgumentMatch::Regular(_, item) => {
+            SemaRitchieParameterArgumentMatch::Regular(_, item) => {
                 HirEagerCallListItemGroup::Regular(item.argument_expr_idx().to_hir_eager(self))
             }
-            RitchieParameterArgumentMatch::Variadic(_, _) => todo!(),
-            RitchieParameterArgumentMatch::Keyed(_, _) => todo!(),
+            SemaRitchieParameterArgumentMatch::Variadic(_, _) => todo!(),
+            SemaRitchieParameterArgumentMatch::Keyed(_, _) => todo!(),
         }
     }
 }

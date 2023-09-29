@@ -1,7 +1,7 @@
 use super::*;
 
 impl<'a> SemaExprEngine<'a> {
-    pub(super) fn calc_function_application_or_call_expr_ty(
+    pub(super) fn build_function_application_or_call_sema_expr(
         &mut self,
         syn_expr_idx: SynExprIdx,
         function_syn_expr_idx: SynExprIdx,
@@ -86,13 +86,15 @@ impl<'a> SemaExprEngine<'a> {
         }
     }
 
-    pub(super) fn calc_function_call_expr_ty(
+    pub(super) fn build_function_call_sema_expr(
         &mut self,
         expr_idx: SynExprIdx,
         function: SynExprIdx,
         final_destination: FinalDestination,
-        generic_arguments: Option<&SynTemplateArgumentList>,
+        template_arguments: Option<&SynTemplateArgumentList>,
+        lpar_regional_token_idx: RegionalTokenIdx,
         items: &[SynCallListItem],
+        rpar_regional_token_idx: RegionalTokenIdx,
     ) -> (
         SemaExprDataResult<SemaExprData>,
         SemaExprTypeResult<FluffyTerm>,
@@ -124,11 +126,11 @@ impl<'a> SemaExprEngine<'a> {
         };
         let data = match outcome.ritchie_kind() {
             RitchieKind::FnType => SemaExprData::FnCall {
-                function_sema_expr_idx: todo!(),
-                template_arguments: todo!(),
-                lpar_regional_token_idx: todo!(),
+                function_sema_expr_idx,
+                template_arguments: template_arguments.map(|_| todo!()),
+                lpar_regional_token_idx,
                 ritchie_parameter_argument_matches,
-                rpar_regional_token_idx: todo!(),
+                rpar_regional_token_idx,
             },
             RitchieKind::FnTrait => todo!(),
             RitchieKind::FnMutTrait => todo!(),

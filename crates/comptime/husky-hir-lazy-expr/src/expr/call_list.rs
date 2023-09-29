@@ -1,5 +1,5 @@
 use super::*;
-use husky_sema_expr::RitchieParameterArgumentMatch;
+use husky_sema_expr::SemaRitchieParameterArgumentMatch;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
@@ -12,7 +12,7 @@ pub enum HirLazyCallListItemGroup {
 impl<'a> HirLazyExprBuilder<'a> {
     pub(super) fn new_call_list_item_groups(
         &mut self,
-        pams: &[RitchieParameterArgumentMatch],
+        pams: &[SemaRitchieParameterArgumentMatch],
     ) -> SmallVec<[HirLazyCallListItemGroup; 4]> {
         pams.iter()
             .map(|pam| self.new_call_list_item_group(pam))
@@ -21,14 +21,14 @@ impl<'a> HirLazyExprBuilder<'a> {
 
     fn new_call_list_item_group(
         &mut self,
-        pam: &RitchieParameterArgumentMatch,
+        pam: &SemaRitchieParameterArgumentMatch,
     ) -> HirLazyCallListItemGroup {
         match pam {
-            RitchieParameterArgumentMatch::Regular(_, item) => {
+            SemaRitchieParameterArgumentMatch::Regular(_, item) => {
                 HirLazyCallListItemGroup::Regular(item.argument_expr_idx().to_hir_lazy(self))
             }
-            RitchieParameterArgumentMatch::Variadic(_, _) => HirLazyCallListItemGroup::Variadic,
-            RitchieParameterArgumentMatch::Keyed(_, _) => HirLazyCallListItemGroup::Keyed,
+            SemaRitchieParameterArgumentMatch::Variadic(_, _) => HirLazyCallListItemGroup::Variadic,
+            SemaRitchieParameterArgumentMatch::Keyed(_, _) => HirLazyCallListItemGroup::Keyed,
         }
     }
 }

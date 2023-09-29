@@ -260,7 +260,7 @@ impl<'a> SemaExprEngine<'a> {
                 opr,
                 opr_regional_token_idx,
                 opd_sema_expr_idx,
-            } => self.calc_prefix_expr_term(sema_expr_idx, todo!(), *opd_sema_expr_idx),
+            } => self.calc_prefix_expr_term(sema_expr_idx, *opr, *opd_sema_expr_idx),
             SemaExprData::Suffix {
                 opd_sema_expr_idx,
                 opr,

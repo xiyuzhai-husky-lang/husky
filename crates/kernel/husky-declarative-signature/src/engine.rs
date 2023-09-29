@@ -469,11 +469,6 @@ impl<'a> DeclarativeTermEngine<'a> {
                         self.syn_expr_region_data.path().toolchain(self.db),
                     ),
                     PrefixOpr::Ref => todo!(),
-                    // self.declarative_term_menu.ref_ty_path(),
-                    PrefixOpr::Vector => todo!(),
-                    PrefixOpr::Slice => todo!(),
-                    PrefixOpr::CyclicSlice => todo!(),
-                    PrefixOpr::Array(_) => todo!(),
                     PrefixOpr::Option => self.declarative_term_menu.option_ty_path(),
                 };
                 Ok(DeclarativeTermExplicitApplication::new(self.db, tmpl, opd).into())

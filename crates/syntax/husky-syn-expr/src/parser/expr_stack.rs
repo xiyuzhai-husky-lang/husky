@@ -1,4 +1,4 @@
-use crate::KeyedCallListItem;
+use crate::SynKeyedCallListItem;
 
 use super::*;
 use husky_print_utils::p;
@@ -142,7 +142,7 @@ impl SynExprData {
                     } => todo!(),
                     SynExprData::FunctionCall {
                         function,
-                        generic_arguments,
+                        template_arguments: generic_arguments,
                         lpar_regional_token_idx,
                         items,
                         rpar_regional_token_idx,
@@ -501,7 +501,7 @@ where
                                 let mut items: SmallVec<[SynCallListItem; 4]> =
                                     items.into_iter().map(Into::into).collect();
                                 items.push(
-                                    KeyedCallListItem::new(
+                                    SynKeyedCallListItem::new(
                                         key_regional_token_idx,
                                         key,
                                         argument_expr_idx,
