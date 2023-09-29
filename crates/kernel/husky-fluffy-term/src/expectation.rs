@@ -79,6 +79,7 @@ impl Expectation {
     }
 }
 
+// maybe make this Copy?
 pub trait ExpectFluffyTerm: Into<Expectation> + Clone {
     type Outcome: Clone;
 

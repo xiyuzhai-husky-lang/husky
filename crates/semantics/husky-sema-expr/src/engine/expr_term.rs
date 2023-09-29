@@ -301,7 +301,7 @@ impl<'a> SemaExprEngine<'a> {
             SemaExprData::Index {
                 owner_sema_expr_idx,
                 lbox_regional_token_idx,
-                indices,
+                index_sema_list_items: indices,
                 rbox_regional_token_idx,
                 index_dynamic_dispatch,
             } => todo!(),

@@ -260,7 +260,7 @@ impl ToHirLazy for SemaExprIdx {
             } => todo!(),
             SemaExprData::Index {
                 owner_sema_expr_idx,
-                indices,
+                index_sema_list_items: indices,
                 index_dynamic_dispatch,
                 ..
             } => HirLazyExpr::Index {

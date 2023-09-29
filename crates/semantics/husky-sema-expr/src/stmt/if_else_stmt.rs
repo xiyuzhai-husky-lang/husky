@@ -30,12 +30,13 @@ impl<'a> SemaExprEngine<'a> {
         syn_if_branch: &'a SynIfBranch,
         merger: &mut BranchTypeMerger<Expectation>,
     ) -> SynExprResultRef<'a, SemaIfBranch> {
-        self.build_sema_expr_with_its_ty_returned(
-            *syn_if_branch.condition.as_ref()?,
-            ExpectConditionType,
-        );
-        // merger.visit_branch(self, if_branch.stmts);
-        todo!()
+        Ok(SemaIfBranch {
+            if_token: syn_if_branch.if_token,
+            condition: self
+                .build_sema_expr(*syn_if_branch.condition.as_ref()?, ExpectConditionType),
+            eol_colon: *syn_if_branch.eol_colon.as_ref()?,
+            stmts: self.build_sema_branch(syn_if_branch.stmts, merger),
+        })
     }
 }
 
@@ -64,25 +65,23 @@ impl SemaElifBranch {
 impl<'a> SemaExprEngine<'a> {
     pub(crate) fn build_sema_elif_branch<Expectation: ExpectFluffyTerm>(
         &mut self,
-        syn_elif_branch: &SynElifBranch,
+        syn_elif_branch: &'a SynElifBranch,
         merger: &mut BranchTypeMerger<Expectation>,
-    ) -> SemaElifBranch {
-        syn_elif_branch
-            .condition
-            .as_ref()
-            .copied()
-            .map(|condition| {
-                self.build_sema_expr_with_its_ty_returned(condition, ExpectConditionType)
-            });
-        // merger.visit_branch(self, if_branch.stmts);
-        todo!()
+    ) -> SynExprResultRef<'a, SemaElifBranch> {
+        Ok(SemaElifBranch {
+            elif_token: syn_elif_branch.elif_token,
+            condition: self
+                .build_sema_expr(*syn_elif_branch.condition.as_ref()?, ExpectConditionType),
+            eol_colon: *syn_elif_branch.eol_colon.as_ref()?,
+            stmts: self.build_sema_branch(syn_elif_branch.stmts, merger),
+        })
     }
 }
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaElseBranch {
     pub else_token: ElseRegionalToken,
-    pub eol_colon: SemaExprTypeResult<EolRegionalToken>,
+    pub eol_colon: EolRegionalToken,
     pub stmts: SemaStmtIdxRange,
 }
 
@@ -95,10 +94,13 @@ impl SemaElseBranch {
 impl<'a> SemaExprEngine<'a> {
     pub(crate) fn build_sema_else_branch<Expectation: ExpectFluffyTerm>(
         &mut self,
-        syn_else_branch: &SynElseBranch,
+        syn_else_branch: &'a SynElseBranch,
         merger: &mut BranchTypeMerger<Expectation>,
-    ) -> SemaElseBranch {
-        // merger.visit_branch(self, if_branch.stmts);
-        todo!()
+    ) -> SynExprResultRef<'a, SemaElseBranch> {
+        Ok(SemaElseBranch {
+            else_token: syn_else_branch.else_token,
+            eol_colon: *syn_else_branch.eol_colon.as_ref()?,
+            stmts: self.build_sema_branch(syn_else_branch.stmts, merger),
+        })
     }
 }

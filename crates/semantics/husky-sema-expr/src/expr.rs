@@ -175,7 +175,7 @@ pub enum SemaExprData {
     Index {
         owner_sema_expr_idx: SemaExprIdx,
         lbox_regional_token_idx: RegionalTokenIdx,
-        indices: SmallVec<[SemaCommaListItem; 4]>,
+        index_sema_list_items: SmallVec<[SemaCommaListItem; 2]>,
         rbox_regional_token_idx: RegionalTokenIdx,
         index_dynamic_dispatch: FluffyIndexDynamicDispatch,
     },

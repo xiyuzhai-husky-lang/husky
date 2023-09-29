@@ -407,9 +407,16 @@ impl<'a> SemaExprEngine<'a> {
             SynExprData::NewTuple { ref items, .. } => todo!(),
             SynExprData::IndexOrCompositionWithList {
                 owner,
-                items: ref indices,
-                ..
-            } => self.calc_index_or_compose_with_list_expr_ty(expr_idx, owner, indices),
+                lbox_regional_token_idx,
+                ref items,
+                rbox_regional_token_idx,
+            } => self.calc_index_or_compose_with_list_expr_ty(
+                expr_idx,
+                owner,
+                lbox_regional_token_idx,
+                items,
+                rbox_regional_token_idx,
+            ),
             SynExprData::List {
                 lbox_regional_token_idx,
                 ref items,
@@ -539,7 +546,8 @@ impl<'a> SemaExprEngine<'a> {
                 _ => todo!(),
             },
             SynExprData::Block { stmts } => {
-                let (stmts, block_ty) = self.infer_new_block(stmts, expr_ty_expectation.clone());
+                let (stmts, block_ty) =
+                    self.build_sema_block_with_its_ty_returned(stmts, expr_ty_expectation.clone());
                 (
                     Ok(SemaExprData::Block { stmts }),
                     block_ty.ok_or(DerivedSemaExprTypeError::BlockTypeError.into()),

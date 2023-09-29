@@ -121,7 +121,7 @@ impl ToHirEager for SemaStmtIdx {
                 ref eol_colon,
                 ref block,
             } => todo!(),
-            SemaStmtData::ForExt {
+            SemaStmtData::Forext {
                 forext_token,
                 ref particulars,
                 ref eol_colon,
@@ -131,25 +131,15 @@ impl ToHirEager for SemaStmtIdx {
                 block: block.to_hir_eager(builder),
             },
             SemaStmtData::While {
-                ref condition,
-                ref block,
-                ..
+                condition, block, ..
             } => HirEagerStmt::While {
-                condition: condition
-                    .as_ref()
-                    .expect("hir stage no error")
-                    .to_hir_eager(builder),
+                condition: condition.to_hir_eager(builder),
                 stmts: block.to_hir_eager(builder),
             },
             SemaStmtData::DoWhile {
-                ref condition,
-                ref block,
-                ..
+                condition, block, ..
             } => HirEagerStmt::DoWhile {
-                condition: condition
-                    .as_ref()
-                    .expect("hir stage no errors")
-                    .to_hir_eager(builder),
+                condition: condition.to_hir_eager(builder),
                 block: block.to_hir_eager(builder),
             },
             SemaStmtData::IfElse {

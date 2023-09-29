@@ -241,7 +241,7 @@ where
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = TokenDb)]
 pub struct IfRegionalToken {
     regional_token_idx: RegionalTokenIdx,
@@ -281,7 +281,7 @@ where
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = TokenDb)]
 pub struct ElifRegionalToken {
     regional_token_idx: RegionalTokenIdx,
@@ -321,7 +321,7 @@ where
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = TokenDb)]
 pub struct ElseRegionalToken {
     regional_token_idx: RegionalTokenIdx,
