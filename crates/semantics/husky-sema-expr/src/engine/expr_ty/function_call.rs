@@ -6,7 +6,7 @@ impl<'a> SemaExprEngine<'a> {
         syn_expr_idx: SynExprIdx,
         function_syn_expr_idx: SynExprIdx,
         expr_ty_expectation: &impl ExpectFluffyTerm,
-        generic_arguments: Option<&SynTemplateArgumentList>,
+        template_arguments: Option<&SynTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
         items: &[SynCommaListItem],
         rpar_regional_token_idx: RegionalTokenIdx,
@@ -35,9 +35,6 @@ impl<'a> SemaExprEngine<'a> {
                 ),
             );
         };
-        if let Some(generic_arguments) = generic_arguments {
-            todo!()
-        }
         match outcome.variant() {
             ExpectEqsFunctionTypeOutcomeVariant::Ritchie {
                 ritchie_kind,
@@ -54,7 +51,7 @@ impl<'a> SemaExprEngine<'a> {
                 (
                     Ok(SemaExprData::FnCall {
                         function_sema_expr_idx,
-                        template_arguments: todo!(),
+                        template_arguments: template_arguments.map(|_| todo!()),
                         lpar_regional_token_idx,
                         ritchie_parameter_argument_matches,
                         rpar_regional_token_idx,

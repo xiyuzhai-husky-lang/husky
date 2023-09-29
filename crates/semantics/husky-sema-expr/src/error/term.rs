@@ -58,7 +58,7 @@ pub enum DerivedExprTermError {
     #[error("literal type not resolved")]
     LiteralTypeNotResolved,
     #[error("TypeInfoNotInferred")]
-    TypeInfoNotInferred,
+    LiteralTypeNotInferred,
 }
 
 pub type SemaExprTermResult<T> = Result<T, SemaExprTermError>;

@@ -5,9 +5,9 @@ use super::*;
 impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_explicit_application_expr_term(
         &mut self,
-        expr_idx: SynExprIdx,
-        function: SynExprIdx,
-        argument: SynExprIdx,
+        expr_idx: SemaExprIdx,
+        function: SemaExprIdx,
+        argument: SemaExprIdx,
     ) -> SemaExprTermResult<FluffyTerm> {
         // todo: implicit arguments
         todo!()

@@ -256,7 +256,14 @@ impl<'a> SemaExprEngine<'a> {
         }
         // exhaustive iff else branch exists
         branch_tys.merge(else_branch.is_some(), &self.term_menu);
-        todo!()
+        (
+            Ok(SemaStmtData::IfElse {
+                if_branch: todo!(),
+                elif_branches: todo!(),
+                else_branch: todo!(),
+            }),
+            todo!(),
+        )
     }
 }
 

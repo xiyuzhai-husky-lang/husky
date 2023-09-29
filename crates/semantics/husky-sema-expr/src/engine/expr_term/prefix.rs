@@ -3,9 +3,9 @@ use super::*;
 impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_prefix_expr_term(
         &mut self,
-        expr_idx: SynExprIdx,
+        expr_idx: SemaExprIdx,
         opr: PrefixOpr,
-        opd: SynExprIdx,
+        opd: SemaExprIdx,
     ) -> SemaExprTermResult<FluffyTerm> {
         todo!()
         // let Some(opd_term) = self.infer_expr_term(opd) else {

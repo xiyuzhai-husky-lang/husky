@@ -258,7 +258,7 @@ impl SemaExprEntry {
         self.ty_result.as_ref().copied()
     }
 
-    pub(crate) fn ty(&self) -> Option<FluffyTerm> {
+    fn ok_ty(&self) -> Option<FluffyTerm> {
         self.ty_result.as_ref().ok().copied()
     }
 
@@ -316,8 +316,22 @@ pub struct SemaExprIdx(ArenaIdx<SemaExprEntry>);
 
 impl SemaExprIdx {
     /// panic if there is any error
-    pub fn data<'a>(self, arena: SemaExprArenaRef<'a>) -> &'a SemaExprData {
-        arena.index(self.0).data()
+    ///
+    /// use it outside this crate
+    pub fn data<'a>(self, arena_ref: SemaExprArenaRef<'a>) -> &'a SemaExprData {
+        arena_ref.index(self.0).data()
+    }
+
+    /// panic if there is any error
+    pub fn data_result<'a>(
+        self,
+        arena: &'a SemaExprArena,
+    ) -> SemaExprDataResultRef<'a, &'a SemaExprData> {
+        arena[self].data_result()
+    }
+
+    pub(crate) fn ok_ty<'a>(self, arena: &'a SemaExprArena) -> Option<FluffyTerm> {
+        arena[self].ok_ty()
     }
 }
 

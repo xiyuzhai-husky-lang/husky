@@ -5,9 +5,7 @@ impl TraceVariant {
         match self {
             TraceVariant::Main(..) => TraceKind::Main,
             TraceVariant::Module { .. } => TraceKind::Module,
-            TraceVariant::EntityVal { 
-                // ref repr,
-                 .. } =>todo!(),
+            TraceVariant::EntityVal { .. } => todo!(),
             //       match repr.is_lazy() {
             //     true => TraceKind::EntityFeatureLazy,
             //     false => TraceKind::EntityFeatureEager,
@@ -35,9 +33,9 @@ impl TraceVariant {
                 //     _ => TraceKind::FeatureExprEager,
                 // }
             }
-            TraceVariant::ValCallArgument { .. } => TraceKind::FeatureCallArgument, 
+            TraceVariant::ValCallArgument { .. } => TraceKind::FeatureCallArgument,
             TraceVariant::EagerStmt { .. } => TraceKind::EagerStmt,
-            TraceVariant::EagerBranch { .. } => TraceKind::EagerBranch, 
+            TraceVariant::EagerBranch { .. } => TraceKind::EagerBranch,
             TraceVariant::LoopFrame { .. } => TraceKind::LoopFrame,
             TraceVariant::EagerExpr { .. } => TraceKind::EagerExpr,
             TraceVariant::CallHead { .. } => TraceKind::CallHead,
