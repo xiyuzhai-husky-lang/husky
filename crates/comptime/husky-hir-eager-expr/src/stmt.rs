@@ -108,7 +108,7 @@ impl ToHirEager for SemaStmtIdx {
             SemaStmtData::ForBetween {
                 for_token,
                 ref particulars,
-                frame_var_symbol_idx,
+                for_loop_var_symbol_idx: frame_var_symbol_idx,
                 ref eol_colon,
                 ref block,
             } => HirEagerStmt::ForBetween {

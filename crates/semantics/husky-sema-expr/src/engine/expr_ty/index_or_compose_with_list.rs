@@ -39,7 +39,10 @@ impl<'a> SemaExprEngine<'a> {
                     }),
                     ty_result,
                 ),
-                Err(e) => todo!(),
+                Err(e) => {
+                    p!(e);
+                    todo!()
+                }
             },
         }
     }

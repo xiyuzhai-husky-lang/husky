@@ -5,7 +5,6 @@ use super::*;
 impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_explicit_application_expr_term(
         &mut self,
-        expr_idx: SynExprIdx,
         function: SemaExprIdx,
         argument: SemaExprIdx,
     ) -> SemaExprTermResult<FluffyTerm> {
@@ -16,7 +15,7 @@ impl<'a> SemaExprEngine<'a> {
         let argument = self
             .infer_expr_term(argument)
             .ok_or(DerivedExprTermError::ExplicitApplicationArgumentTermNotInferred)?;
-        FluffyTerm::new_application(self, expr_idx, function, argument)
+        FluffyTerm::new_application(self, function, argument)
             .map_err(|e| DerivedExprTermError::ExplicitApplicationTerm(e).into())
     }
 }

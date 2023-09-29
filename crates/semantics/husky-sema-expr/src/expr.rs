@@ -185,7 +185,7 @@ pub enum SemaExprData {
         items: SmallVec<[SemaCommaListItem; 4]>,
         rbox_regional_token_idx: RegionalTokenIdx,
     },
-    List {
+    NewList {
         lbox_regional_token_idx: RegionalTokenIdx,
         items: SmallVec<[SemaCommaListItem; 4]>,
         rbox_regional_token_idx: RegionalTokenIdx,
@@ -204,11 +204,6 @@ pub enum SemaExprData {
         rbox_regional_token_idx: RegionalTokenIdx,
     },
     ArrayFunctor {
-        lbox_regional_token_idx: RegionalTokenIdx,
-        items: SmallVec<[SemaCommaListItem; 4]>,
-        rbox_regional_token_idx: RegionalTokenIdx,
-    },
-    NewList {
         lbox_regional_token_idx: RegionalTokenIdx,
         items: SmallVec<[SemaCommaListItem; 4]>,
         rbox_regional_token_idx: RegionalTokenIdx,

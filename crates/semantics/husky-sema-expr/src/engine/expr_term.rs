@@ -272,7 +272,6 @@ impl<'a> SemaExprEngine<'a> {
             } => {
                 // todo: implicit arguments
                 self.calc_explicit_application_expr_term(
-                    sema_expr_idx,
                     *function_sema_expr_idx,
                     *argument_sema_expr_idx,
                 )
@@ -295,7 +294,9 @@ impl<'a> SemaExprEngine<'a> {
                 rpar_regional_token_idx,
             } => Err(todo!()),
             SemaExprData::NewTuple { .. } => todo!(),
-            SemaExprData::List { ref items, .. } => self.calc_list_expr_term(sema_expr_idx, items),
+            SemaExprData::NewList { ref items, .. } => {
+                self.calc_new_list_expr_term(sema_expr_idx, items)
+            }
             SemaExprData::BoxColonList { .. } => todo!(),
             SemaExprData::Block { stmts } => todo!(),
             SemaExprData::Index {
@@ -337,7 +338,7 @@ impl<'a> SemaExprEngine<'a> {
             SemaExprData::ListFunctor {
                 lbox_regional_token_idx,
                 rbox_regional_token_idx,
-            } => todo!(),
+            } => Ok(self.term_menu.list_ty_ontology().into()),
             SemaExprData::ArrayFunctor {
                 lbox_regional_token_idx,
                 items,

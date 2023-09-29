@@ -281,7 +281,7 @@ impl<'a> SynStmtContext<'a> {
                 SynStmtData::ForBetween {
                     for_token,
                     particulars,
-                    frame_var_symbol_idx,
+                    for_loop_var_symbol_idx: frame_var_symbol_idx,
                     eol_colon,
                     block: self.parse_stmts(body),
                 }

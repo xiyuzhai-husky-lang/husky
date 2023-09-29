@@ -47,7 +47,7 @@ impl<'a> SemaExprEngine<'a> {
     }
 
     #[inline(always)]
-    pub(super) fn build_sema_expr_with_outcome<E: ExpectFluffyTerm>(
+    pub(crate) fn build_sema_expr_with_outcome<E: ExpectFluffyTerm>(
         &mut self,
         syn_expr_idx: SynExprIdx,
         expr_ty_expectation: E,
@@ -75,7 +75,8 @@ impl<'a> SemaExprEngine<'a> {
         expr_idx: SynExprIdx,
         expr_ty_expectation: E,
     ) -> (SemaExprIdx, Option<FluffyTermExpectationIdx>) {
-        let (data_result, ty_result) = self.calc_expr_ty(expr_idx, &expr_ty_expectation);
+        let (data_result, ty_result) =
+            self.build_sema_expr_data_and_ty_result(expr_idx, &expr_ty_expectation);
         let expectation_idx = match ty_result {
             Ok(ty) => self.fluffy_term_region.add_expectation(
                 ExpectationSource::new_expr(expr_idx),
@@ -90,7 +91,7 @@ impl<'a> SemaExprEngine<'a> {
         (sema_expr_idx, expectation_idx)
     }
 
-    fn calc_expr_ty(
+    fn build_sema_expr_data_and_ty_result(
         &mut self,
         expr_idx: SynExprIdx,
         expr_ty_expectation: &impl ExpectFluffyTerm,
@@ -470,19 +471,6 @@ impl<'a> SemaExprEngine<'a> {
                                     }
                                     _ => todo!(),
                                 },
-                                // ad hoc
-                                // FluffyTermData::TypeOntologyAtPlace {
-                                //     refined_ty_path,
-                                //     ty_arguments,
-                                //     ..
-                                // } => match refined_ty_path {
-                                //     Left(PreludeTypePath::List) => {
-                                //         assert_eq!(ty_arguments.len(), 1);
-                                //         ty_arguments[0]
-                                //     }
-                                //     Left(PreludeTypePath::Array) => todo!(),
-                                //     _ => todo!(),
-                                // },
                                 FluffyTermData::Curry {
                                     curry_kind,
                                     variance,
@@ -505,21 +493,22 @@ impl<'a> SemaExprEngine<'a> {
                             },
                             None => self.new_hole(expr_idx, HoleKind::Any).into(),
                         };
-                        for item in items {
-                            self.build_sema_expr(
-                                item.syn_expr_idx(),
-                                ExpectCoersion::new_move(element_ty),
-                            );
-                        }
                         (
                             Ok(SemaExprData::NewList {
                                 lbox_regional_token_idx,
-                                items: todo!(),
+                                items: items
+                                    .iter()
+                                    .map(|&syn_comma_list_item| {
+                                        self.build_sema_comma_list_item(
+                                            syn_comma_list_item,
+                                            ExpectCoersion::new_move(element_ty),
+                                        )
+                                    })
+                                    .collect(),
                                 rbox_regional_token_idx,
                             }),
                             FluffyTerm::new_application(
                                 self,
-                                expr_idx,
                                 self.term_menu.list_ty_ontology(),
                                 element_ty,
                             )
