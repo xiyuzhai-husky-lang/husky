@@ -18,6 +18,24 @@ impl<'a> SemaExprEngine<'a> {
             comma_regional_token_idx: syn_comma_list_item.comma_regional_token_idx(),
         }
     }
+
+    pub(crate) fn build_sema_comma_list_item_with_its_ty_returned<E: ExpectFluffyTerm>(
+        &mut self,
+        syn_comma_list_item: SynCommaListItem,
+        expr_ty_expectation: E,
+    ) -> (SemaCommaListItem, Option<FluffyTerm>) {
+        let (sema_expr_idx, ty) = self.build_sema_expr_with_its_ty_returned(
+            syn_comma_list_item.syn_expr_idx(),
+            expr_ty_expectation,
+        );
+        (
+            SemaCommaListItem {
+                sema_expr_idx,
+                comma_regional_token_idx: syn_comma_list_item.comma_regional_token_idx(),
+            },
+            ty,
+        )
+    }
 }
 
 impl SemaCommaListItem {

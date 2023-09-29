@@ -81,7 +81,7 @@ impl ToHirLazy for SemaStmtIdx {
             SemaStmtData::Break { .. } => unreachable!(),
             SemaStmtData::ForBetween { .. } => unreachable!(),
             SemaStmtData::ForIn { .. } => unreachable!(),
-            SemaStmtData::ForExt { .. } => unreachable!(),
+            SemaStmtData::Forext { .. } => unreachable!(),
             SemaStmtData::While { .. } => unreachable!(),
             SemaStmtData::DoWhile { .. } => unreachable!(),
             SemaStmtData::IfElse {

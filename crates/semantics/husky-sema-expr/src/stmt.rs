@@ -58,23 +58,23 @@ pub enum SemaStmtData {
         eol_colon: EolRegionalToken,
         block: SemaStmtIdxRange,
     },
-    ForExt {
+    Forext {
         forext_token: ForextRegionalToken,
         particulars: SemaForextParticulars,
-        eol_colon: SemaExprTypeResult<EolRegionalToken>,
+        eol_colon: EolRegionalToken,
         block: SemaStmtIdxRange,
     },
     While {
         while_token: WhileRegionalToken,
-        condition: SemaExprTypeResult<SemaExprIdx>,
-        eol_colon: SemaExprTypeResult<EolRegionalToken>,
+        condition: SemaExprIdx,
+        eol_colon: EolRegionalToken,
         block: SemaStmtIdxRange,
     },
     DoWhile {
         do_token: DoRegionalToken,
         while_token: WhileRegionalToken,
-        condition: SemaExprTypeResult<SemaExprIdx>,
-        eol_colon: SemaExprTypeResult<EolRegionalToken>,
+        condition: SemaExprIdx,
+        eol_colon: EolRegionalToken,
         block: SemaStmtIdxRange,
     },
     IfElse {
@@ -84,8 +84,8 @@ pub enum SemaStmtData {
     },
     Match {
         match_token: MatchRegionalToken,
-        match_expr: SemaExprTypeResult<SemaExprIdx>,
-        eol_with_token: SemaExprTypeResult<EolWithRegionalToken>,
+        match_expr: SemaExprIdx,
+        eol_with_token: EolWithRegionalToken,
         case_branches: Vec<SemaCaseBranch>,
     },
 }

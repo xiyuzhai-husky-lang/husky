@@ -256,7 +256,7 @@ impl ToHirEager for SemaExprIdx {
             SemaExprData::Index {
                 owner_sema_expr_idx,
                 lbox_regional_token_idx,
-                indices,
+                index_sema_list_items: indices,
                 ..
             } => HirEagerExpr::Index {
                 owner_hir_expr_idx: owner_sema_expr_idx.to_hir_eager(builder),

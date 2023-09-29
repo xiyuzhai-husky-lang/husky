@@ -17,11 +17,7 @@ impl<Expectation: ExpectFluffyTerm> BranchTypeMerger<Expectation> {
         }
     }
 
-    pub(crate) fn visit_branch(
-        &mut self,
-        engine: &SemaExprEngine,
-        new_block_ty: Option<FluffyTerm>,
-    ) {
+    pub(crate) fn add(&mut self, engine: &SemaExprEngine, new_block_ty: Option<FluffyTerm>) {
         match new_block_ty {
             Some(new_block_ty)
                 if new_block_ty.base_resolved(engine)
@@ -45,5 +41,9 @@ impl<Expectation: ExpectFluffyTerm> BranchTypeMerger<Expectation> {
             return ever_ty.into();
         }
         (!self.has_error).then_some(menu.never().into())
+    }
+
+    pub(crate) fn expr_expectation(&self) -> &Expectation {
+        &self.expr_expectation
     }
 }
