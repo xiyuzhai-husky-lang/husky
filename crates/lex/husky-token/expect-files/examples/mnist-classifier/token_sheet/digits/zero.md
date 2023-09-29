@@ -168,7 +168,7 @@ Ok(
                 ),
             ),
             TokenData::Literal(
-                Literal::Float(
+                LiteralData::Float(
                     Unspecified(
                         UnspecifiedFloatLiteral(
                             Id {
@@ -189,7 +189,7 @@ Ok(
                 ),
             ),
             TokenData::Literal(
-                Literal::Float(
+                LiteralData::Float(
                     Unspecified(
                         UnspecifiedFloatLiteral(
                             Id {
@@ -225,7 +225,7 @@ Ok(
                 ),
             ),
             TokenData::Literal(
-                Literal::Float(
+                LiteralData::Float(
                     Unspecified(
                         UnspecifiedFloatLiteral(
                             Id {
@@ -356,7 +356,7 @@ Ok(
                 ),
             ),
             TokenData::Literal(
-                Literal::Integer(
+                LiteralData::Integer(
                     UnspecifiedRegular(
                         1,
                     ),
@@ -405,7 +405,7 @@ Ok(
                 ),
             ),
             TokenData::Literal(
-                Literal::Float(
+                LiteralData::Float(
                     Unspecified(
                         UnspecifiedFloatLiteral(
                             Id {
@@ -439,7 +439,7 @@ Ok(
                 ),
             ),
             TokenData::Literal(
-                Literal::Integer(
+                LiteralData::Integer(
                     UnspecifiedRegular(
                         0,
                     ),
@@ -498,7 +498,7 @@ Ok(
                 ),
             ),
             TokenData::Literal(
-                Literal::Integer(
+                LiteralData::Integer(
                     UnspecifiedRegular(
                         1,
                     ),
@@ -536,7 +536,7 @@ Ok(
                 ),
             ),
             TokenData::Literal(
-                Literal::Integer(
+                LiteralData::Integer(
                     UnspecifiedRegular(
                         0,
                     ),
@@ -612,7 +612,7 @@ Ok(
                 ),
             ),
             TokenData::Literal(
-                Literal::Float(
+                LiteralData::Float(
                     Unspecified(
                         UnspecifiedFloatLiteral(
                             Id {
@@ -759,7 +759,7 @@ Ok(
                 ),
             ),
             TokenData::Literal(
-                Literal::Integer(
+                LiteralData::Integer(
                     UnspecifiedRegular(
                         5,
                     ),
@@ -799,7 +799,7 @@ Ok(
                 ),
             ),
             TokenData::Literal(
-                Literal::Float(
+                LiteralData::Float(
                     Unspecified(
                         UnspecifiedFloatLiteral(
                             Id {
@@ -841,7 +841,7 @@ Ok(
                 ),
             ),
             TokenData::Literal(
-                Literal::Integer(
+                LiteralData::Integer(
                     UnspecifiedRegular(
                         1,
                     ),
@@ -892,7 +892,7 @@ Ok(
                 ),
             ),
             TokenData::Literal(
-                Literal::Integer(
+                LiteralData::Integer(
                     UnspecifiedRegular(
                         0,
                     ),
@@ -951,7 +951,7 @@ Ok(
                 ),
             ),
             TokenData::Literal(
-                Literal::Integer(
+                LiteralData::Integer(
                     UnspecifiedRegular(
                         0,
                     ),
@@ -1192,7 +1192,7 @@ Ok(
                 ),
             ),
             TokenData::Literal(
-                Literal::Float(
+                LiteralData::Float(
                     Unspecified(
                         UnspecifiedFloatLiteral(
                             Id {

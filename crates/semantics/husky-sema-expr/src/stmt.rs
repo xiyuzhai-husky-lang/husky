@@ -84,9 +84,9 @@ pub enum SemaStmtData {
     },
     Match {
         match_token: MatchRegionalToken,
-        match_expr: SemaExprIdx,
+        match_target_sema_expr_idx: SemaExprIdx,
         eol_with_token: EolWithRegionalToken,
-        case_branches: Vec<SemaCaseBranch>,
+        sema_case_branches: Vec<SemaCaseBranch>,
     },
 }
 
@@ -123,6 +123,10 @@ impl SemaStmtArena {
     pub(crate) fn alloc_batch(&mut self, batch: SemaStmtBatch) -> SemaStmtIdxRange {
         SemaStmtIdxRange(self.0.alloc_batch(batch.entries))
     }
+
+    pub fn arena_ref<'a>(&'a self) -> SemaStmtArenaRef<'a> {
+        SemaStmtArenaRef(self.0.arena_ref())
+    }
 }
 
 pub struct SemaStmtArenaRef<'a>(ArenaRef<'a, SemaStmtEntry>);
@@ -132,7 +136,12 @@ pub struct SemaStmtIdx(ArenaIdx<SemaStmtEntry>);
 
 impl SemaStmtIdx {
     pub fn data<'a>(self, arena_ref: SemaStmtArenaRef<'a>) -> &'a SemaStmtData {
-        todo!()
+        arena_ref
+            .0
+            .index(self.0)
+            .data_result
+            .as_ref()
+            .expect("no error")
     }
 }
 

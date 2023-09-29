@@ -8,6 +8,8 @@ use crate::*;
 use husky_entity_path::PrincipalEntityPath;
 use husky_opr::{BinaryOpr, PrefixOpr, SuffixOpr};
 use husky_sema_expr::{SemaExprData, SemaExprIdx};
+use husky_sema_opr::prefix::SemaPrefixOpr;
+use husky_sema_opr::suffix::SemaSuffixOpr;
 use husky_syn_expr::{IdentifiableEntityPathExpr, SynExprData, SynExprIdx};
 use husky_term_prelude::{RitchieKind, TermLiteral};
 use salsa::debug::ExpectWithDb;
@@ -48,12 +50,14 @@ pub enum HirLazyExpr {
         target: HirLazyBeVariablesPattern,
     },
     Prefix {
-        opr: PrefixOpr,
+        // ad hoc, should have HirLazyPrefixOpr
+        opr: SemaPrefixOpr,
         opd_hir_expr_idx: HirLazyExprIdx,
     },
     Suffix {
         opd_hir_expr_idx: HirLazyExprIdx,
-        opr: SuffixOpr,
+        // ad hoc, should have HirLazySuffixOpr
+        opr: SemaSuffixOpr,
     },
     FnCall {
         function: HirLazyExprIdx,
@@ -105,7 +109,7 @@ impl ToHirLazy for SemaExprIdx {
     type Output = HirLazyExprIdx;
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
-        let hir_lazy_expr = match self.data(todo!()) {
+        let hir_lazy_expr = match self.data(builder.sema_expr_arena_ref()) {
             SemaExprData::Literal(_, _) => {
                 let EtherealTerm::Literal(lit) = builder.expr_term(*self) else {
                     unreachable!()
@@ -148,7 +152,7 @@ impl ToHirLazy for SemaExprIdx {
                 lopd, opr, ropd, ..
             } => HirLazyExpr::Binary {
                 lopd: lopd.to_hir_lazy(builder),
-                opr: todo!(),
+                opr: *opr,
                 ropd: ropd.to_hir_lazy(builder),
             },
             SemaExprData::Be {
@@ -164,7 +168,7 @@ impl ToHirLazy for SemaExprIdx {
                 opd_sema_expr_idx,
                 ..
             } => HirLazyExpr::Prefix {
-                opr: todo!(),
+                opr: *opr,
                 opd_hir_expr_idx: opd_sema_expr_idx.to_hir_lazy(builder),
             },
             SemaExprData::Suffix {
@@ -172,7 +176,7 @@ impl ToHirLazy for SemaExprIdx {
                 opr,
                 ..
             } => HirLazyExpr::Suffix {
-                opr: todo!(),
+                opr: *opr,
                 opd_hir_expr_idx: opd_sema_expr_idx.to_hir_lazy(builder),
             },
             SemaExprData::Application {

@@ -45,7 +45,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `Rhs`,
@@ -102,7 +102,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `Rhs`,
@@ -159,7 +159,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `Rhs`,
@@ -216,7 +216,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `Rhs`,
@@ -269,7 +269,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `Rhs`,
@@ -326,7 +326,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `Rhs`,
@@ -379,7 +379,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `Rhs`,
@@ -436,7 +436,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `Rhs`,
@@ -489,7 +489,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `Rhs`,
@@ -546,7 +546,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `Rhs`,
@@ -621,7 +621,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `Rhs`,
@@ -678,7 +678,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `Rhs`,
@@ -809,7 +809,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `Rhs`,
@@ -859,7 +859,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `T`,
@@ -918,7 +918,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `R`,
@@ -933,7 +933,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `C`,

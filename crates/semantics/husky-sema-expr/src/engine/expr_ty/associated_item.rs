@@ -31,6 +31,7 @@ impl<'a> SemaExprEngine<'a> {
                     let ty = signature.ty();
                     (Ok(static_dispatch), Ok(ty))
                 }
+                StaticDispatch::AssociatedGn => todo!(),
             },
             JustErr(_) => todo!(),
             Nothing => todo!(),

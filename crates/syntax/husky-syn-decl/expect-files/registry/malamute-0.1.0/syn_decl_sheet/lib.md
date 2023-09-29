@@ -73,13 +73,13 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSynSymbol {
+                                                    SynCurrentSymbol {
                                                         modifier: Const,
                                                         access_start: RegionalTokenIdx(
                                                             6,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        variant: SynCurrentSymbolVariant::TemplateParameter {
                                                             syn_attrs: TemplateParameterSynAttrs {
                                                                 syn_attrs: [],
                                                             },
@@ -183,13 +183,13 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `Label`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         10,
                                                     ),
                                                     current_symbol_idx: 1,
-                                                    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                    current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                         template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `Label`,
@@ -229,13 +229,13 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSynSymbol {
+                                                    SynCurrentSymbol {
                                                         modifier: Const,
                                                         access_start: RegionalTokenIdx(
                                                             6,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        variant: SynCurrentSymbolVariant::TemplateParameter {
                                                             syn_attrs: TemplateParameterSynAttrs {
                                                                 syn_attrs: [],
                                                             },
@@ -250,13 +250,13 @@ Ok(
                                                             },
                                                         },
                                                     },
-                                                    CurrentSynSymbol {
+                                                    SynCurrentSymbol {
                                                         modifier: Const,
                                                         access_start: RegionalTokenIdx(
                                                             11,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        variant: SynCurrentSymbolVariant::TemplateParameter {
                                                             syn_attrs: TemplateParameterSynAttrs {
                                                                 syn_attrs: [],
                                                             },
@@ -294,7 +294,7 @@ Ok(
                                         roots: [
                                             SynExprRoot {
                                                 kind: ConstantImplicitParameterType,
-                                                expr_idx: 1,
+                                                syn_expr_idx: 1,
                                             },
                                         ],
                                         has_self_lifetime: false,
@@ -372,13 +372,13 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `Label`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         10,
                                                     ),
                                                     current_symbol_idx: 1,
-                                                    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                    current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                         template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `Label`,
@@ -418,13 +418,13 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSynSymbol {
+                                                    SynCurrentSymbol {
                                                         modifier: Const,
                                                         access_start: RegionalTokenIdx(
                                                             6,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        variant: SynCurrentSymbolVariant::TemplateParameter {
                                                             syn_attrs: TemplateParameterSynAttrs {
                                                                 syn_attrs: [],
                                                             },
@@ -439,13 +439,13 @@ Ok(
                                                             },
                                                         },
                                                     },
-                                                    CurrentSynSymbol {
+                                                    SynCurrentSymbol {
                                                         modifier: Const,
                                                         access_start: RegionalTokenIdx(
                                                             11,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        variant: SynCurrentSymbolVariant::TemplateParameter {
                                                             syn_attrs: TemplateParameterSynAttrs {
                                                                 syn_attrs: [],
                                                             },
@@ -483,7 +483,7 @@ Ok(
                                         roots: [
                                             SynExprRoot {
                                                 kind: ConstantImplicitParameterType,
-                                                expr_idx: 1,
+                                                syn_expr_idx: 1,
                                             },
                                         ],
                                         has_self_lifetime: false,
@@ -596,7 +596,7 @@ Ok(
                                             ),
                                         ),
                                         ty: 3,
-                                        eq_token: RegionalEqToken(
+                                        eq_token: EqRegionalToken(
                                             RegionalTokenIdx(
                                                 23,
                                             ),
@@ -628,13 +628,13 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `Label`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         10,
                                                     ),
                                                     current_symbol_idx: 1,
-                                                    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                    current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                         template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `Label`,
@@ -645,7 +645,7 @@ Ok(
                                                         },
                                                     },
                                                 },
-                                                SynExpr::PrincipalEntityPath {
+                                                SynExprData::PrincipalEntityPath {
                                                     path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
@@ -655,7 +655,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::PrincipalEntityPath {
+                                                SynExprData::PrincipalEntityPath {
                                                     path_expr_idx: 2,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
@@ -665,17 +665,17 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         24,
                                                     ),
-                                                    Literal::Integer(
+                                                    LiteralData::Integer(
                                                         UnspecifiedRegular(
                                                             5,
                                                         ),
                                                     ),
                                                 ),
-                                                SynExpr::PrincipalEntityPath {
+                                                SynExprData::PrincipalEntityPath {
                                                     path_expr_idx: 3,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
@@ -685,13 +685,13 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `Label`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         29,
                                                     ),
                                                     current_symbol_idx: 1,
-                                                    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                    current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                         template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `Label`,
@@ -702,17 +702,17 @@ Ok(
                                                         },
                                                     },
                                                 },
-                                                SynExpr::ExplicitApplication {
+                                                SynExprData::ExplicitApplication {
                                                     function_expr_idx: 5,
                                                     argument_expr_idx: 6,
                                                 },
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `label`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         30,
                                                     ),
                                                     current_symbol_idx: 2,
-                                                    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                    current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                         template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `label`,
@@ -723,7 +723,7 @@ Ok(
                                                         },
                                                     },
                                                 },
-                                                SynExpr::ExplicitApplication {
+                                                SynExprData::ExplicitApplication {
                                                     function_expr_idx: 7,
                                                     argument_expr_idx: 8,
                                                 },
@@ -731,7 +731,7 @@ Ok(
                                         },
                                         principal_item_path_expr_arena: Arena {
                                             data: [
-                                                PrincipalEntityPathExpr::Root {
+                                                SynPrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameRegionalToken::Ident(
                                                         IdentRegionalToken {
                                                             ident: `f32`,
@@ -746,7 +746,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                PrincipalEntityPathExpr::Root {
+                                                SynPrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameRegionalToken::Ident(
                                                         IdentRegionalToken {
                                                             ident: `i32`,
@@ -761,7 +761,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                PrincipalEntityPathExpr::Root {
+                                                SynPrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameRegionalToken::Ident(
                                                         IdentRegionalToken {
                                                             ident: `OneVsAllResult`,
@@ -827,13 +827,13 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSynSymbol {
+                                                    SynCurrentSymbol {
                                                         modifier: Const,
                                                         access_start: RegionalTokenIdx(
                                                             6,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        variant: SynCurrentSymbolVariant::TemplateParameter {
                                                             syn_attrs: TemplateParameterSynAttrs {
                                                                 syn_attrs: [],
                                                             },
@@ -848,13 +848,13 @@ Ok(
                                                             },
                                                         },
                                                     },
-                                                    CurrentSynSymbol {
+                                                    SynCurrentSymbol {
                                                         modifier: Const,
                                                         access_start: RegionalTokenIdx(
                                                             11,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        variant: SynCurrentSymbolVariant::TemplateParameter {
                                                             syn_attrs: TemplateParameterSynAttrs {
                                                                 syn_attrs: [],
                                                             },
@@ -870,13 +870,13 @@ Ok(
                                                             },
                                                         },
                                                     },
-                                                    CurrentSynSymbol {
+                                                    SynCurrentSymbol {
                                                         modifier: None,
                                                         access_start: RegionalTokenIdx(
                                                             14,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateVariadicParameter {
+                                                        variant: SynCurrentSymbolVariant::ParenateVariadicParameter {
                                                             symbol_modifier_keyword_group: None,
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `f`,
@@ -886,13 +886,13 @@ Ok(
                                                             },
                                                         },
                                                     },
-                                                    CurrentSynSymbol {
+                                                    SynCurrentSymbol {
                                                         modifier: None,
                                                         access_start: RegionalTokenIdx(
                                                             21,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        variant: SynCurrentSymbolVariant::ParenateRegularParameter {
                                                             ident: `skip`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -938,25 +938,25 @@ Ok(
                                         roots: [
                                             SynExprRoot {
                                                 kind: ConstantImplicitParameterType,
-                                                expr_idx: 1,
+                                                syn_expr_idx: 1,
                                             },
                                             SynExprRoot {
                                                 kind: ExplicitParameterType,
-                                                expr_idx: 2,
+                                                syn_expr_idx: 2,
                                             },
                                             SynExprRoot {
                                                 kind: ExplicitParameterType,
-                                                expr_idx: 3,
+                                                syn_expr_idx: 3,
                                             },
                                             SynExprRoot {
                                                 kind: ExplicitParameterDefaultValue {
-                                                    ty_expr_idx: 3,
+                                                    ty_syn_expr_idx: 3,
                                                 },
-                                                expr_idx: 4,
+                                                syn_expr_idx: 4,
                                             },
                                             SynExprRoot {
                                                 kind: ReturnType,
-                                                expr_idx: 9,
+                                                syn_expr_idx: 9,
                                             },
                                         ],
                                         has_self_lifetime: false,
@@ -1059,13 +1059,13 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            SynExpr::CurrentSymbol {
+                                            SynExprData::CurrentSymbol {
                                                 ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     8,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `Label`,
@@ -1076,7 +1076,7 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            SynExpr::PrincipalEntityPath {
+                                            SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 3,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
@@ -1086,7 +1086,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            SynExpr::PrincipalEntityPath {
+                                            SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 4,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
@@ -1096,17 +1096,17 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            SynExpr::ExplicitApplication {
+                                            SynExprData::ExplicitApplication {
                                                 function_expr_idx: 2,
                                                 argument_expr_idx: 3,
                                             },
-                                            SynExpr::CurrentSymbol {
+                                            SynExprData::CurrentSymbol {
                                                 ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     16,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `Label`,
@@ -1117,17 +1117,17 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            SynExpr::ExplicitApplication {
+                                            SynExprData::ExplicitApplication {
                                                 function_expr_idx: 4,
                                                 argument_expr_idx: 5,
                                             },
-                                            SynExpr::CurrentSymbol {
+                                            SynExprData::CurrentSymbol {
                                                 ident: `label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     17,
                                                 ),
                                                 current_symbol_idx: 2,
-                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `label`,
@@ -1138,11 +1138,11 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            SynExpr::ExplicitApplication {
+                                            SynExprData::ExplicitApplication {
                                                 function_expr_idx: 6,
                                                 argument_expr_idx: 7,
                                             },
-                                            SynExpr::PrincipalEntityPath {
+                                            SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 5,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
@@ -1152,13 +1152,13 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            SynExpr::CurrentSymbol {
+                                            SynExprData::CurrentSymbol {
                                                 ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     20,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `Label`,
@@ -1169,7 +1169,7 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            SynExpr::ExplicitApplication {
+                                            SynExprData::ExplicitApplication {
                                                 function_expr_idx: 9,
                                                 argument_expr_idx: 10,
                                             },
@@ -1177,7 +1177,7 @@ Ok(
                                     },
                                     principal_item_path_expr_arena: Arena {
                                         data: [
-                                            PrincipalEntityPathExpr::Root {
+                                            SynPrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameRegionalToken::Ident(
                                                     IdentRegionalToken {
                                                         ident: `core`,
@@ -1190,7 +1190,7 @@ Ok(
                                                     `core`,
                                                 ),
                                             },
-                                            PrincipalEntityPathExpr::Subitem {
+                                            SynPrincipalEntityPathExpr::Subitem {
                                                 parent: 1,
                                                 colon_colon_token: ColonColonRegionalToken(
                                                     RegionalTokenIdx(
@@ -1211,7 +1211,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            PrincipalEntityPathExpr::Subitem {
+                                            SynPrincipalEntityPathExpr::Subitem {
                                                 parent: 2,
                                                 colon_colon_token: ColonColonRegionalToken(
                                                     RegionalTokenIdx(
@@ -1234,7 +1234,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            PrincipalEntityPathExpr::Root {
+                                            SynPrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameRegionalToken::Ident(
                                                     IdentRegionalToken {
                                                         ident: `OneVsAll`,
@@ -1249,7 +1249,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            PrincipalEntityPathExpr::Root {
+                                            SynPrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameRegionalToken::Ident(
                                                     IdentRegionalToken {
                                                         ident: `Class`,
@@ -1290,13 +1290,13 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbol {
+                                                SynCurrentSymbol {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         4,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    variant: SynCurrentSymbolVariant::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -1311,13 +1311,13 @@ Ok(
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                SynCurrentSymbol {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         9,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    variant: SynCurrentSymbolVariant::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -1355,15 +1355,15 @@ Ok(
                                     roots: [
                                         SynExprRoot {
                                             kind: ConstantImplicitParameterType,
-                                            expr_idx: 1,
+                                            syn_expr_idx: 1,
                                         },
                                         SynExprRoot {
                                             kind: Trait,
-                                            expr_idx: 8,
+                                            syn_expr_idx: 8,
                                         },
                                         SynExprRoot {
                                             kind: SelfType,
-                                            expr_idx: 11,
+                                            syn_expr_idx: 11,
                                         },
                                     ],
                                     has_self_lifetime: false,
@@ -1433,13 +1433,13 @@ Ok(
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            SynExpr::CurrentSymbol {
+                                                            SynExprData::CurrentSymbol {
                                                                 ident: `Label`,
                                                                 regional_token_idx: RegionalTokenIdx(
                                                                     8,
                                                                 ),
                                                                 current_symbol_idx: 1,
-                                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentRegionalToken {
                                                                             ident: `Label`,
@@ -1450,7 +1450,7 @@ Ok(
                                                                     },
                                                                 },
                                                             },
-                                                            SynExpr::PrincipalEntityPath {
+                                                            SynExprData::PrincipalEntityPath {
                                                                 path_expr_idx: 3,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
@@ -1460,7 +1460,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            SynExpr::PrincipalEntityPath {
+                                                            SynExprData::PrincipalEntityPath {
                                                                 path_expr_idx: 4,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
@@ -1470,17 +1470,17 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            SynExpr::ExplicitApplication {
+                                                            SynExprData::ExplicitApplication {
                                                                 function_expr_idx: 2,
                                                                 argument_expr_idx: 3,
                                                             },
-                                                            SynExpr::CurrentSymbol {
+                                                            SynExprData::CurrentSymbol {
                                                                 ident: `Label`,
                                                                 regional_token_idx: RegionalTokenIdx(
                                                                     16,
                                                                 ),
                                                                 current_symbol_idx: 1,
-                                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentRegionalToken {
                                                                             ident: `Label`,
@@ -1491,17 +1491,17 @@ Ok(
                                                                     },
                                                                 },
                                                             },
-                                                            SynExpr::ExplicitApplication {
+                                                            SynExprData::ExplicitApplication {
                                                                 function_expr_idx: 4,
                                                                 argument_expr_idx: 5,
                                                             },
-                                                            SynExpr::CurrentSymbol {
+                                                            SynExprData::CurrentSymbol {
                                                                 ident: `label`,
                                                                 regional_token_idx: RegionalTokenIdx(
                                                                     17,
                                                                 ),
                                                                 current_symbol_idx: 2,
-                                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                                         ident_token: IdentRegionalToken {
                                                                             ident: `label`,
@@ -1512,11 +1512,11 @@ Ok(
                                                                     },
                                                                 },
                                                             },
-                                                            SynExpr::ExplicitApplication {
+                                                            SynExprData::ExplicitApplication {
                                                                 function_expr_idx: 6,
                                                                 argument_expr_idx: 7,
                                                             },
-                                                            SynExpr::PrincipalEntityPath {
+                                                            SynExprData::PrincipalEntityPath {
                                                                 path_expr_idx: 5,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
@@ -1526,13 +1526,13 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            SynExpr::CurrentSymbol {
+                                                            SynExprData::CurrentSymbol {
                                                                 ident: `Label`,
                                                                 regional_token_idx: RegionalTokenIdx(
                                                                     20,
                                                                 ),
                                                                 current_symbol_idx: 1,
-                                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentRegionalToken {
                                                                             ident: `Label`,
@@ -1543,7 +1543,7 @@ Ok(
                                                                     },
                                                                 },
                                                             },
-                                                            SynExpr::ExplicitApplication {
+                                                            SynExprData::ExplicitApplication {
                                                                 function_expr_idx: 9,
                                                                 argument_expr_idx: 10,
                                                             },
@@ -1551,7 +1551,7 @@ Ok(
                                                     },
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
-                                                            PrincipalEntityPathExpr::Root {
+                                                            SynPrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameRegionalToken::Ident(
                                                                     IdentRegionalToken {
                                                                         ident: `core`,
@@ -1564,7 +1564,7 @@ Ok(
                                                                     `core`,
                                                                 ),
                                                             },
-                                                            PrincipalEntityPathExpr::Subitem {
+                                                            SynPrincipalEntityPathExpr::Subitem {
                                                                 parent: 1,
                                                                 colon_colon_token: ColonColonRegionalToken(
                                                                     RegionalTokenIdx(
@@ -1585,7 +1585,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            PrincipalEntityPathExpr::Subitem {
+                                                            SynPrincipalEntityPathExpr::Subitem {
                                                                 parent: 2,
                                                                 colon_colon_token: ColonColonRegionalToken(
                                                                     RegionalTokenIdx(
@@ -1608,7 +1608,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            PrincipalEntityPathExpr::Root {
+                                                            SynPrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameRegionalToken::Ident(
                                                                     IdentRegionalToken {
                                                                         ident: `OneVsAll`,
@@ -1623,7 +1623,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            PrincipalEntityPathExpr::Root {
+                                                            SynPrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameRegionalToken::Ident(
                                                                     IdentRegionalToken {
                                                                         ident: `Class`,
@@ -1664,13 +1664,13 @@ Ok(
                                                         },
                                                         current_symbol_arena: Arena {
                                                             data: [
-                                                                CurrentSynSymbol {
+                                                                SynCurrentSymbol {
                                                                     modifier: Const,
                                                                     access_start: RegionalTokenIdx(
                                                                         4,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                    variant: SynCurrentSymbolVariant::TemplateParameter {
                                                                         syn_attrs: TemplateParameterSynAttrs {
                                                                             syn_attrs: [],
                                                                         },
@@ -1685,13 +1685,13 @@ Ok(
                                                                         },
                                                                     },
                                                                 },
-                                                                CurrentSynSymbol {
+                                                                SynCurrentSymbol {
                                                                     modifier: Const,
                                                                     access_start: RegionalTokenIdx(
                                                                         9,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                    variant: SynCurrentSymbolVariant::TemplateParameter {
                                                                         syn_attrs: TemplateParameterSynAttrs {
                                                                             syn_attrs: [],
                                                                         },
@@ -1729,15 +1729,15 @@ Ok(
                                                     roots: [
                                                         SynExprRoot {
                                                             kind: ConstantImplicitParameterType,
-                                                            expr_idx: 1,
+                                                            syn_expr_idx: 1,
                                                         },
                                                         SynExprRoot {
                                                             kind: Trait,
-                                                            expr_idx: 8,
+                                                            syn_expr_idx: 8,
                                                         },
                                                         SynExprRoot {
                                                             kind: SelfType,
-                                                            expr_idx: 11,
+                                                            syn_expr_idx: 11,
                                                         },
                                                     ],
                                                     has_self_lifetime: false,
@@ -1770,7 +1770,7 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                SynExpr::Unit {
+                                                SynExprData::Unit {
                                                     lpar_regional_token_idx: RegionalTokenIdx(
                                                         4,
                                                     ),
@@ -1804,23 +1804,23 @@ Ok(
                                         symbol_region: SynSymbolRegion {
                                             inherited_symbol_arena: Arena {
                                                 data: [
-                                                    InheritedSynSymbol {
+                                                    SynInheritedSymbol {
                                                         parent_symbol_idx: Current(
                                                             1,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        kind: SynInheritedSymbolKind::TemplateParameter(
                                                             InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `Label`,
                                                             },
                                                         ),
                                                     },
-                                                    InheritedSynSymbol {
+                                                    SynInheritedSymbol {
                                                         parent_symbol_idx: Current(
                                                             2,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        kind: SynInheritedSymbolKind::TemplateParameter(
                                                             InheritedTemplateParameterSynSymbol::Constant {
                                                                 ident: `label`,
                                                             },
@@ -1838,7 +1838,7 @@ Ok(
                                         roots: [
                                             SynExprRoot {
                                                 kind: AssociatedTypeTerm,
-                                                expr_idx: 1,
+                                                syn_expr_idx: 1,
                                             },
                                         ],
                                         has_self_lifetime: false,
@@ -1941,13 +1941,13 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            SynExpr::CurrentSymbol {
+                                            SynExprData::CurrentSymbol {
                                                 ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     8,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `Label`,
@@ -1958,7 +1958,7 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            SynExpr::PrincipalEntityPath {
+                                            SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 3,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
@@ -1968,7 +1968,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            SynExpr::PrincipalEntityPath {
+                                            SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 4,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
@@ -1978,17 +1978,17 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            SynExpr::ExplicitApplication {
+                                            SynExprData::ExplicitApplication {
                                                 function_expr_idx: 2,
                                                 argument_expr_idx: 3,
                                             },
-                                            SynExpr::CurrentSymbol {
+                                            SynExprData::CurrentSymbol {
                                                 ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     16,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `Label`,
@@ -1999,17 +1999,17 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            SynExpr::ExplicitApplication {
+                                            SynExprData::ExplicitApplication {
                                                 function_expr_idx: 4,
                                                 argument_expr_idx: 5,
                                             },
-                                            SynExpr::CurrentSymbol {
+                                            SynExprData::CurrentSymbol {
                                                 ident: `label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     17,
                                                 ),
                                                 current_symbol_idx: 2,
-                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `label`,
@@ -2020,11 +2020,11 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            SynExpr::ExplicitApplication {
+                                            SynExprData::ExplicitApplication {
                                                 function_expr_idx: 6,
                                                 argument_expr_idx: 7,
                                             },
-                                            SynExpr::PrincipalEntityPath {
+                                            SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 5,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
@@ -2034,13 +2034,13 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            SynExpr::CurrentSymbol {
+                                            SynExprData::CurrentSymbol {
                                                 ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     20,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `Label`,
@@ -2051,17 +2051,17 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            SynExpr::ExplicitApplication {
+                                            SynExprData::ExplicitApplication {
                                                 function_expr_idx: 9,
                                                 argument_expr_idx: 10,
                                             },
-                                            SynExpr::CurrentSymbol {
+                                            SynExprData::CurrentSymbol {
                                                 ident: `label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     21,
                                                 ),
                                                 current_symbol_idx: 2,
-                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `label`,
@@ -2072,7 +2072,7 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            SynExpr::ExplicitApplication {
+                                            SynExprData::ExplicitApplication {
                                                 function_expr_idx: 11,
                                                 argument_expr_idx: 12,
                                             },
@@ -2080,7 +2080,7 @@ Ok(
                                     },
                                     principal_item_path_expr_arena: Arena {
                                         data: [
-                                            PrincipalEntityPathExpr::Root {
+                                            SynPrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameRegionalToken::Ident(
                                                     IdentRegionalToken {
                                                         ident: `core`,
@@ -2093,7 +2093,7 @@ Ok(
                                                     `core`,
                                                 ),
                                             },
-                                            PrincipalEntityPathExpr::Subitem {
+                                            SynPrincipalEntityPathExpr::Subitem {
                                                 parent: 1,
                                                 colon_colon_token: ColonColonRegionalToken(
                                                     RegionalTokenIdx(
@@ -2114,7 +2114,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            PrincipalEntityPathExpr::Subitem {
+                                            SynPrincipalEntityPathExpr::Subitem {
                                                 parent: 2,
                                                 colon_colon_token: ColonColonRegionalToken(
                                                     RegionalTokenIdx(
@@ -2137,7 +2137,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            PrincipalEntityPathExpr::Root {
+                                            SynPrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameRegionalToken::Ident(
                                                     IdentRegionalToken {
                                                         ident: `OneVsAllResult`,
@@ -2152,7 +2152,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            PrincipalEntityPathExpr::Root {
+                                            SynPrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameRegionalToken::Ident(
                                                     IdentRegionalToken {
                                                         ident: `OneVsAll`,
@@ -2193,13 +2193,13 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbol {
+                                                SynCurrentSymbol {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         4,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    variant: SynCurrentSymbolVariant::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -2214,13 +2214,13 @@ Ok(
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                SynCurrentSymbol {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         9,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    variant: SynCurrentSymbolVariant::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -2258,15 +2258,15 @@ Ok(
                                     roots: [
                                         SynExprRoot {
                                             kind: ConstantImplicitParameterType,
-                                            expr_idx: 1,
+                                            syn_expr_idx: 1,
                                         },
                                         SynExprRoot {
                                             kind: Trait,
-                                            expr_idx: 8,
+                                            syn_expr_idx: 8,
                                         },
                                         SynExprRoot {
                                             kind: SelfType,
-                                            expr_idx: 13,
+                                            syn_expr_idx: 13,
                                         },
                                     ],
                                     has_self_lifetime: false,
@@ -2336,13 +2336,13 @@ Ok(
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            SynExpr::CurrentSymbol {
+                                                            SynExprData::CurrentSymbol {
                                                                 ident: `Label`,
                                                                 regional_token_idx: RegionalTokenIdx(
                                                                     8,
                                                                 ),
                                                                 current_symbol_idx: 1,
-                                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentRegionalToken {
                                                                             ident: `Label`,
@@ -2353,7 +2353,7 @@ Ok(
                                                                     },
                                                                 },
                                                             },
-                                                            SynExpr::PrincipalEntityPath {
+                                                            SynExprData::PrincipalEntityPath {
                                                                 path_expr_idx: 3,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
@@ -2363,7 +2363,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            SynExpr::PrincipalEntityPath {
+                                                            SynExprData::PrincipalEntityPath {
                                                                 path_expr_idx: 4,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
@@ -2373,17 +2373,17 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            SynExpr::ExplicitApplication {
+                                                            SynExprData::ExplicitApplication {
                                                                 function_expr_idx: 2,
                                                                 argument_expr_idx: 3,
                                                             },
-                                                            SynExpr::CurrentSymbol {
+                                                            SynExprData::CurrentSymbol {
                                                                 ident: `Label`,
                                                                 regional_token_idx: RegionalTokenIdx(
                                                                     16,
                                                                 ),
                                                                 current_symbol_idx: 1,
-                                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentRegionalToken {
                                                                             ident: `Label`,
@@ -2394,17 +2394,17 @@ Ok(
                                                                     },
                                                                 },
                                                             },
-                                                            SynExpr::ExplicitApplication {
+                                                            SynExprData::ExplicitApplication {
                                                                 function_expr_idx: 4,
                                                                 argument_expr_idx: 5,
                                                             },
-                                                            SynExpr::CurrentSymbol {
+                                                            SynExprData::CurrentSymbol {
                                                                 ident: `label`,
                                                                 regional_token_idx: RegionalTokenIdx(
                                                                     17,
                                                                 ),
                                                                 current_symbol_idx: 2,
-                                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                                         ident_token: IdentRegionalToken {
                                                                             ident: `label`,
@@ -2415,11 +2415,11 @@ Ok(
                                                                     },
                                                                 },
                                                             },
-                                                            SynExpr::ExplicitApplication {
+                                                            SynExprData::ExplicitApplication {
                                                                 function_expr_idx: 6,
                                                                 argument_expr_idx: 7,
                                                             },
-                                                            SynExpr::PrincipalEntityPath {
+                                                            SynExprData::PrincipalEntityPath {
                                                                 path_expr_idx: 5,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
@@ -2429,13 +2429,13 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            SynExpr::CurrentSymbol {
+                                                            SynExprData::CurrentSymbol {
                                                                 ident: `Label`,
                                                                 regional_token_idx: RegionalTokenIdx(
                                                                     20,
                                                                 ),
                                                                 current_symbol_idx: 1,
-                                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentRegionalToken {
                                                                             ident: `Label`,
@@ -2446,17 +2446,17 @@ Ok(
                                                                     },
                                                                 },
                                                             },
-                                                            SynExpr::ExplicitApplication {
+                                                            SynExprData::ExplicitApplication {
                                                                 function_expr_idx: 9,
                                                                 argument_expr_idx: 10,
                                                             },
-                                                            SynExpr::CurrentSymbol {
+                                                            SynExprData::CurrentSymbol {
                                                                 ident: `label`,
                                                                 regional_token_idx: RegionalTokenIdx(
                                                                     21,
                                                                 ),
                                                                 current_symbol_idx: 2,
-                                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                                         ident_token: IdentRegionalToken {
                                                                             ident: `label`,
@@ -2467,7 +2467,7 @@ Ok(
                                                                     },
                                                                 },
                                                             },
-                                                            SynExpr::ExplicitApplication {
+                                                            SynExprData::ExplicitApplication {
                                                                 function_expr_idx: 11,
                                                                 argument_expr_idx: 12,
                                                             },
@@ -2475,7 +2475,7 @@ Ok(
                                                     },
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
-                                                            PrincipalEntityPathExpr::Root {
+                                                            SynPrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameRegionalToken::Ident(
                                                                     IdentRegionalToken {
                                                                         ident: `core`,
@@ -2488,7 +2488,7 @@ Ok(
                                                                     `core`,
                                                                 ),
                                                             },
-                                                            PrincipalEntityPathExpr::Subitem {
+                                                            SynPrincipalEntityPathExpr::Subitem {
                                                                 parent: 1,
                                                                 colon_colon_token: ColonColonRegionalToken(
                                                                     RegionalTokenIdx(
@@ -2509,7 +2509,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            PrincipalEntityPathExpr::Subitem {
+                                                            SynPrincipalEntityPathExpr::Subitem {
                                                                 parent: 2,
                                                                 colon_colon_token: ColonColonRegionalToken(
                                                                     RegionalTokenIdx(
@@ -2532,7 +2532,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            PrincipalEntityPathExpr::Root {
+                                                            SynPrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameRegionalToken::Ident(
                                                                     IdentRegionalToken {
                                                                         ident: `OneVsAllResult`,
@@ -2547,7 +2547,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            PrincipalEntityPathExpr::Root {
+                                                            SynPrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameRegionalToken::Ident(
                                                                     IdentRegionalToken {
                                                                         ident: `OneVsAll`,
@@ -2588,13 +2588,13 @@ Ok(
                                                         },
                                                         current_symbol_arena: Arena {
                                                             data: [
-                                                                CurrentSynSymbol {
+                                                                SynCurrentSymbol {
                                                                     modifier: Const,
                                                                     access_start: RegionalTokenIdx(
                                                                         4,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                    variant: SynCurrentSymbolVariant::TemplateParameter {
                                                                         syn_attrs: TemplateParameterSynAttrs {
                                                                             syn_attrs: [],
                                                                         },
@@ -2609,13 +2609,13 @@ Ok(
                                                                         },
                                                                     },
                                                                 },
-                                                                CurrentSynSymbol {
+                                                                SynCurrentSymbol {
                                                                     modifier: Const,
                                                                     access_start: RegionalTokenIdx(
                                                                         9,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                    variant: SynCurrentSymbolVariant::TemplateParameter {
                                                                         syn_attrs: TemplateParameterSynAttrs {
                                                                             syn_attrs: [],
                                                                         },
@@ -2653,15 +2653,15 @@ Ok(
                                                     roots: [
                                                         SynExprRoot {
                                                             kind: ConstantImplicitParameterType,
-                                                            expr_idx: 1,
+                                                            syn_expr_idx: 1,
                                                         },
                                                         SynExprRoot {
                                                             kind: Trait,
-                                                            expr_idx: 8,
+                                                            syn_expr_idx: 8,
                                                         },
                                                         SynExprRoot {
                                                             kind: SelfType,
-                                                            expr_idx: 13,
+                                                            syn_expr_idx: 13,
                                                         },
                                                     ],
                                                     has_self_lifetime: false,
@@ -2694,7 +2694,7 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                SynExpr::Unit {
+                                                SynExprData::Unit {
                                                     lpar_regional_token_idx: RegionalTokenIdx(
                                                         4,
                                                     ),
@@ -2728,23 +2728,23 @@ Ok(
                                         symbol_region: SynSymbolRegion {
                                             inherited_symbol_arena: Arena {
                                                 data: [
-                                                    InheritedSynSymbol {
+                                                    SynInheritedSymbol {
                                                         parent_symbol_idx: Current(
                                                             1,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        kind: SynInheritedSymbolKind::TemplateParameter(
                                                             InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `Label`,
                                                             },
                                                         ),
                                                     },
-                                                    InheritedSynSymbol {
+                                                    SynInheritedSymbol {
                                                         parent_symbol_idx: Current(
                                                             2,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        kind: SynInheritedSymbolKind::TemplateParameter(
                                                             InheritedTemplateParameterSynSymbol::Constant {
                                                                 ident: `label`,
                                                             },
@@ -2762,7 +2762,7 @@ Ok(
                                         roots: [
                                             SynExprRoot {
                                                 kind: AssociatedTypeTerm,
-                                                expr_idx: 1,
+                                                syn_expr_idx: 1,
                                             },
                                         ],
                                         has_self_lifetime: false,

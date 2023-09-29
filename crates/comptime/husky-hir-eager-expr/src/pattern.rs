@@ -16,14 +16,15 @@ impl<'a> HirEagerExprBuilder<'a> {
         &mut self,
         let_pattern_sema_obelisk: &LetPatternSemaObelisk,
     ) -> HirEagerLetVariablesPattern {
-        todo!()
-        // HirEagerLetVariablesPattern {
-        //     pattern_expr_idx: self.new_pattern_expr(let_pattern_sema_obelisk.syn_pattern_root()),
-        //     // variables: todo!(),
-        //     ty: let_pattern_sema_obelisk
-        //         .ty()
-        //         .map(|ty| HirType::from_ethereal(self.expr_term(ty), self.db())),
-        // }
+        HirEagerLetVariablesPattern {
+            pattern_expr_idx: self.new_pattern_expr(let_pattern_sema_obelisk.syn_pattern_root()),
+            // variables: todo!(),
+            ty: let_pattern_sema_obelisk
+                .ty_sema_expr_idx()
+                .map(|ty_sema_expr_idx| {
+                    HirType::from_ethereal(self.expr_term(ty_sema_expr_idx), self.db())
+                }),
+        }
     }
 }
 

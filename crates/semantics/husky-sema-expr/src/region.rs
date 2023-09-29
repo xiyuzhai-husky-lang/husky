@@ -56,20 +56,32 @@ impl SemaExprRegion {
         self.path
     }
 
+    pub fn syn_expr_root_sema_expr_idx(&self, syn_expr_root: SynExprIdx) -> SemaExprIdx {
+        self.syn_expr_root_sema_expr_idx_table[syn_expr_root].1
+    }
+
     pub fn sema_expr_arena_ref<'a>(&'a self) -> SemaExprArenaRef<'a> {
         self.sema_expr_arena.arena_ref()
+    }
+
+    pub fn sema_stmt_arena_ref<'a>(&'a self) -> SemaStmtArenaRef<'a> {
+        self.sema_stmt_arena.arena_ref()
     }
 
     pub fn sema_expr_terms(&self) -> &[(SemaExprIdx, SemaExprTermResult<FluffyTerm>)] {
         &self.sema_expr_terms
     }
 
-    pub fn expr_fluffy_term(
+    pub fn sema_expr_term(
         &self,
         sema_expr_idx: SemaExprIdx,
     ) -> Option<SemaExprTermResultRef<FluffyTerm>> {
-        todo!()
-        // Some(self.expr_fluffy_terms.get(sema_expr_idx)?.as_ref().copied())
+        Some(
+            self.sema_expr_terms
+                .get_value(sema_expr_idx)?
+                .as_ref()
+                .copied(),
+        )
     }
 
     pub fn symbol_terms(&self) -> &SymbolMap<FluffyTerm> {

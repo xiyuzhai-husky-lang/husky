@@ -41,7 +41,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                         ident_token: IdentRegionalToken {
                             ident: `L`,
@@ -65,7 +65,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `E`,

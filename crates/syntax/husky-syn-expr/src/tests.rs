@@ -114,7 +114,7 @@ fn parse_expr_works() {
                 roots: [
                     SynExprRoot {
                         kind: Snippet,
-                        expr_idx: 1,
+                        syn_expr_idx: 1,
                     },
                 ],
                 has_self_lifetime: false,
@@ -196,7 +196,7 @@ fn parse_expr_works() {
                 roots: [
                     SynExprRoot {
                         kind: Snippet,
-                        expr_idx: 2,
+                        syn_expr_idx: 2,
                     },
                 ],
                 has_self_lifetime: false,
@@ -271,7 +271,7 @@ fn parse_expr_works() {
                 roots: [
                     SynExprRoot {
                         kind: Snippet,
-                        expr_idx: 1,
+                        syn_expr_idx: 1,
                     },
                 ],
                 has_self_lifetime: false,
@@ -346,7 +346,7 @@ fn parse_expr_works() {
                 roots: [
                     SynExprRoot {
                         kind: Snippet,
-                        expr_idx: 1,
+                        syn_expr_idx: 1,
                     },
                 ],
                 has_self_lifetime: false,
@@ -418,7 +418,7 @@ fn parse_expr_works() {
                 roots: [
                     SynExprRoot {
                         kind: Snippet,
-                        expr_idx: 1,
+                        syn_expr_idx: 1,
                     },
                 ],
                 has_self_lifetime: false,
@@ -513,7 +513,7 @@ fn parse_expr_works() {
                 roots: [
                     SynExprRoot {
                         kind: Snippet,
-                        expr_idx: 3,
+                        syn_expr_idx: 3,
                     },
                 ],
                 has_self_lifetime: false,
@@ -607,7 +607,7 @@ fn parse_expr_works() {
                 roots: [
                     SynExprRoot {
                         kind: Snippet,
-                        expr_idx: 3,
+                        syn_expr_idx: 3,
                     },
                 ],
                 has_self_lifetime: false,
@@ -649,7 +649,7 @@ fn parse_expr_works() {
                             ),
                             items: [
                                 SynCommaListItem {
-                                    expr_idx: 1,
+                                    syn_expr_idx: 1,
                                     comma_regional_token_idx: None,
                                 },
                             ],
@@ -716,7 +716,7 @@ fn parse_expr_works() {
                 roots: [
                     SynExprRoot {
                         kind: Snippet,
-                        expr_idx: 4,
+                        syn_expr_idx: 4,
                     },
                 ],
                 has_self_lifetime: false,
@@ -780,7 +780,7 @@ fn parse_expr_works() {
                             ),
                             items: [
                                 SynCommaListItem {
-                                    expr_idx: 1,
+                                    syn_expr_idx: 1,
                                     comma_regional_token_idx: Some(
                                         RegionalTokenIdx(
                                             3,
@@ -788,7 +788,7 @@ fn parse_expr_works() {
                                     ),
                                 },
                                 SynCommaListItem {
-                                    expr_idx: 2,
+                                    syn_expr_idx: 2,
                                     comma_regional_token_idx: None,
                                 },
                             ],
@@ -835,7 +835,7 @@ fn parse_expr_works() {
                 roots: [
                     SynExprRoot {
                         kind: Snippet,
-                        expr_idx: 3,
+                        syn_expr_idx: 3,
                     },
                 ],
                 has_self_lifetime: false,
@@ -992,7 +992,7 @@ fn parse_expr_works() {
                 roots: [
                     SynExprRoot {
                         kind: Snippet,
-                        expr_idx: 2,
+                        syn_expr_idx: 2,
                     },
                 ],
                 has_self_lifetime: false,
@@ -1051,7 +1051,7 @@ fn parse_expr_works() {
                                     3,
                                 ),
                             },
-                            generic_arguments: None,
+                            template_arguments: None,
                             lpar_regional_token_idx: RegionalTokenIdx(
                                 4,
                             ),
@@ -1099,7 +1099,7 @@ fn parse_expr_works() {
                 roots: [
                     SynExprRoot {
                         kind: Snippet,
-                        expr_idx: 2,
+                        syn_expr_idx: 2,
                     },
                 ],
                 has_self_lifetime: false,
@@ -1207,7 +1207,7 @@ fn parse_application_expr_works() {
                 roots: [
                     SynExprRoot {
                         kind: Snippet,
-                        expr_idx: 5,
+                        syn_expr_idx: 5,
                     },
                 ],
                 has_self_lifetime: false,

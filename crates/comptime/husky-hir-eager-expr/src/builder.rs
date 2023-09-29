@@ -35,11 +35,18 @@ impl<'a> HirEagerExprBuilder<'a> {
     }
 
     pub fn sema_expr_arena_ref(&self) -> SemaExprArenaRef<'a> {
-        todo!()
+        self.sema_expr_region.sema_expr_arena_ref()
     }
 
     pub fn sema_stmt_arena_ref(&self) -> SemaStmtArenaRef<'a> {
-        todo!()
+        self.sema_expr_region.sema_stmt_arena_ref()
+    }
+
+    pub fn build_hir_eager_expr(&mut self, syn_expr_root: SynExprIdx) -> HirEagerExprIdx {
+        let sema_expr_idx = self
+            .sema_expr_region
+            .syn_expr_root_sema_expr_idx(syn_expr_root);
+        sema_expr_idx.to_hir_eager(self)
     }
 
     pub(crate) fn alloc_stmts(
@@ -79,19 +86,18 @@ impl<'a> HirEagerExprBuilder<'a> {
 
     pub(crate) fn expr_term(&self, sema_expr_idx: SemaExprIdx) -> EtherealTerm {
         // ad hoc
-        // match self
-        //     .sema_expr_region
-        //     .expr_fluffy_term(syn_expr_idx)
-        //     .expect("hir stage some")
-        //     .expect("hir stage ok")
-        //     .base_resolved_inner(self.sema_expr_region.fluffy_term_region().terms())
-        // {
-        //     FluffyTermBase::Ethereal(term) => term,
-        //     FluffyTermBase::Solid(_) => todo!(),
-        //     FluffyTermBase::Hollow(_) => todo!(),
-        //     FluffyTermBase::Place => todo!(),
-        // }
-        todo!()
+        match self
+            .sema_expr_region
+            .sema_expr_term(sema_expr_idx)
+            .expect("hir stage some")
+            .expect("hir stage ok")
+            .base_resolved_inner(self.sema_expr_region.fluffy_term_region().terms())
+        {
+            FluffyTermBase::Ethereal(term) => term,
+            FluffyTermBase::Solid(_) => todo!(),
+            FluffyTermBase::Hollow(_) => todo!(),
+            FluffyTermBase::Place => todo!(),
+        }
     }
 
     pub fn finish(self) -> HirEagerExprRegion {

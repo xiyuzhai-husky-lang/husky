@@ -278,7 +278,7 @@ impl<'a> SemaExprEngine<'a> {
         self.toolchain
     }
 
-    pub(crate) fn term_menu(&self) -> &EtherealTermMenu {
+    pub(crate) fn eth_term_menu(&self) -> &EtherealTermMenu {
         self.term_menu
     }
 

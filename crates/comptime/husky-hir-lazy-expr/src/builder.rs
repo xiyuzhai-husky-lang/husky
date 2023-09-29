@@ -1,6 +1,6 @@
 use crate::*;
 use husky_fluffy_term::FluffyTermBase;
-use husky_sema_expr::{SemaExprIdx, SemaExprRegion, SemaStmtIdx};
+use husky_sema_expr::{SemaExprArenaRef, SemaExprIdx, SemaExprRegion, SemaStmtIdx, SemaStmtArenaRef};
 use husky_syn_expr::{SynExprIdx, SynExprRegion, SynExprRegionData, SynStmtIdx};
 use salsa::DebugWithDb;
 
@@ -27,6 +27,14 @@ impl<'a> HirLazyExprBuilder<'a> {
 
     pub fn syn_expr_region_data(&self) -> &'a SynExprRegionData {
         self.syn_expr_region_data
+    }
+
+    pub(crate) fn sema_expr_arena_ref(&self) -> SemaExprArenaRef<'a> {
+        self.sema_expr_region.sema_expr_arena_ref()
+    }
+
+    pub(crate) fn sema_stmt_arena_ref(&self) -> SemaStmtArenaRef<'a> {
+        self.sema_expr_region.sema_stmt_arena_ref()
     }
 
     pub(crate) fn alloc_stmts(
@@ -68,7 +76,7 @@ impl<'a> HirLazyExprBuilder<'a> {
         // ad hoc
         match self
             .sema_expr_region
-            .expr_fluffy_term(sema_expr_idx)
+            .sema_expr_term(sema_expr_idx)
             .expect("hir stage some")
             .expect("hir stage ok")
             .base_resolved_inner(self.sema_expr_region.fluffy_term_region().terms())
@@ -87,5 +95,12 @@ impl<'a> HirLazyExprBuilder<'a> {
             self.stmt_arena,
             self.pattern_expr_arena,
         )
+    }
+
+    pub fn build_hir_lazy_expr(&mut self, syn_expr_root: SynExprIdx) -> HirLazyExprIdx {
+        let sema_expr_idx = self
+            .sema_expr_region
+            .syn_expr_root_sema_expr_idx(syn_expr_root);
+        sema_expr_idx.to_hir_lazy(self)
     }
 }

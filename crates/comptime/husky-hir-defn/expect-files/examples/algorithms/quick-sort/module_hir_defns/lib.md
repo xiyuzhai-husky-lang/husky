@@ -45,7 +45,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         PrincipalEntityPath(
@@ -119,8 +119,8 @@
                                             ropd: 9,
                                         },
                                         FnCall {
-                                            function: 3,
-                                            generic_arguments: None,
+                                            function_hir_expr_idx: 3,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     4,
@@ -266,8 +266,8 @@
                                             ),
                                         },
                                         FnCall {
-                                            function: 4,
-                                            generic_arguments: None,
+                                            function_hir_expr_idx: 4,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     5,
@@ -335,8 +335,8 @@
                                             ropd: 13,
                                         },
                                         FnCall {
-                                            function: 9,
-                                            generic_arguments: None,
+                                            function_hir_expr_idx: 9,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     10,
@@ -404,8 +404,8 @@
                                             ),
                                         },
                                         FnCall {
-                                            function: 16,
-                                            generic_arguments: None,
+                                            function_hir_expr_idx: 16,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     17,
@@ -624,7 +624,7 @@
                                             ropd: 14,
                                         },
                                         Index {
-                                            owner: 12,
+                                            owner_hir_expr_idx: 12,
                                             items: [
                                                 15,
                                             ],
@@ -648,7 +648,7 @@
                                             ),
                                         },
                                         Index {
-                                            owner: 17,
+                                            owner_hir_expr_idx: 17,
                                             items: [
                                                 18,
                                             ],
@@ -770,7 +770,7 @@
                                             ropd: 32,
                                         },
                                         Index {
-                                            owner: 30,
+                                            owner_hir_expr_idx: 30,
                                             items: [
                                                 33,
                                             ],
@@ -794,7 +794,7 @@
                                             ),
                                         },
                                         Index {
-                                            owner: 35,
+                                            owner_hir_expr_idx: 35,
                                             items: [
                                                 36,
                                             ],
@@ -931,7 +931,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     49,
@@ -1009,7 +1009,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     57,
@@ -1193,7 +1193,7 @@
                                         ),
                                         Prefix {
                                             opr: Minus,
-                                            opd: 4,
+                                            opd_hir_expr_idx: 4,
                                         },
                                         Literal(
                                             I32(
@@ -1225,7 +1225,7 @@
                                                 1,
                                             ),
                                         ),
-                                        List {
+                                        NewList {
                                             items: [
                                                 1,
                                                 2,
@@ -1304,7 +1304,7 @@
                                     data: [
                                         Literal(
                                             String(
-                                                StringLiteral(
+                                                StringLiteralData(
                                                     Id {
                                                         value: 18,
                                                     },
@@ -1313,7 +1313,7 @@
                                         ),
                                         Literal(
                                             String(
-                                                StringLiteral(
+                                                StringLiteralData(
                                                     Id {
                                                         value: 19,
                                                     },
@@ -1322,7 +1322,7 @@
                                         ),
                                         Literal(
                                             String(
-                                                StringLiteral(
+                                                StringLiteralData(
                                                     Id {
                                                         value: 20,
                                                     },
@@ -1331,7 +1331,7 @@
                                         ),
                                         Literal(
                                             String(
-                                                StringLiteral(
+                                                StringLiteralData(
                                                     Id {
                                                         value: 21,
                                                     },
@@ -1340,7 +1340,7 @@
                                         ),
                                         Literal(
                                             String(
-                                                StringLiteral(
+                                                StringLiteralData(
                                                     Id {
                                                         value: 22,
                                                     },
@@ -1349,14 +1349,14 @@
                                         ),
                                         Literal(
                                             String(
-                                                StringLiteral(
+                                                StringLiteralData(
                                                     Id {
                                                         value: 23,
                                                     },
                                                 ),
                                             ),
                                         ),
-                                        List {
+                                        NewList {
                                             items: [
                                                 1,
                                                 2,

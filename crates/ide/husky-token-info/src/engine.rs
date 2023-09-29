@@ -409,9 +409,10 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 items: _indices,
                 rbox_regional_token_idx: _,
             } => {
+                ()
                 // ad hoc
                 // this should always be some
-                todo!()
+                // todo!()
                 // match self.sema_expr_region.expr_disambiguation(expr_idx) {
                 //     Some(Ok(disambiguation)) => match disambiguation {
                 //         SynExprDisambiguation::IndexOrComposeWithList(disambiguation) => {

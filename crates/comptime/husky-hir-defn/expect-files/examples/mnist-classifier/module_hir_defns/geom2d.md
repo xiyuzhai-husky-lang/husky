@@ -469,8 +469,8 @@
                                             ropd: 10,
                                         },
                                         FnCall {
-                                            function: 1,
-                                            generic_arguments: None,
+                                            function_hir_expr_idx: 1,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     6,
@@ -575,9 +575,9 @@
                                                 ),
                                             ),
                                         ),
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 2,
+                                            owner_hir_expr_idx: 2,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -586,9 +586,9 @@
                                                 ),
                                             ),
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 4,
+                                            owner_hir_expr_idx: 4,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -598,8 +598,8 @@
                                             ),
                                         },
                                         FnCall {
-                                            function: 1,
-                                            generic_arguments: None,
+                                            function_hir_expr_idx: 1,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     3,
@@ -725,7 +725,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 2,
+                                            owner_hir_expr_idx: 2,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -734,9 +734,9 @@
                                                 ),
                                             ),
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 4,
+                                            owner_hir_expr_idx: 4,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -762,7 +762,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 7,
+                                            owner_hir_expr_idx: 7,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -771,9 +771,9 @@
                                                 ),
                                             ),
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 9,
+                                            owner_hir_expr_idx: 9,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -790,8 +790,8 @@
                                             ropd: 10,
                                         },
                                         FnCall {
-                                            function: 1,
-                                            generic_arguments: None,
+                                            function_hir_expr_idx: 1,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     6,
@@ -885,9 +885,9 @@
                             HirEagerExprRegion {
                                 expr_arena: Arena {
                                     data: [
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 1,
+                                            owner_hir_expr_idx: 1,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -896,9 +896,9 @@
                                                 ),
                                             ),
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 3,
+                                            owner_hir_expr_idx: 3,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -914,9 +914,9 @@
                                             ),
                                             ropd: 4,
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 6,
+                                            owner_hir_expr_idx: 6,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -925,9 +925,9 @@
                                                 ),
                                             ),
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 8,
+                                            owner_hir_expr_idx: 8,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -959,7 +959,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         Block {
@@ -1057,7 +1057,7 @@
                             HirEagerExprRegion {
                                 expr_arena: Arena {
                                     data: [
-                                        SelfValue,
+                                        SelfType,
                                         InheritedSymbol {
                                             ident: Ident(
                                                 Coword(
@@ -1076,7 +1076,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     2,
@@ -1092,7 +1092,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         Block {
@@ -1211,9 +1211,9 @@
                                                 ),
                                             ),
                                         ),
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 2,
+                                            owner_hir_expr_idx: 2,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1222,9 +1222,9 @@
                                                 ),
                                             ),
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 4,
+                                            owner_hir_expr_idx: 4,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1234,8 +1234,8 @@
                                             ),
                                         },
                                         FnCall {
-                                            function: 1,
-                                            generic_arguments: None,
+                                            function_hir_expr_idx: 1,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     3,
@@ -1361,7 +1361,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 2,
+                                            owner_hir_expr_idx: 2,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1370,9 +1370,9 @@
                                                 ),
                                             ),
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 4,
+                                            owner_hir_expr_idx: 4,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1398,7 +1398,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 7,
+                                            owner_hir_expr_idx: 7,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1407,9 +1407,9 @@
                                                 ),
                                             ),
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 9,
+                                            owner_hir_expr_idx: 9,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1426,8 +1426,8 @@
                                             ropd: 10,
                                         },
                                         FnCall {
-                                            function: 1,
-                                            generic_arguments: None,
+                                            function_hir_expr_idx: 1,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     6,
@@ -1521,9 +1521,9 @@
                             HirEagerExprRegion {
                                 expr_arena: Arena {
                                     data: [
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 1,
+                                            owner_hir_expr_idx: 1,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1532,9 +1532,9 @@
                                                 ),
                                             ),
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 3,
+                                            owner_hir_expr_idx: 3,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1550,9 +1550,9 @@
                                             ),
                                             ropd: 4,
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 6,
+                                            owner_hir_expr_idx: 6,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1561,9 +1561,9 @@
                                                 ),
                                             ),
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 8,
+                                            owner_hir_expr_idx: 8,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1595,7 +1595,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         Block {
@@ -1693,9 +1693,9 @@
                             HirEagerExprRegion {
                                 expr_arena: Arena {
                                     data: [
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 1,
+                                            owner_hir_expr_idx: 1,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1714,7 +1714,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 3,
+                                            owner_hir_expr_idx: 3,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1730,9 +1730,9 @@
                                             ),
                                             ropd: 4,
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 6,
+                                            owner_hir_expr_idx: 6,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1751,7 +1751,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 8,
+                                            owner_hir_expr_idx: 8,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1869,9 +1869,9 @@
                             HirEagerExprRegion {
                                 expr_arena: Arena {
                                     data: [
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 1,
+                                            owner_hir_expr_idx: 1,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1890,7 +1890,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 3,
+                                            owner_hir_expr_idx: 3,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1906,9 +1906,9 @@
                                             ),
                                             ropd: 4,
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 6,
+                                            owner_hir_expr_idx: 6,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1927,7 +1927,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 8,
+                                            owner_hir_expr_idx: 8,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2045,9 +2045,9 @@
                             HirEagerExprRegion {
                                 expr_arena: Arena {
                                     data: [
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 1,
+                                            owner_hir_expr_idx: 1,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2056,7 +2056,7 @@
                                                 ),
                                             ),
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         MethodCall {
                                             self_argument: 3,
                                             ident: Ident(
@@ -2066,7 +2066,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         Binary {
@@ -2092,7 +2092,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     6,
@@ -2161,11 +2161,11 @@
                                         ),
                                         Prefix {
                                             opr: Minus,
-                                            opd: 15,
+                                            opd_hir_expr_idx: 15,
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 17,
+                                            owner_hir_expr_idx: 17,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2183,7 +2183,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         PrincipalEntityPath(
@@ -2220,7 +2220,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         Binary {
@@ -2408,7 +2408,7 @@
                             HirEagerExprRegion {
                                 expr_arena: Arena {
                                     data: [
-                                        SelfValue,
+                                        SelfType,
                                         InheritedSymbol {
                                             ident: Ident(
                                                 Coword(
@@ -2427,7 +2427,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     2,
@@ -2443,7 +2443,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         Block {
@@ -2551,7 +2551,7 @@
                             HirEagerExprRegion {
                                 expr_arena: Arena {
                                     data: [
-                                        SelfValue,
+                                        SelfType,
                                         MethodCall {
                                             self_argument: 1,
                                             ident: Ident(
@@ -2561,7 +2561,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         CurrentSymbol {
@@ -2605,7 +2605,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         CurrentSymbol {
@@ -2631,7 +2631,7 @@
                                             ),
                                             ropd: 9,
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         InheritedSymbol {
                                             ident: Ident(
                                                 Coword(
@@ -2650,7 +2650,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     12,
@@ -2705,7 +2705,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     18,
@@ -2774,9 +2774,9 @@
                                         ),
                                         Prefix {
                                             opr: Minus,
-                                            opd: 27,
+                                            opd_hir_expr_idx: 27,
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         InheritedSymbol {
                                             ident: Ident(
                                                 Coword(
@@ -2795,7 +2795,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     30,
@@ -2836,7 +2836,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         Binary {
@@ -3108,9 +3108,9 @@
                             HirEagerExprRegion {
                                 expr_arena: Arena {
                                     data: [
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 1,
+                                            owner_hir_expr_idx: 1,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3119,9 +3119,9 @@
                                                 ),
                                             ),
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 3,
+                                            owner_hir_expr_idx: 3,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3137,9 +3137,9 @@
                                             ),
                                             ropd: 4,
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 6,
+                                            owner_hir_expr_idx: 6,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3148,9 +3148,9 @@
                                                 ),
                                             ),
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 8,
+                                            owner_hir_expr_idx: 8,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3176,7 +3176,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 11,
+                                            owner_hir_expr_idx: 11,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3185,9 +3185,9 @@
                                                 ),
                                             ),
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 13,
+                                            owner_hir_expr_idx: 13,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3229,7 +3229,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 18,
+                                            owner_hir_expr_idx: 18,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3238,9 +3238,9 @@
                                                 ),
                                             ),
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 20,
+                                            owner_hir_expr_idx: 20,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3302,8 +3302,8 @@
                                             ),
                                         },
                                         FnCall {
-                                            function: 25,
-                                            generic_arguments: None,
+                                            function_hir_expr_idx: 25,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     26,
@@ -3460,9 +3460,9 @@
                             HirEagerExprRegion {
                                 expr_arena: Arena {
                                     data: [
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 1,
+                                            owner_hir_expr_idx: 1,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3471,9 +3471,9 @@
                                                 ),
                                             ),
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 3,
+                                            owner_hir_expr_idx: 3,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3498,9 +3498,9 @@
                                                 ),
                                             ),
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 7,
+                                            owner_hir_expr_idx: 7,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3676,9 +3676,9 @@
                                                 ),
                                             ),
                                         ),
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 2,
+                                            owner_hir_expr_idx: 2,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3697,7 +3697,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 4,
+                                            owner_hir_expr_idx: 4,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3715,16 +3715,16 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     5,
                                                 ),
                                             ],
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 7,
+                                            owner_hir_expr_idx: 7,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3743,7 +3743,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 9,
+                                            owner_hir_expr_idx: 9,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3761,7 +3761,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     10,
@@ -3769,8 +3769,8 @@
                                             ],
                                         },
                                         FnCall {
-                                            function: 1,
-                                            generic_arguments: None,
+                                            function_hir_expr_idx: 1,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     6,
@@ -3886,9 +3886,9 @@
                                                 ),
                                             ),
                                         ),
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 2,
+                                            owner_hir_expr_idx: 2,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3907,7 +3907,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 4,
+                                            owner_hir_expr_idx: 4,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3925,16 +3925,16 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     5,
                                                 ),
                                             ],
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 7,
+                                            owner_hir_expr_idx: 7,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3953,7 +3953,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 9,
+                                            owner_hir_expr_idx: 9,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3971,7 +3971,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     10,
@@ -3979,8 +3979,8 @@
                                             ],
                                         },
                                         FnCall {
-                                            function: 1,
-                                            generic_arguments: None,
+                                            function_hir_expr_idx: 1,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     6,
@@ -4074,9 +4074,9 @@
                             HirEagerExprRegion {
                                 expr_arena: Arena {
                                     data: [
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 1,
+                                            owner_hir_expr_idx: 1,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4086,7 +4086,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 2,
+                                            owner_hir_expr_idx: 2,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4179,9 +4179,9 @@
                             HirEagerExprRegion {
                                 expr_arena: Arena {
                                     data: [
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 1,
+                                            owner_hir_expr_idx: 1,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4191,7 +4191,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 2,
+                                            owner_hir_expr_idx: 2,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4284,9 +4284,9 @@
                             HirEagerExprRegion {
                                 expr_arena: Arena {
                                     data: [
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 1,
+                                            owner_hir_expr_idx: 1,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4296,7 +4296,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 2,
+                                            owner_hir_expr_idx: 2,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4389,9 +4389,9 @@
                             HirEagerExprRegion {
                                 expr_arena: Arena {
                                     data: [
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 1,
+                                            owner_hir_expr_idx: 1,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4401,7 +4401,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 2,
+                                            owner_hir_expr_idx: 2,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4515,9 +4515,9 @@
                             HirEagerExprRegion {
                                 expr_arena: Arena {
                                     data: [
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 1,
+                                            owner_hir_expr_idx: 1,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4527,7 +4527,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 2,
+                                            owner_hir_expr_idx: 2,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4620,9 +4620,9 @@
                             HirEagerExprRegion {
                                 expr_arena: Arena {
                                     data: [
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 1,
+                                            owner_hir_expr_idx: 1,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4632,7 +4632,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 2,
+                                            owner_hir_expr_idx: 2,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4725,9 +4725,9 @@
                             HirEagerExprRegion {
                                 expr_arena: Arena {
                                     data: [
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 1,
+                                            owner_hir_expr_idx: 1,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4737,7 +4737,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 2,
+                                            owner_hir_expr_idx: 2,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4830,9 +4830,9 @@
                             HirEagerExprRegion {
                                 expr_arena: Arena {
                                     data: [
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 1,
+                                            owner_hir_expr_idx: 1,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4842,7 +4842,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 2,
+                                            owner_hir_expr_idx: 2,
                                             ident: Ident(
                                                 Coword(
                                                     Id {

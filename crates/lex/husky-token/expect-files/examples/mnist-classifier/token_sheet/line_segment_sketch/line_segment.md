@@ -362,7 +362,7 @@ Ok(
                 ),
             ),
             TokenData::Literal(
-                Literal::Float(
+                LiteralData::Float(
                     Unspecified(
                         UnspecifiedFloatLiteral(
                             Id {
@@ -502,7 +502,7 @@ Ok(
                 ),
             ),
             TokenData::Literal(
-                Literal::Float(
+                LiteralData::Float(
                     Unspecified(
                         UnspecifiedFloatLiteral(
                             Id {

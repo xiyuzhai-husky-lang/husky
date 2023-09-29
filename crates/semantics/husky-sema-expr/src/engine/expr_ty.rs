@@ -243,7 +243,7 @@ impl<'a> SemaExprEngine<'a> {
                     self.build_sema_expr_with_its_ty_returned(src, ExpectAnyOriginal);
                 match src_ty {
                     Some(src_ty) => match target {
-                        Ok(target) => self.infer_pattern_and_symbols_ty(
+                        Ok(target) => self.infer_pattern_root_and_symbols_ty(
                             target.syn_pattern_root(),
                             src_ty,
                             target.variables(),
@@ -450,7 +450,17 @@ impl<'a> SemaExprEngine<'a> {
                             1 => (
                                 Ok(SemaExprData::ArrayFunctor {
                                     lbox_regional_token_idx,
-                                    items: todo!(),
+                                    items: items
+                                        .iter()
+                                        .map(|&syn_comma_list_item| {
+                                            self.build_sema_comma_list_item(
+                                                syn_comma_list_item,
+                                                ExpectCoersion::new_const(
+                                                    self.term_menu.usize_ty_ontology().into(),
+                                                ),
+                                            )
+                                        })
+                                        .collect(),
                                     rbox_regional_token_idx,
                                 }
                                 .into()),
@@ -609,14 +619,18 @@ impl<'a> SemaExprEngine<'a> {
                     Ok(self.term_menu.ty0().into()),
                 )
             }
-            SynExprData::Sorry {
-                regional_token_idx: token_idx,
-            } => todo!(),
+            SynExprData::Sorry { regional_token_idx } => (
+                Ok(SemaExprData::Sorry { regional_token_idx }),
+                Ok(self.term_menu.never().into()),
+            ),
             SynExprData::Todo { regional_token_idx } => (
                 Ok(SemaExprData::Todo { regional_token_idx }),
                 Ok(self.term_menu.never().into()),
             ),
-            SynExprData::Unreachable { regional_token_idx } => todo!(),
+            SynExprData::Unreachable { regional_token_idx } => (
+                Ok(SemaExprData::Unreachable { regional_token_idx }),
+                Ok(self.term_menu.never().into()),
+            ),
             SynExprData::Err(_) => (
                 Err(DerivedSemaExprDataError::SynExpr.into()),
                 Err(DerivedSemaExprTypeError::SynExprError.into()),

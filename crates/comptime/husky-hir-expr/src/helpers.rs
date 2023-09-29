@@ -8,8 +8,7 @@ pub fn build_body(
 ) -> Option<(HirExprIdx, HirExprRegion)> {
     let (body, syn_expr_region) = body_with_syn_expr_region?;
     let mut builder = HirExprBuilder::new(db, syn_expr_region);
-    let body: SemaExprIdx = todo!();
-    let body = body.to_hir(&mut builder);
+    let body = builder.build_hir_expr(body);
     let hir_expr_region = builder.finish();
     Some((body, hir_expr_region))
 }

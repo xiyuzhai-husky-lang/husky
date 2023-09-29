@@ -13,6 +13,7 @@ use husky_ethereal_signature::{HasTypeItemTemplates, TypeItemEtherealSignatureTe
 #[enum_class::from_variants]
 pub enum StaticDispatch {
     AssociatedFn(AssociatedFnFluffySignature),
+    AssociatedGn,
 }
 
 impl FluffyTerm {

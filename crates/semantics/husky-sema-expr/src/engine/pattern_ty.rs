@@ -1,34 +1,38 @@
 use super::*;
 
 impl<'a> SemaExprEngine<'a> {
-    pub(super) fn infer_pattern_and_symbols_ty(
+    pub(crate) fn infer_pattern_root_and_symbols_ty(
         &mut self,
         syn_pattern_root: SynPatternRoot,
         ty: FluffyTerm,
         symbols: SynCurrentSymbolIdxRange,
     ) {
-        self.save_pattern_ty(syn_pattern_root.syn_pattern_expr_idx(), ty);
+        self.infer_pattern_ty(syn_pattern_root.syn_pattern_expr_idx(), ty);
         for symbol in symbols {
             self.infer_new_current_symbol_ty(symbol)
         }
     }
 
     /// the way type inference works for pattern expressions is dual to that of regular expression
-    fn save_pattern_ty(&mut self, syn_pattern_expr_idx: SynPatternExprIdx, ty: FluffyTerm) {
+    fn infer_pattern_ty(&mut self, syn_pattern_expr_idx: SynPatternExprIdx, ty: FluffyTerm) {
         self.pattern_expr_ty_infos
             .insert_new(syn_pattern_expr_idx, PatternExprTypeInfo::new(Ok(ty)));
-        self.infer_subpattern_tys(syn_pattern_expr_idx)
+        self.infer_subpattern_tys(syn_pattern_expr_idx, ty)
     }
 
     /// subpattern expressions get its type from its parent
-    fn infer_subpattern_tys(&mut self, pattern_expr_idx: SynPatternExprIdx) {
+    fn infer_subpattern_tys(&mut self, pattern_expr_idx: SynPatternExprIdx, ty: FluffyTerm) {
         match self.syn_expr_region_data[pattern_expr_idx] {
-            SynPatternExpr::Literal { .. } => todo!(),
-            SynPatternExpr::Ident { .. } => (), // there is no subpattern to infer
-            SynPatternExpr::TypeVariantUnit { .. } => todo!(),
+            SynPatternExpr::Literal { .. } => (), // there is no subpattern to infer
+            SynPatternExpr::Ident { .. } => (),   // there is no subpattern to infer
+            SynPatternExpr::TypeVariantUnit { .. } => (), // there is no subpattern to infer
             SynPatternExpr::Tuple { name, fields } => todo!(),
             SynPatternExpr::Props { name, fields } => todo!(),
-            SynPatternExpr::OneOf { ref options } => todo!(),
+            SynPatternExpr::OneOf { ref options } => {
+                for option in options.elements() {
+                    self.infer_pattern_ty(option.syn_pattern_expr_idx(), ty)
+                }
+            }
             SynPatternExpr::Binding {
                 ident_token,
                 asperand_token,

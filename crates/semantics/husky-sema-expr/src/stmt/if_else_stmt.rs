@@ -92,7 +92,51 @@ impl SemaElseBranch {
 }
 
 impl<'a> SemaExprEngine<'a> {
-    pub(crate) fn build_sema_else_branch<Expectation: ExpectFluffyTerm>(
+    pub(crate) fn build_if_else_stmt(
+        &mut self,
+        syn_if_branch: &'a SynIfBranch,
+        syn_elif_branches: &'a [SynElifBranch],
+        syn_else_branch: Option<&'a SynElseBranch>,
+        stmt_ty_expectation: impl ExpectFluffyTerm,
+    ) -> (
+        SemaExprDataResult<SemaStmtData>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
+        let mut merger = BranchTypeMerger::new(stmt_ty_expectation);
+        let Ok(sema_if_branch) = self.build_sema_if_branch(syn_if_branch, &mut merger) else {
+            todo!()
+        };
+        let Ok(sema_elif_branches) = syn_elif_branches
+            .iter()
+            .map(|syn_elif_branch| self.build_sema_elif_branch(syn_elif_branch, &mut merger))
+            .collect::<SynExprResultRef<Vec<_>>>()
+        else {
+            todo!()
+        };
+        let sema_else_branch = if let Some(syn_else_branch) = syn_else_branch {
+            let Ok(sema_else_branch) = self.build_sema_else_branch(syn_else_branch, &mut merger)
+            else {
+                todo!()
+            };
+            Some(sema_else_branch)
+            // merger.visit_branch(self, syn_else_branch);
+        } else {
+            None
+        };
+        // exhaustive iff else branch exists;
+        (
+            Ok(SemaStmtData::IfElse {
+                sema_if_branch,
+                sema_elif_branches,
+                sema_else_branch,
+            }),
+            merger
+                .merge(syn_else_branch.is_some(), self.eth_term_menu())
+                .ok_or(DerivedSemaExprTypeError::BranchTypeMerge.into()),
+        )
+    }
+
+    fn build_sema_else_branch<Expectation: ExpectFluffyTerm>(
         &mut self,
         syn_else_branch: &'a SynElseBranch,
         merger: &mut BranchTypeMerger<Expectation>,
