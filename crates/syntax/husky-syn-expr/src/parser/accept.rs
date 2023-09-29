@@ -245,7 +245,7 @@ where
                     generic_arguments,
                 } => self.set_complete_expr(SynExprData::FunctionCall {
                     function,
-                    generic_arguments,
+                    template_arguments: generic_arguments,
                     lpar_regional_token_idx,
                     items,
                     rpar_regional_token_idx: ket_regional_token_idx,

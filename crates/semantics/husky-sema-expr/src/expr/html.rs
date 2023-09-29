@@ -14,6 +14,7 @@ pub enum SemaHtmlArgumentExpr {
     Shortened {
         lcurl: LcurlRegionalToken,
         property_ident: IdentRegionalToken,
+        // todo: add SymbolIdx
         rcurl: RcurlRegionalToken,
     },
 }
@@ -41,6 +42,38 @@ impl vec_like::AsVecMapEntry for SemaHtmlArgumentExpr {
                 property_ident: argument_ident,
                 ..
             } => argument_ident.ident_ref(),
+        }
+    }
+}
+
+impl<'a> SemaExprEngine<'a> {
+    pub(crate) fn build_sema_html_argument_expr(
+        &mut self,
+        expr: SynHtmlArgumentExpr,
+    ) -> SemaHtmlArgumentExpr {
+        match expr {
+            SynHtmlArgumentExpr::Expanded {
+                property_ident,
+                eq,
+                lcurl,
+                expr,
+                rcurl,
+            } => SemaHtmlArgumentExpr::Expanded {
+                property_ident,
+                eq,
+                lcurl,
+                expr: self.build_sema_expr(expr, ExpectAnyOriginal),
+                rcurl,
+            },
+            SynHtmlArgumentExpr::Shortened {
+                lcurl,
+                property_ident,
+                rcurl,
+            } => SemaHtmlArgumentExpr::Shortened {
+                lcurl,
+                property_ident,
+                rcurl,
+            },
         }
     }
 }

@@ -65,7 +65,9 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
                     colon_eq_token,
                     value: ctx.parse_expr_expected2(
                         None,
-                        ExprRootKind::FieldBindInitialValue { ty_expr_idx },
+                        ExprRootKind::FieldBindInitialValue {
+                            ty_syn_expr_idx: ty_expr_idx,
+                        },
                         OriginalSynExprError::ExpectedValueForFieldBindInitialization,
                     ),
                 })

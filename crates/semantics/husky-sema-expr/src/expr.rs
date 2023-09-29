@@ -14,7 +14,7 @@ use husky_regional_token::{
     ColonColonRegionalToken, EmptyHtmlKetRegionalToken, IdentRegionalToken,
     LightArrowRegionalToken, LparRegionalToken, PlaceLabelRegionalToken, RegionalTokenIdx,
 };
-use husky_sema_opr::suffix::SemaSuffixOpr;
+use husky_sema_opr::{prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::{
     SynInheritedSymbolIdx, SynInheritedSymbolKind, SynPrincipalEntityPathExprIdx,
 };
@@ -70,7 +70,7 @@ pub enum SemaExprData {
         target: BePatternSynObelisk,
     },
     Prefix {
-        opr: PrefixOpr,
+        opr: SemaPrefixOpr,
         opr_regional_token_idx: RegionalTokenIdx,
         opd_sema_expr_idx: SemaExprIdx,
     },

@@ -98,7 +98,7 @@ impl SemaVariadicCallListItem {
 pub struct SemaKeyedCallListItem {
     key_regional_token_idx: RegionalTokenIdx,
     key: Ident,
-    argument_expr_idx: SemaExprIdx,
+    argument_sema_expr_idx: SemaExprIdx,
     separator: CallListSeparator,
 }
 
@@ -112,7 +112,7 @@ impl SemaKeyedCallListItem {
         Self {
             key_regional_token_idx,
             key,
-            argument_expr_idx,
+            argument_sema_expr_idx: argument_expr_idx,
             separator,
         }
     }
@@ -126,10 +126,29 @@ impl SemaKeyedCallListItem {
     }
 
     pub fn argument_expr_idx(&self) -> SemaExprIdx {
-        self.argument_expr_idx
+        self.argument_sema_expr_idx
     }
 
     pub fn separator(&self) -> CallListSeparator {
         self.separator
+    }
+}
+
+impl<'a> SemaExprEngine<'a> {
+    pub(crate) fn build_sema_keyed_call_list_item(
+        &mut self,
+        item: SynKeyedCallListItem,
+        param: FluffyTermRitchieKeyedParameter,
+    ) -> SemaKeyedCallListItem {
+        let argument_sema_expr_idx = self.build_sema_expr(
+            item.argument_syn_expr_idx(),
+            ExpectCoersion::new(param.contract(), param.ty()),
+        );
+        SemaKeyedCallListItem {
+            key_regional_token_idx: item.key_regional_token_idx(),
+            key: item.key(),
+            argument_sema_expr_idx,
+            separator: item.separator(),
+        }
     }
 }

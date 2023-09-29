@@ -204,10 +204,11 @@ impl<'a> SemaExprEngine<'a> {
                     ),
                     None => self.build_sema_expr(root.syn_expr_idx(), ExpectAnyDerived),
                 },
-                ExprRootKind::FieldBindInitialValue { ty_expr_idx }
-                | ExprRootKind::ExplicitParameterDefaultValue { ty_expr_idx } => {
-                    let ty_expr_idx = todo!();
-                    match self.infer_expr_term(ty_expr_idx) {
+                ExprRootKind::FieldBindInitialValue { ty_syn_expr_idx }
+                | ExprRootKind::ExplicitParameterDefaultValue { ty_syn_expr_idx } => {
+                    let ty_sema_expr_idx =
+                        self.syn_expr_root_sema_expr_idx_table[ty_syn_expr_idx].1;
+                    match self.infer_expr_term(ty_sema_expr_idx) {
                         Some(ty) => {
                             self.build_sema_expr(root.syn_expr_idx(), ExpectCoersion::new_move(ty))
                         }

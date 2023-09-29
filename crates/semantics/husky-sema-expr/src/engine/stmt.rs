@@ -132,11 +132,16 @@ impl<'a> SemaExprEngine<'a> {
                     Ok(Some(_)) => {
                         let (sema_expr_idx, expr_ty) =
                             self.build_sema_expr_with_its_ty_returned(expr_idx, ExpectAnyOriginal);
-                        let ty = match expr_ty {
-                            Some(_) => todo!(),
-                            None => todo!(),
+                        let ty_result = match expr_ty {
+                            Some(ty) => match ty.base_resolved(self) {
+                                FluffyTermBase::Ethereal(ty) if ty == self.term_menu.never() => {
+                                    Some(self.term_menu.never().into())
+                                }
+                                _ => Some(self.term_menu.unit_ty_ontology().into()),
+                            },
+                            None => None,
                         };
-                        todo!("unit or never")
+                        (sema_expr_idx, ty_result)
                     }
                     Err(_) => self.build_sema_expr_with_its_ty_returned(expr_idx, ExpectAnyDerived),
                 };
@@ -156,12 +161,17 @@ impl<'a> SemaExprEngine<'a> {
                 ref eol_colon,
             } => {
                 let expr_expectation = self.expect_unit();
+                let Ok(particulars) =
+                    self.build_sema_for_between_particulars(particulars, for_loop_var_symbol_idx)
+                else {
+                    todo!()
+                };
                 let block = self.build_sema_block(*block, expr_expectation);
                 let &Ok(eol_colon) = eol_colon else { todo!() };
                 (
                     Ok(SemaStmtData::ForBetween {
                         for_token,
-                        particulars: todo!(),
+                        particulars,
                         for_loop_var_symbol_idx,
                         eol_colon,
                         block,

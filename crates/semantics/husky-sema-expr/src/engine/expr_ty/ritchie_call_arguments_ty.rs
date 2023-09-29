@@ -74,17 +74,17 @@ mod matcher {
     pub type RitchieParameterArgumentMatchResult<T> = Result<T, RitchieParameterArgumentMatchError>;
 
     #[derive(Debug, PartialEq, Eq)]
-    pub enum RitchieParameterArgumentMatch {
+    pub enum SemaRitchieParameterArgumentMatch {
         Regular(FluffyTermRitchieRegularParameter, SemaRegularCallListItem),
         Variadic(
             FluffyTermRitchieVariadicParameter,
             // use vec to save enum size
             Vec<SemaVariadicCallListItem>,
         ),
-        Keyed(FluffyTermRitchieKeyedParameter, KeyedCallListItem),
+        Keyed(FluffyTermRitchieKeyedParameter, SemaKeyedCallListItem),
     }
 
-    pub type RitchieParameterArgumentMatches = SmallVec<[RitchieParameterArgumentMatch; 4]>;
+    pub type RitchieParameterArgumentMatches = SmallVec<[SemaRitchieParameterArgumentMatch; 4]>;
 
     pub(super) struct RitchieParameterArgumentMatcher<
         'a,
@@ -134,15 +134,15 @@ mod matcher {
                 FluffyTermRitchieParameter::Regular(param) => match self.ritchie_call_items.next() {
                     Some(item) => match item {
                         SynCallListItem::RegularOrVariadic(item) =>{
-                            let argument_expr_idx = self.engine
+                            let argument_sema_expr_idx = self.engine
                                         .build_sema_expr (
                                             item.argument_expr_idx(),
                                             ExpectCoersion::new(param.contract(), param.ty()),
-                                        ) ;
-                            let item= SemaRegularCallListItem::new(argument_expr_idx, item.separator());
+                                        );
+                            let item = SemaRegularCallListItem::new(argument_sema_expr_idx, item.separator());
                             Ok(self
                             .ritchie_matches
-                            .push(RitchieParameterArgumentMatch::Regular(param, item)))},
+                            .push(SemaRitchieParameterArgumentMatch::Regular(param, item)))},
                         SynCallListItem::Keyed(_) => todo!(),
                     },
                     None => Err(RitchieParameterArgumentMatchError::MissingArgument)?,
@@ -153,8 +153,12 @@ mod matcher {
                         .ritchie_call_items
                         .next_if(|item| matches!(item, SynCallListItem::RegularOrVariadic(_)))
                     {
-                        let item :SemaVariadicCallListItem= todo!();
-                        items.push(item);
+                        let argument_sema_expr_idx = self.engine
+                                    .build_sema_expr (
+                                        item.argument_expr_idx(),
+                                        ExpectCoersion::new(param.contract(), param.ty()),
+                                    );
+                        items.push(SemaVariadicCallListItem::new(argument_sema_expr_idx, item.separator()));
                         match item.separator() {
                             CallListSeparator::None | CallListSeparator::Comma(_) => (),
                             CallListSeparator::Semicolon(_) => break,
@@ -162,7 +166,7 @@ mod matcher {
                     }
                     Ok(self
                         .ritchie_matches
-                        .push(RitchieParameterArgumentMatch::Variadic(param, items)))
+                        .push(SemaRitchieParameterArgumentMatch::Variadic(param, items)))
                 }
                 FluffyTermRitchieParameter::Keyed(param) => match param.default() {
                     Some(default) => {
@@ -170,9 +174,10 @@ mod matcher {
                             .next_if(|arg|
                                 matches!(arg, SynCallListItem::Keyed(item) if item.key() == param.key())
                             ) {
+                            let item = self.engine.build_sema_keyed_call_list_item(item, param);
                             Ok(self
                                 .ritchie_matches
-                                .push(RitchieParameterArgumentMatch::Keyed(param, item)))
+                                .push(SemaRitchieParameterArgumentMatch::Keyed(param, item)))
                         } else {
                             Ok(())
                         }

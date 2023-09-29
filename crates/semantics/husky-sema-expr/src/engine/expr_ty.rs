@@ -19,6 +19,7 @@ pub(crate) use self::suffix::*;
 
 use super::*;
 use husky_opr::*;
+use vec_like::{AsVecMapEntry, VecMap};
 
 pub(crate) enum ExprTypeResolveProgress<E: ExpectFluffyTerm> {
     Unresolved,
@@ -186,10 +187,18 @@ impl<'a> SemaExprEngine<'a> {
             ),
             SynExprData::FrameVarDecl {
                 ident,
-                frame_var_symbol_idx: current_symbol_idx,
+                regional_token_idx,
+                frame_var_symbol_idx,
                 current_symbol_kind,
-                ..
-            } => todo!(),
+            } => (
+                Ok(SemaExprData::FrameVarDecl {
+                    ident,
+                    regional_token_idx,
+                    frame_var_symbol_idx,
+                    current_symbol_kind,
+                }),
+                self.get_current_symbol_ty(expr_idx, frame_var_symbol_idx),
+            ),
             SynExprData::SelfType(regional_token_idx) => (
                 Ok(SemaExprData::SelfType(regional_token_idx)),
                 match self.self_ty_term {
@@ -258,7 +267,7 @@ impl<'a> SemaExprEngine<'a> {
                 opr_regional_token_idx,
                 opd,
             } => {
-                let (opd_sema_expr_idx_and_opr_result, ty_result) = self.calc_prefix_expr_ty(
+                let (opd_sema_expr_idx_and_opr_result, ty_result) = self.build_prefix_sema_expr(
                     expr_idx,
                     opr,
                     opd,
@@ -305,7 +314,7 @@ impl<'a> SemaExprEngine<'a> {
                 lpar_regional_token_idx,
                 ref items,
                 rpar_regional_token_idx,
-            } => self.calc_function_application_or_call_expr_ty(
+            } => self.build_function_application_or_call_sema_expr(
                 expr_idx,
                 function,
                 expr_ty_expectation,
@@ -316,15 +325,18 @@ impl<'a> SemaExprEngine<'a> {
             ),
             SynExprData::FunctionCall {
                 function,
-                ref generic_arguments,
+                ref template_arguments,
+                lpar_regional_token_idx,
                 ref items,
-                ..
-            } => self.calc_function_call_expr_ty(
+                rpar_regional_token_idx,
+            } => self.build_function_call_sema_expr(
                 expr_idx,
                 function,
                 expr_ty_expectation.final_destination(self),
-                generic_arguments.as_ref(),
+                template_arguments.as_ref(),
+                lpar_regional_token_idx,
                 items,
+                rpar_regional_token_idx,
             ),
             SynExprData::Field {
                 owner,
@@ -542,12 +554,23 @@ impl<'a> SemaExprEngine<'a> {
                     block_ty.ok_or(DerivedSemaExprTypeError::BlockTypeError.into()),
                 )
             }
-            SynExprData::EmptyHtmlTag { .. } => (
+            SynExprData::EmptyHtmlTag {
+                empty_html_bra_idx,
+                function_ident,
+                ref arguments,
+                empty_html_ket,
+            } => (
                 Ok(SemaExprData::EmptyHtmlTag {
-                    empty_html_bra_idx: todo!(),
-                    function_ident: todo!(),
-                    arguments: todo!(),
-                    empty_html_ket: todo!(),
+                    empty_html_bra_idx,
+                    function_ident,
+                    arguments: unsafe {
+                        VecMap::from_iter_assuming_no_repetitions_unchecked(
+                            arguments
+                                .iter()
+                                .map(|&argument| self.build_sema_html_argument_expr(argument)),
+                        )
+                    },
+                    empty_html_ket,
                 }),
                 Ok(self.term_menu.html_ty_ontology().into()),
             ),

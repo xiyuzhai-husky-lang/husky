@@ -104,7 +104,7 @@ pub enum SynExprData {
     },
     FunctionCall {
         function: SynExprIdx,
-        generic_arguments: Option<SynTemplateArgumentList>,
+        template_arguments: Option<SynTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
         items: SmallVec<[SynCallListItem; 4]>,
         rpar_regional_token_idx: RegionalTokenIdx,

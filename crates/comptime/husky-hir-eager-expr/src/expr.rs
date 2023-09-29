@@ -7,7 +7,7 @@ pub use self::html::*;
 use crate::*;
 use husky_ethereal_term::EtherealTerm;
 use husky_fluffy_term::StaticDispatch;
-use husky_sema_expr::{RitchieParameterArgumentMatch, SemaExprData, SemaExprIdx};
+use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieParameterArgumentMatch};
 use husky_syn_expr::{IdentifiableEntityPathExpr, SynExprData, SynExprIdx, SynStmtIdx};
 use salsa::debug::ExpectWithDb;
 use vec_like::VecMap;
