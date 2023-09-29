@@ -101,7 +101,7 @@ where
                     separators.push(separator)
                 }
                 Ok(None) => {
-                    if !ALLOW_TRAILING_SEPARATOR && let Some(saved_state) = saved_state  {  
+                    if !ALLOW_TRAILING_SEPARATOR && let Some(saved_state) = saved_state {
                         parser.rollback(saved_state);
                         separators.pop();
                         debug_assert_eq!(elements.len(), separators.len() + 1);

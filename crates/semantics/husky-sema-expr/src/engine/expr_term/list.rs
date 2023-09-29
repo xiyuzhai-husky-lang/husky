@@ -2,9 +2,9 @@ use super::*;
 
 impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_list_expr_term(
-        &mut self,
-        expr_idx: SynExprIdx,
-        items: &[SynCommaListItem],
+        &self,
+        expr_idx: SemaExprIdx,
+        items: &[SemaCommaListItem],
     ) -> SemaExprTermResult<FluffyTerm> {
         todo!()
         // match self

@@ -9,8 +9,12 @@ impl<'a> SemaExprEngine<'a> {
         ritchie_parameters: &[FluffyTermRitchieParameter],
         ritchie_arguments: impl Iterator<Item = SynCallListItem> + Clone,
     ) -> SemaExprDataResult<RitchieParameterArgumentMatches> {
-        match RitchieParameterArgumentMatcher::new(ritchie_parameters, ritchie_arguments.clone())
-            .match_all()
+        match RitchieParameterArgumentMatcher::new(
+            ritchie_parameters,
+            ritchie_arguments.clone(),
+            self,
+        )
+        .match_all()
         {
             Ok(ritchie_matches) => {
                 // for ritchie_match in &ritchie_matches {
@@ -84,24 +88,29 @@ mod matcher {
 
     pub(super) struct RitchieParameterArgumentMatcher<
         'a,
+        'b,
         Arguments: Iterator<Item = SynCallListItem>,
     > {
-        ritchie_parameters: &'a [FluffyTermRitchieParameter],
+        ritchie_parameters: &'b [FluffyTermRitchieParameter],
         ritchie_call_items: std::iter::Peekable<Arguments>,
         ritchie_matches: RitchieParameterArgumentMatches,
+        engine: &'b mut SemaExprEngine<'a>,
     }
 
-    impl<'a, Arguments: Iterator<Item = SynCallListItem>>
-        RitchieParameterArgumentMatcher<'a, Arguments>
+    impl<'a, 'b, Arguments: Iterator<Item = SynCallListItem>>
+        RitchieParameterArgumentMatcher<'a, 'b, Arguments>
     {
         pub(super) fn new(
-            ritchie_parameters: &[FluffyTermRitchieParameter],
+            ritchie_parameters: &'b [FluffyTermRitchieParameter],
             ritchie_arguments: Arguments,
-        ) -> RitchieParameterArgumentMatcher<'_, impl Iterator<Item = SynCallListItem>> {
+            engine: &'b mut SemaExprEngine<'a>,
+        ) -> RitchieParameterArgumentMatcher<'a, 'b, impl Iterator<Item = SynCallListItem>>
+        {
             RitchieParameterArgumentMatcher {
                 ritchie_parameters,
                 ritchie_call_items: ritchie_arguments.peekable(),
                 ritchie_matches: Default::default(),
+                engine,
             }
         }
 
@@ -125,8 +134,13 @@ mod matcher {
                 FluffyTermRitchieParameter::Regular(param) => match self.ritchie_call_items.next() {
                     Some(item) => match item {
                         SynCallListItem::RegularOrVariadic(item) =>{
-                            let item = todo!();
-                             Ok(self
+                            let argument_expr_idx = self.engine
+                                        .build_sema_expr (
+                                            item.argument_expr_idx(),
+                                            ExpectCoersion::new(param.contract(), param.ty()),
+                                        ) ;
+                            let item= SemaRegularCallListItem::new(argument_expr_idx, item.separator());
+                            Ok(self
                             .ritchie_matches
                             .push(RitchieParameterArgumentMatch::Regular(param, item)))},
                         SynCallListItem::Keyed(_) => todo!(),

@@ -33,7 +33,7 @@ impl<'a> SemaExprEngine<'a> {
         expr_ty_expectation: E,
     ) -> (SemaExprIdx, Option<FluffyTerm>) {
         let (sema_expr_idx, _) = self.build_sema_expr_aux(expr_idx, expr_ty_expectation);
-        (sema_expr_idx, self.sema_expr_arena[sema_expr_idx].ty())
+        (sema_expr_idx, sema_expr_idx.ok_ty(&self.sema_expr_arena))
     }
 
     /// infer the type of a new expression but don't need the result for now
