@@ -48,7 +48,7 @@ pub enum SemaStmtData {
     ForBetween {
         for_token: StmtForRegionalToken,
         particulars: SemaForBetweenParticulars,
-        frame_var_symbol_idx: SynCurrentSymbolIdx,
+        for_loop_var_symbol_idx: SynCurrentSymbolIdx,
         eol_colon: EolRegionalToken,
         block: SemaStmtIdxRange,
     },

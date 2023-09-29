@@ -273,7 +273,7 @@ impl ToHirLazy for SemaExprIdx {
             SemaExprData::CompositionWithList { owner, items, .. } => {
                 todo!()
             }
-            SemaExprData::List { items, .. } => HirLazyExpr::List {
+            SemaExprData::NewList { items, .. } => HirLazyExpr::List {
                 items: items
                     .iter()
                     .map(|item| item.sema_expr_idx().to_hir_lazy(builder))

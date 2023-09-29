@@ -1,7 +1,7 @@
 use super::*;
 
 impl<'a> SemaExprEngine<'a> {
-    pub(super) fn calc_list_expr_term(
+    pub(super) fn calc_new_list_expr_term(
         &self,
         expr_idx: SemaExprIdx,
         items: &[SemaCommaListItem],

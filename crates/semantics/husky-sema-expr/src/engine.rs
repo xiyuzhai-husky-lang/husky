@@ -284,4 +284,12 @@ impl<'a> SemaExprEngine<'a> {
     fn token_data(&self, regional_token_idx: RegionalTokenIdx) -> TokenData {
         self.regional_tokens_data[regional_token_idx]
     }
+
+    pub(crate) fn syn_expr_region_data(&self) -> &'a SynExprRegionData {
+        self.syn_expr_region_data
+    }
+
+    pub(crate) fn add_symbol_ty(&mut self, symbol_idx: SynCurrentSymbolIdx, symbol_ty: SymbolType) {
+        self.symbol_tys.insert_new(symbol_idx, symbol_ty)
+    }
 }

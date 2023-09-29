@@ -4,7 +4,6 @@ impl FluffyTerm {
     #[inline(always)]
     pub fn new_application(
         engine: &mut impl FluffyTermEngine,
-        expr_idx: SynExprIdx,
         function: impl Into<FluffyTerm>,
         argument: impl Into<FluffyTerm>,
     ) -> EtherealTermResult<Self> {
@@ -91,11 +90,10 @@ impl FluffyTerm {
 
     pub fn new_leashed(
         engine: &mut impl FluffyTermEngine,
-        expr_idx: SynExprIdx,
         ty: FluffyTerm,
     ) -> EtherealTermResult<Self> {
         let function: FluffyTerm = engine.term_menu().leash_ty_ontology().into();
-        Self::new_application(engine, expr_idx, function, ty)
+        Self::new_application(engine, function, ty)
     }
 
     pub(crate) fn new_ty_ontology(

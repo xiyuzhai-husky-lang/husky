@@ -78,7 +78,7 @@ pub enum HirEagerExpr {
         owner_hir_expr_idx: HirEagerExprIdx,
         items: SmallVec<[HirEagerExprIdx; 4]>,
     },
-    List {
+    NewList {
         items: SmallVec<[HirEagerExprIdx; 4]>,
     },
     Block {
@@ -268,11 +268,11 @@ impl ToHirEager for SemaExprIdx {
             SemaExprData::CompositionWithList { .. } => {
                 todo!()
             }
-            SemaExprData::List {
+            SemaExprData::NewList {
                 lbox_regional_token_idx,
                 ref items,
                 rbox_regional_token_idx,
-            } => HirEagerExpr::List {
+            } => HirEagerExpr::NewList {
                 items: items
                     .iter()
                     .map(|item| item.sema_expr_idx().to_hir_eager(builder))
