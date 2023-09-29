@@ -153,9 +153,9 @@ impl ToHirEager for SemaStmtIdx {
                 block: block.to_hir_eager(builder),
             },
             SemaStmtData::IfElse {
-                ref if_branch,
-                ref elif_branches,
-                ref else_branch,
+                sema_if_branch: ref if_branch,
+                sema_elif_branches: ref elif_branches,
+                sema_else_branch: ref else_branch,
             } => HirEagerStmt::IfElse {
                 if_branch: if_branch.to_hir_eager(builder),
                 elif_branches: elif_branches

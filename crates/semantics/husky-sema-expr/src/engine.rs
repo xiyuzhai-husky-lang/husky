@@ -5,8 +5,10 @@ mod stmt;
 mod symbol;
 #[macro_use]
 mod utils;
+mod branch_ty_merger;
 mod pattern_ty;
 
+pub(crate) use self::branch_ty_merger::*;
 pub use self::expr_ty::*;
 pub(crate) use self::utils::*;
 

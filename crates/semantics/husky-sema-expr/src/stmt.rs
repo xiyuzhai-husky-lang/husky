@@ -78,9 +78,9 @@ pub enum SemaStmtData {
         block: SemaStmtIdxRange,
     },
     IfElse {
-        if_branch: SemaIfBranch,
-        elif_branches: Vec<SemaElifBranch>,
-        else_branch: Option<SemaElseBranch>,
+        sema_if_branch: SemaIfBranch,
+        sema_elif_branches: Vec<SemaElifBranch>,
+        sema_else_branch: Option<SemaElseBranch>,
     },
     Match {
         match_token: MatchRegionalToken,

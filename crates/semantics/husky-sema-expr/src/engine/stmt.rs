@@ -12,7 +12,7 @@ impl<'a> SemaExprEngine<'a> {
         for stmt in stmts.start()..(stmts.end() - 1) {
             batch.add(self.infer_new_nonlast_stmt(stmt));
         }
-        let (data_result, ty_result) = self.infer_new_stmt(stmts.end() - 1, expr_expectation);
+        let (data_result, ty_result) = self.build_sema_stmt(stmts.end() - 1, expr_expectation);
         let ty = ty_result.as_ref().ok().copied();
         batch.add((data_result, ty_result));
         (self.sema_stmt_arena.alloc_batch(batch), ty)
@@ -26,21 +26,10 @@ impl<'a> SemaExprEngine<'a> {
         SemaExprTypeResult<FluffyTerm>,
     ) {
         let expect_unit = self.expect_unit();
-        self.calc_stmt(stmt_idx, expect_unit)
+        self.build_sema_stmt(stmt_idx, expect_unit)
     }
 
-    fn infer_new_stmt(
-        &mut self,
-        stmt_idx: SynStmtIdx,
-        expr_expectation: impl ExpectFluffyTerm,
-    ) -> (
-        SemaExprDataResult<SemaStmtData>,
-        SemaExprTypeResult<FluffyTerm>,
-    ) {
-        self.calc_stmt(stmt_idx, expr_expectation)
-    }
-
-    fn calc_stmt(
+    fn build_sema_stmt(
         &mut self,
         stmt_idx: SynStmtIdx,
         expr_expectation: impl ExpectFluffyTerm,
@@ -214,7 +203,7 @@ impl<'a> SemaExprEngine<'a> {
                 ref if_branch,
                 ref elif_branches,
                 ref else_branch,
-            } => self.calc_if_else_stmt(
+            } => self.build_if_else_stmt(
                 if_branch,
                 elif_branches,
                 else_branch.as_ref(),
@@ -228,86 +217,48 @@ impl<'a> SemaExprEngine<'a> {
         }
     }
 
-    fn calc_if_else_stmt(
+    fn build_if_else_stmt(
         &mut self,
-        if_branch: &SynIfBranch,
-        elif_branches: &[SynElifBranch],
-        else_branch: Option<&SynElseBranch>,
+        syn_if_branch: &'a SynIfBranch,
+        syn_elif_branches: &[SynElifBranch],
+        syn_else_branch: Option<&SynElseBranch>,
         expr_expectation: impl ExpectFluffyTerm,
     ) -> (
         SemaExprDataResult<SemaStmtData>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
-        let mut branch_tys = BranchTypes::new(expr_expectation);
-        if_branch.condition.as_ref().copied().map(|condition| {
-            self.build_sema_expr_with_its_ty_returned(condition, ExpectConditionType)
-        });
-        branch_tys.visit_branch(self, if_branch.stmts);
-        for elif_branch in elif_branches {
-            elif_branch
-                .condition
-                .as_ref()
-                .copied()
-                .map(|condition| self.build_sema_expr(condition, ExpectConditionType));
-            branch_tys.visit_branch(self, elif_branch.stmts);
-        }
-        if let Some(else_branch) = else_branch {
-            branch_tys.visit_branch(self, else_branch.stmts);
-        }
-        // exhaustive iff else branch exists
-        branch_tys.merge(else_branch.is_some(), &self.term_menu);
+        let mut merger = BranchTypeMerger::new(expr_expectation);
+        let Ok(sema_if_branch) = self.build_sema_if_branch(syn_if_branch, &mut merger) else {
+            todo!()
+        };
+        let sema_elif_branches = syn_elif_branches
+            .iter()
+            .map(|syn_elif_branch| self.build_sema_elif_branch(syn_elif_branch, &mut merger))
+            .collect();
+        // for elif_branch in syn_elif_branches {
+        //     elif_branch
+        //         .condition
+        //         .as_ref()
+        //         .copied()
+        //         .map(|condition| self.build_sema_expr(condition, ExpectConditionType));
+        //     merger.visit_branch(self, elif_branch.stmts);
+        // }
+        let sema_else_branch = if let Some(syn_else_branch) = syn_else_branch {
+            Some(self.build_sema_else_branch(syn_else_branch, &mut merger))
+            // merger.visit_branch(self, syn_else_branch);
+        } else {
+            None
+        };
+        // exhaustive iff else branch exists;
         (
             Ok(SemaStmtData::IfElse {
-                if_branch: todo!(),
-                elif_branches: todo!(),
-                else_branch: todo!(),
+                sema_if_branch,
+                sema_elif_branches,
+                sema_else_branch,
             }),
-            todo!(),
+            merger
+                .merge(syn_else_branch.is_some(), &self.term_menu)
+                .ok_or(DerivedSemaExprTypeError::BranchTypeMerge.into()),
         )
-    }
-}
-
-struct BranchTypes<Expectation: ExpectFluffyTerm> {
-    /// this is true if the type of one of the branches cannot be inferred
-    has_error: bool,
-    /// this is true if the type of one of the branches is inferred to be not never
-    ever_ty: Option<FluffyTerm>,
-    expr_expectation: Expectation,
-}
-
-impl<Expectation: ExpectFluffyTerm> BranchTypes<Expectation> {
-    fn new(expr_expectation: Expectation) -> Self {
-        Self {
-            has_error: false,
-            ever_ty: None,
-            expr_expectation,
-        }
-    }
-
-    fn visit_branch(&mut self, engine: &mut SemaExprEngine, block: SynStmtIdxRange) {
-        let (stmts, new_block_ty) = engine.infer_new_block(block, self.expr_expectation.clone());
-        match new_block_ty {
-            Some(new_block_ty)
-                if new_block_ty.base_resolved(engine)
-                    == FluffyTermBase::Ethereal(EtherealTerm::EntityPath(
-                        TermEntityPath::TypeOntology(engine.item_path_menu.never_ty_path()),
-                    )) =>
-            {
-                ()
-            }
-            Some(new_block_ty) => {
-                if self.ever_ty.is_none() {
-                    self.ever_ty = Some(new_block_ty)
-                }
-            }
-            None => self.has_error = true,
-        }
-    }
-
-    fn merge(self, exhaustive: bool, menu: &EtherealTermMenu) -> Option<FluffyTerm> {
-        if let Some(ever_ty) = self.ever_ty {
-            return ever_ty.into();
-        }
-        (!self.has_error).then_some(menu.never().into())
     }
 }
