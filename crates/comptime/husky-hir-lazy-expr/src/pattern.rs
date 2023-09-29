@@ -1,4 +1,5 @@
 use husky_hir_ty::HirType;
+use husky_sema_expr::LetPatternSemaObelisk;
 use husky_syn_expr::{BePatternSynObelisk, LetPatternSynObelisk};
 
 use crate::*;
@@ -13,16 +14,16 @@ pub struct HirLazyLetVariablesPattern {
 impl<'a> HirLazyExprBuilder<'a> {
     pub(super) fn new_let_variables_pattern(
         &mut self,
-        let_variables_pattern: &LetPatternSynObelisk,
+        let_variables_pattern: &LetPatternSemaObelisk,
     ) -> HirLazyLetVariablesPattern {
-        todo!()
-        // HirLazyLetVariablesPattern {
-        //     pattern_expr_idx: self.new_pattern_expr(let_variables_pattern.syn_pattern_root()),
-        //     // variables: todo!(),
-        //     ty: let_variables_pattern
-        //         .ty()
-        //         .map(|ty| HirType::from_ethereal(self.expr_term(ty), self.db())),
-        // }
+        HirLazyLetVariablesPattern {
+            pattern_expr_idx: self.new_pattern_expr(let_variables_pattern.syn_pattern_root()),
+            ty: let_variables_pattern
+                .ty_sema_expr_idx()
+                .map(|ty_sema_expr_idx| {
+                    HirType::from_ethereal(self.expr_term(ty_sema_expr_idx), self.db())
+                }),
+        }
     }
 }
 

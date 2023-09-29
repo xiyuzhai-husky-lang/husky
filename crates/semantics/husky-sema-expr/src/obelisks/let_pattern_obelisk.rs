@@ -7,7 +7,7 @@ pub struct LetPatternSemaObelisk {
     syn_pattern_root: SynPatternRoot,
     variables: SynCurrentSymbolIdxRange,
     colon_token: Option<ColonRegionalToken>,
-    ty: Option<SemaExprIdx>,
+    ty_sema_expr_idx: Option<SemaExprIdx>,
 }
 
 impl LetPatternSemaObelisk {
@@ -24,7 +24,7 @@ impl LetPatternSemaObelisk {
     }
 
     pub fn ty_sema_expr_idx(&self) -> Option<SemaExprIdx> {
-        self.ty
+        self.ty_sema_expr_idx
     }
 }
 
@@ -37,7 +37,7 @@ impl<'a> SemaExprEngine<'a> {
             syn_pattern_root: let_pattern_syn_obelisk.syn_pattern_root(),
             variables: let_pattern_syn_obelisk.variables(),
             colon_token: let_pattern_syn_obelisk.colon_token()?,
-            ty: let_pattern_syn_obelisk
+            ty_sema_expr_idx: let_pattern_syn_obelisk
                 .ty_syn_expr_idx()
                 .map(|ty_syn_expr_idx| {
                     self.build_sema_expr(

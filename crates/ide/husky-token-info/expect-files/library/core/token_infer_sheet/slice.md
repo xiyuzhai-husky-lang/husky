@@ -41,7 +41,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `E`,
@@ -59,7 +59,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `E`,
@@ -81,7 +81,7 @@ Ok(
             ),
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `E`,
@@ -166,7 +166,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ExplicitRegularParameter {
                     pattern_symbol_idx: 1,
                 },
                 syn_expr_region: ExprRegionLeash(_),
@@ -182,7 +182,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ExplicitRegularParameter {
                     pattern_symbol_idx: 2,
                 },
                 syn_expr_region: ExprRegionLeash(_),
@@ -240,7 +240,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `E`,
@@ -258,7 +258,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `E`,
@@ -300,7 +300,7 @@ Ok(
             ),
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `E`,
@@ -345,7 +345,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
                     InheritedTemplateParameterSynSymbol::Type {
                         ident: `E`,
                     },
@@ -356,7 +356,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `E`,
@@ -378,7 +378,7 @@ Ok(
             ),
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentRegionalToken {
                             ident: `E`,
@@ -539,7 +539,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
                     InheritedTemplateParameterSynSymbol::Type {
                         ident: `E`,
                     },
@@ -581,7 +581,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
                     InheritedTemplateParameterSynSymbol::Type {
                         ident: `E`,
                     },

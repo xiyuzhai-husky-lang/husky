@@ -100,7 +100,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         CurrentSymbol {
@@ -113,7 +113,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 3,
+                                            owner_hir_expr_idx: 3,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -155,7 +155,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 8,
+                                            owner_hir_expr_idx: 8,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -173,16 +173,16 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         Prefix {
                                             opr: Minus,
-                                            opd: 10,
+                                            opd_hir_expr_idx: 10,
                                         },
                                         FnCall {
-                                            function: 7,
-                                            generic_arguments: None,
+                                            function_hir_expr_idx: 7,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     11,
@@ -268,7 +268,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         CurrentSymbol {
@@ -281,7 +281,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 3,
+                                            owner_hir_expr_idx: 3,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -323,7 +323,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 8,
+                                            owner_hir_expr_idx: 8,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -341,16 +341,16 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         Prefix {
                                             opr: Minus,
-                                            opd: 10,
+                                            opd_hir_expr_idx: 10,
                                         },
                                         FnCall {
-                                            function: 7,
-                                            generic_arguments: None,
+                                            function_hir_expr_idx: 7,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     11,
@@ -436,7 +436,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         CurrentSymbol {
@@ -449,7 +449,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 3,
+                                            owner_hir_expr_idx: 3,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -491,7 +491,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 8,
+                                            owner_hir_expr_idx: 8,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -509,16 +509,16 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         Prefix {
                                             opr: Minus,
-                                            opd: 10,
+                                            opd_hir_expr_idx: 10,
                                         },
                                         FnCall {
-                                            function: 7,
-                                            generic_arguments: None,
+                                            function_hir_expr_idx: 7,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     11,

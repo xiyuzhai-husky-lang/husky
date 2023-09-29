@@ -1,9 +1,10 @@
 use crate::{db::HirExprDb, *};
 use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
 use husky_entity_taxonomy::FugitiveKind;
-use husky_fluffy_term::MethodFluffySignature;
+use husky_fluffy_term::{MethodFluffySignature, StaticDispatch};
 use husky_hir_eager_expr::builder::HirEagerExprBuilder;
 use husky_hir_lazy_expr::builder::HirLazyExprBuilder;
+use husky_sema_expr::SemaExprData;
 use husky_syn_expr::{SynExprData, SynExprRegion};
 
 pub enum HirExprBuilder<'a> {
@@ -19,6 +20,13 @@ impl<'a> HirExprBuilder<'a> {
         }
     }
 
+    pub fn build_hir_expr(&mut self, syn_expr_root: SynExprIdx) -> HirExprIdx {
+        match self {
+            HirExprBuilder::Eager(this) => this.build_hir_eager_expr(syn_expr_root).into(),
+            HirExprBuilder::Lazy(this) => this.build_hir_lazy_expr(syn_expr_root).into(),
+        }
+    }
+
     pub fn finish(self) -> HirExprRegion {
         match self {
             HirExprBuilder::Eager(builder) => builder.finish().into(),
@@ -31,48 +39,21 @@ impl<'a> HirExprBuilder<'a> {
 fn expr_region_contains_gn(db: &dyn HirExprDb, syn_expr_region: SynExprRegion) -> bool {
     let syn_expr_region_data = syn_expr_region.data(db);
     let sema_expr_region = db.sema_expr_region(syn_expr_region);
-    for (syn_expr_idx, syn_expr) in syn_expr_region_data.expr_arena().indexed_iter() {
-        match syn_expr {
-            SynExprData::Literal(_, _) => (),
-            SynExprData::PrincipalEntityPath {
-                opt_path: Some(PrincipalEntityPath::MajorItem(MajorItemPath::Fugitive(path))),
+    for sema_expr_entry in sema_expr_region.sema_expr_arena_ref().iter() {
+        match sema_expr_entry.data() {
+            SemaExprData::PrincipalEntityPath {
+                path: PrincipalEntityPath::MajorItem(MajorItemPath::Fugitive(path)),
                 ..
             } => match path.fugitive_kind(db) {
                 FugitiveKind::Gn => return true,
                 FugitiveKind::Fn | FugitiveKind::AliasType | FugitiveKind::Val => (),
             },
-            SynExprData::AssociatedItem {
-                parent_expr_idx,
-                parent_path,
-                colon_colon_regional_token,
-                ident_token,
-            } => todo!(),
-            SynExprData::MethodApplicationOrCall {
-                self_argument,
-                dot_regional_token_idx,
-                ident_token,
-                template_arguments,
-                lpar_regional_token_idx,
-                items,
-                rpar_regional_token_idx,
-            } => {
-                todo!()
-                // let SynExprDisambiguation::MethodCallOrApplication(disambiguation) =
-                //     sema_expr_region.expr_disambiguation_unwrapped(syn_expr_idx)
-                // else {
-                //     unreachable!()
-                // };
-                // match disambiguation {
-                //     MethodCallOrApplicationDisambiguation::MethodCall {
-                //         method_dispatch,
-                //         ritchie_parameter_argument_matches,
-                //     } => match method_dispatch.signature() {
-                //         MethodFluffySignature::MethodFn(_) => (),
-                //         MethodFluffySignature::MethodFunction(_) => (),
-                //         MethodFluffySignature::MethodGn => return true,
-                //     },
-                // }
+            SemaExprData::AssociatedItem {
+                static_dispatch: StaticDispatch::AssociatedGn,
+                ..
             }
+            | SemaExprData::GnCall { .. }
+            | SemaExprData::MethodGnCall { .. } => return true,
             _ => (),
         }
     }

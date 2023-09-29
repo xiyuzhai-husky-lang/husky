@@ -26,7 +26,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 1,
+                                            owner_hir_expr_idx: 1,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -44,7 +44,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         InheritedSymbol {
@@ -57,7 +57,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 4,
+                                            owner_hir_expr_idx: 4,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -92,7 +92,7 @@
                                             ropd: 7,
                                         },
                                         Index {
-                                            owner: 5,
+                                            owner_hir_expr_idx: 5,
                                             items: [
                                                 8,
                                             ],
@@ -106,7 +106,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         InheritedSymbol {
@@ -119,7 +119,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 11,
+                                            owner_hir_expr_idx: 11,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -166,7 +166,7 @@
                                             ropd: 16,
                                         },
                                         Index {
-                                            owner: 12,
+                                            owner_hir_expr_idx: 12,
                                             items: [
                                                 17,
                                             ],
@@ -180,7 +180,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         CurrentSymbol {
@@ -210,7 +210,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     21,
@@ -247,7 +247,7 @@
                                         ),
                                         Prefix {
                                             opr: Minus,
-                                            opd: 26,
+                                            opd_hir_expr_idx: 26,
                                         },
                                         InheritedSymbol {
                                             ident: Ident(
@@ -259,7 +259,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 28,
+                                            owner_hir_expr_idx: 28,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -306,13 +306,13 @@
                                             ropd: 33,
                                         },
                                         Index {
-                                            owner: 29,
+                                            owner_hir_expr_idx: 29,
                                             items: [
                                                 34,
                                             ],
                                         },
                                         Field {
-                                            owner: 35,
+                                            owner_hir_expr_idx: 35,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -339,7 +339,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         CurrentSymbol {
@@ -360,7 +360,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         InheritedSymbol {
@@ -373,7 +373,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 41,
+                                            owner_hir_expr_idx: 41,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -400,7 +400,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         CurrentSymbol {
@@ -421,7 +421,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     44,
@@ -476,7 +476,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     50,
@@ -492,7 +492,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     51,
@@ -513,7 +513,7 @@
                                         ),
                                         Prefix {
                                             opr: Minus,
-                                            opd: 54,
+                                            opd_hir_expr_idx: 54,
                                         },
                                         InheritedSymbol {
                                             ident: Ident(
@@ -525,7 +525,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 56,
+                                            owner_hir_expr_idx: 56,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -560,13 +560,13 @@
                                             ropd: 59,
                                         },
                                         Index {
-                                            owner: 57,
+                                            owner_hir_expr_idx: 57,
                                             items: [
                                                 60,
                                             ],
                                         },
                                         Field {
-                                            owner: 61,
+                                            owner_hir_expr_idx: 61,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -593,7 +593,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         CurrentSymbol {
@@ -614,7 +614,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         InheritedSymbol {
@@ -627,7 +627,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 67,
+                                            owner_hir_expr_idx: 67,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -654,7 +654,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         CurrentSymbol {
@@ -675,7 +675,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     70,
@@ -730,7 +730,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     76,
@@ -746,7 +746,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     77,

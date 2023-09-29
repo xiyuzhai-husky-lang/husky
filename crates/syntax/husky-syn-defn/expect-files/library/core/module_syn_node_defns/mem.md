@@ -131,13 +131,13 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbol {
+                                                SynCurrentSymbol {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         7,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    variant: SynCurrentSymbolVariant::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -160,13 +160,13 @@ Ok(
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                SynCurrentSymbol {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         10,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    variant: SynCurrentSymbolVariant::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -349,13 +349,13 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbol {
+                                                SynCurrentSymbol {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         7,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    variant: SynCurrentSymbolVariant::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -378,13 +378,13 @@ Ok(
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                SynCurrentSymbol {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         10,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    variant: SynCurrentSymbolVariant::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -541,13 +541,13 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbol {
+                                                SynCurrentSymbol {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         7,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    variant: SynCurrentSymbolVariant::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -708,13 +708,13 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbol {
+                                                SynCurrentSymbol {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    variant: SynCurrentSymbolVariant::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -729,13 +729,13 @@ Ok(
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                SynCurrentSymbol {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         8,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    variant: SynCurrentSymbolVariant::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -875,7 +875,7 @@ Ok(
                             ),
                             expr_arena: Arena {
                                 data: [
-                                    SynExpr::PrincipalEntityPath {
+                                    SynExprData::PrincipalEntityPath {
                                         path_expr_idx: 1,
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
@@ -885,7 +885,7 @@ Ok(
                                             ),
                                         ),
                                     },
-                                    SynExpr::PrincipalEntityPath {
+                                    SynExprData::PrincipalEntityPath {
                                         path_expr_idx: 2,
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
@@ -895,13 +895,13 @@ Ok(
                                             ),
                                         ),
                                     },
-                                    SynExpr::CurrentSymbol {
+                                    SynExprData::CurrentSymbol {
                                         ident: `E`,
                                         regional_token_idx: RegionalTokenIdx(
                                             8,
                                         ),
                                         current_symbol_idx: 1,
-                                        current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `E`,
@@ -912,7 +912,7 @@ Ok(
                                             },
                                         },
                                     },
-                                    SynExpr::ExplicitApplication {
+                                    SynExprData::ExplicitApplication {
                                         function_expr_idx: 2,
                                         argument_expr_idx: 3,
                                     },
@@ -920,7 +920,7 @@ Ok(
                             },
                             principal_item_path_expr_arena: Arena {
                                 data: [
-                                    PrincipalEntityPathExpr::Root {
+                                    SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
                                                 ident: `Copy`,
@@ -935,7 +935,7 @@ Ok(
                                             ),
                                         ),
                                     },
-                                    PrincipalEntityPathExpr::Root {
+                                    SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
                                                 ident: `Leash`,
@@ -976,13 +976,13 @@ Ok(
                                 },
                                 current_symbol_arena: Arena {
                                     data: [
-                                        CurrentSynSymbol {
+                                        SynCurrentSymbol {
                                             modifier: Const,
                                             access_start: RegionalTokenIdx(
                                                 4,
                                             ),
                                             access_end: None,
-                                            variant: CurrentSynSymbolVariant::TemplateParameter {
+                                            variant: SynCurrentSymbolVariant::TemplateParameter {
                                                 syn_attrs: TemplateParameterSynAttrs {
                                                     syn_attrs: [],
                                                 },
@@ -1013,11 +1013,11 @@ Ok(
                             roots: [
                                 SynExprRoot {
                                     kind: Trait,
-                                    expr_idx: 1,
+                                    syn_expr_idx: 1,
                                 },
                                 SynExprRoot {
                                     kind: SelfType,
-                                    expr_idx: 4,
+                                    syn_expr_idx: 4,
                                 },
                             ],
                             has_self_lifetime: false,

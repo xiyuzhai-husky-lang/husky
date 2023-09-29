@@ -133,7 +133,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         CurrentSymbol {
@@ -146,7 +146,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 3,
+                                            owner_hir_expr_idx: 3,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -179,7 +179,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 7,
+                                            owner_hir_expr_idx: 7,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -267,7 +267,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         CurrentSymbol {
@@ -280,7 +280,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 3,
+                                            owner_hir_expr_idx: 3,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -298,7 +298,7 @@
                                         ),
                                         Prefix {
                                             opr: Minus,
-                                            opd: 5,
+                                            opd_hir_expr_idx: 5,
                                         },
                                         Binary {
                                             lopd: 4,
@@ -317,7 +317,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 8,
+                                            owner_hir_expr_idx: 8,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -336,7 +336,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 10,
+                                            owner_hir_expr_idx: 10,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -361,7 +361,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         Literal(
@@ -388,7 +388,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 16,
+                                            owner_hir_expr_idx: 16,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -406,7 +406,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         Literal(
@@ -433,7 +433,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 21,
+                                            owner_hir_expr_idx: 21,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -443,7 +443,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 22,
+                                            owner_hir_expr_idx: 22,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -470,7 +470,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         MethodCall {
@@ -482,7 +482,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     25,
@@ -499,7 +499,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 27,
+                                            owner_hir_expr_idx: 27,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -540,11 +540,11 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         Field {
-                                            owner: 32,
+                                            owner_hir_expr_idx: 32,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -555,7 +555,7 @@
                                         },
                                         Prefix {
                                             opr: Minus,
-                                            opd: 33,
+                                            opd_hir_expr_idx: 33,
                                         },
                                         Block {
                                             stmts: ArenaIdxRange(

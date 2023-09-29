@@ -148,7 +148,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                     self.visit_syn_expr_result(match_expr);
                     self.visit_syn_expr_result(eol_with_token);
                     for case_branch in case_branches {
-                        self.visit_syn_expr_result(&case_branch.case_pattern);
+                        self.visit_syn_expr_result(&case_branch.case_pattern_syn_obelisk);
                         self.visit_syn_expr_result(&case_branch.heavy_arrow_token);
                         self.visit_syn_expr_result(&case_branch.stmts);
                     }

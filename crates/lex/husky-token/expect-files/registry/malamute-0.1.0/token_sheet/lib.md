@@ -632,7 +632,7 @@ Ok(
                 ),
             ),
             TokenData::Literal(
-                Literal::Integer(
+                LiteralData::Integer(
                     UnspecifiedRegular(
                         5,
                     ),

@@ -8,6 +8,7 @@ use crate::*;
 use husky_ethereal_term::EtherealTerm;
 use husky_fluffy_term::StaticDispatch;
 use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieParameterArgumentMatch};
+use husky_sema_opr::{prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::{IdentifiableEntityPathExpr, SynExprData, SynExprIdx, SynStmtIdx};
 use salsa::debug::ExpectWithDb;
 use vec_like::VecMap;
@@ -48,12 +49,13 @@ pub enum HirEagerExpr {
         target: HirEagerBeVariablesPattern,
     },
     Prefix {
-        opr: PrefixOpr,
+        // ad hoc, should have a type HirPrefixOpr
+        opr: SemaPrefixOpr,
         opd_hir_expr_idx: HirEagerExprIdx,
     },
     Suffix {
         opd_hir_expr_idx: HirEagerExprIdx,
-        opr: SuffixOpr,
+        opr: SemaSuffixOpr,
     },
     FnCall {
         function_hir_expr_idx: HirEagerExprIdx,
@@ -91,6 +93,7 @@ pub enum HirEagerExpr {
     },
     Todo,
     AssociatedFn,
+    AssociatedGn,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
@@ -124,6 +127,7 @@ impl ToHirEager for SemaExprIdx {
                 static_dispatch,
             } => match static_dispatch {
                 StaticDispatch::AssociatedFn(_) => HirEagerExpr::AssociatedFn,
+                StaticDispatch::AssociatedGn => HirEagerExpr::AssociatedGn,
             },
             SemaExprData::InheritedSymbol {
                 ident,
@@ -168,7 +172,7 @@ impl ToHirEager for SemaExprIdx {
                 opr_regional_token_idx,
                 opd_sema_expr_idx,
             } => HirEagerExpr::Prefix {
-                opr: todo!(),
+                opr: *opr,
                 opd_hir_expr_idx: opd_sema_expr_idx.to_hir_eager(builder),
             },
             SemaExprData::Suffix {
@@ -176,7 +180,7 @@ impl ToHirEager for SemaExprIdx {
                 opr,
                 opr_regional_token_idx,
             } => HirEagerExpr::Suffix {
-                opr: todo!(),
+                opr: *opr,
                 opd_hir_expr_idx: opd_sema_expr_idx.to_hir_eager(builder),
             },
             SemaExprData::Application {

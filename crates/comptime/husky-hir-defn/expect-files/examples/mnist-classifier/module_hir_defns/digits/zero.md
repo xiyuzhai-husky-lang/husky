@@ -59,7 +59,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 1,
+                                            owner_hir_expr_idx: 1,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -91,7 +91,7 @@
                                         ),
                                         Prefix {
                                             opr: Minus,
-                                            opd: 5,
+                                            opd_hir_expr_idx: 5,
                                         },
                                         Binary {
                                             lopd: 4,
@@ -110,7 +110,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 8,
+                                            owner_hir_expr_idx: 8,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -121,7 +121,7 @@
                                         },
                                         Prefix {
                                             opr: Minus,
-                                            opd: 9,
+                                            opd_hir_expr_idx: 9,
                                         },
                                         Literal(
                                             F32(

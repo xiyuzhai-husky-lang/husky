@@ -126,7 +126,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            SynExpr::PrincipalEntityPath {
+                                            SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
@@ -136,7 +136,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            SynExpr::BoxColonList {
+                                            SynExprData::BoxColonList {
                                                 lbox_regional_token_idx: RegionalTokenIdx(
                                                     13,
                                                 ),
@@ -148,13 +148,13 @@ Ok(
                                                     15,
                                                 ),
                                             },
-                                            SynExpr::CurrentSymbol {
+                                            SynExprData::CurrentSymbol {
                                                 ident: `T`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     16,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `T`,
@@ -165,7 +165,7 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            SynExpr::ExplicitApplication {
+                                            SynExprData::ExplicitApplication {
                                                 function_expr_idx: 2,
                                                 argument_expr_idx: 3,
                                             },
@@ -173,7 +173,7 @@ Ok(
                                     },
                                     principal_item_path_expr_arena: Arena {
                                         data: [
-                                            PrincipalEntityPathExpr::Root {
+                                            SynPrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameRegionalToken::Ident(
                                                     IdentRegionalToken {
                                                         ident: `Ord`,
@@ -247,13 +247,13 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbol {
+                                                SynCurrentSymbol {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    variant: SynCurrentSymbolVariant::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -268,13 +268,13 @@ Ok(
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                SynCurrentSymbol {
                                                     modifier: Mut,
                                                     access_start: RegionalTokenIdx(
                                                         12,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                    variant: SynCurrentSymbolVariant::ParenateRegularParameter {
                                                         ident: `arr`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -306,11 +306,11 @@ Ok(
                                     roots: [
                                         SynExprRoot {
                                             kind: Traits,
-                                            expr_idx: 1,
+                                            syn_expr_idx: 1,
                                         },
                                         SynExprRoot {
                                             kind: ExplicitParameterType,
-                                            expr_idx: 4,
+                                            syn_expr_idx: 4,
                                         },
                                     ],
                                     has_self_lifetime: false,
@@ -341,7 +341,7 @@ Ok(
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            SynExpr::PrincipalEntityPath {
+                                                            SynExprData::PrincipalEntityPath {
                                                                 path_expr_idx: 1,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
@@ -351,7 +351,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            SynExpr::BoxColonList {
+                                                            SynExprData::BoxColonList {
                                                                 lbox_regional_token_idx: RegionalTokenIdx(
                                                                     13,
                                                                 ),
@@ -363,13 +363,13 @@ Ok(
                                                                     15,
                                                                 ),
                                                             },
-                                                            SynExpr::CurrentSymbol {
+                                                            SynExprData::CurrentSymbol {
                                                                 ident: `T`,
                                                                 regional_token_idx: RegionalTokenIdx(
                                                                     16,
                                                                 ),
                                                                 current_symbol_idx: 1,
-                                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentRegionalToken {
                                                                             ident: `T`,
@@ -380,7 +380,7 @@ Ok(
                                                                     },
                                                                 },
                                                             },
-                                                            SynExpr::ExplicitApplication {
+                                                            SynExprData::ExplicitApplication {
                                                                 function_expr_idx: 2,
                                                                 argument_expr_idx: 3,
                                                             },
@@ -388,7 +388,7 @@ Ok(
                                                     },
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
-                                                            PrincipalEntityPathExpr::Root {
+                                                            SynPrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameRegionalToken::Ident(
                                                                     IdentRegionalToken {
                                                                         ident: `Ord`,
@@ -462,13 +462,13 @@ Ok(
                                                         },
                                                         current_symbol_arena: Arena {
                                                             data: [
-                                                                CurrentSynSymbol {
+                                                                SynCurrentSymbol {
                                                                     modifier: Const,
                                                                     access_start: RegionalTokenIdx(
                                                                         6,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                    variant: SynCurrentSymbolVariant::TemplateParameter {
                                                                         syn_attrs: TemplateParameterSynAttrs {
                                                                             syn_attrs: [],
                                                                         },
@@ -483,13 +483,13 @@ Ok(
                                                                         },
                                                                     },
                                                                 },
-                                                                CurrentSynSymbol {
+                                                                SynCurrentSymbol {
                                                                     modifier: Mut,
                                                                     access_start: RegionalTokenIdx(
                                                                         12,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                                    variant: SynCurrentSymbolVariant::ParenateRegularParameter {
                                                                         ident: `arr`,
                                                                         pattern_symbol_idx: 1,
                                                                     },
@@ -521,11 +521,11 @@ Ok(
                                                     roots: [
                                                         SynExprRoot {
                                                             kind: Traits,
-                                                            expr_idx: 1,
+                                                            syn_expr_idx: 1,
                                                         },
                                                         SynExprRoot {
                                                             kind: ExplicitParameterType,
-                                                            expr_idx: 4,
+                                                            syn_expr_idx: 4,
                                                         },
                                                     ],
                                                     has_self_lifetime: false,
@@ -547,17 +547,17 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                SynExpr::InheritedSymbol {
+                                                SynExprData::InheritedSymbol {
                                                     ident: `arr`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         4,
                                                     ),
                                                     inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
                                                         ident: `arr`,
                                                     },
                                                 },
-                                                SynExpr::MethodApplicationOrCall {
+                                                SynExprData::MethodApplicationOrCall {
                                                     self_argument: 1,
                                                     dot_regional_token_idx: RegionalTokenIdx(
                                                         5,
@@ -568,7 +568,7 @@ Ok(
                                                             6,
                                                         ),
                                                     },
-                                                    generic_arguments: None,
+                                                    template_arguments: None,
                                                     lpar_regional_token_idx: RegionalTokenIdx(
                                                         7,
                                                     ),
@@ -577,7 +577,7 @@ Ok(
                                                         8,
                                                     ),
                                                 },
-                                                SynExpr::PrincipalEntityPath {
+                                                SynExprData::PrincipalEntityPath {
                                                     path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
@@ -587,47 +587,47 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::InheritedSymbol {
+                                                SynExprData::InheritedSymbol {
                                                     ident: `arr`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         11,
                                                     ),
                                                     inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
                                                         ident: `arr`,
                                                     },
                                                 },
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         13,
                                                     ),
-                                                    Literal::Integer(
+                                                    LiteralData::Integer(
                                                         UnspecifiedRegular(
                                                             0,
                                                         ),
                                                     ),
                                                 ),
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `len`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         16,
                                                     ),
                                                     current_symbol_idx: 1,
-                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         18,
                                                     ),
-                                                    Literal::Integer(
+                                                    LiteralData::Integer(
                                                         UnspecifiedRegular(
                                                             1,
                                                         ),
                                                     ),
                                                 ),
-                                                SynExpr::Binary {
+                                                SynExprData::Binary {
                                                     lopd: 6,
                                                     opr: Closed(
                                                         Sub,
@@ -637,7 +637,7 @@ Ok(
                                                     ),
                                                     ropd: 7,
                                                 },
-                                                SynExpr::Bracketed {
+                                                SynExprData::Bracketed {
                                                     lpar_regional_token_idx: RegionalTokenIdx(
                                                         15,
                                                     ),
@@ -646,7 +646,7 @@ Ok(
                                                         19,
                                                     ),
                                                 },
-                                                SynExpr::PrincipalEntityPath {
+                                                SynExprData::PrincipalEntityPath {
                                                     path_expr_idx: 2,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
@@ -656,7 +656,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::Binary {
+                                                SynExprData::Binary {
                                                     lopd: 9,
                                                     opr: As,
                                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -664,15 +664,15 @@ Ok(
                                                     ),
                                                     ropd: 10,
                                                 },
-                                                SynExpr::FunctionApplicationOrCall {
+                                                SynExprData::FunctionApplicationOrCall {
                                                     function: 3,
-                                                    generic_arguments: None,
+                                                    template_arguments: None,
                                                     lpar_regional_token_idx: RegionalTokenIdx(
                                                         10,
                                                     ),
                                                     items: [
                                                         SynCommaListItem {
-                                                            expr_idx: 4,
+                                                            syn_expr_idx: 4,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     12,
@@ -680,7 +680,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 5,
+                                                            syn_expr_idx: 5,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     14,
@@ -688,7 +688,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 11,
+                                                            syn_expr_idx: 11,
                                                             comma_regional_token_idx: None,
                                                         },
                                                     ],
@@ -696,7 +696,7 @@ Ok(
                                                         22,
                                                     ),
                                                 },
-                                                SynExpr::Block {
+                                                SynExprData::Block {
                                                     stmts: ArenaIdxRange(
                                                         1..3,
                                                     ),
@@ -705,7 +705,7 @@ Ok(
                                         },
                                         principal_item_path_expr_arena: Arena {
                                             data: [
-                                                PrincipalEntityPathExpr::Root {
+                                                SynPrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameRegionalToken::Ident(
                                                         IdentRegionalToken {
                                                             ident: `quick_sort_aux`,
@@ -720,7 +720,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                PrincipalEntityPathExpr::Root {
+                                                SynPrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameRegionalToken::Ident(
                                                         IdentRegionalToken {
                                                             ident: `isize`,
@@ -739,14 +739,14 @@ Ok(
                                         },
                                         stmt_arena: Arena {
                                             data: [
-                                                SynStmt::Let {
+                                                SynStmtData::Let {
                                                     let_token: LetRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
                                                             1,
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternObelisk {
+                                                        LetPatternSynObelisk {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -760,7 +760,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        RegionalEqToken(
+                                                        EqRegionalToken(
                                                             RegionalTokenIdx(
                                                                 3,
                                                             ),
@@ -768,7 +768,7 @@ Ok(
                                                     ),
                                                     initial_value: 2,
                                                 },
-                                                SynStmt::Eval {
+                                                SynStmtData::Eval {
                                                     expr_idx: 12,
                                                     eol_semicolon: Ok(
                                                         None,
@@ -819,23 +819,23 @@ Ok(
                                         symbol_region: SynSymbolRegion {
                                             inherited_symbol_arena: Arena {
                                                 data: [
-                                                    InheritedSynSymbol {
+                                                    SynInheritedSymbol {
                                                         parent_symbol_idx: Current(
                                                             1,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        kind: SynInheritedSymbolKind::TemplateParameter(
                                                             InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `T`,
                                                             },
                                                         ),
                                                     },
-                                                    InheritedSynSymbol {
+                                                    SynInheritedSymbol {
                                                         parent_symbol_idx: Current(
                                                             2,
                                                         ),
                                                         modifier: Mut,
-                                                        kind: InheritedSynSymbolKind::ParenateParameter {
+                                                        kind: SynInheritedSymbolKind::ParenateParameter {
                                                             ident: `arr`,
                                                         },
                                                     },
@@ -843,7 +843,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSynSymbol {
+                                                    SynCurrentSymbol {
                                                         modifier: None,
                                                         access_start: RegionalTokenIdx(
                                                             3,
@@ -855,7 +855,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        variant: SynCurrentSymbolVariant::LetVariable {
                                                             ident: `len`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -869,15 +869,15 @@ Ok(
                                         roots: [
                                             SynExprRoot {
                                                 kind: LetStmtInitialValue,
-                                                expr_idx: 2,
+                                                syn_expr_idx: 2,
                                             },
                                             SynExprRoot {
                                                 kind: EvalExpr,
-                                                expr_idx: 12,
+                                                syn_expr_idx: 12,
                                             },
                                             SynExprRoot {
                                                 kind: BlockExpr,
-                                                expr_idx: 13,
+                                                syn_expr_idx: 13,
                                             },
                                         ],
                                         has_self_lifetime: false,
@@ -1055,7 +1055,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            SynExpr::PrincipalEntityPath {
+                                            SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
@@ -1065,7 +1065,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            SynExpr::BoxColonList {
+                                            SynExprData::BoxColonList {
                                                 lbox_regional_token_idx: RegionalTokenIdx(
                                                     12,
                                                 ),
@@ -1077,13 +1077,13 @@ Ok(
                                                     14,
                                                 ),
                                             },
-                                            SynExpr::CurrentSymbol {
+                                            SynExprData::CurrentSymbol {
                                                 ident: `T`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     15,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `T`,
@@ -1094,11 +1094,11 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            SynExpr::ExplicitApplication {
+                                            SynExprData::ExplicitApplication {
                                                 function_expr_idx: 2,
                                                 argument_expr_idx: 3,
                                             },
-                                            SynExpr::PrincipalEntityPath {
+                                            SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 2,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
@@ -1108,7 +1108,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            SynExpr::PrincipalEntityPath {
+                                            SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 3,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
@@ -1122,7 +1122,7 @@ Ok(
                                     },
                                     principal_item_path_expr_arena: Arena {
                                         data: [
-                                            PrincipalEntityPathExpr::Root {
+                                            SynPrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameRegionalToken::Ident(
                                                     IdentRegionalToken {
                                                         ident: `Ord`,
@@ -1137,7 +1137,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            PrincipalEntityPathExpr::Root {
+                                            SynPrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameRegionalToken::Ident(
                                                     IdentRegionalToken {
                                                         ident: `isize`,
@@ -1152,7 +1152,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            PrincipalEntityPathExpr::Root {
+                                            SynPrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameRegionalToken::Ident(
                                                     IdentRegionalToken {
                                                         ident: `isize`,
@@ -1266,13 +1266,13 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbol {
+                                                SynCurrentSymbol {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    variant: SynCurrentSymbolVariant::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -1287,35 +1287,35 @@ Ok(
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                SynCurrentSymbol {
                                                     modifier: Mut,
                                                     access_start: RegionalTokenIdx(
                                                         11,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                    variant: SynCurrentSymbolVariant::ParenateRegularParameter {
                                                         ident: `arr`,
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                SynCurrentSymbol {
                                                     modifier: None,
                                                     access_start: RegionalTokenIdx(
                                                         18,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                    variant: SynCurrentSymbolVariant::ParenateRegularParameter {
                                                         ident: `low`,
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                SynCurrentSymbol {
                                                     modifier: None,
                                                     access_start: RegionalTokenIdx(
                                                         22,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                    variant: SynCurrentSymbolVariant::ParenateRegularParameter {
                                                         ident: `high`,
                                                         pattern_symbol_idx: 3,
                                                     },
@@ -1369,19 +1369,19 @@ Ok(
                                     roots: [
                                         SynExprRoot {
                                             kind: Traits,
-                                            expr_idx: 1,
+                                            syn_expr_idx: 1,
                                         },
                                         SynExprRoot {
                                             kind: ExplicitParameterType,
-                                            expr_idx: 4,
+                                            syn_expr_idx: 4,
                                         },
                                         SynExprRoot {
                                             kind: ExplicitParameterType,
-                                            expr_idx: 5,
+                                            syn_expr_idx: 5,
                                         },
                                         SynExprRoot {
                                             kind: ExplicitParameterType,
-                                            expr_idx: 6,
+                                            syn_expr_idx: 6,
                                         },
                                     ],
                                     has_self_lifetime: false,
@@ -1412,7 +1412,7 @@ Ok(
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            SynExpr::PrincipalEntityPath {
+                                                            SynExprData::PrincipalEntityPath {
                                                                 path_expr_idx: 1,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
@@ -1422,7 +1422,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            SynExpr::BoxColonList {
+                                                            SynExprData::BoxColonList {
                                                                 lbox_regional_token_idx: RegionalTokenIdx(
                                                                     12,
                                                                 ),
@@ -1434,13 +1434,13 @@ Ok(
                                                                     14,
                                                                 ),
                                                             },
-                                                            SynExpr::CurrentSymbol {
+                                                            SynExprData::CurrentSymbol {
                                                                 ident: `T`,
                                                                 regional_token_idx: RegionalTokenIdx(
                                                                     15,
                                                                 ),
                                                                 current_symbol_idx: 1,
-                                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentRegionalToken {
                                                                             ident: `T`,
@@ -1451,11 +1451,11 @@ Ok(
                                                                     },
                                                                 },
                                                             },
-                                                            SynExpr::ExplicitApplication {
+                                                            SynExprData::ExplicitApplication {
                                                                 function_expr_idx: 2,
                                                                 argument_expr_idx: 3,
                                                             },
-                                                            SynExpr::PrincipalEntityPath {
+                                                            SynExprData::PrincipalEntityPath {
                                                                 path_expr_idx: 2,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
@@ -1465,7 +1465,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            SynExpr::PrincipalEntityPath {
+                                                            SynExprData::PrincipalEntityPath {
                                                                 path_expr_idx: 3,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
@@ -1479,7 +1479,7 @@ Ok(
                                                     },
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
-                                                            PrincipalEntityPathExpr::Root {
+                                                            SynPrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameRegionalToken::Ident(
                                                                     IdentRegionalToken {
                                                                         ident: `Ord`,
@@ -1494,7 +1494,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            PrincipalEntityPathExpr::Root {
+                                                            SynPrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameRegionalToken::Ident(
                                                                     IdentRegionalToken {
                                                                         ident: `isize`,
@@ -1509,7 +1509,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            PrincipalEntityPathExpr::Root {
+                                                            SynPrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameRegionalToken::Ident(
                                                                     IdentRegionalToken {
                                                                         ident: `isize`,
@@ -1623,13 +1623,13 @@ Ok(
                                                         },
                                                         current_symbol_arena: Arena {
                                                             data: [
-                                                                CurrentSynSymbol {
+                                                                SynCurrentSymbol {
                                                                     modifier: Const,
                                                                     access_start: RegionalTokenIdx(
                                                                         5,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                    variant: SynCurrentSymbolVariant::TemplateParameter {
                                                                         syn_attrs: TemplateParameterSynAttrs {
                                                                             syn_attrs: [],
                                                                         },
@@ -1644,35 +1644,35 @@ Ok(
                                                                         },
                                                                     },
                                                                 },
-                                                                CurrentSynSymbol {
+                                                                SynCurrentSymbol {
                                                                     modifier: Mut,
                                                                     access_start: RegionalTokenIdx(
                                                                         11,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                                    variant: SynCurrentSymbolVariant::ParenateRegularParameter {
                                                                         ident: `arr`,
                                                                         pattern_symbol_idx: 1,
                                                                     },
                                                                 },
-                                                                CurrentSynSymbol {
+                                                                SynCurrentSymbol {
                                                                     modifier: None,
                                                                     access_start: RegionalTokenIdx(
                                                                         18,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                                    variant: SynCurrentSymbolVariant::ParenateRegularParameter {
                                                                         ident: `low`,
                                                                         pattern_symbol_idx: 2,
                                                                     },
                                                                 },
-                                                                CurrentSynSymbol {
+                                                                SynCurrentSymbol {
                                                                     modifier: None,
                                                                     access_start: RegionalTokenIdx(
                                                                         22,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                                    variant: SynCurrentSymbolVariant::ParenateRegularParameter {
                                                                         ident: `high`,
                                                                         pattern_symbol_idx: 3,
                                                                     },
@@ -1726,19 +1726,19 @@ Ok(
                                                     roots: [
                                                         SynExprRoot {
                                                             kind: Traits,
-                                                            expr_idx: 1,
+                                                            syn_expr_idx: 1,
                                                         },
                                                         SynExprRoot {
                                                             kind: ExplicitParameterType,
-                                                            expr_idx: 4,
+                                                            syn_expr_idx: 4,
                                                         },
                                                         SynExprRoot {
                                                             kind: ExplicitParameterType,
-                                                            expr_idx: 5,
+                                                            syn_expr_idx: 5,
                                                         },
                                                         SynExprRoot {
                                                             kind: ExplicitParameterType,
-                                                            expr_idx: 6,
+                                                            syn_expr_idx: 6,
                                                         },
                                                     ],
                                                     has_self_lifetime: false,
@@ -1760,27 +1760,27 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                SynExpr::InheritedSymbol {
+                                                SynExprData::InheritedSymbol {
                                                     ident: `low`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         2,
                                                     ),
                                                     inherited_symbol_idx: 3,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
                                                         ident: `low`,
                                                     },
                                                 },
-                                                SynExpr::InheritedSymbol {
+                                                SynExprData::InheritedSymbol {
                                                     ident: `high`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         4,
                                                     ),
                                                     inherited_symbol_idx: 4,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
                                                         ident: `high`,
                                                     },
                                                 },
-                                                SynExpr::Binary {
+                                                SynExprData::Binary {
                                                     lopd: 1,
                                                     opr: Comparison(
                                                         Less,
@@ -1790,7 +1790,7 @@ Ok(
                                                     ),
                                                     ropd: 2,
                                                 },
-                                                SynExpr::PrincipalEntityPath {
+                                                SynExprData::PrincipalEntityPath {
                                                     path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
@@ -1800,45 +1800,45 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::InheritedSymbol {
+                                                SynExprData::InheritedSymbol {
                                                     ident: `arr`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         11,
                                                     ),
                                                     inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
                                                         ident: `arr`,
                                                     },
                                                 },
-                                                SynExpr::InheritedSymbol {
+                                                SynExprData::InheritedSymbol {
                                                     ident: `low`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         13,
                                                     ),
                                                     inherited_symbol_idx: 3,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
                                                         ident: `low`,
                                                     },
                                                 },
-                                                SynExpr::InheritedSymbol {
+                                                SynExprData::InheritedSymbol {
                                                     ident: `high`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         15,
                                                     ),
                                                     inherited_symbol_idx: 4,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
                                                         ident: `high`,
                                                     },
                                                 },
-                                                SynExpr::FunctionApplicationOrCall {
+                                                SynExprData::FunctionApplicationOrCall {
                                                     function: 4,
-                                                    generic_arguments: None,
+                                                    template_arguments: None,
                                                     lpar_regional_token_idx: RegionalTokenIdx(
                                                         10,
                                                     ),
                                                     items: [
                                                         SynCommaListItem {
-                                                            expr_idx: 5,
+                                                            syn_expr_idx: 5,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     12,
@@ -1846,7 +1846,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 6,
+                                                            syn_expr_idx: 6,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     14,
@@ -1854,7 +1854,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 7,
+                                                            syn_expr_idx: 7,
                                                             comma_regional_token_idx: None,
                                                         },
                                                     ],
@@ -1862,7 +1862,7 @@ Ok(
                                                         16,
                                                     ),
                                                 },
-                                                SynExpr::PrincipalEntityPath {
+                                                SynExprData::PrincipalEntityPath {
                                                     path_expr_idx: 2,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
@@ -1872,47 +1872,47 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::InheritedSymbol {
+                                                SynExprData::InheritedSymbol {
                                                     ident: `arr`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         19,
                                                     ),
                                                     inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
                                                         ident: `arr`,
                                                     },
                                                 },
-                                                SynExpr::InheritedSymbol {
+                                                SynExprData::InheritedSymbol {
                                                     ident: `low`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         21,
                                                     ),
                                                     inherited_symbol_idx: 3,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
                                                         ident: `low`,
                                                     },
                                                 },
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `p`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         23,
                                                     ),
                                                     current_symbol_idx: 1,
-                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         25,
                                                     ),
-                                                    Literal::Integer(
+                                                    LiteralData::Integer(
                                                         UnspecifiedRegular(
                                                             1,
                                                         ),
                                                     ),
                                                 ),
-                                                SynExpr::Binary {
+                                                SynExprData::Binary {
                                                     lopd: 12,
                                                     opr: Closed(
                                                         Sub,
@@ -1922,15 +1922,15 @@ Ok(
                                                     ),
                                                     ropd: 13,
                                                 },
-                                                SynExpr::FunctionApplicationOrCall {
+                                                SynExprData::FunctionApplicationOrCall {
                                                     function: 9,
-                                                    generic_arguments: None,
+                                                    template_arguments: None,
                                                     lpar_regional_token_idx: RegionalTokenIdx(
                                                         18,
                                                     ),
                                                     items: [
                                                         SynCommaListItem {
-                                                            expr_idx: 10,
+                                                            syn_expr_idx: 10,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     20,
@@ -1938,7 +1938,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 11,
+                                                            syn_expr_idx: 11,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     22,
@@ -1946,7 +1946,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 14,
+                                                            syn_expr_idx: 14,
                                                             comma_regional_token_idx: None,
                                                         },
                                                     ],
@@ -1954,7 +1954,7 @@ Ok(
                                                         26,
                                                     ),
                                                 },
-                                                SynExpr::PrincipalEntityPath {
+                                                SynExprData::PrincipalEntityPath {
                                                     path_expr_idx: 3,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
@@ -1964,37 +1964,37 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::InheritedSymbol {
+                                                SynExprData::InheritedSymbol {
                                                     ident: `arr`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         29,
                                                     ),
                                                     inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
                                                         ident: `arr`,
                                                     },
                                                 },
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `p`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         31,
                                                     ),
                                                     current_symbol_idx: 1,
-                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         33,
                                                     ),
-                                                    Literal::Integer(
+                                                    LiteralData::Integer(
                                                         UnspecifiedRegular(
                                                             1,
                                                         ),
                                                     ),
                                                 ),
-                                                SynExpr::Binary {
+                                                SynExprData::Binary {
                                                     lopd: 18,
                                                     opr: Closed(
                                                         Add,
@@ -2004,25 +2004,25 @@ Ok(
                                                     ),
                                                     ropd: 19,
                                                 },
-                                                SynExpr::InheritedSymbol {
+                                                SynExprData::InheritedSymbol {
                                                     ident: `high`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         35,
                                                     ),
                                                     inherited_symbol_idx: 4,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
                                                         ident: `high`,
                                                     },
                                                 },
-                                                SynExpr::FunctionApplicationOrCall {
+                                                SynExprData::FunctionApplicationOrCall {
                                                     function: 16,
-                                                    generic_arguments: None,
+                                                    template_arguments: None,
                                                     lpar_regional_token_idx: RegionalTokenIdx(
                                                         28,
                                                     ),
                                                     items: [
                                                         SynCommaListItem {
-                                                            expr_idx: 17,
+                                                            syn_expr_idx: 17,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     30,
@@ -2030,7 +2030,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 20,
+                                                            syn_expr_idx: 20,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     34,
@@ -2038,7 +2038,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 21,
+                                                            syn_expr_idx: 21,
                                                             comma_regional_token_idx: None,
                                                         },
                                                     ],
@@ -2046,7 +2046,7 @@ Ok(
                                                         36,
                                                     ),
                                                 },
-                                                SynExpr::Block {
+                                                SynExprData::Block {
                                                     stmts: ArenaIdxRange(
                                                         4..5,
                                                     ),
@@ -2055,7 +2055,7 @@ Ok(
                                         },
                                         principal_item_path_expr_arena: Arena {
                                             data: [
-                                                PrincipalEntityPathExpr::Root {
+                                                SynPrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameRegionalToken::Ident(
                                                         IdentRegionalToken {
                                                             ident: `partition`,
@@ -2070,7 +2070,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                PrincipalEntityPathExpr::Root {
+                                                SynPrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameRegionalToken::Ident(
                                                         IdentRegionalToken {
                                                             ident: `quick_sort_aux`,
@@ -2085,7 +2085,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                PrincipalEntityPathExpr::Root {
+                                                SynPrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameRegionalToken::Ident(
                                                         IdentRegionalToken {
                                                             ident: `quick_sort_aux`,
@@ -2104,14 +2104,14 @@ Ok(
                                         },
                                         stmt_arena: Arena {
                                             data: [
-                                                SynStmt::Let {
+                                                SynStmtData::Let {
                                                     let_token: LetRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
                                                             6,
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternObelisk {
+                                                        LetPatternSynObelisk {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -2125,7 +2125,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        RegionalEqToken(
+                                                        EqRegionalToken(
                                                             RegionalTokenIdx(
                                                                 8,
                                                             ),
@@ -2133,19 +2133,19 @@ Ok(
                                                     ),
                                                     initial_value: 8,
                                                 },
-                                                SynStmt::Eval {
+                                                SynStmtData::Eval {
                                                     expr_idx: 15,
                                                     eol_semicolon: Ok(
                                                         None,
                                                     ),
                                                 },
-                                                SynStmt::Eval {
+                                                SynStmtData::Eval {
                                                     expr_idx: 22,
                                                     eol_semicolon: Ok(
                                                         None,
                                                     ),
                                                 },
-                                                SynStmt::IfElse {
+                                                SynStmtData::IfElse {
                                                     if_branch: SynIfBranch {
                                                         if_token: IfRegionalToken {
                                                             regional_token_idx: RegionalTokenIdx(
@@ -2216,41 +2216,41 @@ Ok(
                                         symbol_region: SynSymbolRegion {
                                             inherited_symbol_arena: Arena {
                                                 data: [
-                                                    InheritedSynSymbol {
+                                                    SynInheritedSymbol {
                                                         parent_symbol_idx: Current(
                                                             1,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        kind: SynInheritedSymbolKind::TemplateParameter(
                                                             InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `T`,
                                                             },
                                                         ),
                                                     },
-                                                    InheritedSynSymbol {
+                                                    SynInheritedSymbol {
                                                         parent_symbol_idx: Current(
                                                             2,
                                                         ),
                                                         modifier: Mut,
-                                                        kind: InheritedSynSymbolKind::ParenateParameter {
+                                                        kind: SynInheritedSymbolKind::ParenateParameter {
                                                             ident: `arr`,
                                                         },
                                                     },
-                                                    InheritedSynSymbol {
+                                                    SynInheritedSymbol {
                                                         parent_symbol_idx: Current(
                                                             3,
                                                         ),
                                                         modifier: None,
-                                                        kind: InheritedSynSymbolKind::ParenateParameter {
+                                                        kind: SynInheritedSymbolKind::ParenateParameter {
                                                             ident: `low`,
                                                         },
                                                     },
-                                                    InheritedSynSymbol {
+                                                    SynInheritedSymbol {
                                                         parent_symbol_idx: Current(
                                                             4,
                                                         ),
                                                         modifier: None,
-                                                        kind: InheritedSynSymbolKind::ParenateParameter {
+                                                        kind: SynInheritedSymbolKind::ParenateParameter {
                                                             ident: `high`,
                                                         },
                                                     },
@@ -2258,7 +2258,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSynSymbol {
+                                                    SynCurrentSymbol {
                                                         modifier: None,
                                                         access_start: RegionalTokenIdx(
                                                             8,
@@ -2270,7 +2270,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        variant: SynCurrentSymbolVariant::LetVariable {
                                                             ident: `p`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -2284,19 +2284,19 @@ Ok(
                                         roots: [
                                             SynExprRoot {
                                                 kind: LetStmtInitialValue,
-                                                expr_idx: 8,
+                                                syn_expr_idx: 8,
                                             },
                                             SynExprRoot {
                                                 kind: EvalExpr,
-                                                expr_idx: 15,
+                                                syn_expr_idx: 15,
                                             },
                                             SynExprRoot {
                                                 kind: EvalExpr,
-                                                expr_idx: 22,
+                                                syn_expr_idx: 22,
                                             },
                                             SynExprRoot {
                                                 kind: BlockExpr,
-                                                expr_idx: 23,
+                                                syn_expr_idx: 23,
                                             },
                                         ],
                                         has_self_lifetime: false,
@@ -2484,7 +2484,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            SynExpr::PrincipalEntityPath {
+                                            SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
@@ -2494,7 +2494,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            SynExpr::BoxColonList {
+                                            SynExprData::BoxColonList {
                                                 lbox_regional_token_idx: RegionalTokenIdx(
                                                     12,
                                                 ),
@@ -2506,13 +2506,13 @@ Ok(
                                                     14,
                                                 ),
                                             },
-                                            SynExpr::CurrentSymbol {
+                                            SynExprData::CurrentSymbol {
                                                 ident: `T`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     15,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `T`,
@@ -2523,11 +2523,11 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            SynExpr::ExplicitApplication {
+                                            SynExprData::ExplicitApplication {
                                                 function_expr_idx: 2,
                                                 argument_expr_idx: 3,
                                             },
-                                            SynExpr::PrincipalEntityPath {
+                                            SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 2,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
@@ -2537,7 +2537,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            SynExpr::PrincipalEntityPath {
+                                            SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 3,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
@@ -2547,7 +2547,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            SynExpr::PrincipalEntityPath {
+                                            SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 4,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
@@ -2561,7 +2561,7 @@ Ok(
                                     },
                                     principal_item_path_expr_arena: Arena {
                                         data: [
-                                            PrincipalEntityPathExpr::Root {
+                                            SynPrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameRegionalToken::Ident(
                                                     IdentRegionalToken {
                                                         ident: `Ord`,
@@ -2576,7 +2576,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            PrincipalEntityPathExpr::Root {
+                                            SynPrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameRegionalToken::Ident(
                                                     IdentRegionalToken {
                                                         ident: `isize`,
@@ -2591,7 +2591,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            PrincipalEntityPathExpr::Root {
+                                            SynPrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameRegionalToken::Ident(
                                                     IdentRegionalToken {
                                                         ident: `isize`,
@@ -2606,7 +2606,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            PrincipalEntityPathExpr::Root {
+                                            SynPrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameRegionalToken::Ident(
                                                     IdentRegionalToken {
                                                         ident: `isize`,
@@ -2720,13 +2720,13 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbol {
+                                                SynCurrentSymbol {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    variant: SynCurrentSymbolVariant::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -2741,35 +2741,35 @@ Ok(
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                SynCurrentSymbol {
                                                     modifier: Mut,
                                                     access_start: RegionalTokenIdx(
                                                         11,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                    variant: SynCurrentSymbolVariant::ParenateRegularParameter {
                                                         ident: `arr`,
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                SynCurrentSymbol {
                                                     modifier: None,
                                                     access_start: RegionalTokenIdx(
                                                         18,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                    variant: SynCurrentSymbolVariant::ParenateRegularParameter {
                                                         ident: `low`,
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                SynCurrentSymbol {
                                                     modifier: None,
                                                     access_start: RegionalTokenIdx(
                                                         22,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                    variant: SynCurrentSymbolVariant::ParenateRegularParameter {
                                                         ident: `high`,
                                                         pattern_symbol_idx: 3,
                                                     },
@@ -2823,23 +2823,23 @@ Ok(
                                     roots: [
                                         SynExprRoot {
                                             kind: Traits,
-                                            expr_idx: 1,
+                                            syn_expr_idx: 1,
                                         },
                                         SynExprRoot {
                                             kind: ExplicitParameterType,
-                                            expr_idx: 4,
+                                            syn_expr_idx: 4,
                                         },
                                         SynExprRoot {
                                             kind: ExplicitParameterType,
-                                            expr_idx: 5,
+                                            syn_expr_idx: 5,
                                         },
                                         SynExprRoot {
                                             kind: ExplicitParameterType,
-                                            expr_idx: 6,
+                                            syn_expr_idx: 6,
                                         },
                                         SynExprRoot {
                                             kind: ReturnType,
-                                            expr_idx: 7,
+                                            syn_expr_idx: 7,
                                         },
                                     ],
                                     has_self_lifetime: false,
@@ -2870,7 +2870,7 @@ Ok(
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            SynExpr::PrincipalEntityPath {
+                                                            SynExprData::PrincipalEntityPath {
                                                                 path_expr_idx: 1,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
@@ -2880,7 +2880,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            SynExpr::BoxColonList {
+                                                            SynExprData::BoxColonList {
                                                                 lbox_regional_token_idx: RegionalTokenIdx(
                                                                     12,
                                                                 ),
@@ -2892,13 +2892,13 @@ Ok(
                                                                     14,
                                                                 ),
                                                             },
-                                                            SynExpr::CurrentSymbol {
+                                                            SynExprData::CurrentSymbol {
                                                                 ident: `T`,
                                                                 regional_token_idx: RegionalTokenIdx(
                                                                     15,
                                                                 ),
                                                                 current_symbol_idx: 1,
-                                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
                                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentRegionalToken {
                                                                             ident: `T`,
@@ -2909,11 +2909,11 @@ Ok(
                                                                     },
                                                                 },
                                                             },
-                                                            SynExpr::ExplicitApplication {
+                                                            SynExprData::ExplicitApplication {
                                                                 function_expr_idx: 2,
                                                                 argument_expr_idx: 3,
                                                             },
-                                                            SynExpr::PrincipalEntityPath {
+                                                            SynExprData::PrincipalEntityPath {
                                                                 path_expr_idx: 2,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
@@ -2923,7 +2923,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            SynExpr::PrincipalEntityPath {
+                                                            SynExprData::PrincipalEntityPath {
                                                                 path_expr_idx: 3,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
@@ -2933,7 +2933,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            SynExpr::PrincipalEntityPath {
+                                                            SynExprData::PrincipalEntityPath {
                                                                 path_expr_idx: 4,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
@@ -2947,7 +2947,7 @@ Ok(
                                                     },
                                                     principal_item_path_expr_arena: Arena {
                                                         data: [
-                                                            PrincipalEntityPathExpr::Root {
+                                                            SynPrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameRegionalToken::Ident(
                                                                     IdentRegionalToken {
                                                                         ident: `Ord`,
@@ -2962,7 +2962,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            PrincipalEntityPathExpr::Root {
+                                                            SynPrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameRegionalToken::Ident(
                                                                     IdentRegionalToken {
                                                                         ident: `isize`,
@@ -2977,7 +2977,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            PrincipalEntityPathExpr::Root {
+                                                            SynPrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameRegionalToken::Ident(
                                                                     IdentRegionalToken {
                                                                         ident: `isize`,
@@ -2992,7 +2992,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            PrincipalEntityPathExpr::Root {
+                                                            SynPrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameRegionalToken::Ident(
                                                                     IdentRegionalToken {
                                                                         ident: `isize`,
@@ -3106,13 +3106,13 @@ Ok(
                                                         },
                                                         current_symbol_arena: Arena {
                                                             data: [
-                                                                CurrentSynSymbol {
+                                                                SynCurrentSymbol {
                                                                     modifier: Const,
                                                                     access_start: RegionalTokenIdx(
                                                                         5,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                    variant: SynCurrentSymbolVariant::TemplateParameter {
                                                                         syn_attrs: TemplateParameterSynAttrs {
                                                                             syn_attrs: [],
                                                                         },
@@ -3127,35 +3127,35 @@ Ok(
                                                                         },
                                                                     },
                                                                 },
-                                                                CurrentSynSymbol {
+                                                                SynCurrentSymbol {
                                                                     modifier: Mut,
                                                                     access_start: RegionalTokenIdx(
                                                                         11,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                                    variant: SynCurrentSymbolVariant::ParenateRegularParameter {
                                                                         ident: `arr`,
                                                                         pattern_symbol_idx: 1,
                                                                     },
                                                                 },
-                                                                CurrentSynSymbol {
+                                                                SynCurrentSymbol {
                                                                     modifier: None,
                                                                     access_start: RegionalTokenIdx(
                                                                         18,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                                    variant: SynCurrentSymbolVariant::ParenateRegularParameter {
                                                                         ident: `low`,
                                                                         pattern_symbol_idx: 2,
                                                                     },
                                                                 },
-                                                                CurrentSynSymbol {
+                                                                SynCurrentSymbol {
                                                                     modifier: None,
                                                                     access_start: RegionalTokenIdx(
                                                                         22,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                                    variant: SynCurrentSymbolVariant::ParenateRegularParameter {
                                                                         ident: `high`,
                                                                         pattern_symbol_idx: 3,
                                                                     },
@@ -3209,23 +3209,23 @@ Ok(
                                                     roots: [
                                                         SynExprRoot {
                                                             kind: Traits,
-                                                            expr_idx: 1,
+                                                            syn_expr_idx: 1,
                                                         },
                                                         SynExprRoot {
                                                             kind: ExplicitParameterType,
-                                                            expr_idx: 4,
+                                                            syn_expr_idx: 4,
                                                         },
                                                         SynExprRoot {
                                                             kind: ExplicitParameterType,
-                                                            expr_idx: 5,
+                                                            syn_expr_idx: 5,
                                                         },
                                                         SynExprRoot {
                                                             kind: ExplicitParameterType,
-                                                            expr_idx: 6,
+                                                            syn_expr_idx: 6,
                                                         },
                                                         SynExprRoot {
                                                             kind: ReturnType,
-                                                            expr_idx: 7,
+                                                            syn_expr_idx: 7,
                                                         },
                                                     ],
                                                     has_self_lifetime: false,
@@ -3247,17 +3247,17 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                SynExpr::InheritedSymbol {
+                                                SynExprData::InheritedSymbol {
                                                     ident: `high`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         4,
                                                     ),
                                                     inherited_symbol_idx: 4,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
                                                         ident: `high`,
                                                     },
                                                 },
-                                                SynExpr::PrincipalEntityPath {
+                                                SynExprData::PrincipalEntityPath {
                                                     path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
@@ -3267,7 +3267,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::Binary {
+                                                SynExprData::Binary {
                                                     lopd: 1,
                                                     opr: As,
                                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -3275,27 +3275,27 @@ Ok(
                                                     ),
                                                     ropd: 2,
                                                 },
-                                                SynExpr::InheritedSymbol {
+                                                SynExprData::InheritedSymbol {
                                                     ident: `low`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         11,
                                                     ),
                                                     inherited_symbol_idx: 3,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
                                                         ident: `low`,
                                                     },
                                                 },
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         13,
                                                     ),
-                                                    Literal::Integer(
+                                                    LiteralData::Integer(
                                                         UnspecifiedRegular(
                                                             1,
                                                         ),
                                                     ),
                                                 ),
-                                                SynExpr::Binary {
+                                                SynExprData::Binary {
                                                     lopd: 4,
                                                     opr: Closed(
                                                         Sub,
@@ -3305,45 +3305,45 @@ Ok(
                                                     ),
                                                     ropd: 5,
                                                 },
-                                                SynExpr::InheritedSymbol {
+                                                SynExprData::InheritedSymbol {
                                                     ident: `high`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         18,
                                                     ),
                                                     inherited_symbol_idx: 4,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
                                                         ident: `high`,
                                                     },
                                                 },
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         20,
                                                     ),
-                                                    Literal::Bool(
+                                                    LiteralData::Bool(
                                                         True,
                                                     ),
                                                 ),
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `store_index`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         22,
                                                     ),
                                                     current_symbol_idx: 2,
-                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         24,
                                                     ),
-                                                    Literal::Integer(
+                                                    LiteralData::Integer(
                                                         UnspecifiedRegular(
                                                             1,
                                                         ),
                                                     ),
                                                 ),
-                                                SynExpr::Binary {
+                                                SynExprData::Binary {
                                                     lopd: 9,
                                                     opr: AssignClosed(
                                                         Add,
@@ -3353,27 +3353,27 @@ Ok(
                                                     ),
                                                     ropd: 10,
                                                 },
-                                                SynExpr::InheritedSymbol {
+                                                SynExprData::InheritedSymbol {
                                                     ident: `arr`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         26,
                                                     ),
                                                     inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
                                                         ident: `arr`,
                                                     },
                                                 },
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `store_index`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         28,
                                                     ),
                                                     current_symbol_idx: 2,
-                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
-                                                SynExpr::PrincipalEntityPath {
+                                                SynExprData::PrincipalEntityPath {
                                                     path_expr_idx: 2,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
@@ -3383,7 +3383,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::Binary {
+                                                SynExprData::Binary {
                                                     lopd: 13,
                                                     opr: As,
                                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -3391,34 +3391,34 @@ Ok(
                                                     ),
                                                     ropd: 14,
                                                 },
-                                                SynExpr::InheritedSymbol {
+                                                SynExprData::InheritedSymbol {
                                                     ident: `arr`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         33,
                                                     ),
                                                     inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
                                                         ident: `arr`,
                                                     },
                                                 },
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `pivot`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         35,
                                                     ),
                                                     current_symbol_idx: 1,
-                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                SynExpr::IndexOrCompositionWithList {
+                                                SynExprData::IndexOrCompositionWithList {
                                                     owner: 12,
                                                     lbox_regional_token_idx: RegionalTokenIdx(
                                                         27,
                                                     ),
                                                     items: [
                                                         SynCommaListItem {
-                                                            expr_idx: 15,
+                                                            syn_expr_idx: 15,
                                                             comma_regional_token_idx: None,
                                                         },
                                                     ],
@@ -3426,14 +3426,14 @@ Ok(
                                                         31,
                                                     ),
                                                 },
-                                                SynExpr::IndexOrCompositionWithList {
+                                                SynExprData::IndexOrCompositionWithList {
                                                     owner: 16,
                                                     lbox_regional_token_idx: RegionalTokenIdx(
                                                         34,
                                                     ),
                                                     items: [
                                                         SynCommaListItem {
-                                                            expr_idx: 17,
+                                                            syn_expr_idx: 17,
                                                             comma_regional_token_idx: None,
                                                         },
                                                     ],
@@ -3441,7 +3441,7 @@ Ok(
                                                         36,
                                                     ),
                                                 },
-                                                SynExpr::Binary {
+                                                SynExprData::Binary {
                                                     lopd: 18,
                                                     opr: Comparison(
                                                         Less,
@@ -3451,27 +3451,27 @@ Ok(
                                                     ),
                                                     ropd: 19,
                                                 },
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `store_index`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         38,
                                                     ),
                                                     current_symbol_idx: 2,
-                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         40,
                                                     ),
-                                                    Literal::Integer(
+                                                    LiteralData::Integer(
                                                         UnspecifiedRegular(
                                                             1,
                                                         ),
                                                     ),
                                                 ),
-                                                SynExpr::Binary {
+                                                SynExprData::Binary {
                                                     lopd: 21,
                                                     opr: AssignClosed(
                                                         Add,
@@ -3481,27 +3481,27 @@ Ok(
                                                     ),
                                                     ropd: 22,
                                                 },
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `last_index`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         41,
                                                     ),
                                                     current_symbol_idx: 3,
-                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 3,
                                                     },
                                                 },
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         43,
                                                     ),
-                                                    Literal::Integer(
+                                                    LiteralData::Integer(
                                                         UnspecifiedRegular(
                                                             1,
                                                         ),
                                                     ),
                                                 ),
-                                                SynExpr::Binary {
+                                                SynExprData::Binary {
                                                     lopd: 24,
                                                     opr: AssignClosed(
                                                         Sub,
@@ -3511,47 +3511,47 @@ Ok(
                                                     ),
                                                     ropd: 25,
                                                 },
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `last_index`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         45,
                                                     ),
                                                     current_symbol_idx: 3,
-                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 3,
                                                     },
                                                 },
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         47,
                                                     ),
-                                                    Literal::Integer(
+                                                    LiteralData::Integer(
                                                         UnspecifiedRegular(
                                                             0,
                                                         ),
                                                     ),
                                                 ),
-                                                SynExpr::InheritedSymbol {
+                                                SynExprData::InheritedSymbol {
                                                     ident: `arr`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         49,
                                                     ),
                                                     inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
                                                         ident: `arr`,
                                                     },
                                                 },
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `last_index`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         51,
                                                     ),
                                                     current_symbol_idx: 3,
-                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 3,
                                                     },
                                                 },
-                                                SynExpr::PrincipalEntityPath {
+                                                SynExprData::PrincipalEntityPath {
                                                     path_expr_idx: 3,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
@@ -3561,7 +3561,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::Binary {
+                                                SynExprData::Binary {
                                                     lopd: 30,
                                                     opr: As,
                                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -3569,34 +3569,34 @@ Ok(
                                                     ),
                                                     ropd: 31,
                                                 },
-                                                SynExpr::InheritedSymbol {
+                                                SynExprData::InheritedSymbol {
                                                     ident: `arr`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         56,
                                                     ),
                                                     inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
                                                         ident: `arr`,
                                                     },
                                                 },
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `pivot`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         58,
                                                     ),
                                                     current_symbol_idx: 1,
-                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                SynExpr::IndexOrCompositionWithList {
+                                                SynExprData::IndexOrCompositionWithList {
                                                     owner: 29,
                                                     lbox_regional_token_idx: RegionalTokenIdx(
                                                         50,
                                                     ),
                                                     items: [
                                                         SynCommaListItem {
-                                                            expr_idx: 32,
+                                                            syn_expr_idx: 32,
                                                             comma_regional_token_idx: None,
                                                         },
                                                     ],
@@ -3604,14 +3604,14 @@ Ok(
                                                         54,
                                                     ),
                                                 },
-                                                SynExpr::IndexOrCompositionWithList {
+                                                SynExprData::IndexOrCompositionWithList {
                                                     owner: 33,
                                                     lbox_regional_token_idx: RegionalTokenIdx(
                                                         57,
                                                     ),
                                                     items: [
                                                         SynCommaListItem {
-                                                            expr_idx: 34,
+                                                            syn_expr_idx: 34,
                                                             comma_regional_token_idx: None,
                                                         },
                                                     ],
@@ -3619,7 +3619,7 @@ Ok(
                                                         59,
                                                     ),
                                                 },
-                                                SynExpr::Binary {
+                                                SynExprData::Binary {
                                                     lopd: 27,
                                                     opr: Comparison(
                                                         Geq,
@@ -3629,7 +3629,7 @@ Ok(
                                                     ),
                                                     ropd: 28,
                                                 },
-                                                SynExpr::Binary {
+                                                SynExprData::Binary {
                                                     lopd: 35,
                                                     opr: Comparison(
                                                         Greater,
@@ -3639,7 +3639,7 @@ Ok(
                                                     ),
                                                     ropd: 36,
                                                 },
-                                                SynExpr::Binary {
+                                                SynExprData::Binary {
                                                     lopd: 37,
                                                     opr: ShortCircuitLogic(
                                                         And,
@@ -3649,27 +3649,27 @@ Ok(
                                                     ),
                                                     ropd: 38,
                                                 },
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `last_index`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         61,
                                                     ),
                                                     current_symbol_idx: 3,
-                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 3,
                                                     },
                                                 },
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         63,
                                                     ),
-                                                    Literal::Integer(
+                                                    LiteralData::Integer(
                                                         UnspecifiedRegular(
                                                             1,
                                                         ),
                                                     ),
                                                 ),
-                                                SynExpr::Binary {
+                                                SynExprData::Binary {
                                                     lopd: 40,
                                                     opr: AssignClosed(
                                                         Sub,
@@ -3679,27 +3679,27 @@ Ok(
                                                     ),
                                                     ropd: 41,
                                                 },
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `store_index`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         65,
                                                     ),
                                                     current_symbol_idx: 2,
-                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `last_index`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         67,
                                                     ),
                                                     current_symbol_idx: 3,
-                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 3,
                                                     },
                                                 },
-                                                SynExpr::Binary {
+                                                SynExprData::Binary {
                                                     lopd: 43,
                                                     opr: Comparison(
                                                         Geq,
@@ -3709,27 +3709,27 @@ Ok(
                                                     ),
                                                     ropd: 44,
                                                 },
-                                                SynExpr::InheritedSymbol {
+                                                SynExprData::InheritedSymbol {
                                                     ident: `arr`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         72,
                                                     ),
                                                     inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
                                                         ident: `arr`,
                                                     },
                                                 },
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `store_index`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         76,
                                                     ),
                                                     current_symbol_idx: 2,
-                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
-                                                SynExpr::PrincipalEntityPath {
+                                                SynExprData::PrincipalEntityPath {
                                                     path_expr_idx: 4,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
@@ -3739,7 +3739,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::Binary {
+                                                SynExprData::Binary {
                                                     lopd: 47,
                                                     opr: As,
                                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -3747,17 +3747,17 @@ Ok(
                                                     ),
                                                     ropd: 48,
                                                 },
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `last_index`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         80,
                                                     ),
                                                     current_symbol_idx: 3,
-                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 3,
                                                     },
                                                 },
-                                                SynExpr::PrincipalEntityPath {
+                                                SynExprData::PrincipalEntityPath {
                                                     path_expr_idx: 5,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
@@ -3767,7 +3767,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::Binary {
+                                                SynExprData::Binary {
                                                     lopd: 50,
                                                     opr: As,
                                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -3775,7 +3775,7 @@ Ok(
                                                     ),
                                                     ropd: 51,
                                                 },
-                                                SynExpr::MethodApplicationOrCall {
+                                                SynExprData::MethodApplicationOrCall {
                                                     self_argument: 46,
                                                     dot_regional_token_idx: RegionalTokenIdx(
                                                         73,
@@ -3786,13 +3786,13 @@ Ok(
                                                             74,
                                                         ),
                                                     },
-                                                    generic_arguments: None,
+                                                    template_arguments: None,
                                                     lpar_regional_token_idx: RegionalTokenIdx(
                                                         75,
                                                     ),
                                                     items: [
                                                         SynCommaListItem {
-                                                            expr_idx: 49,
+                                                            syn_expr_idx: 49,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     79,
@@ -3800,7 +3800,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 52,
+                                                            syn_expr_idx: 52,
                                                             comma_regional_token_idx: None,
                                                         },
                                                     ],
@@ -3808,27 +3808,27 @@ Ok(
                                                         83,
                                                     ),
                                                 },
-                                                SynExpr::InheritedSymbol {
+                                                SynExprData::InheritedSymbol {
                                                     ident: `arr`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         84,
                                                     ),
                                                     inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
                                                         ident: `arr`,
                                                     },
                                                 },
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `store_index`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         88,
                                                     ),
                                                     current_symbol_idx: 2,
-                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
-                                                SynExpr::PrincipalEntityPath {
+                                                SynExprData::PrincipalEntityPath {
                                                     path_expr_idx: 6,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
@@ -3838,7 +3838,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::Binary {
+                                                SynExprData::Binary {
                                                     lopd: 55,
                                                     opr: As,
                                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -3846,17 +3846,17 @@ Ok(
                                                     ),
                                                     ropd: 56,
                                                 },
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `pivot`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         92,
                                                     ),
                                                     current_symbol_idx: 1,
-                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                SynExpr::PrincipalEntityPath {
+                                                SynExprData::PrincipalEntityPath {
                                                     path_expr_idx: 7,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
@@ -3866,7 +3866,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::Binary {
+                                                SynExprData::Binary {
                                                     lopd: 58,
                                                     opr: As,
                                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -3874,7 +3874,7 @@ Ok(
                                                     ),
                                                     ropd: 59,
                                                 },
-                                                SynExpr::MethodApplicationOrCall {
+                                                SynExprData::MethodApplicationOrCall {
                                                     self_argument: 54,
                                                     dot_regional_token_idx: RegionalTokenIdx(
                                                         85,
@@ -3885,13 +3885,13 @@ Ok(
                                                             86,
                                                         ),
                                                     },
-                                                    generic_arguments: None,
+                                                    template_arguments: None,
                                                     lpar_regional_token_idx: RegionalTokenIdx(
                                                         87,
                                                     ),
                                                     items: [
                                                         SynCommaListItem {
-                                                            expr_idx: 57,
+                                                            syn_expr_idx: 57,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     91,
@@ -3899,7 +3899,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 60,
+                                                            syn_expr_idx: 60,
                                                             comma_regional_token_idx: None,
                                                         },
                                                     ],
@@ -3907,17 +3907,17 @@ Ok(
                                                         95,
                                                     ),
                                                 },
-                                                SynExpr::CurrentSymbol {
+                                                SynExprData::CurrentSymbol {
                                                     ident: `store_index`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         96,
                                                     ),
                                                     current_symbol_idx: 2,
-                                                    current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
-                                                SynExpr::Block {
+                                                SynExprData::Block {
                                                     stmts: ArenaIdxRange(
                                                         10..16,
                                                     ),
@@ -3926,7 +3926,7 @@ Ok(
                                         },
                                         principal_item_path_expr_arena: Arena {
                                             data: [
-                                                PrincipalEntityPathExpr::Root {
+                                                SynPrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameRegionalToken::Ident(
                                                         IdentRegionalToken {
                                                             ident: `usize`,
@@ -3941,7 +3941,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                PrincipalEntityPathExpr::Root {
+                                                SynPrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameRegionalToken::Ident(
                                                         IdentRegionalToken {
                                                             ident: `usize`,
@@ -3956,7 +3956,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                PrincipalEntityPathExpr::Root {
+                                                SynPrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameRegionalToken::Ident(
                                                         IdentRegionalToken {
                                                             ident: `usize`,
@@ -3971,7 +3971,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                PrincipalEntityPathExpr::Root {
+                                                SynPrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameRegionalToken::Ident(
                                                         IdentRegionalToken {
                                                             ident: `usize`,
@@ -3986,7 +3986,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                PrincipalEntityPathExpr::Root {
+                                                SynPrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameRegionalToken::Ident(
                                                         IdentRegionalToken {
                                                             ident: `usize`,
@@ -4001,7 +4001,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                PrincipalEntityPathExpr::Root {
+                                                SynPrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameRegionalToken::Ident(
                                                         IdentRegionalToken {
                                                             ident: `usize`,
@@ -4016,7 +4016,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                PrincipalEntityPathExpr::Root {
+                                                SynPrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameRegionalToken::Ident(
                                                         IdentRegionalToken {
                                                             ident: `usize`,
@@ -4035,38 +4035,38 @@ Ok(
                                         },
                                         stmt_arena: Arena {
                                             data: [
-                                                SynStmt::Eval {
+                                                SynStmtData::Eval {
                                                     expr_idx: 23,
                                                     eol_semicolon: Ok(
                                                         None,
                                                     ),
                                                 },
-                                                SynStmt::Eval {
+                                                SynStmtData::Eval {
                                                     expr_idx: 42,
                                                     eol_semicolon: Ok(
                                                         None,
                                                     ),
                                                 },
-                                                SynStmt::Break {
+                                                SynStmtData::Break {
                                                     break_token: BreakRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
                                                             69,
                                                         ),
                                                     },
                                                 },
-                                                SynStmt::Eval {
+                                                SynStmtData::Eval {
                                                     expr_idx: 53,
                                                     eol_semicolon: Ok(
                                                         None,
                                                     ),
                                                 },
-                                                SynStmt::Eval {
+                                                SynStmtData::Eval {
                                                     expr_idx: 11,
                                                     eol_semicolon: Ok(
                                                         None,
                                                     ),
                                                 },
-                                                SynStmt::While {
+                                                SynStmtData::While {
                                                     while_token: WhileRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
                                                             25,
@@ -4088,13 +4088,13 @@ Ok(
                                                         1..2,
                                                     ),
                                                 },
-                                                SynStmt::Eval {
+                                                SynStmtData::Eval {
                                                     expr_idx: 26,
                                                     eol_semicolon: Ok(
                                                         None,
                                                     ),
                                                 },
-                                                SynStmt::While {
+                                                SynStmtData::While {
                                                     while_token: WhileRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
                                                             44,
@@ -4116,7 +4116,7 @@ Ok(
                                                         2..3,
                                                     ),
                                                 },
-                                                SynStmt::IfElse {
+                                                SynStmtData::IfElse {
                                                     if_branch: SynIfBranch {
                                                         if_token: IfRegionalToken {
                                                             regional_token_idx: RegionalTokenIdx(
@@ -4162,14 +4162,14 @@ Ok(
                                                         },
                                                     ),
                                                 },
-                                                SynStmt::Let {
+                                                SynStmtData::Let {
                                                     let_token: LetRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
                                                             1,
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternObelisk {
+                                                        LetPatternSynObelisk {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -4183,7 +4183,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        RegionalEqToken(
+                                                        EqRegionalToken(
                                                             RegionalTokenIdx(
                                                                 3,
                                                             ),
@@ -4191,14 +4191,14 @@ Ok(
                                                     ),
                                                     initial_value: 3,
                                                 },
-                                                SynStmt::Let {
+                                                SynStmtData::Let {
                                                     let_token: LetRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
                                                             7,
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternObelisk {
+                                                        LetPatternSynObelisk {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 2,
                                                             ),
@@ -4212,7 +4212,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        RegionalEqToken(
+                                                        EqRegionalToken(
                                                             RegionalTokenIdx(
                                                                 10,
                                                             ),
@@ -4220,14 +4220,14 @@ Ok(
                                                     ),
                                                     initial_value: 6,
                                                 },
-                                                SynStmt::Let {
+                                                SynStmtData::Let {
                                                     let_token: LetRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
                                                             14,
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternObelisk {
+                                                        LetPatternSynObelisk {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 3,
                                                             ),
@@ -4241,7 +4241,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        RegionalEqToken(
+                                                        EqRegionalToken(
                                                             RegionalTokenIdx(
                                                                 17,
                                                             ),
@@ -4249,7 +4249,7 @@ Ok(
                                                     ),
                                                     initial_value: 7,
                                                 },
-                                                SynStmt::While {
+                                                SynStmtData::While {
                                                     while_token: WhileRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
                                                             19,
@@ -4271,13 +4271,13 @@ Ok(
                                                         5..10,
                                                     ),
                                                 },
-                                                SynStmt::Eval {
+                                                SynStmtData::Eval {
                                                     expr_idx: 61,
                                                     eol_semicolon: Ok(
                                                         None,
                                                     ),
                                                 },
-                                                SynStmt::Eval {
+                                                SynStmtData::Eval {
                                                     expr_idx: 62,
                                                     eol_semicolon: Ok(
                                                         None,
@@ -4384,41 +4384,41 @@ Ok(
                                         symbol_region: SynSymbolRegion {
                                             inherited_symbol_arena: Arena {
                                                 data: [
-                                                    InheritedSynSymbol {
+                                                    SynInheritedSymbol {
                                                         parent_symbol_idx: Current(
                                                             1,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        kind: SynInheritedSymbolKind::TemplateParameter(
                                                             InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `T`,
                                                             },
                                                         ),
                                                     },
-                                                    InheritedSynSymbol {
+                                                    SynInheritedSymbol {
                                                         parent_symbol_idx: Current(
                                                             2,
                                                         ),
                                                         modifier: Mut,
-                                                        kind: InheritedSynSymbolKind::ParenateParameter {
+                                                        kind: SynInheritedSymbolKind::ParenateParameter {
                                                             ident: `arr`,
                                                         },
                                                     },
-                                                    InheritedSynSymbol {
+                                                    SynInheritedSymbol {
                                                         parent_symbol_idx: Current(
                                                             3,
                                                         ),
                                                         modifier: None,
-                                                        kind: InheritedSynSymbolKind::ParenateParameter {
+                                                        kind: SynInheritedSymbolKind::ParenateParameter {
                                                             ident: `low`,
                                                         },
                                                     },
-                                                    InheritedSynSymbol {
+                                                    SynInheritedSymbol {
                                                         parent_symbol_idx: Current(
                                                             4,
                                                         ),
                                                         modifier: None,
-                                                        kind: InheritedSynSymbolKind::ParenateParameter {
+                                                        kind: SynInheritedSymbolKind::ParenateParameter {
                                                             ident: `high`,
                                                         },
                                                     },
@@ -4426,7 +4426,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSynSymbol {
+                                                    SynCurrentSymbol {
                                                         modifier: None,
                                                         access_start: RegionalTokenIdx(
                                                             3,
@@ -4438,12 +4438,12 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        variant: SynCurrentSymbolVariant::LetVariable {
                                                             ident: `pivot`,
                                                             pattern_symbol_idx: 1,
                                                         },
                                                     },
-                                                    CurrentSynSymbol {
+                                                    SynCurrentSymbol {
                                                         modifier: Mut,
                                                         access_start: RegionalTokenIdx(
                                                             10,
@@ -4455,12 +4455,12 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        variant: SynCurrentSymbolVariant::LetVariable {
                                                             ident: `store_index`,
                                                             pattern_symbol_idx: 2,
                                                         },
                                                     },
-                                                    CurrentSynSymbol {
+                                                    SynCurrentSymbol {
                                                         modifier: Mut,
                                                         access_start: RegionalTokenIdx(
                                                             17,
@@ -4472,7 +4472,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        variant: SynCurrentSymbolVariant::LetVariable {
                                                             ident: `last_index`,
                                                             pattern_symbol_idx: 3,
                                                         },
@@ -4486,47 +4486,47 @@ Ok(
                                         roots: [
                                             SynExprRoot {
                                                 kind: LetStmtInitialValue,
-                                                expr_idx: 3,
+                                                syn_expr_idx: 3,
                                             },
                                             SynExprRoot {
                                                 kind: LetStmtInitialValue,
-                                                expr_idx: 6,
+                                                syn_expr_idx: 6,
                                             },
                                             SynExprRoot {
                                                 kind: LetStmtInitialValue,
-                                                expr_idx: 7,
+                                                syn_expr_idx: 7,
                                             },
                                             SynExprRoot {
                                                 kind: EvalExpr,
-                                                expr_idx: 11,
+                                                syn_expr_idx: 11,
                                             },
                                             SynExprRoot {
                                                 kind: EvalExpr,
-                                                expr_idx: 23,
+                                                syn_expr_idx: 23,
                                             },
                                             SynExprRoot {
                                                 kind: EvalExpr,
-                                                expr_idx: 26,
+                                                syn_expr_idx: 26,
                                             },
                                             SynExprRoot {
                                                 kind: EvalExpr,
-                                                expr_idx: 42,
+                                                syn_expr_idx: 42,
                                             },
                                             SynExprRoot {
                                                 kind: EvalExpr,
-                                                expr_idx: 53,
+                                                syn_expr_idx: 53,
                                             },
                                             SynExprRoot {
                                                 kind: EvalExpr,
-                                                expr_idx: 61,
+                                                syn_expr_idx: 61,
                                             },
                                             SynExprRoot {
                                                 kind: EvalExpr,
-                                                expr_idx: 62,
+                                                syn_expr_idx: 62,
                                             },
                                             SynExprRoot {
                                                 kind: BlockExpr,
-                                                expr_idx: 63,
+                                                syn_expr_idx: 63,
                                             },
                                         ],
                                         has_self_lifetime: false,
@@ -4724,7 +4724,7 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                SynExpr::List {
+                                                SynExprData::List {
                                                     lbox_regional_token_idx: RegionalTokenIdx(
                                                         5,
                                                     ),
@@ -4733,7 +4733,7 @@ Ok(
                                                         6,
                                                     ),
                                                 },
-                                                SynExpr::PrincipalEntityPath {
+                                                SynExprData::PrincipalEntityPath {
                                                     path_expr_idx: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
@@ -4743,124 +4743,124 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExpr::ExplicitApplication {
+                                                SynExprData::ExplicitApplication {
                                                     function_expr_idx: 1,
                                                     argument_expr_idx: 2,
                                                 },
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         10,
                                                     ),
-                                                    Literal::Integer(
+                                                    LiteralData::Integer(
                                                         UnspecifiedRegular(
                                                             4,
                                                         ),
                                                     ),
                                                 ),
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         12,
                                                     ),
-                                                    Literal::Integer(
+                                                    LiteralData::Integer(
                                                         UnspecifiedRegular(
                                                             65,
                                                         ),
                                                     ),
                                                 ),
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         14,
                                                     ),
-                                                    Literal::Integer(
+                                                    LiteralData::Integer(
                                                         UnspecifiedRegular(
                                                             2,
                                                         ),
                                                     ),
                                                 ),
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         17,
                                                     ),
-                                                    Literal::Integer(
+                                                    LiteralData::Integer(
                                                         UnspecifiedRegular(
                                                             31,
                                                         ),
                                                     ),
                                                 ),
-                                                SynExpr::Prefix {
+                                                SynExprData::Prefix {
                                                     opr: Minus,
                                                     opr_regional_token_idx: RegionalTokenIdx(
                                                         16,
                                                     ),
                                                     opd: 7,
                                                 },
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         19,
                                                     ),
-                                                    Literal::Integer(
+                                                    LiteralData::Integer(
                                                         UnspecifiedRegular(
                                                             0,
                                                         ),
                                                     ),
                                                 ),
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         21,
                                                     ),
-                                                    Literal::Integer(
+                                                    LiteralData::Integer(
                                                         UnspecifiedRegular(
                                                             99,
                                                         ),
                                                     ),
                                                 ),
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         23,
                                                     ),
-                                                    Literal::Integer(
+                                                    LiteralData::Integer(
                                                         UnspecifiedRegular(
                                                             2,
                                                         ),
                                                     ),
                                                 ),
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         25,
                                                     ),
-                                                    Literal::Integer(
+                                                    LiteralData::Integer(
                                                         UnspecifiedRegular(
                                                             83,
                                                         ),
                                                     ),
                                                 ),
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         27,
                                                     ),
-                                                    Literal::Integer(
+                                                    LiteralData::Integer(
                                                         UnspecifiedRegular(
                                                             782,
                                                         ),
                                                     ),
                                                 ),
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         29,
                                                     ),
-                                                    Literal::Integer(
+                                                    LiteralData::Integer(
                                                         UnspecifiedRegular(
                                                             1,
                                                         ),
                                                     ),
                                                 ),
-                                                SynExpr::List {
+                                                SynExprData::List {
                                                     lbox_regional_token_idx: RegionalTokenIdx(
                                                         9,
                                                     ),
                                                     items: [
                                                         SynCommaListItem {
-                                                            expr_idx: 4,
+                                                            syn_expr_idx: 4,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     11,
@@ -4868,7 +4868,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 5,
+                                                            syn_expr_idx: 5,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     13,
@@ -4876,7 +4876,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 6,
+                                                            syn_expr_idx: 6,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     15,
@@ -4884,7 +4884,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 8,
+                                                            syn_expr_idx: 8,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     18,
@@ -4892,7 +4892,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 9,
+                                                            syn_expr_idx: 9,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     20,
@@ -4900,7 +4900,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 10,
+                                                            syn_expr_idx: 10,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     22,
@@ -4908,7 +4908,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 11,
+                                                            syn_expr_idx: 11,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     24,
@@ -4916,7 +4916,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 12,
+                                                            syn_expr_idx: 12,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     26,
@@ -4924,7 +4924,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 13,
+                                                            syn_expr_idx: 13,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     28,
@@ -4932,7 +4932,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 14,
+                                                            syn_expr_idx: 14,
                                                             comma_regional_token_idx: None,
                                                         },
                                                     ],
@@ -4940,7 +4940,7 @@ Ok(
                                                         30,
                                                     ),
                                                 },
-                                                SynExpr::Block {
+                                                SynExprData::Block {
                                                     stmts: ArenaIdxRange(
                                                         1..2,
                                                     ),
@@ -4949,7 +4949,7 @@ Ok(
                                         },
                                         principal_item_path_expr_arena: Arena {
                                             data: [
-                                                PrincipalEntityPathExpr::Root {
+                                                SynPrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameRegionalToken::Ident(
                                                         IdentRegionalToken {
                                                             ident: `i32`,
@@ -4968,14 +4968,14 @@ Ok(
                                         },
                                         stmt_arena: Arena {
                                             data: [
-                                                SynStmt::Let {
+                                                SynStmtData::Let {
                                                     let_token: LetRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
                                                             1,
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternObelisk {
+                                                        LetPatternSynObelisk {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -4997,7 +4997,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        RegionalEqToken(
+                                                        EqRegionalToken(
                                                             RegionalTokenIdx(
                                                                 8,
                                                             ),
@@ -5061,7 +5061,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSynSymbol {
+                                                    SynCurrentSymbol {
                                                         modifier: Mut,
                                                         access_start: RegionalTokenIdx(
                                                             4,
@@ -5073,7 +5073,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        variant: SynCurrentSymbolVariant::LetVariable {
                                                             ident: `v`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -5099,15 +5099,15 @@ Ok(
                                         roots: [
                                             SynExprRoot {
                                                 kind: LetStmtType,
-                                                expr_idx: 3,
+                                                syn_expr_idx: 3,
                                             },
                                             SynExprRoot {
                                                 kind: LetStmtInitialValue,
-                                                expr_idx: 15,
+                                                syn_expr_idx: 15,
                                             },
                                             SynExprRoot {
                                                 kind: BlockExpr,
-                                                expr_idx: 16,
+                                                syn_expr_idx: 16,
                                             },
                                         ],
                                         has_self_lifetime: false,
@@ -5305,73 +5305,73 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         6,
                                                     ),
-                                                    Literal::String(
-                                                        StringLiteral {
+                                                    LiteralData::String(
+                                                        StringLiteralData {
                                                             data: "beach",
                                                         },
                                                     ),
                                                 ),
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         8,
                                                     ),
-                                                    Literal::String(
-                                                        StringLiteral {
+                                                    LiteralData::String(
+                                                        StringLiteralData {
                                                             data: "hotel",
                                                         },
                                                     ),
                                                 ),
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         10,
                                                     ),
-                                                    Literal::String(
-                                                        StringLiteral {
+                                                    LiteralData::String(
+                                                        StringLiteralData {
                                                             data: "airplane",
                                                         },
                                                     ),
                                                 ),
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         12,
                                                     ),
-                                                    Literal::String(
-                                                        StringLiteral {
+                                                    LiteralData::String(
+                                                        StringLiteralData {
                                                             data: "car",
                                                         },
                                                     ),
                                                 ),
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         14,
                                                     ),
-                                                    Literal::String(
-                                                        StringLiteral {
+                                                    LiteralData::String(
+                                                        StringLiteralData {
                                                             data: "house",
                                                         },
                                                     ),
                                                 ),
-                                                SynExpr::Literal(
+                                                SynExprData::Literal(
                                                     RegionalTokenIdx(
                                                         16,
                                                     ),
-                                                    Literal::String(
-                                                        StringLiteral {
+                                                    LiteralData::String(
+                                                        StringLiteralData {
                                                             data: "art",
                                                         },
                                                     ),
                                                 ),
-                                                SynExpr::List {
+                                                SynExprData::List {
                                                     lbox_regional_token_idx: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     items: [
                                                         SynCommaListItem {
-                                                            expr_idx: 1,
+                                                            syn_expr_idx: 1,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     7,
@@ -5379,7 +5379,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 2,
+                                                            syn_expr_idx: 2,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     9,
@@ -5387,7 +5387,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 3,
+                                                            syn_expr_idx: 3,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     11,
@@ -5395,7 +5395,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 4,
+                                                            syn_expr_idx: 4,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     13,
@@ -5403,7 +5403,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 5,
+                                                            syn_expr_idx: 5,
                                                             comma_regional_token_idx: Some(
                                                                 RegionalTokenIdx(
                                                                     15,
@@ -5411,7 +5411,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynCommaListItem {
-                                                            expr_idx: 6,
+                                                            syn_expr_idx: 6,
                                                             comma_regional_token_idx: None,
                                                         },
                                                     ],
@@ -5419,7 +5419,7 @@ Ok(
                                                         17,
                                                     ),
                                                 },
-                                                SynExpr::Block {
+                                                SynExprData::Block {
                                                     stmts: ArenaIdxRange(
                                                         1..2,
                                                     ),
@@ -5431,14 +5431,14 @@ Ok(
                                         },
                                         stmt_arena: Arena {
                                             data: [
-                                                SynStmt::Let {
+                                                SynStmtData::Let {
                                                     let_token: LetRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
                                                             1,
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternObelisk {
+                                                        LetPatternSynObelisk {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -5452,7 +5452,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        RegionalEqToken(
+                                                        EqRegionalToken(
                                                             RegionalTokenIdx(
                                                                 4,
                                                             ),
@@ -5516,7 +5516,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSynSymbol {
+                                                    SynCurrentSymbol {
                                                         modifier: Mut,
                                                         access_start: RegionalTokenIdx(
                                                             4,
@@ -5528,7 +5528,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        variant: SynCurrentSymbolVariant::LetVariable {
                                                             ident: `strs`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -5542,11 +5542,11 @@ Ok(
                                         roots: [
                                             SynExprRoot {
                                                 kind: LetStmtInitialValue,
-                                                expr_idx: 7,
+                                                syn_expr_idx: 7,
                                             },
                                             SynExprRoot {
                                                 kind: BlockExpr,
-                                                expr_idx: 8,
+                                                syn_expr_idx: 8,
                                             },
                                         ],
                                         has_self_lifetime: false,

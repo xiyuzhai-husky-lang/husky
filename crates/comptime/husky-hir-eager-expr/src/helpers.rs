@@ -8,8 +8,7 @@ pub fn build_eager_body(
 ) -> Option<(HirEagerExprIdx, HirEagerExprRegion)> {
     let (body, syn_expr_region) = body_with_syn_expr_region?;
     let mut builder = HirEagerExprBuilder::new(db, syn_expr_region);
-    let body: SemaExprIdx = todo!();
-    let body = body.to_hir_eager(&mut builder);
+    let body = builder.build_hir_eager_expr(body);
     let hir_expr_region = builder.finish();
     Some((body, hir_expr_region))
 }

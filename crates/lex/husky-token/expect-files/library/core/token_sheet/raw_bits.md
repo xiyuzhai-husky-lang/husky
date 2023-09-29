@@ -44,8 +44,8 @@ Ok(
                 ),
             ),
             TokenData::Literal(
-                Literal::String(
-                    StringLiteral {
+                LiteralData::String(
+                    StringLiteralData {
                         data: "u32",
                     },
                 ),

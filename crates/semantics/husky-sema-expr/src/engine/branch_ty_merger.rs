@@ -36,11 +36,15 @@ impl<Expectation: ExpectFluffyTerm> BranchTypeMerger<Expectation> {
         }
     }
 
-    pub(crate) fn merge(self, exhaustive: bool, menu: &EtherealTermMenu) -> Option<FluffyTerm> {
+    pub(crate) fn merge(
+        self,
+        exhaustive: bool,
+        eth_term_menu: &EtherealTermMenu,
+    ) -> Option<FluffyTerm> {
         if let Some(ever_ty) = self.ever_ty {
             return ever_ty.into();
         }
-        (!self.has_error).then_some(menu.never().into())
+        (!self.has_error).then_some(eth_term_menu.never().into())
     }
 
     pub(crate) fn expr_expectation(&self) -> &Expectation {

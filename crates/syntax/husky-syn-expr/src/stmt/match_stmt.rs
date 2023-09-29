@@ -4,7 +4,7 @@ use husky_defn_ast::DefnAst;
 #[derive(Debug, PartialEq, Eq)]
 pub struct SynCaseBranch {
     pub vertical_token: VerticalRegionalToken,
-    pub case_pattern: SynExprResult<CasePatternSynObelisk>,
+    pub case_pattern_syn_obelisk: SynExprResult<CasePatternSynObelisk>,
     pub heavy_arrow_token: SynExprResult<HeavyArrowRegionalToken>,
     pub stmts: SynExprResult<SynStmtIdxRange>,
 }
@@ -38,7 +38,7 @@ impl<'a> SynStmtContext<'a> {
                 let case_pattern = parser.parse_case_pattern_expected(access_end);
                 SynCaseBranch {
                     vertical_token,
-                    case_pattern,
+                    case_pattern_syn_obelisk: case_pattern,
                     heavy_arrow_token: parser.try_parse_expected(
                         OriginalSynExprError::ExpectedHeavyArrowAfterCasePattern,
                     ),

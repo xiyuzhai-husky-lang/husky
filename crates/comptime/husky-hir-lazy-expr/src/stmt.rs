@@ -42,16 +42,14 @@ impl ToHirLazy for SemaStmtIdx {
     type Output = Option<HirLazyStmt>;
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
-        Some(match self.data(todo!()) {
+        Some(match self.data(builder.sema_stmt_arena_ref()) {
             SemaStmtData::Let {
                 let_token,
                 let_pattern_sema_obelisk: let_variables_pattern,
                 initial_value_sema_expr_idx: initial_value,
                 ..
             } => HirLazyStmt::Let {
-                pattern: builder.new_let_variables_pattern(
-                    todo!(), // let_variables_pattern.as_ref().expect("hir stage no error"),
-                ),
+                pattern: builder.new_let_variables_pattern(let_variables_pattern),
                 initial_value: initial_value.to_hir_lazy(builder),
             },
             SemaStmtData::Return {

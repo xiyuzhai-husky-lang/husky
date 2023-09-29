@@ -151,7 +151,7 @@ Ok(
                 ),
             ),
             TokenData::Literal(
-                Literal::Integer(
+                LiteralData::Integer(
                     UnspecifiedRegular(
                         30,
                     ),
@@ -367,7 +367,7 @@ Ok(
                 ),
             ),
             TokenData::Literal(
-                Literal::Integer(
+                LiteralData::Integer(
                     UnspecifiedRegular(
                         31,
                     ),

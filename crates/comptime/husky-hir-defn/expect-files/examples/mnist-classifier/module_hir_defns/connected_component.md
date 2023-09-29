@@ -132,7 +132,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 1,
+                                            owner_hir_expr_idx: 1,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -686,7 +686,7 @@
                             HirEagerExprRegion {
                                 expr_arena: Arena {
                                     data: [
-                                        List {
+                                        NewList {
                                             items: [],
                                         },
                                         InheritedSymbol {
@@ -707,7 +707,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         Literal(
@@ -734,7 +734,7 @@
                                             ),
                                         },
                                         Index {
-                                            owner: 5,
+                                            owner_hir_expr_idx: 5,
                                             items: [
                                                 6,
                                             ],
@@ -758,7 +758,7 @@
                                             ),
                                         },
                                         Index {
-                                            owner: 8,
+                                            owner_hir_expr_idx: 8,
                                             items: [
                                                 9,
                                             ],
@@ -781,13 +781,13 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         AssociatedFn,
                                         FnCall {
-                                            function: 13,
-                                            generic_arguments: None,
+                                            function_hir_expr_idx: 13,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         CurrentSymbol {
@@ -809,7 +809,7 @@
                                             ),
                                         },
                                         Index {
-                                            owner: 15,
+                                            owner_hir_expr_idx: 15,
                                             items: [
                                                 16,
                                             ],
@@ -856,8 +856,8 @@
                                             ropd: 21,
                                         },
                                         FnCall {
-                                            function: 18,
-                                            generic_arguments: None,
+                                            function_hir_expr_idx: 18,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     19,
@@ -888,7 +888,7 @@
                                         },
                                         Prefix {
                                             opr: Not,
-                                            opd: 26,
+                                            opd_hir_expr_idx: 26,
                                         },
                                         CurrentSymbol {
                                             ident: Ident(
@@ -949,7 +949,7 @@
                                             ropd: 34,
                                         },
                                         Index {
-                                            owner: 32,
+                                            owner_hir_expr_idx: 32,
                                             items: [
                                                 35,
                                             ],
@@ -1005,7 +1005,7 @@
                                             ropd: 41,
                                         },
                                         Index {
-                                            owner: 39,
+                                            owner_hir_expr_idx: 39,
                                             items: [
                                                 42,
                                             ],
@@ -1029,14 +1029,14 @@
                                             ),
                                         },
                                         Index {
-                                            owner: 44,
+                                            owner_hir_expr_idx: 44,
                                             items: [
                                                 45,
                                             ],
                                         },
                                         FnCall {
-                                            function: 38,
-                                            generic_arguments: None,
+                                            function_hir_expr_idx: 38,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     43,
@@ -1064,7 +1064,7 @@
                                         },
                                         Prefix {
                                             opr: Not,
-                                            opd: 49,
+                                            opd_hir_expr_idx: 49,
                                         },
                                         CurrentSymbol {
                                             ident: Ident(
@@ -1141,7 +1141,7 @@
                                             ropd: 59,
                                         },
                                         Index {
-                                            owner: 57,
+                                            owner_hir_expr_idx: 57,
                                             items: [
                                                 60,
                                             ],
@@ -1179,7 +1179,7 @@
                                             ),
                                         },
                                         Index {
-                                            owner: 64,
+                                            owner_hir_expr_idx: 64,
                                             items: [
                                                 65,
                                             ],
@@ -1223,7 +1223,7 @@
                                             ),
                                         },
                                         Index {
-                                            owner: 69,
+                                            owner_hir_expr_idx: 69,
                                             items: [
                                                 70,
                                             ],
@@ -1259,14 +1259,14 @@
                                             ropd: 74,
                                         },
                                         Index {
-                                            owner: 72,
+                                            owner_hir_expr_idx: 72,
                                             items: [
                                                 75,
                                             ],
                                         },
                                         FnCall {
-                                            function: 68,
-                                            generic_arguments: None,
+                                            function_hir_expr_idx: 68,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     71,
@@ -1346,7 +1346,7 @@
                                             ),
                                         },
                                         Index {
-                                            owner: 85,
+                                            owner_hir_expr_idx: 85,
                                             items: [
                                                 86,
                                             ],
@@ -1398,7 +1398,7 @@
                                             ),
                                         },
                                         Index {
-                                            owner: 92,
+                                            owner_hir_expr_idx: 92,
                                             items: [
                                                 93,
                                             ],
@@ -1422,14 +1422,14 @@
                                             ),
                                         },
                                         Index {
-                                            owner: 95,
+                                            owner_hir_expr_idx: 95,
                                             items: [
                                                 96,
                                             ],
                                         },
                                         Prefix {
-                                            opr: Tilde,
-                                            opd: 97,
+                                            opr: BitNot,
+                                            opd_hir_expr_idx: 97,
                                         },
                                         Binary {
                                             lopd: 94,
@@ -1468,8 +1468,8 @@
                                             ),
                                         },
                                         FnCall {
-                                            function: 101,
-                                            generic_arguments: None,
+                                            function_hir_expr_idx: 101,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     102,
@@ -1485,7 +1485,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     103,
@@ -1936,9 +1936,9 @@
                             HirEagerExprRegion {
                                 expr_arena: Arena {
                                     data: [
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 1,
+                                            owner_hir_expr_idx: 1,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1956,7 +1956,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         Block {
@@ -2063,10 +2063,10 @@
                                                 ),
                                             ),
                                         ),
-                                        SelfValue,
+                                        SelfType,
                                         FnCall {
-                                            function: 1,
-                                            generic_arguments: None,
+                                            function_hir_expr_idx: 1,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     2,
@@ -2145,9 +2145,9 @@
                             HirEagerExprRegion {
                                 expr_arena: Arena {
                                     data: [
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 1,
+                                            owner_hir_expr_idx: 1,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2165,10 +2165,10 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
-                                        List {
+                                        NewList {
                                             items: [],
                                         },
                                         CurrentSymbol {
@@ -2200,7 +2200,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     6,
@@ -2245,7 +2245,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     10,
@@ -2261,7 +2261,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     11,
@@ -2306,7 +2306,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     15,
@@ -2322,7 +2322,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     16,
@@ -2350,8 +2350,8 @@
                                             ),
                                         },
                                         FnCall {
-                                            function: 18,
-                                            generic_arguments: None,
+                                            function_hir_expr_idx: 18,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     19,
@@ -2485,9 +2485,9 @@
                                                 0,
                                             ),
                                         ),
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 2,
+                                            owner_hir_expr_idx: 2,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2519,7 +2519,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         CurrentSymbol {
@@ -2541,13 +2541,13 @@
                                             ),
                                         },
                                         Index {
-                                            owner: 7,
+                                            owner_hir_expr_idx: 7,
                                             items: [
                                                 8,
                                             ],
                                         },
                                         Field {
-                                            owner: 9,
+                                            owner_hir_expr_idx: 9,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2565,7 +2565,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         CurrentSymbol {
@@ -2839,9 +2839,9 @@
                                                 ),
                                             ),
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 6,
+                                            owner_hir_expr_idx: 6,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2860,7 +2860,7 @@
                                             ),
                                         },
                                         Index {
-                                            owner: 7,
+                                            owner_hir_expr_idx: 7,
                                             items: [
                                                 8,
                                             ],
@@ -2874,7 +2874,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         MethodCall {
@@ -2886,7 +2886,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     10,
@@ -3078,9 +3078,9 @@
                                                 ),
                                             ),
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 5,
+                                            owner_hir_expr_idx: 5,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3099,7 +3099,7 @@
                                             ),
                                         },
                                         Index {
-                                            owner: 6,
+                                            owner_hir_expr_idx: 6,
                                             items: [
                                                 7,
                                             ],
@@ -3113,7 +3113,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         Binary {
@@ -3276,9 +3276,9 @@
                                                 1,
                                             ),
                                         ),
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 2,
+                                            owner_hir_expr_idx: 2,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3297,7 +3297,7 @@
                                             ),
                                         },
                                         Index {
-                                            owner: 3,
+                                            owner_hir_expr_idx: 3,
                                             items: [
                                                 4,
                                             ],
@@ -3323,9 +3323,9 @@
                                             ),
                                             ropd: 7,
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 9,
+                                            owner_hir_expr_idx: 9,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3344,14 +3344,14 @@
                                             ),
                                         },
                                         Index {
-                                            owner: 10,
+                                            owner_hir_expr_idx: 10,
                                             items: [
                                                 11,
                                             ],
                                         },
                                         Prefix {
                                             opr: Not,
-                                            opd: 12,
+                                            opd_hir_expr_idx: 12,
                                         },
                                         CurrentSymbol {
                                             ident: Ident(
@@ -3447,9 +3447,9 @@
                                                 ),
                                             ),
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 26,
+                                            owner_hir_expr_idx: 26,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3468,7 +3468,7 @@
                                             ),
                                         },
                                         Index {
-                                            owner: 27,
+                                            owner_hir_expr_idx: 27,
                                             items: [
                                                 28,
                                             ],
@@ -3482,7 +3482,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         Binary {
@@ -3540,9 +3540,9 @@
                                                 ),
                                             ),
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 38,
+                                            owner_hir_expr_idx: 38,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3561,7 +3561,7 @@
                                             ),
                                         },
                                         Index {
-                                            owner: 39,
+                                            owner_hir_expr_idx: 39,
                                             items: [
                                                 40,
                                             ],
@@ -3575,7 +3575,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         Binary {
@@ -3633,8 +3633,8 @@
                                             ),
                                         },
                                         FnCall {
-                                            function: 44,
-                                            generic_arguments: None,
+                                            function_hir_expr_idx: 44,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     45,
@@ -3921,9 +3921,9 @@
                             HirEagerExprRegion {
                                 expr_arena: Arena {
                                     data: [
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 1,
+                                            owner_hir_expr_idx: 1,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3933,7 +3933,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 2,
+                                            owner_hir_expr_idx: 2,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4030,9 +4030,9 @@
                             HirEagerExprRegion {
                                 expr_arena: Arena {
                                     data: [
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 1,
+                                            owner_hir_expr_idx: 1,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4042,7 +4042,7 @@
                                             ),
                                         },
                                         Field {
-                                            owner: 2,
+                                            owner_hir_expr_idx: 2,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4193,9 +4193,9 @@
                                                 1,
                                             ),
                                         ),
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 6,
+                                            owner_hir_expr_idx: 6,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4214,7 +4214,7 @@
                                             ),
                                         },
                                         Index {
-                                            owner: 7,
+                                            owner_hir_expr_idx: 7,
                                             items: [
                                                 8,
                                             ],
@@ -4262,9 +4262,9 @@
                                                 ),
                                             ),
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 15,
+                                            owner_hir_expr_idx: 15,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4283,7 +4283,7 @@
                                             ),
                                         },
                                         Index {
-                                            owner: 16,
+                                            owner_hir_expr_idx: 16,
                                             items: [
                                                 17,
                                             ],
@@ -4297,7 +4297,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         Binary {
@@ -4545,9 +4545,9 @@
                                                 1,
                                             ),
                                         ),
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 6,
+                                            owner_hir_expr_idx: 6,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4566,7 +4566,7 @@
                                             ),
                                         },
                                         Index {
-                                            owner: 7,
+                                            owner_hir_expr_idx: 7,
                                             items: [
                                                 8,
                                             ],
@@ -4614,9 +4614,9 @@
                                                 ),
                                             ),
                                         },
-                                        SelfValue,
+                                        SelfType,
                                         Field {
-                                            owner: 15,
+                                            owner_hir_expr_idx: 15,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4635,7 +4635,7 @@
                                             ),
                                         },
                                         Index {
-                                            owner: 16,
+                                            owner_hir_expr_idx: 16,
                                             items: [
                                                 17,
                                             ],
@@ -4649,7 +4649,7 @@
                                                     },
                                                 ),
                                             ),
-                                            generic_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         Binary {
