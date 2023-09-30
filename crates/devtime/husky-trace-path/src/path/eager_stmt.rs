@@ -1,5 +1,11 @@
 use super::*;
 
+#[salsa::interned(db = TracePathDb, jar = TracePathJar)]
+pub struct EagerStmtTracePath {
+    pub data: EagerStmtTracePathData,
+    pub disambiguator: u8,
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum EagerStmtTracePathData {
     Let { vars: EagerLetStmtVariablesSketch },

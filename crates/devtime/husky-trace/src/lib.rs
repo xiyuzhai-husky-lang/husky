@@ -1,5 +1,6 @@
 mod always_arrived;
 mod can_have_subtraces;
+pub mod db;
 mod impl_reachable;
 mod impl_stats;
 mod kind;
@@ -8,7 +9,11 @@ mod stalk;
 mod subtraces;
 #[cfg(test)]
 mod tests;
+mod trace;
 
+pub use self::trace::*;
+
+use self::db::*;
 use husky_entity_path::EntityPath;
 use husky_ethereal_term::EtherealTerm;
 use husky_syn_decl::SynDecl;
