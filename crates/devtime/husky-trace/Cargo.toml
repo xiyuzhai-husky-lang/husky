@@ -11,7 +11,6 @@ serde_json = { version = "1.0.48", features = ["preserve_order"] }
 map-collect = { path = "../../abstraction/map-collect" }
 # devtime
 husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
-husky-trace-path = { path = "../../devtime/husky-trace-path" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
