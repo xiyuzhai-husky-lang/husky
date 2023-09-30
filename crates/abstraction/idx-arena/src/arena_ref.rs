@@ -35,11 +35,11 @@ impl<'a, T> ArenaRef<'a, T> {
         self.data.iter()
     }
 
-    pub fn index_iter(&'a self) -> impl Iterator<Item = ArenaIdx<T>> {
+    pub fn index_iter(self) -> impl Iterator<Item = ArenaIdx<T>> + 'a {
         (0..self.data.len()).map(|i| ArenaIdx::new(i))
     }
 
-    pub fn indexed_iter(&'a self) -> impl Iterator<Item = (ArenaIdx<T>, &'a T)> + 'a {
+    pub fn indexed_iter(self) -> impl Iterator<Item = (ArenaIdx<T>, &'a T)> + 'a {
         self.data
             .iter()
             .enumerate()

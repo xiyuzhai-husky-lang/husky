@@ -8,18 +8,18 @@ mod specs;
 mod tests;
 mod token;
 
-pub use db::*;
+pub use self::db::*;
+pub use self::specs::*;
 use husky_text::TextRange;
-pub use specs::*;
 
-use collect::*;
-use convert::*;
+use self::collect::*;
+use self::convert::*;
+use self::token::*;
 use husky_entity_syn_tree::EntitySynTreeResult;
 use husky_token::*;
 use husky_token_data::{Keyword, StmtKeyword};
 use husky_token_info::*;
 use husky_vfs::*;
-use token::*;
 
 #[salsa::jar(db = SemanticTokenDb)]
 pub struct SemanticTokenJar(semantic_tokens, semantic_tokens_ext_without_range);

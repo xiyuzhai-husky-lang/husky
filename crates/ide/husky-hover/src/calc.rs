@@ -3,7 +3,7 @@ use husky_text::TextRange;
 
 use husky_token::{RangedTokenSheet, TokenGroupIdx, TokenSheetData};
 use husky_token_data::{Keyword, TokenData};
-use husky_token_info::TokenInfo;
+use husky_token_info::{TokenInfo, TokenInfoData};
 
 use crate::*;
 
@@ -21,7 +21,7 @@ struct HoverResultCalculator<'a> {
     token_idx: TokenIdx,
     token: &'a TokenData,
     token_range: TextRange,
-    token_info: &'a TokenInfo,
+    token_info: Option<&'a TokenInfo>,
     markdown_content: String,
     actions: Vec<CommandLinkGroup>,
     hover_config_data: &'a HoverConfigData,
@@ -44,7 +44,7 @@ impl<'a> HoverResultCalculator<'a> {
             token_idx,
             token: &token_sheet_data[token_idx],
             token_range: ranged_token_sheet.token_idx_text_range(token_idx),
-            token_info: &token_info_sheet[token_idx],
+            token_info: token_info_sheet[token_idx].as_ref(),
             markdown_content: String::new(),
             actions: vec![],
             hover_config_data: db.hover_config().data(db),
@@ -89,46 +89,48 @@ impl<'a> HoverResultCalculator<'a> {
 
     fn debug_content(&self) -> String {
         let additional_debug_content: String = match self.token_info {
-            TokenInfo::None => format!(""),
-            TokenInfo::Entity(_) => format!(""),
-            TokenInfo::EntityNode(_, _) => format!(""),
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx,
-                syn_expr_region,
-                ..
-            } => {
-                format!(
-                    "{:#?}",
-                    syn_expr_region.data(self.db).symbol_region()[*current_symbol_idx]
-                        .debug(self.db)
-                )
-            }
-            TokenInfo::InheritedSymbol {
-                inherited_symbol_idx,
-                syn_expr_region,
-                ..
-            } => {
-                format!(
-                    "{:#?}",
-                    syn_expr_region.data(self.db).symbol_region()[*inherited_symbol_idx]
-                        .debug(self.db)
-                )
-            }
-            TokenInfo::Field => format!(""),
-            TokenInfo::Method => format!(""),
-            TokenInfo::BoxColon => format!("box colon"),
-            TokenInfo::BoxPrefix => format!("box prefix"),
-            TokenInfo::UseExpr { .. } => format!("use"),
-            TokenInfo::UseExprStar => format!("use expr star"),
-            TokenInfo::SelfType => format!("self type"),
-            TokenInfo::SelfValue => format!("self value"),
-            TokenInfo::HtmlFunctionIdent => format!("html function ident"),
-            TokenInfo::HtmlPropertyIdent => format!("html property ident"),
-            TokenInfo::SubmoduleIdent => format!("submodule ident"),
-            TokenInfo::UnitLeftParenthesis => format!("unit `(`"),
-            TokenInfo::UnitRightParenthesis => format!("unit `)`"),
-            TokenInfo::Todo => format!("todo"),
-            TokenInfo::Unreachable => format!("unreachable"),
+            Some(info) => match info.data() {
+                TokenInfoData::Entity(_) => format!(""),
+                TokenInfoData::EntityNode(_, _) => format!(""),
+                TokenInfoData::CurrentSymbol {
+                    current_symbol_idx,
+                    syn_expr_region,
+                    ..
+                } => {
+                    format!(
+                        "{:#?}",
+                        syn_expr_region.data(self.db).symbol_region()[*current_symbol_idx]
+                            .debug(self.db)
+                    )
+                }
+                TokenInfoData::InheritedSymbol {
+                    inherited_symbol_idx,
+                    syn_expr_region,
+                    ..
+                } => {
+                    format!(
+                        "{:#?}",
+                        syn_expr_region.data(self.db).symbol_region()[*inherited_symbol_idx]
+                            .debug(self.db)
+                    )
+                }
+                TokenInfoData::Field => format!(""),
+                TokenInfoData::Method => format!(""),
+                TokenInfoData::BoxColon => format!("box colon"),
+                TokenInfoData::BoxPrefix => format!("box prefix"),
+                TokenInfoData::UseExpr { .. } => format!("use"),
+                TokenInfoData::UseExprStar => format!("use expr star"),
+                TokenInfoData::SelfType => format!("self type"),
+                TokenInfoData::SelfValue => format!("self value"),
+                TokenInfoData::HtmlFunctionIdent => format!("html function ident"),
+                TokenInfoData::HtmlPropertyIdent => format!("html property ident"),
+                TokenInfoData::SubmoduleIdent => format!("submodule ident"),
+                TokenInfoData::UnitLeftParenthesis => format!("unit `(`"),
+                TokenInfoData::UnitRightParenthesis => format!("unit `)`"),
+                TokenInfoData::Todo => format!("todo"),
+                TokenInfoData::Unreachable => format!("unreachable"),
+            },
+            None => format!(""),
         };
         format!(
             r#"
