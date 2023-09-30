@@ -245,6 +245,10 @@ impl SemaExprEntry {
             .expect("use this when there is no error guaranteed")
     }
 
+    pub fn data_ok(&self) -> Option<&SemaExprData> {
+        self.data_result.as_ref().ok()
+    }
+
     pub fn data_result<'a>(&'a self) -> SemaExprDataResultRef<'a, &'a SemaExprData> {
         self.data_result.as_ref()
     }
@@ -288,7 +292,7 @@ impl SemaExprArena {
     }
 
     pub(crate) fn arena_ref(&self) -> SemaExprArenaRef {
-        self.0.arena_ref()
+        SemaExprArenaRef(self.0.arena_ref())
     }
 
     pub(crate) fn index_iter(&self) -> impl Iterator<Item = SemaExprIdx> {
@@ -304,7 +308,22 @@ impl std::ops::Index<SemaExprIdx> for SemaExprArena {
     }
 }
 
-pub type SemaExprArenaRef<'a> = ArenaRef<'a, SemaExprEntry>;
+#[derive(Debug, Clone, Copy)]
+pub struct SemaExprArenaRef<'a>(ArenaRef<'a, SemaExprEntry>);
+
+impl<'a> SemaExprArenaRef<'a> {
+    #[inline]
+    pub fn indexed_iter(self) -> impl Iterator<Item = (SemaExprIdx, &'a SemaExprEntry)> {
+        self.0
+            .indexed_iter()
+            .map(|(idx, entry)| (SemaExprIdx(idx), entry))
+    }
+
+    #[inline]
+    pub fn iter(self) -> impl Iterator<Item = &'a SemaExprEntry> + 'a {
+        self.0.iter()
+    }
+}
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct SemaExprIdx(ArenaIdx<SemaExprEntry>);
@@ -314,7 +333,7 @@ impl SemaExprIdx {
     ///
     /// use it outside this crate
     pub fn data<'a>(self, arena_ref: SemaExprArenaRef<'a>) -> &'a SemaExprData {
-        arena_ref.index(self.0).data()
+        arena_ref.0.index(self.0).data()
     }
 
     /// panic if there is any error
