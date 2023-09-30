@@ -1,11 +1,12 @@
-use husky_trace_path::TracePath;
-
 use super::*;
+
+#[salsa::interned(db = TraceDb, jar = TraceJar)]
+pub struct LoopGroupTracePath {}
 
 #[salsa::tracked(db = TraceDb, jar = TraceJar)]
 pub struct LoopGroupTrace {
     #[id]
-    pub path: TracePath,
+    pub path: LoopGroupTracePath,
     pub biological_parent: LoopGroupTraceBiologicalParent,
 }
 
