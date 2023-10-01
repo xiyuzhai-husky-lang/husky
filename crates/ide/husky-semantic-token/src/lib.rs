@@ -6,7 +6,7 @@ mod ext;
 mod specs;
 #[cfg(test)]
 mod tests;
-mod token;
+pub mod token;
 
 pub use self::db::*;
 pub use self::specs::*;
