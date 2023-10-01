@@ -27,6 +27,7 @@ husky-entity-kind = { path = "../../protocol/husky-entity-kind" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 # protocol
 husky-keyword-kind = { path = "../../protocol/husky-keyword-kind" }
+husky-semantic-token-kind = { path = "../../protocol/husky-semantic-token-kind", optional = true }
 # syntax
 husky-opr = { path = "../../kernel/husky-opr" }
 # utils
@@ -36,3 +37,7 @@ husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
+
+
+[features]
+semantic_token_support = ["dep:husky-semantic-token-kind"]

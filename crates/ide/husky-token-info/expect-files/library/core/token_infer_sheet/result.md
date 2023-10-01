@@ -1,386 +1,610 @@
 Ok(
     TokenInfoSheet {
         token_infos: [
-            TokenInfo::None,
-            TokenInfo::UseExpr {
-                use_expr_idx: 2,
-                rule_idx: OnceUseRuleIdx(
-                    0,
-                ),
-                state: OnceUseRuleState::Resolved {
-                    original_symbol: Some(
-                        EntitySymbol::CrateRoot {
-                            root_module_path: `core`,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::UseExpr(
+                        2,
+                    ),
+                    data: TokenInfoData::UseExpr {
+                        use_expr_idx: 2,
+                        rule_idx: OnceUseRuleIdx(
+                            0,
+                        ),
+                        state: OnceUseRuleState::Resolved {
+                            original_symbol: Some(
+                                EntitySymbol::CrateRoot {
+                                    root_module_path: `core`,
+                                },
+                            ),
+                        },
+                    },
+                },
+            ),
+            None,
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::UseExpr(
+                        4,
+                    ),
+                    data: TokenInfoData::UseExpr {
+                        use_expr_idx: 4,
+                        rule_idx: OnceUseRuleIdx(
+                            1,
+                        ),
+                        state: OnceUseRuleState::Resolved {
+                            original_symbol: Some(
+                                EntitySymbol::MajorItem {
+                                    module_item_path: MajorItemPath::Type(
+                                        TypePath(`core::result::Result`, `Enum`),
+                                    ),
+                                },
+                            ),
+                        },
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::UseExpr(
+                        3,
+                    ),
+                    data: TokenInfoData::UseExprStar,
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::result::Result`, `Enum`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                        MajorItem {
+                            module_item_kind: Type(
+                                Enum,
+                            ),
+                            connection: Connected,
                         },
                     ),
                 },
-            },
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::UseExpr {
-                use_expr_idx: 4,
-                rule_idx: OnceUseRuleIdx(
-                    1,
-                ),
-                state: OnceUseRuleState::Resolved {
-                    original_symbol: Some(
-                        EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynCurrentSymbol(
+                        1,
+                    ),
+                    data: TokenInfoData::CurrentSymbol {
+                        current_symbol_idx: 1,
+                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                ident_token: IdentRegionalToken {
+                                    ident: `T`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        5,
+                                    ),
+                                },
+                            },
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynCurrentSymbol(
+                        2,
+                    ),
+                    data: TokenInfoData::CurrentSymbol {
+                        current_symbol_idx: 2,
+                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                ident_token: IdentRegionalToken {
+                                    ident: `E`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        7,
+                                    ),
+                                },
+                            },
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynCurrentSymbol(
+                        1,
+                    ),
+                    data: TokenInfoData::CurrentSymbol {
+                        current_symbol_idx: 1,
+                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                ident_token: IdentRegionalToken {
+                                    ident: `T1`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        3,
+                                    ),
+                                },
+                            },
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynCurrentSymbol(
+                        2,
+                    ),
+                    data: TokenInfoData::CurrentSymbol {
+                        current_symbol_idx: 2,
+                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                ident_token: IdentRegionalToken {
+                                    ident: `T2`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        5,
+                                    ),
+                                },
+                            },
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynCurrentSymbol(
+                        3,
+                    ),
+                    data: TokenInfoData::CurrentSymbol {
+                        current_symbol_idx: 3,
+                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                ident_token: IdentRegionalToken {
+                                    ident: `E1`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        7,
+                                    ),
+                                },
+                            },
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynCurrentSymbol(
+                        4,
+                    ),
+                    data: TokenInfoData::CurrentSymbol {
+                        current_symbol_idx: 4,
+                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                ident_token: IdentRegionalToken {
+                                    ident: `E2`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        9,
+                                    ),
+                                },
+                            },
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::Module(
+                            `core`,
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::Module(
+                            `core::ops`,
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        3,
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::ops::Unveil`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        4,
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
                                 TypePath(`core::result::Result`, `Enum`),
                             ),
-                        },
+                        ),
                     ),
                 },
-            },
-            TokenInfo::None,
-            TokenInfo::UseExprStar,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::EntityNode(
-                ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Type(
-                        TypeSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(`core::result::Result`, `Enum`),
-                                disambiguator: 0,
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            4,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSymbol {
+                        current_symbol_idx: 2,
+                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                ident_token: IdentRegionalToken {
+                                    ident: `T2`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        5,
+                                    ),
+                                },
                             },
                         },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            6,
+                        ),
                     ),
-                ),
-                MajorItem {
-                    module_item_kind: Type(
-                        Enum,
+                    data: TokenInfoData::CurrentSymbol {
+                        current_symbol_idx: 4,
+                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                ident_token: IdentRegionalToken {
+                                    ident: `E2`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        9,
+                                    ),
+                                },
+                            },
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        5,
                     ),
-                    connection: Connected,
-                },
-            ),
-            TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
-                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentRegionalToken {
-                            ident: `T`,
-                            regional_token_idx: RegionalTokenIdx(
-                                5,
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::result::Result`, `Enum`),
                             ),
-                        },
-                    },
-                },
-                syn_expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 2,
-                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
-                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentRegionalToken {
-                            ident: `E`,
-                            regional_token_idx: RegionalTokenIdx(
-                                7,
-                            ),
-                        },
-                    },
-                },
-                syn_expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
-                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentRegionalToken {
-                            ident: `T1`,
-                            regional_token_idx: RegionalTokenIdx(
-                                3,
-                            ),
-                        },
-                    },
-                },
-                syn_expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 2,
-                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
-                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentRegionalToken {
-                            ident: `T2`,
-                            regional_token_idx: RegionalTokenIdx(
-                                5,
-                            ),
-                        },
-                    },
-                },
-                syn_expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 3,
-                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
-                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentRegionalToken {
-                            ident: `E1`,
-                            regional_token_idx: RegionalTokenIdx(
-                                7,
-                            ),
-                        },
-                    },
-                },
-                syn_expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 4,
-                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
-                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentRegionalToken {
-                            ident: `E2`,
-                            regional_token_idx: RegionalTokenIdx(
-                                9,
-                            ),
-                        },
-                    },
-                },
-                syn_expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::Entity(
-                EntityPath::Module(
-                    `core`,
-                ),
-            ),
-            TokenInfo::None,
-            TokenInfo::Entity(
-                EntityPath::Module(
-                    `core::ops`,
-                ),
-            ),
-            TokenInfo::None,
-            TokenInfo::Entity(
-                EntityPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::ops::Unveil`),
+                        ),
                     ),
-                ),
+                },
             ),
-            TokenInfo::Entity(
-                EntityPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::result::Result`, `Enum`),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            9,
+                        ),
                     ),
-                ),
+                    data: TokenInfoData::CurrentSymbol {
+                        current_symbol_idx: 1,
+                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                ident_token: IdentRegionalToken {
+                                    ident: `T1`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        3,
+                                    ),
+                                },
+                            },
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
             ),
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 2,
-                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
-                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentRegionalToken {
-                            ident: `T2`,
-                            regional_token_idx: RegionalTokenIdx(
-                                5,
-                            ),
-                        },
-                    },
-                },
-                syn_expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 4,
-                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
-                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentRegionalToken {
-                            ident: `E2`,
-                            regional_token_idx: RegionalTokenIdx(
-                                9,
-                            ),
-                        },
-                    },
-                },
-                syn_expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::Entity(
-                EntityPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::result::Result`, `Enum`),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            11,
+                        ),
                     ),
-                ),
+                    data: TokenInfoData::CurrentSymbol {
+                        current_symbol_idx: 3,
+                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                ident_token: IdentRegionalToken {
+                                    ident: `E1`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        7,
+                                    ),
+                                },
+                            },
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
             ),
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
-                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentRegionalToken {
-                            ident: `T1`,
-                            regional_token_idx: RegionalTokenIdx(
-                                3,
-                            ),
-                        },
-                    },
-                },
-                syn_expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 3,
-                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
-                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                        ident_token: IdentRegionalToken {
-                            ident: `E1`,
-                            regional_token_idx: RegionalTokenIdx(
-                                7,
-                            ),
-                        },
-                    },
-                },
-                syn_expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::EntityNode(
-                ItemSynNodePath::AssociatedItem(
-                    AssociatedItemSynNodePath::TraitForTypeItem(
-                        TraitForTypeItemSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitForTypeItemPath {
-                                    impl_block: TraitForTypeImplBlockPath {
-                                        module_path: `core::result`,
-                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`core::result::Result`, `Enum`),
-                                        ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::AssociatedItem(
+                            AssociatedItemSynNodePath::TraitForTypeItem(
+                                TraitForTypeItemSynNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `core::result`,
+                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::result::Result`, `Enum`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `Continue`,
+                                            item_kind: AssociatedType,
+                                        },
                                         disambiguator: 0,
                                     },
-                                    ident: `Continue`,
-                                    item_kind: AssociatedType,
                                 },
-                                disambiguator: 0,
-                            },
+                            ),
+                        ),
+                        AssociatedItem {
+                            associated_item_kind: TraitForTypeItem(
+                                AssociatedType,
+                            ),
                         },
-                    ),
-                ),
-                AssociatedItem {
-                    associated_item_kind: TraitForTypeItem(
-                        AssociatedType,
                     ),
                 },
             ),
-            TokenInfo::None,
-            TokenInfo::InheritedSymbol {
-                inherited_symbol_idx: 4,
-                inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
-                    InheritedTemplateParameterSynSymbol::Type {
-                        ident: `E2`,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSymbol {
+                        inherited_symbol_idx: 4,
+                        inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
+                            InheritedTemplateParameterSynSymbol::Type {
+                                ident: `E2`,
+                            },
+                        ),
+                        syn_expr_region: ExprRegionLeash(_),
                     },
-                ),
-                syn_expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::EntityNode(
-                ItemSynNodePath::AssociatedItem(
-                    AssociatedItemSynNodePath::TraitForTypeItem(
-                        TraitForTypeItemSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitForTypeItemPath {
-                                    impl_block: TraitForTypeImplBlockPath {
-                                        module_path: `core::result`,
-                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`core::result::Result`, `Enum`),
-                                        ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::AssociatedItem(
+                            AssociatedItemSynNodePath::TraitForTypeItem(
+                                TraitForTypeItemSynNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `core::result`,
+                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::result::Result`, `Enum`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `branch`,
+                                            item_kind: MethodFn,
+                                        },
                                         disambiguator: 0,
                                     },
-                                    ident: `branch`,
-                                    item_kind: MethodFn,
                                 },
-                                disambiguator: 0,
-                            },
+                            ),
+                        ),
+                        AssociatedItem {
+                            associated_item_kind: TraitForTypeItem(
+                                MethodFn,
+                            ),
                         },
                     ),
-                ),
-                AssociatedItem {
-                    associated_item_kind: TraitForTypeItem(
-                        MethodFn,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynCurrentSymbol(
+                        1,
+                    ),
+                    data: TokenInfoData::CurrentSymbol {
+                        current_symbol_idx: 1,
+                        current_symbol_kind: SynCurrentSymbolKind::ExplicitRegularParameter {
+                            pattern_symbol_idx: 1,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::result::Result`, `Enum`),
+                            ),
+                        ),
                     ),
                 },
             ),
-            TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: SynCurrentSymbolKind::ExplicitRegularParameter {
-                    pattern_symbol_idx: 1,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            2,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSymbol {
+                        inherited_symbol_idx: 2,
+                        inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
+                            InheritedTemplateParameterSynSymbol::Type {
+                                ident: `T2`,
+                            },
+                        ),
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
                 },
-                syn_expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::Entity(
-                EntityPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::result::Result`, `Enum`),
-                    ),
-                ),
             ),
-            TokenInfo::InheritedSymbol {
-                inherited_symbol_idx: 2,
-                inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
-                    InheritedTemplateParameterSynSymbol::Type {
-                        ident: `T2`,
-                    },
-                ),
-                syn_expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::InheritedSymbol {
-                inherited_symbol_idx: 4,
-                inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
-                    InheritedTemplateParameterSynSymbol::Type {
-                        ident: `E2`,
-                    },
-                ),
-                syn_expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                EntityPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::result::Result`, `Enum`),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            4,
+                        ),
                     ),
-                ),
+                    data: TokenInfoData::InheritedSymbol {
+                        inherited_symbol_idx: 4,
+                        inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
+                            InheritedTemplateParameterSynSymbol::Type {
+                                ident: `E2`,
+                            },
+                        ),
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
             ),
-            TokenInfo::InheritedSymbol {
-                inherited_symbol_idx: 1,
-                inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
-                    InheritedTemplateParameterSynSymbol::Type {
-                        ident: `T1`,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        3,
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::result::Result`, `Enum`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            7,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSymbol {
+                        inherited_symbol_idx: 1,
+                        inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
+                            InheritedTemplateParameterSynSymbol::Type {
+                                ident: `T1`,
+                            },
+                        ),
+                        syn_expr_region: ExprRegionLeash(_),
                     },
-                ),
-                syn_expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::InheritedSymbol {
-                inherited_symbol_idx: 3,
-                inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
-                    InheritedTemplateParameterSynSymbol::Type {
-                        ident: `E1`,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            9,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSymbol {
+                        inherited_symbol_idx: 3,
+                        inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
+                            InheritedTemplateParameterSynSymbol::Type {
+                                ident: `E1`,
+                            },
+                        ),
+                        syn_expr_region: ExprRegionLeash(_),
                     },
-                ),
-                syn_expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::Todo,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::Todo,
+                },
+            ),
         ],
     },
 )

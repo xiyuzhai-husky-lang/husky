@@ -17,7 +17,7 @@
                 data: [
                     SemaExprEntry {
                         data_result: Ok(
-                            ListFunctor {
+                            VecFunctor {
                                 lbox_regional_token_idx: RegionalTokenIdx(
                                     7,
                                 ),
@@ -154,7 +154,7 @@
                     },
                     SemaExprEntry {
                         data_result: Ok(
-                            ListFunctor {
+                            VecFunctor {
                                 lbox_regional_token_idx: RegionalTokenIdx(
                                     15,
                                 ),
@@ -683,7 +683,7 @@
                 data: [
                     SemaExprEntry {
                         data_result: Ok(
-                            ListFunctor {
+                            VecFunctor {
                                 lbox_regional_token_idx: RegionalTokenIdx(
                                     8,
                                 ),
@@ -793,7 +793,7 @@
                     },
                     SemaExprEntry {
                         data_result: Ok(
-                            ListFunctor {
+                            VecFunctor {
                                 lbox_regional_token_idx: RegionalTokenIdx(
                                     14,
                                 ),

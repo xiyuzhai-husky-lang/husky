@@ -10,7 +10,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 0;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "Other\ntoken_idx = 0;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 1;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Ident(\n    `prelude`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    ItemSynNodePath::Submodule(\n        SubmoduleSynNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: SubmodulePath(\n                    `std::prelude`,\n                ),\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
+                                value: "\ntoken_idx = 1;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Ident(\n    `prelude`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                SubmoduleSynNodePath {\n                    maybe_ambiguous_path: MaybeAmbiguousPath {\n                        path: SubmodulePath(\n                            `std::prelude`,\n                        ),\n                        disambiguator: 0,\n                    },\n                },\n            ),\n            Module,\n        ),\n    },\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -70,7 +70,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 2;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "Other\ntoken_idx = 2;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -100,7 +100,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 3;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `logic`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    ItemSynNodePath::Submodule(\n        SubmoduleSynNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: SubmodulePath(\n                    `std::logic`,\n                ),\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
+                                value: "\ntoken_idx = 3;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `logic`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                SubmoduleSynNodePath {\n                    maybe_ambiguous_path: MaybeAmbiguousPath {\n                        path: SubmodulePath(\n                            `std::logic`,\n                        ),\n                        disambiguator: 0,\n                    },\n                },\n            ),\n            Module,\n        ),\n    },\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -130,7 +130,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 4;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "Other\ntoken_idx = 4;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -160,7 +160,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 5;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Ident(\n    `ops`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    ItemSynNodePath::Submodule(\n        SubmoduleSynNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: SubmodulePath(\n                    `std::ops`,\n                ),\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
+                                value: "\ntoken_idx = 5;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Ident(\n    `ops`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                SubmoduleSynNodePath {\n                    maybe_ambiguous_path: MaybeAmbiguousPath {\n                        path: SubmodulePath(\n                            `std::ops`,\n                        ),\n                        disambiguator: 0,\n                    },\n                },\n            ),\n            Module,\n        ),\n    },\n);\n\n\n",
                             },
                         ),
                         range: Some(

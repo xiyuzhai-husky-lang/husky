@@ -15,6 +15,8 @@ pub use self::wordopr::*;
 
 use self::db::*;
 use husky_coword::*;
+#[cfg(feature = "semantic_token_support")]
+use husky_semantic_token_kind::SemanticTokenKind;
 use husky_term_prelude::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -28,6 +30,22 @@ pub enum TokenData {
     WordOpr(WordOpr),
     Literal(LiteralData),
     Error(TokenDataError),
+}
+
+#[cfg(feature = "semantic_token_support")]
+impl TokenData {
+    // overridable given more information
+    pub fn default_semantic_token_kind(self) -> SemanticTokenKind {
+        match self {
+            TokenData::Keyword(kw) => SemanticTokenKind::Keyword(kw.kind()),
+            TokenData::Punctuation(_) => SemanticTokenKind::Special,
+            TokenData::WordOpr(_) => SemanticTokenKind::WordOpr,
+            TokenData::Literal(_) => SemanticTokenKind::Literal,
+            TokenData::Ident(_) => SemanticTokenKind::Ident,
+            TokenData::Label(_) => SemanticTokenKind::Label,
+            TokenData::Error(_) => SemanticTokenKind::Error,
+        }
+    }
 }
 
 impl std::hash::Hash for TokenData {

@@ -335,7 +335,7 @@ impl<'a> SemaExprEngine<'a> {
             SemaExprData::Sorry { regional_token_idx } => todo!(),
             SemaExprData::Todo { regional_token_idx } => todo!(),
             SemaExprData::Unreachable { regional_token_idx } => todo!(),
-            SemaExprData::ListFunctor {
+            SemaExprData::VecFunctor {
                 lbox_regional_token_idx,
                 rbox_regional_token_idx,
             } => Ok(self.term_menu.list_ty_ontology().into()),

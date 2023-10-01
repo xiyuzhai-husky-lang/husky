@@ -470,26 +470,37 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 sema_expr_idx,
                 TokenInfoData::Unreachable,
             ),
-            SemaExprData::ListFunctor {
+            SemaExprData::VecFunctor {
                 lbox_regional_token_idx,
                 rbox_regional_token_idx,
             } => {
                 self.add(
                     *lbox_regional_token_idx,
                     sema_expr_idx,
-                    TokenInfoData::BoxPrefix,
+                    TokenInfoData::VecFunctorBoxPrefix,
                 );
                 self.add(
                     *rbox_regional_token_idx,
                     sema_expr_idx,
-                    TokenInfoData::BoxPrefix,
+                    TokenInfoData::VecFunctorBoxPrefix,
                 )
             }
             SemaExprData::ArrayFunctor {
                 lbox_regional_token_idx,
                 items,
                 rbox_regional_token_idx,
-            } => todo!(),
+            } => {
+                self.add(
+                    *lbox_regional_token_idx,
+                    sema_expr_idx,
+                    TokenInfoData::ArrayFunctorBoxPrefix,
+                );
+                self.add(
+                    *rbox_regional_token_idx,
+                    sema_expr_idx,
+                    TokenInfoData::ArrayFunctorBoxPrefix,
+                )
+            }
             SemaExprData::BoxColonList {
                 lbox_regional_token_idx,
                 colon_regional_token_idx,

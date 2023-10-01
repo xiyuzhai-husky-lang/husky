@@ -27,4 +27,7 @@ pub enum SemanticTokenKind {
     SubmoduleIdent,
     Todo,
     Unreachable,
+    Ident,
+    Label,
+    Error,
 }

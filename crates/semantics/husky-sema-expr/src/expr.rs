@@ -199,7 +199,7 @@ pub enum SemaExprData {
         items: SmallVec<[SemaCommaListItem; 4]>,
         rbox_regional_token_idx: RegionalTokenIdx,
     },
-    ListFunctor {
+    VecFunctor {
         lbox_regional_token_idx: RegionalTokenIdx,
         rbox_regional_token_idx: RegionalTokenIdx,
     },

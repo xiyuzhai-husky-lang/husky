@@ -309,7 +309,7 @@ impl ToHirEager for SemaExprIdx {
             SemaExprData::Sorry { regional_token_idx } => todo!(),
             SemaExprData::Todo { regional_token_idx } => HirEagerExpr::Todo,
             SemaExprData::Unreachable { regional_token_idx } => todo!(),
-            SemaExprData::ListFunctor {
+            SemaExprData::VecFunctor {
                 lbox_regional_token_idx,
                 rbox_regional_token_idx,
             } => todo!(),
