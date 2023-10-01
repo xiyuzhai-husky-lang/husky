@@ -2,7 +2,7 @@ use husky_entity_kind::{EntityKind, MajorItemConnectionKind, MajorItemKind, Type
 use husky_entity_syn_tree::OnceUseRuleState;
 use husky_syn_expr::{SynCurrentSymbolKind, SynInheritedSymbolKind};
 use husky_token_data::TokenData;
-use husky_token_protocol::TokenProtocol;
+use husky_token_protocol::TokenKindProtocol;
 
 use crate::*;
 
@@ -40,7 +40,7 @@ fn token_to_semantic_token(
 
 fn comment_to_semantic_token(comment: &Comment) -> SemanticToken {
     SemanticToken {
-        token_protocol: TokenProtocol::Comment,
+        token_protocol: TokenKindProtocol::Comment,
         range: comment.range(),
     }
 }

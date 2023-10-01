@@ -37,45 +37,45 @@ pub enum EntityKind {
 
 #[cfg(feature = "protocol_support")]
 impl EntityKind {
-    pub fn protocol(self) -> EntityProtocol {
+    pub fn protocol(self) -> EntityKindProtocol {
         match self {
-            EntityKind::Module => EntityProtocol::Module,
+            EntityKind::Module => EntityKindProtocol::Module,
             EntityKind::MajorItem {
                 module_item_kind, ..
             } => match module_item_kind {
-                MajorItemKind::Type(_) => EntityProtocol::Type,
+                MajorItemKind::Type(_) => EntityKindProtocol::Type,
                 MajorItemKind::Fugitive(fugitive_kind) => match fugitive_kind {
-                    FugitiveKind::FunctionFn => EntityProtocol::FunctionFn,
-                    FugitiveKind::FunctionGn => EntityProtocol::FunctionGn,
-                    FugitiveKind::AliasType => EntityProtocol::AliasType,
-                    FugitiveKind::Val => EntityProtocol::Val,
+                    FugitiveKind::FunctionFn => EntityKindProtocol::FunctionFn,
+                    FugitiveKind::FunctionGn => EntityKindProtocol::FunctionGn,
+                    FugitiveKind::AliasType => EntityKindProtocol::AliasType,
+                    FugitiveKind::Val => EntityKindProtocol::Val,
                 },
-                MajorItemKind::Trait => EntityProtocol::Trait,
+                MajorItemKind::Trait => EntityKindProtocol::Trait,
             },
             EntityKind::AssociatedItem {
                 associated_item_kind,
             } => match associated_item_kind {
                 AssociatedItemKind::TraitItem(trai_item_kind) => match trai_item_kind {
-                    TraitItemKind::MethodFn => EntityProtocol::MethodFn,
-                    TraitItemKind::AssociatedType => EntityProtocol::AssociatedType,
+                    TraitItemKind::MethodFn => EntityKindProtocol::MethodFn,
+                    TraitItemKind::AssociatedType => EntityKindProtocol::AssociatedType,
                 },
                 AssociatedItemKind::TypeItem(ty_item_kind) => match ty_item_kind {
-                    TypeItemKind::MethodFn => EntityProtocol::MethodFn,
-                    TypeItemKind::AssociatedFunctionFn => EntityProtocol::AssociatedFunctionFn,
-                    TypeItemKind::AssociatedVal => EntityProtocol::AssociatedVal,
-                    TypeItemKind::AssociatedType => EntityProtocol::AssociatedType,
-                    TypeItemKind::MemoizedField => EntityProtocol::MemoizedField,
+                    TypeItemKind::MethodFn => EntityKindProtocol::MethodFn,
+                    TypeItemKind::AssociatedFunctionFn => EntityKindProtocol::AssociatedFunctionFn,
+                    TypeItemKind::AssociatedVal => EntityKindProtocol::AssociatedVal,
+                    TypeItemKind::AssociatedType => EntityKindProtocol::AssociatedType,
+                    TypeItemKind::MemoizedField => EntityKindProtocol::MemoizedField,
                 },
                 AssociatedItemKind::TraitForTypeItem(trai_for_ty_item_kind) => {
                     match trai_for_ty_item_kind {
-                        TraitItemKind::MethodFn => EntityProtocol::MethodFn,
-                        TraitItemKind::AssociatedType => EntityProtocol::AssociatedType,
+                        TraitItemKind::MethodFn => EntityKindProtocol::MethodFn,
+                        TraitItemKind::AssociatedType => EntityKindProtocol::AssociatedType,
                     }
                 }
             },
-            EntityKind::TypeVariant => EntityProtocol::TypeVariant,
-            EntityKind::ImplBlock => EntityProtocol::ImplBlock,
-            EntityKind::Attr => EntityProtocol::Attr,
+            EntityKind::TypeVariant => EntityKindProtocol::TypeVariant,
+            EntityKind::ImplBlock => EntityKindProtocol::ImplBlock,
+            EntityKind::Attr => EntityKindProtocol::Attr,
         }
     }
 }
