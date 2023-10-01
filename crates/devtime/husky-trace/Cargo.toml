@@ -4,10 +4,11 @@ version = "0.0.0"
 edition = "2021"
 
 [dependencies]
-salsa = { path = "../../abstraction/salsa" }
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 # abstraction
+salsa = { path = "../../abstraction/salsa" }
+vec-like = { path = "../../abstraction/vec-like" }
 map-collect = { path = "../../abstraction/map-collect" }
 # devtime
 husky-trace-protocol-old = { path = "../../devtime/husky-trace-protocol-old" }
@@ -30,6 +31,8 @@ husky-text = { path = "../../lex/husky-text" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
 husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
+# semantics
+husky-sema-expr = { path = "../../semantics/husky-sema-expr" }
 # comptime
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }

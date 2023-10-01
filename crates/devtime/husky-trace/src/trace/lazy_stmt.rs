@@ -9,6 +9,12 @@ pub struct LazyStmtTracePath {
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum LazyStmtTracePathData {}
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum LazyStmtTraceBiologicalParent {
+    LazyCall(LazyCallTrace),
+    LazyStmt(LazyStmtTrace),
+}
+
 #[salsa::tracked(db = TraceDb, jar = TraceJar)]
 pub struct LazyStmtTrace {
     #[id]
@@ -16,8 +22,19 @@ pub struct LazyStmtTrace {
     pub biological_parent: LazyStmtTraceBiologicalParent,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum LazyStmtTraceBiologicalParent {
-    LazyCall(LazyCallTrace),
-    LazyStmt(LazyStmtTrace),
+impl LazyStmtTrace {
+    pub fn associated_expr_traces<'a>(
+        self,
+        db: &'a dyn TraceDb,
+    ) -> &'a [(SemaExprIdx, LazyExprTrace)] {
+        lazy_stmt_associated_expr_traces(db, self)
+    }
+}
+
+#[salsa::tracked(jar = TraceJar, return_ref)]
+fn lazy_stmt_associated_expr_traces(
+    db: &dyn TraceDb,
+    trace: LazyStmtTrace,
+) -> VecPairMap<SemaExprIdx, LazyExprTrace> {
+    todo!()
 }
