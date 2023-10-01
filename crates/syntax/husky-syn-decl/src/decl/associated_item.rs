@@ -10,7 +10,7 @@ pub use self::ty_item::*;
 
 use super::*;
 use husky_coword::Ident;
-use husky_entity_taxonomy::{AssociatedItemKind, EntityKind, TraitItemKind, TypeItemKind};
+use husky_entity_kind::{AssociatedItemKind, EntityKind, TraitItemKind, TypeItemKind};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = SynDeclDb)]

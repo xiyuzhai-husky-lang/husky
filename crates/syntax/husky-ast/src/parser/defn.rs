@@ -1,8 +1,8 @@
-use husky_entity_path::*;
-use husky_entity_taxonomy::{
+use husky_entity_kind::{
     AssociatedItemKind, FugitiveKind, MajorItemConnectionKind, MajorItemKind, TraitItemKind,
     TypeItemKind, TypeKind,
 };
+use husky_entity_path::*;
 use husky_opr::{BinaryOpr, Bracket};
 use husky_print_utils::p;
 use husky_token::{EntityKindKeywordGroup, TokenStreamParser};

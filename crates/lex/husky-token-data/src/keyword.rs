@@ -15,11 +15,10 @@ pub use self::modifier::*;
 pub use self::pronoun::*;
 pub use self::stmt::*;
 pub use self::ty::*;
-
-use crate::*;
-
 pub use modifier::*;
 
+use crate::*;
+use husky_keyword_kind::KeywordKind;
 use serde::{Deserialize, Serialize};
 use std::ops::Deref;
 
@@ -54,7 +53,28 @@ impl std::fmt::Display for Keyword {
 }
 
 impl Keyword {
-    pub const fn code(&self) -> &'static str {
+    pub const fn kind(self) -> KeywordKind {
+        match self {
+            Keyword::Stmt(stmt_keyword) => match stmt_keyword {
+                StmtKeyword::If
+                | StmtKeyword::Elif
+                | StmtKeyword::Else
+                | StmtKeyword::Match
+                | StmtKeyword::NonImplFor
+                | StmtKeyword::ForExt
+                | StmtKeyword::While
+                | StmtKeyword::Do
+                | StmtKeyword::Break
+                | StmtKeyword::Return
+                | StmtKeyword::Require => KeywordKind::ControlFlow,
+                StmtKeyword::Let | StmtKeyword::Assert => KeywordKind::Other,
+            },
+            Keyword::End(_) => KeywordKind::ControlFlow,
+            _ => KeywordKind::Other,
+        }
+    }
+
+    pub const fn code(self) -> &'static str {
         match self {
             Keyword::Fugitive(keyword) => keyword.code(),
             Keyword::TypeEntity(keyword) => keyword.code(),

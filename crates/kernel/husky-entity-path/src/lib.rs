@@ -17,7 +17,7 @@ pub use self::path::*;
 
 use either::*;
 use husky_coword::Ident;
-use husky_entity_taxonomy::*;
+use husky_entity_kind::*;
 use husky_vfs::*;
 use salsa::{DbWithJar, DebugWithDb};
 #[cfg(test)]

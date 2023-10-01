@@ -19,7 +19,10 @@ husky-token = { path = "../../lex/husky-token" }
 husky-semantic-token-protocol = { path = "../../ide/husky-semantic-token-protocol" }
 husky-token-info = { path = "../../ide/husky-token-info" }
 # kernel
-husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-entity-kind = { path = "../../protocol/husky-entity-kind" }
+# protocol
+husky-keyword-kind = { path = "../../protocol/husky-keyword-kind" }
+husky-semantic-token-kind = { path = "../../protocol/husky-semantic-token-kind" }
 # syntax
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }

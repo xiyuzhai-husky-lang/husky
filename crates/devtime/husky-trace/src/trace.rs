@@ -26,5 +26,5 @@ pub struct TraceView {
 #[derive(Debug, Clone)]
 pub struct TraceViewToken {
     text: String,
-    ranged_semantic_token: husky_semantic_token::token::RangedSemanticToken,
+    ranged_semantic_token: husky_semantic_token::token::SemanticToken,
 }

@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_taxonomy::AssociatedItemKind;
+use husky_entity_kind::AssociatedItemKind;
 use husky_print_utils::p;
 use vec_like::VecMapGetEntry;
 

@@ -13,7 +13,7 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 # infer
 husky-sema-expr = { path = "../../semantics/husky-sema-expr" }
 # kernel
-husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-entity-kind = { path = "../../protocol/husky-entity-kind" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # lex
 husky-token-data = { path = "../../lex/husky-token-data" }

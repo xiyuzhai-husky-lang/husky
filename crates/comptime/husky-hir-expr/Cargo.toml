@@ -13,8 +13,9 @@ salsa = { path = "../../abstraction/salsa" }
 enum-class = { path = "../../abstraction/enum-class" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
+# protocol
+husky-entity-kind = { path = "../../protocol/husky-entity-kind" }
 # syntax
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 # semantics

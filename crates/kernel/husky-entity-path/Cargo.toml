@@ -19,7 +19,7 @@ vec-like = { path = "../../abstraction/vec-like" }
 # kernel
 husky-vfs = { path = "../../fs/husky-vfs" }
 husky-coword = { path = "../../kernel/husky-coword" }
-husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-entity-kind = { path = "../../protocol/husky-entity-kind" }
 
 [dev-dependencies]
 expect-test = "1.4.0"

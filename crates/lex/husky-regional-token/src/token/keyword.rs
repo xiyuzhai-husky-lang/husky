@@ -4,7 +4,7 @@ mod stmt;
 pub use self::item_kind::*;
 pub use self::stmt::*;
 
-use husky_entity_taxonomy::TypeKind;
+use husky_entity_kind::TypeKind;
 use husky_term_prelude::Variance;
 
 use super::*;

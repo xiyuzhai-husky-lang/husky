@@ -18,7 +18,7 @@ husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-coword = { path = "../../kernel/husky-coword" }
-husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-entity-kind = { path = "../../protocol/husky-entity-kind" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # runtime

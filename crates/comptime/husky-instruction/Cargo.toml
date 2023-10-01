@@ -27,7 +27,7 @@ husky-regular-value = { path = "../../kernel/husky-regular-value", features = [
     "constant"
 ] }
 # syntax
-husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-entity-kind = { path = "../../protocol/husky-entity-kind" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-opr = { path = "../../kernel/husky-opr" }
 husky-init-syntax = { path = "../../syntax/husky-init-syntax" }

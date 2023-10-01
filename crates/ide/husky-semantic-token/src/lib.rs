@@ -28,7 +28,7 @@ pub struct SemanticTokenJar(semantic_tokens, semantic_tokens_ext_without_range);
 fn semantic_tokens(
     db: &dyn SemanticTokenDb,
     module_path: ModulePath,
-) -> EntitySynTreeResult<Vec<RangedSemanticToken>> {
+) -> EntitySynTreeResult<Vec<SemanticToken>> {
     collect_semantic_tokens(db, module_path)
 }
 

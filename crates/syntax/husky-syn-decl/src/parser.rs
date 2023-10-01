@@ -2,11 +2,11 @@ use crate::*;
 
 use husky_coword::Ident;
 use husky_decl_ast::DeclAst;
+use husky_entity_kind::*;
 use husky_entity_syn_tree::{
     helpers::tokra_region::{DeclTokraRegionData, HasDeclTokraRegion},
     *,
 };
-use husky_entity_taxonomy::*;
 use husky_print_utils::p;
 use husky_regional_token::*;
 use parsec::*;

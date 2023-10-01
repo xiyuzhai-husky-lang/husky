@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_taxonomy::EntityKind;
+use husky_entity_kind::EntityKind;
 use husky_ethereal_term::EtherealTerm;
 
 impl<Task: IsTask> Devtime<Task> {

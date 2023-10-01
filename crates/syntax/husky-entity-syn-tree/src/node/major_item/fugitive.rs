@@ -1,4 +1,4 @@
-use husky_entity_taxonomy::FugitiveKind;
+use husky_entity_kind::FugitiveKind;
 
 use super::*;
 
