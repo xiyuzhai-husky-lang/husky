@@ -86,6 +86,9 @@ impl SemanticToken {
             SemanticTokenKind::SubmoduleIdent => ext::SemanticTokenType::NAMESPACE,
             SemanticTokenKind::Todo => ext::SemanticTokenType::MACRO,
             SemanticTokenKind::Unreachable => ext::SemanticTokenType::MACRO,
+            SemanticTokenKind::Ident => ext::SemanticTokenType::VARIABLE,
+            SemanticTokenKind::Label => ext::SemanticTokenType::VARIABLE,
+            SemanticTokenKind::Error => ext::SemanticTokenType::MACRO,
         })
     }
 

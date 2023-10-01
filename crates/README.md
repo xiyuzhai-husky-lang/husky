@@ -36,10 +36,6 @@
 
  IDE support, such as auto completion, diagnostics et al.
 
- # infer
-
- everything about inference, such as type inference, implicit augment inference.
-
  # kernel
 
  a minimal set of axioms for the language
@@ -50,9 +46,15 @@
 
  decomposed source code to tokens
 
+ # protocol
+
  # runtime
 
  # syntax
+
+ # semantics
+
+ everything about inference, such as type inference, implicit augment inference.
 
  # try
 

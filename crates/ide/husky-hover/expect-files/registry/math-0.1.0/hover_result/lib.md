@@ -10,7 +10,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 0;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "Other\ntoken_idx = 0;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 1;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Ident(\n    `algebra`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    ItemSynNodePath::Submodule(\n        SubmoduleSynNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: SubmodulePath(\n                    `math::algebra`,\n                ),\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
+                                value: "\ntoken_idx = 1;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Ident(\n    `algebra`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                SubmoduleSynNodePath {\n                    maybe_ambiguous_path: MaybeAmbiguousPath {\n                        path: SubmodulePath(\n                            `math::algebra`,\n                        ),\n                        disambiguator: 0,\n                    },\n                },\n            ),\n            Module,\n        ),\n    },\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -70,7 +70,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 2;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "Other\ntoken_idx = 2;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -100,7 +100,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 3;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `algebraic_geometry`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    ItemSynNodePath::Submodule(\n        SubmoduleSynNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: SubmodulePath(\n                    `math::algebraic_geometry`,\n                ),\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
+                                value: "\ntoken_idx = 3;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `algebraic_geometry`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                SubmoduleSynNodePath {\n                    maybe_ambiguous_path: MaybeAmbiguousPath {\n                        path: SubmodulePath(\n                            `math::algebraic_geometry`,\n                        ),\n                        disambiguator: 0,\n                    },\n                },\n            ),\n            Module,\n        ),\n    },\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -130,7 +130,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 4;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "Other\ntoken_idx = 4;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -160,7 +160,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 5;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Ident(\n    `algebraic_topology`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    ItemSynNodePath::Submodule(\n        SubmoduleSynNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: SubmodulePath(\n                    `math::algebraic_topology`,\n                ),\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
+                                value: "\ntoken_idx = 5;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Ident(\n    `algebraic_topology`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                SubmoduleSynNodePath {\n                    maybe_ambiguous_path: MaybeAmbiguousPath {\n                        path: SubmodulePath(\n                            `math::algebraic_topology`,\n                        ),\n                        disambiguator: 0,\n                    },\n                },\n            ),\n            Module,\n        ),\n    },\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -190,7 +190,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 6;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "Other\ntoken_idx = 6;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -220,7 +220,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 7;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Ident(\n    `category_theory`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    ItemSynNodePath::Submodule(\n        SubmoduleSynNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: SubmodulePath(\n                    `math::category_theory`,\n                ),\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
+                                value: "\ntoken_idx = 7;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Ident(\n    `category_theory`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                SubmoduleSynNodePath {\n                    maybe_ambiguous_path: MaybeAmbiguousPath {\n                        path: SubmodulePath(\n                            `math::category_theory`,\n                        ),\n                        disambiguator: 0,\n                    },\n                },\n            ),\n            Module,\n        ),\n    },\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -250,7 +250,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 8;\n\ntoken_line_group_idx = 4\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "Other\ntoken_idx = 8;\n\ntoken_line_group_idx = 4\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 9;\n\ntoken_line_group_idx = 4\n\ntoken = TokenData::Ident(\n    `probability`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    ItemSynNodePath::Submodule(\n        SubmoduleSynNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: SubmodulePath(\n                    `math::probability`,\n                ),\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
+                                value: "\ntoken_idx = 9;\n\ntoken_line_group_idx = 4\n\ntoken = TokenData::Ident(\n    `probability`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                SubmoduleSynNodePath {\n                    maybe_ambiguous_path: MaybeAmbiguousPath {\n                        path: SubmodulePath(\n                            `math::probability`,\n                        ),\n                        disambiguator: 0,\n                    },\n                },\n            ),\n            Module,\n        ),\n    },\n);\n\n\n",
                             },
                         ),
                         range: Some(

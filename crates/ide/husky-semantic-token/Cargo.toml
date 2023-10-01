@@ -5,7 +5,7 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-itertools = "0.10.5"
+itertools = "0.11.0"
 lsp-types.workspace = true
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
@@ -13,11 +13,11 @@ salsa = { path = "../../abstraction/salsa" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
-husky-token-data = { path = "../../lex/husky-token-data" }
+husky-token-data = { path = "../../lex/husky-token-data", features = ["semantic_token_support"] }
 husky-token = { path = "../../lex/husky-token" }
 # ide
 husky-semantic-token-protocol = { path = "../../ide/husky-semantic-token-protocol" }
-husky-token-info = { path = "../../ide/husky-token-info" }
+husky-token-info = { path = "../../ide/husky-token-info", features = ["semantic_token_support"]  }
 # kernel
 husky-entity-kind = { path = "../../protocol/husky-entity-kind" }
 # protocol

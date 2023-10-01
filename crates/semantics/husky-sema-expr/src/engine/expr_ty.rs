@@ -440,7 +440,7 @@ impl<'a> SemaExprEngine<'a> {
                         // ad hoc, assume universe is 1
                         match items.len() {
                             0 => (
-                                Ok(SemaExprData::ListFunctor {
+                                Ok(SemaExprData::VecFunctor {
                                     lbox_regional_token_idx,
                                     rbox_regional_token_idx,
                                 }
