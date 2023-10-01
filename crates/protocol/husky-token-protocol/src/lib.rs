@@ -1,17 +1,17 @@
-use husky_entity_protocol::EntityProtocol;
+use husky_entity_protocol::EntityKindProtocol;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum TokenProtocol {
+pub enum TokenKindProtocol {
     Attribute,
     Comment,
-    Keyword(KeywordProtocol),
+    Keyword(KeywordKindProtocol),
     Field,
     Special,
     Parameter,
     Variable,
     ThisValue,
     FrameVariable,
-    Entity(EntityProtocol),
+    Entity(EntityKindProtocol),
     ImplicitParameter,
     EnumVariant,
     Method,
@@ -32,7 +32,7 @@ pub enum TokenProtocol {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum KeywordProtocol {
+pub enum KeywordKindProtocol {
     ControlFlow,
     Other,
 }

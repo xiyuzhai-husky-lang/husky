@@ -1,4 +1,4 @@
-use husky_token_protocol::TokenProtocol;
+use husky_token_protocol::TokenKindProtocol;
 
 pub struct Theme {
     semantic_token: SemanticTokenTheme,
@@ -36,35 +36,35 @@ pub struct SemanticTokenTheme {
 }
 
 impl SemanticTokenTheme {
-    pub fn get_field(&self, token_kind: TokenProtocol) -> &String {
+    pub fn get_field(&self, token_kind: TokenKindProtocol) -> &String {
         match token_kind {
-            TokenProtocol::Attribute => &self.attribute,
-            TokenProtocol::Comment => &self.comment,
-            TokenProtocol::Keyword(_) => &self.keyword,
-            TokenProtocol::Field => &self.field,
-            TokenProtocol::Special => &self.special,
-            TokenProtocol::Parameter => &self.parameter,
-            TokenProtocol::Variable => &self.variable,
-            TokenProtocol::ThisValue => &self.this_value,
-            TokenProtocol::FrameVariable => &self.frame_variable,
-            TokenProtocol::Entity(_) => &self.entity,
-            TokenProtocol::ImplicitParameter => &self.implicit_parameter,
-            TokenProtocol::EnumVariant => &self.enum_variant,
-            TokenProtocol::Method => &self.method,
-            TokenProtocol::Literal => &self.literal,
-            TokenProtocol::HtmlTagKind => &self.html_tag_kind,
-            TokenProtocol::WordPattern => &self.word_pattern,
-            TokenProtocol::WordOpr => &self.word_opr,
-            TokenProtocol::SelfType => &self.self_type,
-            TokenProtocol::SelfValue => &self.self_value,
-            TokenProtocol::HtmlFunctionIdent => &self.html_function_ident,
-            TokenProtocol::HtmlPropertyIdent => &self.html_property_ident,
-            TokenProtocol::SubmoduleIdent => &self.submodule_ident,
-            TokenProtocol::Todo => &self.todo,
-            TokenProtocol::Unreachable => &self.unreachable,
-            TokenProtocol::Ident => &self.ident,
-            TokenProtocol::Label => &self.label,
-            TokenProtocol::Error => &self.error,
+            TokenKindProtocol::Attribute => &self.attribute,
+            TokenKindProtocol::Comment => &self.comment,
+            TokenKindProtocol::Keyword(_) => &self.keyword,
+            TokenKindProtocol::Field => &self.field,
+            TokenKindProtocol::Special => &self.special,
+            TokenKindProtocol::Parameter => &self.parameter,
+            TokenKindProtocol::Variable => &self.variable,
+            TokenKindProtocol::ThisValue => &self.this_value,
+            TokenKindProtocol::FrameVariable => &self.frame_variable,
+            TokenKindProtocol::Entity(_) => &self.entity,
+            TokenKindProtocol::ImplicitParameter => &self.implicit_parameter,
+            TokenKindProtocol::EnumVariant => &self.enum_variant,
+            TokenKindProtocol::Method => &self.method,
+            TokenKindProtocol::Literal => &self.literal,
+            TokenKindProtocol::HtmlTagKind => &self.html_tag_kind,
+            TokenKindProtocol::WordPattern => &self.word_pattern,
+            TokenKindProtocol::WordOpr => &self.word_opr,
+            TokenKindProtocol::SelfType => &self.self_type,
+            TokenKindProtocol::SelfValue => &self.self_value,
+            TokenKindProtocol::HtmlFunctionIdent => &self.html_function_ident,
+            TokenKindProtocol::HtmlPropertyIdent => &self.html_property_ident,
+            TokenKindProtocol::SubmoduleIdent => &self.submodule_ident,
+            TokenKindProtocol::Todo => &self.todo,
+            TokenKindProtocol::Unreachable => &self.unreachable,
+            TokenKindProtocol::Ident => &self.ident,
+            TokenKindProtocol::Label => &self.label,
+            TokenKindProtocol::Error => &self.error,
         }
     }
 }
