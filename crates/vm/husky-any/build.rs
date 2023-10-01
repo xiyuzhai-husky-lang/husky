@@ -20,7 +20,7 @@ fn main() {
 //     let mut code = String::new();
 //     w!(code; BuildCodeGenStart);
 //     w!(code; r#"
-//     use husky_trace_protocol::VisualData;
+//     use husky_trace_protocol_old::VisualData;
 //     "#);
 //     for ty in NONPRIMITIVE_TYPES {
 //         w!(code; NonPrimitiveTypeRegistration { ty })

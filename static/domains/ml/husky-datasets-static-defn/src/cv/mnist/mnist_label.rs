@@ -2,7 +2,7 @@ use husky_dev_utils::*;
 use husky_entity_kind::TyKind;
 use husky_static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
 use husky_static_visualizer::{StaticVisualTy, StaticVisualizer, StaticVisualizerFp};
-use husky_trace_protocol::VisualData;
+use husky_trace_protocol_old::VisualData;
 
 pub static MNIST_LABEL_BASE_ROUTE: &'static str = "cv::datasets::mnist::MnistLabel";
 

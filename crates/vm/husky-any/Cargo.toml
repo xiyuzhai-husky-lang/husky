@@ -17,7 +17,7 @@ husky-coword = { path = "../../kernel/husky-coword" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 # devtime
-husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
+husky-trace-protocol-old = { path = "../../devtime/husky-trace-protocol-old" }
 # vm
 husky-vm-interface = { path = "../../vm/husky-vm-interface", features = [
     "extra"

@@ -83,7 +83,7 @@ impl TraceNode {
         }
     }
 
-    pub(crate) fn to_data(&self) -> husky_trace_protocol::TraceNodeData {
+    pub(crate) fn to_data(&self) -> husky_trace_protocol_old::TraceNodeData {
         match self {
             TraceNode::Uninitialized => unreachable!(),
             TraceNode::Initialized {

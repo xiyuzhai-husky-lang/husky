@@ -1,6 +1,6 @@
 use crate::*;
 use husky_liason_semantics::OutputModifier;
-use husky_trace_protocol::SampleId;
+use husky_trace_protocol_old::SampleId;
 use husky_vm::{__LinkageGroup, __ResolvedLinkage, transfer_linkage};
 use xrng::XRng;
 

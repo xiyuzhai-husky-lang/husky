@@ -1,7 +1,7 @@
 pub use futures::executor::block_on as __block_on;
 pub use husky_devserver::{HuskyDebugger, HuskyDebuggerConfig};
 pub use husky_test_utils::TestResult as __TestResult;
-pub use husky_trace_protocol::SampleId as __SampleId;
+pub use husky_trace_protocol_old::SampleId as __SampleId;
 
 use husky_print_utils::*;
 

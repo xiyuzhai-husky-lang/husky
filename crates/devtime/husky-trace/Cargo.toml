@@ -10,7 +10,7 @@ serde_json = { version = "1.0.48", features = ["preserve_order"] }
 # abstraction
 map-collect = { path = "../../abstraction/map-collect" }
 # devtime
-husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
+husky-trace-protocol-old = { path = "../../devtime/husky-trace-protocol-old" }
 # ide
 husky-semantic-token = { path = "../../ide/husky-semantic-token" }
 # kernel

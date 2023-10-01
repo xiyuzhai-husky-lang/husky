@@ -9,7 +9,7 @@ mod utils;
 use cell::InformativeRefCell;
 use components::*;
 use context::*;
-use husky_trace_protocol::*;
+use husky_trace_protocol_old::*;
 use init::init;
 use services::*;
 use std::{any::TypeId, rc::Rc};

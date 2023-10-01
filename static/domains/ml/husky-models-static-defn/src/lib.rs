@@ -17,7 +17,7 @@ use husky_liason_semantics::*;
 use husky_static_defn::*;
 use husky_static_defn::{static_mod, EntityStaticDefn, EntityStaticDefnVariant};
 
-use husky_trace_protocol::Label;
+use husky_trace_protocol_old::Label;
 use husky_vm::{
     Model, __LinkageGroup, __ModelLinkageGroup, __Register, __Registrable, __RegistrableSafe,
     __StaticInfo, __VMResult, __VirtualEnum, __VIRTUAL_ENUM_VTABLE,

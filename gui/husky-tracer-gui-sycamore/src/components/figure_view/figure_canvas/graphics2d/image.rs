@@ -1,5 +1,5 @@
 use super::*;
-use husky_trace_protocol::OriginalImageData;
+use husky_trace_protocol_old::OriginalImageData;
 use wasm_bindgen::Clamped;
 use web_sys::{CanvasRenderingContext2d, HtmlCanvasElement, ImageData};
 

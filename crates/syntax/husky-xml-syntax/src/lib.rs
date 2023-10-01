@@ -1,5 +1,5 @@
 use husky_coword::{Ident, IdentPairMap};
-use husky_trace_protocol::VisualData;
+use husky_trace_protocol_old::VisualData;
 use serde::Serialize;
 use serde_json::Value;
 

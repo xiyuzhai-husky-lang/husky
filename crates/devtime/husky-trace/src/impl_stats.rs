@@ -2,7 +2,7 @@ use crate::*;
 
 use husky_print_utils::msg_once;
 
-use husky_trace_protocol::TraceStats;
+use husky_trace_protocol_old::TraceStats;
 use husky_vm::{RegularValue, VMResult};
 
 impl TraceVariant {

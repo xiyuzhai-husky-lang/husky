@@ -3,7 +3,7 @@ use husky_coword::IdentPairMap;
 use husky_opr::BinaryClosedOpr;
 use husky_print_utils::{msg_once, p};
 use husky_text::HasSourceRange;
-use husky_trace_protocol::VisualData;
+use husky_trace_protocol_old::VisualData;
 use husky_val_repr::*;
 use husky_vm::__LinkageGroup;
 use husky_vm::*;

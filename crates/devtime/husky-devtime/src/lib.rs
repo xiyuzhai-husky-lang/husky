@@ -25,7 +25,7 @@ use husky_print_utils::p;
 use husky_syn_expr::SynExprIdx;
 use husky_task::IsTask;
 use husky_trace::*;
-use husky_trace_protocol::*;
+use husky_trace_protocol_old::*;
 use husky_val_repr::*;
 use husky_vfs::DiffPathBuf;
 use husky_vm::*;

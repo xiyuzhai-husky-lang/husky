@@ -1,5 +1,5 @@
 use super::*;
-use husky_trace_protocol::TraceStats;
+use husky_trace_protocol_old::TraceStats;
 use web_sys::Event;
 
 #[derive(Prop)]

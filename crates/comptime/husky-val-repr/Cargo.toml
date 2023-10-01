@@ -47,7 +47,7 @@ husky-instruction = { path = "../../comptime/husky-instruction" }
 # runtime
 husky-feature-protocol = { path = "../../runtime/husky-feature-protocol" }
 # devtime
-husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
+husky-trace-protocol-old = { path = "../../devtime/husky-trace-protocol-old" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }

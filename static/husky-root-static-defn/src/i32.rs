@@ -1,4 +1,4 @@
-use husky_trace_protocol::VisualData;
+use husky_trace_protocol_old::VisualData;
 
 use super::*;
 

@@ -6,7 +6,7 @@ mod session;
 pub use self::evaluator::*;
 pub use self::session::*;
 use husky_ethereal_term::EtherealTerm;
-use husky_trace_protocol::{SampleId, VisualData};
+use husky_trace_protocol_old::{SampleId, VisualData};
 
 use husky_val_repr::{db::ValReprDb, *};
 use husky_vm::{RegularValue, VMConfig, VMResult};
