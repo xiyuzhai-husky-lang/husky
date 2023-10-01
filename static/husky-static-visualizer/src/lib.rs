@@ -1,6 +1,6 @@
 #![feature(extern_types)]
 
-use husky_trace_protocol::VisualData;
+use husky_trace_protocol_old::VisualData;
 use husky_vm_interface::{__Register, __VMResult};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

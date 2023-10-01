@@ -14,7 +14,7 @@ avec = { path = "../../abstraction/avec" }
 trackable = { path = "../../abstraction/trackable" }
 # comptime
 # devtime
-husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
+husky-trace-protocol-old = { path = "../../devtime/husky-trace-protocol-old" }
 husky-trace = { path = "../../devtime/husky-trace" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }

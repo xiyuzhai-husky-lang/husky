@@ -1,4 +1,4 @@
-use husky_trace_protocol::SampleId;
+use husky_trace_protocol_old::SampleId;
 
 use super::*;
 

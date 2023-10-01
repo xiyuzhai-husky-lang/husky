@@ -17,7 +17,7 @@
 // use husky_print_utils::*;
 
 // use husky_test_utils::TestResult;
-// use husky_trace_protocol::*;
+// use husky_trace_protocol_old::*;
 
 // use instance::*;
 // use internal::HuskyDebuggerInternal;

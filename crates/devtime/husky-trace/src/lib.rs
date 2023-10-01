@@ -19,7 +19,7 @@ use husky_ethereal_term::EtherealTerm;
 use husky_syn_decl::SynDecl;
 use husky_syn_expr::*;
 use husky_text::TextRange;
-use husky_trace_protocol::*;
+use husky_trace_protocol_old::*;
 use husky_val_repr::{db::ValReprDb, *};
 use husky_vfs::*;
 use husky_vm::{History, HistoryEntry, Instructions, LoopFrameData, VMConditionBranch};

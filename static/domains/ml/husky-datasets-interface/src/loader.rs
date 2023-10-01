@@ -1,5 +1,5 @@
 use crate::*;
-// use husky_trace_protocol::SampleId;
+// use husky_trace_protocol_old::SampleId;
 use std::panic::{RefUnwindSafe, UnwindSafe};
 
 pub trait LoadSample<'eval>:

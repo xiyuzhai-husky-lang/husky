@@ -33,7 +33,7 @@ husky-compiler = { path = "../../apps/husky-compiler" }
 # comptime
 husky-dev-linkage-table = { path = "../../comptime/husky-dev-linkage-table" }
 # devtime
-husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
+husky-trace-protocol-old = { path = "../../devtime/husky-trace-protocol-old" }
 husky-trace = { path = "../../devtime/husky-trace" }
 husky-devtime = { path = "../../devtime/husky-devtime" }
 # ide

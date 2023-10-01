@@ -22,7 +22,7 @@ pub use linkage::*;
 
 use husky_vm_interface::*;
 // pub use binding::*;
-// use husky_trace_protocol::*;
+// use husky_trace_protocol_old::*;
 // pub use husky_vm_interface::*;
 // pub use stack_idx::*;
 

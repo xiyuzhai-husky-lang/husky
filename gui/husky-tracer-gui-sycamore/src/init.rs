@@ -1,7 +1,7 @@
 use std::panic;
 
 use crate::utils::{add_event_listener, presentation_dialog};
-use husky_trace_protocol::SampleId;
+use husky_trace_protocol_old::SampleId;
 use wasm_bindgen::JsCast;
 
 pub(crate) fn init() {

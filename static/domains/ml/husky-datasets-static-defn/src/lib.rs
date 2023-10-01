@@ -10,7 +10,7 @@ use husky_liason_semantics::*;
 use husky_static_defn::*;
 use husky_static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
 use husky_static_visualizer::{StaticVisualTy, StaticVisualizer, StaticVisualizerFp};
-use husky_trace_protocol::VisualData;
+use husky_trace_protocol_old::VisualData;
 use husky_vm::*;
 use serde::Serialize;
 use std::borrow::Cow;
