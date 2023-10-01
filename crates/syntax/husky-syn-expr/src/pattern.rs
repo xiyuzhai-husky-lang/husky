@@ -159,13 +159,13 @@ where
                                 MajorItemPath::Type(_) => todo!(),
                                 MajorItemPath::Trait(_) => todo!(),
                                 MajorItemPath::Fugitive(path) => match path.fugitive_kind(db) {
-                                    FugitiveKind::Fn | FugitiveKind::Gn | FugitiveKind::Val => {
-                                        parse_overriding_ident_pattern(
-                                            parser,
-                                            path_expr_idx,
-                                            symbol_modifier_tokens,
-                                        )
-                                    }
+                                    FugitiveKind::FunctionFn
+                                    | FugitiveKind::FunctionGn
+                                    | FugitiveKind::Val => parse_overriding_ident_pattern(
+                                        parser,
+                                        path_expr_idx,
+                                        symbol_modifier_tokens,
+                                    ),
                                     FugitiveKind::AliasType => todo!(),
                                 },
                             },

@@ -100,11 +100,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Fn(
+            FugitiveHirDefn::FunctionFn(
                 FnHirDefn {
-                    path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `Fn`),
+                    path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
-                        path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `FunctionFn`),
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
@@ -234,11 +234,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Fn(
+            FugitiveHirDefn::FunctionFn(
                 FnHirDefn {
-                    path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
+                    path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
-                        path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `FunctionFn`),
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },

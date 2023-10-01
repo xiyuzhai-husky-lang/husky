@@ -214,7 +214,7 @@ Ok(
                     },
                     item_kind: MajorItem {
                         module_item_kind: Fugitive(
-                            Fn,
+                            FunctionFn,
                         ),
                         connection: Connected,
                     },
@@ -262,7 +262,7 @@ Ok(
                     },
                     item_kind: MajorItem {
                         module_item_kind: Fugitive(
-                            Fn,
+                            FunctionFn,
                         ),
                         connection: Connected,
                     },
@@ -310,7 +310,7 @@ Ok(
                     },
                     item_kind: MajorItem {
                         module_item_kind: Fugitive(
-                            Fn,
+                            FunctionFn,
                         ),
                         connection: Connected,
                     },
@@ -364,7 +364,7 @@ Ok(
                     },
                     item_kind: MajorItem {
                         module_item_kind: Fugitive(
-                            Fn,
+                            FunctionFn,
                         ),
                         connection: Connected,
                     },
@@ -418,7 +418,7 @@ Ok(
                     },
                     item_kind: MajorItem {
                         module_item_kind: Fugitive(
-                            Fn,
+                            FunctionFn,
                         ),
                         connection: Connected,
                     },

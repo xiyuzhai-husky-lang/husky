@@ -95,7 +95,7 @@ impl<'a> DeclParser<'a, TypeItemSynNodePath> {
     fn parse_ty_item_syn_node_decl(&self) -> TypeItemSynNodeDecl {
         match self.syn_node_path().item_kind(self.db()) {
             TypeItemKind::MethodFn => self.parse_ty_method_node_decl().into(),
-            TypeItemKind::AssociatedFn => self.parse_ty_associated_fn_node_decl().into(),
+            TypeItemKind::AssociatedFunctionFn => self.parse_ty_associated_fn_node_decl().into(),
             TypeItemKind::MemoizedField => self.parse_ty_memo_decl().into(),
             TypeItemKind::AssociatedVal => todo!(),
             TypeItemKind::AssociatedType => todo!(),

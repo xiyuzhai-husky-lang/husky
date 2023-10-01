@@ -88,7 +88,6 @@ impl<'a> AstParser<'a> {
                 body: self.try_parse_option()?,
             },
             EntityKind::TypeVariant => todo!(),
-            EntityKind::Trait => todo!(),
             EntityKind::ImplBlock => todo!(),
             EntityKind::Attr => todo!(),
         };

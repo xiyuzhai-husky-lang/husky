@@ -766,7 +766,7 @@
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
                             disambiguator: 0,
                         },
                     },
@@ -1234,7 +1234,7 @@
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
                             disambiguator: 0,
                         },
                     },
@@ -1518,7 +1518,7 @@
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                             disambiguator: 0,
                         },
                     },

@@ -136,7 +136,6 @@ where
                                         associated_item_kind,
                                     } => todo!(),
                                     EntityKind::TypeVariant => todo!(),
-                                    EntityKind::Trait => todo!(),
                                     EntityKind::ImplBlock => todo!(),
                                     EntityKind::Attr => todo!(),
                                 }

@@ -9,7 +9,7 @@ Ok(
                             syn_node_path: MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
+                                        path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -42,7 +42,7 @@ Ok(
                         MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
+                                    path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
                                     disambiguator: 0,
                                 },
                             },
@@ -57,7 +57,7 @@ Ok(
                             syn_node_path: MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
+                                        path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -92,7 +92,7 @@ Ok(
                         MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
+                                    path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                                     disambiguator: 0,
                                 },
                             },
@@ -109,7 +109,7 @@ Ok(
                             syn_node_path: MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`quick_sort::partition`, `Fn`),
+                                        path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -144,7 +144,7 @@ Ok(
                         MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`quick_sort::partition`, `Fn`),
+                                    path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
                                     disambiguator: 0,
                                 },
                             },
@@ -161,7 +161,7 @@ Ok(
                             syn_node_path: MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
+                                        path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -196,7 +196,7 @@ Ok(
                         MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
+                                    path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
                                     disambiguator: 0,
                                 },
                             },
@@ -213,7 +213,7 @@ Ok(
                             syn_node_path: MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
+                                        path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -248,7 +248,7 @@ Ok(
                         MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
+                                    path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
                                     disambiguator: 0,
                                 },
                             },
@@ -268,7 +268,7 @@ Ok(
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
                         module_item_path: MajorItemPath::Fugitive(
-                            FugitivePath(`quick_sort::quick_sort`, `Fn`),
+                            FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
                         ),
                     },
                 },
@@ -279,7 +279,7 @@ Ok(
                     ),
                     symbol: EntitySymbol::MajorItem {
                         module_item_path: MajorItemPath::Fugitive(
-                            FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
+                            FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                         ),
                     },
                 },
@@ -290,7 +290,7 @@ Ok(
                     ),
                     symbol: EntitySymbol::MajorItem {
                         module_item_path: MajorItemPath::Fugitive(
-                            FugitivePath(`quick_sort::partition`, `Fn`),
+                            FugitivePath(`quick_sort::partition`, `FunctionFn`),
                         ),
                     },
                 },
@@ -301,7 +301,7 @@ Ok(
                     ),
                     symbol: EntitySymbol::MajorItem {
                         module_item_path: MajorItemPath::Fugitive(
-                            FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
+                            FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
                         ),
                     },
                 },
@@ -312,7 +312,7 @@ Ok(
                     ),
                     symbol: EntitySymbol::MajorItem {
                         module_item_path: MajorItemPath::Fugitive(
-                            FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
+                            FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
                         ),
                     },
                 },

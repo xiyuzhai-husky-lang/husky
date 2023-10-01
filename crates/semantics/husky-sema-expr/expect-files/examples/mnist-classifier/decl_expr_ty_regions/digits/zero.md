@@ -133,7 +133,7 @@
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
                             disambiguator: 0,
                         },
                     },

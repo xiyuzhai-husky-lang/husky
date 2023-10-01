@@ -33,9 +33,9 @@
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::Fn(
+            FugitiveHirDecl::FunctionFn(
                 FnFugitiveHirDecl {
-                    path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
+                    path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
                     template_parameters: HirTemplateParameters {
                         data: [],
                     },

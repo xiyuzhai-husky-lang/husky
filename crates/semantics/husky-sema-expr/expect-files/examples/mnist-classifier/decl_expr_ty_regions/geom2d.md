@@ -1421,7 +1421,7 @@
                                     disambiguator: 0,
                                 },
                                 ident: `from_i_shift28`,
-                                item_kind: AssociatedFn,
+                                item_kind: AssociatedFunctionFn,
                             },
                             disambiguator: 0,
                         },

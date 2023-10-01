@@ -258,7 +258,7 @@ Ok(
                                                 disambiguator: 0,
                                             },
                                             ident: `new_zeros`,
-                                            item_kind: AssociatedFn,
+                                            item_kind: AssociatedFunctionFn,
                                         },
                                         disambiguator: 0,
                                     },
@@ -267,7 +267,7 @@ Ok(
                         ),
                         AssociatedItem {
                             associated_item_kind: TypeItem(
-                                AssociatedFn,
+                                AssociatedFunctionFn,
                             ),
                         },
                     ),
@@ -572,7 +572,7 @@ Ok(
                                                 disambiguator: 0,
                                             },
                                             ident: `new_zeros`,
-                                            item_kind: AssociatedFn,
+                                            item_kind: AssociatedFunctionFn,
                                         },
                                         disambiguator: 0,
                                     },
@@ -581,7 +581,7 @@ Ok(
                         ),
                         AssociatedItem {
                             associated_item_kind: TypeItem(
-                                AssociatedFn,
+                                AssociatedFunctionFn,
                             ),
                         },
                     ),

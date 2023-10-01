@@ -499,12 +499,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -861,12 +861,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -911,12 +911,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -1025,12 +1025,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::Pub,
@@ -1040,7 +1040,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -1172,12 +1172,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -2113,7 +2113,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -2148,7 +2148,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -2207,7 +2207,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -2242,7 +2242,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -2259,7 +2259,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -2292,7 +2292,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -2330,7 +2330,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                                    FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -2350,7 +2350,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                                    FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -2359,7 +2359,7 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -2677,12 +2677,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -2694,7 +2694,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -2895,12 +2895,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -3285,12 +3285,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -3302,7 +3302,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -3363,12 +3363,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -3380,7 +3380,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -3533,12 +3533,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::Pub,
@@ -3548,7 +3548,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -3560,7 +3560,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -3750,12 +3750,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -3767,7 +3767,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -4500,7 +4500,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -4535,7 +4535,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -4552,7 +4552,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -4587,7 +4587,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -4604,7 +4604,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -4639,7 +4639,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -4656,7 +4656,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -4691,7 +4691,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -4708,7 +4708,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -4743,7 +4743,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -4760,7 +4760,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -4795,7 +4795,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -4858,7 +4858,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -4893,7 +4893,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -4910,7 +4910,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -4943,7 +4943,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -4983,7 +4983,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                                    FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -4994,7 +4994,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
+                                    FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -5005,7 +5005,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
+                                    FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -5016,7 +5016,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
+                                    FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -5027,7 +5027,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
+                                    FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -5038,7 +5038,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
+                                    FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -5060,7 +5060,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
+                                    FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -5069,7 +5069,7 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -5387,12 +5387,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -5404,7 +5404,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -5805,12 +5805,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -5919,12 +5919,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::Pub,
@@ -5934,7 +5934,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -6356,12 +6356,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -6373,7 +6373,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -6434,12 +6434,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -6451,7 +6451,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -6604,12 +6604,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::Pub,
@@ -6619,7 +6619,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -6631,7 +6631,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -6821,12 +6821,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -6838,7 +6838,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -8355,7 +8355,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -8390,7 +8390,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -8407,7 +8407,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -8442,7 +8442,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -8459,7 +8459,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -8494,7 +8494,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -8511,7 +8511,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -8546,7 +8546,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -8563,7 +8563,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -8598,7 +8598,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -8682,7 +8682,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                    FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -8693,7 +8693,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                    FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -8704,7 +8704,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                    FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -8715,7 +8715,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                    FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -8726,7 +8726,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                    FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -8758,12 +8758,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::Pub,
@@ -9546,7 +9546,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -9579,7 +9579,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -9606,7 +9606,7 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -9924,12 +9924,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -9941,7 +9941,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -10259,12 +10259,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -10284,12 +10284,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -10309,12 +10309,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -10334,12 +10334,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -10359,12 +10359,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -10423,12 +10423,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::Pub,
@@ -10438,7 +10438,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -11322,12 +11322,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -11339,7 +11339,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -11400,12 +11400,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -11417,7 +11417,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -11570,12 +11570,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::Pub,
@@ -11585,7 +11585,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -11597,7 +11597,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -11787,12 +11787,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -11804,7 +11804,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -12257,12 +12257,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -12986,12 +12986,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -13011,12 +13011,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -13036,12 +13036,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -13061,12 +13061,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -13086,12 +13086,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -13150,12 +13150,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::Pub,
@@ -13165,7 +13165,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -13672,7 +13672,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -13705,7 +13705,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -13723,7 +13723,7 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
+                                    FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -13878,12 +13878,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -13903,12 +13903,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -13928,12 +13928,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -13953,12 +13953,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -13978,12 +13978,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -14042,12 +14042,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::Pub,
@@ -14057,7 +14057,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -14451,12 +14451,12 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
                                         module_item_path: MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                         ),
                                     },
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -15231,7 +15231,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -15264,7 +15264,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -15291,7 +15291,7 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -15609,12 +15609,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -15626,7 +15626,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -16167,12 +16167,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -16184,7 +16184,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -16245,12 +16245,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -16262,7 +16262,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -16415,12 +16415,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::Pub,
@@ -16430,7 +16430,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -16442,7 +16442,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -16632,12 +16632,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -16649,7 +16649,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -17988,12 +17988,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -18005,7 +18005,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -18714,12 +18714,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -18731,7 +18731,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -18792,12 +18792,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -18809,7 +18809,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -18962,12 +18962,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::Pub,
@@ -18977,7 +18977,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -18989,7 +18989,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -19179,12 +19179,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -19196,7 +19196,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -20456,7 +20456,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -20491,7 +20491,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -20576,7 +20576,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
+                                    FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -21314,12 +21314,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -21331,7 +21331,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -21343,7 +21343,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -22364,12 +22364,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -22381,7 +22381,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -22393,7 +22393,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -22470,12 +22470,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -22487,7 +22487,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -22499,7 +22499,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -22696,12 +22696,12 @@ Ok(
                                                         UseSymbol {
                                                             original_symbol: EntitySymbol::MajorItem {
                                                                 module_item_path: MajorItemPath::Fugitive(
-                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                                 ),
                                                             },
                                                             path: PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Fugitive(
-                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                                 ),
                                                             ),
                                                             visibility: Scope::Pub,
@@ -22711,7 +22711,7 @@ Ok(
                                                     ),
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -22723,7 +22723,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -22735,7 +22735,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -22983,12 +22983,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -23000,7 +23000,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -23012,7 +23012,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -23706,7 +23706,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::one::upmost`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -23741,7 +23741,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::one::upmost`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -23758,7 +23758,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::one::downmost`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -23793,7 +23793,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::one::downmost`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -23810,7 +23810,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::one::hat`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -23845,7 +23845,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::one::hat`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -23887,7 +23887,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::one::upmost`, `Fn`),
+                                    FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -23898,7 +23898,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::one::downmost`, `Fn`),
+                                    FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -23909,7 +23909,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::one::hat`, `Fn`),
+                                    FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -24636,12 +24636,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -24653,7 +24653,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -24665,7 +24665,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -25686,12 +25686,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -25703,7 +25703,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -25715,7 +25715,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -25792,12 +25792,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -25809,7 +25809,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -25821,7 +25821,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -26018,12 +26018,12 @@ Ok(
                                                         UseSymbol {
                                                             original_symbol: EntitySymbol::MajorItem {
                                                                 module_item_path: MajorItemPath::Fugitive(
-                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                                 ),
                                                             },
                                                             path: PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Fugitive(
-                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                                 ),
                                                             ),
                                                             visibility: Scope::Pub,
@@ -26033,7 +26033,7 @@ Ok(
                                                     ),
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -26045,7 +26045,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -26057,7 +26057,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -26305,12 +26305,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -26322,7 +26322,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -26334,7 +26334,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -27084,7 +27084,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -27119,7 +27119,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -27136,7 +27136,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -27171,7 +27171,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -27226,7 +27226,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                                    FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -27237,7 +27237,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
+                                    FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -27964,12 +27964,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -27981,7 +27981,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -27993,7 +27993,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -29014,12 +29014,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -29031,7 +29031,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -29043,7 +29043,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -29120,12 +29120,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -29137,7 +29137,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -29149,7 +29149,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -29346,12 +29346,12 @@ Ok(
                                                         UseSymbol {
                                                             original_symbol: EntitySymbol::MajorItem {
                                                                 module_item_path: MajorItemPath::Fugitive(
-                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                                 ),
                                                             },
                                                             path: PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Fugitive(
-                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                                 ),
                                                             ),
                                                             visibility: Scope::Pub,
@@ -29361,7 +29361,7 @@ Ok(
                                                     ),
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -29373,7 +29373,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -29385,7 +29385,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -29633,12 +29633,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -29650,7 +29650,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -29662,7 +29662,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -30360,7 +30360,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -30395,7 +30395,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -30412,7 +30412,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -30447,7 +30447,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -30464,7 +30464,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -30499,7 +30499,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -30543,7 +30543,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                                    FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -30554,7 +30554,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                                    FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -30565,7 +30565,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
+                                    FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -31292,12 +31292,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -31309,7 +31309,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -31321,7 +31321,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -32342,12 +32342,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -32359,7 +32359,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -32371,7 +32371,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -32448,12 +32448,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -32465,7 +32465,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -32477,7 +32477,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -32674,12 +32674,12 @@ Ok(
                                                         UseSymbol {
                                                             original_symbol: EntitySymbol::MajorItem {
                                                                 module_item_path: MajorItemPath::Fugitive(
-                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                                 ),
                                                             },
                                                             path: PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Fugitive(
-                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                                 ),
                                                             ),
                                                             visibility: Scope::Pub,
@@ -32689,7 +32689,7 @@ Ok(
                                                     ),
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -32701,7 +32701,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -32713,7 +32713,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -32961,12 +32961,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -32978,7 +32978,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -32990,7 +32990,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -33636,7 +33636,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -33671,7 +33671,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -33844,7 +33844,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -33879,7 +33879,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -33896,7 +33896,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -33931,7 +33931,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -33964,7 +33964,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
+                                    FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -34008,7 +34008,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
+                                    FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -34019,7 +34019,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
+                                    FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -34746,12 +34746,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -34763,7 +34763,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -34775,7 +34775,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -35796,12 +35796,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -35813,7 +35813,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -35825,7 +35825,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -35902,12 +35902,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -35919,7 +35919,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -35931,7 +35931,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -36128,12 +36128,12 @@ Ok(
                                                         UseSymbol {
                                                             original_symbol: EntitySymbol::MajorItem {
                                                                 module_item_path: MajorItemPath::Fugitive(
-                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                                 ),
                                                             },
                                                             path: PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Fugitive(
-                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                                 ),
                                                             ),
                                                             visibility: Scope::Pub,
@@ -36143,7 +36143,7 @@ Ok(
                                                     ),
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -36155,7 +36155,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -36167,7 +36167,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -36415,12 +36415,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -36432,7 +36432,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -36444,7 +36444,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -37822,12 +37822,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -37839,7 +37839,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -37851,7 +37851,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -38872,12 +38872,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -38889,7 +38889,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -38901,7 +38901,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -38978,12 +38978,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -38995,7 +38995,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -39007,7 +39007,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -39204,12 +39204,12 @@ Ok(
                                                         UseSymbol {
                                                             original_symbol: EntitySymbol::MajorItem {
                                                                 module_item_path: MajorItemPath::Fugitive(
-                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                                 ),
                                                             },
                                                             path: PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Fugitive(
-                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                                 ),
                                                             ),
                                                             visibility: Scope::Pub,
@@ -39219,7 +39219,7 @@ Ok(
                                                     ),
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -39231,7 +39231,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -39243,7 +39243,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -39491,12 +39491,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -39508,7 +39508,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -39520,7 +39520,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -40166,7 +40166,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -40201,7 +40201,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -40270,7 +40270,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -40305,7 +40305,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -40322,7 +40322,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -40357,7 +40357,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -40442,7 +40442,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
+                                    FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -40464,7 +40464,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
+                                    FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -40475,7 +40475,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
+                                    FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -41213,12 +41213,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -41230,7 +41230,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -41242,7 +41242,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -42263,12 +42263,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -42280,7 +42280,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -42292,7 +42292,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -42369,12 +42369,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -42386,7 +42386,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -42398,7 +42398,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -42595,12 +42595,12 @@ Ok(
                                                         UseSymbol {
                                                             original_symbol: EntitySymbol::MajorItem {
                                                                 module_item_path: MajorItemPath::Fugitive(
-                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                                 ),
                                                             },
                                                             path: PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Fugitive(
-                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                                 ),
                                                             ),
                                                             visibility: Scope::Pub,
@@ -42610,7 +42610,7 @@ Ok(
                                                     ),
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -42622,7 +42622,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -42634,7 +42634,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -42882,12 +42882,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -42899,7 +42899,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -42911,7 +42911,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -43609,7 +43609,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -43644,7 +43644,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -43688,7 +43688,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
+                                    FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -44415,12 +44415,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -44432,7 +44432,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -44444,7 +44444,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -45465,12 +45465,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -45482,7 +45482,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -45494,7 +45494,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -45571,12 +45571,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -45588,7 +45588,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -45600,7 +45600,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -45797,12 +45797,12 @@ Ok(
                                                         UseSymbol {
                                                             original_symbol: EntitySymbol::MajorItem {
                                                                 module_item_path: MajorItemPath::Fugitive(
-                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                                 ),
                                                             },
                                                             path: PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Fugitive(
-                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                                 ),
                                                             ),
                                                             visibility: Scope::Pub,
@@ -45812,7 +45812,7 @@ Ok(
                                                     ),
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -45824,7 +45824,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -45836,7 +45836,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -46084,12 +46084,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -46101,7 +46101,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -46113,7 +46113,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -46863,7 +46863,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -46898,7 +46898,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -46915,7 +46915,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -46950,7 +46950,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -47005,7 +47005,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::nine::downmost`, `Fn`),
+                                    FugitivePath(`mnist_classifier::digits::nine::downmost`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -47016,7 +47016,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
+                                    FugitivePath(`mnist_classifier::digits::nine::big_cc`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -47743,12 +47743,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -47760,7 +47760,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -47772,7 +47772,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -48793,12 +48793,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -48810,7 +48810,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -48822,7 +48822,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -48899,12 +48899,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -48916,7 +48916,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -48928,7 +48928,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -49125,12 +49125,12 @@ Ok(
                                                         UseSymbol {
                                                             original_symbol: EntitySymbol::MajorItem {
                                                                 module_item_path: MajorItemPath::Fugitive(
-                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                                 ),
                                                             },
                                                             path: PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Fugitive(
-                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                                 ),
                                                             ),
                                                             visibility: Scope::Pub,
@@ -49140,7 +49140,7 @@ Ok(
                                                     ),
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -49152,7 +49152,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -49164,7 +49164,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -49412,12 +49412,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -49429,7 +49429,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -49441,7 +49441,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -50087,7 +50087,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -50122,7 +50122,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -50139,7 +50139,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -50174,7 +50174,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -50191,7 +50191,7 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
+                                                path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `FunctionFn`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -50226,7 +50226,7 @@ Ok(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
+                                            path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `FunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -50311,7 +50311,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
+                                    FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -50322,7 +50322,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
+                                    FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -50333,7 +50333,7 @@ Ok(
                             ),
                             symbol: EntitySymbol::MajorItem {
                                 module_item_path: MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
+                                    FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `FunctionFn`),
                                 ),
                             },
                         },
@@ -51071,12 +51071,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -51088,7 +51088,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -51100,7 +51100,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -52121,12 +52121,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -52138,7 +52138,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -52150,7 +52150,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -52227,12 +52227,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -52244,7 +52244,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -52256,7 +52256,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -52453,12 +52453,12 @@ Ok(
                                                         UseSymbol {
                                                             original_symbol: EntitySymbol::MajorItem {
                                                                 module_item_path: MajorItemPath::Fugitive(
-                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                                 ),
                                                             },
                                                             path: PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Fugitive(
-                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                                 ),
                                                             ),
                                                             visibility: Scope::Pub,
@@ -52468,7 +52468,7 @@ Ok(
                                                     ),
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -52480,7 +52480,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -52492,7 +52492,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -52740,12 +52740,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::PubUnder(
@@ -52757,7 +52757,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -52769,7 +52769,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -54074,12 +54074,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -54091,7 +54091,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -54632,12 +54632,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -54649,7 +54649,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -54710,12 +54710,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -54727,7 +54727,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -54880,12 +54880,12 @@ Ok(
                                                 UseSymbol {
                                                     original_symbol: EntitySymbol::MajorItem {
                                                         module_item_path: MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         ),
                                                     },
                                                     path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                     visibility: Scope::Pub,
@@ -54895,7 +54895,7 @@ Ok(
                                             ),
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -54907,7 +54907,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -55097,12 +55097,12 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                 ),
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                 ),
                                             ),
                                             visibility: Scope::PubUnder(
@@ -55114,7 +55114,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(

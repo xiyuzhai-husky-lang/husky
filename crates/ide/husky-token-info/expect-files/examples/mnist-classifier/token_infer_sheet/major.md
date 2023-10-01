@@ -93,7 +93,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                             ),
                         ),
                     ),

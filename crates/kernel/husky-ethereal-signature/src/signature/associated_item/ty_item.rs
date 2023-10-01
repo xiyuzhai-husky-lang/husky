@@ -147,7 +147,7 @@ pub(crate) fn ty_item_ethereal_signature_templates_map(
                             })
                             .collect::<EtherealSignatureResult<SmallVecImpl<_>>>()
                             .map(TypeItemEtherealSignatureTemplates::MethodFn),
-                        TypeItemKind::AssociatedFn => paths
+                        TypeItemKind::AssociatedFunctionFn => paths
                             .iter()
                             .copied()
                             .map(|path| match path.ethereal_signature_template(db) {

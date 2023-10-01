@@ -12,17 +12,17 @@ Ok(
         ),
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
             ),
         ),
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
             ),
         ),
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
+                FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
             ),
         ),
     ],

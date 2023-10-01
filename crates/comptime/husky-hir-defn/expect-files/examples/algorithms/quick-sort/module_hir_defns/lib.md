@@ -1,11 +1,11 @@
 [
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Fn(
+            FugitiveHirDefn::FunctionFn(
                 FnHirDefn {
-                    path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
+                    path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
-                        path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
+                        path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
                         template_parameters: HirTemplateParameters {
                             data: [
                                 HirTemplateParameter {
@@ -176,11 +176,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Fn(
+            FugitiveHirDefn::FunctionFn(
                 FnHirDefn {
-                    path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
+                    path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
-                        path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
+                        path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                         template_parameters: HirTemplateParameters {
                             data: [
                                 HirTemplateParameter {
@@ -474,11 +474,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Fn(
+            FugitiveHirDefn::FunctionFn(
                 FnHirDefn {
-                    path: FugitivePath(`quick_sort::partition`, `Fn`),
+                    path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
-                        path: FugitivePath(`quick_sort::partition`, `Fn`),
+                        path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
                         template_parameters: HirTemplateParameters {
                             data: [
                                 HirTemplateParameter {
@@ -1156,11 +1156,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Fn(
+            FugitiveHirDefn::FunctionFn(
                 FnHirDefn {
-                    path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
+                    path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
-                        path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
+                        path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
@@ -1287,11 +1287,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Fn(
+            FugitiveHirDefn::FunctionFn(
                 FnHirDefn {
-                    path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
+                    path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
-                        path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
+                        path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },

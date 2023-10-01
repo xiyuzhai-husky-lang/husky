@@ -49,11 +49,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Fn(
+            FugitiveHirDefn::FunctionFn(
                 FnHirDefn {
-                    path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                    path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
-                        path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },

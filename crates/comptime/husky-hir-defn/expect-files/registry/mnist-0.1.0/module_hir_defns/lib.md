@@ -237,7 +237,7 @@
                             disambiguator: 0,
                         },
                         ident: `new_zeros`,
-                        item_kind: AssociatedFn,
+                        item_kind: AssociatedFunctionFn,
                     },
                     hir_decl: TypeAssociatedFnHirDecl {
                         path: TypeItemPath {
@@ -247,7 +247,7 @@
                                 disambiguator: 0,
                             },
                             ident: `new_zeros`,
-                            item_kind: AssociatedFn,
+                            item_kind: AssociatedFunctionFn,
                         },
                         template_parameters: HirTemplateParameters {
                             data: [],
@@ -469,7 +469,7 @@
                             disambiguator: 0,
                         },
                         ident: `new_zeros`,
-                        item_kind: AssociatedFn,
+                        item_kind: AssociatedFunctionFn,
                     },
                     hir_decl: TypeAssociatedFnHirDecl {
                         path: TypeItemPath {
@@ -479,7 +479,7 @@
                                 disambiguator: 0,
                             },
                             ident: `new_zeros`,
-                            item_kind: AssociatedFn,
+                            item_kind: AssociatedFunctionFn,
                         },
                         template_parameters: HirTemplateParameters {
                             data: [],

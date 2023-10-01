@@ -83,7 +83,7 @@
       <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-binding/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-borrow-checker/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-entity-path/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/protocol/husky-entity-kind/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-entity-kind/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-package-path/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-platform/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-qual/src" isTestSource="false" />

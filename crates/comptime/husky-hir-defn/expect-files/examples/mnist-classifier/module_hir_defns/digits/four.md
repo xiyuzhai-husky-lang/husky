@@ -34,11 +34,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Fn(
+            FugitiveHirDefn::FunctionFn(
                 FnHirDefn {
-                    path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
+                    path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
-                        path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
@@ -205,11 +205,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Fn(
+            FugitiveHirDefn::FunctionFn(
                 FnHirDefn {
-                    path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
+                    path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
-                        path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
@@ -339,11 +339,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Fn(
+            FugitiveHirDefn::FunctionFn(
                 FnHirDefn {
-                    path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
+                    path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
-                        path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },

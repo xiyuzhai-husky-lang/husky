@@ -7,7 +7,7 @@ Ok(
         ),
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
+                FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
             ),
         ),
         ItemPath::MajorItem(

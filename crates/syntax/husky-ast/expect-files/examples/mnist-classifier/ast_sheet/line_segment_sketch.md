@@ -84,7 +84,7 @@ Ok(
                     },
                     item_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            AssociatedFn,
+                            AssociatedFunctionFn,
                         ),
                     },
                     ident_token: IdentToken {
@@ -390,7 +390,7 @@ Ok(
                     },
                     item_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            AssociatedFn,
+                            AssociatedFunctionFn,
                         ),
                     },
                     ident_token: IdentToken {
@@ -1838,7 +1838,7 @@ Ok(
                     },
                     item_kind: MajorItem {
                         module_item_kind: Fugitive(
-                            Fn,
+                            FunctionFn,
                         ),
                         connection: Connected,
                     },
@@ -1886,7 +1886,7 @@ Ok(
                     },
                     item_kind: MajorItem {
                         module_item_kind: Fugitive(
-                            Fn,
+                            FunctionFn,
                         ),
                         connection: Connected,
                     },
@@ -1934,7 +1934,7 @@ Ok(
                     },
                     item_kind: MajorItem {
                         module_item_kind: Fugitive(
-                            Fn,
+                            FunctionFn,
                         ),
                         connection: Connected,
                     },
@@ -1982,7 +1982,7 @@ Ok(
                     },
                     item_kind: MajorItem {
                         module_item_kind: Fugitive(
-                            Fn,
+                            FunctionFn,
                         ),
                         connection: Connected,
                     },
@@ -2030,7 +2030,7 @@ Ok(
                     },
                     item_kind: MajorItem {
                         module_item_kind: Fugitive(
-                            Fn,
+                            FunctionFn,
                         ),
                         connection: Connected,
                     },

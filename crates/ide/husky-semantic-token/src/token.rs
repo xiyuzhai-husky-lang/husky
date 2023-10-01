@@ -1,12 +1,12 @@
 use crate::*;
 use husky_entity_kind::*;
-use husky_keyword_kind::KeywordKind;
-use husky_semantic_token_kind::SemanticTokenKind;
+use husky_entity_protocol::EntityProtocol;
 use husky_text::TextRange;
+use husky_token_protocol::{KeywordProtocol, TokenProtocol};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct SemanticToken {
-    pub kind: SemanticTokenKind,
+    pub token_protocol: TokenProtocol,
     pub range: TextRange,
 }
 
@@ -17,88 +17,76 @@ impl PartialOrd for SemanticToken {
 }
 
 impl SemanticToken {
-    pub fn new(kind: SemanticTokenKind, range: TextRange) -> Self {
-        Self { kind, range }
+    pub fn new(token_protocol: TokenProtocol, range: TextRange) -> Self {
+        Self {
+            token_protocol,
+            range,
+        }
     }
 }
 
 impl SemanticToken {
     #[inline(always)]
     pub fn token_type(self) -> u32 {
-        get_type_index(match self.kind {
-            SemanticTokenKind::Keyword(_) => ext::SemanticTokenType::KEYWORD,
-            SemanticTokenKind::Comment => ext::SemanticTokenType::COMMENT,
-            SemanticTokenKind::Field => ext::SemanticTokenType::PROPERTY,
-            SemanticTokenKind::Special => ext::SemanticTokenType::OPERATOR,
-            SemanticTokenKind::Variable => ext::SemanticTokenType::VARIABLE,
-            SemanticTokenKind::ThisValue => ext::SemanticTokenType::VARIABLE,
-            SemanticTokenKind::FrameVariable => ext::SemanticTokenType::VARIABLE,
-            SemanticTokenKind::Entity(item_kind) => match item_kind {
-                EntityKind::Module => ext::SemanticTokenType::NAMESPACE,
-                EntityKind::MajorItem {
-                    module_item_kind,
-                    connection: _,
-                } => match module_item_kind {
-                    MajorItemKind::Type(_) => ext::SemanticTokenType::TYPE,
-                    MajorItemKind::Fugitive(form_kind) => match form_kind {
-                        FugitiveKind::Val => ext::SemanticTokenType::VARIABLE,
-                        FugitiveKind::Fn | FugitiveKind::Gn => ext::SemanticTokenType::FUNCTION,
-                        FugitiveKind::AliasType => todo!(),
-                    },
-                    MajorItemKind::Trait => ext::SemanticTokenType::TYPE,
-                },
-                EntityKind::AssociatedItem {
-                    associated_item_kind,
-                } => match associated_item_kind {
-                    AssociatedItemKind::TypeItem(ty_item_kind) => match ty_item_kind {
-                        TypeItemKind::MethodFn => ext::SemanticTokenType::METHOD,
-                        TypeItemKind::AssociatedFn => ext::SemanticTokenType::FUNCTION,
-                        TypeItemKind::MemoizedField => ext::SemanticTokenType::PROPERTY,
-                        TypeItemKind::AssociatedVal => ext::SemanticTokenType::VARIABLE,
-                        TypeItemKind::AssociatedType => ext::SemanticTokenType::TYPE,
-                    },
-                    AssociatedItemKind::TraitItem(_) => todo!(),
-                    AssociatedItemKind::TraitForTypeItem(trai_for_ty_kind) => {
-                        match trai_for_ty_kind {
-                            TraitItemKind::MethodFn => ext::SemanticTokenType::METHOD,
-                            TraitItemKind::AssociatedType => ext::SemanticTokenType::TYPE,
-                        }
-                    }
-                },
-                EntityKind::TypeVariant => ext::SemanticTokenType::ENUM_MEMBER,
-                EntityKind::Trait => ext::SemanticTokenType::CLASS,
-                EntityKind::ImplBlock => unreachable!(),
-                EntityKind::Attr => unreachable!(),
+        get_type_index(match self.token_protocol {
+            TokenProtocol::Keyword(_) => ext::SemanticTokenType::KEYWORD,
+            TokenProtocol::Comment => ext::SemanticTokenType::COMMENT,
+            TokenProtocol::Field => ext::SemanticTokenType::PROPERTY,
+            TokenProtocol::Special => ext::SemanticTokenType::OPERATOR,
+            TokenProtocol::Variable => ext::SemanticTokenType::VARIABLE,
+            TokenProtocol::ThisValue => ext::SemanticTokenType::VARIABLE,
+            TokenProtocol::FrameVariable => ext::SemanticTokenType::VARIABLE,
+            TokenProtocol::Entity(entity_protocol) => match entity_protocol {
+                EntityProtocol::Module => ext::SemanticTokenType::NAMESPACE,
+                EntityProtocol::Type => ext::SemanticTokenType::TYPE,
+                EntityProtocol::Val => ext::SemanticTokenType::VARIABLE,
+                EntityProtocol::FunctionFn | EntityProtocol::FunctionGn => {
+                    ext::SemanticTokenType::FUNCTION
+                }
+                EntityProtocol::AliasType => todo!(),
+                EntityProtocol::Trait => ext::SemanticTokenType::CLASS,
+                EntityProtocol::MethodFn | EntityProtocol::MethodGn => {
+                    ext::SemanticTokenType::METHOD
+                }
+                EntityProtocol::AssociatedFunctionFn | EntityProtocol::AssociatedFunctionGn => {
+                    ext::SemanticTokenType::FUNCTION
+                }
+                EntityProtocol::MemoizedField => ext::SemanticTokenType::PROPERTY,
+                EntityProtocol::AssociatedVal => ext::SemanticTokenType::VARIABLE,
+                EntityProtocol::AssociatedType => ext::SemanticTokenType::TYPE,
+                EntityProtocol::TypeVariant => ext::SemanticTokenType::ENUM_MEMBER,
+                EntityProtocol::ImplBlock => unreachable!(),
+                EntityProtocol::Attr => unreachable!(),
             },
-            SemanticTokenKind::ImplicitParameter => ext::SemanticTokenType::TYPE_PARAMETER,
-            SemanticTokenKind::Parameter => ext::SemanticTokenType::PARAMETER,
-            SemanticTokenKind::EnumVariant => ext::SemanticTokenType::ENUM_MEMBER,
-            SemanticTokenKind::Method => ext::SemanticTokenType::METHOD,
-            SemanticTokenKind::Literal => ext::SemanticTokenType::NUMBER,
-            SemanticTokenKind::HtmlTagKind => ext::SemanticTokenType::FUNCTION,
-            SemanticTokenKind::WordPattern => ext::SemanticTokenType::ENUM_MEMBER,
-            SemanticTokenKind::Attribute => ext::SemanticTokenType::DECORATOR,
-            SemanticTokenKind::WordOpr => ext::SemanticTokenType::KEYWORD,
-            SemanticTokenKind::SelfType => ext::SemanticTokenType::TYPE,
-            SemanticTokenKind::SelfValue => ext::SemanticTokenType::KEYWORD,
-            SemanticTokenKind::HtmlFunctionIdent => ext::SemanticTokenType::FUNCTION,
-            SemanticTokenKind::HtmlPropertyIdent => ext::SemanticTokenType::PROPERTY,
-            SemanticTokenKind::SubmoduleIdent => ext::SemanticTokenType::NAMESPACE,
-            SemanticTokenKind::Todo => ext::SemanticTokenType::MACRO,
-            SemanticTokenKind::Unreachable => ext::SemanticTokenType::MACRO,
-            SemanticTokenKind::Ident => ext::SemanticTokenType::VARIABLE,
-            SemanticTokenKind::Label => ext::SemanticTokenType::VARIABLE,
-            SemanticTokenKind::Error => ext::SemanticTokenType::MACRO,
+            TokenProtocol::ImplicitParameter => ext::SemanticTokenType::TYPE_PARAMETER,
+            TokenProtocol::Parameter => ext::SemanticTokenType::PARAMETER,
+            TokenProtocol::EnumVariant => ext::SemanticTokenType::ENUM_MEMBER,
+            TokenProtocol::Method => ext::SemanticTokenType::METHOD,
+            TokenProtocol::Literal => ext::SemanticTokenType::NUMBER,
+            TokenProtocol::HtmlTagKind => ext::SemanticTokenType::FUNCTION,
+            TokenProtocol::WordPattern => ext::SemanticTokenType::ENUM_MEMBER,
+            TokenProtocol::Attribute => ext::SemanticTokenType::DECORATOR,
+            TokenProtocol::WordOpr => ext::SemanticTokenType::KEYWORD,
+            TokenProtocol::SelfType => ext::SemanticTokenType::TYPE,
+            TokenProtocol::SelfValue => ext::SemanticTokenType::KEYWORD,
+            TokenProtocol::HtmlFunctionIdent => ext::SemanticTokenType::FUNCTION,
+            TokenProtocol::HtmlPropertyIdent => ext::SemanticTokenType::PROPERTY,
+            TokenProtocol::SubmoduleIdent => ext::SemanticTokenType::NAMESPACE,
+            TokenProtocol::Todo => ext::SemanticTokenType::MACRO,
+            TokenProtocol::Unreachable => ext::SemanticTokenType::MACRO,
+            TokenProtocol::Ident => ext::SemanticTokenType::VARIABLE,
+            TokenProtocol::Label => ext::SemanticTokenType::VARIABLE,
+            TokenProtocol::Error => ext::SemanticTokenType::MACRO,
         })
     }
 
     #[inline(always)]
     pub fn token_modifiers_bitset(self) -> u32 {
         let mut result = ModifierSet(0);
-        match self.kind {
-            SemanticTokenKind::Keyword(keyword_kind) => match keyword_kind {
-                KeywordKind::ControlFlow => result |= CONTROL_FLOW,
-                KeywordKind::Other => (),
+        match self.token_protocol {
+            TokenProtocol::Keyword(keyword_kind) => match keyword_kind {
+                KeywordProtocol::ControlFlow => result |= CONTROL_FLOW,
+                KeywordProtocol::Other => (),
             },
             _ => (),
         }

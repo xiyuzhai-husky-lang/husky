@@ -240,7 +240,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -291,7 +291,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },

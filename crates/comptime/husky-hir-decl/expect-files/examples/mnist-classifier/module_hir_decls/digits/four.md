@@ -17,9 +17,9 @@
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::Fn(
+            FugitiveHirDecl::FunctionFn(
                 FnFugitiveHirDecl {
-                    path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
+                    path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
                     template_parameters: HirTemplateParameters {
                         data: [],
                     },
@@ -77,9 +77,9 @@
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::Fn(
+            FugitiveHirDecl::FunctionFn(
                 FnFugitiveHirDecl {
-                    path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
+                    path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
                     template_parameters: HirTemplateParameters {
                         data: [],
                     },
@@ -89,9 +89,9 @@
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::Fn(
+            FugitiveHirDecl::FunctionFn(
                 FnFugitiveHirDecl {
-                    path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
+                    path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
                     template_parameters: HirTemplateParameters {
                         data: [],
                     },

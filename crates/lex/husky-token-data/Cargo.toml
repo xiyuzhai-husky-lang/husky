@@ -23,11 +23,10 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 husky-text = { path = "../../lex/husky-text" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
-husky-entity-kind = { path = "../../protocol/husky-entity-kind" }
+husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 # protocol
-husky-keyword-kind = { path = "../../protocol/husky-keyword-kind" }
-husky-semantic-token-kind = { path = "../../protocol/husky-semantic-token-kind", optional = true }
+husky-token-protocol = { path = "../../protocol/husky-token-protocol", optional = true }
 # syntax
 husky-opr = { path = "../../kernel/husky-opr" }
 # utils
@@ -38,6 +37,5 @@ husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
 
-
 [features]
-semantic_token_support = ["dep:husky-semantic-token-kind"]
+protocol_support = ["dep:husky-token-protocol"]

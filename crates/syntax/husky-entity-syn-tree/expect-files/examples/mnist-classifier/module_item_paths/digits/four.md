@@ -7,7 +7,7 @@ Ok(
         ),
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
+                FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
             ),
         ),
         ItemPath::MajorItem(
@@ -27,12 +27,12 @@ Ok(
         ),
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
+                FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
             ),
         ),
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
+                FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
             ),
         ),
     ],

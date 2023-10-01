@@ -17,9 +17,9 @@
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::Fn(
+            FugitiveHirDecl::FunctionFn(
                 FnFugitiveHirDecl {
-                    path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
+                    path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `FunctionFn`),
                     template_parameters: HirTemplateParameters {
                         data: [],
                     },
@@ -29,9 +29,9 @@
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::Fn(
+            FugitiveHirDecl::FunctionFn(
                 FnFugitiveHirDecl {
-                    path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
+                    path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `FunctionFn`),
                     template_parameters: HirTemplateParameters {
                         data: [],
                     },
@@ -41,9 +41,9 @@
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::Fn(
+            FugitiveHirDecl::FunctionFn(
                 FnFugitiveHirDecl {
-                    path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
+                    path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `FunctionFn`),
                     template_parameters: HirTemplateParameters {
                         data: [],
                     },

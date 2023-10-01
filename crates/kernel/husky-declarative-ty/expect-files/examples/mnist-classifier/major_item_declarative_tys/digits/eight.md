@@ -22,7 +22,7 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
+                FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
             ),
         ),
         Ok(

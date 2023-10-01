@@ -34,9 +34,9 @@
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::Gn(
+            FugitiveHirDecl::FunctionGn(
                 GnFugitiveHirDecl {
-                    path: FugitivePath(`malamute::narrow_down`, `Gn`),
+                    path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                     template_parameters: HirTemplateParameters {
                         data: [
                             HirTemplateParameter {

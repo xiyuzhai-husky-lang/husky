@@ -3375,7 +3375,7 @@
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
                             disambiguator: 0,
                         },
                     },

@@ -73,7 +73,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                             ),
                         ),
                     ),
@@ -104,7 +104,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::one::downmost`, `Fn`),
+                                FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
                             ),
                         ),
                     ),
@@ -119,7 +119,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::one::upmost`, `Fn`),
+                                FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
                             ),
                         ),
                     ),
@@ -134,7 +134,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::one::hat`, `Fn`),
+                                FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
                             ),
                         ),
                     ),
@@ -235,7 +235,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                             ),
                         ),
                     ),
@@ -313,7 +313,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                             ),
                         ),
                     ),
@@ -377,7 +377,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                             ),
                         ),
                     ),
@@ -753,7 +753,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                             ),
                         ),
                     ),
@@ -1029,7 +1029,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                             ),
                         ),
                     ),
@@ -1157,7 +1157,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                             ),
                         ),
                     ),
@@ -1556,7 +1556,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                             ),
                         ),
                     ),
@@ -1677,7 +1677,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                             ),
                         ),
                     ),
@@ -1817,7 +1817,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                             ),
                         ),
                     ),
@@ -2259,7 +2259,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                             ),
                         ),
                     ),
@@ -2604,7 +2604,7 @@ Ok(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::one::upmost`, `Fn`),
+                                        path: FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -2612,7 +2612,7 @@ Ok(
                         ),
                         MajorItem {
                             module_item_kind: Fugitive(
-                                Fn,
+                                FunctionFn,
                             ),
                             connection: Connected,
                         },
@@ -2779,7 +2779,7 @@ Ok(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::one::downmost`, `Fn`),
+                                        path: FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -2787,7 +2787,7 @@ Ok(
                         ),
                         MajorItem {
                             module_item_kind: Fugitive(
-                                Fn,
+                                FunctionFn,
                             ),
                             connection: Connected,
                         },
@@ -2968,7 +2968,7 @@ Ok(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::one::hat`, `Fn`),
+                                        path: FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -2976,7 +2976,7 @@ Ok(
                         ),
                         MajorItem {
                             module_item_kind: Fugitive(
-                                Fn,
+                                FunctionFn,
                             ),
                             connection: Connected,
                         },

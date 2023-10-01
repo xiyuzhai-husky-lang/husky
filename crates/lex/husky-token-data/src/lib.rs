@@ -15,9 +15,9 @@ pub use self::wordopr::*;
 
 use self::db::*;
 use husky_coword::*;
-#[cfg(feature = "semantic_token_support")]
-use husky_semantic_token_kind::SemanticTokenKind;
 use husky_term_prelude::*;
+#[cfg(feature = "protocol_support")]
+use husky_token_protocol::TokenProtocol;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = TokenDataDb)]
@@ -32,18 +32,18 @@ pub enum TokenData {
     Error(TokenDataError),
 }
 
-#[cfg(feature = "semantic_token_support")]
+#[cfg(feature = "protocol_support")]
 impl TokenData {
     // overridable given more information
-    pub fn default_semantic_token_kind(self) -> SemanticTokenKind {
+    pub fn default_protocol(self) -> TokenProtocol {
         match self {
-            TokenData::Keyword(kw) => SemanticTokenKind::Keyword(kw.kind()),
-            TokenData::Punctuation(_) => SemanticTokenKind::Special,
-            TokenData::WordOpr(_) => SemanticTokenKind::WordOpr,
-            TokenData::Literal(_) => SemanticTokenKind::Literal,
-            TokenData::Ident(_) => SemanticTokenKind::Ident,
-            TokenData::Label(_) => SemanticTokenKind::Label,
-            TokenData::Error(_) => SemanticTokenKind::Error,
+            TokenData::Keyword(kw) => TokenProtocol::Keyword(kw.protocol()),
+            TokenData::Punctuation(_) => TokenProtocol::Special,
+            TokenData::WordOpr(_) => TokenProtocol::WordOpr,
+            TokenData::Literal(_) => TokenProtocol::Literal,
+            TokenData::Ident(_) => TokenProtocol::Ident,
+            TokenData::Label(_) => TokenProtocol::Label,
+            TokenData::Error(_) => TokenProtocol::Error,
         }
     }
 }

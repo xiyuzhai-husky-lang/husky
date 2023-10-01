@@ -165,7 +165,7 @@ Ok(
                             syn_node_path: MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                                        path: FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -200,7 +200,7 @@ Ok(
                         MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                                    path: FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
                                     disambiguator: 0,
                                 },
                             },
@@ -217,7 +217,7 @@ Ok(
                             syn_node_path: MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
+                                        path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -252,7 +252,7 @@ Ok(
                         MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
+                                    path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
                                     disambiguator: 0,
                                 },
                             },

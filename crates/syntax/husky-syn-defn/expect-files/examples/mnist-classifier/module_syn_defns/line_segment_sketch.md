@@ -873,11 +873,11 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
-                FugitiveSynDefn::Fn(
+                FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
-                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                         decl: FnSynDecl {
-                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
                                 SpecificParameterObelisk::Regular {
@@ -922,7 +922,7 @@ Ok(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -1165,7 +1165,7 @@ Ok(
                                                             MajorItemSynNodePath::Fugitive(
                                                                 FugitiveSynNodePath {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -1399,7 +1399,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -2374,11 +2374,11 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
-                FugitiveSynDefn::Fn(
+                FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
-                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                         decl: FnSynDecl {
-                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
                                 SpecificParameterObelisk::Regular {
@@ -2423,7 +2423,7 @@ Ok(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -2666,7 +2666,7 @@ Ok(
                                                             MajorItemSynNodePath::Fugitive(
                                                                 FugitiveSynNodePath {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -2900,7 +2900,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -3875,11 +3875,11 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
-                FugitiveSynDefn::Fn(
+                FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
-                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                         decl: FnSynDecl {
-                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
                                 SpecificParameterObelisk::Regular {
@@ -3938,7 +3938,7 @@ Ok(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -4259,7 +4259,7 @@ Ok(
                                                             MajorItemSynNodePath::Fugitive(
                                                                 FugitiveSynNodePath {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -4571,7 +4571,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -5018,7 +5018,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -5072,7 +5072,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -5488,7 +5488,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -5542,7 +5542,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -5955,7 +5955,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },
@@ -5970,7 +5970,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },
@@ -5985,7 +5985,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },
@@ -6000,7 +6000,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },
@@ -7138,11 +7138,11 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
-                FugitiveSynDefn::Fn(
+                FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
-                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                         decl: FnSynDecl {
-                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
                                 SpecificParameterObelisk::Regular {
@@ -7215,7 +7215,7 @@ Ok(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -7607,7 +7607,7 @@ Ok(
                                                             MajorItemSynNodePath::Fugitive(
                                                                 FugitiveSynNodePath {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -7990,7 +7990,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -8462,7 +8462,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -8516,7 +8516,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -8865,7 +8865,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -8919,7 +8919,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -9502,7 +9502,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },
@@ -9517,7 +9517,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },
@@ -9532,7 +9532,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },
@@ -9547,7 +9547,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },
@@ -10816,11 +10816,11 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
-                FugitiveSynDefn::Fn(
+                FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
-                        path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                         decl: FnSynDecl {
-                            path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
                                 SpecificParameterObelisk::Regular {
@@ -10865,7 +10865,7 @@ Ok(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -11128,7 +11128,7 @@ Ok(
                                                             MajorItemSynNodePath::Fugitive(
                                                                 FugitiveSynNodePath {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -11382,7 +11382,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -11520,7 +11520,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -12263,7 +12263,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -13973,7 +13973,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },
@@ -14018,7 +14018,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },
@@ -16801,7 +16801,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             ident: `new`,
-                            item_kind: AssociatedFn,
+                            item_kind: AssociatedFunctionFn,
                         },
                         decl: TypeAssociatedFnSynDecl {
                             path: TypeItemPath {
@@ -16811,7 +16811,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                                 ident: `new`,
-                                item_kind: AssociatedFn,
+                                item_kind: AssociatedFunctionFn,
                             },
                             template_parameters: [],
                             parenate_parameters: [
@@ -16967,7 +16967,7 @@ Ok(
                                                                 disambiguator: 0,
                                                             },
                                                             ident: `new`,
-                                                            item_kind: AssociatedFn,
+                                                            item_kind: AssociatedFunctionFn,
                                                         },
                                                         disambiguator: 0,
                                                     },
@@ -17385,7 +17385,7 @@ Ok(
                                                                                 disambiguator: 0,
                                                                             },
                                                                             ident: `new`,
-                                                                            item_kind: AssociatedFn,
+                                                                            item_kind: AssociatedFunctionFn,
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -17705,7 +17705,7 @@ Ok(
                                                                     disambiguator: 0,
                                                                 },
                                                                 ident: `new`,
-                                                                item_kind: AssociatedFn,
+                                                                item_kind: AssociatedFunctionFn,
                                                             },
                                                             disambiguator: 0,
                                                         },
@@ -19857,7 +19857,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -19903,7 +19903,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },
@@ -21782,7 +21782,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             ident: `new`,
-                            item_kind: AssociatedFn,
+                            item_kind: AssociatedFunctionFn,
                         },
                         decl: TypeAssociatedFnSynDecl {
                             path: TypeItemPath {
@@ -21792,7 +21792,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                                 ident: `new`,
-                                item_kind: AssociatedFn,
+                                item_kind: AssociatedFunctionFn,
                             },
                             template_parameters: [],
                             parenate_parameters: [
@@ -21934,7 +21934,7 @@ Ok(
                                                                 disambiguator: 0,
                                                             },
                                                             ident: `new`,
-                                                            item_kind: AssociatedFn,
+                                                            item_kind: AssociatedFunctionFn,
                                                         },
                                                         disambiguator: 0,
                                                     },
@@ -22281,7 +22281,7 @@ Ok(
                                                                                 disambiguator: 0,
                                                                             },
                                                                             ident: `new`,
-                                                                            item_kind: AssociatedFn,
+                                                                            item_kind: AssociatedFunctionFn,
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -22530,7 +22530,7 @@ Ok(
                                                                     disambiguator: 0,
                                                                 },
                                                                 ident: `new`,
-                                                                item_kind: AssociatedFn,
+                                                                item_kind: AssociatedFunctionFn,
                                                             },
                                                             disambiguator: 0,
                                                         },
@@ -22565,7 +22565,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -22673,7 +22673,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },

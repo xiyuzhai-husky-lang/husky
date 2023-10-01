@@ -9158,7 +9158,7 @@
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `FunctionFn`),
                             disambiguator: 0,
                         },
                     },
@@ -10048,7 +10048,7 @@
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `FunctionFn`),
                             disambiguator: 0,
                         },
                     },

@@ -1,8 +1,8 @@
 use husky_entity_kind::{EntityKind, MajorItemConnectionKind, MajorItemKind, TypeKind};
 use husky_entity_syn_tree::OnceUseRuleState;
-use husky_semantic_token_kind::SemanticTokenKind;
 use husky_syn_expr::{SynCurrentSymbolKind, SynInheritedSymbolKind};
 use husky_token_data::TokenData;
+use husky_token_protocol::TokenProtocol;
 
 use crate::*;
 
@@ -30,9 +30,9 @@ fn token_to_semantic_token(
     range: &husky_text::TextRange,
 ) -> Option<SemanticToken> {
     Some(SemanticToken {
-        kind: match info {
+        token_protocol: match info {
             Some(info) => info.data().semantic_token_kind(db),
-            None => token_data.default_semantic_token_kind(),
+            None => token_data.default_protocol(),
         },
         range: *range,
     })
@@ -40,7 +40,7 @@ fn token_to_semantic_token(
 
 fn comment_to_semantic_token(comment: &Comment) -> SemanticToken {
     SemanticToken {
-        kind: SemanticTokenKind::Comment,
+        token_protocol: TokenProtocol::Comment,
         range: comment.range(),
     }
 }
