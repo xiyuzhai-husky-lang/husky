@@ -31,11 +31,10 @@ fn token_to_semantic_token(
     let semantic_token = match info {
         None => match token {
             TokenData::Keyword(kw) => SemanticToken::Keyword(*kw),
-            TokenData::Ident(_) | TokenData::Label(_) => return None,
             TokenData::Punctuation(_) => SemanticToken::Special,
             TokenData::WordOpr(_) => SemanticToken::WordOpr,
             TokenData::Literal(_) => SemanticToken::Literal,
-            TokenData::Error(_) => return None,
+            TokenData::Ident(_) | TokenData::Label(_) | TokenData::Error(_) => return None,
         },
         Some(info) => match info.data() {
             TokenInfoData::Entity(path) => SemanticToken::Entity(path.item_kind(db)),

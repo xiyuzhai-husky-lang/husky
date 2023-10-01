@@ -17,3 +17,14 @@ pub use self::loop_group::*;
 pub use self::val_item::*;
 
 use crate::*;
+
+#[derive(Debug, Clone)]
+pub struct TraceView {
+    tokens: Vec<TraceViewToken>,
+}
+
+#[derive(Debug, Clone)]
+pub struct TraceViewToken {
+    text: String,
+    ranged_semantic_token: husky_semantic_token::token::RangedSemanticToken,
+}

@@ -15,7 +15,8 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 husky-text = { path = "../../lex/husky-text" }
 husky-token-data = { path = "../../lex/husky-token-data" }
 husky-token = { path = "../../lex/husky-token" }
-# infer
+# ide
+husky-semantic-token-protocol = { path = "../../ide/husky-semantic-token-protocol" }
 husky-token-info = { path = "../../ide/husky-token-info" }
 # kernel
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
