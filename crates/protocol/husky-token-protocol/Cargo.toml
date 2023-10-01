@@ -1,8 +1,9 @@
 [package]
-name = "husky-semantic-token-protocol"
+name = "husky-token-protocol"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
+# protocol
+husky-entity-protocol = { path = "../../protocol/husky-entity-protocol" }

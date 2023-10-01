@@ -11,7 +11,7 @@ pub struct GnHirDefn {
 
 impl GnHirDefn {
     pub(super) fn new(db: &dyn HirDefnDb, path: FugitivePath, hir_decl: GnFugitiveHirDecl) -> Self {
-        let Ok(FugitiveSynDefn::Gn(syn_defn)) = path.syn_defn(db) else {
+        let Ok(FugitiveSynDefn::FunctionGn(syn_defn)) = path.syn_defn(db) else {
             unreachable!("hir stage no error")
         };
         GnHirDefn::new_inner(

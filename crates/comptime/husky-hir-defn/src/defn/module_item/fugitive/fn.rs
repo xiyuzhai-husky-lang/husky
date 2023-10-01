@@ -9,7 +9,7 @@ pub struct FnHirDefn {
 
 impl FnHirDefn {
     pub(super) fn new(db: &dyn HirDefnDb, path: FugitivePath, hir_decl: FnFugitiveHirDecl) -> Self {
-        let Ok(FugitiveSynDefn::Fn(syn_defn)) = path.syn_defn(db) else {
+        let Ok(FugitiveSynDefn::FunctionFn(syn_defn)) = path.syn_defn(db) else {
             unreachable!()
         };
         FnHirDefn::new_inner(

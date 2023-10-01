@@ -2,13 +2,13 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`quick_sort::quick_sort`, `Fn`),
+                FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
             ),
         ),
         Ok(
             SignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Fn(
+                    FugitiveDeclarativeSignatureTemplate::FunctionFn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [
@@ -43,13 +43,13 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
+                FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
             ),
         ),
         Ok(
             SignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Fn(
+                    FugitiveDeclarativeSignatureTemplate::FunctionFn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [
@@ -96,13 +96,13 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`quick_sort::partition`, `Fn`),
+                FugitivePath(`quick_sort::partition`, `FunctionFn`),
             ),
         ),
         Ok(
             SignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Fn(
+                    FugitiveDeclarativeSignatureTemplate::FunctionFn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [
@@ -149,13 +149,13 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
+                FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
             ),
         ),
         Ok(
             SignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Fn(
+                    FugitiveDeclarativeSignatureTemplate::FunctionFn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
@@ -173,13 +173,13 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
+                FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
             ),
         ),
         Ok(
             SignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Fn(
+                    FugitiveDeclarativeSignatureTemplate::FunctionFn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],

@@ -45,8 +45,8 @@ fn expr_region_contains_gn(db: &dyn HirExprDb, syn_expr_region: SynExprRegion) -
                 path: PrincipalEntityPath::MajorItem(MajorItemPath::Fugitive(path)),
                 ..
             } => match path.fugitive_kind(db) {
-                FugitiveKind::Gn => return true,
-                FugitiveKind::Fn | FugitiveKind::AliasType | FugitiveKind::Val => (),
+                FugitiveKind::FunctionGn => return true,
+                FugitiveKind::FunctionFn | FugitiveKind::AliasType | FugitiveKind::Val => (),
             },
             SemaExprData::AssociatedItem {
                 static_dispatch: StaticDispatch::AssociatedGn,

@@ -382,7 +382,7 @@ Ok(
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                 disambiguator: 0,
                             },
                         },
@@ -390,11 +390,11 @@ Ok(
                 ),
                 ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Fugitive(
-                        FugitiveSynNodeDecl::Fn(
+                        FugitiveSynNodeDecl::FunctionFn(
                             FnSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                        path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -487,7 +487,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },

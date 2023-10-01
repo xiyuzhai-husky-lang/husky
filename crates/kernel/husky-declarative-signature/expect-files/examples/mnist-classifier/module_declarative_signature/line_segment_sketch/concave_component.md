@@ -35,13 +35,13 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
             ),
         ),
         Ok(
             SignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Fn(
+                    FugitiveDeclarativeSignatureTemplate::FunctionFn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],

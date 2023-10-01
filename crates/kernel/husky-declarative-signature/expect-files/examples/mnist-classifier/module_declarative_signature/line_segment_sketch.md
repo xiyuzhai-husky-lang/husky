@@ -113,13 +113,13 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
             ),
         ),
         Ok(
             SignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Fn(
+                    FugitiveDeclarativeSignatureTemplate::FunctionFn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
@@ -150,13 +150,13 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
             ),
         ),
         Ok(
             SignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Fn(
+                    FugitiveDeclarativeSignatureTemplate::FunctionFn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
@@ -187,13 +187,13 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
             ),
         ),
         Ok(
             SignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Fn(
+                    FugitiveDeclarativeSignatureTemplate::FunctionFn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
@@ -230,13 +230,13 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
             ),
         ),
         Ok(
             SignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Fn(
+                    FugitiveDeclarativeSignatureTemplate::FunctionFn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
@@ -279,13 +279,13 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
             ),
         ),
         Ok(
             SignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Fn(
+                    FugitiveDeclarativeSignatureTemplate::FunctionFn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
@@ -423,7 +423,7 @@
                         disambiguator: 0,
                     },
                     ident: `new`,
-                    item_kind: AssociatedFn,
+                    item_kind: AssociatedFunctionFn,
                 },
             ),
         ),
@@ -682,7 +682,7 @@
                         disambiguator: 0,
                     },
                     ident: `new`,
-                    item_kind: AssociatedFn,
+                    item_kind: AssociatedFunctionFn,
                 },
             ),
         ),

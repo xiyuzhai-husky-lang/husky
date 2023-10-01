@@ -32,27 +32,27 @@ Ok(
         ),
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
             ),
         ),
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
             ),
         ),
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
             ),
         ),
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
             ),
         ),
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
             ),
         ),
         ItemPath::ImplBlock(
@@ -101,7 +101,7 @@ Ok(
                         disambiguator: 0,
                     },
                     ident: `new`,
-                    item_kind: AssociatedFn,
+                    item_kind: AssociatedFunctionFn,
                 },
             ),
         ),
@@ -190,7 +190,7 @@ Ok(
                         disambiguator: 0,
                     },
                     ident: `new`,
-                    item_kind: AssociatedFn,
+                    item_kind: AssociatedFunctionFn,
                 },
             ),
         ),

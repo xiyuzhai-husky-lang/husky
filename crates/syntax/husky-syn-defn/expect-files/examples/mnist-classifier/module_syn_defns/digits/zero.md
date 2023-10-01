@@ -214,7 +214,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -234,7 +234,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -297,7 +297,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },
@@ -327,7 +327,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },
@@ -391,11 +391,11 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
-                FugitiveSynDefn::Fn(
+                FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
-                        path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
                         decl: FnSynDecl {
-                            path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
                                 SpecificParameterObelisk::Regular {
@@ -426,7 +426,7 @@ Ok(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
+                                                        path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -612,7 +612,7 @@ Ok(
                                                             MajorItemSynNodePath::Fugitive(
                                                                 FugitiveSynNodePath {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
+                                                                        path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -789,7 +789,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1792,7 +1792,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -1845,7 +1845,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                                FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                             ),
                                                         ),
                                                     ),
@@ -2694,7 +2694,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },
@@ -2724,7 +2724,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                         ),
                                                     ),
                                                 },

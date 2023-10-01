@@ -314,11 +314,11 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
-                FugitiveSynDefn::Fn(
+                FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
-                        path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                         decl: FnSynDecl {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
                                 SpecificParameterObelisk::Regular {
@@ -363,7 +363,7 @@ Ok(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                        path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -720,7 +720,7 @@ Ok(
                                                             MajorItemSynNodePath::Fugitive(
                                                                 FugitiveSynNodePath {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                                        path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -1068,7 +1068,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },

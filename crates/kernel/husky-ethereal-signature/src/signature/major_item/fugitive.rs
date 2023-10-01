@@ -14,8 +14,8 @@ use super::*;
 #[enum_class::from_variants]
 #[salsa::debug_with_db(db = EtherealSignatureDb)]
 pub enum FugitiveEtherealSignatureTemplate {
-    Fn(FnFugitiveEtherealSignatureTemplate),
-    Gn(GnFugitiveEtherealSignatureTemplate),
+    FunctionFn(FnFugitiveEtherealSignatureTemplate),
+    FunctionGn(GnFugitiveEtherealSignatureTemplate),
     TypeAlias(TypeAliasFugitiveEtherealSignatureTemplate),
     Val(ValFugitiveEtherealSignatureTemplate),
 }
@@ -26,8 +26,12 @@ impl FugitiveEtherealSignatureTemplate {
         db: &dyn EtherealSignatureDb,
     ) -> &[EtherealTermTemplateParameter] {
         match self {
-            FugitiveEtherealSignatureTemplate::Fn(template) => template.template_parameters(db),
-            FugitiveEtherealSignatureTemplate::Gn(template) => template.template_parameters(db),
+            FugitiveEtherealSignatureTemplate::FunctionFn(template) => {
+                template.template_parameters(db)
+            }
+            FugitiveEtherealSignatureTemplate::FunctionGn(template) => {
+                template.template_parameters(db)
+            }
             FugitiveEtherealSignatureTemplate::TypeAlias(template) => {
                 template.template_parameters(db)
             }
@@ -53,7 +57,7 @@ fn fugitive_ethereal_signature_template(
     path: FugitivePath,
 ) -> EtherealSignatureResult<FugitiveEtherealSignatureTemplate> {
     Ok(match path.declarative_signature_template(db)? {
-        FugitiveDeclarativeSignatureTemplate::Fn(declarative_signature_template) => {
+        FugitiveDeclarativeSignatureTemplate::FunctionFn(declarative_signature_template) => {
             FnFugitiveEtherealSignatureTemplate::from_declarative(
                 db,
                 path,
@@ -61,7 +65,7 @@ fn fugitive_ethereal_signature_template(
             )?
             .into()
         }
-        FugitiveDeclarativeSignatureTemplate::Gn(declarative_signature_template) => {
+        FugitiveDeclarativeSignatureTemplate::FunctionGn(declarative_signature_template) => {
             GnFugitiveEtherealSignatureTemplate::from_declarative(
                 db,
                 path,

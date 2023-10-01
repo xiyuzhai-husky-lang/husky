@@ -38,13 +38,13 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::one::upmost`, `Fn`),
+                FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
             ),
         ),
         Ok(
             SignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Fn(
+                    FugitiveDeclarativeSignatureTemplate::FunctionFn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
@@ -69,13 +69,13 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::one::downmost`, `Fn`),
+                FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
             ),
         ),
         Ok(
             SignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Fn(
+                    FugitiveDeclarativeSignatureTemplate::FunctionFn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
@@ -100,13 +100,13 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::one::hat`, `Fn`),
+                FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
             ),
         ),
         Ok(
             SignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Fn(
+                    FugitiveDeclarativeSignatureTemplate::FunctionFn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],

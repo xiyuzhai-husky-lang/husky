@@ -572,7 +572,7 @@
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
                             disambiguator: 0,
                         },
                     },
@@ -903,7 +903,7 @@
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
                             disambiguator: 0,
                         },
                     },
@@ -1234,7 +1234,7 @@
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
                             disambiguator: 0,
                         },
                     },

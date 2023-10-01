@@ -5,7 +5,7 @@
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
+                            path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
                             disambiguator: 0,
                         },
                     },
@@ -1422,7 +1422,7 @@
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
+                            path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                             disambiguator: 0,
                         },
                     },
@@ -4244,7 +4244,7 @@
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`quick_sort::partition`, `Fn`),
+                            path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
                             disambiguator: 0,
                         },
                     },
@@ -9583,7 +9583,7 @@
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
+                            path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
                             disambiguator: 0,
                         },
                     },
@@ -11120,7 +11120,7 @@
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
+                            path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
                             disambiguator: 0,
                         },
                     },

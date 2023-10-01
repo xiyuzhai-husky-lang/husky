@@ -153,7 +153,7 @@ Ok(
                             syn_node_path: MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`malamute::narrow_down`, `Gn`),
+                                        path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -180,7 +180,7 @@ Ok(
                         MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`malamute::narrow_down`, `Gn`),
+                                    path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                     disambiguator: 0,
                                 },
                             },

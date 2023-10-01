@@ -1,9 +1,0 @@
-[package]
-name = "husky-semantic-token-kind"
-version = "0.1.0"
-edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-[dependencies]
-husky-entity-kind = { path = "../../protocol/husky-entity-kind" }
-husky-keyword-kind = { path = "../../protocol/husky-keyword-kind" }

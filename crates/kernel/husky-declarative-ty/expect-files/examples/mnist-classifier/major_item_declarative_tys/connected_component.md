@@ -22,7 +22,7 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
             ),
         ),
         Ok(
@@ -42,7 +42,7 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
             ),
         ),
         Ok(
@@ -52,7 +52,7 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
             ),
         ),
         Ok(

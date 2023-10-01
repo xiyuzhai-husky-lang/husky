@@ -1,18 +1,17 @@
-use husky_entity_kind::EntityKind;
-use husky_keyword_kind::KeywordKind;
+use husky_entity_protocol::EntityProtocol;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum SemanticTokenKind {
+pub enum TokenProtocol {
     Attribute,
     Comment,
-    Keyword(KeywordKind),
+    Keyword(KeywordProtocol),
     Field,
     Special,
     Parameter,
     Variable,
     ThisValue,
     FrameVariable,
-    Entity(EntityKind),
+    Entity(EntityProtocol),
     ImplicitParameter,
     EnumVariant,
     Method,
@@ -30,4 +29,10 @@ pub enum SemanticTokenKind {
     Ident,
     Label,
     Error,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum KeywordProtocol {
+    ControlFlow,
+    Other,
 }

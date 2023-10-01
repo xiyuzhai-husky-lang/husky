@@ -1,0 +1,20 @@
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum EntityProtocol {
+    Module,
+    Type,
+    FunctionFn,
+    FunctionGn,
+    AliasType,
+    Val,
+    Trait,
+    TypeVariant,
+    MethodFn,
+    MethodGn,
+    AssociatedFunctionFn,
+    AssociatedFunctionGn,
+    MemoizedField,
+    AssociatedVal,
+    AssociatedType,
+    ImplBlock,
+    Attr,
+}

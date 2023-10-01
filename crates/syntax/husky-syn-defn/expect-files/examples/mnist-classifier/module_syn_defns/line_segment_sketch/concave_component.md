@@ -310,11 +310,11 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
-                FugitiveSynDefn::Fn(
+                FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
-                        path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                         decl: FnSynDecl {
-                            path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
                                 SpecificParameterObelisk::Regular {
@@ -345,7 +345,7 @@ Ok(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -550,7 +550,7 @@ Ok(
                                                             MajorItemSynNodePath::Fugitive(
                                                                 FugitiveSynNodePath {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -746,7 +746,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -881,7 +881,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -1079,7 +1079,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -1497,7 +1497,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },
@@ -1512,7 +1512,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },

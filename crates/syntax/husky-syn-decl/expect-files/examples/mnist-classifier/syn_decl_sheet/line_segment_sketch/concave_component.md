@@ -317,14 +317,14 @@ Ok(
             (
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                        FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                     ),
                 ),
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
-                        FugitiveSynDecl::Fn(
+                        FugitiveSynDecl::FunctionFn(
                             FnSynDecl {
-                                path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                 template_parameters: [],
                                 parenate_parameters: [
                                     SpecificParameterObelisk::Regular {
@@ -355,7 +355,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },

@@ -17,7 +17,7 @@ Ok(
         ),
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`malamute::narrow_down`, `Gn`),
+                FugitivePath(`malamute::narrow_down`, `FunctionGn`),
             ),
         ),
         ItemPath::ImplBlock(

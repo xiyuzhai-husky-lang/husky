@@ -963,7 +963,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             ident: `new_zeros`,
-                            item_kind: AssociatedFn,
+                            item_kind: AssociatedFunctionFn,
                         },
                         decl: TypeAssociatedFnSynDecl {
                             path: TypeItemPath {
@@ -973,7 +973,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                                 ident: `new_zeros`,
-                                item_kind: AssociatedFn,
+                                item_kind: AssociatedFunctionFn,
                             },
                             template_parameters: [],
                             parenate_parameters: [],
@@ -1086,7 +1086,7 @@ Ok(
                                                                 disambiguator: 0,
                                                             },
                                                             ident: `new_zeros`,
-                                                            item_kind: AssociatedFn,
+                                                            item_kind: AssociatedFunctionFn,
                                                         },
                                                         disambiguator: 0,
                                                     },
@@ -2153,7 +2153,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             ident: `new_zeros`,
-                            item_kind: AssociatedFn,
+                            item_kind: AssociatedFunctionFn,
                         },
                         decl: TypeAssociatedFnSynDecl {
                             path: TypeItemPath {
@@ -2163,7 +2163,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                                 ident: `new_zeros`,
-                                item_kind: AssociatedFn,
+                                item_kind: AssociatedFunctionFn,
                             },
                             template_parameters: [],
                             parenate_parameters: [],
@@ -2276,7 +2276,7 @@ Ok(
                                                                 disambiguator: 0,
                                                             },
                                                             ident: `new_zeros`,
-                                                            item_kind: AssociatedFn,
+                                                            item_kind: AssociatedFunctionFn,
                                                         },
                                                         disambiguator: 0,
                                                     },

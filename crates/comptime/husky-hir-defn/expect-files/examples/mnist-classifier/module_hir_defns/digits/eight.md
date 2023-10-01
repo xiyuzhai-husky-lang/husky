@@ -67,11 +67,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Fn(
+            FugitiveHirDefn::FunctionFn(
                 FnHirDefn {
-                    path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
+                    path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
-                        path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },

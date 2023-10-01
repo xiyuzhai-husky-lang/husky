@@ -5,14 +5,14 @@ Ok(
             (
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`quick_sort::quick_sort`, `Fn`),
+                        FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
                     ),
                 ),
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
-                        FugitiveSynDecl::Fn(
+                        FugitiveSynDecl::FunctionFn(
                             FnSynDecl {
-                                path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
+                                path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
                                 template_parameters: [
                                     TemplateParameterObelisk {
                                         annotated_variance_token: None,
@@ -62,7 +62,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
+                                                            path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -270,14 +270,14 @@ Ok(
             (
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
+                        FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                     ),
                 ),
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
-                        FugitiveSynDecl::Fn(
+                        FugitiveSynDecl::FunctionFn(
                             FnSynDecl {
-                                path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
+                                path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                                 template_parameters: [
                                     TemplateParameterObelisk {
                                         annotated_variance_token: None,
@@ -355,7 +355,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
+                                                            path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -705,14 +705,14 @@ Ok(
             (
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`quick_sort::partition`, `Fn`),
+                        FugitivePath(`quick_sort::partition`, `FunctionFn`),
                     ),
                 ),
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
-                        FugitiveSynDecl::Fn(
+                        FugitiveSynDecl::FunctionFn(
                             FnSynDecl {
-                                path: FugitivePath(`quick_sort::partition`, `Fn`),
+                                path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
                                 template_parameters: [
                                     TemplateParameterObelisk {
                                         annotated_variance_token: None,
@@ -794,7 +794,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`quick_sort::partition`, `Fn`),
+                                                            path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1173,14 +1173,14 @@ Ok(
             (
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
+                        FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
                     ),
                 ),
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
-                        FugitiveSynDecl::Fn(
+                        FugitiveSynDecl::FunctionFn(
                             FnSynDecl {
-                                path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
+                                path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
                                 template_parameters: [],
                                 parenate_parameters: [],
                                 return_ty: None,
@@ -1192,7 +1192,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
+                                                            path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1247,14 +1247,14 @@ Ok(
             (
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
+                        FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
                     ),
                 ),
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
-                        FugitiveSynDecl::Fn(
+                        FugitiveSynDecl::FunctionFn(
                             FnSynDecl {
-                                path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
+                                path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
                                 template_parameters: [],
                                 parenate_parameters: [],
                                 return_ty: None,
@@ -1266,7 +1266,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
+                                                            path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },

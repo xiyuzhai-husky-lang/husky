@@ -48,7 +48,7 @@ Ok(
                     },
                     item_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            AssociatedFn,
+                            AssociatedFunctionFn,
                         ),
                     },
                     ident_token: IdentToken {

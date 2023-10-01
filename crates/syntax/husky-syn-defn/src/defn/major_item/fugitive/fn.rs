@@ -39,7 +39,8 @@ pub struct FnSynDefn {
 
 impl FnSynDefn {
     pub(super) fn new(db: &dyn SynDefnDb, path: FugitivePath, decl: FnSynDecl) -> Self {
-        let FugitiveSynNodeDefn::Fn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db)
+        let FugitiveSynNodeDefn::FunctionFn(syn_node_defn) =
+            path.syn_node_path(db).syn_node_defn(db)
         else {
             unreachable!()
         };

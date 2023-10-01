@@ -330,7 +330,7 @@ Ok(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                                        path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -338,7 +338,7 @@ Ok(
                         ),
                         MajorItem {
                             module_item_kind: Fugitive(
-                                Fn,
+                                FunctionFn,
                             ),
                             connection: Connected,
                         },
@@ -743,7 +743,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                             ),
                         ),
                     ),
@@ -951,7 +951,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                                FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
                             ),
                         ),
                     ),
@@ -1023,7 +1023,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                                FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
                             ),
                         ),
                     ),
@@ -1095,7 +1095,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                                FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
                             ),
                         ),
                     ),
@@ -3514,7 +3514,7 @@ Ok(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                                        path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -3522,7 +3522,7 @@ Ok(
                         ),
                         MajorItem {
                             module_item_kind: Fugitive(
-                                Fn,
+                                FunctionFn,
                             ),
                             connection: Connected,
                         },
@@ -3983,7 +3983,7 @@ Ok(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                        path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -3991,7 +3991,7 @@ Ok(
                         ),
                         MajorItem {
                             module_item_kind: Fugitive(
-                                Fn,
+                                FunctionFn,
                             ),
                             connection: Connected,
                         },
@@ -4394,7 +4394,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                                FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
                             ),
                         ),
                     ),
@@ -4640,7 +4640,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                                FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
                             ),
                         ),
                     ),
@@ -4971,7 +4971,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                                FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
                             ),
                         ),
                     ),

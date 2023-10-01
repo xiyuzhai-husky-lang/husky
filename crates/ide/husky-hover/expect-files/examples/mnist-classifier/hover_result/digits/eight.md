@@ -70,7 +70,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 14;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Ident(\n    `big_mouth`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            3,\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Fugitive(\n                    FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
+                                value: "\ntoken_idx = 14;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Ident(\n    `big_mouth`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            3,\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Fugitive(\n                    FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                             },
                         ),
                         range: Some(

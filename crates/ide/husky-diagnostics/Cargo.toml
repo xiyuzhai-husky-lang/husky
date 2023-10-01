@@ -17,7 +17,7 @@ husky-sema-expr = { path = "../../semantics/husky-sema-expr" }
 # kernel
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
-husky-entity-kind = { path = "../../protocol/husky-entity-kind" }
+husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
 husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
 # lex
 husky-token-data = { path = "../../lex/husky-token-data" }

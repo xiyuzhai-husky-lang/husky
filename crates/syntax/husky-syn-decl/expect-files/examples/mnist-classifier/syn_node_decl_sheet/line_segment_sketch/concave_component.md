@@ -378,7 +378,7 @@ Ok(
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                 disambiguator: 0,
                             },
                         },
@@ -386,11 +386,11 @@ Ok(
                 ),
                 ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Fugitive(
-                        FugitiveSynNodeDecl::Fn(
+                        FugitiveSynNodeDecl::FunctionFn(
                             FnSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -463,7 +463,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },

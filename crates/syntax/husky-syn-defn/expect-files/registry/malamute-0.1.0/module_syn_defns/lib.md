@@ -483,11 +483,11 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
-                FugitiveSynDefn::Gn(
+                FugitiveSynDefn::FunctionGn(
                     GnSynDefn {
-                        path: FugitivePath(`malamute::narrow_down`, `Gn`),
+                        path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                         decl: GnSynDecl {
-                            path: FugitivePath(`malamute::narrow_down`, `Gn`),
+                            path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                             template_parameters: [
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
@@ -601,7 +601,7 @@ Ok(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                        path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                         disambiguator: 0,
                                                     },
                                                 },

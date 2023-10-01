@@ -73,7 +73,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                             ),
                         ),
                     ),
@@ -104,7 +104,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
+                                FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
                             ),
                         ),
                     ),
@@ -119,7 +119,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
+                                FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
                             ),
                         ),
                     ),
@@ -136,7 +136,7 @@ Ok(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
+                                        path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -144,7 +144,7 @@ Ok(
                         ),
                         MajorItem {
                             module_item_kind: Fugitive(
-                                Fn,
+                                FunctionFn,
                             ),
                             connection: Connected,
                         },
@@ -288,7 +288,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                             ),
                         ),
                     ),
@@ -319,7 +319,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
+                                FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
                             ),
                         ),
                     ),
@@ -375,7 +375,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                             ),
                         ),
                     ),
@@ -406,7 +406,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
+                                FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
                             ),
                         ),
                     ),
@@ -1472,7 +1472,7 @@ Ok(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
+                                        path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1480,7 +1480,7 @@ Ok(
                         ),
                         MajorItem {
                             module_item_kind: Fugitive(
-                                Fn,
+                                FunctionFn,
                             ),
                             connection: Connected,
                         },
@@ -1647,7 +1647,7 @@ Ok(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
+                                        path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1655,7 +1655,7 @@ Ok(
                         ),
                         MajorItem {
                             module_item_kind: Fugitive(
-                                Fn,
+                                FunctionFn,
                             ),
                             connection: Connected,
                         },

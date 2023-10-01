@@ -200,7 +200,7 @@ impl<'a> TokenInfoEngine<'a> {
 
     fn visit_fugitive_syn_node(&mut self, defn: FugitiveSynNodeDefn) {
         match defn {
-            FugitiveSynNodeDefn::Fn(defn) => self.visit_fn_node(defn),
+            FugitiveSynNodeDefn::FunctionFn(defn) => self.visit_fn_node(defn),
             FugitiveSynNodeDefn::Val(defn) => self.visit_val_node(defn),
             FugitiveSynNodeDefn::Gn(defn) => self.visit_gn_node(defn),
         }

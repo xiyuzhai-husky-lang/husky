@@ -7,7 +7,7 @@ Ok(
         ),
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
             ),
         ),
         ItemPath::ImplBlock(

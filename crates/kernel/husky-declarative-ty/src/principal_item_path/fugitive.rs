@@ -16,10 +16,10 @@ pub fn fugitive_path_declarative_ty(
     };
     let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     match signature {
-        FugitiveDeclarativeSignatureTemplate::Fn(signature) => {
+        FugitiveDeclarativeSignatureTemplate::FunctionFn(signature) => {
             fn_path_declarative_ty(db, variances, signature)
         }
-        FugitiveDeclarativeSignatureTemplate::Gn(signature) => {
+        FugitiveDeclarativeSignatureTemplate::FunctionGn(signature) => {
             gn_path_declarative_ty(db, variances, signature)
         }
         FugitiveDeclarativeSignatureTemplate::Val(signature) => {

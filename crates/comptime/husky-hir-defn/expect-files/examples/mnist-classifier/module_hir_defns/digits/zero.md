@@ -34,11 +34,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Fn(
+            FugitiveHirDefn::FunctionFn(
                 FnHirDefn {
-                    path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
+                    path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
-                        path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },

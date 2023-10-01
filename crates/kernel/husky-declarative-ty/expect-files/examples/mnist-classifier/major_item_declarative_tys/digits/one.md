@@ -22,7 +22,7 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::one::upmost`, `Fn`),
+                FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
             ),
         ),
         Ok(
@@ -32,7 +32,7 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::one::downmost`, `Fn`),
+                FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
             ),
         ),
         Ok(
@@ -42,7 +42,7 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::one::hat`, `Fn`),
+                FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
             ),
         ),
         Ok(

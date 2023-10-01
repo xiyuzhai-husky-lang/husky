@@ -34,11 +34,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Fn(
+            FugitiveHirDefn::FunctionFn(
                 FnHirDefn {
-                    path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
+                    path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
-                        path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `FunctionFn`),
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
@@ -168,11 +168,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Fn(
+            FugitiveHirDefn::FunctionFn(
                 FnHirDefn {
-                    path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
+                    path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
-                        path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `FunctionFn`),
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
@@ -302,11 +302,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Fn(
+            FugitiveHirDefn::FunctionFn(
                 FnHirDefn {
-                    path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
+                    path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
-                        path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `FunctionFn`),
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },

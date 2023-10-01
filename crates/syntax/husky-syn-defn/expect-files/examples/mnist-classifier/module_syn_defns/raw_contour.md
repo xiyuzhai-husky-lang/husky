@@ -355,11 +355,11 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
-                FugitiveSynDefn::Fn(
+                FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
-                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
                         decl: FnSynDecl {
-                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
                                 SpecificParameterObelisk::Regular {
@@ -404,7 +404,7 @@ Ok(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -647,7 +647,7 @@ Ok(
                                                             MajorItemSynNodePath::Fugitive(
                                                                 FugitiveSynNodePath {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -881,7 +881,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1065,11 +1065,11 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
-                FugitiveSynDefn::Fn(
+                FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
-                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
                         decl: FnSynDecl {
-                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
                                 SpecificParameterObelisk::Regular {
@@ -1114,7 +1114,7 @@ Ok(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
+                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -1357,7 +1357,7 @@ Ok(
                                                             MajorItemSynNodePath::Fugitive(
                                                                 FugitiveSynNodePath {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
+                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -1591,7 +1591,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1746,11 +1746,11 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
-                FugitiveSynDefn::Fn(
+                FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
-                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
                         decl: FnSynDecl {
-                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
                                 SpecificParameterObelisk::Regular {
@@ -1795,7 +1795,7 @@ Ok(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
+                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -2038,7 +2038,7 @@ Ok(
                                                             MajorItemSynNodePath::Fugitive(
                                                                 FugitiveSynNodePath {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
+                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -2272,7 +2272,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -2456,11 +2456,11 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
-                FugitiveSynDefn::Fn(
+                FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
-                        path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
                         decl: FnSynDecl {
-                            path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
                                 SpecificParameterObelisk::Regular {
@@ -2519,7 +2519,7 @@ Ok(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
+                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -2833,7 +2833,7 @@ Ok(
                                                             MajorItemSynNodePath::Fugitive(
                                                                 FugitiveSynNodePath {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
+                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -3138,7 +3138,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -3152,7 +3152,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -3206,7 +3206,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -3423,7 +3423,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },
@@ -3438,7 +3438,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },
@@ -4991,11 +4991,11 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
-                FugitiveSynDefn::Fn(
+                FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
-                        path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
                         decl: FnSynDecl {
-                            path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
                                 SpecificParameterObelisk::Regular {
@@ -5040,7 +5040,7 @@ Ok(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
+                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -5283,7 +5283,7 @@ Ok(
                                                             MajorItemSynNodePath::Fugitive(
                                                                 FugitiveSynNodePath {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
+                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -5517,7 +5517,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -6206,11 +6206,11 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
-                FugitiveSynDefn::Fn(
+                FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
-                        path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
                         decl: FnSynDecl {
-                            path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
                                 SpecificParameterObelisk::Regular {
@@ -6283,7 +6283,7 @@ Ok(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
+                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -6668,7 +6668,7 @@ Ok(
                                                             MajorItemSynNodePath::Fugitive(
                                                                 FugitiveSynNodePath {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
+                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -7044,7 +7044,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -7058,7 +7058,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -7112,7 +7112,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -7418,7 +7418,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },
@@ -7433,7 +7433,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },
@@ -10192,11 +10192,11 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
-                FugitiveSynDefn::Fn(
+                FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
-                        path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
                         decl: FnSynDecl {
-                            path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
                                 SpecificParameterObelisk::Regular {
@@ -10227,7 +10227,7 @@ Ok(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
+                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -10412,7 +10412,7 @@ Ok(
                                                             MajorItemSynNodePath::Fugitive(
                                                                 FugitiveSynNodePath {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
+                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -10588,7 +10588,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -11259,11 +11259,11 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
-                FugitiveSynDefn::Fn(
+                FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
-                        path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                         decl: FnSynDecl {
-                            path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
                                 SpecificParameterObelisk::Regular {
@@ -11294,7 +11294,7 @@ Ok(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                        path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -11486,7 +11486,7 @@ Ok(
                                                             MajorItemSynNodePath::Fugitive(
                                                                 FugitiveSynNodePath {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                                        path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -11669,7 +11669,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -12490,7 +12490,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -12799,7 +12799,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -12889,7 +12889,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -13337,7 +13337,7 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Fugitive(
-                                                                FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
                                                             ),
                                                         ),
                                                     ),
@@ -15198,7 +15198,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },
@@ -15213,7 +15213,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },
@@ -15228,7 +15228,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },
@@ -15243,7 +15243,7 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Fugitive(
-                                                            FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
                                                         ),
                                                     ),
                                                 },

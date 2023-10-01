@@ -14,7 +14,7 @@ use super::*;
 #[salsa::debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
 pub enum FugitiveSynNodeDefn {
-    Fn(FnSynNodeDefn),
+    FunctionFn(FnSynNodeDefn),
     // Function(FunctionDefn),
     Val(ValSynNodeDefn),
     Gn(GnSynNodeDefn),
@@ -24,7 +24,9 @@ pub enum FugitiveSynNodeDefn {
 impl FugitiveSynNodeDefn {
     pub fn syn_node_decl(self, db: &dyn SynDefnDb) -> FugitiveSynNodeDecl {
         match self {
-            FugitiveSynNodeDefn::Fn(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
+            FugitiveSynNodeDefn::FunctionFn(syn_node_defn) => {
+                syn_node_defn.syn_node_decl(db).into()
+            }
             FugitiveSynNodeDefn::Val(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
             FugitiveSynNodeDefn::Gn(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
         }
@@ -44,7 +46,7 @@ impl FugitiveSynNodeDefn {
         db: &dyn SynDefnDb,
     ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
-            FugitiveSynNodeDefn::Fn(defn) => defn.body_with_syn_expr_region(db),
+            FugitiveSynNodeDefn::FunctionFn(defn) => defn.body_with_syn_expr_region(db),
             FugitiveSynNodeDefn::Val(defn) => defn.body_with_syn_expr_region(db),
             FugitiveSynNodeDefn::Gn(defn) => defn.body_with_syn_expr_region(db),
         }
@@ -65,13 +67,13 @@ pub(crate) fn fugitive_syn_node_defn(
     syn_node_path: FugitiveSynNodePath,
 ) -> FugitiveSynNodeDefn {
     match syn_node_path.syn_node_decl(db) {
-        FugitiveSynNodeDecl::Fn(syn_node_decl) => {
+        FugitiveSynNodeDecl::FunctionFn(syn_node_decl) => {
             FnSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
         }
         FugitiveSynNodeDecl::Val(syn_node_decl) => {
             ValSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
         }
-        FugitiveSynNodeDecl::Gn(syn_node_decl) => {
+        FugitiveSynNodeDecl::FunctionGn(syn_node_decl) => {
             GnSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
         }
     }
@@ -81,27 +83,27 @@ pub(crate) fn fugitive_syn_node_defn(
 #[salsa::debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
 pub enum FugitiveSynDefn {
-    Fn(FnSynDefn),
+    FunctionFn(FnSynDefn),
     // Function(FunctionDefn),
     Val(ValSynDefn),
-    Gn(GnSynDefn),
+    FunctionGn(GnSynDefn),
     // AliasType(TypeAliasDefn)
 }
 
 impl FugitiveSynDefn {
     pub fn decl(self, db: &dyn SynDefnDb) -> FugitiveSynDecl {
         match self {
-            FugitiveSynDefn::Fn(defn) => defn.decl(db).into(),
+            FugitiveSynDefn::FunctionFn(defn) => defn.decl(db).into(),
             FugitiveSynDefn::Val(defn) => defn.decl(db).into(),
-            FugitiveSynDefn::Gn(defn) => defn.decl(db).into(),
+            FugitiveSynDefn::FunctionGn(defn) => defn.decl(db).into(),
         }
     }
 
     pub fn path(self, db: &dyn SynDefnDb) -> FugitivePath {
         match self {
-            FugitiveSynDefn::Fn(defn) => defn.path(db),
+            FugitiveSynDefn::FunctionFn(defn) => defn.path(db),
             FugitiveSynDefn::Val(defn) => defn.path(db),
-            FugitiveSynDefn::Gn(defn) => defn.path(db),
+            FugitiveSynDefn::FunctionGn(defn) => defn.path(db),
         }
     }
 
@@ -110,9 +112,9 @@ impl FugitiveSynDefn {
         db: &dyn SynDefnDb,
     ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
-            FugitiveSynDefn::Fn(defn) => defn.body_with_syn_expr_region(db),
+            FugitiveSynDefn::FunctionFn(defn) => defn.body_with_syn_expr_region(db),
             FugitiveSynDefn::Val(defn) => defn.body_with_syn_expr_region(db),
-            FugitiveSynDefn::Gn(defn) => defn.body_with_syn_expr_region(db),
+            FugitiveSynDefn::FunctionGn(defn) => defn.body_with_syn_expr_region(db),
         }
     }
 }
@@ -131,8 +133,8 @@ pub(crate) fn fugitive_syn_defn(
     path: FugitivePath,
 ) -> SynDefnResult<FugitiveSynDefn> {
     Ok(match path.syn_decl(db)? {
-        FugitiveSynDecl::Fn(decl) => FnSynDefn::new(db, path, decl).into(),
+        FugitiveSynDecl::FunctionFn(decl) => FnSynDefn::new(db, path, decl).into(),
         FugitiveSynDecl::Val(decl) => ValSynDefn::new(db, path, decl).into(),
-        FugitiveSynDecl::Gn(decl) => GnSynDefn::new(db, path, decl).into(),
+        FugitiveSynDecl::FunctionGn(decl) => GnSynDefn::new(db, path, decl).into(),
     })
 }

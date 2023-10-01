@@ -665,14 +665,14 @@ Ok(
             (
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                        FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
                     ),
                 ),
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
-                        FugitiveSynDecl::Fn(
+                        FugitiveSynDecl::FunctionFn(
                             FnSynDecl {
-                                path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
                                 template_parameters: [],
                                 parenate_parameters: [
                                     SpecificParameterObelisk::Regular {
@@ -703,7 +703,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1056,14 +1056,14 @@ Ok(
             (
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                        FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
                     ),
                 ),
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
-                        FugitiveSynDecl::Fn(
+                        FugitiveSynDecl::FunctionFn(
                             FnSynDecl {
-                                path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
                                 template_parameters: [],
                                 parenate_parameters: [
                                     SpecificParameterObelisk::Regular {
@@ -1108,7 +1108,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1344,14 +1344,14 @@ Ok(
             (
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                        FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                     ),
                 ),
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
-                        FugitiveSynDecl::Fn(
+                        FugitiveSynDecl::FunctionFn(
                             FnSynDecl {
-                                path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                 template_parameters: [],
                                 parenate_parameters: [
                                     SpecificParameterObelisk::Regular {
@@ -1382,7 +1382,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },

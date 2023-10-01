@@ -18,7 +18,8 @@ pub use self::ty::*;
 pub use modifier::*;
 
 use crate::*;
-use husky_keyword_kind::KeywordKind;
+#[cfg(feature = "protocol_support")]
+use husky_token_protocol::*;
 use serde::{Deserialize, Serialize};
 use std::ops::Deref;
 
@@ -53,7 +54,8 @@ impl std::fmt::Display for Keyword {
 }
 
 impl Keyword {
-    pub const fn kind(self) -> KeywordKind {
+    #[cfg(feature = "protocol_support")]
+    pub const fn protocol(self) -> KeywordProtocol {
         match self {
             Keyword::Stmt(stmt_keyword) => match stmt_keyword {
                 StmtKeyword::If
@@ -66,11 +68,11 @@ impl Keyword {
                 | StmtKeyword::Do
                 | StmtKeyword::Break
                 | StmtKeyword::Return
-                | StmtKeyword::Require => KeywordKind::ControlFlow,
-                StmtKeyword::Let | StmtKeyword::Assert => KeywordKind::Other,
+                | StmtKeyword::Require => KeywordProtocol::ControlFlow,
+                StmtKeyword::Let | StmtKeyword::Assert => KeywordProtocol::Other,
             },
-            Keyword::End(_) => KeywordKind::ControlFlow,
-            _ => KeywordKind::Other,
+            Keyword::End(_) => KeywordProtocol::ControlFlow,
+            _ => KeywordProtocol::Other,
         }
     }
 

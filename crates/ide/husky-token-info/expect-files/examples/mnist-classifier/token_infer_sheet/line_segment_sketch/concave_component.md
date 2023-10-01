@@ -3269,7 +3269,7 @@ Ok(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -3277,7 +3277,7 @@ Ok(
                         ),
                         MajorItem {
                             module_item_kind: Fugitive(
-                                Fn,
+                                FunctionFn,
                             ),
                             connection: Connected,
                         },
@@ -3543,7 +3543,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
+                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
                             ),
                         ),
                     ),
@@ -3747,7 +3747,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
+                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
                             ),
                         ),
                     ),

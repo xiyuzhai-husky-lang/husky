@@ -572,7 +572,7 @@
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::one::upmost`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
                             disambiguator: 0,
                         },
                     },
@@ -903,7 +903,7 @@
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::one::downmost`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
                             disambiguator: 0,
                         },
                     },
@@ -1234,7 +1234,7 @@
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::one::hat`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
                             disambiguator: 0,
                         },
                     },

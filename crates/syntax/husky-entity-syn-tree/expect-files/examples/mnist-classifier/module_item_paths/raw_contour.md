@@ -12,32 +12,32 @@ Ok(
         ),
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
             ),
         ),
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
+                FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
             ),
         ),
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
+                FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
             ),
         ),
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
+                FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
             ),
         ),
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
+                FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
             ),
         ),
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
+                FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
             ),
         ),
         ItemPath::MajorItem(
@@ -47,12 +47,12 @@ Ok(
         ),
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
+                FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
             ),
         ),
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
             ),
         ),
         ItemPath::ImplBlock(

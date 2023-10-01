@@ -941,7 +941,7 @@ Ok(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                        path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -949,7 +949,7 @@ Ok(
                         ),
                         MajorItem {
                             module_item_kind: Fugitive(
-                                Fn,
+                                FunctionFn,
                             ),
                             connection: Connected,
                         },

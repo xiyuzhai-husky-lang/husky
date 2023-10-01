@@ -144,7 +144,7 @@ Ok(
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `FunctionFn`),
                                 disambiguator: 0,
                             },
                         },
@@ -152,11 +152,11 @@ Ok(
                 ),
                 ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Fugitive(
-                        FugitiveSynNodeDecl::Fn(
+                        FugitiveSynNodeDecl::FunctionFn(
                             FnSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
+                                        path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -229,7 +229,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -547,7 +547,7 @@ Ok(
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `FunctionFn`),
                                 disambiguator: 0,
                             },
                         },
@@ -555,11 +555,11 @@ Ok(
                 ),
                 ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Fugitive(
-                        FugitiveSynNodeDecl::Fn(
+                        FugitiveSynNodeDecl::FunctionFn(
                             FnSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
+                                        path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -632,7 +632,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -813,7 +813,7 @@ Ok(
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `FunctionFn`),
                                 disambiguator: 0,
                             },
                         },
@@ -821,11 +821,11 @@ Ok(
                 ),
                 ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Fugitive(
-                        FugitiveSynNodeDecl::Fn(
+                        FugitiveSynNodeDecl::FunctionFn(
                             FnSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
+                                        path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -898,7 +898,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },

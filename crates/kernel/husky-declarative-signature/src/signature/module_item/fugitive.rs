@@ -14,8 +14,8 @@ use crate::*;
 #[salsa::debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 #[enum_class::from_variants]
 pub enum FugitiveDeclarativeSignatureTemplate {
-    Fn(FnFugitiveDeclarativeSignatureTemplate),
-    Gn(GnFugitiveDeclarativeSignatureTemplate),
+    FunctionFn(FnFugitiveDeclarativeSignatureTemplate),
+    FunctionGn(GnFugitiveDeclarativeSignatureTemplate),
     TypeAlias(TypeAliasFugitiveDeclarativeSignatureTemplate),
     Val(ValFugitiveDeclarativeSignatureTemplate),
 }
@@ -26,9 +26,9 @@ impl FugitiveDeclarativeSignatureTemplate {
         db: &dyn DeclarativeSignatureDb,
     ) -> &[DeclarativeTemplateParameter] {
         match self {
-            FugitiveDeclarativeSignatureTemplate::Fn(decl) => decl.template_parameters(db),
+            FugitiveDeclarativeSignatureTemplate::FunctionFn(decl) => decl.template_parameters(db),
             FugitiveDeclarativeSignatureTemplate::Val(decl) => decl.template_parameters(db),
-            FugitiveDeclarativeSignatureTemplate::Gn(decl) => decl.template_parameters(db),
+            FugitiveDeclarativeSignatureTemplate::FunctionGn(decl) => decl.template_parameters(db),
             FugitiveDeclarativeSignatureTemplate::TypeAlias(_) => todo!(),
         }
     }
@@ -52,13 +52,13 @@ pub(crate) fn fugitive_syn_declarative_signature_template(
 ) -> DeclarativeSignatureResult<FugitiveDeclarativeSignatureTemplate> {
     let decl = path.syn_decl(db)?;
     match decl {
-        FugitiveSynDecl::Fn(decl) => {
+        FugitiveSynDecl::FunctionFn(decl) => {
             FnFugitiveDeclarativeSignatureTemplate::from_decl(db, decl).map(Into::into)
         }
         FugitiveSynDecl::Val(decl) => {
             ValFugitiveDeclarativeSignatureTemplate::from_decl(db, decl).map(Into::into)
         }
-        FugitiveSynDecl::Gn(decl) => {
+        FugitiveSynDecl::FunctionGn(decl) => {
             GnFugitiveDeclarativeSignatureTemplate::from_decl(db, decl).map(Into::into)
         }
     }

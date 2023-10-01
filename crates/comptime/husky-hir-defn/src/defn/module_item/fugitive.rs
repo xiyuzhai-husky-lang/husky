@@ -14,19 +14,19 @@ use super::*;
 #[salsa::debug_with_db(db = HirDefnDb)]
 #[enum_class::from_variants]
 pub enum FugitiveHirDefn {
-    Fn(FnHirDefn),
+    FunctionFn(FnHirDefn),
     // Function(FunctionDefn),
     Val(ValHirDefn),
-    Gn(GnHirDefn),
+    FunctionGn(GnHirDefn),
     // AliasType(TypeAliasDefn)
 }
 
 impl FugitiveHirDefn {
     pub fn hir_decl(self, db: &dyn HirDefnDb) -> FugitiveHirDecl {
         match self {
-            FugitiveHirDefn::Fn(hir_defn) => hir_defn.hir_decl(db).into(),
+            FugitiveHirDefn::FunctionFn(hir_defn) => hir_defn.hir_decl(db).into(),
             FugitiveHirDefn::Val(hir_defn) => hir_defn.hir_decl(db).into(),
-            FugitiveHirDefn::Gn(hir_defn) => hir_defn.hir_decl(db).into(),
+            FugitiveHirDefn::FunctionGn(hir_defn) => hir_defn.hir_decl(db).into(),
         }
     }
 
@@ -41,9 +41,13 @@ impl FugitiveHirDefn {
 
     pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {
         match self {
-            FugitiveHirDefn::Fn(hir_defn) => hir_defn.hir_eager_expr_region(db).map(Into::into),
+            FugitiveHirDefn::FunctionFn(hir_defn) => {
+                hir_defn.hir_eager_expr_region(db).map(Into::into)
+            }
             FugitiveHirDefn::Val(hir_defn) => hir_defn.hir_expr_region(db),
-            FugitiveHirDefn::Gn(hir_defn) => hir_defn.hir_lazy_expr_region(db).map(Into::into),
+            FugitiveHirDefn::FunctionGn(hir_defn) => {
+                hir_defn.hir_lazy_expr_region(db).map(Into::into)
+            }
         }
     }
 }
@@ -59,9 +63,9 @@ impl HasHirDefn for FugitivePath {
 #[salsa::tracked(jar = HirDefnJar)]
 pub(crate) fn fugitive_hir_defn(db: &dyn HirDefnDb, path: FugitivePath) -> Option<FugitiveHirDefn> {
     match path.hir_decl(db)? {
-        FugitiveHirDecl::Fn(hir_decl) => Some(FnHirDefn::new(db, path, hir_decl).into()),
+        FugitiveHirDecl::FunctionFn(hir_decl) => Some(FnHirDefn::new(db, path, hir_decl).into()),
         FugitiveHirDecl::Val(hir_decl) => Some(ValHirDefn::new(db, path, hir_decl).into()),
-        FugitiveHirDecl::Gn(hir_decl) => Some(GnHirDefn::new(db, path, hir_decl).into()),
+        FugitiveHirDecl::FunctionGn(hir_decl) => Some(GnHirDefn::new(db, path, hir_decl).into()),
         FugitiveHirDecl::TypeAlias(_) => todo!(),
     }
 }

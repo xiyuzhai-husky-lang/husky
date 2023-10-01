@@ -602,7 +602,7 @@ Ok(
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(`malamute::narrow_down`, `Gn`),
+                                path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                 disambiguator: 0,
                             },
                         },
@@ -610,11 +610,11 @@ Ok(
                 ),
                 ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Fugitive(
-                        FugitiveSynNodeDecl::Gn(
+                        FugitiveSynNodeDecl::FunctionGn(
                             GnSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`malamute::narrow_down`, `Gn`),
+                                        path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -626,7 +626,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                                             disambiguator: 0,
                                                         },
                                                     },

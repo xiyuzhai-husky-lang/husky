@@ -665,7 +665,7 @@
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
                             disambiguator: 0,
                         },
                     },
@@ -10859,7 +10859,7 @@
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
                             disambiguator: 0,
                         },
                     },
@@ -11749,7 +11749,7 @@
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
+                            path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
                             disambiguator: 0,
                         },
                     },

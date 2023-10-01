@@ -135,11 +135,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Fn(
+            FugitiveHirDefn::FunctionFn(
                 FnHirDefn {
-                    path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                    path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
-                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
@@ -678,11 +678,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Fn(
+            FugitiveHirDefn::FunctionFn(
                 FnHirDefn {
-                    path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                    path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
-                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
@@ -1221,11 +1221,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Fn(
+            FugitiveHirDefn::FunctionFn(
                 FnHirDefn {
-                    path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                    path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
-                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
@@ -2537,11 +2537,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Fn(
+            FugitiveHirDefn::FunctionFn(
                 FnHirDefn {
-                    path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                    path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
-                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
@@ -3980,11 +3980,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Fn(
+            FugitiveHirDefn::FunctionFn(
                 FnHirDefn {
-                    path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                    path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
-                        path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                        path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
@@ -6343,7 +6343,7 @@
                             disambiguator: 0,
                         },
                         ident: `new`,
-                        item_kind: AssociatedFn,
+                        item_kind: AssociatedFunctionFn,
                     },
                     hir_decl: TypeAssociatedFnHirDecl {
                         path: TypeItemPath {
@@ -6353,7 +6353,7 @@
                                 disambiguator: 0,
                             },
                             ident: `new`,
-                            item_kind: AssociatedFn,
+                            item_kind: AssociatedFunctionFn,
                         },
                         template_parameters: HirTemplateParameters {
                             data: [],
@@ -7656,7 +7656,7 @@
                             disambiguator: 0,
                         },
                         ident: `new`,
-                        item_kind: AssociatedFn,
+                        item_kind: AssociatedFunctionFn,
                     },
                     hir_decl: TypeAssociatedFnHirDecl {
                         path: TypeItemPath {
@@ -7666,7 +7666,7 @@
                                 disambiguator: 0,
                             },
                             ident: `new`,
-                            item_kind: AssociatedFn,
+                            item_kind: AssociatedFunctionFn,
                         },
                         template_parameters: HirTemplateParameters {
                             data: [],

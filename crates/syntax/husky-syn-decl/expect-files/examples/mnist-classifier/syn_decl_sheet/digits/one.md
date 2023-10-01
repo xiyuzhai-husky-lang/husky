@@ -306,14 +306,14 @@ Ok(
             (
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::one::upmost`, `Fn`),
+                        FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
                     ),
                 ),
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
-                        FugitiveSynDecl::Fn(
+                        FugitiveSynDecl::FunctionFn(
                             FnSynDecl {
-                                path: FugitivePath(`mnist_classifier::digits::one::upmost`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
                                 template_parameters: [],
                                 parenate_parameters: [
                                     SpecificParameterObelisk::Regular {
@@ -344,7 +344,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::one::upmost`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -523,14 +523,14 @@ Ok(
             (
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::one::downmost`, `Fn`),
+                        FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
                     ),
                 ),
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
-                        FugitiveSynDecl::Fn(
+                        FugitiveSynDecl::FunctionFn(
                             FnSynDecl {
-                                path: FugitivePath(`mnist_classifier::digits::one::downmost`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
                                 template_parameters: [],
                                 parenate_parameters: [
                                     SpecificParameterObelisk::Regular {
@@ -561,7 +561,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::one::downmost`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -740,14 +740,14 @@ Ok(
             (
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::one::hat`, `Fn`),
+                        FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
                     ),
                 ),
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
-                        FugitiveSynDecl::Fn(
+                        FugitiveSynDecl::FunctionFn(
                             FnSynDecl {
-                                path: FugitivePath(`mnist_classifier::digits::one::hat`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
                                 template_parameters: [],
                                 parenate_parameters: [
                                     SpecificParameterObelisk::Regular {
@@ -778,7 +778,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::one::hat`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },

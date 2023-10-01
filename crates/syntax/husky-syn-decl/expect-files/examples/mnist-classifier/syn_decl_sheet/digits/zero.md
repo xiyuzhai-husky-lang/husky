@@ -114,14 +114,14 @@ Ok(
             (
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
+                        FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
                     ),
                 ),
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
-                        FugitiveSynDecl::Fn(
+                        FugitiveSynDecl::FunctionFn(
                             FnSynDecl {
-                                path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
                                 template_parameters: [],
                                 parenate_parameters: [
                                     SpecificParameterObelisk::Regular {
@@ -152,7 +152,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },

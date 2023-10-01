@@ -321,14 +321,14 @@ Ok(
             (
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                        FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                     ),
                 ),
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
-                        FugitiveSynDecl::Fn(
+                        FugitiveSynDecl::FunctionFn(
                             FnSynDecl {
-                                path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                 template_parameters: [],
                                 parenate_parameters: [
                                     SpecificParameterObelisk::Regular {
@@ -373,7 +373,7 @@ Ok(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },

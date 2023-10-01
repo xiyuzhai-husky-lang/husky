@@ -73,7 +73,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                             ),
                         ),
                     ),
@@ -104,7 +104,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::nine::downmost`, `Fn`),
+                                FugitivePath(`mnist_classifier::digits::nine::downmost`, `FunctionFn`),
                             ),
                         ),
                     ),
@@ -160,7 +160,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                             ),
                         ),
                     ),
@@ -191,7 +191,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
+                                FugitivePath(`mnist_classifier::digits::nine::big_cc`, `FunctionFn`),
                             ),
                         ),
                     ),
@@ -1233,7 +1233,7 @@ Ok(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `Fn`),
+                                        path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1241,7 +1241,7 @@ Ok(
                         ),
                         MajorItem {
                             module_item_kind: Fugitive(
-                                Fn,
+                                FunctionFn,
                             ),
                             connection: Connected,
                         },
@@ -1408,7 +1408,7 @@ Ok(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
+                                        path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `FunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1416,7 +1416,7 @@ Ok(
                         ),
                         MajorItem {
                             module_item_kind: Fugitive(
-                                Fn,
+                                FunctionFn,
                             ),
                             connection: Connected,
                         },
