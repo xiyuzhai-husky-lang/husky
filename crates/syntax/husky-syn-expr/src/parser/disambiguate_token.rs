@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_taxonomy::{EntityKind, FugitiveKind, MajorItemKind};
+use husky_entity_kind::{EntityKind, FugitiveKind, MajorItemKind};
 use husky_print_utils::p;
 use salsa::DebugWithDb;
 use std::ops::ControlFlow;

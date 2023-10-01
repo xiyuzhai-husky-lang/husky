@@ -1,5 +1,6 @@
+use husky_entity_kind::{EntityKind, MajorItemConnectionKind, MajorItemKind, TypeKind};
 use husky_entity_syn_tree::OnceUseRuleState;
-use husky_entity_taxonomy::{EntityKind, MajorItemConnectionKind, MajorItemKind, TypeKind};
+use husky_semantic_token_kind::SemanticTokenKind;
 use husky_syn_expr::{SynCurrentSymbolKind, SynInheritedSymbolKind};
 use husky_token_data::TokenData;
 
@@ -8,7 +9,7 @@ use crate::*;
 pub(crate) fn collect_semantic_tokens(
     db: &dyn SemanticTokenDb,
     module_path: ModulePath,
-) -> EntitySynTreeResult<Vec<RangedSemanticToken>> {
+) -> EntitySynTreeResult<Vec<SemanticToken>> {
     let ranged_token_sheet = db.ranged_token_sheet(module_path)?;
     let _token_sheet_data = db.token_sheet_data(module_path)?;
     let token_infer_sheet = db.token_info_sheet(module_path)?;
@@ -27,49 +28,55 @@ fn token_to_semantic_token(
     info: Option<&TokenInfo>,
     token: &TokenData,
     range: &husky_text::TextRange,
-) -> Option<RangedSemanticToken> {
-    let semantic_token = match info {
+) -> Option<SemanticToken> {
+    let semantic_token_kind = match info {
         None => match token {
-            TokenData::Keyword(kw) => SemanticToken::Keyword(*kw),
-            TokenData::Punctuation(_) => SemanticToken::Special,
-            TokenData::WordOpr(_) => SemanticToken::WordOpr,
-            TokenData::Literal(_) => SemanticToken::Literal,
+            TokenData::Keyword(kw) => SemanticTokenKind::Keyword(kw.kind()),
+            TokenData::Punctuation(_) => SemanticTokenKind::Special,
+            TokenData::WordOpr(_) => SemanticTokenKind::WordOpr,
+            TokenData::Literal(_) => SemanticTokenKind::Literal,
             TokenData::Ident(_) | TokenData::Label(_) | TokenData::Error(_) => return None,
         },
         Some(info) => match info.data() {
-            TokenInfoData::Entity(path) => SemanticToken::Entity(path.item_kind(db)),
-            TokenInfoData::EntityNode(path, item_kind) => SemanticToken::Entity(*item_kind),
+            TokenInfoData::Entity(path) => SemanticTokenKind::Entity(path.item_kind(db)),
+            TokenInfoData::EntityNode(path, item_kind) => SemanticTokenKind::Entity(*item_kind),
             TokenInfoData::CurrentSymbol {
                 current_symbol_kind,
                 ..
             } => match current_symbol_kind {
                 SynCurrentSymbolKind::LetVariable { .. }
                 | SynCurrentSymbolKind::BeVariable { .. }
-                | SynCurrentSymbolKind::CaseVariable { .. } => SemanticToken::Variable,
-                SynCurrentSymbolKind::ExplicitRegularParameter { .. } => SemanticToken::Parameter,
-                SynCurrentSymbolKind::FrameVariable(_) => SemanticToken::FrameVariable,
-                SynCurrentSymbolKind::ImplicitParameter { .. } => SemanticToken::ImplicitParameter,
-                SynCurrentSymbolKind::ExplicitVariadicParameter { .. } => SemanticToken::Parameter,
-                SynCurrentSymbolKind::FieldVariable { .. } => SemanticToken::Variable,
+                | SynCurrentSymbolKind::CaseVariable { .. } => SemanticTokenKind::Variable,
+                SynCurrentSymbolKind::ExplicitRegularParameter { .. } => {
+                    SemanticTokenKind::Parameter
+                }
+                SynCurrentSymbolKind::FrameVariable(_) => SemanticTokenKind::FrameVariable,
+                SynCurrentSymbolKind::ImplicitParameter { .. } => {
+                    SemanticTokenKind::ImplicitParameter
+                }
+                SynCurrentSymbolKind::ExplicitVariadicParameter { .. } => {
+                    SemanticTokenKind::Parameter
+                }
+                SynCurrentSymbolKind::FieldVariable { .. } => SemanticTokenKind::Variable,
             },
-            // SemanticToken::Variable,
+            // SemanticTokenKind::Variable,
             TokenInfoData::InheritedSymbol {
                 inherited_symbol_kind,
                 ..
             } => match inherited_symbol_kind {
-                SynInheritedSymbolKind::ParenateParameter { .. } => SemanticToken::Parameter,
+                SynInheritedSymbolKind::ParenateParameter { .. } => SemanticTokenKind::Parameter,
                 SynInheritedSymbolKind::TemplateParameter { .. } => {
-                    SemanticToken::ImplicitParameter
+                    SemanticTokenKind::ImplicitParameter
                 }
-                SynInheritedSymbolKind::FieldVariable { .. } => SemanticToken::Variable,
+                SynInheritedSymbolKind::FieldVariable { .. } => SemanticTokenKind::Variable,
             },
-            TokenInfoData::SelfType => SemanticToken::SelfType,
-            TokenInfoData::SelfValue => SemanticToken::SelfValue,
-            // SemanticToken::Variable,
-            TokenInfoData::Field => SemanticToken::Field,
-            TokenInfoData::Method => SemanticToken::Method,
+            TokenInfoData::SelfType => SemanticTokenKind::SelfType,
+            TokenInfoData::SelfValue => SemanticTokenKind::SelfValue,
+            // SemanticTokenKind::Variable,
+            TokenInfoData::Field => SemanticTokenKind::Field,
+            TokenInfoData::Method => SemanticTokenKind::Method,
             TokenInfoData::BoxColon | TokenInfoData::BoxPrefix => {
-                SemanticToken::Entity(EntityKind::MajorItem {
+                SemanticTokenKind::Entity(EntityKind::MajorItem {
                     module_item_kind: MajorItemKind::Type(TypeKind::Extern),
                     connection: MajorItemConnectionKind::Connected,
                 })
@@ -77,32 +84,32 @@ fn token_to_semantic_token(
             TokenInfoData::UseExpr { state, .. } => match state {
                 OnceUseRuleState::Resolved {
                     original_symbol: Some(original_symbol),
-                } => SemanticToken::Entity(original_symbol.path(db).item_kind(db)),
+                } => SemanticTokenKind::Entity(original_symbol.path(db).item_kind(db)),
                 _ => return None,
             },
-            TokenInfoData::UseExprStar => SemanticToken::Special,
-            TokenInfoData::HtmlFunctionIdent => SemanticToken::HtmlFunctionIdent,
-            TokenInfoData::HtmlPropertyIdent => SemanticToken::HtmlPropertyIdent,
-            TokenInfoData::SubmoduleIdent => SemanticToken::SubmoduleIdent,
+            TokenInfoData::UseExprStar => SemanticTokenKind::Special,
+            TokenInfoData::HtmlFunctionIdent => SemanticTokenKind::HtmlFunctionIdent,
+            TokenInfoData::HtmlPropertyIdent => SemanticTokenKind::HtmlPropertyIdent,
+            TokenInfoData::SubmoduleIdent => SemanticTokenKind::SubmoduleIdent,
             TokenInfoData::UnitLeftParenthesis | TokenInfoData::UnitRightParenthesis => {
-                SemanticToken::Entity(EntityKind::MajorItem {
+                SemanticTokenKind::Entity(EntityKind::MajorItem {
                     module_item_kind: MajorItemKind::Type(TypeKind::Extern),
                     connection: MajorItemConnectionKind::Connected,
                 })
             }
-            TokenInfoData::Todo => SemanticToken::Todo,
-            TokenInfoData::Unreachable => SemanticToken::Unreachable,
+            TokenInfoData::Todo => SemanticTokenKind::Todo,
+            TokenInfoData::Unreachable => SemanticTokenKind::Unreachable,
         },
     };
-    Some(RangedSemanticToken {
-        semantic_token,
+    Some(SemanticToken {
+        kind: semantic_token_kind,
         range: *range,
     })
 }
 
-fn comment_to_semantic_token(comment: &Comment) -> RangedSemanticToken {
-    RangedSemanticToken {
-        semantic_token: SemanticToken::Comment,
+fn comment_to_semantic_token(comment: &Comment) -> SemanticToken {
+    SemanticToken {
+        kind: SemanticTokenKind::Comment,
         range: comment.range(),
     }
 }

@@ -27,9 +27,9 @@ pub(super) fn item_route_variant_contains_leash(
     // if item_path.variant == item_route_menu.std_slice_cyclic_slice.variant {
     //     return true;
     // }
-    // let _husky_item_taxonomy = db.husky_entity_taxonomy(base_route).unwrap();
+    // let _husky_item_taxonomy = db.husky_entity_kind(base_route).unwrap();
     todo!()
-    // match husky_entity_taxonomy {
+    // match husky_entity_kind {
     //     EntityKind::Module => return false,
     //     EntityKind::Type(_) => {
     //         let ty_decl = db.ty_decl(base_route).unwrap();

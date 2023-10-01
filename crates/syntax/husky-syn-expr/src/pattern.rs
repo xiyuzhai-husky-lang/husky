@@ -9,8 +9,8 @@ pub use self::symbol::*;
 
 use super::*;
 use husky_coword::Ident;
+use husky_entity_kind::FugitiveKind;
 use husky_entity_path::{ItemPath, TypeVariantPath};
-use husky_entity_taxonomy::FugitiveKind;
 use husky_print_utils::p;
 use idx_arena::{map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use ordered_float::NotNan;

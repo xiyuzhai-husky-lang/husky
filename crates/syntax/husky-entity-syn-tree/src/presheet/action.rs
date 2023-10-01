@@ -1,6 +1,6 @@
 use super::*;
 use crate::ParentUseExpr;
-use husky_entity_taxonomy::TypeKind;
+use husky_entity_kind::TypeKind;
 use husky_token::{PathNameToken, TokenIdx};
 use smallvec::SmallVec;
 

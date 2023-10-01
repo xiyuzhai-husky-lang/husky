@@ -1,6 +1,6 @@
 use crate::{db::HirExprDb, *};
+use husky_entity_kind::FugitiveKind;
 use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
-use husky_entity_taxonomy::FugitiveKind;
 use husky_fluffy_term::{MethodFluffySignature, StaticDispatch};
 use husky_hir_eager_expr::builder::HirEagerExprBuilder;
 use husky_hir_lazy_expr::builder::HirLazyExprBuilder;

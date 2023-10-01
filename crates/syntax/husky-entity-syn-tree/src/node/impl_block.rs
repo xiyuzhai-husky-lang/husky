@@ -8,7 +8,7 @@ pub use self::ty_impl_block::*;
 
 use crate::*;
 use husky_coword::IdentPairMap;
-use husky_entity_taxonomy::TypeItemKind;
+use husky_entity_kind::TypeItemKind;
 use husky_print_utils::p;
 use husky_token::ImplToken;
 use husky_token::*;

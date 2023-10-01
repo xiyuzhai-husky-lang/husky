@@ -29,7 +29,7 @@ pub use thick_fp::*;
 pub use vec::*;
 
 use husky_coword::Ident;
-use husky_entity_taxonomy::{FieldKind, TyKind};
+use husky_entity_kind::{FieldKind, TyKind};
 use husky_liason_semantics::{MemberModifier, OutputModifier, ParameterModifier};
 use husky_static_defn::StaticParameter;
 use husky_static_defn::*;

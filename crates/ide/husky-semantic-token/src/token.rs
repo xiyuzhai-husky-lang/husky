@@ -1,67 +1,39 @@
 use crate::*;
-use husky_entity_taxonomy::*;
+use husky_entity_kind::*;
+use husky_keyword_kind::KeywordKind;
+use husky_semantic_token_kind::SemanticTokenKind;
 use husky_text::TextRange;
 
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct RangedSemanticToken {
-    pub semantic_token: SemanticToken,
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct SemanticToken {
+    pub kind: SemanticTokenKind,
     pub range: TextRange,
 }
 
-impl PartialOrd for RangedSemanticToken {
+impl PartialOrd for SemanticToken {
     fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
         self.range.start.partial_cmp(&other.range.start)
     }
 }
 
-impl RangedSemanticToken {
-    pub fn new(token: SemanticToken, range: TextRange) -> Self {
-        Self {
-            semantic_token: token,
-            range,
-        }
+impl SemanticToken {
+    pub fn new(kind: SemanticTokenKind, range: TextRange) -> Self {
+        Self { kind, range }
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum SemanticToken {
-    Attribute,
-    Comment,
-    Keyword(Keyword),
-    Field,
-    Special,
-    Parameter,
-    Variable,
-    ThisValue,
-    FrameVariable,
-    Entity(EntityKind),
-    ImplicitParameter,
-    EnumVariant,
-    Method,
-    Literal,
-    HtmlTagKind,
-    WordPattern,
-    WordOpr,
-    SelfType,
-    SelfValue,
-    HtmlFunctionIdent,
-    HtmlPropertyIdent,
-    SubmoduleIdent,
-    Todo,
-    Unreachable,
-}
-
 impl SemanticToken {
+    #[inline(always)]
     pub fn token_type(self) -> u32 {
-        get_type_index(match self {
-            SemanticToken::Keyword(_) => ext::SemanticTokenType::KEYWORD,
-            SemanticToken::Comment => ext::SemanticTokenType::COMMENT,
-            SemanticToken::Field => ext::SemanticTokenType::PROPERTY,
-            SemanticToken::Special => ext::SemanticTokenType::OPERATOR,
-            SemanticToken::Variable => ext::SemanticTokenType::VARIABLE,
-            SemanticToken::ThisValue => ext::SemanticTokenType::VARIABLE,
-            SemanticToken::FrameVariable => ext::SemanticTokenType::VARIABLE,
-            SemanticToken::Entity(item_kind) => match item_kind {
+        get_type_index(match self.kind {
+            SemanticTokenKind::Keyword(_) => ext::SemanticTokenType::KEYWORD,
+            SemanticTokenKind::Comment => ext::SemanticTokenType::COMMENT,
+            SemanticTokenKind::Field => ext::SemanticTokenType::PROPERTY,
+            SemanticTokenKind::Special => ext::SemanticTokenType::OPERATOR,
+            SemanticTokenKind::Variable => ext::SemanticTokenType::VARIABLE,
+            SemanticTokenKind::ThisValue => ext::SemanticTokenType::VARIABLE,
+            SemanticTokenKind::FrameVariable => ext::SemanticTokenType::VARIABLE,
+            SemanticTokenKind::Entity(item_kind) => match item_kind {
                 EntityKind::Module => ext::SemanticTokenType::NAMESPACE,
                 EntityKind::MajorItem {
                     module_item_kind,
@@ -98,45 +70,32 @@ impl SemanticToken {
                 EntityKind::ImplBlock => unreachable!(),
                 EntityKind::Attr => unreachable!(),
             },
-            SemanticToken::ImplicitParameter => ext::SemanticTokenType::TYPE_PARAMETER,
-            SemanticToken::Parameter => ext::SemanticTokenType::PARAMETER,
-            SemanticToken::EnumVariant => ext::SemanticTokenType::ENUM_MEMBER,
-            SemanticToken::Method => ext::SemanticTokenType::METHOD,
-            SemanticToken::Literal => ext::SemanticTokenType::NUMBER,
-            SemanticToken::HtmlTagKind => ext::SemanticTokenType::FUNCTION,
-            SemanticToken::WordPattern => ext::SemanticTokenType::ENUM_MEMBER,
-            SemanticToken::Attribute => ext::SemanticTokenType::DECORATOR,
-            SemanticToken::WordOpr => ext::SemanticTokenType::KEYWORD,
-            SemanticToken::SelfType => ext::SemanticTokenType::TYPE,
-            SemanticToken::SelfValue => ext::SemanticTokenType::KEYWORD,
-            SemanticToken::HtmlFunctionIdent => ext::SemanticTokenType::FUNCTION,
-            SemanticToken::HtmlPropertyIdent => ext::SemanticTokenType::PROPERTY,
-            SemanticToken::SubmoduleIdent => ext::SemanticTokenType::NAMESPACE,
-            SemanticToken::Todo => ext::SemanticTokenType::MACRO,
-            SemanticToken::Unreachable => ext::SemanticTokenType::MACRO,
+            SemanticTokenKind::ImplicitParameter => ext::SemanticTokenType::TYPE_PARAMETER,
+            SemanticTokenKind::Parameter => ext::SemanticTokenType::PARAMETER,
+            SemanticTokenKind::EnumVariant => ext::SemanticTokenType::ENUM_MEMBER,
+            SemanticTokenKind::Method => ext::SemanticTokenType::METHOD,
+            SemanticTokenKind::Literal => ext::SemanticTokenType::NUMBER,
+            SemanticTokenKind::HtmlTagKind => ext::SemanticTokenType::FUNCTION,
+            SemanticTokenKind::WordPattern => ext::SemanticTokenType::ENUM_MEMBER,
+            SemanticTokenKind::Attribute => ext::SemanticTokenType::DECORATOR,
+            SemanticTokenKind::WordOpr => ext::SemanticTokenType::KEYWORD,
+            SemanticTokenKind::SelfType => ext::SemanticTokenType::TYPE,
+            SemanticTokenKind::SelfValue => ext::SemanticTokenType::KEYWORD,
+            SemanticTokenKind::HtmlFunctionIdent => ext::SemanticTokenType::FUNCTION,
+            SemanticTokenKind::HtmlPropertyIdent => ext::SemanticTokenType::PROPERTY,
+            SemanticTokenKind::SubmoduleIdent => ext::SemanticTokenType::NAMESPACE,
+            SemanticTokenKind::Todo => ext::SemanticTokenType::MACRO,
+            SemanticTokenKind::Unreachable => ext::SemanticTokenType::MACRO,
         })
     }
 
+    #[inline(always)]
     pub fn token_modifiers_bitset(self) -> u32 {
         let mut result = ModifierSet(0);
-        match self {
-            SemanticToken::Keyword(keyword) => match keyword {
-                Keyword::Stmt(stmt_keyword) => match stmt_keyword {
-                    StmtKeyword::If
-                    | StmtKeyword::Elif
-                    | StmtKeyword::Else
-                    | StmtKeyword::Match
-                    | StmtKeyword::NonImplFor
-                    | StmtKeyword::ForExt
-                    | StmtKeyword::While
-                    | StmtKeyword::Do
-                    | StmtKeyword::Break
-                    | StmtKeyword::Return
-                    | StmtKeyword::Require => result |= CONTROL_FLOW,
-                    StmtKeyword::Let | StmtKeyword::Assert => (),
-                },
-                Keyword::End(_) => result |= CONTROL_FLOW,
-                _ => (),
+        match self.kind {
+            SemanticTokenKind::Keyword(keyword_kind) => match keyword_kind {
+                KeywordKind::ControlFlow => result |= CONTROL_FLOW,
+                KeywordKind::Other => (),
             },
             _ => (),
         }

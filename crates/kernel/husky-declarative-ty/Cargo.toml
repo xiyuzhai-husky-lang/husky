@@ -20,7 +20,7 @@ husky-declarative-signature = { path = "../../kernel/husky-declarative-signature
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-declarative-term = { path = "../../kernel/husky-declarative-term" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-entity-kind = { path = "../../protocol/husky-entity-kind" }
 husky-coword = { path = "../../kernel/husky-coword" }
 # syntax
 husky-opr = { path = "../../kernel/husky-opr" }

@@ -23,8 +23,10 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 husky-text = { path = "../../lex/husky-text" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
-husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-entity-kind = { path = "../../protocol/husky-entity-kind" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
+# protocol
+husky-keyword-kind = { path = "../../protocol/husky-keyword-kind" }
 # syntax
 husky-opr = { path = "../../kernel/husky-opr" }
 # utils

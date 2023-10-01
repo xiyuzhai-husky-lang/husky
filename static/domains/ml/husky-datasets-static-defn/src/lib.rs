@@ -5,7 +5,7 @@ pub mod synthetic;
 
 use husky_datasets_interface::{__rust_code_gen__::*, *};
 use husky_dev_utils::*;
-use husky_entity_taxonomy::TyKind;
+use husky_entity_kind::TyKind;
 use husky_liason_semantics::*;
 use husky_static_defn::*;
 use husky_static_defn::{EntityStaticDefn, EntityStaticDefnVariant};

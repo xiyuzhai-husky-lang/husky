@@ -10,7 +10,7 @@ pub use self::ty_item::*;
 
 use crate::*;
 use husky_coword::IdentPairMap;
-use husky_entity_taxonomy::*;
+use husky_entity_kind::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]

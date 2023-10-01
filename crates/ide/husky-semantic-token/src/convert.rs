@@ -1,7 +1,7 @@
 use crate::*;
 
 pub(crate) fn to_semantic_tokens<'a>(
-    tokens: impl IntoIterator<Item = &'a RangedSemanticToken>,
+    tokens: impl IntoIterator<Item = &'a SemanticToken>,
 ) -> Vec<ext::SemanticToken> {
     let mut semantic_tokens = vec![];
     let mut last_line = 0;
@@ -20,8 +20,8 @@ pub(crate) fn to_semantic_tokens<'a>(
             delta_line,
             delta_start,
             length,
-            token_type: token.semantic_token.token_type(),
-            token_modifiers_bitset: token.semantic_token.token_modifiers_bitset(),
+            token_type: token.token_type(),
+            token_modifiers_bitset: token.token_modifiers_bitset(),
         });
         last_line = new_line;
         last_start = new_start

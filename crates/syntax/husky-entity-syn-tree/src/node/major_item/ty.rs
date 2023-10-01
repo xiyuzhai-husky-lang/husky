@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_taxonomy::TypeKind;
+use husky_entity_kind::TypeKind;
 use husky_print_utils::p;
 use smallvec::SmallVec;
 

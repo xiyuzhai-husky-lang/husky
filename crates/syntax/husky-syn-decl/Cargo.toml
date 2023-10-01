@@ -20,7 +20,7 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-coword = { path = "../../kernel/husky-coword" }
-husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-entity-kind = { path = "../../protocol/husky-entity-kind" }
 husky-opr = { path = "../../kernel/husky-opr" }
 # lex
 husky-token-data = { path = "../../lex/husky-token-data" }
