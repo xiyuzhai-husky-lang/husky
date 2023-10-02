@@ -4,7 +4,7 @@ version = "0.0.0"
 edition = "2021"
 
 [dependencies]
-serde = { version = "1.0.106", features = ["derive"] }
+serde.workspace = true
 indexmap = "1.8.1"
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }

@@ -7,7 +7,7 @@ license = "MIT OR Apache-2.0"
 description = "Generic LSP server scaffold."
 
 [dependencies]
-serde = { version = "1.0.106", features = ["derive"] }
+serde.workspace = true
 enum-class = { path = "../../abstraction/enum-class" }
 husky-entity-protocol = { path = "../../protocol/husky-entity-protocol", optional = true }
 

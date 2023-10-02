@@ -43,9 +43,10 @@ lto = false
 lsp-types = { version = "=0.94.0", features = ["proposed"] }
 thiserror = "1.0.37"
 smallvec = "1.10.0"
-ordered-float = "3.0.0"
+ordered-float = "4.1.0"
 paste = "1.0.6"
 clap = { version = "4.3.23", features = ["derive"] }
 dashmap = "5.5.1"
 flurry = "0.4.0"
 either = "1.8.1"
+serde = { version = "1.0.106", features = ["derive"] }

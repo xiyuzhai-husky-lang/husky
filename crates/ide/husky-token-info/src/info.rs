@@ -131,7 +131,7 @@ impl TokenInfoData {
             TokenInfoData::BoxColon
             | TokenInfoData::VecFunctorBoxPrefix
             | TokenInfoData::ArrayFunctorBoxPrefix => {
-                TokenKindProtocol::Entity(EntityKindProtocol::Type)
+                TokenKindProtocol::Entity(EntityKindSketch::Type)
             }
             TokenInfoData::UseExpr { state, .. } => match state {
                 OnceUseRuleState::Resolved {
@@ -148,7 +148,7 @@ impl TokenInfoData {
             TokenInfoData::HtmlPropertyIdent => TokenKindProtocol::HtmlPropertyIdent,
             TokenInfoData::SubmoduleIdent => TokenKindProtocol::SubmoduleIdent,
             TokenInfoData::UnitLeftParenthesis | TokenInfoData::UnitRightParenthesis => {
-                TokenKindProtocol::Entity(EntityKindProtocol::Type)
+                TokenKindProtocol::Entity(EntityKindSketch::Type)
             }
             TokenInfoData::Todo => TokenKindProtocol::Todo,
             TokenInfoData::Unreachable => TokenKindProtocol::Unreachable,

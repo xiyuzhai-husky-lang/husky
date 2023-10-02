@@ -7,7 +7,7 @@ edition = "2021"
 
 [dependencies]
 rand = "0.8.5"
-serde = { version = "1.0.106", features = ["derive"] }
+serde.workspace = true
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 xrng = { path = "../../utils/husky-rng-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }

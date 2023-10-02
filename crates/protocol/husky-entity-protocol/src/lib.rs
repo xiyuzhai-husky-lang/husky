@@ -1,5 +1,5 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum EntityKindProtocol {
+pub enum EntityKindSketch {
     Module,
     Type,
     FunctionFn,

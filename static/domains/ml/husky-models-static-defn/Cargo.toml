@@ -6,7 +6,7 @@ edition = "2021"
 [lib]
 
 [dependencies]
-serde = { version = "1.0.106", features = ["derive"] }
+serde.workspace = true
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 ordered-float.workspace = true
 linfa-svm = "0.6.0"
