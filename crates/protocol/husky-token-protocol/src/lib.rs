@@ -1,4 +1,4 @@
-use husky_entity_protocol::EntityKindSketch;
+use husky_entity_protocol::EntityClass;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum TokenKindProtocol {
@@ -11,7 +11,7 @@ pub enum TokenKindProtocol {
     Variable,
     ThisValue,
     FrameVariable,
-    Entity(EntityKindSketch),
+    Entity(EntityClass),
     ImplicitParameter,
     EnumVariant,
     Method,

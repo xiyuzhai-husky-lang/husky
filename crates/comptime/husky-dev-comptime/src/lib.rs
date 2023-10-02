@@ -3,7 +3,7 @@ mod db;
 use std::path::Path;
 
 use self::db::*;
-use husky_task::{helpers::DevLinkageTable, IsLinkageTable, IsTask};
+use husky_task::{helpers::DevLinkageTable, linkage::IsLinkageTable, IsTask};
 use husky_vfs::{CratePath, DiffPathBuf};
 
 pub struct DevComptime<Task: IsTask> {
