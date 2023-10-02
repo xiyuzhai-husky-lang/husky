@@ -11,7 +11,7 @@ thiserror.workspace = true
 ordered-float.workspace = true
 paste.workspace = true
 expect-test = "1.4.0"
-serde = { version = "1.0.106", features = ["derive"] }
+serde.workspace = true
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 lsp-types = { version = "=0.94", features = ["proposed"], optional = true }
 # abstraction

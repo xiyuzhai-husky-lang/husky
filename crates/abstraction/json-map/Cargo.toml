@@ -9,7 +9,7 @@ edition = "2021"
 doctest = false
 
 [dependencies]
-serde = { version = "1.0.106", features = ["derive"] }
+serde.workspace = true
 indexmap = "1.8.1"
 
 [dev-dependencies]

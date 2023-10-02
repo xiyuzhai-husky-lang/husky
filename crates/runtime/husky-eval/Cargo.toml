@@ -9,7 +9,7 @@ rust-version = "1.56"
 [lib]
 
 [dependencies]
-serde = { version = "1.0.106", features = ["derive"] }
+serde.workspace = true
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 lsp-types.workspace = true
 indexmap = "2.0.0"

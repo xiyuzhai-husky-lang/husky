@@ -15,7 +15,7 @@ dashmap = "5.4.0"
 crossbeam-channel = "0.5.0"
 lsp-types.workspace = true
 xflags = "0.2.1"
-serde = { version = "1.0.106", features = ["derive"] }
+serde.workspace = true
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 threadpool = "1.7.1"
 rustc-hash = "1.1.0"
