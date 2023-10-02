@@ -4,7 +4,10 @@ use self::internal::MonoLinkTimeInternal;
 use husky_hir_deps::{HirDepsDb, HirLinkageDeps};
 use husky_linkage_path::LinkagePath;
 use husky_regular_value::RegularValue;
-use husky_task::*;
+use husky_task::{
+    linkage::{IsLinkage, IsLinkageTable},
+    *,
+};
 use husky_vfs::CratePath;
 use std::{collections::HashMap, marker::PhantomData};
 

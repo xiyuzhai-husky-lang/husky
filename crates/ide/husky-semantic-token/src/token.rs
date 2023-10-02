@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_kind::*;
-use husky_entity_protocol::EntityKindSketch;
+use husky_entity_protocol::EntityClass;
 use husky_text::TextRange;
 use husky_token_protocol::{KeywordKindProtocol, TokenKindProtocol};
 
@@ -37,26 +37,24 @@ impl SemanticToken {
             TokenKindProtocol::ThisValue => ext::SemanticTokenType::VARIABLE,
             TokenKindProtocol::FrameVariable => ext::SemanticTokenType::VARIABLE,
             TokenKindProtocol::Entity(entity_protocol) => match entity_protocol {
-                EntityKindSketch::Module => ext::SemanticTokenType::NAMESPACE,
-                EntityKindSketch::Type => ext::SemanticTokenType::TYPE,
-                EntityKindSketch::Val => ext::SemanticTokenType::VARIABLE,
-                EntityKindSketch::FunctionFn | EntityKindSketch::FunctionGn => {
+                EntityClass::Module => ext::SemanticTokenType::NAMESPACE,
+                EntityClass::Type => ext::SemanticTokenType::TYPE,
+                EntityClass::Val => ext::SemanticTokenType::VARIABLE,
+                EntityClass::FunctionFn | EntityClass::FunctionGn => {
                     ext::SemanticTokenType::FUNCTION
                 }
-                EntityKindSketch::AliasType => todo!(),
-                EntityKindSketch::Trait => ext::SemanticTokenType::CLASS,
-                EntityKindSketch::MethodFn | EntityKindSketch::MethodGn => {
-                    ext::SemanticTokenType::METHOD
-                }
-                EntityKindSketch::AssociatedFunctionFn | EntityKindSketch::AssociatedFunctionGn => {
+                EntityClass::AliasType => todo!(),
+                EntityClass::Trait => ext::SemanticTokenType::CLASS,
+                EntityClass::MethodFn | EntityClass::MethodGn => ext::SemanticTokenType::METHOD,
+                EntityClass::AssociatedFunctionFn | EntityClass::AssociatedFunctionGn => {
                     ext::SemanticTokenType::FUNCTION
                 }
-                EntityKindSketch::MemoizedField => ext::SemanticTokenType::PROPERTY,
-                EntityKindSketch::AssociatedVal => ext::SemanticTokenType::VARIABLE,
-                EntityKindSketch::AssociatedType => ext::SemanticTokenType::TYPE,
-                EntityKindSketch::TypeVariant => ext::SemanticTokenType::ENUM_MEMBER,
-                EntityKindSketch::ImplBlock => unreachable!(),
-                EntityKindSketch::Attr => unreachable!(),
+                EntityClass::MemoizedField => ext::SemanticTokenType::PROPERTY,
+                EntityClass::AssociatedVal => ext::SemanticTokenType::VARIABLE,
+                EntityClass::AssociatedType => ext::SemanticTokenType::TYPE,
+                EntityClass::TypeVariant => ext::SemanticTokenType::ENUM_MEMBER,
+                EntityClass::ImplBlock => unreachable!(),
+                EntityClass::Attr => unreachable!(),
             },
             TokenKindProtocol::ImplicitParameter => ext::SemanticTokenType::TYPE_PARAMETER,
             TokenKindProtocol::Parameter => ext::SemanticTokenType::PARAMETER,

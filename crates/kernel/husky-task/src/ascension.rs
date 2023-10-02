@@ -1,4 +1,4 @@
-use crate::*;
+use crate::{visual::IsVisualProtocol, *};
 
 pub trait IsDevAscension {
     type Base: 'static;
@@ -6,4 +6,5 @@ pub trait IsDevAscension {
     type Value;
     type RuntimeStorage: Default;
     type RuntimeTaskSpecificConfig: Default;
+    type VisualProtocol: IsVisualProtocol;
 }

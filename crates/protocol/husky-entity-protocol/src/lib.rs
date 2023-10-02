@@ -1,5 +1,5 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum EntityKindSketch {
+pub enum EntityClass {
     Module,
     Type,
     FunctionFn,
