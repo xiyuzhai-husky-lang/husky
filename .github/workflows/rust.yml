@@ -17,17 +17,5 @@ jobs:
     steps:
     - uses: rui314/setup-mold@v1
     - uses: actions/checkout@v3
-    - name: Cache cpp dependencies
-      id: cache-cpp-dependencies
-      uses:  actions/cache@v3
-      with:
-        path: |
-          ~/cpp_dependencies
-        key: |
-          "cpp dependencies"
-    - if: ${{ steps.cache-cpp-dependencies.outputs.cache-hit != 'true' }}
-      name: download cpp dependencies
-      continue-on-error: false
-      run: ./scripts/download_cpp_dependencies.sh
     - name: Run tests
       run: ./scripts/ci_cargo_test.sh
