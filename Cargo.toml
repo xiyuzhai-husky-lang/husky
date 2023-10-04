@@ -6,10 +6,9 @@ members = [
     "crates/comptime/*",
     "crates/devtime/*",
     "crates/devtools/*",
-    # "crates/experiments/*",
     "crates/fs/*",
+    "crates/gui/*",
     "crates/ide/*",
-    "crates/semantics/*",
     "crates/kernel/*",
     "crates/lex/*",
     "crates/linkage/*",
@@ -17,6 +16,7 @@ members = [
     "crates/protocol/*",
     "crates/robotics/*",
     "crates/runtime/*",
+    "crates/semantics/*",
     "crates/syntax/*",
     "crates/tasks/*",
     "crates/try/*",
@@ -39,6 +39,10 @@ opt-level = 0
 lto = false
 
 [workspace.dependencies]
+eframe = "0.23.0"
+ecolor = { version = "0.23.0", features = ["serde", "bytemuck"] }
+egui = "0.23.0"
+egui_dock = "0.8.0"
 # warning: change to 0.94.1 will leads to bugs for vscode extension
 lsp-types = { version = "=0.94.0", features = ["proposed"] }
 thiserror = "1.0.37"

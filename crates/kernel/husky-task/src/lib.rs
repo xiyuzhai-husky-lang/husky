@@ -1,3 +1,4 @@
+#![feature(associated_type_bounds)]
 mod ascension;
 pub mod helpers;
 pub mod linkage;

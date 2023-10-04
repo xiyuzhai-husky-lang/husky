@@ -1,4 +1,5 @@
-mod storage;
+pub mod storage;
+pub mod view;
 
 pub enum TraceKindProtocol {
     LazyCall,
@@ -8,9 +9,3 @@ pub enum TraceKindProtocol {
     EagerExpr,
     EagerStmt,
 }
-
-pub struct TraceViewData {
-    tokens_data: Vec<TraceViewTokenData>,
-}
-
-pub struct TraceViewTokenData {}

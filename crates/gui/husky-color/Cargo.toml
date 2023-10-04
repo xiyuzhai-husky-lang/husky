@@ -1,8 +1,8 @@
 [package]
-name = "husky-default-visual-protocol"
+name = "husky-color"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-husky-task = { path = "../../kernel/husky-task" }
+ecolor.workspace = true

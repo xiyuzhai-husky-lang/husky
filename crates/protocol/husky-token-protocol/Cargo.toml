@@ -8,3 +8,5 @@ edition = "2021"
 serde.workspace = true
 # protocol
 husky-entity-protocol = { path = "../../protocol/husky-entity-protocol" }
+
+[features]
