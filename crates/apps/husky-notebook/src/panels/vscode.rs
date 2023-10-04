@@ -24,6 +24,6 @@ impl HuskyNotebookApp {
         egui::SidePanel::right("figure_view").show(ctx, |ui| self.render_assist_view(ctx, ui));
         egui::CentralPanel::default()
             .frame(self.config.main_panel_frame())
-            .show(ctx, |ui| self.render_main_panel(ctx, ui));
+            .show(ctx, |ui| self.render_main_panel(ui));
     }
 }
