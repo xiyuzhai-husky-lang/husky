@@ -1,10 +1,12 @@
 mod background;
+mod doc;
 mod foreground;
 mod layout;
 
 use egui::Color32;
 
 pub(crate) use self::background::*;
+pub(crate) use self::doc::*;
 pub(crate) use self::foreground::*;
 pub(crate) use self::layout::*;
 
@@ -13,6 +15,7 @@ pub(crate) struct HuskyNotebookConfig {
     background: HuskyNotebookBackgroundConfig,
     foreground: HuskyNotebookForegroundConfig,
     layout: HuskyNotebookLayoutConfig,
+    doc_config: HuskyNotebookDocConfig,
 }
 
 impl HuskyNotebookConfig {

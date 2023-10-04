@@ -6,15 +6,15 @@ pub trait IsWidget<Ui: IsUi> {
     fn ui(self, ui: &mut Ui) -> Ui::Response;
 }
 
-pub trait IsUiComponent<Ui: IsUi> {
-    fn render(&mut self, ui: &mut Ui) -> Ui::Response;
+pub trait IsUiComponent<Ui: IsUi, UiComponentConfig> {
+    fn render(&mut self, ui: &mut Ui, config: &UiComponentConfig) -> Ui::Response;
 }
 
-pub struct UiComponent<Ui: IsUi>(Box<dyn IsUiComponent<Ui>>);
+pub struct UiComponent<Ui: IsUi, UiComponentConfig>(Box<dyn IsUiComponent<Ui, UiComponentConfig>>);
 
-impl<Ui: IsUi> UiComponent<Ui> {
-    pub fn render(&mut self, ui: &mut Ui) -> Ui::Response {
-        self.0.render(ui)
+impl<Ui: IsUi, UiComponentConfig> UiComponent<Ui, UiComponentConfig> {
+    pub fn render(&mut self, ui: &mut Ui, config: &UiComponentConfig) -> Ui::Response {
+        self.0.render(ui, config)
     }
 }
 
