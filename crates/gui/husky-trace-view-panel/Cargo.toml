@@ -1,0 +1,15 @@
+[package]
+name = "husky-trace-view-panel"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+husky-trace-protocol = { path = "../../protocol/husky-trace-protocol" }
+
+[features]
+
+[dev-dependencies]
+husky-trace-protocol = { path = "../../protocol/husky-trace-protocol", features = [
+    "mock"
+] }

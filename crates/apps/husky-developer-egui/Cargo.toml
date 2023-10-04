@@ -5,6 +5,6 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-eframe = "0.22.0"
-egui = "0.22.0"
-egui_dock = "0.6.1"
+eframe.workspace = true
+egui.workspace = true
+egui_dock.workspace = true
