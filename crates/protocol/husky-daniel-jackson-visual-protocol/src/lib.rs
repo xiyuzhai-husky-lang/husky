@@ -33,21 +33,17 @@ pub enum DanielJacksonVisual {
 impl IsVisual for DanielJacksonVisual {
     type Component = DanielJacksonVisualComponent;
 
-    type Ui = ();
-
-    type UiResponse = ();
-
     type Action = DanielJacksonVisualAction;
 
     fn from_components(components: &[DanielJacksonVisualComponent]) -> Self {
         todo!()
     }
 
-    fn render(
+    fn render<Ui: ui::IsUi>(
         self,
-        ui: &mut Self::Ui,
+        ui: &mut Ui,
         action_buffer: &mut ActionBuffer<DanielJacksonVisualAction>,
-    ) -> Self::UiResponse {
+    ) -> Ui::Response {
         todo!()
     }
 }

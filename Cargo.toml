@@ -14,7 +14,6 @@ members = [
     "crates/linkage/*",
     "crates/linktime/*",
     "crates/protocol/*",
-    "crates/robotics/*",
     "crates/runtime/*",
     "crates/semantics/*",
     "crates/syntax/*",

@@ -9,19 +9,15 @@ pub trait IsVisualProtocol {
 pub trait IsVisual {
     type Component;
 
-    type Ui;
-
-    type UiResponse;
-
     type Action;
 
     fn from_components(components: &[Self::Component]) -> Self;
 
-    fn render(
+    fn render<Ui: ui::IsUi>(
         self,
-        ui: &mut Self::Ui,
+        ui: &mut Ui,
         action_buffer: &mut ActionBuffer<Self::Action>,
-    ) -> (Self::UiResponse);
+    ) -> Ui::Response;
 }
 
 pub type VisualProtocol<Task> = <<Task as IsTask>::DevAscension as IsDevAscension>::VisualProtocol;

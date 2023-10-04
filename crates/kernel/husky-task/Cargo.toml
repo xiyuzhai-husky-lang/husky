@@ -7,6 +7,7 @@ edition = "2021"
 [dependencies]
 smallvec.workspace = true
 # abstraction
+ui = { path = "../../abstraction/ui" }
 small-cell-stack = { path = "../../abstraction/small-cell-stack" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }

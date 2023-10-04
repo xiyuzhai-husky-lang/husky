@@ -1,3 +1,0 @@
-# Robotics
-
-Adapted from drake
