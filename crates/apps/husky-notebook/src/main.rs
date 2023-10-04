@@ -3,6 +3,7 @@ mod config;
 mod panels;
 
 use self::config::*;
+use components::doc::DocsDock;
 use eframe::egui;
 
 fn main() -> Result<(), eframe::Error> {
@@ -21,7 +22,7 @@ fn main() -> Result<(), eframe::Error> {
 
 struct HuskyNotebookApp {
     config: HuskyNotebookConfig,
-    doctree: egui_dock::Tree<String>,
+    docs_dock: DocsDock,
 }
 
 impl Default for HuskyNotebookApp {
@@ -29,11 +30,10 @@ impl Default for HuskyNotebookApp {
         let tab1 = "tab1".to_string();
         let tab2 = "tab2".to_string();
 
-        let mut doctree = egui_dock::Tree::new(vec![tab1]);
-        doctree.split_left(egui_dock::NodeIndex::root(), 0.20, vec![tab2]);
+        let mut dock_state = egui_dock::DockState::new(vec![tab1, tab2]);
         Self {
             config: HuskyNotebookConfig::default(),
-            doctree,
+            docs_dock: DocsDock::default(),
         }
     }
 }
