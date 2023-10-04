@@ -18,6 +18,15 @@ impl<Ui: IsUi, UiComponentConfig> UiComponent<Ui, UiComponentConfig> {
     }
 }
 
+impl<Ui: IsUi, UiComponentConfig> UiComponent<Ui, UiComponentConfig> {
+    pub fn new<UiComponentImpl>(ui_component: UiComponentImpl) -> Self
+    where
+        UiComponentImpl: IsUiComponent<Ui, UiComponentConfig> + 'static,
+    {
+        Self(Box::new(ui_component))
+    }
+}
+
 #[cfg(feature = "egui")]
 impl IsUi for egui::Ui {
     type Response = egui::Response;
