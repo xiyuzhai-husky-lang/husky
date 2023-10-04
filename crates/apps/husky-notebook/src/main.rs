@@ -27,10 +27,6 @@ struct HuskyNotebookApp {
 
 impl Default for HuskyNotebookApp {
     fn default() -> Self {
-        let tab1 = "tab1".to_string();
-        let tab2 = "tab2".to_string();
-
-        let mut dock_state = egui_dock::DockState::new(vec![tab1, tab2]);
         Self {
             config: HuskyNotebookConfig::default(),
             docs_dock: DocsDock::default(),
