@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 serde.workspace = true
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
-# abstraction
+# abstractions
 salsa = { path = "../../abstractions/salsa" }
 # kernel
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }

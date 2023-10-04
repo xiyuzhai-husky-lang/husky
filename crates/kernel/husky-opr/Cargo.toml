@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
-# abstraction
+# abstractions
 enum-class = { path = "../../abstractions/enum-class" }
 # lex
 husky-text = { path = "../../lex/husky-text" }

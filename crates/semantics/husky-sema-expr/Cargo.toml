@@ -8,7 +8,7 @@ edition = "2021"
 thiserror.workspace = true
 smallvec.workspace = true
 either.workspace = true
-# abstraction
+# abstractions
 salsa = { path = "../../abstractions/salsa" }
 enum-class = { path = "../../abstractions/enum-class" }
 idx-arena = { path = "../../abstractions/idx-arena" }

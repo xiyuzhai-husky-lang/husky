@@ -10,7 +10,7 @@ doctest = false
 thiserror.workspace = true
 relative-path = "1.7.2"
 pathdiff = "0.2.1"
-# abstraction
+# abstractions
 salsa = { path = "../../abstractions/salsa" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }

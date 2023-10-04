@@ -8,7 +8,7 @@ edition = "2021"
 flurry.workspace = true
 dashmap.workspace = true
 either.workspace = true
-# abstraction
+# abstractions
 # comptime
 husky-hir-deps = { path = "../../comptime/husky-hir-deps" }
 # kernel

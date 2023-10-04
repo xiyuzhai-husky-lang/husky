@@ -2,6 +2,9 @@ mod response;
 mod widgets;
 
 pub use self::response::Response;
-pub use self::widgets::Widget;
 
 pub struct Ui(egui::Ui);
+
+impl ui::IsUi for Ui {
+    type Response = Response;
+}

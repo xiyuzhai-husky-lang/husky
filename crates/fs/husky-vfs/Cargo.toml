@@ -23,7 +23,7 @@ serde_json = { version = "1.0.48", features = [
     "preserve_order"
 ], optional = true }
 lsp-types = { version = "=0.94", features = ["proposed"], optional = true }
-# abstraction
+# abstractions
 vec-like = { path = "../../abstractions/vec-like" }
 salsa = { path = "../../abstractions/salsa" }
 with-db = { path = "../../abstractions/with-db" }

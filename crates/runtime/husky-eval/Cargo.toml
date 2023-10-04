@@ -13,7 +13,7 @@ serde.workspace = true
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 lsp-types.workspace = true
 indexmap = "2.0.0"
-# abstraction
+# abstractions
 salsa = { path = "../../abstractions/salsa" }
 cyclic-slice = { path = "../../abstractions/cyclic-slice" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }

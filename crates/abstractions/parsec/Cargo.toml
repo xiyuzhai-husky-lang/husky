@@ -6,6 +6,6 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 smallvec.workspace = true
-# abstraction
+# abstractions
 original-error = { path = "../../abstractions/original-error" }
 vec-like = { path = "../../abstractions/vec-like" }
