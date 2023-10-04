@@ -15,7 +15,7 @@ pub(crate) struct HuskyNotebookConfig {
     background: HuskyNotebookBackgroundConfig,
     foreground: HuskyNotebookForegroundConfig,
     layout: HuskyNotebookLayoutConfig,
-    doc_config: HuskyNotebookDocConfig,
+    doc: HuskyNotebookDocConfig,
 }
 
 impl HuskyNotebookConfig {
