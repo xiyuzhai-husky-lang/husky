@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 ordered-float.workspace = true
-cyclic-slice = { path = "../../abstraction/cyclic-slice" }
+cyclic-slice = { path = "../../abstractions/cyclic-slice" }
 # kernel
 husky-regular-value = { path = "../../kernel/husky-regular-value" }
 # utils

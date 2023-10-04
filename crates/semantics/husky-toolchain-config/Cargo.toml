@@ -8,7 +8,7 @@ edition = "2021"
 thiserror.workspace = true
 semver = "1.0.17"
 # abstraction
-salsa = { path = "../../abstraction/salsa" }
+salsa = { path = "../../abstractions/salsa" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }

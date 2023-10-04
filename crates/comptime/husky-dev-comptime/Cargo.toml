@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 dashmap.workspace = true
 # abstraction
-salsa = { path = "../../abstraction/salsa" }
+salsa = { path = "../../abstractions/salsa" }
 # comptime
 husky-val-repr = { path = "../../comptime/husky-val-repr" }
 # fs

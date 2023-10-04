@@ -16,7 +16,7 @@ version = "0.8.0-beta.6"
 sycamore = { path = "../sycamore", version = "0.8.0-beta.6" }
 sycamore-router-macro = { path = "../sycamore-router-macro", version = "0.8.0-beta.6" }
 wasm-bindgen = "0.2.86"
-husky-signal = { path = "../../../../crates/abstraction/husky-signal" }
+husky-signal = { path = "../../../../crates/abstractions/husky-signal" }
 
 [dependencies.web-sys]
 features = [

@@ -12,10 +12,10 @@ thiserror.workspace = true
 ordered-float.workspace = true
 smallvec.workspace = true
 # abstraction
-salsa = { path = "../../abstraction/salsa" }
-vec-like = { path = "../../abstraction/vec-like" }
-enum-class = { path = "../../abstraction/enum-class" }
-maybe-result = { path = "../../abstraction/maybe-result" }
+salsa = { path = "../../abstractions/salsa" }
+vec-like = { path = "../../abstractions/vec-like" }
+enum-class = { path = "../../abstractions/enum-class" }
+maybe-result = { path = "../../abstractions/maybe-result" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # infer

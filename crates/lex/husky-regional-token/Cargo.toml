@@ -7,9 +7,9 @@ edition = "2021"
 [dependencies]
 thiserror.workspace = true
 # abstraction
-enum-class = { path = "../../abstraction/enum-class" }
-parsec = { path = "../../abstraction/parsec" }
-salsa = { path = "../../abstraction/salsa" }
+enum-class = { path = "../../abstractions/enum-class" }
+parsec = { path = "../../abstractions/parsec" }
+salsa = { path = "../../abstractions/salsa" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # lex

@@ -2,37 +2,37 @@
 <module type="CPP_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/avec/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/composite-pattern/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/cyclic-slice/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/enum-class-macros/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/enum-class/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/enum-class/tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/error-lineage/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/husky-signal/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/idx-arena/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/json-map/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/json-result/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/la-arena/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/local-stack/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/map-collect/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/monad/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/parsec/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/projectable/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/propagate/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/pure-form/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/ref-arena/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/reserve/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/rule-table/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/salsa-macros/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/salsa/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/salsa/tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/trackable/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/trivial-iter/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/unique-vector/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/upcast/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/vec-like/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/with-db/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/avec/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/composite-pattern/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/cyclic-slice/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/enum-class-macros/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/enum-class/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/enum-class/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/error-lineage/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/husky-signal/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/idx-arena/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/json-map/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/json-result/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/la-arena/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/local-stack/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/map-collect/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/monad/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/parsec/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/projectable/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/propagate/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/pure-form/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/ref-arena/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/reserve/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/rule-table/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/salsa-macros/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/salsa/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/salsa/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/trackable/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/trivial-iter/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/unique-vector/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/upcast/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/vec-like/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/with-db/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/apps/husky-analyzer/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/apps/husky-compiler/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/apps/husky-developer-egui/src" isTestSource="false" />
@@ -161,9 +161,9 @@
       <sourceFolder url="file://$MODULE_DIR$/crates/vm/husky-vm-register-method/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/vm/husky-vm/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/forks/thin-vec/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/has/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/maybe-result/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/original-error/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/has/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/maybe-result/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstractions/original-error/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/experiments/template-matching-viewer/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/ide/husky-token-info/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-declarative-signature/src" isTestSource="false" />

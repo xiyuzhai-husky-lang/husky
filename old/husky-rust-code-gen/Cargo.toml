@@ -13,8 +13,8 @@ doctest = false
 convert_case = "0.6.0"
 path-slash = "0.2.1"
 # abstraction
-salsa = { path = "../../abstraction/salsa" }
-vec-like = { path = "../../abstraction/vec-like" }
+salsa = { path = "../../abstractions/salsa" }
+vec-like = { path = "../../abstractions/vec-like" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # kernel

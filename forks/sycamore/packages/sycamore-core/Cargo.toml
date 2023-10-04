@@ -13,7 +13,7 @@ version = "0.8.0-beta.6"
 [dependencies]
 ahash = "0.7.6"
 sycamore-reactive = { path = "../sycamore-reactive", version = "0.8.0-beta.6" }
-husky-signal = { path = "../../../../crates/abstraction/husky-signal" }
+husky-signal = { path = "../../../../crates/abstractions/husky-signal" }
 
 [dev-dependencies]
 

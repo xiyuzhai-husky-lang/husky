@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 thiserror.workspace = true
 # abstraction
-salsa = { path = "../../abstraction/salsa" }
+salsa = { path = "../../abstractions/salsa" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # lex
@@ -20,7 +20,7 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
 expect-test = "1.4.0"
-salsa = { path = "../../abstraction/salsa" }
+salsa = { path = "../../abstractions/salsa" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 # kernel

@@ -15,12 +15,12 @@ smallvec.workspace = true
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
 # abstraction
-salsa = { path = "../../abstraction/salsa" }
-enum-class = { path = "../../abstraction/enum-class" }
-vec-like = { path = "../../abstraction/vec-like" }
-idx-arena = { path = "../../abstraction/idx-arena" }
-original-error = { path = "../../abstraction/original-error" }
-parsec = { path = "../../abstraction/parsec" }
+salsa = { path = "../../abstractions/salsa" }
+enum-class = { path = "../../abstractions/enum-class" }
+vec-like = { path = "../../abstractions/vec-like" }
+idx-arena = { path = "../../abstractions/idx-arena" }
+original-error = { path = "../../abstractions/original-error" }
+parsec = { path = "../../abstractions/parsec" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # lex

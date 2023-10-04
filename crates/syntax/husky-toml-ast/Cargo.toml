@@ -10,9 +10,9 @@ thiserror.workspace = true
 ordered-float.workspace = true
 smallvec.workspace = true
 # abstraction
-salsa = { path = "../../abstraction/salsa" }
-idx-arena = { path = "../../abstraction/idx-arena" }
-vec-like = { path = "../../abstraction/vec-like" }
+salsa = { path = "../../abstractions/salsa" }
+idx-arena = { path = "../../abstractions/idx-arena" }
+vec-like = { path = "../../abstractions/vec-like" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel

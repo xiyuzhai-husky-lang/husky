@@ -15,10 +15,10 @@ serde.workspace = true
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 lsp-types = { version = "=0.94", features = ["proposed"], optional = true }
 # abstraction
-parsec = { path = "../../abstraction/parsec" }
-salsa = { path = "../../abstraction/salsa" }
-vec-like = { path = "../../abstraction/vec-like" }
-enum-class = { path = "../../abstraction/enum-class" }
+parsec = { path = "../../abstractions/parsec" }
+salsa = { path = "../../abstractions/salsa" }
+vec-like = { path = "../../abstractions/vec-like" }
+enum-class = { path = "../../abstractions/enum-class" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # lex

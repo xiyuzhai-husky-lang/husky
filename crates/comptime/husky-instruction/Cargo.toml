@@ -10,11 +10,11 @@ rust-version = "1.56"
 doctest = false
 
 [dependencies]
-salsa = { path = "../../abstraction/salsa" }
+salsa = { path = "../../abstractions/salsa" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
-map-collect = { path = "../../abstraction/map-collect" }
-avec = { path = "../../abstraction/avec" }
+map-collect = { path = "../../abstractions/map-collect" }
+avec = { path = "../../abstractions/avec" }
 # comptime
 # husky-dev-linkage-table = { path = "../../comptime/husky-dev-linkage-table" }
 # kernel

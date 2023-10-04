@@ -18,8 +18,8 @@ indexmap = "1.8.0"
 serde = { version = "1.0.136", optional = true }
 slotmap = "1.0.6"
 smallvec = { version = "1.8.0", features = ["const_generics"] }
-husky-signal = { path = "../../../../crates/abstraction/husky-signal" }
-vec-like = { path = "../../../../crates/abstraction/vec-like" }
+husky-signal = { path = "../../../../crates/abstractions/husky-signal" }
+vec-like = { path = "../../../../crates/abstractions/vec-like" }
 
 [features]
 default = []

@@ -10,11 +10,11 @@ derive-getters = "0.2.0"
 either.workspace = true
 smallvec.workspace = true
 # abstraction
-salsa = { path = "../../abstraction/salsa" }
-enum-class = { path = "../../abstraction/enum-class" }
-vec-like = { path = "../../abstraction/vec-like" }
-original-error = { path = "../../abstraction/original-error" }
-parsec = { path = "../../abstraction/parsec" }
+salsa = { path = "../../abstractions/salsa" }
+enum-class = { path = "../../abstractions/enum-class" }
+vec-like = { path = "../../abstractions/vec-like" }
+original-error = { path = "../../abstractions/original-error" }
+parsec = { path = "../../abstractions/parsec" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel

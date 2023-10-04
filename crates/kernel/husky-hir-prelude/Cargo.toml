@@ -6,6 +6,6 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 ordered-float.workspace = true
-salsa = { path = "../../abstraction/salsa" }
+salsa = { path = "../../abstractions/salsa" }
 # kernel
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }

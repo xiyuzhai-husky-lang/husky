@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 # abstraction
-salsa = { path = "../../abstraction/salsa" }
+salsa = { path = "../../abstractions/salsa" }
 # kernel
 husky-linkage-path = { path = "../../kernel/husky-linkage-path" }
 husky-val = { path = "../../kernel/husky-val" }

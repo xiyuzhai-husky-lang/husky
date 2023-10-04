@@ -9,4 +9,4 @@ smallvec.workspace = true
 compact_str = "0.7.1"
 ordered-float = "3.7.0"
 # abstraction
-salsa = { path = "../../abstraction/salsa" }
+salsa = { path = "../../abstractions/salsa" }

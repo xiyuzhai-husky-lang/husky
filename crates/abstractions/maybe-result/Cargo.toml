@@ -1,11 +1,9 @@
 [package]
-name = "parsec"
+name = "maybe-result"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+original-error = { path = "../../abstractions/original-error" }
 smallvec.workspace = true
-# abstraction
-original-error = { path = "../../abstraction/original-error" }
-vec-like = { path = "../../abstraction/vec-like" }

@@ -1,8 +1,9 @@
 [package]
-name = "projectable"
+name = "husky-signal"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-vec-like = { path = "../../abstraction/vec-like" }
+# abstraction
+vec-like = { path = "../../abstractions/vec-like" }
