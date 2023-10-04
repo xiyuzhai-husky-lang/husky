@@ -5,6 +5,10 @@ pub struct DocTab {
 }
 
 impl DocTab {
+    pub(super) fn new(id: DocId) -> Self {
+        Self { id }
+    }
+
     pub fn id(&self) -> DocId {
         self.id
     }
