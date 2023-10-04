@@ -9,11 +9,11 @@ path = "src/bin/main.rs"
 
 [dependencies]
 clap.workspace = true
-salsa = { path = "../../abstraction/salsa" }
+salsa = { path = "../../abstractions/salsa" }
 lsp-types.workspace = true
 relative-path = "1.7.2"
 # abstraction
-reserve = { path = "../../abstraction/reserve" }
+reserve = { path = "../../abstractions/reserve" }
 # comptime
 # husky-compile-dir = { path = "../../comptime/husky-compile-dir" }
 # husky-rust-code-gen = { path = "../../comptime/husky-rust-code-gen" }

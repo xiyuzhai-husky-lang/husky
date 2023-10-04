@@ -11,7 +11,7 @@ thiserror.workspace = true
 relative-path = "1.7.2"
 pathdiff = "0.2.1"
 # abstraction
-salsa = { path = "../../abstraction/salsa" }
+salsa = { path = "../../abstractions/salsa" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
 # utils

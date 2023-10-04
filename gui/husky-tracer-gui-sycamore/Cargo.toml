@@ -16,8 +16,8 @@ wasm-bindgen = "0.2.86"
 libmath = "0.2.1"
 js-sys = "0.3.58"
 sycamore = { path = "../../forks/sycamore/packages/sycamore" }
-vec-like = { path = "../../crates/abstraction/vec-like" }
-trackable = { path = "../../crates/abstraction/trackable" }
+vec-like = { path = "../../crates/abstractions/vec-like" }
+trackable = { path = "../../crates/abstractions/trackable" }
 husky-trace-protocol = { path = "../../crates/devtime/husky-trace-protocol" }
 husky-vm-primitive-value = { path = "../../crates/vm/husky-vm-primitive-value" }
 

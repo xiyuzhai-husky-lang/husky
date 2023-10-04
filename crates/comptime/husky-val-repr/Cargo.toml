@@ -13,12 +13,12 @@ doctest = false
 rustc-hash = "1.1.0"
 itertools = "^0.10.3"
 lsp-types.workspace = true
-salsa = { path = "../../abstraction/salsa" }
+salsa = { path = "../../abstractions/salsa" }
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
 # abstraction
-avec = { path = "../../abstraction/avec" }
-map-collect = { path = "../../abstraction/map-collect" }
+avec = { path = "../../abstractions/avec" }
+map-collect = { path = "../../abstractions/map-collect" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel

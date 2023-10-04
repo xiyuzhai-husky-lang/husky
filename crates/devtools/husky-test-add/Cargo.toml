@@ -9,4 +9,4 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-cli-utils = { path = "../../utils/husky-cli-utils" }
 husky-io-utils = { path = "../../utils/husky-io-utils" }
-composite-pattern = { path = "../../abstraction/composite-pattern" }
+composite-pattern = { path = "../../abstractions/composite-pattern" }

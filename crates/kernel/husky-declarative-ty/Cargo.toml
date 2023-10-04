@@ -8,10 +8,10 @@ edition = "2021"
 thiserror.workspace = true
 smallvec.workspace = true
 # abstraction
-salsa = { path = "../../abstraction/salsa" }
-vec-like = { path = "../../abstraction/vec-like" }
-propagate = { path = "../../abstraction/propagate" }
-map-collect = { path = "../../abstraction/map-collect" }
+salsa = { path = "../../abstractions/salsa" }
+vec-like = { path = "../../abstractions/vec-like" }
+propagate = { path = "../../abstractions/propagate" }
+map-collect = { path = "../../abstractions/map-collect" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 # infer

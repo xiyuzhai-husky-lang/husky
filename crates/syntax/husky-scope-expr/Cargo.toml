@@ -7,8 +7,8 @@ edition = "2021"
 [dependencies]
 thiserror.workspace = true
 # abstraction
-original-error = { path = "../../abstraction/original-error" }
-parsec = { path = "../../abstraction/parsec" }
+original-error = { path = "../../abstractions/original-error" }
+parsec = { path = "../../abstractions/parsec" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel

@@ -8,8 +8,8 @@ edition = "2021"
 thiserror.workspace = true
 smallvec.workspace = true
 # abstraction
-salsa = { path = "../../abstraction/salsa" }
-vec-like = { path = "../../abstraction/vec-like" }
+salsa = { path = "../../abstractions/salsa" }
+vec-like = { path = "../../abstractions/vec-like" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }

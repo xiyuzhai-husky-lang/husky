@@ -24,9 +24,9 @@ serde_json = { version = "1.0.48", features = [
 ], optional = true }
 lsp-types = { version = "=0.94", features = ["proposed"], optional = true }
 # abstraction
-vec-like = { path = "../../abstraction/vec-like" }
-salsa = { path = "../../abstraction/salsa" }
-with-db = { path = "../../abstraction/with-db" }
+vec-like = { path = "../../abstractions/vec-like" }
+salsa = { path = "../../abstractions/salsa" }
+with-db = { path = "../../abstractions/with-db" }
 # fs
 husky-fs-specs = { path = "../../fs/husky-fs-specs" }
 # lex

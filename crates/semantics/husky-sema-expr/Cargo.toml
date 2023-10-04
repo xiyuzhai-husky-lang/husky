@@ -9,12 +9,12 @@ thiserror.workspace = true
 smallvec.workspace = true
 either.workspace = true
 # abstraction
-salsa = { path = "../../abstraction/salsa" }
-enum-class = { path = "../../abstraction/enum-class" }
-idx-arena = { path = "../../abstraction/idx-arena" }
-vec-like = { path = "../../abstraction/vec-like" }
-original-error = { path = "../../abstraction/original-error" }
-maybe-result = { path = "../../abstraction/maybe-result" }
+salsa = { path = "../../abstractions/salsa" }
+enum-class = { path = "../../abstractions/enum-class" }
+idx-arena = { path = "../../abstractions/idx-arena" }
+vec-like = { path = "../../abstractions/vec-like" }
+original-error = { path = "../../abstractions/original-error" }
+maybe-result = { path = "../../abstractions/maybe-result" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 # kernel

@@ -14,13 +14,13 @@ serde_json = { version = "1.0.48", features = ["preserve_order"] }
 lsp-types.workspace = true
 indexmap = "2.0.0"
 # abstraction
-salsa = { path = "../../abstraction/salsa" }
-cyclic-slice = { path = "../../abstraction/cyclic-slice" }
+salsa = { path = "../../abstractions/salsa" }
+cyclic-slice = { path = "../../abstractions/cyclic-slice" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-map-collect = { path = "../../abstraction/map-collect" }
-idx-arena = { path = "../../abstraction/idx-arena" }
+map-collect = { path = "../../abstractions/map-collect" }
+idx-arena = { path = "../../abstractions/idx-arena" }
 husky-text = { path = "../../lex/husky-text" }
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }

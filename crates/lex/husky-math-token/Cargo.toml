@@ -6,5 +6,5 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 # abstraction
-salsa = { path = "../../abstraction/salsa" }
-enum-class = { path = "../../abstraction/enum-class" }
+salsa = { path = "../../abstractions/salsa" }
+enum-class = { path = "../../abstractions/enum-class" }

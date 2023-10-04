@@ -4,14 +4,14 @@ version = "0.0.0"
 edition = "2021"
 
 [dependencies]
-salsa = { path = "../../abstraction/salsa" }
+salsa = { path = "../../abstractions/salsa" }
 serde.workspace = true
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 # abstraction
-vec-like = { path = "../../abstraction/vec-like" }
-map-collect = { path = "../../abstraction/map-collect" }
-avec = { path = "../../abstraction/avec" }
-trackable = { path = "../../abstraction/trackable" }
+vec-like = { path = "../../abstractions/vec-like" }
+map-collect = { path = "../../abstractions/map-collect" }
+avec = { path = "../../abstractions/avec" }
+trackable = { path = "../../abstractions/trackable" }
 # comptime
 # devtime
 husky-trace-protocol-old = { path = "../../devtime/husky-trace-protocol-old" }

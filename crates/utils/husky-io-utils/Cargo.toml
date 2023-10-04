@@ -9,4 +9,4 @@ doctest = false
 [dependencies]
 relative-path = "1.7.2"
 husky-print-utils = { path = "../husky-print-utils" }
-composite-pattern = { path = "../../abstraction/composite-pattern" }
+composite-pattern = { path = "../../abstractions/composite-pattern" }

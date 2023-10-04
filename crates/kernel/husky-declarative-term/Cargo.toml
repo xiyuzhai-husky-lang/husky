@@ -11,9 +11,9 @@ thiserror.workspace = true
 ordered-float.workspace = true
 smallvec.workspace = true
 # abstraction
-salsa = { path = "../../abstraction/salsa" }
-vec-like = { path = "../../abstraction/vec-like" }
-enum-class = { path = "../../abstraction/enum-class" }
+salsa = { path = "../../abstractions/salsa" }
+vec-like = { path = "../../abstractions/vec-like" }
+enum-class = { path = "../../abstractions/enum-class" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel

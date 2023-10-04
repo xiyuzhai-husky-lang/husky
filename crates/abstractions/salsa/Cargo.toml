@@ -19,9 +19,9 @@ parking_lot = "0.12.1"
 smallvec.workspace = true
 either.workspace = true
 # abstraction
-salsa-macros = { path = "../../abstraction/salsa-macros" }
-vec-like = { path = "../../abstraction/vec-like" }
-maybe-result = { path = "../../abstraction/maybe-result" }
+salsa-macros = { path = "../../abstractions/salsa-macros" }
+vec-like = { path = "../../abstractions/vec-like" }
+maybe-result = { path = "../../abstractions/maybe-result" }
 
 [dev-dependencies]
 expect-test = "1.4.0"

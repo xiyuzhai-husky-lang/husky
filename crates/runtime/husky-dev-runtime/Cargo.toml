@@ -5,15 +5,15 @@ edition = "2021"
 
 [dependencies]
 serde.workspace = true
-salsa = { path = "../../abstraction/salsa" }
+salsa = { path = "../../abstractions/salsa" }
 lsp-types.workspace = true
 indexmap = "1.8.1"
 libloading = "0.7.3"
 convert_case = "0.6.0"
 relative-path = "1.7.2"
 # abstraction
-map-collect = { path = "../../abstraction/map-collect" }
-idx-arena = { path = "../../abstraction/idx-arena" }
+map-collect = { path = "../../abstractions/map-collect" }
+idx-arena = { path = "../../abstractions/idx-arena" }
 # comptime
 husky-dev-comptime = { path = "../../comptime/husky-dev-comptime" }
 # fs

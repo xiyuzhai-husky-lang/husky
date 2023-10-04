@@ -25,7 +25,7 @@ sycamore-reactive = { path = "../sycamore-reactive", version = "0.8.0-beta.6" }
 sycamore-web = { path = "../sycamore-web", version = "0.8.0-beta.6", optional = true }
 wasm-bindgen = { version = "0.2.79", optional = true }
 wasm-bindgen-futures = { version = "0.4.29", optional = true }
-husky-signal = { path = "../../../../crates/abstraction/husky-signal" }
+husky-signal = { path = "../../../../crates/abstractions/husky-signal" }
 
 [dependencies.web-sys]
 features = [

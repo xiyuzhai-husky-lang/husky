@@ -1,8 +1,8 @@
 [workspace]
 members = [
-    "crates/abstraction/*",
+    "crates/abstractions/*",
     "crates/apps/*",
-    "crates/arch/*",
+    "crates/archs/*",
     "crates/comptime/*",
     "crates/devtime/*",
     "crates/devtools/*",

@@ -23,8 +23,8 @@ tracing = "0.1"
 itertools = "^0.11.0"
 lsp-server = "0.7.0"
 # abstraction
-salsa = { path = "../../abstraction/salsa" }
-vec-like = { path = "../../abstraction/vec-like" }
+salsa = { path = "../../abstractions/salsa" }
+vec-like = { path = "../../abstractions/vec-like" }
 # comptime
 # husky-layout = { path = "../../comptime/husky-layout" }
 # husky-dev-linkage-table = { path = "../../comptime/husky-dev-linkage-table" }

@@ -5,7 +5,7 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-cyclic-slice = { path = "../../abstraction/cyclic-slice" }
+cyclic-slice = { path = "../../abstractions/cyclic-slice" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface", features = [
     "thin_fp",
