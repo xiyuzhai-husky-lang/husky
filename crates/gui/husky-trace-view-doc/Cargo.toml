@@ -1,10 +1,15 @@
 [package]
-name = "husky-trace-view-panel"
+name = "husky-trace-view-doc"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+# abstractions
+ui = { path = "../../abstractions/ui" }
+# kernel
+husky-task = { path = "../../kernel/husky-task" }
+# protocol
 husky-trace-protocol = { path = "../../protocol/husky-trace-protocol" }
 
 [features]

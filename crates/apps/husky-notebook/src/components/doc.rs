@@ -34,7 +34,7 @@ impl egui_dock::TabViewer for Docs {
     type Tab = DocTab;
 
     fn ui(&mut self, ui: &mut egui::Ui, tab: &mut Self::Tab) {
-        self[tab.id()].component.render(ui);
+        self[tab.id()].component.render(ui, &UiComponentConfig {});
     }
 
     fn title(&mut self, tab: &mut Self::Tab) -> egui::WidgetText {
@@ -45,5 +45,7 @@ impl egui_dock::TabViewer for Docs {
 
 pub struct Doc {
     title: String,
-    component: UiComponent<egui::Ui>,
+    component: UiComponent<egui::Ui, UiComponentConfig>,
 }
+
+pub struct UiComponentConfig {}
