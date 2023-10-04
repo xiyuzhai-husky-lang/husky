@@ -16,7 +16,7 @@ lsp-types.workspace = true
 salsa = { path = "../../abstractions/salsa" }
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
-# abstraction
+# abstractions
 avec = { path = "../../abstractions/avec" }
 map-collect = { path = "../../abstractions/map-collect" }
 # fs

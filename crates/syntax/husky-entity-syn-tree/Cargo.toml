@@ -11,7 +11,7 @@ thiserror.workspace = true
 smallvec.workspace = true
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
-# abstraction
+# abstractions
 salsa = { path = "../../abstractions/salsa" }
 enum-class = { path = "../../abstractions/enum-class" }
 with-db = { path = "../../abstractions/with-db" }

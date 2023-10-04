@@ -8,5 +8,5 @@ edition = "2021"
 smallvec.workspace = true
 compact_str = "0.7.1"
 ordered-float = "3.7.0"
-# abstraction
+# abstractions
 salsa = { path = "../../abstractions/salsa" }

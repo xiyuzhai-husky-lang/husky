@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 lsp-types.workspace = true
 thiserror.workspace = true
-# abstraction
+# abstractions
 salsa = { path = "../../abstractions/salsa" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }

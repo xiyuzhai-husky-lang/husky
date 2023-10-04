@@ -12,7 +12,7 @@ smallvec.workspace = true
 either.workspace = true
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
-# abstraction
+# abstractions
 parsec = { path = "../../abstractions/parsec" }
 salsa = { path = "../../abstractions/salsa" }
 idx-arena = { path = "../../abstractions/idx-arena" }

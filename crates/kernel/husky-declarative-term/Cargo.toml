@@ -10,7 +10,7 @@ optional = "0.5.0"
 thiserror.workspace = true
 ordered-float.workspace = true
 smallvec.workspace = true
-# abstraction
+# abstractions
 salsa = { path = "../../abstractions/salsa" }
 vec-like = { path = "../../abstractions/vec-like" }
 enum-class = { path = "../../abstractions/enum-class" }

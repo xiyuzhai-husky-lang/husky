@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 smallvec.workspace = true
 thiserror.workspace = true
-# abstraction
+# abstractions
 salsa = { path = "../../abstractions/salsa" }
 enum-class = { path = "../../abstractions/enum-class" }
 # comptime

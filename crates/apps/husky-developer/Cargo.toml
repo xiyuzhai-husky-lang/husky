@@ -25,7 +25,7 @@ lsp-types.workspace = true
 colored = "2.0.0"
 xxhash-rust = { version = "0.8.5", features = ["const_xxh3", "xxh3"] }
 relative-path = "1.7.2"
-# abstraction
+# abstractions
 map-collect = { path = "../../abstractions/map-collect" }
 avec = { path = "../../abstractions/avec" }
 # apps

@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 itertools = "0.11.0"
 lsp-types.workspace = true
-# abstraction
+# abstractions
 salsa = { path = "../../abstractions/salsa" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }

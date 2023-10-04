@@ -12,7 +12,7 @@ clap.workspace = true
 salsa = { path = "../../abstractions/salsa" }
 lsp-types.workspace = true
 relative-path = "1.7.2"
-# abstraction
+# abstractions
 reserve = { path = "../../abstractions/reserve" }
 # comptime
 # husky-compile-dir = { path = "../../comptime/husky-compile-dir" }

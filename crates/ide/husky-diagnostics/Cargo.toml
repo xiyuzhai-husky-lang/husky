@@ -8,7 +8,7 @@ serde.workspace = true
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 salsa = { path = "../../abstractions/salsa" }
 lsp-types.workspace = true
-# abstraction
+# abstractions
 reserve = { path = "../../abstractions/reserve" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }

@@ -9,7 +9,7 @@ serde_json = { version = "1.0.48", features = ["preserve_order"] }
 arrayvec = "0.7.2"
 indexmap = "1.8.1"
 colored = "2.0.0"
-# abstraction
+# abstractions
 cyclic-slice = { path = "../../abstractions/cyclic-slice" }
 vec-like = { path = "../../abstractions/vec-like" }
 avec = { path = "../../abstractions/avec" }

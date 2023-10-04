@@ -14,7 +14,7 @@ expect-test = "1.4.0"
 serde.workspace = true
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 lsp-types = { version = "=0.94", features = ["proposed"], optional = true }
-# abstraction
+# abstractions
 parsec = { path = "../../abstractions/parsec" }
 salsa = { path = "../../abstractions/salsa" }
 vec-like = { path = "../../abstractions/vec-like" }

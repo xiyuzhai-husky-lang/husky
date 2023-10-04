@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 smallvec.workspace = true
 thiserror.workspace = true
-# abstraction
+# abstractions
 salsa = { path = "../../abstractions/salsa" }
 vec-like = { path = "../../abstractions/vec-like" }
 maybe-result = { path = "../../abstractions/maybe-result" }
