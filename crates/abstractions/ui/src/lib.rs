@@ -1,5 +1,13 @@
+pub mod widget;
+
+use self::widget::*;
+
 pub trait IsUi {
     type Response;
+
+    type WidgetText: IsWidgetText;
+
+    fn label(&mut self, text: impl Into<Self::WidgetText>) -> Self::Response;
 }
 
 pub trait IsWidget<Ui: IsUi> {
@@ -30,4 +38,10 @@ impl<Ui: IsUi, UiComponentConfig> UiComponent<Ui, UiComponentConfig> {
 #[cfg(feature = "egui")]
 impl IsUi for egui::Ui {
     type Response = egui::Response;
+
+    type WidgetText = egui::WidgetText;
+
+    fn label(&mut self, s: impl Into<Self::WidgetText>) -> Self::Response {
+        egui::Ui::label(self, s)
+    }
 }

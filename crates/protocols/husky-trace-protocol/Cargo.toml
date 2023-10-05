@@ -10,5 +10,5 @@ serde.workspace = true
 husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
 
 [features]
-mock = []
+mock = ["husky-visual-protocol/mock"]
 egui = []
