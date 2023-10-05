@@ -4,6 +4,7 @@ mod tab;
 use self::docs::*;
 use self::tab::*;
 use egui_dock::DockState;
+use husky_trace_view_doc::doc::{HasTraceViewConfig, MockTraceViewDoc, TraceViewDoc};
 use ui::{IsUiComponent, UiComponent};
 
 pub(crate) struct DocsDock {
@@ -28,8 +29,8 @@ impl Default for DocsDock {
             docs: Docs::default(),
         };
         this.add(Doc {
-            title: "hello_doc1".to_string(),
-            component: UiComponent::new(AdHocUiComponent {}),
+            title: "mock trace view doc".to_string(),
+            component: UiComponent::new(MockTraceViewDoc::new_mock()),
         });
         this.add(Doc {
             title: "hello_doc2".to_string(),
@@ -46,12 +47,8 @@ impl Default for DocsDock {
 pub struct AdHocUiComponent {}
 
 impl IsUiComponent<egui::Ui, AdHocUiComponentConfig> for AdHocUiComponent {
-    fn render(
-        &mut self,
-        ui: &mut egui::Ui,
-        config: &AdHocUiComponentConfig,
-    ) -> <egui::Ui as ui::IsUi>::Response {
-        ui.label("Ui Component Context")
+    fn render(&mut self, ui: &mut egui::Ui, config: &AdHocUiComponentConfig) {
+        ui.label("Ui Component Context");
     }
 }
 
@@ -83,3 +80,5 @@ pub struct Doc {
 }
 
 pub struct AdHocUiComponentConfig {}
+
+impl HasTraceViewConfig for AdHocUiComponentConfig {}

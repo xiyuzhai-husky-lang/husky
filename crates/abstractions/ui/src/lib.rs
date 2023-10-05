@@ -1,47 +1,20 @@
-pub mod widget;
-
-use self::widget::*;
-
-pub trait IsUi {
-    type Response;
-
-    type WidgetText: IsWidgetText;
-
-    fn label(&mut self, text: impl Into<Self::WidgetText>) -> Self::Response;
+pub trait IsUiComponent<Ui, UiComponentConfig> {
+    fn render(&mut self, ui: &mut Ui, config: &UiComponentConfig);
 }
 
-pub trait IsWidget<Ui: IsUi> {
-    fn ui(self, ui: &mut Ui) -> Ui::Response;
-}
+pub struct UiComponent<Ui, UiComponentConfig>(Box<dyn IsUiComponent<Ui, UiComponentConfig>>);
 
-pub trait IsUiComponent<Ui: IsUi, UiComponentConfig> {
-    fn render(&mut self, ui: &mut Ui, config: &UiComponentConfig) -> Ui::Response;
-}
-
-pub struct UiComponent<Ui: IsUi, UiComponentConfig>(Box<dyn IsUiComponent<Ui, UiComponentConfig>>);
-
-impl<Ui: IsUi, UiComponentConfig> UiComponent<Ui, UiComponentConfig> {
-    pub fn render(&mut self, ui: &mut Ui, config: &UiComponentConfig) -> Ui::Response {
+impl<Ui, UiComponentConfig> UiComponent<Ui, UiComponentConfig> {
+    pub fn render(&mut self, ui: &mut Ui, config: &UiComponentConfig) {
         self.0.render(ui, config)
     }
 }
 
-impl<Ui: IsUi, UiComponentConfig> UiComponent<Ui, UiComponentConfig> {
+impl<Ui, UiComponentConfig> UiComponent<Ui, UiComponentConfig> {
     pub fn new<UiComponentImpl>(ui_component: UiComponentImpl) -> Self
     where
         UiComponentImpl: IsUiComponent<Ui, UiComponentConfig> + 'static,
     {
         Self(Box::new(ui_component))
-    }
-}
-
-#[cfg(feature = "egui")]
-impl IsUi for egui::Ui {
-    type Response = egui::Response;
-
-    type WidgetText = egui::WidgetText;
-
-    fn label(&mut self, s: impl Into<Self::WidgetText>) -> Self::Response {
-        egui::Ui::label(self, s)
     }
 }
