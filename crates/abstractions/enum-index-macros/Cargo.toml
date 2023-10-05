@@ -1,5 +1,5 @@
 [package]
-name = "enum-class-macros"
+name = "enum-index-macros"
 version = "0.1.0"
 edition = "2021"
 
@@ -11,5 +11,5 @@ proc-macro = true
 heck = "0.4"
 proc-macro2 = "1.0"
 quote = "1.0"
-syn = { workspace = true, features = ["full", "extra-traits", "visit-mut"] }
+syn = { version = "1.0", features = ["full", "extra-traits", "visit-mut"] }
 eyre = "0.6.5"

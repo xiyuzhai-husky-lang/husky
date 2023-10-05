@@ -53,3 +53,4 @@ dashmap = "5.5.1"
 flurry = "0.4.0"
 either = "1.8.1"
 serde = { version = "1.0.106", features = ["derive"] }
+syn = "2.0.38"
