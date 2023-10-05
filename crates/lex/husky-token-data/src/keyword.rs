@@ -55,7 +55,7 @@ impl std::fmt::Display for Keyword {
 
 impl Keyword {
     #[cfg(feature = "protocol_support")]
-    pub const fn protocol(self) -> KeywordKindProtocol {
+    pub const fn class(self) -> KeywordClass {
         match self {
             Keyword::Stmt(stmt_keyword) => match stmt_keyword {
                 StmtKeyword::If
@@ -68,11 +68,11 @@ impl Keyword {
                 | StmtKeyword::Do
                 | StmtKeyword::Break
                 | StmtKeyword::Return
-                | StmtKeyword::Require => KeywordKindProtocol::ControlFlow,
-                StmtKeyword::Let | StmtKeyword::Assert => KeywordKindProtocol::Other,
+                | StmtKeyword::Require => KeywordClass::ControlFlow,
+                StmtKeyword::Let | StmtKeyword::Assert => KeywordClass::Other,
             },
-            Keyword::End(_) => KeywordKindProtocol::ControlFlow,
-            _ => KeywordKindProtocol::Other,
+            Keyword::End(_) => KeywordClass::ControlFlow,
+            _ => KeywordClass::Other,
         }
     }
 
