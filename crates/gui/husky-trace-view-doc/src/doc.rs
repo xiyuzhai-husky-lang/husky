@@ -14,13 +14,13 @@ pub struct TraceViewDoc<VisualProtocol: IsVisualProtocol> {
 }
 
 #[cfg(feature = "egui")]
-impl<VisualProtocol: IsVisualProtocol, UiComponentConfig: HasTraceViewConfig, UiActionBuffer>
+impl<VisualProtocol: IsVisualProtocol, UiComponentConfig: HasTraceViewSettings, UiActionBuffer>
     IsUiComponent<egui::Ui, UiComponentConfig, UiActionBuffer> for TraceViewDoc<VisualProtocol>
 {
     fn render(
         &mut self,
         ui: &mut egui::Ui,
-        config: &UiComponentConfig,
+        config: &mut UiComponentConfig,
         action_buffer: &mut UiActionBuffer,
     ) {
         ui.text_edit_singleline(&mut self.text);
@@ -38,7 +38,7 @@ impl<VisualProtocol: IsVisualProtocol, UiComponentConfig: HasTraceViewConfig, Ui
     }
 }
 
-pub trait HasTraceViewConfig {}
+pub trait HasTraceViewSettings {}
 
 #[cfg(feature = "mock")]
 pub type MockTraceViewDoc = TraceViewDoc<MockVisualProtocol>;

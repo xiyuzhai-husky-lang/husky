@@ -1,9 +1,11 @@
+use super::*;
+
 #[derive(Default, PartialEq, Eq)]
-pub(crate) struct HuskyNotebookLayoutConfig {
+pub(crate) struct HuskyNotebookLayoutSettings {
     high_level: HuskyNotebookHighLevelLayout,
 }
 
-impl HuskyNotebookLayoutConfig {
+impl HuskyNotebookLayoutSettings {
     pub fn high_level(&self) -> HuskyNotebookHighLevelLayout {
         self.high_level
     }
@@ -17,5 +19,11 @@ pub(crate) enum HuskyNotebookHighLevelLayout {
 impl Default for HuskyNotebookHighLevelLayout {
     fn default() -> Self {
         HuskyNotebookHighLevelLayout::Vscode
+    }
+}
+
+impl NotebookSettings {
+    pub(crate) fn layout(&self) -> &HuskyNotebookLayoutSettings {
+        &self.layout
     }
 }

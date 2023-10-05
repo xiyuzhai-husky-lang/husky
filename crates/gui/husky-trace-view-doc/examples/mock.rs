@@ -1,7 +1,7 @@
 use husky_gui::helpers::run_standalone_ui_component;
 use husky_trace_protocol::{client_db::TraceDb, *};
 use husky_trace_view_doc::{
-    doc::{HasTraceViewConfig, TraceViewDoc},
+    doc::{HasTraceViewSettings, TraceViewDoc},
     *,
 };
 use husky_visual_protocol::mock::MockVisualProtocol;
@@ -13,4 +13,4 @@ fn main() {
 
 struct MockConfig;
 
-impl HasTraceViewConfig for MockConfig {}
+impl HasTraceViewSettings for MockConfig {}
