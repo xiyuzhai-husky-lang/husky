@@ -12,6 +12,10 @@ egui_dock.workspace = true
 # abstractions
 ui = { path = "../../abstractions/ui", features = ["egui"] }
 # gui
-husky-trace-view-doc = { path = "../../gui/husky-trace-view-doc" }
+husky-trace-view-doc = { path = "../../gui/husky-trace-view-doc", features = [
+    # ad hoc
+    "mock",
+    "egui"
+] }
 # utils
 husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }

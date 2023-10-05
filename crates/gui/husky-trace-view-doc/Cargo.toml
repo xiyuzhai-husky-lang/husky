@@ -6,20 +6,17 @@ resolver = "2"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+egui = { workspace = true, optional = true }
 # abstractions
 ui = { path = "../../abstractions/ui" }
 # protocols
 husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol" }
 
-[features]
-mock = ["husky-trace-protocol/mock"]
-
 [dev-dependencies]
-egui.workspace = true
 # gui
 husky-gui = { path = "../../gui/husky-gui" }
-husky-trace-view-doc = { path = ".", features = ["mock"] }
+husky-trace-view-doc = { path = ".", features = ["mock", "egui"] }
 # protocols
 husky-visual-protocol = { path = "../../protocols/husky-visual-protocol", features = [
     "mock"
@@ -27,3 +24,7 @@ husky-visual-protocol = { path = "../../protocols/husky-visual-protocol", featur
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features = [
     "mock"
 ] }
+
+[features]
+mock = ["husky-trace-protocol/mock"]
+egui = ["dep:egui"]
