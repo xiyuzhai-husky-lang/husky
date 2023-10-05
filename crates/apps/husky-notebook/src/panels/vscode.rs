@@ -4,7 +4,7 @@ use egui::{Align, Layout, Vec2};
 
 use super::*;
 
-impl HuskyNotebookApp {
+impl NotebookApp {
     pub(super) fn render_vscode_panels(&mut self, ctx: &egui::Context) {
         egui::TopBottomPanel::top("menu_bar")
             .frame(self.menu_bar_frame())

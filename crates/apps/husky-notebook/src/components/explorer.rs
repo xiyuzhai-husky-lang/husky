@@ -2,7 +2,7 @@ use egui::{Color32, RichText};
 
 use super::*;
 
-impl HuskyNotebookApp {
+impl NotebookApp {
     pub(crate) fn explorer_frame(&self) -> egui::Frame {
         egui::Frame::none()
     }

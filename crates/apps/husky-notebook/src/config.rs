@@ -11,14 +11,14 @@ pub(crate) use self::foreground::*;
 pub(crate) use self::layout::*;
 
 #[derive(Default, PartialEq, Eq)]
-pub(crate) struct HuskyNotebookConfig {
+pub(crate) struct NotebookConfig {
     background: HuskyNotebookBackgroundConfig,
     foreground: HuskyNotebookForegroundConfig,
     layout: HuskyNotebookLayoutConfig,
     doc: HuskyNotebookDocConfig,
 }
 
-impl HuskyNotebookConfig {
+impl NotebookConfig {
     pub(crate) fn layout(&self) -> &HuskyNotebookLayoutConfig {
         &self.layout
     }

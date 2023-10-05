@@ -1,6 +1,6 @@
 use super::*;
 
-impl HuskyNotebookApp {
+impl NotebookApp {
     pub(crate) fn menu_bar_frame(&self) -> egui::Frame {
         egui::Frame {
             inner_margin: Default::default(),

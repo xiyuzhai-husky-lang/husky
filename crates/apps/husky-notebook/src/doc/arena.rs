@@ -16,11 +16,11 @@ impl DocId {
 }
 
 #[derive(Default)]
-pub(crate) struct Docs {
+pub(crate) struct DocArena {
     arena: Vec<Doc>,
 }
 
-impl std::ops::Index<DocId> for Docs {
+impl std::ops::Index<DocId> for DocArena {
     type Output = Doc;
 
     fn index(&self, id: DocId) -> &Self::Output {
@@ -28,13 +28,13 @@ impl std::ops::Index<DocId> for Docs {
     }
 }
 
-impl std::ops::IndexMut<DocId> for Docs {
+impl std::ops::IndexMut<DocId> for DocArena {
     fn index_mut(&mut self, id: DocId) -> &mut Self::Output {
         &mut self.arena[id.index()]
     }
 }
 
-impl Docs {
+impl DocArena {
     pub(super) fn alloc(&mut self, doc: Doc) -> DocId {
         let index = self.arena.len();
         self.arena.push(doc);

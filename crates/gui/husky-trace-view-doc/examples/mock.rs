@@ -8,7 +8,7 @@ use husky_visual_protocol::mock::MockVisualProtocol;
 
 fn main() {
     let doc: TraceViewDoc<MockVisualProtocol> = TraceViewDoc::new_mock();
-    run_standalone_ui_component(doc, MockConfig);
+    run_standalone_ui_component(doc, MockConfig, ());
 }
 
 struct MockConfig;
