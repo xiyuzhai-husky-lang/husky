@@ -6,7 +6,7 @@
 pub mod action;
 
 use self::action::*;
-use husky_visual_protocol::{IsVisual, IsVisualProtocol, VisualActionBuffer};
+use husky_visual_protocol::{IsVisual, IsVisualProtocol};
 
 pub struct DanielJacksonVisualProtocol;
 

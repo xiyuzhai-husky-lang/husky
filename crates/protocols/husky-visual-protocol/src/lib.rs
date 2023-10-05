@@ -13,21 +13,3 @@ pub trait IsVisual {
 }
 
 pub type VisualComponent<VisualProtocol> = <VisualProtocol as IsVisualProtocol>::VisualComponent;
-
-pub struct VisualActionBuffer<VisualAction> {
-    actions: smallvec::SmallVec<[VisualAction; 2]>,
-}
-
-impl<VisualAction> Default for VisualActionBuffer<VisualAction> {
-    fn default() -> Self {
-        Self {
-            actions: Default::default(),
-        }
-    }
-}
-
-impl<Action> VisualActionBuffer<Action> {
-    pub fn push(&mut self, action: Action) {
-        self.actions.push(action)
-    }
-}
