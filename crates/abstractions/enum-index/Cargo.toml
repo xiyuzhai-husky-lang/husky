@@ -1,0 +1,13 @@
+[package]
+name = "enum-index"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+serde = { workspace = true, optional = true }
+# abstractions
+enum-index-macros = { path = "../../abstractions/enum-index-macros" }
+
+[features]
+serde = ["dep:serde"]
