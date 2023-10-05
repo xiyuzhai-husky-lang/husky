@@ -25,8 +25,8 @@ husky-text = { path = "../../lex/husky-text" }
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
-# protocol
-husky-token-protocol = { path = "../../protocol/husky-token-protocol", optional = true }
+# protocols
+husky-token-protocol = { path = "../../protocols/husky-token-protocol", optional = true }
 # syntax
 husky-opr = { path = "../../kernel/husky-opr" }
 # utils

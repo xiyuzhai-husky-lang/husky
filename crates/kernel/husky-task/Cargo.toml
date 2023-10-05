@@ -7,9 +7,10 @@ edition = "2021"
 [dependencies]
 smallvec.workspace = true
 # abstractions
-ui = { path = "../../abstractions/ui" }
 small-cell-stack = { path = "../../abstractions/small-cell-stack" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
 husky-linkage-path = { path = "../../kernel/husky-linkage-path" }
+# protocols
+husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }

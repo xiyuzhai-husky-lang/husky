@@ -9,3 +9,5 @@ edition = "2021"
 ui = { path = "../../abstractions/ui" }
 # kernel
 husky-task = { path = "../../kernel/husky-task" }
+# protocols
+husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }

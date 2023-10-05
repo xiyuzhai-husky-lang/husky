@@ -7,14 +7,21 @@ edition = "2021"
 [dependencies]
 # abstractions
 ui = { path = "../../abstractions/ui" }
-# kernel
-husky-task = { path = "../../kernel/husky-task" }
-# protocol
-husky-trace-protocol = { path = "../../protocol/husky-trace-protocol" }
+# protocols
+husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
+husky-trace-protocol = { path = "../../protocols/husky-trace-protocol" }
 
 [features]
+mock = ["husky-trace-protocol/mock"]
 
 [dev-dependencies]
-husky-trace-protocol = { path = "../../protocol/husky-trace-protocol", features = [
+egui.workspace = true
+# gui
+husky-gui = { path = "../../gui/husky-gui" }
+# protocols
+husky-visual-protocol = { path = "../../protocols/husky-visual-protocol", features = [
+    "mock"
+] }
+husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features = [
     "mock"
 ] }

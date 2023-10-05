@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 serde.workspace = true
-# protocol
-husky-entity-protocol = { path = "../../protocol/husky-entity-protocol" }
+# protocols
+husky-entity-protocol = { path = "../../protocols/husky-entity-protocol" }
 
 [features]
