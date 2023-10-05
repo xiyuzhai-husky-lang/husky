@@ -1,4 +1,5 @@
-use crate::{visual::IsVisualProtocol, *};
+use crate::*;
+use husky_visual_protocol::IsVisualProtocol;
 
 pub trait IsDevAscension {
     type Base: 'static;

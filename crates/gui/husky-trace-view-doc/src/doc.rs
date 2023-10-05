@@ -1,15 +1,15 @@
 use crate::*;
-use husky_task::{visual::ActionBuffer, IsTask};
 use husky_trace_protocol::client_db::TraceDb;
+use husky_visual_protocol::{IsVisualProtocol, VisualActionBuffer};
 use ui::{IsUi, IsUiComponent};
 
-pub struct TraceViewDoc<Task: IsTask> {
-    client_db: TraceDb<Task>,
-    buffer_action: ActionBuffer<TraceViewAction>,
+pub struct TraceViewDoc<VisualProtocol: IsVisualProtocol> {
+    client_db: TraceDb<VisualProtocol>,
+    buffer_action: VisualActionBuffer<TraceViewAction>,
 }
 
-impl<Task: IsTask, Ui: IsUi, UiComponentConfig: HasTraceViewConfig>
-    IsUiComponent<Ui, UiComponentConfig> for TraceViewDoc<Task>
+impl<VisualProtocol: IsVisualProtocol, Ui: IsUi, UiComponentConfig: HasTraceViewConfig>
+    IsUiComponent<Ui, UiComponentConfig> for TraceViewDoc<VisualProtocol>
 {
     fn render(&mut self, ui: &mut Ui, config: &UiComponentConfig) -> <Ui as IsUi>::Response {
         todo!()

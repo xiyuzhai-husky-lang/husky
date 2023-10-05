@@ -6,7 +6,7 @@
 pub mod action;
 
 use self::action::*;
-use husky_task::visual::{ActionBuffer, IsVisual, IsVisualProtocol};
+use husky_visual_protocol::{IsVisual, IsVisualProtocol, VisualActionBuffer};
 
 pub struct DanielJacksonVisualProtocol;
 
@@ -42,7 +42,7 @@ impl IsVisual for DanielJacksonVisual {
     fn render<Ui: ui::IsUi>(
         self,
         ui: &mut Ui,
-        action_buffer: &mut ActionBuffer<DanielJacksonVisualAction>,
+        action_buffer: &mut VisualActionBuffer<DanielJacksonVisualAction>,
     ) -> Ui::Response {
         todo!()
     }

@@ -1,10 +1,10 @@
 use crate::{view::TraceViewData, *};
-use husky_task::{visual::VisualComponent, IsTask};
+use husky_visual_protocol::{IsVisualProtocol, VisualComponent};
 
 /// synced across server and client
-pub struct TraceDb<Task: IsTask> {
+pub struct TraceDb<VisualProtocol: IsVisualProtocol> {
     entries: Vec<TraceViewEntry>,
-    visual_components: Vec<VisualComponent<Task>>,
+    visual_components: Vec<VisualComponent<VisualProtocol>>,
 }
 
 pub struct TraceViewEntry {

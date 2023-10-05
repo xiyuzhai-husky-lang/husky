@@ -25,9 +25,9 @@ husky-token-info = { path = "../../ide/husky-token-info", features = [
 husky-entity-kind = { path = "../../kernel/husky-entity-kind", features = [
     "protocol_support"
 ] }
-# protocol
-husky-entity-protocol = { path = "../../protocol/husky-entity-protocol" }
-husky-token-protocol = { path = "../../protocol/husky-token-protocol" }
+# protocols
+husky-entity-protocol = { path = "../../protocols/husky-entity-protocol" }
+husky-token-protocol = { path = "../../protocols/husky-token-protocol" }
 # syntax
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }

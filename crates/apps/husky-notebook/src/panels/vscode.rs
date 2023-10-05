@@ -19,8 +19,8 @@ impl HuskyNotebookApp {
             .show(ctx, |ui| self.render_activity_bar(ctx, ui));
 
         egui::SidePanel::left("activity_view")
-            .frame(self.activity_view_frame())
-            .show(ctx, |ui| self.render_activity_view_ui(ctx, ui));
+            .frame(self.explorer_frame())
+            .show(ctx, |ui| self.render_explorer_ui(ctx, ui));
         egui::CentralPanel::default()
             .frame(self.config.main_panel_frame())
             .show(ctx, |ui| self.render_main_panel(ui));

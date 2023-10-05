@@ -4,7 +4,8 @@ use self::runtime_storage::*;
 use husky_hir_deps::HirDepsDb;
 use husky_mono_linktime::MonoLinkTime;
 use husky_regular_value::RegularValue;
-use husky_task::{linkage::IsLinkage, visual::IsVisualProtocol, IsDevAscension, IsTask};
+use husky_task::{linkage::IsLinkage, IsDevAscension, IsTask};
+use husky_visual_protocol::IsVisualProtocol;
 use std::marker::PhantomData;
 
 pub struct MlTask<ComptimeDb, VisualProtocol>

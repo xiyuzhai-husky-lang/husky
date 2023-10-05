@@ -24,9 +24,9 @@ husky-token-data = { path = "../../lex/husky-token-data", features = [
 husky-token = { path = "../../lex/husky-token" }
 husky-regional-token = { path = "../../lex/husky-regional-token" }
 husky-text = { path = "../../lex/husky-text" }
-# protocol
-husky-entity-protocol = { path = "../../protocol/husky-entity-protocol", optional = true }
-husky-token-protocol = { path = "../../protocol/husky-token-protocol", optional = true }
+# protocols
+husky-entity-protocol = { path = "../../protocols/husky-entity-protocol", optional = true }
+husky-token-protocol = { path = "../../protocols/husky-token-protocol", optional = true }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-decl-ast = { path = "../../syntax/husky-decl-ast" }
