@@ -37,7 +37,7 @@ pub enum EntityKind {
 
 #[cfg(feature = "protocol_support")]
 impl EntityKind {
-    pub fn protocol(self) -> EntityClass {
+    pub fn class(self) -> EntityClass {
         match self {
             EntityKind::Module => EntityClass::Module,
             EntityKind::MajorItem {

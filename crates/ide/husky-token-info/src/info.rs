@@ -78,7 +78,6 @@ pub enum TokenInfoData {
     },
     HtmlFunctionIdent,
     HtmlPropertyIdent,
-    SubmoduleIdent,
     UnitLeftParenthesis,
     UnitRightParenthesis,
     Todo,
@@ -87,69 +86,58 @@ pub enum TokenInfoData {
 
 #[cfg(feature = "protocol_support")]
 impl TokenInfoData {
-    pub fn semantic_token_kind(&self, db: &dyn TokenInfoDb) -> TokenKindProtocol {
+    pub fn semantic_token_kind(&self, db: &dyn TokenInfoDb) -> TokenClass {
         match self {
-            TokenInfoData::Entity(path) => TokenKindProtocol::Entity(path.item_kind(db).protocol()),
-            TokenInfoData::EntityNode(path, item_kind) => {
-                TokenKindProtocol::Entity(item_kind.protocol())
-            }
+            TokenInfoData::Entity(path) => path.item_kind(db).class().into(),
+            TokenInfoData::EntityNode(path, item_kind) => item_kind.class().into(),
             TokenInfoData::CurrentSymbol {
                 current_symbol_kind,
                 ..
             } => match current_symbol_kind {
                 SynCurrentSymbolKind::LetVariable { .. }
                 | SynCurrentSymbolKind::BeVariable { .. }
-                | SynCurrentSymbolKind::CaseVariable { .. } => TokenKindProtocol::Variable,
-                SynCurrentSymbolKind::ExplicitRegularParameter { .. } => {
-                    TokenKindProtocol::Parameter
-                }
-                SynCurrentSymbolKind::FrameVariable(_) => TokenKindProtocol::FrameVariable,
-                SynCurrentSymbolKind::ImplicitParameter { .. } => {
-                    TokenKindProtocol::ImplicitParameter
-                }
-                SynCurrentSymbolKind::ExplicitVariadicParameter { .. } => {
-                    TokenKindProtocol::Parameter
-                }
-                SynCurrentSymbolKind::FieldVariable { .. } => TokenKindProtocol::Variable,
+                | SynCurrentSymbolKind::CaseVariable { .. } => TokenClass::Variable,
+                SynCurrentSymbolKind::ExplicitRegularParameter { .. } => TokenClass::Parameter,
+                SynCurrentSymbolKind::FrameVariable(_) => TokenClass::FrameVariable,
+                SynCurrentSymbolKind::ImplicitParameter { .. } => TokenClass::ImplicitParameter,
+                SynCurrentSymbolKind::ExplicitVariadicParameter { .. } => TokenClass::Parameter,
+                SynCurrentSymbolKind::FieldVariable { .. } => TokenClass::Variable,
             },
             // TokenProtocol::Variable,
             TokenInfoData::InheritedSymbol {
                 inherited_symbol_kind,
                 ..
             } => match inherited_symbol_kind {
-                SynInheritedSymbolKind::ParenateParameter { .. } => TokenKindProtocol::Parameter,
-                SynInheritedSymbolKind::TemplateParameter { .. } => {
-                    TokenKindProtocol::ImplicitParameter
-                }
-                SynInheritedSymbolKind::FieldVariable { .. } => TokenKindProtocol::Variable,
+                SynInheritedSymbolKind::ParenateParameter { .. } => TokenClass::Parameter,
+                SynInheritedSymbolKind::TemplateParameter { .. } => TokenClass::ImplicitParameter,
+                SynInheritedSymbolKind::FieldVariable { .. } => TokenClass::Variable,
             },
-            TokenInfoData::SelfType => TokenKindProtocol::SelfType,
-            TokenInfoData::SelfValue => TokenKindProtocol::SelfValue,
+            TokenInfoData::SelfType => TokenClass::SelfType,
+            TokenInfoData::SelfValue => TokenClass::SelfValue,
             // TokenProtocol::Variable,
-            TokenInfoData::Field => TokenKindProtocol::Field,
-            TokenInfoData::Method => TokenKindProtocol::Method,
+            TokenInfoData::Field => TokenClass::Field,
+            TokenInfoData::Method => TokenClass::Method,
             TokenInfoData::BoxColon
             | TokenInfoData::VecFunctorBoxPrefix
-            | TokenInfoData::ArrayFunctorBoxPrefix => TokenKindProtocol::Entity(EntityClass::Type),
+            | TokenInfoData::ArrayFunctorBoxPrefix => TokenClass::TypeEntity,
             TokenInfoData::UseExpr { state, .. } => match state {
                 OnceUseRuleState::Resolved {
                     original_symbol: Some(original_symbol),
-                } => TokenKindProtocol::Entity(original_symbol.path(db).item_kind(db).protocol()),
+                } => original_symbol.path(db).item_kind(db).class().into(),
                 OnceUseRuleState::Resolved {
                     original_symbol: None,
                 } => todo!(),
                 OnceUseRuleState::Unresolved => todo!(),
-                OnceUseRuleState::Erroneous => TokenKindProtocol::Error,
+                OnceUseRuleState::Erroneous => TokenClass::Error,
             },
-            TokenInfoData::UseExprStar => TokenKindProtocol::Special,
-            TokenInfoData::HtmlFunctionIdent => TokenKindProtocol::HtmlFunctionIdent,
-            TokenInfoData::HtmlPropertyIdent => TokenKindProtocol::HtmlPropertyIdent,
-            TokenInfoData::SubmoduleIdent => TokenKindProtocol::SubmoduleIdent,
+            TokenInfoData::UseExprStar => TokenClass::Special,
+            TokenInfoData::HtmlFunctionIdent => TokenClass::HtmlFunctionIdent,
+            TokenInfoData::HtmlPropertyIdent => TokenClass::HtmlPropertyIdent,
             TokenInfoData::UnitLeftParenthesis | TokenInfoData::UnitRightParenthesis => {
-                TokenKindProtocol::Entity(EntityClass::Type)
+                TokenClass::TypeEntity
             }
-            TokenInfoData::Todo => TokenKindProtocol::Todo,
-            TokenInfoData::Unreachable => TokenKindProtocol::Unreachable,
+            TokenInfoData::Todo => TokenClass::Todo,
+            TokenInfoData::Unreachable => TokenClass::Unreachable,
         }
     }
 }

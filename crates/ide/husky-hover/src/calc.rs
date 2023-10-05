@@ -125,7 +125,6 @@ impl<'a> HoverResultCalculator<'a> {
                 TokenInfoData::SelfValue => format!("self value"),
                 TokenInfoData::HtmlFunctionIdent => format!("html function ident"),
                 TokenInfoData::HtmlPropertyIdent => format!("html property ident"),
-                TokenInfoData::SubmoduleIdent => format!("submodule ident"),
                 TokenInfoData::UnitLeftParenthesis => format!("unit `(`"),
                 TokenInfoData::UnitRightParenthesis => format!("unit `)`"),
                 TokenInfoData::Todo => format!("todo"),
