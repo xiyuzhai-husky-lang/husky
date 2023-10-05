@@ -1,6 +1,7 @@
 mod activity_bar;
+mod activity_view;
 mod assist_view;
-mod explorer;
+mod docs_view;
 mod menu_bar;
 mod status_bar;
 mod terminal;

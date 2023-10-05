@@ -21,16 +21,16 @@ where
         Box::new(|_cc| {
             Box::new(StandaloneUiApp {
                 component,
-                config,
+                settings: config,
                 action_buffer,
             })
         }),
     )
 }
 
-struct StandaloneUiApp<UiComponent, UiComponentConfig, UiActionBuffer> {
+struct StandaloneUiApp<UiComponent, UiComponentSettings, UiActionBuffer> {
     component: UiComponent,
-    config: UiComponentConfig,
+    settings: UiComponentSettings,
     action_buffer: UiActionBuffer,
 }
 
@@ -42,7 +42,7 @@ where
     fn update(&mut self, ctx: &egui::Context, frame: &mut eframe::Frame) {
         egui::CentralPanel::default().show(ctx, |ui| {
             self.component
-                .render(ui, &self.config, &mut self.action_buffer)
+                .render(ui, &mut self.settings, &mut self.action_buffer)
         });
     }
 }
