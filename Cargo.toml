@@ -43,6 +43,10 @@ ecolor = { version = "0.23.0", features = ["serde", "bytemuck"] }
 egui = "0.23.0"
 egui_dock = "0.8.0"
 futures = "0.3.28"
+futures-util = { version = "0.3", default-features = false, features = [
+    "sink",
+    "std"
+] }
 # warning: change to 0.94.1 will leads to bugs for vscode extension
 lsp-types = { version = "=0.94.0", features = ["proposed"] }
 thiserror = "1.0.37"
