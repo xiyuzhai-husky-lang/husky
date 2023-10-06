@@ -1,3 +1,4 @@
+use notify_change::NotifyChange;
 use std::{
     borrow::Cow,
     sync::{Arc, Mutex},
@@ -13,10 +14,15 @@ use tokio_tungstenite::tungstenite::{
 /// non-blocking
 ///
 /// all apis are sync
-pub struct ImmediateWebsocketClientConnection<ClientMessage, ServerMessage> {
+pub struct ImmediateWebsocketClientConnection<
+    ClientMessage,
+    ServerMessage,
+    ServerMessageArrivalNotifier: NotifyChange,
+> {
     server_address: String,
     create_task: JoinHandle<()>,
     status: WebsocketClientConnectionStatus<ClientMessage, ServerMessage>,
+    notifier: ServerMessageArrivalNotifier,
 }
 
 pub enum WebsocketClientConnectionStatus<ClientMessage, ServerMessage> {
@@ -44,11 +50,11 @@ pub enum WebsocketClientConnectionAwaitStatus {
 #[derive(Debug, Error)]
 pub enum WebsocketClientConnectionError {}
 
-impl<ClientMessage, ServerMessage>
-    ImmediateWebsocketClientConnection<ClientMessage, ServerMessage>
+impl<ClientMessage, ServerMessage, ServerMessageArrivalNotifier: NotifyChange>
+    ImmediateWebsocketClientConnection<ClientMessage, ServerMessage, ServerMessageArrivalNotifier>
 {
     #[tokio::main]
-    pub async fn new(server_address: String) -> Self {
+    pub async fn new(server_address: String, notifier: ServerMessageArrivalNotifier) -> Self {
         let status: Arc<Mutex<WebsocketClientConnectionAwaitStatus>> =
             Arc::new(Mutex::new(WebsocketClientConnectionAwaitStatus::Await));
         let create_task = tokio::spawn({
@@ -68,6 +74,7 @@ impl<ClientMessage, ServerMessage>
             server_address,
             create_task,
             status: WebsocketClientConnectionStatus::Await(status),
+            notifier,
         }
     }
 

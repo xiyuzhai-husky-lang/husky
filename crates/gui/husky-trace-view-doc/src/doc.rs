@@ -10,16 +10,26 @@ use husky_trace_protocol::{
 #[cfg(feature = "mock")]
 use husky_visual_protocol::mock::MockVisualProtocol;
 use husky_visual_protocol::IsVisualProtocol;
+use notify_change::NotifyChange;
 use ui::IsUiComponent;
 
-pub struct TraceViewDoc<VisualProtocol: IsVisualProtocol> {
-    trace_client: TraceClient<VisualProtocol>,
-    buffer_action: TraceViewActionBuffer,
+pub struct TraceViewDoc<VisualProtocol, RepaintSignal>
+where
+    VisualProtocol: IsVisualProtocol,
+    RepaintSignal: NotifyChange,
+{
+    trace_client: TraceClient<VisualProtocol, RepaintSignal>,
+    action_buffer: TraceViewActionBuffer,
 }
 
 #[cfg(feature = "egui")]
-impl<VisualProtocol: IsVisualProtocol, Settings: HasTraceViewDocSettings, UiActionBuffer>
-    IsUiComponent<egui::Ui, Settings, UiActionBuffer> for TraceViewDoc<VisualProtocol>
+impl<VisualProtocol, RepaintSignal, Settings, UiActionBuffer>
+    IsUiComponent<egui::Ui, Settings, UiActionBuffer>
+    for TraceViewDoc<VisualProtocol, RepaintSignal>
+where
+    VisualProtocol: IsVisualProtocol,
+    RepaintSignal: NotifyChange,
+    Settings: HasTraceViewDocSettings,
 {
     fn render(
         &mut self,
@@ -41,12 +51,16 @@ impl<VisualProtocol: IsVisualProtocol, Settings: HasTraceViewDocSettings, UiActi
     }
 }
 
-fn render_traces<VisualProtocol: IsVisualProtocol, Settings: HasTraceViewDocSettings>(
-    trace_client: &TraceClient<VisualProtocol>,
+fn render_traces<VisualProtocol, RepaintSignal, Settings>(
+    trace_client: &TraceClient<VisualProtocol, RepaintSignal>,
     trace_id_range: TraceIdRange,
     ui: &mut egui::Ui,
     settings: &Settings,
-) {
+) where
+    VisualProtocol: IsVisualProtocol,
+    RepaintSignal: NotifyChange,
+    Settings: HasTraceViewDocSettings,
+{
     for trace_entry in &trace_client[trace_id_range] {
         render_trace_view(trace_entry.view_data(), ui, settings);
         if let Some(subtraces) = trace_entry.subtraces() {
@@ -72,14 +86,14 @@ fn render_trace_view<Settings: HasTraceViewDocSettings>(
 }
 
 #[cfg(feature = "mock")]
-pub type MockTraceViewDoc = TraceViewDoc<MockVisualProtocol>;
+pub type MockTraceViewDoc = TraceViewDoc<MockVisualProtocol, ()>;
 
 #[cfg(feature = "mock")]
-impl TraceViewDoc<MockVisualProtocol> {
+impl TraceViewDoc<MockVisualProtocol, ()> {
     pub fn new_mock() -> Self {
         Self {
             trace_client: TraceClient::new_mock(),
-            buffer_action: Default::default(),
+            action_buffer: Default::default(),
         }
     }
 }

@@ -10,7 +10,7 @@ use husky_visual_protocol::mock::MockVisualProtocol;
 
 #[tokio::main]
 async fn main() {
-    let doc: TraceViewDoc<MockVisualProtocol> = TraceViewDoc::new_mock();
+    let doc: TraceViewDoc<MockVisualProtocol, ()> = TraceViewDoc::new_mock();
     run_standalone_ui_component(doc, MockConfig, ());
 }
 

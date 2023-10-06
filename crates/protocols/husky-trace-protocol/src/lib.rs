@@ -1,3 +1,4 @@
+pub mod action;
 pub mod cache;
 #[cfg(feature = "client")]
 pub mod client;
@@ -9,6 +10,7 @@ pub mod server;
 pub mod settings;
 pub mod view;
 
+use self::action::*;
 use self::cache::*;
 use self::id::*;
 use serde::{Deserialize, Serialize};

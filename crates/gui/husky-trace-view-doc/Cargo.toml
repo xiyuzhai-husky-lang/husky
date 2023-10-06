@@ -9,6 +9,7 @@ resolver = "2"
 egui = { workspace = true, optional = true }
 # abstractions
 ui = { path = "../../abstractions/ui" }
+notify-change = { path = "../../abstractions/notify-change" }
 # protocols
 husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features = [
