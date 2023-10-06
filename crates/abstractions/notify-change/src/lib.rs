@@ -1,4 +1,4 @@
-pub trait NotifyChange: Clone {
+pub trait NotifyChange: Send + 'static {
     fn notify(&self);
 }
 
