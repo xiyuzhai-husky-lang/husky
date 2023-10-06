@@ -8,7 +8,7 @@ edition = "2021"
 [dependencies]
 rand = "0.8.5"
 serde.workspace = true
-serde_json = { version = "1.0.48", features = ["preserve_order"] }
+serde_json.workspace = true
 xrng = { path = "../../../../utils/husky-rng-utils" }
 husky-coword = { path = "../../../../kernel/husky-coword" }
 husky-ethereal-term = { path = "../../../../kernel/husky-ethereal-term" }

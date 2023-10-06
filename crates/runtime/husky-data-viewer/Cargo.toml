@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 serde.workspace = true
-serde_json = { version = "1.0.48", features = ["preserve_order"] }
+serde_json.workspace = true
 # abstractions
 salsa = { path = "../../abstractions/salsa" }
 # kernel

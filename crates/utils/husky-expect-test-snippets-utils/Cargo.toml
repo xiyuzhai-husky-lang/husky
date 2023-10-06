@@ -10,7 +10,7 @@ textwrap = "0.16.0"
 thiserror.workspace = true
 const_format = "0.2.30"
 serde.workspace = true
-serde_json = { version = "1.0.48", features = ["preserve_order"] }
+serde_json.workspace = true
 convert_case = "0.6.0"
 husky-io-utils = { path = "../../utils/husky-io-utils" }
 husky-path-utils = { path = "../../utils/husky-path-utils" }
