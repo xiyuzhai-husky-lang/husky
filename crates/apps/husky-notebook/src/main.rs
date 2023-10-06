@@ -35,9 +35,9 @@ impl Default for NotebookApp {
         let action_buffer = Default::default();
         let mut dock_state = egui_dock::DockState::new(vec![]);
         let docs = Docs::default();
-        let config = Default::default();
+        let settings = Default::default();
         let mut slf = Self {
-            settings: config,
+            settings,
             dock_state,
             docs,
             action_buffer,

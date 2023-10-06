@@ -18,6 +18,7 @@ husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features
 husky-code-editor = { path = "../../gui/husky-code-editor" }
 
 [dev-dependencies]
+tokio.workspace = true
 # gui
 husky-gui = { path = "../../gui/husky-gui" }
 husky-trace-view-doc = { path = ".", features = ["mock", "egui"] }

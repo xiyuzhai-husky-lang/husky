@@ -1,8 +1,10 @@
 use enum_index::IsEnumIndex;
 use husky_entity_protocol::EntityClass;
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, IsEnumIndex)]
-#[cfg_attr(feature = "serde", derive(Serialized, Deserialize))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub enum TokenClass {
     Attribute,
     Comment,
