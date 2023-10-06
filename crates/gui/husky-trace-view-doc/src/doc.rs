@@ -38,8 +38,6 @@ impl<VisualProtocol: IsVisualProtocol, UiComponentConfig: HasTraceViewSettings, 
     }
 }
 
-pub trait HasTraceViewSettings {}
-
 #[cfg(feature = "mock")]
 pub type MockTraceViewDoc = TraceViewDoc<MockVisualProtocol>;
 

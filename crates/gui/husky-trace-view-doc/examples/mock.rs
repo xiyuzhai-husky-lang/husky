@@ -1,9 +1,7 @@
+use husky_code_editor::settings::HasCodeEditorSettings;
 use husky_gui::helpers::run_standalone_ui_component;
 use husky_trace_protocol::{client_db::TraceDb, *};
-use husky_trace_view_doc::{
-    doc::{HasTraceViewSettings, TraceViewDoc},
-    *,
-};
+use husky_trace_view_doc::{doc::TraceViewDoc, settings::HasTraceViewSettings, *};
 use husky_visual_protocol::mock::MockVisualProtocol;
 
 fn main() {
@@ -12,5 +10,11 @@ fn main() {
 }
 
 struct MockConfig;
+
+impl HasCodeEditorSettings for MockConfig {
+    fn code_editor_settings(&self) -> &husky_code_editor::settings::CodeEditorSettings {
+        todo!()
+    }
+}
 
 impl HasTraceViewSettings for MockConfig {}

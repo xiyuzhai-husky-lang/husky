@@ -6,7 +6,7 @@ pub(crate) use self::tab::*;
 use self::arena::*;
 use super::*;
 use egui_dock::DockState;
-use husky_trace_view_doc::doc::{HasTraceViewSettings, MockTraceViewDoc, TraceViewDoc};
+use husky_trace_view_doc::doc::{MockTraceViewDoc, TraceViewDoc};
 use ui::{IsUiComponent, UiComponent};
 
 pub struct Doc {
