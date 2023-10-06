@@ -30,7 +30,7 @@ impl<VisualProtocol: IsVisualProtocol, Settings: HasTraceViewDocSettings, UiActi
         ui.end_row();
         // ui.label(text)
         let trace_client = &self.trace_client;
-        if let Err(e) = trace_client.connection_result() {
+        if let Some(e) = trace_client.connection_error() {
             ui.label(RichText::new(e.to_string()).color(Color32::RED));
         }
         if let Some(root_trace_ids) = trace_client.root_trace_ids() {
