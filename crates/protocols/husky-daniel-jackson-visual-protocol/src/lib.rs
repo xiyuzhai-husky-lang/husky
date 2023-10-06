@@ -7,6 +7,7 @@ pub mod action;
 
 use self::action::*;
 use husky_visual_protocol::{IsVisual, IsVisualProtocol};
+use serde::{Deserialize, Serialize};
 
 pub struct DanielJacksonVisualProtocol;
 
@@ -16,6 +17,7 @@ impl IsVisualProtocol for DanielJacksonVisualProtocol {
     type Visual = DanielJacksonVisual;
 }
 
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub enum DanielJacksonVisualComponent {
     Text,
     Shape2d,

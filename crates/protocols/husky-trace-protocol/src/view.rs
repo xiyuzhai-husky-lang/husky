@@ -5,8 +5,7 @@ use crate::*;
 use husky_token_protocol::TokenClass;
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TraceViewData {
     tokens_data: Vec<TraceViewTokenData>,
 }
@@ -31,8 +30,7 @@ impl TraceViewData {
     }
 }
 
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TraceViewTokenData {
     text: String,
     token_class: TokenClass,

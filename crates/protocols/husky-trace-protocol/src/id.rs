@@ -1,6 +1,8 @@
+use crate::*;
 use shifted_unsigned_int::ShiftedU32;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(from = "usize", into = "usize")]
 pub struct TraceId(ShiftedU32);
 
 impl TraceId {
@@ -13,7 +15,19 @@ impl TraceId {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+impl From<usize> for TraceId {
+    fn from(value: usize) -> Self {
+        Self(value.into())
+    }
+}
+
+impl Into<usize> for TraceId {
+    fn into(self) -> usize {
+        self.0.into()
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TraceIdRange {
     start: TraceId,
     end: TraceId,
