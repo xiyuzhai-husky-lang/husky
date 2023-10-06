@@ -11,7 +11,9 @@ thiserror.workspace = true
 futures-util.workspace = true
 serde.workspace = true
 serde_json = { workspace = true, optional = true }
+# abstractions
+notify-change = { path = "../../abstractions/notify-change", optional = true }
 
 [features]
-immediate_websocket_client_connection = []
+immediate_websocket_client_connection = ["dep:notify-change"]
 serde_json = ["dep:serde_json"]

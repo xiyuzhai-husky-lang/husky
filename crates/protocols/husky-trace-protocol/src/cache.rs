@@ -20,6 +20,14 @@ impl<VisualProtocol: IsVisualProtocol> TraceCache<VisualProtocol> {
     pub fn root_trace_ids(&self) -> TraceIdRange {
         self.root_trace_ids
     }
+
+    pub(crate) fn take_actions(&mut self, actions: Vec<TraceAction>) {
+        todo!()
+    }
+
+    pub(crate) fn take_action(&mut self, action: TraceAction) {
+        todo!()
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]

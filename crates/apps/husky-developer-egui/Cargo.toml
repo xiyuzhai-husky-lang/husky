@@ -8,3 +8,7 @@ edition = "2021"
 eframe.workspace = true
 egui.workspace = true
 egui_dock.workspace = true
+# protocols
+husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features = [
+    "server"
+] }

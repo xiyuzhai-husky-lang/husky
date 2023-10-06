@@ -12,17 +12,31 @@ use husky_websocket_utils::immediate_websocket_client_connection::{
 use tokio::task::JoinHandle;
 use tokio_tungstenite::connect_async;
 
-pub struct TraceClient<VisualProtocol: IsVisualProtocol> {
+pub struct TraceClient<
+    VisualProtocol: IsVisualProtocol,
+    TraceServerMessageArrivalNotifier: notify_change::NotifyChange,
+> {
     cache: Option<TraceCache<VisualProtocol>>,
-    connection:
-        ImmediateWebsocketClientConnection<TraceClientMessage, TraceServerMessage<VisualProtocol>>,
+    connection: ImmediateWebsocketClientConnection<
+        TraceClientMessage,
+        TraceServerMessage<VisualProtocol>,
+        TraceServerMessageArrivalNotifier,
+    >,
 }
 
-impl<VisualProtocol: IsVisualProtocol> TraceClient<VisualProtocol> {
-    pub fn new(server_address: impl Into<String>) -> Self {
+impl<VisualProtocol, TraceServerMessageArrivalNotifier>
+    TraceClient<VisualProtocol, TraceServerMessageArrivalNotifier>
+where
+    VisualProtocol: IsVisualProtocol,
+    TraceServerMessageArrivalNotifier: notify_change::NotifyChange,
+{
+    pub fn new(
+        server_address: impl Into<String>,
+        notifier: TraceServerMessageArrivalNotifier,
+    ) -> Self {
         Self {
             cache: None,
-            connection: ImmediateWebsocketClientConnection::new(server_address.into()),
+            connection: ImmediateWebsocketClientConnection::new(server_address.into(), notifier),
         }
     }
 
@@ -35,8 +49,11 @@ impl<VisualProtocol: IsVisualProtocol> TraceClient<VisualProtocol> {
     }
 }
 
-impl<VisualProtocol: IsVisualProtocol> std::ops::Index<TraceIdRange>
-    for TraceClient<VisualProtocol>
+impl<VisualProtocol, TraceServerMessageArrivalNotifier> std::ops::Index<TraceIdRange>
+    for TraceClient<VisualProtocol, TraceServerMessageArrivalNotifier>
+where
+    VisualProtocol: IsVisualProtocol,
+    TraceServerMessageArrivalNotifier: notify_change::NotifyChange,
 {
     type Output = [TraceCacheEntry];
 
