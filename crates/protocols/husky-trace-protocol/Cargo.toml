@@ -7,6 +7,7 @@ edition = "2021"
 [dependencies]
 axum = { workspace = true, optional = true }
 futures = { workspace = true, optional = true }
+futures-util = { workspace = true, optional = true }
 serde = { workspace = true, optional = true }
 tokio = { workspace = true, optional = true }
 tokio-tungstenite = { workspace = true, optional = true }
@@ -26,6 +27,7 @@ client = [
     "dep:thiserror",
     "dep:axum",
     "dep:futures",
+    "dep:futures-util",
     "dep:tokio",
     "dep:tokio-tungstenite"
 ]
@@ -34,6 +36,7 @@ server = [
     "dep:thiserror",
     "dep:axum",
     "dep:futures",
+    "dep:futures-util",
     "dep:tokio",
     "dep:tokio-tungstenite"
 ]
