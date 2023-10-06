@@ -1,12 +1,20 @@
 use husky_code_editor::settings::{CodeEditorSettings, HasCodeEditorSettings};
-use husky_trace_view_doc::settings::HasTraceViewSettings;
+use husky_trace_protocol::settings::{HasTraceSettings, TraceSettings};
+use husky_trace_view_doc::settings::HasTraceViewDocSettings;
 
 #[derive(Default, PartialEq, Eq)]
 pub struct HuskyNotebookDocSettings {
     code_editor_settings: CodeEditorSettings,
+    trace_settings: TraceSettings,
 }
 
-impl HasTraceViewSettings for HuskyNotebookDocSettings {}
+impl HasTraceSettings for HuskyNotebookDocSettings {
+    fn trace_settings(&self) -> &TraceSettings {
+        &self.trace_settings
+    }
+}
+
+impl HasTraceViewDocSettings for HuskyNotebookDocSettings {}
 
 impl HasCodeEditorSettings for HuskyNotebookDocSettings {
     fn code_editor_settings(&self) -> &husky_code_editor::settings::CodeEditorSettings {

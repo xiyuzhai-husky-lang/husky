@@ -22,5 +22,6 @@ husky-trace-view-doc = { path = "../../gui/husky-trace-view-doc", features = [
 ] }
 # protocols
 husky-token-protocol = { path = "../../protocols/husky-token-protocol" }
+husky-trace-protocol = { path = "../../protocols/husky-trace-protocol" }
 # utils
 husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }

@@ -4,6 +4,7 @@ pub mod client;
 pub mod id;
 #[cfg(feature = "server")]
 pub mod server;
+pub mod settings;
 pub mod view;
 
 use self::cache::*;
