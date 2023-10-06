@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 serde.workspace = true
-serde_json = { version = "1.0.48", features = ["preserve_order"] }
+serde_json.workspace = true
 salsa = { path = "../../abstractions/salsa" }
 lsp-types.workspace = true
 # abstractions

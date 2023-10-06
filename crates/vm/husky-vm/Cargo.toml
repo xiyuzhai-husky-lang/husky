@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 serde.workspace = true
-serde_json = { version = "1.0.48", features = ["preserve_order"] }
+serde_json.workspace = true
 arrayvec = "0.7.2"
 indexmap = "1.8.1"
 colored = "2.0.0"

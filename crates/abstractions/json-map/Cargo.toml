@@ -13,6 +13,6 @@ serde.workspace = true
 indexmap = "1.8.1"
 
 [dev-dependencies]
-serde_json = { version = "1.0.48", features = ["preserve_order"] }
+serde_json.workspace = true
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }

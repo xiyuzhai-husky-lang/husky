@@ -10,7 +10,7 @@ path = "src/bin/main.rs"
 [dependencies]
 clap = { version = "3.2.16", features = ["derive"] }
 serde = { version = "1.0.106", features = ["derive", "rc"] }
-serde_json = { version = "1.0.48", features = ["preserve_order"] }
+serde_json.workspace = true
 parking_lot = "0.12.1"
 tracing = "0.1"
 itertools = "^0.10.3"
