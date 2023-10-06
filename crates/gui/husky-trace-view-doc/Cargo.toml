@@ -12,6 +12,8 @@ ui = { path = "../../abstractions/ui" }
 # protocols
 husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol" }
+# gui
+husky-code-editor = { path = "../../gui/husky-code-editor" }
 
 [dev-dependencies]
 # gui

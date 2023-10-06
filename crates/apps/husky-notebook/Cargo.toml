@@ -11,11 +11,15 @@ egui.workspace = true
 egui_dock.workspace = true
 # abstractions
 ui = { path = "../../abstractions/ui", features = ["egui"] }
+enum-index = { path = "../../abstractions/enum-index" }
 # gui
+husky-code-editor = { path = "../../gui/husky-code-editor" }
 husky-trace-view-doc = { path = "../../gui/husky-trace-view-doc", features = [
     # ad hoc
     "mock",
     "egui"
 ] }
+# protocols
+husky-token-protocol = { path = "../../protocols/husky-token-protocol" }
 # utils
 husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }

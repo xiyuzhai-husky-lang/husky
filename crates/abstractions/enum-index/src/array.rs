@@ -1,10 +1,10 @@
+use std::{marker::PhantomData, mem::MaybeUninit};
+
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
-pub struct EnumArray<I: IsEnumIndex, T>([T; I::N])
-where
-    [(); I::N]:;
+pub struct EnumArray<I: IsEnumIndex, T>(Vec<T>, PhantomData<I>);
 
 impl<I: IsEnumIndex, T> std::ops::Index<I> for EnumArray<I, T>
 where
@@ -20,7 +20,15 @@ where
 impl<I: IsEnumIndex, T> EnumArray<I, T>
 where
     [(); I::N]:,
+    T: Sized,
 {
+    pub fn new(f: impl Fn(I) -> T) -> Self {
+        Self(
+            (0..I::N).into_iter().map(|i| f(I::from_index(i))).collect(),
+            PhantomData,
+        )
+    }
+
     pub fn indexed_iter<'a>(&'a self) -> impl Iterator<Item = (I, &'a T)> + 'a {
         self.0
             .iter()
