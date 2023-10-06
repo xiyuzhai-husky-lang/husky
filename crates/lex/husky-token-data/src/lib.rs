@@ -38,7 +38,7 @@ impl TokenData {
     pub fn default_protocol(self) -> TokenClass {
         match self {
             TokenData::Keyword(kw) => kw.class().into(),
-            TokenData::Punctuation(_) => TokenClass::Special,
+            TokenData::Punctuation(_) => TokenClass::Punctuation,
             TokenData::WordOpr(_) => TokenClass::WordOpr,
             TokenData::Literal(_) => TokenClass::Literal,
             TokenData::Ident(_) => TokenClass::Ident,

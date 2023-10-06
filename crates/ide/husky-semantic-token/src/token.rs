@@ -34,7 +34,7 @@ impl SemanticToken {
             }
             TokenClass::Comment => ext::SemanticTokenType::COMMENT,
             TokenClass::Field => ext::SemanticTokenType::PROPERTY,
-            TokenClass::Special => ext::SemanticTokenType::OPERATOR,
+            TokenClass::Punctuation => ext::SemanticTokenType::OPERATOR,
             TokenClass::Variable => ext::SemanticTokenType::VARIABLE,
             TokenClass::FrameVariable => ext::SemanticTokenType::VARIABLE,
             TokenClass::ModuleEntity => ext::SemanticTokenType::NAMESPACE,
@@ -50,7 +50,6 @@ impl SemanticToken {
             TokenClass::Method => ext::SemanticTokenType::METHOD,
             TokenClass::Literal => ext::SemanticTokenType::NUMBER,
             TokenClass::HtmlTagKind => ext::SemanticTokenType::FUNCTION,
-            TokenClass::WordPattern => ext::SemanticTokenType::ENUM_MEMBER,
             TokenClass::Attribute => ext::SemanticTokenType::DECORATOR,
             TokenClass::WordOpr => ext::SemanticTokenType::KEYWORD,
             TokenClass::SelfType => ext::SemanticTokenType::TYPE,

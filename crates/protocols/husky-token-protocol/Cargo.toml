@@ -5,10 +5,11 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-serde.workspace = true
+serde = { workspace = true, optional = true }
 # abstractions
 enum-index = { path = "../../abstractions/enum-index" }
 # protocols
 husky-entity-protocol = { path = "../../protocols/husky-entity-protocol" }
 
 [features]
+serde = ["dep:serde"]

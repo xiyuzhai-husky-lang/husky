@@ -11,7 +11,9 @@ egui = { workspace = true, optional = true }
 ui = { path = "../../abstractions/ui" }
 # protocols
 husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
-husky-trace-protocol = { path = "../../protocols/husky-trace-protocol" }
+husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features = [
+    "client"
+] }
 # gui
 husky-code-editor = { path = "../../gui/husky-code-editor" }
 

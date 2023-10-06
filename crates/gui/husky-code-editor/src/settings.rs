@@ -1,22 +1,28 @@
 use ecolor::Color32;
-use enum_index::array::EnumArray;
+use enum_index::full_map::{EnumFullMap, EnumFullMapRef};
 use husky_token_protocol::TokenClass;
 
 #[derive(PartialEq, Eq)]
 pub struct CodeEditorSettings {
-    token_foreground_colors: EnumArray<TokenClass, Color32>,
+    token_foreground_colors: EnumFullMap<TokenClass, Color32>,
+}
+
+impl CodeEditorSettings {
+    pub fn token_foreground_colors(&self) -> EnumFullMapRef<TokenClass, Color32> {
+        self.token_foreground_colors.as_ref()
+    }
 }
 
 impl Default for CodeEditorSettings {
     fn default() -> Self {
         Self {
-            token_foreground_colors: EnumArray::new(|token_class| match token_class {
+            token_foreground_colors: EnumFullMap::new(|token_class| match token_class {
                 TokenClass::Attribute => Color32::WHITE,
                 TokenClass::Comment => Color32::WHITE,
                 TokenClass::ControlFlowKeyword => Color32::LIGHT_RED,
                 TokenClass::OtherKeyword => Color32::LIGHT_RED,
                 TokenClass::Field => Color32::WHITE,
-                TokenClass::Special => Color32::WHITE,
+                TokenClass::Punctuation => Color32::WHITE,
                 TokenClass::Parameter => Color32::RED,
                 TokenClass::Variable => Color32::RED,
                 TokenClass::FrameVariable => Color32::WHITE,
@@ -32,7 +38,6 @@ impl Default for CodeEditorSettings {
                 TokenClass::Method => Color32::WHITE,
                 TokenClass::Literal => Color32::WHITE,
                 TokenClass::HtmlTagKind => Color32::WHITE,
-                TokenClass::WordPattern => Color32::WHITE,
                 TokenClass::WordOpr => Color32::WHITE,
                 TokenClass::SelfType => Color32::WHITE,
                 TokenClass::SelfValue => Color32::WHITE,
