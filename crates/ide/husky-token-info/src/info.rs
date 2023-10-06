@@ -130,7 +130,7 @@ impl TokenInfoData {
                 OnceUseRuleState::Unresolved => todo!(),
                 OnceUseRuleState::Erroneous => TokenClass::Error,
             },
-            TokenInfoData::UseExprStar => TokenClass::Special,
+            TokenInfoData::UseExprStar => TokenClass::Punctuation,
             TokenInfoData::HtmlFunctionIdent => TokenClass::HtmlFunctionIdent,
             TokenInfoData::HtmlPropertyIdent => TokenClass::HtmlPropertyIdent,
             TokenInfoData::UnitLeftParenthesis | TokenInfoData::UnitRightParenthesis => {

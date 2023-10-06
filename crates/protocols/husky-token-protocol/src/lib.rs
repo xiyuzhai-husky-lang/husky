@@ -2,13 +2,14 @@ use enum_index::IsEnumIndex;
 use husky_entity_protocol::EntityClass;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, IsEnumIndex)]
+#[cfg_attr(feature = "serde", derive(Serialized, Deserialize))]
 pub enum TokenClass {
     Attribute,
     Comment,
     ControlFlowKeyword,
     OtherKeyword,
     Field,
-    Special,
+    Punctuation,
     Parameter,
     Variable,
     FrameVariable,
@@ -24,7 +25,6 @@ pub enum TokenClass {
     Method,
     Literal,
     HtmlTagKind,
-    WordPattern,
     WordOpr,
     SelfType,
     SelfValue,
@@ -45,7 +45,7 @@ impl TokenClass {
             TokenClass::ControlFlowKeyword => "control flow keyword token",
             TokenClass::OtherKeyword => "other keyword token",
             TokenClass::Field => "field token",
-            TokenClass::Special => "special character or symbol token",
+            TokenClass::Punctuation => "special character or symbol token",
             TokenClass::Parameter => "parameter token",
             TokenClass::Variable => "variable token",
             TokenClass::FrameVariable => "frame variable token",
@@ -61,7 +61,6 @@ impl TokenClass {
             TokenClass::Method => "method token",
             TokenClass::Literal => "literal value token",
             TokenClass::HtmlTagKind => "html tag kind token",
-            TokenClass::WordPattern => "word pattern token",
             TokenClass::WordOpr => "word operator token",
             TokenClass::SelfType => "'self' type token",
             TokenClass::SelfValue => "'self' value token",

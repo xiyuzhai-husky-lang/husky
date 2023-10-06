@@ -10,6 +10,6 @@ impl HasTraceViewSettings for HuskyNotebookDocSettings {}
 
 impl HasCodeEditorSettings for HuskyNotebookDocSettings {
     fn code_editor_settings(&self) -> &husky_code_editor::settings::CodeEditorSettings {
-        todo!()
+        &self.code_editor_settings
     }
 }

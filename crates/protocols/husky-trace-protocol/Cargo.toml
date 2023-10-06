@@ -6,9 +6,15 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 serde.workspace = true
+# abstractions
+shifted-unsigned-int = { path = "../../abstractions/shifted-unsigned-int" }
 # protocols
+husky-token-protocol = { path = "../../protocols/husky-token-protocol" }
 husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
 
 [features]
 mock = ["husky-visual-protocol/mock"]
 egui = []
+client = []
+server = []
+serde = ["husky-token-protocol/serde"]

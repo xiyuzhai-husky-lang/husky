@@ -1,5 +1,5 @@
 #![feature(generic_const_exprs)]
-pub mod array;
+pub mod full_map;
 
 pub use enum_index_macros::*;
 
