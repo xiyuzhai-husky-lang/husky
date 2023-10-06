@@ -1,13 +1,14 @@
 mod doc;
 mod layout;
 
-use egui::Color32;
-use husky_code_editor::settings::HasCodeEditorSettings;
-use husky_trace_view_doc::settings::HasTraceViewSettings;
-use ui::IsUiComponent;
-
 pub(crate) use self::doc::*;
 pub(crate) use self::layout::*;
+
+use egui::Color32;
+use husky_code_editor::settings::HasCodeEditorSettings;
+use husky_trace_protocol::settings::HasTraceSettings;
+use husky_trace_view_doc::settings::HasTraceViewDocSettings;
+use ui::IsUiComponent;
 
 #[derive(Default, PartialEq, Eq)]
 pub(crate) struct NotebookSettings {
@@ -31,7 +32,13 @@ impl HasCodeEditorSettings for NotebookSettings {
     }
 }
 
-impl HasTraceViewSettings for NotebookSettings {}
+impl HasTraceSettings for NotebookSettings {
+    fn trace_settings(&self) -> &husky_trace_protocol::settings::TraceSettings {
+        self.doc.trace_settings()
+    }
+}
+
+impl HasTraceViewDocSettings for NotebookSettings {}
 
 pub(crate) struct NotebookSettingsView;
 

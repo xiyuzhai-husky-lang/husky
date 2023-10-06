@@ -1,7 +1,11 @@
 use husky_code_editor::settings::HasCodeEditorSettings;
 use husky_gui::helpers::run_standalone_ui_component;
-use husky_trace_protocol::{cache::TraceCache, *};
-use husky_trace_view_doc::{doc::TraceViewDoc, settings::HasTraceViewSettings, *};
+use husky_trace_protocol::{
+    cache::TraceCache,
+    settings::{HasTraceSettings, TraceSettings},
+    *,
+};
+use husky_trace_view_doc::{doc::TraceViewDoc, settings::HasTraceViewDocSettings, *};
 use husky_visual_protocol::mock::MockVisualProtocol;
 
 #[tokio::main]
@@ -18,4 +22,10 @@ impl HasCodeEditorSettings for MockConfig {
     }
 }
 
-impl HasTraceViewSettings for MockConfig {}
+impl HasTraceSettings for MockConfig {
+    fn trace_settings(&self) -> &TraceSettings {
+        todo!()
+    }
+}
+
+impl HasTraceViewDocSettings for MockConfig {}

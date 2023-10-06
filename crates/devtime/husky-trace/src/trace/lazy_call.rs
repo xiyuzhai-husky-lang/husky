@@ -14,3 +14,12 @@ pub struct LazyCallTrace {
     #[id]
     pub path: LazyCallTracePath,
 }
+
+impl LazyCallTrace {
+    pub fn subtraces(self, db: &dyn TraceDb) -> Option<&[LazyCallSubtrace]> {
+        todo!()
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum LazyCallSubtrace {}

@@ -18,7 +18,7 @@ pub struct TraceViewDoc<VisualProtocol: IsVisualProtocol> {
 }
 
 #[cfg(feature = "egui")]
-impl<VisualProtocol: IsVisualProtocol, Settings: HasTraceViewSettings, UiActionBuffer>
+impl<VisualProtocol: IsVisualProtocol, Settings: HasTraceViewDocSettings, UiActionBuffer>
     IsUiComponent<egui::Ui, Settings, UiActionBuffer> for TraceViewDoc<VisualProtocol>
 {
     fn render(
@@ -41,7 +41,7 @@ impl<VisualProtocol: IsVisualProtocol, Settings: HasTraceViewSettings, UiActionB
     }
 }
 
-fn render_traces<VisualProtocol: IsVisualProtocol, Settings: HasTraceViewSettings>(
+fn render_traces<VisualProtocol: IsVisualProtocol, Settings: HasTraceViewDocSettings>(
     trace_client: &TraceClient<VisualProtocol>,
     trace_id_range: TraceIdRange,
     ui: &mut egui::Ui,
@@ -55,7 +55,7 @@ fn render_traces<VisualProtocol: IsVisualProtocol, Settings: HasTraceViewSetting
     }
 }
 
-fn render_trace_view<Settings: HasTraceViewSettings>(
+fn render_trace_view<Settings: HasTraceViewDocSettings>(
     trace_view_data: &TraceViewData,
     ui: &mut egui::Ui,
     settings: &Settings,
