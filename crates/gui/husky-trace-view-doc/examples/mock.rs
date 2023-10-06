@@ -4,7 +4,8 @@ use husky_trace_protocol::{cache::TraceCache, *};
 use husky_trace_view_doc::{doc::TraceViewDoc, settings::HasTraceViewSettings, *};
 use husky_visual_protocol::mock::MockVisualProtocol;
 
-fn main() {
+#[tokio::main]
+async fn main() {
     let doc: TraceViewDoc<MockVisualProtocol> = TraceViewDoc::new_mock();
     run_standalone_ui_component(doc, MockConfig, ());
 }
