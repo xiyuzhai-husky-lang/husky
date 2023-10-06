@@ -70,6 +70,13 @@ impl<ClientMessage, ServerMessage>
             status: WebsocketClientConnectionStatus::Await(status),
         }
     }
+
+    pub fn error(&self) -> Option<&WebsocketClientConnectionError> {
+        match self.status {
+            WebsocketClientConnectionStatus::Err(ref e) => Some(e),
+            _ => None,
+        }
+    }
 }
 
 #[cfg(feature = "serde_json")]

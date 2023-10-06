@@ -19,6 +19,10 @@ husky-token-protocol = { path = "../../protocols/husky-token-protocol", features
     "serde"
 ] }
 husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
+# utils
+husky-websocket-utils = { path = "../../utils/husky-websocket-utils", features = [
+    "immediate_websocket_client_connection"
+] }
 
 [features]
 mock = ["husky-visual-protocol/mock"]
