@@ -8,22 +8,24 @@ edition = "2021"
 axum = { workspace = true, optional = true }
 futures = { workspace = true, optional = true }
 futures-util = { workspace = true, optional = true }
-serde = { workspace = true, optional = true }
+serde.workspace = true
 tokio = { workspace = true, optional = true }
 tokio-tungstenite = { workspace = true, optional = true }
 thiserror = { workspace = true, optional = true }
 # abstractions
 shifted-unsigned-int = { path = "../../abstractions/shifted-unsigned-int" }
 # protocols
-husky-token-protocol = { path = "../../protocols/husky-token-protocol" }
+husky-token-protocol = { path = "../../protocols/husky-token-protocol", features = [
+    "serde"
+] }
 husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
 
 [features]
-serde = ["dep:serde", "husky-token-protocol/serde"]
 mock = ["husky-visual-protocol/mock"]
 egui = []
+message = []
 client = [
-    "serde",
+    "message",
     "dep:thiserror",
     "dep:axum",
     "dep:futures",
@@ -32,7 +34,7 @@ client = [
     "dep:tokio-tungstenite"
 ]
 server = [
-    "serde",
+    "message",
     "dep:thiserror",
     "dep:axum",
     "dep:futures",

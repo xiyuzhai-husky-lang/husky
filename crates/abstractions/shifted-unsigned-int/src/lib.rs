@@ -1,6 +1,10 @@
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
 use std::num::{NonZeroU16, NonZeroU32, NonZeroU64, NonZeroU8};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
+#[cfg_attr(feature = "serde", serde(from = "usize", into = "usize"))]
 pub struct ShiftedU8(NonZeroU8);
 
 impl Default for ShiftedU8 {
@@ -23,6 +27,8 @@ impl Into<usize> for ShiftedU8 {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
+#[cfg_attr(feature = "serde", serde(from = "usize", into = "usize"))]
 pub struct ShiftedU16(NonZeroU16);
 
 impl Default for ShiftedU16 {
@@ -45,6 +51,8 @@ impl Into<usize> for ShiftedU16 {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
+#[cfg_attr(feature = "serde", serde(from = "usize", into = "usize"))]
 pub struct ShiftedU32(NonZeroU32);
 
 impl Default for ShiftedU32 {
@@ -67,6 +75,8 @@ impl Into<usize> for ShiftedU32 {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
+#[cfg_attr(feature = "serde", serde(from = "usize", into = "usize"))]
 pub struct ShiftedU64(NonZeroU64);
 
 impl Default for ShiftedU64 {

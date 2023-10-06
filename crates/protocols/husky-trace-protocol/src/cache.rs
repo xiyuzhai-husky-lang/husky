@@ -8,6 +8,7 @@ use husky_visual_protocol::mock::MockVisualProtocol;
 use husky_visual_protocol::{IsVisualProtocol, VisualComponent};
 
 /// synced across server and client
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TraceCache<VisualProtocol: IsVisualProtocol> {
     root_trace_ids: TraceIdRange,
     entries: Vec<TraceCacheEntry>,
@@ -21,6 +22,7 @@ impl<VisualProtocol: IsVisualProtocol> TraceCache<VisualProtocol> {
     }
 }
 
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TraceCacheEntry {
     view_data: TraceViewData,
     /// None means not calculated
