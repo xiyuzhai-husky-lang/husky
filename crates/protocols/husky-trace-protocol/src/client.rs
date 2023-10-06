@@ -15,6 +15,9 @@ pub struct TraceClientConnection {
 }
 
 impl TraceClientConnection {
+    // ad hoc
+    // todo: should use separate threads to create this
+    // but let's ignore it for now
     #[tokio::main]
     pub async fn new(server: &str) -> TraceClientResult<Self> {
         let (stream, _response) = connect_async(server).await?;
