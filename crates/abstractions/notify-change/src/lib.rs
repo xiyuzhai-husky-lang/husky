@@ -1,7 +1,7 @@
-pub trait NotifyChange: Send + 'static {
-    fn notify(&self);
+pub trait NotifyEvent: Send + 'static {
+    fn notify_event(&self);
 }
 
-impl NotifyChange for () {
-    fn notify(&self) {}
+impl NotifyEvent for () {
+    fn notify_event(&self) {}
 }

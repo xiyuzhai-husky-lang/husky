@@ -10,13 +10,13 @@ use husky_trace_protocol::{
 #[cfg(feature = "mock")]
 use husky_visual_protocol::mock::MockVisualProtocol;
 use husky_visual_protocol::IsVisualProtocol;
-use notify_change::NotifyChange;
+use notify_change::NotifyEvent;
 use ui::IsUiComponent;
 
 pub struct TraceViewDoc<VisualProtocol, RepaintSignal>
 where
     VisualProtocol: IsVisualProtocol,
-    RepaintSignal: NotifyChange,
+    RepaintSignal: NotifyEvent,
 {
     trace_client: TraceClient<VisualProtocol, RepaintSignal>,
     action_buffer: TraceViewActionBuffer,
@@ -28,7 +28,7 @@ impl<VisualProtocol, RepaintSignal, Settings, UiActionBuffer>
     for TraceViewDoc<VisualProtocol, RepaintSignal>
 where
     VisualProtocol: IsVisualProtocol,
-    RepaintSignal: NotifyChange,
+    RepaintSignal: NotifyEvent,
     Settings: HasTraceViewDocSettings,
 {
     fn render(
@@ -58,7 +58,7 @@ fn render_traces<VisualProtocol, RepaintSignal, Settings>(
     settings: &Settings,
 ) where
     VisualProtocol: IsVisualProtocol,
-    RepaintSignal: NotifyChange,
+    RepaintSignal: NotifyEvent,
     Settings: HasTraceViewDocSettings,
 {
     for trace_entry in &trace_client[trace_id_range] {

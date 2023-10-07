@@ -1,4 +1,4 @@
-use notify_change::NotifyChange;
+use notify_change::NotifyEvent;
 use std::{
     borrow::Cow,
     sync::{Arc, Mutex},
@@ -14,34 +14,30 @@ use tokio_tungstenite::tungstenite::{
 /// non-blocking
 ///
 /// all apis are sync
-pub struct ImmediateWebsocketClientConnection<
-    ClientMessage,
-    ServerMessage,
-    ServerMessageArrivalNotifier,
-> where
-    ServerMessageArrivalNotifier: NotifyChange,
+pub struct ImmediateWebsocketClientConnection<Request, Response, ServerMessageArrivalNotifier>
+where
+    ServerMessageArrivalNotifier: NotifyEvent,
 {
     server_address: String,
     create_task: JoinHandle<()>,
-    status:
-        WebsocketClientConnectionStatus<ClientMessage, ServerMessage, ServerMessageArrivalNotifier>,
+    status: WebsocketClientConnectionStatus<Request, Response, ServerMessageArrivalNotifier>,
 }
 
-pub enum WebsocketClientConnectionStatus<ClientMessage, ServerMessage, ServerMessageArrivalNotifier>
+pub enum WebsocketClientConnectionStatus<Request, Response, ServerMessageArrivalNotifier>
 where
-    ServerMessageArrivalNotifier: NotifyChange,
+    ServerMessageArrivalNotifier: NotifyEvent,
 {
-    Await(Arc<Mutex<WebsocketClientConnectionAwaitStatus<ServerMessageArrivalNotifier>>>),
+    Await(Arc<Mutex<WebsocketClientConnectionAwaitStatus<Request, ServerMessageArrivalNotifier>>>),
     Ok {
-        send_tx: tokio::sync::mpsc::UnboundedSender<ClientMessage>,
-        recv_rx: tokio::sync::mpsc::UnboundedReceiver<ServerMessage>,
+        send_tx: tokio::sync::mpsc::UnboundedSender<Request>,
+        recv_rx: tokio::sync::mpsc::UnboundedReceiver<Response>,
     },
     Err(WebsocketClientConnectionError),
 }
 
-pub enum WebsocketClientConnectionAwaitStatus<ServerMessageArrivalNotifier>
+pub enum WebsocketClientConnectionAwaitStatus<Request, ResponseNotifier>
 where
-    ServerMessageArrivalNotifier: NotifyChange,
+    ResponseNotifier: NotifyEvent,
 {
     Await,
     Ok {
@@ -49,7 +45,8 @@ where
             tokio_tungstenite::MaybeTlsStream<tokio::net::TcpStream>,
         >,
         response: tungstenite::handshake::client::Response,
-        notifier: ServerMessageArrivalNotifier,
+        notifier: ResponseNotifier,
+        init_request: Request,
     },
     Err(WebsocketClientConnectionError),
 }
@@ -57,22 +54,29 @@ where
 #[derive(Debug, Error)]
 pub enum WebsocketClientConnectionError {}
 
-impl<ClientMessage, ServerMessage, ServerMessageArrivalNotifier: NotifyChange>
-    ImmediateWebsocketClientConnection<ClientMessage, ServerMessage, ServerMessageArrivalNotifier>
+impl<Request, Response, ResponseNotifier: NotifyEvent>
+    ImmediateWebsocketClientConnection<Request, Response, ResponseNotifier>
+where
+    Request: Send + 'static,
 {
     #[tokio::main]
-    pub async fn new(server_address: String, notifier: ServerMessageArrivalNotifier) -> Self {
-        let status = Arc::new(Mutex::new(WebsocketClientConnectionAwaitStatus::Await));
+    pub async fn new(
+        server_address: String,
+        init_request: Request,
+        notifier: ResponseNotifier,
+    ) -> Self {
+        let await_status = Arc::new(Mutex::new(WebsocketClientConnectionAwaitStatus::Await));
         let create_task = tokio::spawn({
             let server_address = server_address.clone();
-            let status = status.clone();
+            let await_status = await_status.clone();
             async move {
                 match tokio_tungstenite::connect_async(server_address).await {
                     Ok((stream, response)) => {
-                        *status.lock().unwrap() = WebsocketClientConnectionAwaitStatus::Ok {
+                        *await_status.lock().unwrap() = WebsocketClientConnectionAwaitStatus::Ok {
                             stream,
                             response,
                             notifier,
+                            init_request,
                         }
                     }
                     Err(_) => todo!(),
@@ -82,7 +86,7 @@ impl<ClientMessage, ServerMessage, ServerMessageArrivalNotifier: NotifyChange>
         Self {
             server_address,
             create_task,
-            status: WebsocketClientConnectionStatus::Await(status),
+            status: WebsocketClientConnectionStatus::Await(await_status),
         }
     }
 
@@ -100,12 +104,12 @@ impl<ClientMessage, ServerMessage, ServerMessageArrivalNotifier>
 where
     ClientMessage: serde::Serialize + Send + Sync + 'static,
     ServerMessage: for<'a> serde::Deserialize<'a> + Send + Sync + 'static,
-    ServerMessageArrivalNotifier: NotifyChange,
+    ServerMessageArrivalNotifier: NotifyEvent,
 {
     pub fn send(&mut self, msg: ClientMessage) {
         self.refresh();
         match self.status {
-            WebsocketClientConnectionStatus::Await(_) => todo!(),
+            WebsocketClientConnectionStatus::Await { .. } => todo!(),
             WebsocketClientConnectionStatus::Ok {
                 ref mut send_tx, ..
             } => match send_tx.send(msg) {
@@ -118,7 +122,7 @@ where
 
     pub fn try_recv(&mut self) -> Option<ServerMessage> {
         match self.status {
-            WebsocketClientConnectionStatus::Await(_) => todo!(),
+            WebsocketClientConnectionStatus::Await { .. } => todo!(),
             WebsocketClientConnectionStatus::Ok {
                 ref mut recv_rx, ..
             } => match recv_rx.try_recv() {
@@ -134,23 +138,26 @@ where
 
     fn refresh(&mut self) -> StatusChanged {
         let await_result = match self.status {
-            WebsocketClientConnectionStatus::Await(ref mu) => match std::mem::replace(
-                &mut *mu.lock().unwrap(),
+            WebsocketClientConnectionStatus::Await(ref await_status) => match std::mem::replace(
+                &mut *await_status.lock().unwrap(),
                 WebsocketClientConnectionAwaitStatus::Await,
             ) {
                 WebsocketClientConnectionAwaitStatus::Await => return StatusChanged::False,
                 WebsocketClientConnectionAwaitStatus::Ok {
                     stream,
                     response,
+                    init_request,
                     notifier,
-                } => Ok((stream, response, notifier)),
+                } => Ok((stream, response, init_request, notifier)),
                 WebsocketClientConnectionAwaitStatus::Err(e) => Err(e),
             },
             WebsocketClientConnectionStatus::Ok { .. }
             | WebsocketClientConnectionStatus::Err(_) => return StatusChanged::False,
         };
         match await_result {
-            Ok((stream, response, notifier)) => self.status = Self::split_stream(stream, notifier),
+            Ok((stream, response, init_request, notifier)) => {
+                self.status = Self::split_stream(stream, notifier)
+            }
             Err(e) => self.status = WebsocketClientConnectionStatus::Err(e),
         }
         StatusChanged::True
@@ -202,7 +209,7 @@ where
                                     if let Err(e) = recv_tx.send(msg) {
                                         todo!()
                                     } else {
-                                        notifier.notify()
+                                        notifier.notify_event()
                                     }
                                 }
                                 Err(_) => todo!(),
