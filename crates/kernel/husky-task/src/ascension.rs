@@ -9,3 +9,5 @@ pub trait IsDevAscension {
     type RuntimeTaskSpecificConfig: Default;
     type VisualProtocol: IsVisualProtocol;
 }
+
+pub type DevAscension<Task: IsTask> = Task::DevAscension;
