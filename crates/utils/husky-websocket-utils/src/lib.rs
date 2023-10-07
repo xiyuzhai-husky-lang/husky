@@ -1,4 +1,4 @@
-#[cfg(feature = "easy_serve")]
-pub mod easy_serve;
-#[cfg(feature = "immediate_client")]
-pub mod immediate_client;
+#[cfg(feature = "easy_server")]
+pub mod easy_server;
+#[cfg(feature = "imgui_client")]
+pub mod imgui_client;

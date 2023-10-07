@@ -6,7 +6,7 @@ use crate::{message::*, *};
 use husky_visual_protocol::mock::MockVisualProtocol;
 #[cfg(feature = "mock")]
 use husky_visual_protocol::IsVisualProtocol;
-use husky_websocket_utils::immediate_client::{
+use husky_websocket_utils::imgui_client::{
     ImmediateWebsocketClientConnection, WebsocketClientConnectionError,
 };
 use tokio::task::JoinHandle;
@@ -36,11 +36,7 @@ where
     ) -> Self {
         Self {
             cache: None,
-            connection: ImmediateWebsocketClientConnection::new(
-                server_address.into(),
-                TraceRequest::Init,
-                notifier,
-            ),
+            connection: ImmediateWebsocketClientConnection::new(server_address.into(), notifier),
         }
     }
 

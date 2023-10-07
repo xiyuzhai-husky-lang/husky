@@ -27,7 +27,7 @@ husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
 husky-websocket-utils = { path = "../../utils/husky-websocket-utils", features = [
-    "easy_serve"
+    "easy_server"
 ] }
 
 [features]

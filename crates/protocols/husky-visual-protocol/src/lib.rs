@@ -1,10 +1,11 @@
 #[cfg(feature = "mock")]
 pub mod mock;
-pub trait IsVisualProtocol {
+pub trait IsVisualProtocol: 'static {
     type VisualComponent: std::fmt::Debug
         + Clone
         + PartialEq
         + Eq
+        + Send
         + serde::Serialize
         + for<'a> serde::Deserialize<'a>
         + 'static;
