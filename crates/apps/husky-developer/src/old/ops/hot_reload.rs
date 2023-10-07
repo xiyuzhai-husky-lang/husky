@@ -5,11 +5,11 @@ use std::ops::FromResidual;
 
 use crate::*;
 
-impl HuskyDebuggerInternal {
+impl HuskyDeveloperInternal {
     fn compiler_instance(&self) -> CompilerInstance {
         CompilerInstance::new(RelativePathBuf::from_path(&self.config.package_dir).unwrap())
     }
-    pub(crate) fn hot_reload(&mut self) -> DebuggerHotReloadM {
+    pub(crate) fn hot_reload(&mut self) -> DeveloperHotReloadM {
         self.compiler_instance().compile_all()?;
         self.devtime.hot_reload()
     }

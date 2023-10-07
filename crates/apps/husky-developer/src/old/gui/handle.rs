@@ -6,58 +6,8 @@ use std::panic::catch_unwind;
 use std::path::PathBuf;
 use xxhash_rust::xxh3::xxh3_64;
 
-pub enum HandleGuiMessageM<T> {
-    Ok(T),
-}
-
-impl<T> Monad for HandleGuiMessageM<T> {}
-
-impl<T> HandleGuiMessageM<T> {
-    pub(crate) fn unwrap(self) -> T {
-        match self {
-            HandleGuiMessageM::Ok(t) => t,
-        }
-    }
-}
-
-impl<T> std::ops::FromResidual<DebuggerHotReloadR> for HandleGuiMessageM<T> {
-    fn from_residual(_residual: DebuggerHotReloadR) -> Self {
-        todo!()
-    }
-}
-
-impl<T> std::ops::FromResidual<DevtimeTakeChangeR> for HandleGuiMessageM<T> {
-    fn from_residual(_residual: DevtimeTakeChangeR) -> Self {
-        todo!()
-    }
-}
-
-pub struct HandleGuiMessageR;
-
-impl<T> std::ops::FromResidual<HandleGuiMessageR> for HandleGuiMessageM<T> {
-    fn from_residual(_residual: HandleGuiMessageR) -> Self {
-        unreachable!()
-    }
-}
-
-impl<T> std::ops::Try for HandleGuiMessageM<T> {
-    type Output = T;
-
-    type Residual = HandleGuiMessageR;
-
-    fn from_output(output: Self::Output) -> Self {
-        HandleGuiMessageM::Ok(output)
-    }
-
-    fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
-        match self {
-            HandleGuiMessageM::Ok(output) => std::ops::ControlFlow::Continue(output),
-        }
-    }
-}
-
 pub(crate) fn handle_message(
-    dev: Arc<HuskyDebuggerInstance>,
+    dev: Arc<HuskyDeveloperInstance>,
     client_sender: UnboundedSender<Result<Message, warp::Error>>,
     gui_messages: &[HuskyTracerGuiMessage],
 ) -> HandleGuiMessageM<()> {
@@ -73,7 +23,7 @@ pub(crate) fn handle_message(
             None => HandleGuiMessageM::Ok(()),
         },
         Err(_) => HandleGuiMessageM::Ok(save_server_history(
-            &(DebuggerServerHistory {
+            &(DeveloperServerHistory {
                 config: dev.config(),
                 gui_messages: gui_messages.to_vec(),
             }),
@@ -81,12 +31,12 @@ pub(crate) fn handle_message(
     }
 }
 #[derive(Debug, Serialize, Deserialize)]
-struct DebuggerServerHistory {
-    config: HuskyDebuggerConfig,
+struct DeveloperServerHistory {
+    config: HuskyDeveloperConfig,
     gui_messages: Vec<HuskyTracerGuiMessage>,
 }
 
-fn save_server_history(server_history: &DebuggerServerHistory) {
+fn save_server_history(server_history: &DeveloperServerHistory) {
     let value = serde_json::to_string_pretty(server_history).unwrap();
     let filename = format!("history-{}.json", xxh3_64(value.as_bytes()));
     let filename: &str = &filename;
@@ -94,12 +44,12 @@ fn save_server_history(server_history: &DebuggerServerHistory) {
     husky_io_utils::diff_write(&filepath, &value, true)
 }
 
-impl HuskyDebuggerInstance {
+impl HuskyDeveloperInstance {
     fn handle_gui_message(
         self: Arc<Self>,
         gui_message: &HuskyTracerGuiMessage,
     ) -> HandleGuiMessageM<Option<String>> {
-        let internal: &mut HuskyDebuggerInternal = &mut self.internal.lock().unwrap();
+        let internal: &mut HuskyDeveloperInternal = &mut self.internal.lock().unwrap();
         let result = internal.handle_gui_message(gui_message)?;
         if gui_message.opt_request_id.is_none() {
             return HandleGuiMessageM::Ok(None);
@@ -124,7 +74,7 @@ impl HuskyDebuggerInstance {
     }
 }
 
-impl HuskyDebuggerInternal {
+impl HuskyDeveloperInternal {
     fn handle_gui_message(
         &mut self,
         request: &HuskyTracerGuiMessage,

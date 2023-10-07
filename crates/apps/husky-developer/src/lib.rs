@@ -1,14 +1,15 @@
-// #![feature(try_trait_v2)]
-// mod config;
-// mod error;
+#![feature(try_trait_v2)]
+mod config;
+mod error;
+mod state;
 // mod gui;
 // mod instance;
 // mod internal;
 // mod notif;
 // mod ops;
 
-// pub use config::HuskyDebuggerConfig;
-// pub use error::{DebuggerError, DebuggerResult};
+// pub use config::HuskyDeveloperConfig;
+// pub use error::{DeveloperError, DeveloperResult};
 
 // use futures::executor::ThreadPool;
 // use gui::handle_query;
@@ -20,7 +21,7 @@
 // use husky_trace_protocol_old::*;
 
 // use instance::*;
-// use internal::HuskyDebuggerInternal;
+// use internal::HuskyDeveloperInternal;
 // use notif::handle_notif;
 // use ops::*;
 // use std::{
@@ -32,8 +33,8 @@
 // use std::{sync::Mutex, time::Instant};
 // use warp::Filter;
 
-// pub async fn dev_run(package_dir: PathBuf) -> DebuggerResult<()> {
-//     let husky_devserver = HuskyDebuggerInstance::new(HuskyDebuggerConfig {
+// pub async fn dev_run(package_dir: PathBuf) -> DeveloperResult<()> {
+//     let husky_devserver = HuskyDeveloperInstance::new(HuskyDeveloperConfig {
 //         package_dir,
 //         opt_sample_id: None,
 //         verbose: false,
@@ -59,7 +60,7 @@
 //             husky_print_utils::RESET,
 //             package_dir.as_os_str().to_str().unwrap(),
 //         );
-//         let husky_devserver = HuskyDebuggerInstance::new(HuskyDebuggerConfig {
+//         let husky_devserver = HuskyDeveloperInstance::new(HuskyDeveloperConfig {
 //             package_dir,
 //             opt_sample_id: Some(SampleId(23)),
 //             verbose: false,

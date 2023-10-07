@@ -33,9 +33,7 @@ where
 {
     Await(Arc<Mutex<WebsocketClientConnectionAwaitStatus<ServerMessageArrivalNotifier>>>),
     Ok {
-        send_task: JoinHandle<()>,
         send_tx: tokio::sync::mpsc::UnboundedSender<ClientMessage>,
-        recv_task: JoinHandle<()>,
         recv_rx: tokio::sync::mpsc::UnboundedReceiver<ServerMessage>,
     },
     Err(WebsocketClientConnectionError),
@@ -221,12 +219,13 @@ where
                 todo!()
             }
         });
-        WebsocketClientConnectionStatus::Ok {
-            send_task,
-            send_tx,
-            recv_task,
-            recv_rx,
-        }
+        tokio::spawn(async move {
+            tokio::select! {
+                _ = &mut send_task => recv_task.abort(),
+                _ = &mut recv_task => send_task.abort(),
+            }
+        });
+        WebsocketClientConnectionStatus::Ok { send_tx, recv_rx }
     }
 }
 
