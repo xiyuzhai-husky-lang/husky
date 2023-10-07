@@ -26,3 +26,12 @@ impl<Task: IsTask> DevComptime<Task> {
         &self.db
     }
 }
+
+impl<Task: IsTask> Default for DevComptime<Task> {
+    fn default() -> Self {
+        Self {
+            db: Default::default(),
+            linkage_table: Default::default(),
+        }
+    }
+}

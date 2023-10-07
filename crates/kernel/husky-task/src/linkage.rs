@@ -1,6 +1,6 @@
 use crate::*;
 
-pub trait IsLinkTime: Sized {
+pub trait IsLinkTime: Sized + Default {
     type ComptimeDb: ?Sized;
     type Linkage: IsLinkage;
     // linkage table has the responsibility to guarantee that the linkage provided is up to date.
