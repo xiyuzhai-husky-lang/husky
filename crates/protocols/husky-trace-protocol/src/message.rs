@@ -1,8 +1,8 @@
-mod client_message;
-mod server_message;
+mod request;
+mod response;
 
-pub use self::client_message::*;
-pub use self::server_message::*;
+pub use self::request::*;
+pub use self::response::*;
 
 use crate::*;
 use husky_visual_protocol::IsVisualProtocol;

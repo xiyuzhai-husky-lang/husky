@@ -14,13 +14,13 @@ use tokio_tungstenite::connect_async;
 
 pub struct TraceClient<
     VisualProtocol: IsVisualProtocol,
-    TraceServerMessageArrivalNotifier: notify_change::NotifyChange,
+    ResponseNotifier: notify_change::NotifyEvent,
 > {
     cache: Option<TraceCache<VisualProtocol>>,
     connection: ImmediateWebsocketClientConnection<
-        TraceClientMessage,
-        TraceServerMessage<VisualProtocol>,
-        TraceServerMessageArrivalNotifier,
+        TraceRequest,
+        TraceResponse<VisualProtocol>,
+        ResponseNotifier,
     >,
 }
 
@@ -28,7 +28,7 @@ impl<VisualProtocol, TraceServerMessageArrivalNotifier>
     TraceClient<VisualProtocol, TraceServerMessageArrivalNotifier>
 where
     VisualProtocol: IsVisualProtocol,
-    TraceServerMessageArrivalNotifier: notify_change::NotifyChange,
+    TraceServerMessageArrivalNotifier: notify_change::NotifyEvent,
 {
     pub fn new(
         server_address: impl Into<String>,
@@ -36,7 +36,11 @@ where
     ) -> Self {
         Self {
             cache: None,
-            connection: ImmediateWebsocketClientConnection::new(server_address.into(), notifier),
+            connection: ImmediateWebsocketClientConnection::new(
+                server_address.into(),
+                TraceRequest::Init,
+                notifier,
+            ),
         }
     }
 
@@ -53,7 +57,7 @@ impl<VisualProtocol, TraceServerMessageArrivalNotifier> std::ops::Index<TraceIdR
     for TraceClient<VisualProtocol, TraceServerMessageArrivalNotifier>
 where
     VisualProtocol: IsVisualProtocol,
-    TraceServerMessageArrivalNotifier: notify_change::NotifyChange,
+    TraceServerMessageArrivalNotifier: notify_change::NotifyEvent,
 {
     type Output = [TraceCacheEntry];
 
