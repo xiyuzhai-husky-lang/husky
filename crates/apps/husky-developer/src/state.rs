@@ -3,5 +3,5 @@ use husky_devtime::{Devtime, IsDevtime};
 
 pub struct DeveloperState {
     boot_devtime: Devtime<BootTask>,
-    devtime: Box<dyn IsDevtime>,
+    main_devtime: Box<dyn IsDevtime>,
 }

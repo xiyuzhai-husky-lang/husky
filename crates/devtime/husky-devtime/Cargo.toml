@@ -25,6 +25,9 @@ husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
 husky-task = { path = "../../kernel/husky-task" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
+# protocols
+husky-trace-protocol = { path = "../../protocols/husky-trace-protocol" }
+husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
 # runtime
 husky-eval = { path = "../../runtime/husky-eval" }
 husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
