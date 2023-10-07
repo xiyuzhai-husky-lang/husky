@@ -23,6 +23,8 @@ husky-task = { path = "../../kernel/husky-task" }
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features = [
     "server"
 ] }
+# tasks
+husky-boot-task = { path = "../../tasks/husky-boot-task" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }

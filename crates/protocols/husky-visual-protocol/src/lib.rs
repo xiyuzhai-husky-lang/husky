@@ -1,5 +1,7 @@
 #[cfg(feature = "mock")]
 pub mod mock;
+#[cfg(feature = "trivial")]
+pub mod trivial;
 pub trait IsVisualProtocol: 'static {
     type VisualComponent: std::fmt::Debug
         + Clone

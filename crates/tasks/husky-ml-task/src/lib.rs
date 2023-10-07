@@ -36,7 +36,7 @@ where
 {
     type Base = DevInput;
 
-    type LinkTime = MonoLinkTime<ComptimeDb, MlLinkage>;
+    type LinkageTable = MonoLinkTime<ComptimeDb, MlLinkage>;
 
     type Value = RegularValue;
 
