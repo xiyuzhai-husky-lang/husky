@@ -10,14 +10,25 @@ use husky_visual_protocol::{IsVisualProtocol, VisualComponent};
 /// synced across server and client
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TraceCache<VisualProtocol: IsVisualProtocol> {
-    root_trace_ids: TraceIdRange,
+    /// None means not set
+    root_trace_ids: Option<TraceIdRange>,
     entries: Vec<TraceCacheEntry>,
     visual_components: Vec<VisualComponent<VisualProtocol>>,
 }
 
+impl<VisualProtocol: IsVisualProtocol> Default for TraceCache<VisualProtocol> {
+    fn default() -> Self {
+        Self {
+            root_trace_ids: Default::default(),
+            entries: Default::default(),
+            visual_components: Default::default(),
+        }
+    }
+}
+
 /// methods
 impl<VisualProtocol: IsVisualProtocol> TraceCache<VisualProtocol> {
-    pub fn root_trace_ids(&self) -> TraceIdRange {
+    pub fn root_trace_ids(&self) -> Option<TraceIdRange> {
         self.root_trace_ids
     }
 
@@ -62,7 +73,7 @@ impl TraceCache<MockVisualProtocol> {
     pub fn new_mock() -> Self {
         use TokenClass::*;
         Self {
-            root_trace_ids: TraceIdRange::new_mock(0, 1),
+            root_trace_ids: Some(TraceIdRange::new_mock(0, 1)),
             entries: vec![TraceCacheEntry {
                 view_data: TraceViewData::new_mock([
                     ("let", OtherKeyword),

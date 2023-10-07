@@ -16,7 +16,7 @@ pub struct TraceClient<
     VisualProtocol: IsVisualProtocol,
     ResponseNotifier: notify_change::NotifyEvent,
 > {
-    cache: Option<TraceCache<VisualProtocol>>,
+    cache: TraceCache<VisualProtocol>,
     connection: ImmediateWebsocketClientConnection<
         TraceRequest,
         TraceResponse<VisualProtocol>,
@@ -35,13 +35,13 @@ where
         notifier: TraceServerMessageArrivalNotifier,
     ) -> Self {
         Self {
-            cache: None,
+            cache: Default::default(),
             connection: ImmediateWebsocketClientConnection::new(server_address.into(), notifier),
         }
     }
 
     pub fn root_trace_ids(&self) -> Option<TraceIdRange> {
-        Some(self.cache.as_ref()?.root_trace_ids())
+        self.cache.root_trace_ids()
     }
 
     pub fn connection_error(&self) -> Option<&WebsocketClientConnectionError> {
@@ -58,6 +58,6 @@ where
     type Output = [TraceCacheEntry];
 
     fn index(&self, trace_id_range: TraceIdRange) -> &Self::Output {
-        &self.cache.as_ref().unwrap()[trace_id_range]
+        &self.cache[trace_id_range]
     }
 }
