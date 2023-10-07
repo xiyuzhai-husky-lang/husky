@@ -2,7 +2,7 @@
 mod state;
 
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
-use husky_task::IsTask;
+use husky_task::{helpers::DevLinkTime, IsTask};
 use std::path::Path;
 
 use self::state::*;
@@ -10,6 +10,19 @@ use self::state::*;
 pub struct Devtime<Task: IsTask> {
     runtime: DevRuntime<Task>,
     state: DevtimeState<husky_task::visual::VisualProtocol<Task>>,
+}
+
+impl<Task: IsTask> Default for Devtime<Task>
+where
+    Task: Default,
+    DevLinkTime<Task>: Default,
+{
+    fn default() -> Self {
+        Self {
+            runtime: Default::default(),
+            state: Default::default(),
+        }
+    }
 }
 
 pub trait IsDevtime {}

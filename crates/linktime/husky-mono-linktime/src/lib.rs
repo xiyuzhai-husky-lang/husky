@@ -21,18 +21,6 @@ where
     internal: std::sync::RwLock<MonoLinkTimeInternal<Db, Linkage>>,
 }
 
-impl<Db, Linkage> Default for MonoLinkTime<Db, Linkage>
-where
-    Db: HirDepsDb,
-    Linkage: IsLinkage,
-{
-    fn default() -> Self {
-        Self {
-            internal: Default::default(),
-        }
-    }
-}
-
 impl<Db, Linkage> IsLinkTime for MonoLinkTime<Db, Linkage>
 where
     Db: HirDepsDb,
