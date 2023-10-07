@@ -1,12 +1,12 @@
 use super::*;
 
-pub(crate) struct HuskyDebuggerInstance {
-    pub(crate) internal: Mutex<HuskyDebuggerInternal>,
+pub(crate) struct HuskyDeveloperInstance {
+    pub(crate) internal: Mutex<HuskyDeveloperInternal>,
     pub(crate) threadpool: ThreadPool,
 }
 
-impl HuskyDebuggerInstance {
-    pub fn new(config: HuskyDebuggerConfig) -> Self {
+impl HuskyDeveloperInstance {
+    pub fn new(config: HuskyDeveloperConfig) -> Self {
         let _package_dir: &Path = &config.package_dir;
         let devtime = Devtime::new(config.runtime());
         if let Some(_specific_sample_id) = config.opt_sample_id {
@@ -16,7 +16,7 @@ impl HuskyDebuggerInstance {
             //     .expect("todo");
         }
         Self {
-            internal: Mutex::new(HuskyDebuggerInternal {
+            internal: Mutex::new(HuskyDeveloperInternal {
                 devtime,
                 next_request_id: 0,
                 config,
@@ -25,7 +25,7 @@ impl HuskyDebuggerInstance {
         }
     }
 
-    pub(crate) fn config(&self) -> HuskyDebuggerConfig {
+    pub(crate) fn config(&self) -> HuskyDeveloperConfig {
         self.internal.lock().unwrap().config.clone()
     }
 
@@ -67,7 +67,7 @@ impl HuskyDebuggerInstance {
         // error_flag
     }
 
-    pub async fn serve(self, addr: impl ToSocketAddrs) -> DebuggerResult<()> {
+    pub async fn serve(self, addr: impl ToSocketAddrs) -> DeveloperResult<()> {
         let dev = Arc::new(self);
         let addr = addr.to_socket_addrs().unwrap().next().unwrap();
         println!(
@@ -95,7 +95,7 @@ impl HuskyDebuggerInstance {
 }
 
 fn with_dev(
-    dev: Arc<HuskyDebuggerInstance>,
-) -> impl Filter<Extract = (Arc<HuskyDebuggerInstance>,), Error = Infallible> + Clone {
+    dev: Arc<HuskyDeveloperInstance>,
+) -> impl Filter<Extract = (Arc<HuskyDeveloperInstance>,), Error = Infallible> + Clone {
     warp::any().map(move || dev.clone())
 }

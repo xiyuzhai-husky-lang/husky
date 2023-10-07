@@ -11,14 +11,14 @@ pub enum Notification {
 
 pub(crate) async fn handle_notif(
     socket: Ws,
-    server: Arc<HuskyDebuggerInstance>,
+    server: Arc<HuskyDeveloperInstance>,
 ) -> Result<impl warp::Reply, warp::Rejection> {
     Ok(socket.on_upgrade(move |ws| handle_notif_upgraded(ws, server)))
 }
 
 pub(crate) async fn handle_notif_upgraded(
     websocket: WebSocket,
-    server: Arc<HuskyDebuggerInstance>,
+    server: Arc<HuskyDeveloperInstance>,
 ) {
     let (_, mut rx) = websocket.split();
     println!("upgraded");

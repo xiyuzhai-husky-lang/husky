@@ -9,12 +9,16 @@ use crossbeam_channel::{bounded, Receiver, Sender};
 use super::{
     io_threads::IoThreads,
     json::{ReadFromJSON, WriteToJSON},
-    ClientMessage, DebuggerResponse,
+    ClientMessage, DeveloperResponse,
 };
 
 pub(crate) fn socket_transport(
     stream: TcpStream,
-) -> (Sender<DebuggerResponse>, Receiver<ClientMessage>, IoThreads) {
+) -> (
+    Sender<DeveloperResponse>,
+    Receiver<ClientMessage>,
+    IoThreads,
+) {
     let (reader_receiver, reader) = make_reader(stream.try_clone().unwrap());
     let (writer_sender, writer) = make_write(stream.try_clone().unwrap());
     let io_threads = IoThreads::new(reader, writer);
@@ -42,8 +46,11 @@ fn make_reader(stream: TcpStream) -> (Receiver<ClientMessage>, thread::JoinHandl
 
 fn make_write(
     mut stream: TcpStream,
-) -> (Sender<DebuggerResponse>, thread::JoinHandle<io::Result<()>>) {
-    let (writer_sender, writer_receiver) = bounded::<DebuggerResponse>(0);
+) -> (
+    Sender<DeveloperResponse>,
+    thread::JoinHandle<io::Result<()>>,
+) {
+    let (writer_sender, writer_receiver) = bounded::<DeveloperResponse>(0);
     let writer = thread::spawn(move || {
         writer_receiver
             .into_iter()

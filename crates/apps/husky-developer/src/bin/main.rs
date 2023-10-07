@@ -5,15 +5,15 @@ use std::path::PathBuf;
 #[derive(Parser)]
 #[clap(name = "husky-developer")]
 #[clap(author = "Xiyu Zhai <dirac12345@gmail.com>")]
-pub struct HuskyDebuggerCli {
+pub struct HuskyDeveloperCli {
     #[clap(short, long, value_parser)]
     verbose: bool,
     #[clap(subcommand)]
-    command: HuskyDebuggerCommands,
+    command: HuskyDeveloperCommands,
 }
 
 #[derive(Subcommand)]
-enum HuskyDebuggerCommands {
+enum HuskyDeveloperCommands {
     /// serve traces on given package
     Run {
         #[clap(value_parser)]
@@ -28,10 +28,10 @@ enum HuskyDebuggerCommands {
 
 #[tokio::main]
 async fn main() {
-    let _cli = HuskyDebuggerCli::parse();
+    let _cli = HuskyDeveloperCli::parse();
     todo!()
     // match cli.command {
-    //     HuskyDebuggerCommands::Run { package_dir } => dev_run(package_dir).await.unwrap(),
-    //     HuskyDebuggerCommands::Test { packages_dir } => dev_test(packages_dir).await,
+    //     HuskyDeveloperCommands::Run { package_dir } => dev_run(package_dir).await.unwrap(),
+    //     HuskyDeveloperCommands::Test { packages_dir } => dev_test(packages_dir).await,
     // }
 }

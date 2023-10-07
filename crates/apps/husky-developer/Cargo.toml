@@ -8,26 +8,23 @@ name = "husky-developer"
 path = "src/bin/main.rs"
 
 [dependencies]
-clap = { version = "3.2.16", features = ["derive"] }
-serde = { version = "1.0.106", features = ["derive", "rc"] }
+clap.workspace = true
+serde = { workspace = true, features = ["derive", "rc"] }
 serde_json.workspace = true
-parking_lot = "0.12.1"
-tracing = "0.1"
-itertools = "^0.10.3"
-futures = { version = "0.3.19", features = ["executor", "thread-pool"] }
-tokio = { version = "1.19.2", features = ["rt-multi-thread", "macros"] }
-tokio-stream = { version = "0.1.9" }
-warp = "0.3.2"
-salsa = { path = "../../abstractions/salsa" }
+parking_lot.workspace = true
+tracing = { workspace = true }
+futures = { workspace = true, features = ["executor", "thread-pool"] }
+tokio = { workspace = true, features = ["rt-multi-thread", "macros"] }
+tokio-stream = { workspace = true }
 text-diff = "0.4.0"
-indexmap = "1.8.1"
 lsp-types.workspace = true
-colored = "2.0.0"
-xxhash-rust = { version = "0.8.5", features = ["const_xxh3", "xxh3"] }
+colored.workspace = true
+xxhash-rust = { workspace = true, features = ["const_xxh3", "xxh3"] }
 relative-path = "1.7.2"
 # abstractions
-map-collect = { path = "../../abstractions/map-collect" }
 avec = { path = "../../abstractions/avec" }
+map-collect = { path = "../../abstractions/map-collect" }
+salsa = { path = "../../abstractions/salsa" }
 # apps
 husky-compiler = { path = "../../apps/husky-compiler" }
 # comptime
@@ -41,12 +38,17 @@ husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 # kernel
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
+husky-task = { path = "../../kernel/husky-task" }
+# lex
+husky-token = { path = "../../lex/husky-token" }
+husky-text = { path = "../../lex/husky-text" }
+# protocols
+husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features = [
+    "server"
+] }
 # runtime
 husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
 husky-eval = { path = "../../runtime/husky-eval" }
-# syntax
-husky-token = { path = "../../lex/husky-token" }
-husky-text = { path = "../../lex/husky-text" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }

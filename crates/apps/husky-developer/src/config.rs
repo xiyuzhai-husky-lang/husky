@@ -8,14 +8,14 @@
 // use serde::{Deserialize, Serialize};
 
 // #[derive(Debug, Clone, Serialize, Deserialize)]
-// pub struct HuskyDebuggerConfig {
+// pub struct HuskyDeveloperConfig {
 //     pub package_dir: PathBuf,
 //     pub opt_sample_id: Option<SampleId>,
 //     pub verbose: bool,
 //     pub compiled: bool,
 // }
 
-// impl HuskyDebuggerConfig {
+// impl HuskyDeveloperConfig {
 //     pub fn runtime(&self) -> RuntimeConfig {
 //         RuntimeConfig {
 //             evaluator: EvaluatorConfig {
