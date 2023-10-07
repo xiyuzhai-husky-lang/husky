@@ -1,9 +1,9 @@
-mod db;
+pub mod db;
 
 use std::path::Path;
 
 use self::db::*;
-use husky_task::{helpers::DevLinkageTable, linkage::IsLinkageTable, IsTask};
+use husky_task::{helpers::DevLinkageTable, linkage::IsLinkTime, IsTask};
 use husky_vfs::{CratePath, DiffPathBuf};
 
 pub struct DevComptime<Task: IsTask> {
@@ -16,7 +16,7 @@ impl<Task: IsTask> DevComptime<Task> {
         let db = Default::default();
         Self {
             db,
-            linkage_table: IsLinkageTable::new_linkage_table(todo!(), todo!()),
+            linkage_table: IsLinkTime::new_linkage_table(todo!(), todo!()),
         }
     }
 }

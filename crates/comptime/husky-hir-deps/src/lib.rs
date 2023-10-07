@@ -1,4 +1,4 @@
-mod db;
+pub mod db;
 mod deps;
 
 pub use self::db::*;

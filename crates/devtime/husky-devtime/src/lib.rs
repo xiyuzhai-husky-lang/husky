@@ -36,6 +36,8 @@ pub struct Devtime<Task: IsTask> {
     state: DevtimeState,
 }
 
+pub trait IsDevtime {}
+
 // ad hoc
 pub struct RuntimeConfig {}
 

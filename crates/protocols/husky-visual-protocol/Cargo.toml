@@ -12,3 +12,4 @@ ui = { path = "../../abstractions/ui" }
 
 [features]
 mock = []
+trivial = []

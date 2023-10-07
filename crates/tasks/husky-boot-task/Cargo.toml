@@ -1,0 +1,20 @@
+[package]
+name = "husky-boot-task"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+# comptime
+husky-dev-comptime = { path = "../../comptime/husky-dev-comptime" }
+# kernel
+husky-regular-value = { path = "../../kernel/husky-regular-value" }
+husky-task = { path = "../../kernel/husky-task" }
+# linkage
+husky-trivial-linkage = { path = "../../linkage/husky-trivial-linkage" }
+# linktime
+husky-mono-linktime = { path = "../../linktime/husky-mono-linktime" }
+# protocols
+husky-visual-protocol = { path = "../../protocols/husky-visual-protocol", features = [
+    "trivial"
+] }

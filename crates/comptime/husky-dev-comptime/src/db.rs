@@ -32,7 +32,9 @@ use std::panic::RefUnwindSafe;
     // semantics
     husky_sema_expr::SemaExprJar,
     husky_corgi_config::CorgiConfigJar,
-    husky_manifest::ManifestJar
+    husky_manifest::ManifestJar,
+    // comptime
+    husky_hir_deps::db::HirDepsJar
 )]
 pub struct ComptimeDb {
     storage: salsa::Storage<Self>,
