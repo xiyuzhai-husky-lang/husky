@@ -1,6 +1,0 @@
-[package]
-name = "avec"
-version = "0.0.0"
-description = "JsonMap for the Husky Programming Language"
-license = "MIT OR Apache-2.0"
-edition = "2021"

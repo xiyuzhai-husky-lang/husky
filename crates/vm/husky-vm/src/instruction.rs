@@ -11,7 +11,6 @@ pub use pattern_match::*;
 pub use sheet::Instructions;
 
 use crate::*;
-use avec::Avec;
 use husky_coword::Ident;
 use husky_text::{HasSourceRange, TextRange};
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
@@ -92,10 +91,10 @@ pub enum InstructionData {
     Assert,
     Require,
     ConditionFlow {
-        branches: Avec<VMConditionBranch>,
+        branches: Vec<VMConditionBranch>,
     },
     PatternMatch {
-        branches: Avec<VMPatternBranch>,
+        branches: Vec<VMPatternBranch>,
     },
     EntityFeature {
         feature_uid: EntityUid,

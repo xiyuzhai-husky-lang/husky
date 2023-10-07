@@ -6,7 +6,7 @@ use crate::{message::*, *};
 use husky_visual_protocol::mock::MockVisualProtocol;
 #[cfg(feature = "mock")]
 use husky_visual_protocol::IsVisualProtocol;
-use husky_websocket_utils::immediate_websocket_client_connection::{
+use husky_websocket_utils::immediate_client::{
     ImmediateWebsocketClientConnection, WebsocketClientConnectionError,
 };
 use tokio::task::JoinHandle;

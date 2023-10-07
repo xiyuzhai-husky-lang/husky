@@ -1,11 +1,10 @@
 use crate::*;
-use avec::Avec;
 
 impl<'temp> Interpreter<'temp> {
     pub(super) fn exec_pattern_matching(
         &mut self,
         ins: &Instruction,
-        branches: &Avec<VMPatternBranch>,
+        branches: &[VMPatternBranch],
         mode: Mode,
     ) -> VMControl {
         let stack_len = self.stack.len();
@@ -48,7 +47,8 @@ impl<'temp> Interpreter<'temp> {
                                 stack_snapshot,
                                 control: control.snapshot(),
                                 mutations,
-                                vm_branches: branches.clone(),
+                                vm_branches: todo!(),
+                                //  branches.clone(),
                             },
                         );
                         control
@@ -66,7 +66,8 @@ impl<'temp> Interpreter<'temp> {
                             stack_snapshot: self.stack.snapshot(format!("Pattern matching")),
                             control: ControlSnapshot::None,
                             mutations: Vec::new(),
-                            vm_branches: branches.clone(),
+                            vm_branches: todo!(),
+                            // branches.clone(),
                         },
                     );
                 }

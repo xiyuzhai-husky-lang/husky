@@ -9,7 +9,6 @@ serde_json.workspace = true
 # abstractions
 salsa = { path = "../../abstractions/salsa" }
 vec-like = { path = "../../abstractions/vec-like" }
-map-collect = { path = "../../abstractions/map-collect" }
 # devtime
 husky-trace-protocol-old = { path = "../../devtime/husky-trace-protocol-old" }
 # fs

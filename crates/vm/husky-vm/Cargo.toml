@@ -12,7 +12,6 @@ colored = "2.0.0"
 # abstractions
 cyclic-slice = { path = "../../abstractions/cyclic-slice" }
 vec-like = { path = "../../abstractions/vec-like" }
-avec = { path = "../../abstractions/avec" }
 enum-class = { path = "../../abstractions/enum-class" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }

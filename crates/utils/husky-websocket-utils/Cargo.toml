@@ -5,6 +5,7 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+axum = { workspace = true, optional = true }
 tokio.workspace = true
 tokio-tungstenite.workspace = true
 thiserror.workspace = true
@@ -15,5 +16,6 @@ serde_json = { workspace = true, optional = true }
 notify-change = { path = "../../abstractions/notify-change", optional = true }
 
 [features]
-immediate_websocket_client_connection = ["dep:notify-change"]
+immediate_client = ["dep:notify-change"]
 serde_json = ["dep:serde_json"]
+easy_serve = ["dep:axum"]

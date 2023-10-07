@@ -1,5 +1,3 @@
-use avec::Avec;
-
 use crate::*;
 
 #[derive(Debug)]
@@ -20,14 +18,14 @@ pub enum HistoryEntry {
     },
     ControlFlow {
         opt_branch_entered: Option<u8>,
-        vm_branches: Avec<VMConditionBranch>,
+        vm_branches: Vec<VMConditionBranch>,
         control: ControlSnapshot,
         stack_snapshot: StackSnapshot,
         mutations: Vec<MutationData>,
     },
     PatternMatching {
         opt_branch_entered: Option<u8>,
-        vm_branches: Avec<VMPatternBranch>,
+        vm_branches: Vec<VMPatternBranch>,
         control: ControlSnapshot,
         stack_snapshot: StackSnapshot,
         mutations: Vec<MutationData>,

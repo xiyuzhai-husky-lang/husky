@@ -23,7 +23,6 @@ members = [
     "crates/vm/*",
     "crates/benchmarks/*"
 ]
-exclude = ["crates/apps/husky-developer"]
 resolver = "2"
 
 [profile.dev]

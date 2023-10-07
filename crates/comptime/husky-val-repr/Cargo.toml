@@ -17,8 +17,6 @@ salsa = { path = "../../abstractions/salsa" }
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
 # abstractions
-avec = { path = "../../abstractions/avec" }
-map-collect = { path = "../../abstractions/map-collect" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel

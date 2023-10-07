@@ -1,2 +1,4 @@
-#[cfg(feature = "immediate_websocket_client_connection")]
-pub mod immediate_websocket_client_connection;
+#[cfg(feature = "easy_serve")]
+pub mod easy_serve;
+#[cfg(feature = "immediate_client")]
+pub mod immediate_client;
