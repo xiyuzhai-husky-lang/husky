@@ -19,21 +19,6 @@ where
     _marker: PhantomData<ComptimeDb>,
 }
 
-impl<Db, Linkage> Default for MonoLinkTimeInternal<Db, Linkage>
-where
-    Db: HirDepsDb,
-    Linkage: IsLinkage,
-{
-    fn default() -> Self {
-        Self {
-            target_crate: None,
-            library_storage: todo!(),
-            map: todo!(),
-            _marker: PhantomData,
-        }
-    }
-}
-
 pub struct MonoLibraryStorage {}
 
 impl<ComptimeDb, Linkage: IsLinkage> MonoLinkTimeInternal<ComptimeDb, Linkage>
@@ -45,7 +30,7 @@ where
         let library_storage = generate_library(target_crate, db);
         let map = generate_map(target_crate, &library_storage, db);
         Self {
-            target_crate: Some(target_crate),
+            target_crate,
             library_storage,
             map,
             _marker: PhantomData,

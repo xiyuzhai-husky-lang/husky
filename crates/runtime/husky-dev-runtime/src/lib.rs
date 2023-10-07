@@ -16,7 +16,10 @@ use husky_dev_comptime::DevComptime;
 use husky_eval::*;
 use husky_eval::{Runtime, Session};
 use husky_print_utils::*;
-use husky_task::{helpers::DevRuntimeStorage, IsTask};
+use husky_task::{
+    helpers::{DevLinkTime, DevRuntimeStorage},
+    IsTask,
+};
 use husky_vfs::{CratePath, DiffPathBuf};
 use indexmap::IndexMap;
 use relative_path::RelativePathBuf;
@@ -44,6 +47,7 @@ impl<Task: IsTask> DevRuntime<Task> {
 impl<Task: IsTask> Default for DevRuntime<Task>
 where
     Task: Default,
+    DevLinkTime<Task>: Default,
 {
     fn default() -> Self {
         Self {

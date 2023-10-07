@@ -13,7 +13,7 @@ husky-task = { path = "../../kernel/husky-task" }
 # linkage
 husky-trivial-linkage = { path = "../../linkage/husky-trivial-linkage" }
 # linktime
-husky-mono-linktime = { path = "../../linktime/husky-mono-linktime" }
+husky-boot-linktime = { path = "../../linktime/husky-boot-linktime" }
 # protocols
 husky-visual-protocol = { path = "../../protocols/husky-visual-protocol", features = [
     "trivial"
