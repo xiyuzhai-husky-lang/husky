@@ -10,53 +10,24 @@ path = "src/bin/main.rs"
 [dependencies]
 clap.workspace = true
 serde = { workspace = true, features = ["derive", "rc"] }
-serde_json.workspace = true
-parking_lot.workspace = true
+thiserror.workspace = true
 tracing = { workspace = true }
-futures = { workspace = true, features = ["executor", "thread-pool"] }
 tokio = { workspace = true, features = ["rt-multi-thread", "macros"] }
-tokio-stream = { workspace = true }
-text-diff = "0.4.0"
-lsp-types.workspace = true
-colored.workspace = true
-xxhash-rust = { workspace = true, features = ["const_xxh3", "xxh3"] }
-relative-path = "1.7.2"
 # abstractions
-avec = { path = "../../abstractions/avec" }
-map-collect = { path = "../../abstractions/map-collect" }
 salsa = { path = "../../abstractions/salsa" }
-# apps
-husky-compiler = { path = "../../apps/husky-compiler" }
-# comptime
-husky-dev-linkage-table = { path = "../../comptime/husky-dev-linkage-table" }
 # devtime
-husky-trace-protocol-old = { path = "../../devtime/husky-trace-protocol-old" }
-husky-trace = { path = "../../devtime/husky-trace" }
 husky-devtime = { path = "../../devtime/husky-devtime" }
-# ide
-husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 # kernel
-husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
-husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-task = { path = "../../kernel/husky-task" }
-# lex
-husky-token = { path = "../../lex/husky-token" }
-husky-text = { path = "../../lex/husky-text" }
 # protocols
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features = [
     "server"
 ] }
-# runtime
-husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
-husky-eval = { path = "../../runtime/husky-eval" }
 # utils
-husky-check-utils = { path = "../../utils/husky-check-utils" }
-husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-husky-path-utils = { path = "../../utils/husky-path-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
-husky-io-utils = { path = "../../utils/husky-io-utils" }
-# vm
-husky-vm = { path = "../../vm/husky-vm" }
+husky-websocket-utils = { path = "../../utils/husky-websocket-utils", features = [
+    "easy_serve"
+] }
 
 [features]

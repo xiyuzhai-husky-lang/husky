@@ -19,7 +19,6 @@ cyclic-slice = { path = "../../abstractions/cyclic-slice" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-map-collect = { path = "../../abstractions/map-collect" }
 idx-arena = { path = "../../abstractions/idx-arena" }
 husky-text = { path = "../../lex/husky-text" }
 husky-coword = { path = "../../kernel/husky-coword" }

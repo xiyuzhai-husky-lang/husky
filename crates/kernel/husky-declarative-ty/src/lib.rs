@@ -26,7 +26,6 @@ use husky_declarative_term::*;
 use husky_entity_path::*;
 use husky_syn_decl::HasSynDecl;
 use husky_term_prelude::*;
-use map_collect::*;
 
 #[salsa::jar(db = DeclarativeTypeDb)]
 pub struct DeclarativeTypeJar(

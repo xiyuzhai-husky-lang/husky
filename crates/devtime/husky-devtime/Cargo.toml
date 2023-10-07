@@ -9,8 +9,6 @@ serde.workspace = true
 serde_json.workspace = true
 # abstractions
 vec-like = { path = "../../abstractions/vec-like" }
-map-collect = { path = "../../abstractions/map-collect" }
-avec = { path = "../../abstractions/avec" }
 trackable = { path = "../../abstractions/trackable" }
 # comptime
 # devtime

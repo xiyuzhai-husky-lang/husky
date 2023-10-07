@@ -11,7 +11,6 @@ smallvec.workspace = true
 salsa = { path = "../../abstractions/salsa" }
 vec-like = { path = "../../abstractions/vec-like" }
 propagate = { path = "../../abstractions/propagate" }
-map-collect = { path = "../../abstractions/map-collect" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 # infer

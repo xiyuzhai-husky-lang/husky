@@ -12,7 +12,6 @@ colored = "2.0.0"
 libloading = "0.7.3"
 convert_case = "0.6.0"
 husky-vm = { path = "../../vm/husky-vm" }
-map-collect = { path = "../../abstractions/map-collect" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }

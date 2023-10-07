@@ -13,8 +13,6 @@ doctest = false
 salsa = { path = "../../abstractions/salsa" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
-map-collect = { path = "../../abstractions/map-collect" }
-avec = { path = "../../abstractions/avec" }
 # comptime
 # husky-dev-linkage-table = { path = "../../comptime/husky-dev-linkage-table" }
 # kernel
