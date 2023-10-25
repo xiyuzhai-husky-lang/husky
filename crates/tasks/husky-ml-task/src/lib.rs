@@ -16,6 +16,18 @@ where
     _marker: PhantomData<(ComptimeDb, VisualProtocol)>,
 }
 
+impl<ComptimeDb, VisualProtocol> MlTask<ComptimeDb, VisualProtocol>
+where
+    ComptimeDb: HirDepsDb,
+    VisualProtocol: IsVisualProtocol,
+{
+    pub fn new() -> Self {
+        Self {
+            _marker: PhantomData,
+        }
+    }
+}
+
 impl<ComptimeDb, VisualProtocol> IsTask for MlTask<ComptimeDb, VisualProtocol>
 where
     ComptimeDb: HirDepsDb + Send + 'static,

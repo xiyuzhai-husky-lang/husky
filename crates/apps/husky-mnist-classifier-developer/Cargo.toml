@@ -1,0 +1,15 @@
+[package]
+name = "husky-mnist-classifier-developer"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+# comptime
+husky-dev-comptime = { path = "../../comptime/husky-dev-comptime" }
+# devtime
+husky-devtime = { path = "../../devtime/husky-devtime" }
+# protocols
+husky-graphics2d-visual-protocol = { path = "../../protocols/husky-graphics2d-visual-protocol" }
+# tasks
+husky-ml-task = { path = "../../tasks/husky-ml-task" }
