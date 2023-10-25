@@ -28,4 +28,4 @@ val main: Class MnistLabel =
     is_nine?
     is_five?
     is_two?
-    Class::Known(MnistLabel::Four)
+    Class::Unknown
