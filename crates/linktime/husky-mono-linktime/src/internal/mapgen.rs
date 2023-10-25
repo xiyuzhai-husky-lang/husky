@@ -6,5 +6,7 @@ pub(super) fn generate_map<Linkage: IsLinkage>(
     library: &MonoLibraryStorage,
     db: &dyn HirDepsDb,
 ) -> HashMap<LinkagePath, (HirLinkageDeps, Linkage)> {
-    todo!()
+    // todo!()
+    // ad hoc
+    Default::default()
 }

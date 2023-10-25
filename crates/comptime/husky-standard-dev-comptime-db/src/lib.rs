@@ -38,11 +38,11 @@ use std::panic::RefUnwindSafe;
     // devtime
     husky_trace::db::TraceJar
 )]
-pub struct DevComptimeDb {
+pub struct StandardDevComptimeDb {
     storage: salsa::Storage<Self>,
 }
 
-impl husky_vm::InterpreterQueryGroup for DevComptimeDb {
+impl husky_vm::InterpreterQueryGroup for StandardDevComptimeDb {
     fn item_opt_instruction_sheet_by_uid(
         &self,
         uid: husky_vm::EntityUid,
@@ -51,7 +51,7 @@ impl husky_vm::InterpreterQueryGroup for DevComptimeDb {
     }
 }
 
-impl salsa::Database for DevComptimeDb {}
+impl salsa::Database for StandardDevComptimeDb {}
 
 // ad hoc: is this correct?
-impl RefUnwindSafe for DevComptimeDb {}
+impl RefUnwindSafe for StandardDevComptimeDb {}

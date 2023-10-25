@@ -30,7 +30,7 @@ where
 
 impl<ComptimeDb, VisualProtocol> IsTask for MlTask<ComptimeDb, VisualProtocol>
 where
-    ComptimeDb: HirDepsDb + Send + 'static,
+    ComptimeDb: Default + husky_vfs::VfsDb + HirDepsDb + Send + 'static,
     VisualProtocol: IsVisualProtocol + Send,
 {
     type DevAscension = MlDevAscension<ComptimeDb, VisualProtocol>;
@@ -43,12 +43,12 @@ where
 
 impl<ComptimeDb, VisualProtocol> IsDevAscension for MlDevAscension<ComptimeDb, VisualProtocol>
 where
-    ComptimeDb: HirDepsDb + Send,
+    ComptimeDb: Default + husky_vfs::VfsDb + HirDepsDb + Send,
     VisualProtocol: IsVisualProtocol,
 {
     type Base = DevInput;
 
-    type LinkTime = MonoLinkTime<ComptimeDb, MlLinkage>;
+    type Linktime = MonoLinkTime<ComptimeDb, MlLinkage>;
 
     type Value = RegularValue;
 
@@ -57,6 +57,8 @@ where
     type RuntimeTaskSpecificConfig = ();
 
     type VisualProtocol = VisualProtocol;
+
+    type ComptimeDb = ComptimeDb;
 }
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]

@@ -1,9 +1,14 @@
 use husky_data_viewer::DataViewerDb;
+use husky_task::DevComptimeDb;
+use husky_val_repr::db::ValReprDb;
 use husky_vm::InterpreterQueryGroup;
 
 use crate::*;
 
-impl<Task: IsTask> Runtime for DevRuntime<Task> {
+impl<Task: IsTask> Runtime for DevRuntime<Task>
+where
+    DevComptimeDb<Task>: ValReprDb,
+{
     fn db(&self) -> &dyn husky_val_repr::db::ValReprDb {
         self.comptime.db()
     }

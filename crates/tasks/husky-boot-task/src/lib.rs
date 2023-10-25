@@ -1,6 +1,6 @@
 use husky_boot_linktime::BootLinkTime;
-use husky_dev_comptime::db::DevComptimeDb;
 use husky_regular_value::RegularValue;
+use husky_standard_dev_comptime_db::StandardDevComptimeDb;
 use husky_task::{IsDevAscension, IsTask};
 use husky_trivial_linkage::TrivialLinkage;
 use husky_visual_protocol::trivial::TrivialVisualProtocol;
@@ -17,7 +17,7 @@ pub struct BootDevAscension;
 impl IsDevAscension for BootDevAscension {
     type Base = ();
 
-    type LinkTime = BootLinkTime<DevComptimeDb, TrivialLinkage>;
+    type Linktime = BootLinkTime<StandardDevComptimeDb, TrivialLinkage>;
 
     type Value = RegularValue;
 
@@ -26,6 +26,8 @@ impl IsDevAscension for BootDevAscension {
     type RuntimeTaskSpecificConfig = ();
 
     type VisualProtocol = TrivialVisualProtocol;
+
+    type ComptimeDb = StandardDevComptimeDb;
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
