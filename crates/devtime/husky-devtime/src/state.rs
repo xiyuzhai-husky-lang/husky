@@ -1,16 +1,16 @@
+use std::marker::PhantomData;
+
 use crate::*;
 use husky_trace_protocol::server::TraceServer;
 use husky_visual_protocol::IsVisualProtocol;
 
 #[derive()]
-pub struct DevtimeState<VisualProtocol: IsVisualProtocol> {
-    server: TraceServer<VisualProtocol>,
+pub struct DevtimeState {
+    // server: TraceServer<VisualProtocol>,
 }
 
-impl<VisualProtocol: IsVisualProtocol> Default for DevtimeState<VisualProtocol> {
+impl Default for DevtimeState {
     fn default() -> Self {
-        Self {
-            server: Default::default(),
-        }
+        Self {}
     }
 }

@@ -1,5 +1,6 @@
 use crate::*;
 
+#[derive(Serialize)]
 pub struct TrivialVisualProtocol;
 
 impl IsVisualProtocol for TrivialVisualProtocol {

@@ -9,7 +9,7 @@ use self::state::*;
 
 pub struct Devtime<Task: IsTask> {
     runtime: DevRuntime<Task>,
-    state: DevtimeState<husky_task::visual::VisualProtocol<Task>>,
+    state: DevtimeState,
 }
 
 impl<Task: IsTask> Default for Devtime<Task>
