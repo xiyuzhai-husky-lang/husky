@@ -9,6 +9,7 @@ use self::action::*;
 use husky_visual_protocol::{IsVisual, IsVisualProtocol};
 use serde::{Deserialize, Serialize};
 
+#[derive(Serialize)]
 pub struct DanielJacksonVisualProtocol;
 
 impl IsVisualProtocol for DanielJacksonVisualProtocol {

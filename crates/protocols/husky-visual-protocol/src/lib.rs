@@ -1,8 +1,14 @@
+use serde::Serialize;
+
 #[cfg(feature = "mock")]
 pub mod mock;
 #[cfg(feature = "trivial")]
 pub mod trivial;
-pub trait IsVisualProtocol: 'static {
+
+/// require `Serialize` for the convenience of deriving `Serialize` for generic types
+///
+/// for example TraceCache
+pub trait IsVisualProtocol: Serialize + 'static {
     type VisualComponent: std::fmt::Debug
         + Clone
         + PartialEq
