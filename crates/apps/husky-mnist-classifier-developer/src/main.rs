@@ -1,3 +1,4 @@
+use husky_ad_hoc_protocol::AD_HOC_WEBSOCKET_ADDRESS;
 use husky_devtime::*;
 use husky_graphics2d_visual_protocol::Graphics2dVisualProtocol;
 use husky_ml_task::MlTask;
@@ -10,5 +11,5 @@ fn main() {
     let task = Task::new();
     let path: PathBuf = "examples/mnist-classifier".into();
     let devtime = Devtime::new(task, &path, None);
-    devtime.serve_traces("localhost:51718")
+    devtime.serve_traces(AD_HOC_WEBSOCKET_ADDRESS)
 }
