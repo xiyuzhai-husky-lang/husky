@@ -8,44 +8,44 @@ use crate::{
 use husky_visual_protocol::IsVisualProtocol;
 use husky_websocket_utils::easy_server::{easy_serve, IsEasyWebsocketServer};
 
-pub struct TraceServer<Db: TraceServerDb> {
-    cache: TraceCache<Db::VisualProtocol>,
+pub struct TraceServer<Tracetime: IsTracetime> {
+    cache: TraceCache<Tracetime::VisualProtocol>,
     actions: Vec<TraceAction>,
-    db: Db,
-    traces: Vec<Db::Trace>,
+    tracetime: Tracetime,
+    traces: Vec<Tracetime::Trace>,
 }
 
-impl<Db: TraceServerDb> Default for TraceServer<Db>
+impl<Tracetime: IsTracetime> Default for TraceServer<Tracetime>
 where
-    Db: Default,
+    Tracetime: Default,
 {
     fn default() -> Self {
         Self {
             cache: Default::default(),
             actions: Default::default(),
-            db: Default::default(),
+            tracetime: Default::default(),
             traces: vec![],
         }
     }
 }
 
-impl<Db: TraceServerDb> TraceServer<Db> {
-    fn new(db: Db) -> Self {
+impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
+    fn new(db: Tracetime) -> Self {
         Self {
             cache: Default::default(),
             actions: Default::default(),
-            db,
+            tracetime: db,
             traces: vec![],
         }
     }
 }
 
-impl<Db: TraceServerDb> IsEasyWebsocketServer for TraceServer<Db> {
-    type Response = TraceResponse<Db::VisualProtocol>;
+impl<Tracetime: IsTracetime> IsEasyWebsocketServer for TraceServer<Tracetime> {
+    type Response = TraceResponse<Tracetime::VisualProtocol>;
 
     type Request = TraceRequest;
 
-    type SerdeImpl = Db::SerdeImpl;
+    type SerdeImpl = Tracetime::SerdeImpl;
 
     fn handle(&mut self, request: Self::Request) -> Option<Self::Response> {
         match request {
@@ -54,7 +54,7 @@ impl<Db: TraceServerDb> IsEasyWebsocketServer for TraceServer<Db> {
     }
 }
 
-pub trait TraceServerDb: Send + 'static + Sized {
+pub trait IsTracetime: Send + 'static + Sized {
     type Trace: Send + Copy;
 
     type VisualProtocol: IsVisualProtocol;
