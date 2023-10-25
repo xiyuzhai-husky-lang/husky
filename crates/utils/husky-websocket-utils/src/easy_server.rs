@@ -1,5 +1,8 @@
 use serde_impl::IsSerdeImpl;
-use std::{net::SocketAddr, sync::Arc};
+use std::{
+    net::{SocketAddr, ToSocketAddrs},
+    sync::Arc,
+};
 
 use axum::{
     extract::{
@@ -25,7 +28,7 @@ where
 
     fn handle(&mut self, request: Self::Request) -> Option<Self::Response>;
 
-    fn easy_serve(self, addr: impl Into<SocketAddr>)
+    fn easy_serve(self, addr: impl ToSocketAddrs)
     where
         Self: Sized,
     {
@@ -34,12 +37,20 @@ where
 }
 
 #[tokio::main]
-pub async fn easy_serve<S>(server: std::sync::Arc<Mutex<S>>, addr: impl Into<SocketAddr>)
+pub async fn easy_serve<S>(server: std::sync::Arc<Mutex<S>>, addr: impl ToSocketAddrs)
 where
     S: IsEasyWebsocketServer,
     <S::SerdeImpl as IsSerdeImpl>::Error: Send,
 {
-    easy_server_aux(server, addr).await
+    match addr.to_socket_addrs() {
+        Ok(mut socket_addrs) => {
+            let Some(addr) = socket_addrs.next() else {
+                todo!()
+            };
+            easy_server_aux(server, addr).await
+        }
+        Err(_) => todo!(),
+    }
 }
 
 async fn easy_server_aux<S>(slf: std::sync::Arc<Mutex<S>>, addr: impl Into<SocketAddr>)

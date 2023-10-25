@@ -1,11 +1,12 @@
 #![feature(try_trait_v2)]
 mod state;
 
+pub use husky_trace_protocol::server::IsTracetime;
+
 use husky_dev_comptime::db::DevComptimeDb;
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
 use husky_task::{helpers::DevLinkTime, visual::VisualProtocol, IsTask};
 use husky_trace::Trace;
-use husky_trace_protocol::server::IsTracetime;
 use std::path::Path;
 
 use self::state::*;

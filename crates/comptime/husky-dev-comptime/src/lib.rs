@@ -12,7 +12,7 @@ pub struct DevComptime<Task: IsTask> {
 }
 
 impl<Task: IsTask> DevComptime<Task> {
-    pub fn new(target_crate: &Path) -> Self {
+    pub fn new(target_crate_path: &Path) -> Self {
         let db = Default::default();
         Self {
             db,

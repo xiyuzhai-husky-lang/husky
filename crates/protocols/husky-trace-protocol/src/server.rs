@@ -1,4 +1,4 @@
-use std::net::SocketAddr;
+use std::net::{SocketAddr, ToSocketAddrs};
 
 use crate::{
     message::{TraceRequest, TraceResponse},
@@ -62,7 +62,7 @@ pub trait IsTracetime: Send + 'static + Sized {
     type SerdeImpl: serde_impl::IsSerdeImpl;
 
     /// final
-    fn serve_traces(self, addr: impl Into<SocketAddr>) {
+    fn serve_traces(self, addr: impl ToSocketAddrs) {
         TraceServer::new(self).easy_serve(addr)
     }
 
