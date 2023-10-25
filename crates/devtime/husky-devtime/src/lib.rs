@@ -1,6 +1,7 @@
 #![feature(try_trait_v2)]
 mod state;
 
+use husky_dev_comptime::db::DevComptimeDb;
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
 use husky_task::{helpers::DevLinkTime, visual::VisualProtocol, IsTask};
 use husky_trace::Trace;
@@ -12,6 +13,23 @@ use self::state::*;
 pub struct Devtime<Task: IsTask> {
     runtime: DevRuntime<Task>,
     state: DevtimeState,
+}
+
+impl<Task: IsTask> Devtime<Task> {
+    pub fn new(
+        task: Task,
+        target_crate: &Path,
+        runtime_config: Option<DevRuntimeConfig<Task>>,
+    ) -> Self {
+        Self {
+            runtime: DevRuntime::new(task, target_crate, runtime_config),
+            state: Default::default(),
+        }
+    }
+
+    pub fn db(&self) -> &DevComptimeDb {
+        self.runtime.db()
+    }
 }
 
 impl<Task: IsTask> Default for Devtime<Task>
@@ -54,16 +72,3 @@ pub trait IsDevtime {}
 
 // ad hoc
 pub struct RuntimeConfig {}
-
-impl<Task: IsTask> Devtime<Task> {
-    pub fn new(
-        task: Task,
-        target_crate: &Path,
-        runtime_config: Option<DevRuntimeConfig<Task>>,
-    ) -> Self {
-        Self {
-            runtime: DevRuntime::new(task, target_crate, runtime_config),
-            state: Default::default(),
-        }
-    }
-}

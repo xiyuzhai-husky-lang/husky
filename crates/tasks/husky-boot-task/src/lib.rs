@@ -1,5 +1,5 @@
 use husky_boot_linktime::BootLinkTime;
-use husky_dev_comptime::db::ComptimeDb;
+use husky_dev_comptime::db::DevComptimeDb;
 use husky_regular_value::RegularValue;
 use husky_task::{IsDevAscension, IsTask};
 use husky_trivial_linkage::TrivialLinkage;
@@ -17,7 +17,7 @@ pub struct BootDevAscension;
 impl IsDevAscension for BootDevAscension {
     type Base = ();
 
-    type LinkTime = BootLinkTime<ComptimeDb, TrivialLinkage>;
+    type LinkTime = BootLinkTime<DevComptimeDb, TrivialLinkage>;
 
     type Value = RegularValue;
 

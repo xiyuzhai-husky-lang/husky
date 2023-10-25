@@ -12,7 +12,7 @@ pub use self::config::*;
 use self::db::*;
 use husky_check_utils::*;
 use husky_compiler::CompilerInstance;
-use husky_dev_comptime::DevComptime;
+use husky_dev_comptime::{db::DevComptimeDb, DevComptime};
 use husky_eval::*;
 use husky_eval::{Runtime, Session};
 use husky_print_utils::*;
@@ -41,6 +41,10 @@ impl<Task: IsTask> DevRuntime<Task> {
             storage: Default::default(),
             comptime: DevComptime::new(target_crate),
         }
+    }
+
+    pub fn db(&self) -> &DevComptimeDb {
+        self.comptime.db()
     }
 }
 

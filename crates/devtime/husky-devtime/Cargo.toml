@@ -15,6 +15,7 @@ vec-like = { path = "../../abstractions/vec-like" }
 trackable = { path = "../../abstractions/trackable" }
 serde-impl = { path = "../../abstractions/serde-impl", features = ["json"] }
 # comptime
+husky-dev-comptime = { path = "../../comptime/husky-dev-comptime" }
 # devtime
 husky-trace-protocol-old = { path = "../../devtime/husky-trace-protocol-old" }
 husky-trace = { path = "../../devtime/husky-trace" }
