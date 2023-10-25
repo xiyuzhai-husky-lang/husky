@@ -16,6 +16,8 @@ serde_json = { workspace = true, optional = true }
 # abstractions
 serde-impl = { path = "../../abstractions/serde-impl" }
 notify-change = { path = "../../abstractions/notify-change", optional = true }
+# utils
+husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [features]
 serde_json = ["dep:serde_json"]
