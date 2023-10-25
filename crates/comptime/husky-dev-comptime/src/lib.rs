@@ -7,7 +7,7 @@ use husky_task::{helpers::DevLinkTime, linkage::IsLinkTime, IsTask};
 use husky_vfs::{CratePath, DiffPathBuf};
 
 pub struct DevComptime<Task: IsTask> {
-    db: ComptimeDb,
+    db: DevComptimeDb,
     linktime: DevLinkTime<Task>,
 }
 
@@ -22,7 +22,7 @@ impl<Task: IsTask> DevComptime<Task> {
 }
 
 impl<Task: IsTask> DevComptime<Task> {
-    pub fn db(&self) -> &ComptimeDb {
+    pub fn db(&self) -> &DevComptimeDb {
         &self.db
     }
 }

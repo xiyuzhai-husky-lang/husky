@@ -34,13 +34,15 @@ use std::panic::RefUnwindSafe;
     husky_corgi_config::CorgiConfigJar,
     husky_manifest::ManifestJar,
     // comptime
-    husky_hir_deps::db::HirDepsJar
+    husky_hir_deps::db::HirDepsJar,
+    // devtime
+    husky_trace::db::TraceJar
 )]
-pub struct ComptimeDb {
+pub struct DevComptimeDb {
     storage: salsa::Storage<Self>,
 }
 
-impl husky_vm::InterpreterQueryGroup for ComptimeDb {
+impl husky_vm::InterpreterQueryGroup for DevComptimeDb {
     fn item_opt_instruction_sheet_by_uid(
         &self,
         uid: husky_vm::EntityUid,
@@ -49,7 +51,7 @@ impl husky_vm::InterpreterQueryGroup for ComptimeDb {
     }
 }
 
-impl salsa::Database for ComptimeDb {}
+impl salsa::Database for DevComptimeDb {}
 
 // ad hoc: is this correct?
-impl RefUnwindSafe for ComptimeDb {}
+impl RefUnwindSafe for DevComptimeDb {}
