@@ -62,6 +62,7 @@ where
         .route("/websocket", get(websocket_handler))
         .with_state(slf);
     let addr = addr.into();
+    println!("Websocket server launched.");
     axum::Server::bind(&addr)
         .serve(router.into_make_service())
         .await
@@ -84,6 +85,7 @@ where
     S: IsEasyWebsocketServer,
     <S::SerdeImpl as IsSerdeImpl>::Error: Send,
 {
+    println!("Websocket connection established.");
     while let Some(request) = stream.recv().await {
         match request {
             Ok(request) => match request {
