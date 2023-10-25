@@ -3,6 +3,9 @@ name = "husky-devtime"
 version = "0.0.0"
 edition = "2021"
 
+[[bin]]
+name = "mnist-classifier-server"
+
 [dependencies]
 salsa = { path = "../../abstractions/salsa" }
 serde.workspace = true
@@ -10,6 +13,7 @@ serde_json.workspace = true
 # abstractions
 vec-like = { path = "../../abstractions/vec-like" }
 trackable = { path = "../../abstractions/trackable" }
+serde-impl = { path = "../../abstractions/serde-impl", features = ["json"] }
 # comptime
 # devtime
 husky-trace-protocol-old = { path = "../../devtime/husky-trace-protocol-old" }

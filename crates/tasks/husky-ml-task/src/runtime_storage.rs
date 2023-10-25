@@ -18,6 +18,9 @@ pub struct MlDevRuntimeStorage {
     map: DashMap<MlDevRuntimeStorageKey, Arc<Mutex<Option<(HirValDeps, VMResult<RegularValue>)>>>>,
 }
 
+// ad hoc
+unsafe impl Send for MlDevRuntimeStorage {}
+
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub struct MlDevRuntimeStorageKey {
     val: Val,

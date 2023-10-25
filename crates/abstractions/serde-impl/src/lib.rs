@@ -7,3 +7,6 @@ pub trait IsSerdeImpl {
 
     fn from_str<T: for<'a> Deserialize<'a>>(s: &str) -> Result<T, Self::Error>;
 }
+
+#[cfg(feature = "json")]
+pub mod json;

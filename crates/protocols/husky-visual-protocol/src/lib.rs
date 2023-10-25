@@ -8,7 +8,7 @@ pub mod trivial;
 /// require `Serialize` for the convenience of deriving `Serialize` for generic types
 ///
 /// for example TraceCache
-pub trait IsVisualProtocol: Serialize + 'static {
+pub trait IsVisualProtocol: Serialize + Send + 'static {
     type VisualComponent: std::fmt::Debug
         + Clone
         + PartialEq

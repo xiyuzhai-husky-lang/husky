@@ -23,7 +23,7 @@ where
 
 impl<Db, Linkage> IsLinkTime for MonoLinkTime<Db, Linkage>
 where
-    Db: HirDepsDb,
+    Db: HirDepsDb + Send,
     Linkage: IsLinkage,
 {
     type ComptimeDb = Db;

@@ -12,6 +12,6 @@ use husky_vfs::CratePath;
 use small_cell_stack::SmallCellStack;
 use std::thread::LocalKey;
 
-pub trait IsTask {
+pub trait IsTask: Send + 'static {
     type DevAscension: IsDevAscension;
 }

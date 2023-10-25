@@ -18,8 +18,8 @@ where
 
 impl<ComptimeDb, VisualProtocol> IsTask for MlTask<ComptimeDb, VisualProtocol>
 where
-    ComptimeDb: HirDepsDb,
-    VisualProtocol: IsVisualProtocol,
+    ComptimeDb: HirDepsDb + Send + 'static,
+    VisualProtocol: IsVisualProtocol + Send,
 {
     type DevAscension = MlDevAscension<ComptimeDb, VisualProtocol>;
 }
@@ -31,7 +31,7 @@ where
 
 impl<ComptimeDb, VisualProtocol> IsDevAscension for MlDevAscension<ComptimeDb, VisualProtocol>
 where
-    ComptimeDb: HirDepsDb,
+    ComptimeDb: HirDepsDb + Send,
     VisualProtocol: IsVisualProtocol,
 {
     type Base = DevInput;
