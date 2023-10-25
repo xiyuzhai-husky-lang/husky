@@ -3,9 +3,6 @@ name = "husky-devtime"
 version = "0.0.0"
 edition = "2021"
 
-[[bin]]
-name = "mnist-classifier-server"
-
 [dependencies]
 salsa = { path = "../../abstractions/salsa" }
 serde.workspace = true
