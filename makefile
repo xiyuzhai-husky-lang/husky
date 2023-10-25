@@ -65,4 +65,7 @@ adversarial:
 	ADVERSARIAL_ROUND=1000 cargo test
 
 run-notebook:
-	cargo run --path crates/apps/husky-notebook
+	cargo run --bin husky-notebook
+
+mnist-developer:
+	cargo run --bin husky-mnist-classifier-developer
