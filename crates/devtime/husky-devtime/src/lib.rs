@@ -3,9 +3,8 @@ mod state;
 
 pub use husky_trace_protocol::server::IsTracetime;
 
-use husky_dev_comptime::db::DevComptimeDb;
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
-use husky_task::{helpers::DevLinkTime, visual::VisualProtocol, IsTask};
+use husky_task::{helpers::DevLinkTime, visual::VisualProtocol, DevComptimeDb, IsTask};
 use husky_trace::Trace;
 use std::path::Path;
 
@@ -28,7 +27,7 @@ impl<Task: IsTask> Devtime<Task> {
         }
     }
 
-    pub fn db(&self) -> &DevComptimeDb {
+    pub fn db(&self) -> &DevComptimeDb<Task> {
         self.runtime.db()
     }
 }

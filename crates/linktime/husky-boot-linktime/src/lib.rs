@@ -5,7 +5,7 @@ use husky_hir_deps::{HirDepsDb, HirLinkageDeps};
 use husky_linkage_path::LinkagePath;
 use husky_regular_value::RegularValue;
 use husky_task::{
-    linkage::{IsLinkTime, IsLinkage},
+    linkage::{IsLinkage, IsLinktime},
     *,
 };
 use husky_vfs::CratePath;
@@ -41,13 +41,11 @@ where
 {
 }
 
-impl<Db, Linkage> IsLinkTime for BootLinkTime<Db, Linkage>
+impl<Db, Linkage> IsLinktime<Db> for BootLinkTime<Db, Linkage>
 where
     Db: HirDepsDb,
     Linkage: IsLinkage,
 {
-    type ComptimeDb = Db;
-
     type Linkage = Linkage;
 
     fn get_linkage(&self, key: LinkagePath, db: &Db) -> Linkage {

@@ -11,6 +11,8 @@ either.workspace = true
 # abstractions
 # comptime
 husky-hir-deps = { path = "../../comptime/husky-hir-deps" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
 husky-val = { path = "../../kernel/husky-val" }
 husky-task = { path = "../../kernel/husky-task" }

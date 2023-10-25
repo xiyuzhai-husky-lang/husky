@@ -5,7 +5,7 @@ use husky_hir_deps::{HirDepsDb, HirLinkageDeps};
 use husky_linkage_path::LinkagePath;
 use husky_regular_value::RegularValue;
 use husky_task::{
-    linkage::{IsLinkTime, IsLinkage},
+    linkage::{IsLinkage, IsLinktime},
     *,
 };
 use husky_vfs::CratePath;
@@ -21,13 +21,11 @@ where
     internal: std::sync::RwLock<MonoLinkTimeInternal<Db, Linkage>>,
 }
 
-impl<Db, Linkage> IsLinkTime for MonoLinkTime<Db, Linkage>
+impl<Db, Linkage> IsLinktime<Db> for MonoLinkTime<Db, Linkage>
 where
     Db: HirDepsDb + Send,
     Linkage: IsLinkage,
 {
-    type ComptimeDb = Db;
-
     type Linkage = Linkage;
 
     fn get_linkage(&self, key: LinkagePath, db: &Db) -> Linkage {

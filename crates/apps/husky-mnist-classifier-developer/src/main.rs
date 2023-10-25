@@ -1,10 +1,10 @@
-use husky_dev_comptime::db::DevComptimeDb;
 use husky_devtime::*;
 use husky_graphics2d_visual_protocol::Graphics2dVisualProtocol;
 use husky_ml_task::MlTask;
+use husky_standard_dev_comptime_db::StandardDevComptimeDb;
 use std::path::PathBuf;
 
-type Task = MlTask<DevComptimeDb, Graphics2dVisualProtocol>;
+type Task = MlTask<StandardDevComptimeDb, Graphics2dVisualProtocol>;
 
 fn main() {
     let task = Task::new();
