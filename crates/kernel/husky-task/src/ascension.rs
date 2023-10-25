@@ -5,8 +5,8 @@ pub trait IsDevAscension {
     type Base: 'static;
     type LinkTime: IsLinkTime;
     type Value;
-    type RuntimeStorage: Default;
-    type RuntimeTaskSpecificConfig: Default;
+    type RuntimeStorage: Default + Send;
+    type RuntimeTaskSpecificConfig: Default + Send;
     type VisualProtocol: IsVisualProtocol;
 }
 

@@ -2,7 +2,9 @@
 mod state;
 
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
-use husky_task::{helpers::DevLinkTime, IsTask};
+use husky_task::{helpers::DevLinkTime, visual::VisualProtocol, IsTask};
+use husky_trace::Trace;
+use husky_trace_protocol::server::IsTracetime;
 use std::path::Path;
 
 use self::state::*;
@@ -22,6 +24,29 @@ where
             runtime: Default::default(),
             state: Default::default(),
         }
+    }
+}
+
+impl<Task: IsTask> IsTracetime for Devtime<Task> {
+    type Trace = Trace;
+
+    type VisualProtocol = VisualProtocol<Task>;
+
+    type SerdeImpl = serde_impl::json::SerdeJson;
+
+    fn get_root_traces(&self) -> &[Self::Trace] {
+        todo!()
+    }
+
+    fn get_subtraces(&self, trace: Self::Trace) -> &[Self::Trace] {
+        todo!()
+    }
+
+    fn get_trace_view_data(
+        &self,
+        trace: Self::Trace,
+    ) -> &husky_trace_protocol::view::TraceViewData {
+        todo!()
     }
 }
 

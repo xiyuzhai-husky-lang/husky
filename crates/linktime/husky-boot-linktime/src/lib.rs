@@ -33,6 +33,14 @@ where
     }
 }
 
+// ad hoc
+unsafe impl<Db, Linkage> Send for BootLinkTime<Db, Linkage>
+where
+    Db: HirDepsDb,
+    Linkage: IsLinkage,
+{
+}
+
 impl<Db, Linkage> IsLinkTime for BootLinkTime<Db, Linkage>
 where
     Db: HirDepsDb,
