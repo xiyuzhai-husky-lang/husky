@@ -59,7 +59,7 @@ where
     <S::SerdeImpl as IsSerdeImpl>::Error: Send,
 {
     let router = Router::new()
-        .route("/websocket", get(websocket_handler))
+        .route("/", get(websocket_handler))
         .with_state(slf);
     let addr = addr.into();
     println!("Websocket server launched.");

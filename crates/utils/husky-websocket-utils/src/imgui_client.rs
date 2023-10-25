@@ -1,5 +1,6 @@
 //! meant for immediate mode gui
 use futures_util::{SinkExt, StreamExt};
+use husky_print_utils::p;
 use notify_change::NotifyEvent;
 use std::{borrow::Cow, sync::Arc};
 use thiserror::Error;
@@ -86,8 +87,10 @@ where
             let server_address = server_address.clone();
             let await_status = await_status.clone();
             async move {
+                println!("server_address = {server_address}");
                 match tokio_tungstenite::connect_async(server_address).await {
                     Ok((stream, response)) => {
+                        todo!();
                         *await_status.lock().unwrap() = CreationAwaitStatus::Ok {
                             stream,
                             response,
@@ -96,7 +99,10 @@ where
                             response_tx,
                         }
                     }
-                    Err(_) => todo!(),
+                    Err(e) => {
+                        p!(e);
+                        todo!()
+                    }
                 }
             }
         });
