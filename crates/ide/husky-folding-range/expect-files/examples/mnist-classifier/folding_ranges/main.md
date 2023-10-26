@@ -7,7 +7,7 @@ Ok(
             ),
             end_line: 30,
             end_character: Some(
-                34,
+                18,
             ),
             kind: Some(
                 Region,

@@ -66,7 +66,7 @@
                     body_with_hir_expr_region: Some(
                         (
                             Eager(
-                                22,
+                                20,
                             ),
                             Eager(
                                 HirEagerExprRegion(

@@ -195,7 +195,7 @@ Ok(
                         },
                         body_with_syn_expr_region: Some(
                             (
-                                22,
+                                20,
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: Some(
@@ -489,36 +489,9 @@ Ok(
                                                         PrincipalEntityPath::TypeVariant(
                                                             TypeVariantPath {
                                                                 parent_ty_path: TypePath(`malamute::Class`, `Enum`),
-                                                                ident: `Known`,
+                                                                ident: `Unknown`,
                                                             },
                                                         ),
-                                                    ),
-                                                },
-                                                SynExprData::PrincipalEntityPath {
-                                                    path_expr_idx: 13,
-                                                    opt_path: Some(
-                                                        PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                                ident: `Four`,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                                SynExprData::FunctionApplicationOrCall {
-                                                    function: 19,
-                                                    template_arguments: None,
-                                                    lpar_regional_token_idx: RegionalTokenIdx(
-                                                        22,
-                                                    ),
-                                                    items: [
-                                                        SynCommaListItem {
-                                                            syn_expr_idx: 20,
-                                                            comma_regional_token_idx: None,
-                                                        },
-                                                    ],
-                                                    rpar_regional_token_idx: RegionalTokenIdx(
-                                                        26,
                                                     ),
                                                 },
                                                 SynExprData::Block {
@@ -689,7 +662,7 @@ Ok(
                                                     ),
                                                     ident_token: Ok(
                                                         IdentRegionalToken {
-                                                            ident: `Known`,
+                                                            ident: `Unknown`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 21,
                                                             ),
@@ -699,46 +672,7 @@ Ok(
                                                         PrincipalEntityPath::TypeVariant(
                                                             TypeVariantPath {
                                                                 parent_ty_path: TypePath(`malamute::Class`, `Enum`),
-                                                                ident: `Known`,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                                SynPrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameRegionalToken::Ident(
-                                                        IdentRegionalToken {
-                                                            ident: `MnistLabel`,
-                                                            regional_token_idx: RegionalTokenIdx(
-                                                                23,
-                                                            ),
-                                                        },
-                                                    ),
-                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                        MajorItemPath::Type(
-                                                            TypePath(`mnist::MnistLabel`, `Enum`),
-                                                        ),
-                                                    ),
-                                                },
-                                                SynPrincipalEntityPathExpr::Subitem {
-                                                    parent: 12,
-                                                    colon_colon_token: ColonColonRegionalToken(
-                                                        RegionalTokenIdx(
-                                                            24,
-                                                        ),
-                                                    ),
-                                                    ident_token: Ok(
-                                                        IdentRegionalToken {
-                                                            ident: `Four`,
-                                                            regional_token_idx: RegionalTokenIdx(
-                                                                25,
-                                                            ),
-                                                        },
-                                                    ),
-                                                    path: Ok(
-                                                        PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                                ident: `Four`,
+                                                                ident: `Unknown`,
                                                             },
                                                         ),
                                                     ),
@@ -802,7 +736,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynStmtData::Eval {
-                                                    expr_idx: 21,
+                                                    expr_idx: 19,
                                                     eol_semicolon: Ok(
                                                         None,
                                                     ),
@@ -874,11 +808,11 @@ Ok(
                                             },
                                             SynExprRoot {
                                                 kind: EvalExpr,
-                                                syn_expr_idx: 21,
+                                                syn_expr_idx: 19,
                                             },
                                             SynExprRoot {
                                                 kind: BlockExpr,
-                                                syn_expr_idx: 22,
+                                                syn_expr_idx: 20,
                                             },
                                         ],
                                         has_self_lifetime: false,

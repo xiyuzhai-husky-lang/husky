@@ -64,7 +64,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 400,
+                                                value: 399,
                                             },
                                         ),
                                     ),
@@ -90,7 +90,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 76,
+                                                            value: 75,
                                                         },
                                                     ),
                                                 ),
@@ -107,7 +107,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 76,
+                                                value: 75,
                                             },
                                         ),
                                     ),

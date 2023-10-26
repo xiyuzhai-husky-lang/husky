@@ -674,44 +674,12 @@ Ok(
                         EntityPath::TypeVariant(
                             TypeVariantPath {
                                 parent_ty_path: TypePath(`malamute::Class`, `Enum`),
-                                ident: `Known`,
+                                ident: `Unknown`,
                             },
                         ),
                     ),
                 },
             ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        12,
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`mnist::MnistLabel`, `Enum`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        13,
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::TypeVariant(
-                            TypeVariantPath {
-                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                ident: `Four`,
-                            },
-                        ),
-                    ),
-                },
-            ),
-            None,
         ],
     },
 )
