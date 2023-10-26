@@ -15,7 +15,7 @@ use tokio::task::JoinHandle;
 use tokio_tungstenite::connect_async;
 
 pub struct TraceClient<VisualComponent: IsVisualComponent> {
-    cache: TraceCache<VisualComponent>,
+    cache: Option<TraceCache<VisualComponent>>,
     connection: ImmediateWebsocketClientConnection<TraceRequest, TraceResponse<VisualComponent>>,
 }
 
@@ -28,7 +28,7 @@ where
         server_address: impl Into<String>,
     ) -> Self {
         Self {
-            cache: Default::default(),
+            cache: None,
             connection: ImmediateWebsocketClientConnection::new(
                 tokio_runtime,
                 server_address.into(),
@@ -41,14 +41,14 @@ where
     }
 
     pub fn root_trace_ids(&self) -> Option<&[TraceId]> {
-        self.cache.root_trace_ids()
+        Some(self.cache.as_ref()?.root_trace_ids())
     }
 
     pub fn connection_error(&self) -> Option<&WebsocketClientConnectionError> {
         self.connection.error()
     }
 
-    pub fn cache(&self) -> &TraceCache<VisualComponent> {
-        &self.cache
+    pub fn cache(&self) -> Option<&TraceCache<VisualComponent>> {
+        self.cache.as_ref()
     }
 }
