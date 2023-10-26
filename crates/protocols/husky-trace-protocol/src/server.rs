@@ -16,7 +16,7 @@ pub struct TraceServer<Tracetime: IsTracetime> {
     cache: Option<TraceCache<Tracetime::VisualComponent>>,
     actions: Vec<TraceAction>,
     tracetime: Tracetime,
-    traces: TraceIdMap<Tracetime::Trace>,
+    trace_id_map: TraceIdMap<Tracetime::Trace>,
 }
 
 impl<Tracetime: IsTracetime> Default for TraceServer<Tracetime>
@@ -28,7 +28,7 @@ where
             cache: Default::default(),
             actions: Default::default(),
             tracetime: Default::default(),
-            traces: Default::default(),
+            trace_id_map: Default::default(),
         }
     }
 }
@@ -39,7 +39,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
             cache: Default::default(),
             actions: Default::default(),
             tracetime,
-            traces: Default::default(),
+            trace_id_map: Default::default(),
         }
     }
 
@@ -48,10 +48,12 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
             return;
         }
         let traces = self.tracetime.get_root_traces();
-        for &trace in traces {
-            todo!()
-        }
-        todo!()
+        self.cache = Some(TraceCache::new(traces.iter().map(|&trace| {
+            (
+                self.trace_id_map.id(trace),
+                self.tracetime.get_trace_view_data(trace).clone(),
+            )
+        })))
     }
 }
 
