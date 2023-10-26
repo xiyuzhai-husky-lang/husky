@@ -1,6 +1,6 @@
 use crate::*;
 use husky_print_utils::p;
-use husky_text::TextPosition;
+use husky_text_protocol::position::TextPosition;
 use husky_vfs::VfsError;
 use salsa::DebugWithDb;
 
@@ -123,7 +123,10 @@ impl RangedTokenSheet {
     pub fn tokens_text_range(&self, token_idx_range: TokenIdxRange) -> TextRange {
         let start = token_idx_range.start().index();
         let end = token_idx_range.end().index();
-        self.token_ranges[start..end].text_range()
+        if start >= end {
+            todo!()
+        }
+        self.token_ranges[start].join(self.token_ranges[end - 1])
     }
 
     pub fn token_sheet_data<'a>(&self, db: &'a dyn TokenDb) -> &'a TokenSheetData {
@@ -148,7 +151,7 @@ pub(crate) fn ranged_token_sheet(
     db: &dyn TokenDb,
     module_path: ModulePath,
 ) -> VfsResult<RangedTokenSheet> {
-    Ok(tokenize::tokenize(db, module_path.text(db)?))
+    Ok(tokenize::tokenize(db, module_path.raw_text(db)?))
 }
 
 #[salsa::tracked(jar = TokenJar)]

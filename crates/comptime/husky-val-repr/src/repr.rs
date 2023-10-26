@@ -2,7 +2,7 @@ use crate::*;
 use husky_entity_path::FugitivePath;
 use husky_ethereal_term::EtherealTerm;
 use husky_hir_defn::HirDefn;
-use husky_text::TextRange;
+use husky_text_protocol::range::TextRange;
 use husky_val::Val;
 use husky_vfs::DiffPath;
 use husky_vm::RegularValue;

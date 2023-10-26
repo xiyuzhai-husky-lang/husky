@@ -11,7 +11,7 @@ semver = "1.0.17"
 salsa = { path = "../../abstractions/salsa" }
 vec-like = { path = "../../abstractions/vec-like" }
 # lex
-husky-text = { path = "../../lex/husky-text" }
+husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # infer
 husky-corgi-config = { path = "../../semantics/husky-corgi-config" }

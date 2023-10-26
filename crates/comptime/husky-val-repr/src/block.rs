@@ -1,4 +1,4 @@
-use husky_text::{HasTextRange, TextRange};
+use husky_text_protocol::{HasTextRange, TextRange};
 use std::sync::Arc;
 use EntityPath;
 

@@ -4,7 +4,7 @@ use husky_ethereal_term::EtherealTerm;
 pub use variant::*;
 
 use husky_lazy_semantics::{HirLazyStmt, LazyConditionBranchVariant, LazyStmtVariant};
-use husky_text::TextRange;
+use husky_text_protocol::range::TextRange;
 use EntityPath;
 
 use crate::{eval_id::FeatureEvalId, *};
@@ -46,8 +46,8 @@ impl PartialEq for ValStmt {
 
 impl Eq for ValStmt {}
 
-impl husky_text::HasTextRange for ValStmt {
-    fn text_range(&self) -> husky_text::TextRange {
+impl husky_text_protocol::HasTextRange for ValStmt {
+    fn text_range(&self) -> husky_text_protocol::range::TextRange {
         self.range
     }
 }

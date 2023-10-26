@@ -23,7 +23,7 @@ husky-token-data = { path = "../../lex/husky-token-data", features = [
 ] }
 husky-token = { path = "../../lex/husky-token" }
 husky-regional-token = { path = "../../lex/husky-regional-token" }
-husky-text = { path = "../../lex/husky-text" }
+husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 # protocols
 husky-entity-protocol = { path = "../../protocols/husky-entity-protocol", optional = true }
 husky-token-protocol = { path = "../../protocols/husky-token-protocol", optional = true }

@@ -71,3 +71,4 @@ xxhash-rust = { version = "0.8.5" }
 tower = { version = "0.4", features = ["util"] }
 tower-http = { version = "0.4.0", features = ["fs", "trace"] }
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+rustc-hash = "1.1.0"

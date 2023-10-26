@@ -1,4 +1,4 @@
-use husky_text::FilePosition;
+use husky_text_protocol::position::FilePosition;
 use lsp_types::CompletionResponse;
 
 pub trait HuskyCompletionQuery {

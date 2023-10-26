@@ -1,8 +1,8 @@
 use crate::*;
+use husky_coword::Ident;
 use husky_coword::IdentPairMap;
 use husky_opr::BinaryClosedOpr;
 use husky_print_utils::{msg_once, p};
-use husky_text::HasSourceRange;
 use husky_trace_protocol_old::VisualData;
 use husky_val_repr::*;
 use husky_vm::__LinkageGroup;
@@ -165,7 +165,7 @@ impl<'temp> Evaluator<'temp> {
         this: &ValRepr,
         field_idx: u8,
         field_binding: Binding,
-        field_ident: husky_text::RangedIdent,
+        field_ident: Ident,
         expr: ValExpr,
     ) -> VMResult<RegularValue> {
         todo!()

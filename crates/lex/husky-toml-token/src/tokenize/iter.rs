@@ -1,5 +1,5 @@
 use super::*;
-use husky_text::{TextCharIter, TextPosition};
+use husky_text_protocol::{char_iter::TextCharIter, position::TextPosition};
 
 #[derive(Clone)]
 pub(crate) struct TomlTokenIter<'a> {

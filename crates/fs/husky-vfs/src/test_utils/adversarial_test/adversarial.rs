@@ -39,7 +39,7 @@ impl VfsAdversarial {
     where
         Db: VfsDb + ?Sized,
     {
-        let original_text = module_path.text(db).unwrap();
+        let original_text = module_path.raw_text(db).unwrap();
         let original_text = original_text.to_owned();
         let edited_text = self.edit(&original_text);
         let file = db

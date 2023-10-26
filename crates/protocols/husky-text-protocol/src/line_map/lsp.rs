@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 #[cfg(feature = "lsp_support")]
 impl LineMap {

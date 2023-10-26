@@ -9,7 +9,7 @@ use self::pretoken::*;
 use self::tokenizer::*;
 use self::word::*;
 use crate::*;
-use husky_text::TextCharIter;
+use husky_text_protocol::char_iter::TextCharIter;
 
 // must be used inside tracked context
 pub(crate) fn tokenize<'a>(db: &dyn TokenDb, input: &str) -> RangedTokenSheet {

@@ -1,43 +1,40 @@
-#![feature(const_trait_impl)]
-#![feature(str_internals)]
-mod change;
-mod char_iter;
-mod indent;
-mod info;
+pub mod db;
 mod line_map;
-#[cfg(feature = "lsp_support")]
-mod lsp_support;
-mod position;
-mod range;
 #[cfg(test)]
 mod tests;
 
-pub use change::DocumentChange;
-pub use char_iter::{PositionedTextCharIter, TextCharIter};
-pub use indent::TextIndent;
-pub use info::*;
-#[cfg(feature = "lsp_support")]
-pub use lsp_support::*;
-pub use position::*;
-pub use range::*;
-pub type CharIter<'token_line> = std::iter::Peekable<Enumerate<Chars<'token_line>>>;
-
-use line_map::LineMap;
+use self::db::*;
+use husky_text_protocol::{char_iter::*, line_map::*, position::*, range::*};
+use husky_vfs::ModulePath;
+use line_map::module_text_line_map;
 use std::{iter::Enumerate, ops::Deref, str::Chars};
 
-#[derive(Clone, PartialEq, Eq)]
-pub struct Text {
-    content: String,
-    line_map: LineMap,
+#[derive(Clone, Copy, PartialEq, Eq)]
+pub struct Text<'a> {
+    raw_text: &'a str,
+    line_map: &'a LineMap,
 }
 
-impl std::fmt::Debug for Text {
+pub trait HasText: Copy {
+    fn text<'a>(self, db: &'a dyn TextDb) -> Text<'a>;
+}
+
+impl HasText for ModulePath {
+    fn text<'a>(self, db: &'a dyn TextDb) -> Text<'a> {
+        Text {
+            raw_text: self.raw_text(db).unwrap(),
+            line_map: module_text_line_map(db, self),
+        }
+    }
+}
+
+impl<'a> std::fmt::Debug for Text<'a> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_str("Text...")
     }
 }
 
-impl std::ops::Index<TextRange> for Text {
+impl<'a> std::ops::Index<TextRange> for Text<'a> {
     type Output = str;
 
     fn index(&self, _index: TextRange) -> &Self::Output {
@@ -45,7 +42,7 @@ impl std::ops::Index<TextRange> for Text {
     }
 }
 
-impl std::ops::Index<std::ops::Range<(u32, u32)>> for Text {
+impl<'a> std::ops::Index<std::ops::Range<(u32, u32)>> for Text<'a> {
     type Output = str;
 
     fn index(&self, index: std::ops::Range<(u32, u32)>) -> &Self::Output {
@@ -53,16 +50,16 @@ impl std::ops::Index<std::ops::Range<(u32, u32)>> for Text {
     }
 }
 
-impl Text {
-    pub(crate) fn new(content: impl Into<String>) -> Self {
-        let content: String = content.into();
-        Self {
-            line_map: LineMap::new(&content),
-            content,
-        }
-    }
+impl<'a> Text<'a> {
+    // pub(crate) fn new(content: impl Into<String>) -> Self {
+    //     let content: String = content.into();
+    //     Self {
+    //         line_map: LineMap::new(&content),
+    //         content,
+    //     }
+    // }
 
     pub fn text_within(&self, range: TextRange) -> &str {
-        &self.content[self.line_map.offset_range(range)]
+        &self.raw_text[self.line_map.offset_range(range)]
     }
 }

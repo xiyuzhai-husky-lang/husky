@@ -7,15 +7,21 @@ license = "MIT OR Apache-2.0"
 description = "Generic LSP server scaffold."
 
 [dependencies]
-rustc-hash = "1.1.0"
+rustc-hash.workspace = true
 lsp-types = { version = "=0.94", features = ["proposed"], optional = true }
 serde.workspace = true
+# abstraction
+salsa = { path = "../../abstractions/salsa" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
+# protocols
+husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 
 [features]
-lsp_support = ["dep:lsp-types"]
+lsp_support = ["dep:lsp-types", "husky-text-protocol/lsp_support"]

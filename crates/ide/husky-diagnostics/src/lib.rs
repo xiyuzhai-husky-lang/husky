@@ -14,7 +14,7 @@ pub use severity::DiagnosticSeverity;
 
 use collector::{ModuleDiagnosticsCollector, RegionDiagnosticsCollector};
 use context::*;
-use husky_text::TextRange;
+use husky_text_protocol::range::TextRange;
 use husky_vfs::*;
 use sheet::*;
 #[cfg(test)]

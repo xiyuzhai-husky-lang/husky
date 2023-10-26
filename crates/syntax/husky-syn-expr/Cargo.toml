@@ -51,7 +51,6 @@ husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
 husky-coword = { path = "../../kernel/husky-coword" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
-husky-text = { path = "../../lex/husky-text" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }

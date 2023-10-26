@@ -22,7 +22,7 @@ enum-class = { path = "../../abstractions/enum-class" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # lex
-husky-text = { path = "../../lex/husky-text" }
+husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 husky-token-data = { path = "../../lex/husky-token-data" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }

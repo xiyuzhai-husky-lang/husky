@@ -2,7 +2,7 @@ use super::*;
 use crate::*;
 use husky_ethereal_term::EtherealTerm;
 use husky_syn_expr::{SynExprIdx, SynPatternExpr};
-use husky_text::RangedIdent;
+use husky_text_protocol::RangedIdent;
 use husky_vfs::DiffPath;
 
 impl<'a> TraceLineGenerator<'a> {

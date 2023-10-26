@@ -44,7 +44,7 @@ use husky_entity_syn_tree::RegionPath;
 // use husky_opr::*;
 // use husky_print_utils::*;
 // use husky_ethereal_term::EtherealTerm;
-// use husky_text::*;
+// use husky_text_protocol::*;
 // use husky_vm::EntityUid;
 // use std::sync::Arc;
 // use temp::*;

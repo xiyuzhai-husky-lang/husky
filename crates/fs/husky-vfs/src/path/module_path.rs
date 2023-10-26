@@ -118,7 +118,7 @@ impl ModulePath {
         }
     }
 
-    pub fn text<Db: ?Sized + VfsDb>(self, db: &Db) -> VfsResult<&str> {
+    pub fn raw_text<Db: ?Sized + VfsDb>(self, db: &Db) -> VfsResult<&str> {
         let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
         let diff_path = module_diff_path(db, self)?;
         db.file_from_diff_path(diff_path)?

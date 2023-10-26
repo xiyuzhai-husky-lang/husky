@@ -12,7 +12,7 @@ mod tokenize;
 
 pub use db::*;
 pub use error::*;
-use husky_text::TextRange;
+use husky_text_protocol::range::TextRange;
 pub use line_group::*;
 pub use sheet::*;
 pub use special::*;

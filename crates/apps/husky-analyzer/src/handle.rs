@@ -9,7 +9,7 @@ use crate::{convert::from_lsp_types, *};
 use husky_folding_range::FoldingRangeDb;
 use husky_hover::{HoverDb, HoverResult};
 use husky_semantic_token::SemanticTokenDb;
-use husky_text::{TextPosition, TextRange};
+use husky_text_protocol::{position::TextPosition, range::TextRange};
 use husky_vfs::VfsDb;
 use lsp_types::{
     CallHierarchyIncomingCall, CallHierarchyIncomingCallsParams, CallHierarchyItem,
