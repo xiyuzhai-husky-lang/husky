@@ -34,18 +34,18 @@ where
 }
 
 impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
-    fn new(db: Tracetime) -> Self {
+    fn new(tracetime: Tracetime) -> Self {
         Self {
             cache: Default::default(),
             actions: Default::default(),
-            tracetime: db,
+            tracetime,
             traces: Default::default(),
         }
     }
 
     fn init(&mut self) {
         let traces = self.tracetime.get_root_traces();
-        for trace in traces {
+        for &trace in traces {
             todo!()
         }
         todo!()
