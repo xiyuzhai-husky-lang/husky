@@ -1,11 +1,11 @@
 use super::*;
 
-const MOCK_SERVER: &str = "localhost:51718";
+const MOCK_SERVER: &str = "ws://127.0.0.1:51718/ws";
 
 #[cfg(feature = "mock")]
 impl TraceClient<MockVisualProtocol, ()> {
-    pub fn new_mock() -> Self {
-        let mut slf = Self::new(MOCK_SERVER, ());
+    pub fn new_mock(tokio_runtime: Arc<tokio::runtime::Runtime>) -> Self {
+        let mut slf = Self::new(tokio_runtime, MOCK_SERVER, ());
         if slf.root_trace_ids().is_none() {
             slf.cache = TraceCache::new_mock();
         }

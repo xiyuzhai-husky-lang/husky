@@ -42,7 +42,7 @@ impl NotebookApp {
     pub fn add_default_docs(&mut self) {
         self.add_doc(Doc {
             title: "mock trace view doc".to_string(),
-            component: UiComponent::new(MockTraceViewDoc::new_mock()),
+            component: UiComponent::new(MockTraceViewDoc::new_mock(self.tokio_runtime.clone())),
         });
         self.add_doc(Doc {
             title: "Settings".to_string(),

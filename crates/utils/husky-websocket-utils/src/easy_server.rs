@@ -58,13 +58,30 @@ where
     S: IsEasyWebsocketServer,
     <S::SerdeImpl as IsSerdeImpl>::Error: Send,
 {
+    use tower_http::{
+        services::ServeDir,
+        trace::{DefaultMakeSpan, TraceLayer},
+    };
+    use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
+    tracing_subscriber::registry()
+        .with(
+            tracing_subscriber::EnvFilter::try_from_default_env()
+                .unwrap_or_else(|_| "example_websockets=debug,tower_http=debug".into()),
+        )
+        .with(tracing_subscriber::fmt::layer())
+        .init();
     let router = Router::new()
-        .route("/", get(websocket_handler))
-        .with_state(slf);
+        .route("/ws", get(websocket_handler))
+        .with_state(slf)
+        .layer(
+            TraceLayer::new_for_http()
+                .make_span_with(DefaultMakeSpan::default().include_headers(true)),
+        );
     let addr = addr.into();
-    println!("Websocket server launched.");
+    tracing::debug!("listening on {}", addr);
+    println!("listening on {}", addr);
     axum::Server::bind(&addr)
-        .serve(router.into_make_service())
+        .serve(router.into_make_service_with_connect_info::<SocketAddr>())
         .await
         .unwrap();
 }
@@ -77,6 +94,7 @@ where
     S: IsEasyWebsocketServer,
     <S::SerdeImpl as IsSerdeImpl>::Error: Send,
 {
+    println!("connected.");
     ws.on_upgrade(|socket| websocket(socket, state))
 }
 

@@ -4,6 +4,8 @@ mod doc;
 mod layout;
 mod settings;
 
+use std::sync::Arc;
+
 use self::action::*;
 use self::doc::{DocTab, Docs};
 use self::settings::*;
@@ -28,6 +30,7 @@ struct NotebookApp {
     dock_state: egui_dock::DockState<DocTab>,
     docs: Docs,
     action_buffer: NotebookActionBuffer,
+    tokio_runtime: Arc<tokio::runtime::Runtime>,
 }
 
 impl Default for NotebookApp {
@@ -41,6 +44,7 @@ impl Default for NotebookApp {
             dock_state,
             docs,
             action_buffer,
+            tokio_runtime: Arc::new(tokio::runtime::Runtime::new().unwrap()),
         };
         slf.add_default_docs();
         slf

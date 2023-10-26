@@ -1,3 +1,5 @@
+use std::sync::Arc;
+
 use crate::*;
 #[cfg(feature = "egui")]
 use egui::*;
@@ -90,9 +92,9 @@ pub type MockTraceViewDoc = TraceViewDoc<MockVisualProtocol, ()>;
 
 #[cfg(feature = "mock")]
 impl TraceViewDoc<MockVisualProtocol, ()> {
-    pub fn new_mock() -> Self {
+    pub fn new_mock(tokio_runtime: Arc<tokio::runtime::Runtime>) -> Self {
         Self {
-            trace_client: TraceClient::new_mock(),
+            trace_client: TraceClient::new_mock(tokio_runtime),
             action_buffer: Default::default(),
         }
     }

@@ -1,0 +1,11 @@
+[package]
+name = "husky-mnist-classifier-developer-mock-client"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+tokio.workspace = true
+tokio-tungstenite.workspace = true
+# utils
+husky-print-utils = { path = "../../utils/husky-print-utils" }
