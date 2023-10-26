@@ -6,7 +6,15 @@ use husky_vfs::{CrateKind, CratePath, DiffPathBuf, PackagePath, VfsDb};
 
 pub struct DevComptime<Task: IsTask> {
     db: DevComptimeDb<Task>,
+    target: DevComptimeTarget,
     linktime: DevLinkTime<Task>,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::debug_with_db(db = VfsDb)]
+pub enum DevComptimeTarget {
+    None,
+    SingleCrate(CratePath),
 }
 
 impl<Task: IsTask> DevComptime<Task> {
@@ -16,7 +24,7 @@ impl<Task: IsTask> DevComptime<Task> {
             Ok(toolchain) => toolchain,
             Err(_) => todo!(),
         };
-        let package_path = match PackagePath::new_local_or_toolchain_package(
+        let target_package_path = match PackagePath::new_local_or_toolchain_package(
             &db,
             toolchain,
             Name::from_ref(&db, "mnist-classifier").unwrap(),
@@ -25,11 +33,16 @@ impl<Task: IsTask> DevComptime<Task> {
             Ok(package_path) => package_path,
             Err(e) => todo!(),
         };
-        let crate_path = CratePath::new(&db, package_path, CrateKind::Main);
+        let target_crate_path = CratePath::new(&db, target_package_path, CrateKind::Main);
         Self {
-            linktime: IsLinktime::new_linkage_table(crate_path, &db),
+            linktime: IsLinktime::new_linktime(target_crate_path, &db),
+            target: DevComptimeTarget::SingleCrate(target_crate_path),
             db,
         }
+    }
+
+    pub fn target(&self) -> DevComptimeTarget {
+        self.target
     }
 }
 
@@ -45,6 +58,7 @@ where
 {
     fn default() -> Self {
         Self {
+            target: DevComptimeTarget::None,
             db: Default::default(),
             linktime: Default::default(),
         }

@@ -4,6 +4,7 @@ pub mod db;
 // mod impl_reachable;
 // mod impl_stats;
 // mod kind;
+mod helpers;
 mod node;
 mod stalk;
 mod subtraces;
