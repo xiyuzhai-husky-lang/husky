@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-/// Character offset on a line in a document (zero-based). The meaning of this
+/// Character byte offset on a line in a document (zero-based). The meaning of this
 /// offset is determined by the negotiated `PositionEncodingKind`.
 ///
 /// If the character value is greater than the line length it defaults back

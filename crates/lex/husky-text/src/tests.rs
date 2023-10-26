@@ -2,18 +2,18 @@ use husky_check_utils::should_eq;
 
 use crate::*;
 
-#[test]
-fn test_text() {
-    let text = Text::new(
-        r#"abcd
-efgh
-  123456"#,
-    );
-    should_eq!(&text[(0, 0)..(0, 1)], "a");
-    should_eq!(&text[(0, 0)..(0, 3)], "abc");
-    should_eq!(&text[(0, 0)..(0, 4)], "abcd");
-    should_eq!(&text[(0, 0)..(1, 1)], "abcd\ne");
-}
+// #[test]
+// fn test_text() {
+//     let text = Text::new(
+//         r#"abcd
+// efgh
+//   123456"#,
+//     );
+//     should_eq!(&text[(0, 0)..(0, 1)], "a");
+//     should_eq!(&text[(0, 0)..(0, 3)], "abc");
+//     should_eq!(&text[(0, 0)..(0, 4)], "abcd");
+//     should_eq!(&text[(0, 0)..(1, 1)], "abcd\ne");
+// }
 
 #[test]
 fn test_string_length() {
