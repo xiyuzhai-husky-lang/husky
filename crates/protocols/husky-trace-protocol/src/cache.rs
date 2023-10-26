@@ -26,6 +26,7 @@ impl<VisualComponent: IsVisualComponent> TraceCache<VisualComponent> {
             entries.push(TraceCacheEntry {
                 view_data,
                 subtraces: None,
+                associated_traces: None,
             })
         }
         Self {
@@ -53,6 +54,8 @@ pub struct TraceCacheEntry {
     view_data: TraceViewData,
     /// None means not calculated
     subtraces: Option<Vec<TraceId>>,
+    /// None means not calculated
+    associated_traces: Option<Vec<TraceId>>,
 }
 
 impl TraceCacheEntry {
@@ -79,6 +82,7 @@ impl TraceCache<()> {
                     ("x", Parameter),
                 ]),
                 subtraces: None,
+                associated_traces: None,
             }],
             visual_components: vec![],
         }
