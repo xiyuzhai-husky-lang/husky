@@ -20,7 +20,9 @@ impl TraceViewData {
         Self {
             tokens_data: tokens_data
                 .into_iter()
-                .map(|(text, token_class)| TraceViewTokenData::new(text.to_string(), token_class))
+                .map(|(text, token_class)| {
+                    TraceViewTokenData::new(text.to_string(), token_class, false)
+                })
                 .collect(),
         }
     }
@@ -34,11 +36,16 @@ impl TraceViewData {
 pub struct TraceViewTokenData {
     text: String,
     token_class: TokenClass,
+    associated: bool,
 }
 
 impl TraceViewTokenData {
-    pub fn new(text: String, token_class: TokenClass) -> Self {
-        Self { text, token_class }
+    pub fn new(text: String, token_class: TokenClass, associated: bool) -> Self {
+        Self {
+            text,
+            token_class,
+            associated,
+        }
     }
 
     pub fn text(&self) -> &str {
