@@ -238,7 +238,11 @@ impl ImplBlockSynNode {
                     Err(_) => todo!(),
                 }
             }
-            MajorItemPath::Fugitive(_) => todo!(),
+            MajorItemPath::Fugitive(fugitive_path) => {
+                p!(module_path.debug(db));
+                p!(fugitive_path.debug(db));
+                todo!()
+            }
         })
     }
 

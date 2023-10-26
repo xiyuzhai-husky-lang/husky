@@ -6,6 +6,8 @@ use std::panic::RefUnwindSafe;
     husky_val_repr::db::ValReprJar,
     // fs
     husky_vfs::VfsJar,
+    // ide
+    husky_token_info::db::TokenInfoJar,
     // kernel
     husky_coword::CowordJar,
     husky_entity_path::EntityPathJar,

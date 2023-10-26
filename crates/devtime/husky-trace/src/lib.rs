@@ -12,6 +12,7 @@ mod subtraces;
 #[cfg(test)]
 mod tests;
 mod trace;
+mod utils;
 
 pub use self::trace::*;
 
