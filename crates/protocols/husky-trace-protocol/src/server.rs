@@ -1,6 +1,10 @@
-use std::net::{SocketAddr, ToSocketAddrs};
+use std::{
+    collections::HashMap,
+    net::{SocketAddr, ToSocketAddrs},
+};
 
 use crate::{
+    id_map::TraceIdMap,
     message::{TraceRequest, TraceResponse},
     view::TraceViewData,
     *,
@@ -12,7 +16,7 @@ pub struct TraceServer<Tracetime: IsTracetime> {
     cache: TraceCache<Tracetime::VisualComponent>,
     actions: Vec<TraceAction>,
     tracetime: Tracetime,
-    traces: Vec<Tracetime::Trace>,
+    traces: TraceIdMap<Tracetime::Trace>,
 }
 
 impl<Tracetime: IsTracetime> Default for TraceServer<Tracetime>
@@ -24,7 +28,7 @@ where
             cache: Default::default(),
             actions: Default::default(),
             tracetime: Default::default(),
-            traces: vec![],
+            traces: Default::default(),
         }
     }
 }
@@ -35,8 +39,16 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
             cache: Default::default(),
             actions: Default::default(),
             tracetime: db,
-            traces: vec![],
+            traces: Default::default(),
         }
+    }
+
+    fn init(&mut self) {
+        let traces = self.tracetime.get_root_traces();
+        for trace in traces {
+            todo!()
+        }
+        todo!()
     }
 }
 
@@ -49,13 +61,16 @@ impl<Tracetime: IsTracetime> IsEasyWebsocketServer for TraceServer<Tracetime> {
 
     fn handle(&mut self, request: Self::Request) -> Option<Self::Response> {
         match request {
-            TraceRequest::Init => todo!(),
+            TraceRequest::Init => {
+                self.init();
+                todo!()
+            }
         }
     }
 }
 
 pub trait IsTracetime: Send + 'static + Sized {
-    type Trace: Send + Copy;
+    type Trace: Send + Eq + std::hash::Hash + Copy;
 
     type VisualComponent: IsVisualComponent;
 

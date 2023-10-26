@@ -3,6 +3,7 @@ pub mod cache;
 #[cfg(feature = "client")]
 pub mod client;
 pub mod id;
+pub mod id_map;
 #[cfg(feature = "message")]
 mod message;
 #[cfg(feature = "server")]
