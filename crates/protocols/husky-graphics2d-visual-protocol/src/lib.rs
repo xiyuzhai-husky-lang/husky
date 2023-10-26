@@ -1,10 +1,10 @@
 pub mod action;
 
 use self::action::*;
-use husky_visual_protocol::{IsVisual, IsVisualProtocol};
+use husky_visual_protocol::{IsVisual, IsVisualComponent, IsVisualProtocol};
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct Graphics2dVisualProtocol;
 
 impl IsVisualProtocol for Graphics2dVisualProtocol {
@@ -15,6 +15,8 @@ impl IsVisualProtocol for Graphics2dVisualProtocol {
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub enum Graphics2dVisualComponent {}
+
+impl IsVisualComponent for Graphics2dVisualComponent {}
 
 pub enum Graphics2dVisual {}
 

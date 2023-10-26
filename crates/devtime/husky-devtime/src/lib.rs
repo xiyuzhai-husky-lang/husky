@@ -4,7 +4,11 @@ mod state;
 pub use husky_trace_protocol::server::IsTracetime;
 
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
-use husky_task::{helpers::DevLinkTime, visual::VisualProtocol, DevComptimeDb, IsTask};
+use husky_task::{
+    helpers::DevLinkTime,
+    visual::{VisualComponent, VisualProtocol},
+    DevComptimeDb, IsTask,
+};
 use husky_trace::Trace;
 use std::path::Path;
 
@@ -48,7 +52,7 @@ where
 impl<Task: IsTask> IsTracetime for Devtime<Task> {
     type Trace = Trace;
 
-    type VisualProtocol = VisualProtocol<Task>;
+    type VisualComponent = VisualComponent<Task>;
 
     type SerdeImpl = serde_impl::json::SerdeJson;
 

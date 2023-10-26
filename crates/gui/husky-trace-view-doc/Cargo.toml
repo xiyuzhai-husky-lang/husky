@@ -7,10 +7,10 @@ resolver = "2"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 tokio.workspace = true
+serde.workspace = true
 egui = { workspace = true, optional = true }
 # abstractions
 ui = { path = "../../abstractions/ui" }
-notify-change = { path = "../../abstractions/notify-change" }
 # protocols
 husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features = [

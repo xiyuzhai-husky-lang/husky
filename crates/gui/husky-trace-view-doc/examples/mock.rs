@@ -13,7 +13,7 @@ use husky_visual_protocol::mock::MockVisualProtocol;
 fn main() {
     let tokio_runtime = tokio::runtime::Runtime::new().unwrap();
     let tokio_runtime = Arc::new(tokio_runtime);
-    let doc: TraceViewDoc<MockVisualProtocol, ()> = TraceViewDoc::new_mock(tokio_runtime);
+    let doc: TraceViewDoc<()> = TraceViewDoc::new_mock(tokio_runtime);
     run_standalone_ui_component(doc, MockConfig, ());
 }
 
