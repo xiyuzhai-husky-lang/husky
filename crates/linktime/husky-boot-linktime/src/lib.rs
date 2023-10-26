@@ -59,7 +59,7 @@ where
         }
     }
 
-    fn new_linkage_table(target_crate: CratePath, db: &Db) -> Self {
+    fn new_linktime(target_crate: CratePath, db: &Db) -> Self {
         Self {
             internal: std::sync::RwLock::new(BootLinkTimeInternal::new(target_crate, db)),
         }

@@ -1,6 +1,7 @@
 #![feature(try_trait_v2)]
 mod state;
 
+use husky_dev_comptime::DevComptimeTarget;
 pub use husky_trace_protocol::server::IsTracetime;
 
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
@@ -9,17 +10,23 @@ use husky_task::{
     visual::{VisualComponent, VisualProtocol},
     DevComptimeDb, IsTask,
 };
-use husky_trace::Trace;
+use husky_trace::{db::TraceDb, Trace};
 use std::path::Path;
 
 use self::state::*;
 
-pub struct Devtime<Task: IsTask> {
+pub struct Devtime<Task: IsTask>
+where
+    DevComptimeDb<Task>: TraceDb,
+{
     runtime: DevRuntime<Task>,
     state: DevtimeState,
 }
 
-impl<Task: IsTask> Devtime<Task> {
+impl<Task: IsTask> Devtime<Task>
+where
+    DevComptimeDb<Task>: TraceDb,
+{
     pub fn new(
         task: Task,
         target_crate: &Path,
@@ -34,12 +41,17 @@ impl<Task: IsTask> Devtime<Task> {
     pub fn db(&self) -> &DevComptimeDb<Task> {
         self.runtime.db()
     }
+
+    pub fn target(&self) -> DevComptimeTarget {
+        self.runtime.target()
+    }
 }
 
 impl<Task: IsTask> Default for Devtime<Task>
 where
     Task: Default,
     DevLinkTime<Task>: Default,
+    DevComptimeDb<Task>: TraceDb,
 {
     fn default() -> Self {
         Self {
@@ -49,7 +61,10 @@ where
     }
 }
 
-impl<Task: IsTask> IsTracetime for Devtime<Task> {
+impl<Task: IsTask> IsTracetime for Devtime<Task>
+where
+    DevComptimeDb<Task>: TraceDb,
+{
     type Trace = Trace;
 
     type VisualComponent = VisualComponent<Task>;
@@ -57,7 +72,10 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
     type SerdeImpl = serde_impl::json::SerdeJson;
 
     fn get_root_traces(&self) -> &[Self::Trace] {
-        todo!()
+        match self.target() {
+            DevComptimeTarget::None => &[],
+            DevComptimeTarget::SingleCrate(crate_path) => self.db().root_traces(crate_path),
+        }
     }
 
     fn get_subtraces(&self, trace: Self::Trace) -> &[Self::Trace] {

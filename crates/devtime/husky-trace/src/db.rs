@@ -1,8 +1,17 @@
 use crate::*;
 
-pub trait TraceDb: salsa::DbWithJar<TraceJar> {}
+pub trait TraceDb: salsa::DbWithJar<TraceJar> + VfsDb {
+    fn root_traces(&self, crate_path: CratePath) -> &[Trace];
+}
 
-impl<Db> TraceDb for Db where Db: salsa::DbWithJar<TraceJar> {}
+impl<Db> TraceDb for Db
+where
+    Db: salsa::DbWithJar<TraceJar> + VfsDb,
+{
+    fn root_traces(&self, crate_path: CratePath) -> &[Trace] {
+        crate::helpers::root_traces(self, crate_path).as_ref()
+    }
+}
 
 #[salsa::jar(db = TraceDb)]
 pub struct TraceJar(
@@ -24,4 +33,6 @@ pub struct TraceJar(
     eager_stmt_associated_expr_traces,
     LoopGroupTracePath,
     LoopGroupTrace,
+    // helpers
+    crate::helpers::root_traces,
 );
