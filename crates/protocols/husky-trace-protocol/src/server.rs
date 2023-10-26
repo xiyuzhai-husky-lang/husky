@@ -44,6 +44,9 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
     }
 
     fn init(&mut self) {
+        if self.cache.is_some() {
+            return;
+        }
         let traces = self.tracetime.get_root_traces();
         for &trace in traces {
             todo!()
@@ -63,7 +66,10 @@ impl<Tracetime: IsTracetime> IsEasyWebsocketServer for TraceServer<Tracetime> {
         match request {
             TraceRequest::Init => {
                 self.init();
-                todo!()
+                let Some(cache) = self.cache.clone() else {
+                    unreachable!()
+                };
+                Some(TraceResponse::Init { cache })
             }
         }
     }
