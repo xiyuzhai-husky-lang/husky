@@ -371,34 +371,7 @@ Ok(
                 ),
             ),
             TokenData::Ident(
-                `Known`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Bra(
-                        Par,
-                    ),
-                ),
-            ),
-            TokenData::Ident(
-                `MnistLabel`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            TokenData::Ident(
-                `Four`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Ket(
-                        Par,
-                    ),
-                ),
+                `Unknown`,
             ),
         ],
         token_group_starts: [

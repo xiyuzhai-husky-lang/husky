@@ -21,7 +21,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 376,
+                                            value: 375,
                                         },
                                     ),
                                 ),
@@ -33,7 +33,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 376,
+                                                value: 375,
                                             },
                                         ),
                                     ),
@@ -47,7 +47,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 70,
+                                                value: 69,
                                             },
                                         ),
                                     ),
@@ -93,7 +93,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 87,
+                                                                value: 86,
                                                             },
                                                         ),
                                                     ),
@@ -119,7 +119,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 87,
+                                                value: 86,
                                             },
                                         ),
                                     ),
@@ -283,7 +283,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 86,
+                                                value: 85,
                                             },
                                         ),
                                     ),
@@ -297,7 +297,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 438,
+                                            value: 437,
                                         },
                                     ),
                                 ),
@@ -309,7 +309,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 438,
+                                                value: 437,
                                             },
                                         ),
                                     ),
@@ -323,7 +323,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 72,
+                                                value: 71,
                                             },
                                         ),
                                     ),
@@ -414,7 +414,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 261,
+                                            value: 260,
                                         },
                                     ),
                                 ),
@@ -447,7 +447,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 438,
+                                            value: 437,
                                         },
                                     ),
                                 ),
@@ -459,7 +459,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 438,
+                                                value: 437,
                                             },
                                         ),
                                     ),
@@ -473,7 +473,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 72,
+                                                value: 71,
                                             },
                                         ),
                                     ),
@@ -487,7 +487,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 261,
+                                            value: 260,
                                         },
                                     ),
                                 ),
@@ -550,7 +550,7 @@
                                                 Ritchie(
                                                     EtherealTermRitchie(
                                                         Id {
-                                                            value: 15,
+                                                            value: 13,
                                                         },
                                                     ),
                                                 ),
@@ -567,7 +567,7 @@
                                     Ritchie(
                                         EtherealTermRitchie(
                                             Id {
-                                                value: 15,
+                                                value: 13,
                                             },
                                         ),
                                     ),
@@ -581,7 +581,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 249,
+                                            value: 248,
                                         },
                                     ),
                                 ),
@@ -591,6 +591,40 @@
                                 current_symbol_idx: 2,
                                 current_symbol_kind: LetVariable {
                                     pattern_symbol_idx: 2,
+                                },
+                            },
+                        ),
+                        ty_result: Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 85,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
+                    SemaExprEntry {
+                        data_result: Ok(
+                            CurrentSymbol {
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 434,
+                                        },
+                                    ),
+                                ),
+                                regional_token_idx: RegionalTokenIdx(
+                                    42,
+                                ),
+                                current_symbol_idx: 1,
+                                current_symbol_kind: LetVariable {
+                                    pattern_symbol_idx: 1,
                                 },
                             },
                         ),
@@ -615,41 +649,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 435,
-                                        },
-                                    ),
-                                ),
-                                regional_token_idx: RegionalTokenIdx(
-                                    42,
-                                ),
-                                current_symbol_idx: 1,
-                                current_symbol_kind: LetVariable {
-                                    pattern_symbol_idx: 1,
-                                },
-                            },
-                        ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                    SemaExprEntry {
-                        data_result: Ok(
-                            CurrentSymbol {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 439,
+                                            value: 438,
                                         },
                                     ),
                                 ),
@@ -669,7 +669,7 @@
                                     Ritchie(
                                         EtherealTermRitchie(
                                             Id {
-                                                value: 15,
+                                                value: 13,
                                             },
                                         ),
                                     ),
@@ -716,7 +716,7 @@
                                                                 Ritchie(
                                                                     EtherealTermRitchie(
                                                                         Id {
-                                                                            value: 15,
+                                                                            value: 13,
                                                                         },
                                                                     ),
                                                                 ),
@@ -731,7 +731,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 85,
+                                                                value: 84,
                                                             },
                                                         ),
                                                     ),
@@ -754,7 +754,7 @@
                                                     Ritchie(
                                                         EtherealTermRitchie(
                                                             Id {
-                                                                value: 15,
+                                                                value: 13,
                                                             },
                                                         ),
                                                     ),
@@ -781,7 +781,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 85,
+                                                value: 84,
                                             },
                                         ),
                                     ),
@@ -828,7 +828,7 @@
                                                                 Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 85,
+                                                                            value: 84,
                                                                         },
                                                                     ),
                                                                 ),
@@ -868,7 +868,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 85,
+                                                                value: 84,
                                                             },
                                                         ),
                                                     ),
@@ -928,7 +928,7 @@
                                     Ritchie(
                                         EtherealTermRitchie(
                                             Id {
-                                                value: 23,
+                                                value: 21,
                                             },
                                         ),
                                     ),
@@ -942,7 +942,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 249,
+                                            value: 248,
                                         },
                                     ),
                                 ),
@@ -962,7 +962,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 86,
+                                                value: 85,
                                             },
                                         ),
                                     ),
@@ -976,7 +976,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 435,
+                                            value: 434,
                                         },
                                     ),
                                 ),
@@ -996,7 +996,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 87,
+                                                value: 86,
                                             },
                                         ),
                                     ),
@@ -1024,7 +1024,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 86,
+                                                                value: 85,
                                                             },
                                                         ),
                                                     ),
@@ -1051,7 +1051,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 87,
+                                                                value: 86,
                                                             },
                                                         ),
                                                     ),
@@ -1309,7 +1309,7 @@
                                     for_between_loop_var_ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 261,
+                                                value: 260,
                                             },
                                         ),
                                     ),
@@ -1416,7 +1416,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 87,
+                                        value: 86,
                                     },
                                 ),
                             ),
@@ -1432,7 +1432,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 86,
+                                        value: 85,
                                     },
                                 ),
                             ),
@@ -1448,7 +1448,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 15,
+                                        value: 13,
                                     },
                                 ),
                             ),
@@ -1459,24 +1459,6 @@
         ],
         pattern_symbol_ty_infos: ArenaMap {
             data: [
-                Some(
-                    PatternSymbolTypeInfo {
-                        ty: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                ),
                 Some(
                     PatternSymbolTypeInfo {
                         ty: Ok(
@@ -1501,10 +1483,28 @@
                             FluffyTerm {
                                 place: None,
                                 base: Ethereal(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 85,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
+                ),
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
                                     Ritchie(
                                         EtherealTermRitchie(
                                             Id {
-                                                value: 15,
+                                                value: 13,
                                             },
                                         ),
                                     ),
@@ -1569,7 +1569,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 71,
+                                        value: 70,
                                     },
                                 ),
                             ),
@@ -1588,7 +1588,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 85,
+                                        value: 84,
                                     },
                                 ),
                             ),
@@ -1607,7 +1607,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 86,
+                                        value: 85,
                                     },
                                 ),
                             ),
@@ -2258,7 +2258,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 86,
+                                                                                    value: 85,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -2275,7 +2275,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 87,
+                                                                                    value: 86,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -2566,7 +2566,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 435,
+                                                value: 434,
                                             },
                                         ),
                                     ),
@@ -2592,7 +2592,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 87,
+                                                            value: 86,
                                                         },
                                                     ),
                                                 ),
@@ -2609,7 +2609,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 87,
+                                                value: 86,
                                             },
                                         ),
                                     ),
@@ -2700,7 +2700,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 261,
+                                            value: 260,
                                         },
                                     ),
                                 ),
@@ -2733,7 +2733,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 353,
+                                            value: 352,
                                         },
                                     ),
                                 ),
@@ -2769,7 +2769,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 353,
+                                            value: 352,
                                         },
                                     ),
                                 ),
@@ -2837,7 +2837,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 435,
+                                                value: 434,
                                             },
                                         ),
                                     ),
@@ -2863,7 +2863,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 87,
+                                                            value: 86,
                                                         },
                                                     ),
                                                 ),
@@ -2880,7 +2880,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 87,
+                                                value: 86,
                                             },
                                         ),
                                     ),
@@ -2894,7 +2894,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 261,
+                                            value: 260,
                                         },
                                     ),
                                 ),
@@ -2957,7 +2957,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 71,
+                                                            value: 70,
                                                         },
                                                     ),
                                                 ),
@@ -2974,7 +2974,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 71,
+                                                value: 70,
                                             },
                                         ),
                                     ),
@@ -2995,7 +2995,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 353,
+                                                value: 352,
                                             },
                                         ),
                                     ),
@@ -3210,7 +3210,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 353,
+                                            value: 352,
                                         },
                                     ),
                                 ),
@@ -3371,7 +3371,7 @@
                                     for_between_loop_var_ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 261,
+                                                value: 260,
                                             },
                                         ),
                                     ),
@@ -4161,7 +4161,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 435,
+                                                value: 434,
                                             },
                                         ),
                                     ),
@@ -4187,7 +4187,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 87,
+                                                            value: 86,
                                                         },
                                                     ),
                                                 ),
@@ -4204,7 +4204,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 87,
+                                                value: 86,
                                             },
                                         ),
                                     ),
@@ -4295,7 +4295,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 261,
+                                            value: 260,
                                         },
                                     ),
                                 ),
@@ -4328,7 +4328,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 353,
+                                            value: 352,
                                         },
                                     ),
                                 ),
@@ -4364,7 +4364,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 353,
+                                            value: 352,
                                         },
                                     ),
                                 ),
@@ -4432,7 +4432,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 435,
+                                                value: 434,
                                             },
                                         ),
                                     ),
@@ -4458,7 +4458,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 87,
+                                                            value: 86,
                                                         },
                                                     ),
                                                 ),
@@ -4475,7 +4475,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 87,
+                                                value: 86,
                                             },
                                         ),
                                     ),
@@ -4489,7 +4489,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 261,
+                                            value: 260,
                                         },
                                     ),
                                 ),
@@ -4552,7 +4552,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 71,
+                                                            value: 70,
                                                         },
                                                     ),
                                                 ),
@@ -4569,7 +4569,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 71,
+                                                value: 70,
                                             },
                                         ),
                                     ),
@@ -4590,7 +4590,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 412,
+                                                value: 411,
                                             },
                                         ),
                                     ),
@@ -4805,7 +4805,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 353,
+                                            value: 352,
                                         },
                                     ),
                                 ),
@@ -4966,7 +4966,7 @@
                                     for_between_loop_var_ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 261,
+                                                value: 260,
                                             },
                                         ),
                                     ),
@@ -5756,7 +5756,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 435,
+                                                value: 434,
                                             },
                                         ),
                                     ),
@@ -5782,7 +5782,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 87,
+                                                            value: 86,
                                                         },
                                                     ),
                                                 ),
@@ -5799,7 +5799,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 87,
+                                                value: 86,
                                             },
                                         ),
                                     ),
@@ -5890,7 +5890,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 261,
+                                            value: 260,
                                         },
                                     ),
                                 ),
@@ -5923,7 +5923,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 353,
+                                            value: 352,
                                         },
                                     ),
                                 ),
@@ -5959,7 +5959,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 353,
+                                            value: 352,
                                         },
                                     ),
                                 ),
@@ -6027,7 +6027,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 435,
+                                                value: 434,
                                             },
                                         ),
                                     ),
@@ -6053,7 +6053,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 87,
+                                                            value: 86,
                                                         },
                                                     ),
                                                 ),
@@ -6070,7 +6070,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 87,
+                                                value: 86,
                                             },
                                         ),
                                     ),
@@ -6084,7 +6084,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 261,
+                                            value: 260,
                                         },
                                     ),
                                 ),
@@ -6147,7 +6147,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 71,
+                                                            value: 70,
                                                         },
                                                     ),
                                                 ),
@@ -6164,7 +6164,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 71,
+                                                value: 70,
                                             },
                                         ),
                                     ),
@@ -6185,7 +6185,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 350,
+                                                value: 349,
                                             },
                                         ),
                                     ),
@@ -6474,7 +6474,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 353,
+                                            value: 352,
                                         },
                                     ),
                                 ),
@@ -6635,7 +6635,7 @@
                                     for_between_loop_var_ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 261,
+                                                value: 260,
                                             },
                                         ),
                                     ),

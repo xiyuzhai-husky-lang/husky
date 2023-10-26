@@ -562,7 +562,7 @@
                                 path: TypeVariant(
                                     TypeVariantPath(
                                         Id {
-                                            value: 13,
+                                            value: 14,
                                         },
                                     ),
                                 ),
@@ -573,90 +573,12 @@
                             FluffyTerm {
                                 place: None,
                                 base: Ethereal(
-                                    Curry(
-                                        EtherealTermCurry(
+                                    Application(
+                                        EtherealTermApplication(
                                             Id {
-                                                value: 14,
+                                                value: 16,
                                             },
                                         ),
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                    SemaExprEntry {
-                        data_result: Ok(
-                            PrincipalEntityPath {
-                                path_expr_idx: 13,
-                                path: TypeVariant(
-                                    TypeVariantPath(
-                                        Id {
-                                            value: 24,
-                                        },
-                                    ),
-                                ),
-                                ty_path_disambiguation: InstanceConstructor,
-                            },
-                        ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 66,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                    SemaExprEntry {
-                        data_result: Ok(
-                            FnCall {
-                                function_sema_expr_idx: SemaExprIdx(
-                                    19,
-                                ),
-                                template_arguments: None,
-                                lpar_regional_token_idx: RegionalTokenIdx(
-                                    22,
-                                ),
-                                ritchie_parameter_argument_matches: [
-                                    Regular(
-                                        FluffyTermRitchieRegularParameter {
-                                            contract: Move,
-                                            ty: FluffyTerm {
-                                                place: None,
-                                                base: Hollow(
-                                                    HollowTerm(
-                                                        0,
-                                                    ),
-                                                ),
-                                            },
-                                        },
-                                        SemaRegularCallListItem {
-                                            argument_expr_idx: SemaExprIdx(
-                                                20,
-                                            ),
-                                            separator: None,
-                                        },
-                                    ),
-                                ],
-                                rpar_regional_token_idx: RegionalTokenIdx(
-                                    26,
-                                ),
-                            },
-                        ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Hollow(
-                                    HollowTerm(
-                                        1,
                                     ),
                                 ),
                             },
@@ -675,9 +597,13 @@
                         ty_result: Ok(
                             FluffyTerm {
                                 place: None,
-                                base: Hollow(
-                                    HollowTerm(
-                                        1,
+                                base: Ethereal(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 16,
+                                            },
+                                        ),
                                     ),
                                 ),
                             },
@@ -945,7 +871,7 @@
                         data_result: Ok(
                             Eval {
                                 sema_expr_idx: SemaExprIdx(
-                                    21,
+                                    19,
                                 ),
                                 eol_semicolon: Ok(
                                     None,
@@ -955,9 +881,13 @@
                         ty_result: Ok(
                             FluffyTerm {
                                 place: None,
-                                base: Hollow(
-                                    HollowTerm(
-                                        1,
+                                base: Ethereal(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 16,
+                                            },
+                                        ),
                                     ),
                                 ),
                             },
@@ -968,9 +898,9 @@
         ),
         syn_expr_root_sema_expr_idx_table: [
             (
-                22,
+                20,
                 SemaExprIdx(
-                    22,
+                    20,
                 ),
             ),
         ],
@@ -993,116 +923,8 @@
                     entries: [],
                 },
                 hollow_terms: HollowTerms {
-                    entries: [
-                        HollowTermEntry {
-                            data: Hole {
-                                hole_source: Expectation(
-                                    19,
-                                ),
-                                hole_kind: ImplicitType,
-                                fill: Some(
-                                    FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 66,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                ),
-                                constraints: [
-                                    CoercibleFrom {
-                                        target: FluffyTerm {
-                                            place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 66,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    },
-                                ],
-                            },
-                            resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                EtherealTerm(`MnistLabel`),
-                            ),
-                        },
-                        HollowTermEntry {
-                            data: TypeOntology {
-                                path: TypePath(
-                                    Id {
-                                        value: 63,
-                                    },
-                                ),
-                                refined_path: Right(
-                                    CustomTypePath(
-                                        TypePath(
-                                            Id {
-                                                value: 63,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                arguments: [
-                                    FluffyTerm {
-                                        place: None,
-                                        base: Hollow(
-                                            HollowTerm(
-                                                0,
-                                            ),
-                                        ),
-                                    },
-                                ],
-                            },
-                            resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                EtherealTerm(`Class MnistLabel`),
-                            ),
-                        },
-                        HollowTermEntry {
-                            data: Ritchie {
-                                ritchie_kind: FnType,
-                                params: [
-                                    Regular(
-                                        FluffyTermRitchieRegularParameter {
-                                            contract: Move,
-                                            ty: FluffyTerm {
-                                                place: None,
-                                                base: Hollow(
-                                                    HollowTerm(
-                                                        0,
-                                                    ),
-                                                ),
-                                            },
-                                        },
-                                    ),
-                                ],
-                                return_ty: FluffyTerm {
-                                    place: None,
-                                    base: Hollow(
-                                        HollowTerm(
-                                            1,
-                                        ),
-                                    ),
-                                },
-                            },
-                            resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                EtherealTerm(`fn(move  MnistLabel) -> Class MnistLabel`),
-                            ),
-                        },
-                    ],
-                    first_unresolved_term_idx: 1,
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -1595,9 +1417,15 @@
                             },
                         },
                         FluffyTermExpectationEntry {
-                            expectation: Expectation::EqsFunctionType(
-                                ExpectEqsFunctionType {
-                                    final_destination: FinalDestination::TypeOntology,
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Class MnistLabel`),
+                                        ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -1609,58 +1437,15 @@
                                 expectee: FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`(independent variable_ad_hoc_fmt: Type) -> fn(move  variable_ad_hoc_fmt) -> Class variable_ad_hoc_fmt`),
+                                        EtherealTerm(`Class MnistLabel`),
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::EqsFunctionCallType(
-                                            ExpectEqsFunctionTypeOutcome {
-                                                template_parameter_substitutions: [
-                                                    ImplicitParameterSubstitution {
-                                                        variable: FluffyTerm {
-                                                            place: None,
-                                                            base: FluffyTermBase::Ethereal(
-                                                                EtherealTerm(`variable_ad_hoc_fmt`),
-                                                            ),
-                                                        },
-                                                        substitute: FluffyTerm {
-                                                            place: None,
-                                                            base: FluffyTermBase::Hollow(
-                                                                HollowTerm(
-                                                                    0,
-                                                                ),
-                                                            ),
-                                                        },
-                                                    },
-                                                ],
-                                                return_ty: FluffyTerm {
-                                                    place: None,
-                                                    base: FluffyTermBase::Hollow(
-                                                        HollowTerm(
-                                                            1,
-                                                        ),
-                                                    ),
-                                                },
-                                                variant: ExpectEqsFunctionTypeOutcomeVariant::Ritchie {
-                                                    ritchie_kind: FnType,
-                                                    parameter_contracted_tys: [
-                                                        FluffyTermRitchieParameter::Regular(
-                                                            FluffyTermRitchieRegularParameter {
-                                                                contract: Move,
-                                                                ty: FluffyTerm {
-                                                                    place: None,
-                                                                    base: Hollow(
-                                                                        HollowTerm(
-                                                                            0,
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            },
-                                                        ),
-                                                    ],
-                                                },
-                                            },
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1672,10 +1457,8 @@
                                     contract: Move,
                                     ty_expected: FluffyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
-                                            HollowTerm(
-                                                0,
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Class MnistLabel`),
                                         ),
                                     },
                                 },
@@ -1689,81 +1472,7 @@
                                 expectee: FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`MnistLabel`),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                        },
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: Move,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Class MnistLabel`),
-                                        ),
-                                    },
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 21,
-                                src: ExpectationSource {
-                                    expr_idx: 21,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Hollow(
-                                        HollowTerm(
-                                            1,
-                                        ),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                        },
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: Move,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Class MnistLabel`),
-                                        ),
-                                    },
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 22,
-                                src: ExpectationSource {
-                                    expr_idx: 22,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Hollow(
-                                        HollowTerm(
-                                            1,
-                                        ),
+                                        EtherealTerm(`Class MnistLabel`),
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
