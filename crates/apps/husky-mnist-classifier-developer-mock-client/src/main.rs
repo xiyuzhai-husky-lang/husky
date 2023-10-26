@@ -1,6 +1,6 @@
 use husky_print_utils::p;
 
-const SERVER_ADDRESS: &str = "ws://127.0.0.1:51718/ws";
+const SERVER_ADDRESS: &str = "ws://localhost:51718/ws";
 
 #[tokio::main]
 async fn main() {

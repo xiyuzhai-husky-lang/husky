@@ -11,7 +11,27 @@ pub struct TokenInfoSheet {
     token_infos: Vec<Option<TokenInfo>>,
 }
 
+impl TokenInfoSheet {
+    pub fn to_ref(&self) -> TokenInfoSheetRef {
+        TokenInfoSheetRef {
+            token_infos: &self.token_infos,
+        }
+    }
+}
+
 impl std::ops::Index<TokenIdx> for TokenInfoSheet {
+    type Output = Option<TokenInfo>;
+
+    fn index(&self, idx: TokenIdx) -> &Self::Output {
+        &self.token_infos[idx.index()]
+    }
+}
+
+pub struct TokenInfoSheetRef<'a> {
+    token_infos: &'a [Option<TokenInfo>],
+}
+
+impl<'a> std::ops::Index<TokenIdx> for TokenInfoSheetRef<'a> {
     type Output = Option<TokenInfo>;
 
     fn index(&self, idx: TokenIdx) -> &Self::Output {

@@ -1,6 +1,6 @@
 use super::*;
 
-const MOCK_SERVER: &str = "ws://127.0.0.1:51718/ws";
+const MOCK_SERVER: &str = "ws://localhost:51718/ws";
 
 #[cfg(feature = "mock")]
 impl TraceClient<()> {
