@@ -22,6 +22,7 @@ use std::panic::RefUnwindSafe;
     husky_token_data::db::TokenDataJar,
     husky_token::TokenJar,
     husky_toml_token::TomlTokenJar,
+    husky_text::db::TextJar,
     // syntax
     husky_ast::AstJar,
     husky_toml_ast::TomlAstJar,

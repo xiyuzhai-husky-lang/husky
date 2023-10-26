@@ -1,0 +1,13 @@
+[package]
+name = "husky-text-protocol"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+serde = { workspace = true }
+lsp-types = { workspace = true, optional = true }
+rustc-hash = { workspace = true }
+
+[features]
+lsp_support = ["dep:lsp-types"]

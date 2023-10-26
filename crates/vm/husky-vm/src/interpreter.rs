@@ -4,11 +4,13 @@ mod query;
 use husky_coword::Ident;
 use husky_ethereal_term::EtherealTerm;
 use husky_print_utils::ps;
-use husky_text::ModuleRange;
 use indexmap::IndexMap;
 pub use query::InterpreterQueryGroup;
 
 use crate::*;
+
+// ad hoc
+type ModuleRange = ();
 
 pub struct Interpreter<'a> {
     db: &'a dyn InterpreterQueryGroup,

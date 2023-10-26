@@ -1,5 +1,5 @@
 use husky_entity_syn_tree::EntitySynTreeResult;
-use husky_text::TextRange;
+use husky_text_protocol::range::TextRange;
 
 use husky_token::{RangedTokenSheet, TokenGroupIdx, TokenSheetData};
 use husky_token_data::{Keyword, TokenData};

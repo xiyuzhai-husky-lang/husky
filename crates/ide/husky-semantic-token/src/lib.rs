@@ -10,7 +10,7 @@ pub mod token;
 
 pub use self::db::*;
 pub use self::specs::*;
-use husky_text::TextRange;
+use husky_text_protocol::range::TextRange;
 
 use self::collect::*;
 use self::convert::*;

@@ -23,7 +23,7 @@ maybe-result = { path = "../../abstractions/maybe-result" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # lex
-husky-text = { path = "../../lex/husky-text" }
+husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 husky-token-data = { path = "../../lex/husky-token-data" }
 husky-token = { path = "../../lex/husky-token" }
 # todo: make this optional and add feature tokra

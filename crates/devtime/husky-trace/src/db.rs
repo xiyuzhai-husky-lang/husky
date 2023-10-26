@@ -1,15 +1,16 @@
 use husky_entity_syn_tree::EntitySynTreeDb;
+use husky_text::db::TextDb;
 use husky_token_info::TokenInfoDb;
 
 use crate::*;
 
-pub trait TraceDb: salsa::DbWithJar<TraceJar> + TokenInfoDb {
+pub trait TraceDb: salsa::DbWithJar<TraceJar> + TokenInfoDb + TextDb {
     fn root_traces(&self, crate_path: CratePath) -> &[Trace];
 }
 
 impl<Db> TraceDb for Db
 where
-    Db: salsa::DbWithJar<TraceJar> + TokenInfoDb,
+    Db: salsa::DbWithJar<TraceJar> + TokenInfoDb + TextDb,
 {
     fn root_traces(&self, crate_path: CratePath) -> &[Trace] {
         crate::helpers::root_traces(self, crate_path).as_ref()

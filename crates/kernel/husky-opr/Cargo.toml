@@ -10,7 +10,7 @@ thin-vec = { path = "../../../forks/thin-vec" }
 # abstractions
 enum-class = { path = "../../abstractions/enum-class" }
 # lex
-husky-text = { path = "../../lex/husky-text" }
+husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
 # utils

@@ -12,7 +12,7 @@ pub use sheet::Instructions;
 
 use crate::*;
 use husky_coword::Ident;
-use husky_text::{HasSourceRange, TextRange};
+use husky_text_protocol::range::TextRange;
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
 
 #[derive(Debug)]

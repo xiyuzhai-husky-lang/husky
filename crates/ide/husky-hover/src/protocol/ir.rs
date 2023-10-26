@@ -1,6 +1,6 @@
 use super::*;
 use husky_ethereal_term::EtherealTerm;
-use husky_text::FilePosition;
+use husky_text_protocol::position::FilePosition;
 
 #[derive(Debug, Clone)]
 pub enum HoverActionIR {

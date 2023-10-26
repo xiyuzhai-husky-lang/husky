@@ -30,7 +30,7 @@ with-db = { path = "../../abstractions/with-db" }
 # fs
 husky-fs-specs = { path = "../../fs/husky-fs-specs" }
 # lex
-husky-text = { path = "../../lex/husky-text" }
+husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-platform = { path = "../../kernel/husky-platform" }
@@ -56,4 +56,4 @@ test-utils = [
     "dep:husky-io-utils",
     "dep:husky-adversarial-utils"
 ]
-lsp_support = ["dep:lsp-types", "husky-text/lsp_support"]
+lsp_support = ["dep:lsp-types", "husky-text-protocol/lsp_support"]

@@ -18,7 +18,7 @@ xflags = "0.2.1"
 serde.workspace = true
 serde_json.workspace = true
 threadpool = "1.7.1"
-rustc-hash = "1.1.0"
+rustc-hash.workspace = true
 tracing = "0.1"
 itertools = "^0.11.0"
 lsp-server = "0.7.0"
@@ -52,7 +52,10 @@ husky-coword = { path = "../../kernel/husky-coword" }
 husky-token-data = { path = "../../lex/husky-token-data" }
 husky-token = { path = "../../lex/husky-token" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
-husky-text = { path = "../../lex/husky-text", features = ["lsp_support"] }
+# protocols
+husky-text-protocol = { path = "../../protocols/husky-text-protocol", features = [
+    "lsp_support"
+] }
 # semantics
 husky-manifest = { path = "../../semantics/husky-manifest" }
 husky-sema-expr = { path = "../../semantics/husky-sema-expr" }

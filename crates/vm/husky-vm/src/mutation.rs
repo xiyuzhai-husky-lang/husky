@@ -1,8 +1,10 @@
 use husky_coword::Ident;
 use husky_ethereal_term::EtherealTerm;
-use husky_text::ModuleRange;
 
 use crate::*;
+
+// ad hoc
+type ModuleRange = ();
 
 #[derive(Debug)]
 pub struct MutationData {

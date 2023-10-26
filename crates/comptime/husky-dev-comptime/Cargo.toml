@@ -30,7 +30,7 @@ husky-task = { path = "../../kernel/husky-task" }
 husky-token-data = { path = "../../lex/husky-token-data" }
 husky-token = { path = "../../lex/husky-token" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
-husky-text = { path = "../../lex/husky-text" }
+husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 # semantics
 husky-manifest = { path = "../../semantics/husky-manifest" }
 husky-sema-expr = { path = "../../semantics/husky-sema-expr" }

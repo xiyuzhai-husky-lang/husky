@@ -10,7 +10,7 @@ smallvec.workspace = true
 salsa = { path = "../../abstractions/salsa" }
 vec-like = { path = "../../abstractions/vec-like" }
 # lex
-husky-text = { path = "../../lex/husky-text" }
+husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }

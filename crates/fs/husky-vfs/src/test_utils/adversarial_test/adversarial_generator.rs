@@ -47,7 +47,7 @@ impl VfsAdversarialGenerator {
     where
         Db: VfsDb + ?Sized,
     {
-        let text = module_path.text(db).unwrap();
+        let text = module_path.raw_text(db).unwrap();
         let Some(adversarial) = self.generate_adversarial(text) else {
             return Ok(());
         };

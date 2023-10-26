@@ -1,5 +1,5 @@
 use husky_ethereal_term::EtherealTerm;
-use husky_text::TextRange;
+use husky_text_protocol::range::TextRange;
 use husky_vfs::DiffPath;
 
 use crate::*;

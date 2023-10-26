@@ -27,7 +27,7 @@ fn token_to_semantic_token(
     db: &dyn SemanticTokenDb,
     info: Option<&TokenInfo>,
     token_data: &TokenData,
-    range: &husky_text::TextRange,
+    range: &husky_text_protocol::range::TextRange,
 ) -> Option<SemanticToken> {
     Some(SemanticToken {
         token_class: match info {

@@ -10,7 +10,7 @@ semver = "1.0.17"
 # abstractions
 salsa = { path = "../../abstractions/salsa" }
 # lex
-husky-text = { path = "../../lex/husky-text" }
+husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }

@@ -10,7 +10,7 @@ rust-version = "1.56"
 doctest = false
 
 [dependencies]
-rustc-hash = "1.1.0"
+rustc-hash.workspace = true
 itertools = "^0.10.3"
 lsp-types.workspace = true
 salsa = { path = "../../abstractions/salsa" }
@@ -29,7 +29,7 @@ husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-val = { path = "../../kernel/husky-val" }
 # lex
-husky-text = { path = "../../lex/husky-text" }
+husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-xml-syntax = { path = "../../syntax/husky-xml-syntax" }

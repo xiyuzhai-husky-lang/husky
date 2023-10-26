@@ -28,6 +28,7 @@ husky-text = { path = "../../lex/husky-text" }
 husky-token = { path = "../../lex/husky-token" }
 husky-regional-token = { path = "../../lex/husky-regional-token" }
 # protocols
+husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol" }
 # runtime
 husky-val-repr = { path = "../../comptime/husky-val-repr" }

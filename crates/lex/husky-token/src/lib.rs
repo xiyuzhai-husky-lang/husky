@@ -29,7 +29,7 @@ pub use self::token_visibility::*;
 
 use husky_coword::Ident;
 use husky_term_prelude::*;
-use husky_text::{HasTextRange, TextRange};
+use husky_text_protocol::range::TextRange;
 use husky_token_data::*;
 use husky_vfs::{ModulePath, VfsResult};
 #[cfg(test)]

@@ -9,7 +9,7 @@
 // mod token;
 
 // pub use self::expr_config::*;
-use husky_text::TextLine;
+use husky_text_protocol::TextLine;
 
 use super::*;
 

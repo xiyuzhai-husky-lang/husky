@@ -1,5 +1,5 @@
 use husky_ethereal_term::EtherealTerm;
-use husky_text::{HasTextRange, TextPosition};
+use husky_text_protocol::{HasTextRange, TextPosition};
 
 use super::*;
 
