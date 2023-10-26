@@ -6,7 +6,7 @@ use egui::*;
 use husky_trace_protocol::{
     cache::TraceCache,
     client::{error::TraceClientResult, TraceClient},
-    id::TraceIdRange,
+    id::TraceId,
     view::{action::TraceViewActionBuffer, TraceViewData},
 };
 #[cfg(feature = "mock")]
@@ -52,16 +52,17 @@ where
 
 fn render_traces<VisualComponent, Settings>(
     trace_client: &TraceClient<VisualComponent>,
-    trace_id_range: TraceIdRange,
+    trace_ids: &[TraceId],
     ui: &mut egui::Ui,
     settings: &Settings,
 ) where
     VisualComponent: IsVisualComponent,
     Settings: HasTraceViewDocSettings,
 {
-    for trace_entry in &trace_client[trace_id_range] {
-        render_trace_view(trace_entry.view_data(), ui, settings);
-        if let Some(subtraces) = trace_entry.subtraces() {
+    for &trace_id in trace_ids {
+        let entry = &trace_client.cache()[trace_id];
+        render_trace_view(entry.view_data(), ui, settings);
+        if let Some(subtraces) = entry.subtraces() {
             todo!()
         }
     }

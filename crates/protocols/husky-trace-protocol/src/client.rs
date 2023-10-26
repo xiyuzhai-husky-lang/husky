@@ -40,21 +40,15 @@ where
         self.connection.refresh();
     }
 
-    pub fn root_trace_ids(&self) -> Option<TraceIdRange> {
+    pub fn root_trace_ids(&self) -> Option<&[TraceId]> {
         self.cache.root_trace_ids()
     }
 
     pub fn connection_error(&self) -> Option<&WebsocketClientConnectionError> {
         self.connection.error()
     }
-}
 
-impl<VisualComponent: IsVisualComponent> std::ops::Index<TraceIdRange>
-    for TraceClient<VisualComponent>
-{
-    type Output = [TraceCacheEntry];
-
-    fn index(&self, trace_id_range: TraceIdRange) -> &Self::Output {
-        &self.cache[trace_id_range]
+    pub fn cache(&self) -> &TraceCache<VisualComponent> {
+        &self.cache
     }
 }

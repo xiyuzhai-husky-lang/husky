@@ -11,7 +11,7 @@ use husky_visual_protocol::{IsVisualComponent, IsVisualProtocol};
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TraceCache<VisualComponent> {
     /// None means not set
-    root_trace_ids: Option<TraceIdRange>,
+    root_trace_ids: Option<Vec<TraceId>>,
     entries: Vec<TraceCacheEntry>,
     visual_components: Vec<VisualComponent>,
 }
@@ -28,8 +28,8 @@ impl<VisualComponent: IsVisualComponent> Default for TraceCache<VisualComponent>
 
 /// methods
 impl<VisualComponent: IsVisualComponent> TraceCache<VisualComponent> {
-    pub fn root_trace_ids(&self) -> Option<TraceIdRange> {
-        self.root_trace_ids
+    pub fn root_trace_ids(&self) -> Option<&[TraceId]> {
+        self.root_trace_ids.as_ref().map(|ids| ids.as_ref())
     }
 
     pub(crate) fn take_actions(&mut self, actions: Vec<TraceAction>) {
@@ -45,7 +45,7 @@ impl<VisualComponent: IsVisualComponent> TraceCache<VisualComponent> {
 pub struct TraceCacheEntry {
     view_data: TraceViewData,
     /// None means not calculated
-    subtraces: Option<TraceIdRange>,
+    subtraces: Option<Vec<TraceId>>,
 }
 
 impl TraceCacheEntry {
@@ -53,18 +53,8 @@ impl TraceCacheEntry {
         &self.view_data
     }
 
-    pub fn subtraces(&self) -> Option<TraceIdRange> {
-        self.subtraces
-    }
-}
-
-impl<VisualComponent: IsVisualComponent> std::ops::Index<TraceIdRange>
-    for TraceCache<VisualComponent>
-{
-    type Output = [TraceCacheEntry];
-
-    fn index(&self, trace_id_range: TraceIdRange) -> &Self::Output {
-        &self.entries[trace_id_range.start().index()..trace_id_range.end().index()]
+    pub fn subtraces(&self) -> Option<&[TraceId]> {
+        self.subtraces.as_ref().map(|ids| ids.as_ref())
     }
 }
 
@@ -73,7 +63,7 @@ impl TraceCache<()> {
     pub fn new_mock() -> Self {
         use TokenClass::*;
         Self {
-            root_trace_ids: Some(TraceIdRange::new_mock(0, 1)),
+            root_trace_ids: Some(TraceId::new_mocks([0, 1])),
             entries: vec![TraceCacheEntry {
                 view_data: TraceViewData::new_mock([
                     ("let", OtherKeyword),
@@ -85,5 +75,13 @@ impl TraceCache<()> {
             }],
             visual_components: vec![],
         }
+    }
+}
+
+impl<VisualComponent: IsVisualComponent> std::ops::Index<TraceId> for TraceCache<VisualComponent> {
+    type Output = TraceCacheEntry;
+
+    fn index(&self, id: TraceId) -> &Self::Output {
+        &self.entries[id.index()]
     }
 }

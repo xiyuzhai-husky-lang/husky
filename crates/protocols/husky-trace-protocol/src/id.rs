@@ -13,6 +13,13 @@ impl TraceId {
     pub(crate) fn index(self) -> usize {
         self.0.into()
     }
+
+    #[cfg(feature = "mock")]
+    pub fn new_mocks(iter: impl IntoIterator<Item = usize>) -> Vec<Self> {
+        iter.into_iter()
+            .map(|index| Self::from_index(index))
+            .collect()
+    }
 }
 
 impl From<usize> for TraceId {
@@ -27,36 +34,36 @@ impl Into<usize> for TraceId {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
-pub struct TraceIdRange {
-    start: TraceId,
-    end: TraceId,
-}
+// #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+// pub struct Vec<TraceId> {
+//     start: TraceId,
+//     end: TraceId,
+// }
 
-impl TraceIdRange {
-    pub(crate) fn new(start: TraceId, end: TraceId) -> Self {
-        Self { start, end }
-    }
+// impl Vec<TraceId> {
+//     pub(crate) fn new(start: TraceId, end: TraceId) -> Self {
+//         Self { start, end }
+//     }
 
-    #[cfg(feature = "mock")]
-    pub(crate) fn new_mock(start: usize, end: usize) -> Self {
-        Self {
-            start: TraceId::from_index(start),
-            end: TraceId::from_index(end),
-        }
-    }
+//     #[cfg(feature = "mock")]
+//     pub(crate) fn new_mock(start: usize, end: usize) -> Self {
+//         Self {
+//             start: TraceId::from_index(start),
+//             end: TraceId::from_index(end),
+//         }
+//     }
 
-    pub fn start(&self) -> TraceId {
-        self.start
-    }
+//     pub fn start(&self) -> TraceId {
+//         self.start
+//     }
 
-    pub fn end(&self) -> TraceId {
-        self.end
-    }
+//     pub fn end(&self) -> TraceId {
+//         self.end
+//     }
 
-    pub fn into_iter(self) -> impl Iterator<Item = TraceId> {
-        (self.start.index()..self.end.index())
-            .into_iter()
-            .map(|index| TraceId::from_index(index))
-    }
-}
+//     pub fn into_iter(self) -> impl Iterator<Item = TraceId> {
+//         (self.start.index()..self.end.index())
+//             .into_iter()
+//             .map(|index| TraceId::from_index(index))
+//     }
+// }
