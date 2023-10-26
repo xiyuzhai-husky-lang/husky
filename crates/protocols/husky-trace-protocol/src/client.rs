@@ -1,6 +1,8 @@
 pub mod error;
 pub mod mock;
 
+use std::sync::Arc;
+
 use self::error::*;
 use crate::{message::*, *};
 use husky_visual_protocol::mock::MockVisualProtocol;
@@ -31,12 +33,17 @@ where
     TraceServerMessageArrivalNotifier: notify_change::NotifyEvent,
 {
     pub fn new(
+        tokio_runtime: Arc<tokio::runtime::Runtime>,
         server_address: impl Into<String>,
         notifier: TraceServerMessageArrivalNotifier,
     ) -> Self {
         Self {
             cache: Default::default(),
-            connection: ImmediateWebsocketClientConnection::new(server_address.into(), notifier),
+            connection: ImmediateWebsocketClientConnection::new(
+                tokio_runtime,
+                server_address.into(),
+                notifier,
+            ),
         }
     }
 

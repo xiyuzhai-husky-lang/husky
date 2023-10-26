@@ -4,7 +4,6 @@ use husky_print_utils::p;
 use notify_change::NotifyEvent;
 use std::{borrow::Cow, sync::Arc};
 use thiserror::Error;
-use tokio::task::JoinHandle;
 use tokio_tungstenite::tungstenite::{
     self,
     protocol::{frame::coding::CloseCode, CloseFrame},
@@ -20,12 +19,15 @@ pub struct ImmediateWebsocketClientConnection<Request, Response, ResponseNotifie
 where
     ResponseNotifier: NotifyEvent,
 {
+    tokio_runtime: Arc<tokio::runtime::Runtime>,
     server_address: String,
-    create_task: JoinHandle<()>,
+    connect_join_handle: tokio::task::JoinHandle<()>,
     creation_status: CreationStatus<Request, Response, ResponseNotifier>,
     request_tx: tokio::sync::mpsc::Sender<Request>,
     response_rx: tokio::sync::mpsc::Receiver<Response>,
     communication_status: Arc<AtomicCommunicationStatus>,
+    /// must use std JoinHandle
+    launch_join_handle: Option<tokio::task::JoinHandle<()>>,
 }
 
 #[atomic_enum::atomic_enum]
@@ -78,19 +80,21 @@ where
     Request: Send + 'static,
     Response: Send + 'static,
 {
-    #[tokio::main]
-    pub async fn new(server_address: String, notifier: ResponseNotifier) -> Self {
+    pub fn new(
+        tokio_runtime: Arc<tokio::runtime::Runtime>,
+        server_address: String,
+        notifier: ResponseNotifier,
+    ) -> Self {
         let await_status = Arc::new(std::sync::Mutex::new(CreationAwaitStatus::Await));
         let (request_tx, request_rx) = tokio::sync::mpsc::channel(1);
         let (response_tx, response_rx) = tokio::sync::mpsc::channel(1);
-        let create_task = tokio::spawn({
+        let connect_join_handle = {
             let server_address = server_address.clone();
             let await_status = await_status.clone();
-            async move {
+            tokio_runtime.spawn(async move {
                 println!("server_address = {server_address}");
                 match tokio_tungstenite::connect_async(server_address).await {
                     Ok((stream, response)) => {
-                        todo!();
                         *await_status.lock().unwrap() = CreationAwaitStatus::Ok {
                             stream,
                             response,
@@ -104,17 +108,19 @@ where
                         todo!()
                     }
                 }
-            }
-        });
+            })
+        };
         Self {
             server_address,
-            create_task,
+            tokio_runtime,
+            connect_join_handle,
             creation_status: CreationStatus::Await(await_status),
             request_tx,
             response_rx,
             communication_status: Arc::new(AtomicCommunicationStatus::new(
                 CommunicationStatus::Creation,
             )),
+            launch_join_handle: None,
         }
     }
 
@@ -189,22 +195,20 @@ where
             CreationStatus::Ok { .. } | CreationStatus::Err(_) => return StatusChanged::False,
         };
         match await_result {
-            Ok((stream, response, notifier, request_rx, response_tx)) => {
-                self.creation_status = Self::launch(
-                    stream,
-                    notifier,
-                    request_rx,
-                    response_tx,
-                    self.communication_status.clone(),
-                )
-            }
+            Ok((stream, response, notifier, request_rx, response_tx)) => self.launch(
+                stream,
+                notifier,
+                request_rx,
+                response_tx,
+                self.communication_status.clone(),
+            ),
             Err(e) => self.creation_status = CreationStatus::Err(e),
         }
         StatusChanged::True
     }
 
-    #[tokio::main]
-    async fn launch(
+    fn launch(
+        &mut self,
         mut stream: tokio_tungstenite::WebSocketStream<
             tokio_tungstenite::MaybeTlsStream<tokio::net::TcpStream>,
         >,
@@ -212,8 +216,10 @@ where
         mut request_rx: tokio::sync::mpsc::Receiver<Request>,
         response_tx: tokio::sync::mpsc::Sender<Response>,
         communication_status: Arc<AtomicCommunicationStatus>,
-    ) -> CreationStatus<Request, Response, ResponseNotifier> {
-        tokio::spawn(async move {
+    ) {
+        todo!();
+        debug_assert!(self.launch_join_handle.is_none());
+        self.launch_join_handle = Some(self.tokio_runtime.spawn(async move {
             communication_status.store(CommunicationStatus::AwaitingRequest, ORDERING);
             while let Some(request) = request_rx.recv().await {
                 communication_status.store(CommunicationStatus::DeserializingRequest, ORDERING);
@@ -251,21 +257,32 @@ where
                     communication_status.store(CommunicationStatus::ResponseReady, ORDERING);
                 }
             }
+        }));
+        self.creation_status = CreationStatus::Ok
+    }
 
-            // When we are done we may want our client to close connection cleanly.
-            // let who = "who";
-            // println!("Sending close to {who}...");
-            // if let Err(e) = sender
-            //     .send(Message::Close(Some(CloseFrame {
-            //         code: CloseCode::Normal,
-            //         reason: Cow::from("Goodbye"),
-            //     })))
-            //     .await
-            // {
-            //     println!("Could not send Close due to {e:?}, probably it is ok?");
-            // };
-        });
-        CreationStatus::Ok
+    async fn launch_aux(
+        mut stream: tokio_tungstenite::WebSocketStream<
+            tokio_tungstenite::MaybeTlsStream<tokio::net::TcpStream>,
+        >,
+        notifier: ResponseNotifier,
+        mut request_rx: tokio::sync::mpsc::Receiver<Request>,
+        response_tx: tokio::sync::mpsc::Sender<Response>,
+        communication_status: Arc<AtomicCommunicationStatus>,
+    ) {
+
+        // When we are done we may want our client to close connection cleanly.
+        // let who = "who";
+        // println!("Sending close to {who}...");
+        // if let Err(e) = sender
+        //     .send(Message::Close(Some(CloseFrame {
+        //         code: CloseCode::Normal,
+        //         reason: Cow::from("Goodbye"),
+        //     })))
+        //     .await
+        // {
+        //     println!("Could not send Close due to {e:?}, probably it is ok?");
+        // };
     }
 }
 
