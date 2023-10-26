@@ -20,3 +20,9 @@ pub struct LazyExprTrace {
 pub enum LazyExprTraceBiologicalParent {
     LazyStmt(LazyStmtTrace),
 }
+
+impl LazyExprTrace {
+    pub fn view_data<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewData {
+        todo!()
+    }
+}

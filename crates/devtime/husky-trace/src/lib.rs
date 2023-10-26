@@ -1,3 +1,4 @@
+#![feature(trait_upcasting)]
 mod always_arrived;
 // mod can_have_subtraces;
 pub mod db;

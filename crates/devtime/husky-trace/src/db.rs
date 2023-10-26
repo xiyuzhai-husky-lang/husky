@@ -1,12 +1,14 @@
+use husky_entity_syn_tree::EntitySynTreeDb;
+
 use crate::*;
 
-pub trait TraceDb: salsa::DbWithJar<TraceJar> + VfsDb {
+pub trait TraceDb: salsa::DbWithJar<TraceJar> + EntitySynTreeDb {
     fn root_traces(&self, crate_path: CratePath) -> &[Trace];
 }
 
 impl<Db> TraceDb for Db
 where
-    Db: salsa::DbWithJar<TraceJar> + VfsDb,
+    Db: salsa::DbWithJar<TraceJar> + EntitySynTreeDb,
 {
     fn root_traces(&self, crate_path: CratePath) -> &[Trace] {
         crate::helpers::root_traces(self, crate_path).as_ref()
@@ -15,6 +17,9 @@ where
 
 #[salsa::jar(db = TraceDb)]
 pub struct TraceJar(
+    submodule_view_data,
+    submodule_contains_val_item,
+    submodule_subtraces,
     ValItemTracePath,
     ValItemTrace,
     LazyCallTracePath,

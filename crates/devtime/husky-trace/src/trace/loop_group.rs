@@ -12,3 +12,9 @@ pub struct LoopGroupTrace {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LoopGroupTraceBiologicalParent {}
+
+impl LoopGroupTracePath {
+    pub fn view_data<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewData {
+        todo!()
+    }
+}

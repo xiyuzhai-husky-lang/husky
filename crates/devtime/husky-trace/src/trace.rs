@@ -19,14 +19,19 @@ pub use self::submodule::*;
 pub use self::val_item::*;
 
 use crate::*;
+use husky_entity_kind::FugitiveKind;
+use husky_entity_path::MajorItemPath;
+use husky_entity_path::{FugitivePath, ItemPath};
 use husky_sema_expr::SemaExprIdx;
-use husky_trace_protocol::settings::TraceSettings;
+use husky_trace_protocol::{settings::TraceSettings, view::TraceViewData};
 use vec_like::VecPairMap;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = TraceDb)]
+#[enum_class::from_variants]
 pub enum Trace {
-    Module(SubmoduleTrace),
+    Submodule(SubmoduleTrace),
+    ValItem(ValItemTrace),
     LazyCall(LazyCallTrace),
     LazyExpr(LazyExprTrace),
     LazyStmt(LazyStmtTrace),
@@ -54,19 +59,52 @@ fn associated_expr_traces_size() {
 }
 
 impl Trace {
+    pub(crate) fn from_item_path(item_path: ItemPath, db: &dyn TraceDb) -> Option<Self> {
+        match item_path {
+            ItemPath::Submodule(submodule_path) => {
+                SubmoduleTrace::from_submodule_path(submodule_path, db).map(Into::into)
+            }
+            ItemPath::MajorItem(major_item_path) => Self::from_major_item_path(major_item_path, db),
+            _ => None,
+        }
+    }
+
+    pub fn from_major_item_path(major_item_path: MajorItemPath, db: &dyn TraceDb) -> Option<Self> {
+        match major_item_path {
+            MajorItemPath::Fugitive(fugitive_path) => Self::from_fugitive_path(fugitive_path, db),
+            _ => None,
+        }
+    }
+
+    pub fn from_fugitive_path(fugitive_path: FugitivePath, db: &dyn TraceDb) -> Option<Self> {
+        match fugitive_path.fugitive_kind(db) {
+            FugitiveKind::Val => Some(ValItemTrace::from_val_item_path(fugitive_path, db).into()),
+            FugitiveKind::FunctionFn | FugitiveKind::FunctionGn | FugitiveKind::AliasType => None,
+        }
+    }
+
     pub fn associated_expr_traces(self, db: &dyn TraceDb) -> Option<AssociatedExprTraces> {
         match self {
-            Trace::Module(_) => None,
-            Trace::LazyCall(_) => None,
-            Trace::LazyExpr(_) => None,
             Trace::LazyStmt(trace) => {
                 Some(AssociatedExprTraces::Lazy(trace.associated_expr_traces(db)))
             }
-            Trace::EagerCall(_) => None,
-            Trace::EagerExpr(_) => None,
             Trace::EagerStmt(trace) => Some(AssociatedExprTraces::Eager(
                 trace.associated_expr_traces(db),
             )),
+            _ => None,
+        }
+    }
+
+    pub fn view_data<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewData {
+        match self {
+            Trace::Submodule(slf) => slf.view_data(db),
+            Trace::ValItem(slf) => slf.view_data(db),
+            Trace::LazyCall(slf) => slf.view_data(db),
+            Trace::LazyExpr(slf) => slf.view_data(db),
+            Trace::LazyStmt(slf) => slf.view_data(db),
+            Trace::EagerCall(slf) => slf.view_data(db),
+            Trace::EagerExpr(slf) => slf.view_data(db),
+            Trace::EagerStmt(slf) => slf.view_data(db),
         }
     }
 
@@ -76,7 +114,8 @@ impl Trace {
         db: &'a dyn TraceDb,
     ) -> Option<Subtraces<'a>> {
         match self {
-            Trace::Module(slf) => slf.subtraces(db).map(Subtraces::Submodule),
+            Trace::Submodule(slf) => slf.subtraces(db).map(Subtraces::Submodule),
+            Trace::ValItem(_) => todo!(),
             Trace::LazyCall(slf) => slf.subtraces(db).map(Subtraces::LazyCall),
             Trace::LazyExpr(slf) => todo!(),
             Trace::LazyStmt(slf) => todo!(),

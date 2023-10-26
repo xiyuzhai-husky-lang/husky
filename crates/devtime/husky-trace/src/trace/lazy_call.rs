@@ -16,6 +16,10 @@ pub struct LazyCallTrace {
 }
 
 impl LazyCallTrace {
+    pub fn view_data<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewData {
+        todo!()
+    }
+
     pub fn subtraces(self, db: &dyn TraceDb) -> Option<&[LazyCallSubtrace]> {
         todo!()
     }
