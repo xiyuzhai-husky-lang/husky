@@ -1,6 +1,6 @@
 /// Primitives with a textual length that can be passed to [`usize::of`].
 pub trait TextBytesLen: Copy {
-    /// The textual length of this primitive.
+    /// length of bytes in this primitive.
     fn text_bytes_len(self) -> u32;
 }
 

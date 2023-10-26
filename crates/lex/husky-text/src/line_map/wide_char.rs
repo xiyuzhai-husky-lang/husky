@@ -1,12 +1,12 @@
 #[derive(Clone, Debug, Hash, PartialEq, Eq)]
-pub(crate) struct Utf16CharColRange {
+pub(crate) struct WideCharColRange {
     /// Start offset of a character inside a line, zero-based
     pub(crate) start: u32,
     /// End offset of a character inside a line, zero-based
     pub(crate) end: u32,
 }
 
-impl Utf16CharColRange {
+impl WideCharColRange {
     /// Returns the length in 8-bit UTF-8 code units.
     pub(crate) fn len(&self) -> u32 {
         self.end - self.start
