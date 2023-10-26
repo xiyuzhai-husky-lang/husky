@@ -60,7 +60,7 @@ fn render_traces<VisualComponent, Settings>(
     Settings: HasTraceViewDocSettings,
 {
     for &trace_id in trace_ids {
-        let entry = &trace_client.cache()[trace_id];
+        let entry = &trace_client.cache().unwrap()[trace_id];
         render_trace_view(entry.view_data(), ui, settings);
         if let Some(subtraces) = entry.subtraces() {
             todo!()

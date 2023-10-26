@@ -13,7 +13,7 @@ use husky_visual_protocol::{IsVisualComponent, IsVisualProtocol};
 use husky_websocket_utils::easy_server::{easy_serve, IsEasyWebsocketServer};
 
 pub struct TraceServer<Tracetime: IsTracetime> {
-    cache: TraceCache<Tracetime::VisualComponent>,
+    cache: Option<TraceCache<Tracetime::VisualComponent>>,
     actions: Vec<TraceAction>,
     tracetime: Tracetime,
     traces: TraceIdMap<Tracetime::Trace>,

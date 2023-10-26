@@ -11,25 +11,32 @@ use husky_visual_protocol::{IsVisualComponent, IsVisualProtocol};
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TraceCache<VisualComponent> {
     /// None means not set
-    root_trace_ids: Option<Vec<TraceId>>,
+    root_trace_ids: Vec<TraceId>,
     entries: Vec<TraceCacheEntry>,
     visual_components: Vec<VisualComponent>,
 }
 
-impl<VisualComponent: IsVisualComponent> Default for TraceCache<VisualComponent> {
-    fn default() -> Self {
-        Self {
-            root_trace_ids: Default::default(),
-            entries: Default::default(),
-            visual_components: Default::default(),
-        }
-    }
-}
-
 /// methods
 impl<VisualComponent: IsVisualComponent> TraceCache<VisualComponent> {
-    pub fn root_trace_ids(&self) -> Option<&[TraceId]> {
-        self.root_trace_ids.as_ref().map(|ids| ids.as_ref())
+    pub fn new(root_traces: impl Iterator<Item = (TraceId, TraceViewData)>) -> Self {
+        let mut root_trace_ids: Vec<TraceId> = vec![];
+        let mut entries: Vec<TraceCacheEntry> = vec![];
+        for (root_trace_id, view_data) in root_traces {
+            root_trace_ids.push(root_trace_id);
+            entries.push(TraceCacheEntry {
+                view_data,
+                subtraces: None,
+            })
+        }
+        Self {
+            root_trace_ids,
+            entries,
+            visual_components: vec![],
+        }
+    }
+
+    pub fn root_trace_ids(&self) -> &[TraceId] {
+        self.root_trace_ids.as_ref()
     }
 
     pub(crate) fn take_actions(&mut self, actions: Vec<TraceAction>) {
@@ -63,7 +70,7 @@ impl TraceCache<()> {
     pub fn new_mock() -> Self {
         use TokenClass::*;
         Self {
-            root_trace_ids: Some(TraceId::new_mocks([0, 1])),
+            root_trace_ids: TraceId::new_mocks([0, 1]),
             entries: vec![TraceCacheEntry {
                 view_data: TraceViewData::new_mock([
                     ("let", OtherKeyword),
