@@ -14,7 +14,6 @@ tokio-tungstenite = { workspace = true, optional = true }
 thiserror = { workspace = true, optional = true }
 # abstractions
 shifted-unsigned-int = { path = "../../abstractions/shifted-unsigned-int" }
-notify-change = { path = "../../abstractions/notify-change" }
 serde-impl = { path = "../../abstractions/serde-impl" }
 # protocols
 husky-token-protocol = { path = "../../protocols/husky-token-protocol", features = [

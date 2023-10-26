@@ -6,10 +6,10 @@
 pub mod action;
 
 use self::action::*;
-use husky_visual_protocol::{IsVisual, IsVisualProtocol};
+use husky_visual_protocol::{IsVisual, IsVisualComponent, IsVisualProtocol};
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct DanielJacksonVisualProtocol;
 
 impl IsVisualProtocol for DanielJacksonVisualProtocol {
@@ -25,6 +25,8 @@ pub enum DanielJacksonVisualComponent {
     Mesh2d,
     Mesh3d,
 }
+
+impl IsVisualComponent for DanielJacksonVisualComponent {}
 
 pub enum DanielJacksonVisual {
     Text,

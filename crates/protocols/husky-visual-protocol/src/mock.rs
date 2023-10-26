@@ -1,6 +1,6 @@
 use crate::*;
 
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct MockVisualProtocol {}
 
 impl IsVisualProtocol for MockVisualProtocol {

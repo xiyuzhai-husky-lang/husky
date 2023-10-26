@@ -5,18 +5,18 @@ use crate::{
 use husky_token_protocol::TokenClass;
 #[cfg(feature = "mock")]
 use husky_visual_protocol::mock::MockVisualProtocol;
-use husky_visual_protocol::{IsVisualProtocol, VisualComponent};
+use husky_visual_protocol::{IsVisualComponent, IsVisualProtocol};
 
 /// synced across server and client
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub struct TraceCache<VisualProtocol: IsVisualProtocol> {
+pub struct TraceCache<VisualComponent> {
     /// None means not set
     root_trace_ids: Option<TraceIdRange>,
     entries: Vec<TraceCacheEntry>,
-    visual_components: Vec<VisualComponent<VisualProtocol>>,
+    visual_components: Vec<VisualComponent>,
 }
 
-impl<VisualProtocol: IsVisualProtocol> Default for TraceCache<VisualProtocol> {
+impl<VisualComponent: IsVisualComponent> Default for TraceCache<VisualComponent> {
     fn default() -> Self {
         Self {
             root_trace_ids: Default::default(),
@@ -27,7 +27,7 @@ impl<VisualProtocol: IsVisualProtocol> Default for TraceCache<VisualProtocol> {
 }
 
 /// methods
-impl<VisualProtocol: IsVisualProtocol> TraceCache<VisualProtocol> {
+impl<VisualComponent: IsVisualComponent> TraceCache<VisualComponent> {
     pub fn root_trace_ids(&self) -> Option<TraceIdRange> {
         self.root_trace_ids
     }
@@ -58,8 +58,8 @@ impl TraceCacheEntry {
     }
 }
 
-impl<VisualProtocol: IsVisualProtocol> std::ops::Index<TraceIdRange>
-    for TraceCache<VisualProtocol>
+impl<VisualComponent: IsVisualComponent> std::ops::Index<TraceIdRange>
+    for TraceCache<VisualComponent>
 {
     type Output = [TraceCacheEntry];
 
@@ -69,7 +69,7 @@ impl<VisualProtocol: IsVisualProtocol> std::ops::Index<TraceIdRange>
 }
 
 #[cfg(feature = "mock")]
-impl TraceCache<MockVisualProtocol> {
+impl TraceCache<()> {
     pub fn new_mock() -> Self {
         use TokenClass::*;
         Self {

@@ -5,11 +5,11 @@ use crate::{
     view::TraceViewData,
     *,
 };
-use husky_visual_protocol::IsVisualProtocol;
+use husky_visual_protocol::{IsVisualComponent, IsVisualProtocol};
 use husky_websocket_utils::easy_server::{easy_serve, IsEasyWebsocketServer};
 
 pub struct TraceServer<Tracetime: IsTracetime> {
-    cache: TraceCache<Tracetime::VisualProtocol>,
+    cache: TraceCache<Tracetime::VisualComponent>,
     actions: Vec<TraceAction>,
     tracetime: Tracetime,
     traces: Vec<Tracetime::Trace>,
@@ -41,7 +41,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
 }
 
 impl<Tracetime: IsTracetime> IsEasyWebsocketServer for TraceServer<Tracetime> {
-    type Response = TraceResponse<Tracetime::VisualProtocol>;
+    type Response = TraceResponse<Tracetime::VisualComponent>;
 
     type Request = TraceRequest;
 
@@ -57,7 +57,7 @@ impl<Tracetime: IsTracetime> IsEasyWebsocketServer for TraceServer<Tracetime> {
 pub trait IsTracetime: Send + 'static + Sized {
     type Trace: Send + Copy;
 
-    type VisualProtocol: IsVisualProtocol;
+    type VisualComponent: IsVisualComponent;
 
     type SerdeImpl: serde_impl::IsSerdeImpl;
 

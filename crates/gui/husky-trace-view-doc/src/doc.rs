@@ -11,26 +11,22 @@ use husky_trace_protocol::{
 };
 #[cfg(feature = "mock")]
 use husky_visual_protocol::mock::MockVisualProtocol;
-use husky_visual_protocol::IsVisualProtocol;
-use notify_change::NotifyEvent;
+use husky_visual_protocol::IsVisualComponent;
 use ui::IsUiComponent;
 
-pub struct TraceViewDoc<VisualProtocol, RepaintSignal>
+pub struct TraceViewDoc<VisualComponent>
 where
-    VisualProtocol: IsVisualProtocol,
-    RepaintSignal: NotifyEvent,
+    VisualComponent: IsVisualComponent,
 {
-    trace_client: TraceClient<VisualProtocol, RepaintSignal>,
+    trace_client: TraceClient<VisualComponent>,
     action_buffer: TraceViewActionBuffer,
 }
 
 #[cfg(feature = "egui")]
-impl<VisualProtocol, RepaintSignal, Settings, UiActionBuffer>
-    IsUiComponent<egui::Ui, Settings, UiActionBuffer>
-    for TraceViewDoc<VisualProtocol, RepaintSignal>
+impl<VisualComponent, Settings, UiActionBuffer> IsUiComponent<egui::Ui, Settings, UiActionBuffer>
+    for TraceViewDoc<VisualComponent>
 where
-    VisualProtocol: IsVisualProtocol,
-    RepaintSignal: NotifyEvent,
+    VisualComponent: IsVisualComponent,
     Settings: HasTraceViewDocSettings,
 {
     fn render(
@@ -39,6 +35,7 @@ where
         settings: &mut Settings,
         action_buffer: &mut UiActionBuffer,
     ) {
+        self.trace_client.refresh();
         ui.end_row();
         // ui.label(text)
         let trace_client = &self.trace_client;
@@ -53,14 +50,13 @@ where
     }
 }
 
-fn render_traces<VisualProtocol, RepaintSignal, Settings>(
-    trace_client: &TraceClient<VisualProtocol, RepaintSignal>,
+fn render_traces<VisualComponent, Settings>(
+    trace_client: &TraceClient<VisualComponent>,
     trace_id_range: TraceIdRange,
     ui: &mut egui::Ui,
     settings: &Settings,
 ) where
-    VisualProtocol: IsVisualProtocol,
-    RepaintSignal: NotifyEvent,
+    VisualComponent: IsVisualComponent,
     Settings: HasTraceViewDocSettings,
 {
     for trace_entry in &trace_client[trace_id_range] {
@@ -88,10 +84,10 @@ fn render_trace_view<Settings: HasTraceViewDocSettings>(
 }
 
 #[cfg(feature = "mock")]
-pub type MockTraceViewDoc = TraceViewDoc<MockVisualProtocol, ()>;
+pub type MockTraceViewDoc = TraceViewDoc<()>;
 
 #[cfg(feature = "mock")]
-impl TraceViewDoc<MockVisualProtocol, ()> {
+impl TraceViewDoc<()> {
     pub fn new_mock(tokio_runtime: Arc<tokio::runtime::Runtime>) -> Self {
         Self {
             trace_client: TraceClient::new_mock(tokio_runtime),
