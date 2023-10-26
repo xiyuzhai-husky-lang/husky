@@ -20,3 +20,9 @@ pub enum EagerCallTraceBiologicalParent {
     EagerExpr(EagerExprTrace),
     LazyExpr(LazyExprTrace),
 }
+
+impl EagerCallTrace {
+    pub fn view_data<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewData {
+        todo!()
+    }
+}

@@ -22,6 +22,7 @@ impl<VisualComponent: IsVisualComponent> TraceCache<VisualComponent> {
         let mut root_trace_ids: Vec<TraceId> = vec![];
         let mut entries: Vec<TraceCacheEntry> = vec![];
         for (root_trace_id, view_data) in root_traces {
+            debug_assert_eq!(root_trace_ids.len(), root_trace_id.index());
             root_trace_ids.push(root_trace_id);
             entries.push(TraceCacheEntry {
                 view_data,
@@ -74,16 +75,28 @@ impl TraceCache<()> {
         use TokenClass::*;
         Self {
             root_trace_ids: TraceId::new_mocks([0, 1]),
-            entries: vec![TraceCacheEntry {
-                view_data: TraceViewData::new_mock([
-                    ("let", OtherKeyword),
-                    ("a", Variable),
-                    ("=", Punctuation),
-                    ("x", Parameter),
-                ]),
-                subtraces: None,
-                associated_traces: None,
-            }],
+            entries: vec![
+                TraceCacheEntry {
+                    view_data: TraceViewData::new_mock([
+                        ("let", OtherKeyword),
+                        ("a", Variable),
+                        ("=", Punctuation),
+                        ("x", Parameter),
+                    ]),
+                    subtraces: None,
+                    associated_traces: None,
+                },
+                TraceCacheEntry {
+                    view_data: TraceViewData::new_mock([
+                        ("let", OtherKeyword),
+                        ("b", Variable),
+                        ("=", Punctuation),
+                        ("y", Parameter),
+                    ]),
+                    subtraces: None,
+                    associated_traces: None,
+                },
+            ],
             visual_components: vec![],
         }
     }

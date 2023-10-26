@@ -9,6 +9,7 @@ serde_json.workspace = true
 # abstractions
 salsa = { path = "../../abstractions/salsa" }
 vec-like = { path = "../../abstractions/vec-like" }
+enum-class = { path = "../../abstractions/enum-class" }
 # devtime
 husky-trace-protocol-old = { path = "../../devtime/husky-trace-protocol-old" }
 # fs
@@ -33,6 +34,7 @@ husky-ast = { path = "../../syntax/husky-ast" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
 husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
+husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 # semantics
 husky-sema-expr = { path = "../../semantics/husky-sema-expr" }
 # utils

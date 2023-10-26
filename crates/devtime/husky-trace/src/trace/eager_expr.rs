@@ -20,3 +20,9 @@ pub struct EagerExprTrace {
 pub enum EagerExprTraceBiologicalParent {
     EagerStmt(EagerStmtTrace),
 }
+
+impl EagerExprTrace {
+    pub fn view_data<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewData {
+        todo!()
+    }
+}

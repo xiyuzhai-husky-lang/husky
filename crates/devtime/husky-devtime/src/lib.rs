@@ -86,7 +86,7 @@ where
         &self,
         trace: Self::Trace,
     ) -> &husky_trace_protocol::view::TraceViewData {
-        todo!()
+        trace.view_data(self.db())
     }
 }
 

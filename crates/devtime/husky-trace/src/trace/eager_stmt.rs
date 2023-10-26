@@ -23,6 +23,10 @@ pub struct EagerStmtTrace {
 }
 
 impl EagerStmtTrace {
+    pub fn view_data<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewData {
+        todo!()
+    }
+
     pub fn associated_expr_traces<'a>(
         self,
         db: &'a dyn TraceDb,
