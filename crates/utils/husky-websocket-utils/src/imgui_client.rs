@@ -122,7 +122,7 @@ pub trait NeedResponse {
 #[cfg(feature = "serde_json")]
 impl<Request, Response> ImmediateWebsocketClientConnection<Request, Response>
 where
-    Request: serde::Serialize + Send + 'static + NeedResponse,
+    Request: serde::Serialize + Send + 'static + NeedResponse + Default,
     Response: for<'a> serde::Deserialize<'a> + Send + 'static,
 {
     pub fn try_send_request(
@@ -227,7 +227,7 @@ where
                                 Message::Close(_) => todo!(),
                                 Message::Frame(_) => todo!(),
                             },
-                            Err(_) => todo!(),
+                            Err(e) => todo!("e = {e}"),
                         },
                         None => todo!(),
                     }
@@ -235,6 +235,10 @@ where
                 }
             }
         }));
+        match self.request_tx.blocking_send(Request::default()) {
+            Ok(_) => (),
+            Err(e) => todo!("e = {e}"),
+        };
         self.creation_status = CreationStatus::Ok
     }
 

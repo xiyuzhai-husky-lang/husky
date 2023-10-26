@@ -9,9 +9,17 @@ pub enum TraceRequest {
     Init,
 }
 
+impl Default for TraceRequest {
+    fn default() -> Self {
+        TraceRequest::Init
+    }
+}
+
 #[cfg(feature = "client")]
 impl NeedResponse for TraceRequest {
     fn need_response(&self) -> bool {
-        todo!()
+        match self {
+            TraceRequest::Init => true,
+        }
     }
 }
