@@ -31,8 +31,8 @@ fn token_to_semantic_token(
 ) -> Option<SemanticToken> {
     Some(SemanticToken {
         token_class: match info {
-            Some(info) => info.data().semantic_token_kind(db),
-            None => token_data.default_protocol(),
+            Some(info) => info.data().token_class(db),
+            None => token_data.default_token_class(),
         },
         range: *range,
     })

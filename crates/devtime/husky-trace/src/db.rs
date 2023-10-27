@@ -19,11 +19,12 @@ where
 
 #[salsa::jar(db = TraceDb)]
 pub struct TraceJar(
-    submodule_view_data,
+    submodule_view_tokens,
     submodule_contains_val_item,
     submodule_subtraces,
     ValItemTracePath,
     ValItemTrace,
+    val_item_view_tokens,
     LazyCallTracePath,
     LazyCallTrace,
     LazyExprTracePath,

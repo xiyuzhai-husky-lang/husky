@@ -54,6 +54,10 @@ impl SubmodulePath {
     pub fn inner(self) -> ModulePath {
         self.0
     }
+
+    pub fn parent(self, db: &dyn VfsDb) -> ModulePath {
+        self.0.parent(db).unwrap()
+    }
 }
 
 impl From<SubmodulePath> for ModulePath {

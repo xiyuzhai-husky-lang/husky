@@ -22,7 +22,7 @@ pub enum EagerExprTraceBiologicalParent {
 }
 
 impl EagerExprTrace {
-    pub fn view_data<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewData {
+    pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
         todo!()
     }
 }

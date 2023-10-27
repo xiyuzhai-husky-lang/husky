@@ -42,12 +42,11 @@ impl<'a> SheetDiagnosticsContext<'a> {
     }
 
     pub(crate) fn token_idx_text_range(&self, token_idx: TokenIdx) -> TextRange {
-        self.ranged_token_sheet.token_idx_text_range(token_idx)
+        self.ranged_token_sheet.token_text_range(token_idx)
     }
 
     pub(crate) fn token_idx_range_text_range(&self, token_idx_range: TokenIdxRange) -> TextRange {
-        self.ranged_token_sheet
-            .token_idx_range_text_range(token_idx_range)
+        self.ranged_token_sheet.tokens_text_range(token_idx_range)
     }
 
     pub(crate) fn token_stream_state_text_range(
@@ -150,16 +149,16 @@ impl<'a> RegionDiagnosticsContext<'a> {
         assert!(token_idx_range.start().token_idx() < token_idx_range.end().token_idx());
         let first = self
             .ranged_token_sheet
-            .token_idx_text_range(token_idx_range.start().token_idx());
+            .token_text_range(token_idx_range.start().token_idx());
         let last = self
             .ranged_token_sheet
-            .token_idx_text_range(token_idx_range.end().token_idx() - 1);
+            .token_text_range(token_idx_range.end().token_idx() - 1);
         first.join(last)
     }
 
     pub(crate) fn token_text_range(&self, regional_token_idx: RegionalTokenIdx) -> TextRange {
         self.ranged_token_sheet()
-            .token_idx_text_range(regional_token_idx.token_idx(self.regional_token_idx_base))
+            .token_text_range(regional_token_idx.token_idx(self.regional_token_idx_base))
     }
 
     pub(crate) fn token_stream_state_text_range(

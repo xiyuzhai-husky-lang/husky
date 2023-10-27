@@ -93,5 +93,5 @@ pub trait IsTracetime: Send + 'static + Sized {
 
     fn get_subtraces(&self, trace: Self::Trace) -> &[Self::Trace];
 
-    fn get_trace_view_data(&self, trace: Self::Trace) -> &TraceViewData;
+    fn get_trace_view_data(&self, trace: Self::Trace) -> TraceViewData;
 }

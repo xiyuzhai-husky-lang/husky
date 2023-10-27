@@ -36,8 +36,9 @@ impl SubmoduleTrace {
         Some(Self { submodule_path })
     }
 
-    pub fn view_data<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewData {
-        submodule_view_data(db, self)
+    pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
+        let tokens = submodule_view_tokens(db, self);
+        TraceViewData::new(tokens.data().to_vec())
     }
 
     pub fn subtraces(self, db: &dyn TraceDb) -> Option<&[SubmoduleSubtrace]> {
@@ -46,12 +47,17 @@ impl SubmoduleTrace {
 }
 
 #[salsa::tracked(jar = TraceJar, return_ref)]
-pub(crate) fn submodule_view_data(
+pub(crate) fn submodule_view_tokens(
     db: &dyn TraceDb,
     submodule_trace: SubmoduleTrace,
-) -> TraceViewData {
-    let tokens_data = todo!();
-    TraceViewData::new(tokens_data)
+) -> TraceViewTokens {
+    use husky_entity_syn_tree::helpers::tokra_region::HasDeclTokraRegion;
+    use husky_entity_syn_tree::HasSynNodePath;
+    let submodule_path = submodule_trace.submodule_path;
+    let token_idx_range = submodule_path
+        .syn_node_path(db)
+        .decl_tokra_region_token_idx_range(db);
+    TraceViewTokens::new(submodule_path.parent(db), token_idx_range, db)
 }
 
 #[salsa::tracked(jar = TraceJar, return_ref)]

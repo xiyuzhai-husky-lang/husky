@@ -1,3 +1,4 @@
+#![feature(step_trait)]
 #![feature(trait_upcasting)]
 #![feature(const_trait_impl)]
 mod db;

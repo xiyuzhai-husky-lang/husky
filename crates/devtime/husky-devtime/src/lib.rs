@@ -82,10 +82,7 @@ where
         todo!()
     }
 
-    fn get_trace_view_data(
-        &self,
-        trace: Self::Trace,
-    ) -> &husky_trace_protocol::view::TraceViewData {
+    fn get_trace_view_data(&self, trace: Self::Trace) -> husky_trace_protocol::view::TraceViewData {
         trace.view_data(self.db())
     }
 }

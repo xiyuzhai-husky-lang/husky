@@ -35,7 +35,7 @@ pub enum TokenData {
 #[cfg(feature = "protocol_support")]
 impl TokenData {
     // overridable given more information
-    pub fn default_protocol(self) -> TokenClass {
+    pub fn default_token_class(self) -> TokenClass {
         match self {
             TokenData::Keyword(kw) => kw.class().into(),
             TokenData::Punctuation(_) => TokenClass::Punctuation,
