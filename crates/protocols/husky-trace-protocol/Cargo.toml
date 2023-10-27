@@ -12,6 +12,7 @@ serde.workspace = true
 tokio = { workspace = true, optional = true }
 tokio-tungstenite = { workspace = true, optional = true }
 thiserror = { workspace = true, optional = true }
+smallvec.workspace = true
 # abstractions
 shifted-unsigned-int = { path = "../../abstractions/shifted-unsigned-int" }
 serde-impl = { path = "../../abstractions/serde-impl" }

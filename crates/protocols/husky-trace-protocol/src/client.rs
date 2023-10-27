@@ -4,7 +4,7 @@ pub mod mock;
 use std::sync::Arc;
 
 use self::error::*;
-use crate::{message::*, *};
+use crate::{message::*, view::action::TraceViewAction, *};
 #[cfg(feature = "mock")]
 use husky_visual_protocol::IsVisualProtocol;
 use husky_visual_protocol::{mock::MockVisualProtocol, IsVisualComponent};
@@ -40,6 +40,10 @@ where
         let Some(response) = self.connection.try_recv() else {
             return;
         };
+        self.accept_response(response);
+    }
+
+    fn accept_response(&mut self, response: TraceResponse<VisualComponent>) {
         match response {
             TraceResponse::Init { cache } => {
                 debug_assert!(self.cache.is_none());
@@ -58,5 +62,11 @@ where
 
     pub fn cache(&self) -> Option<&TraceCache<VisualComponent>> {
         self.cache.as_ref()
+    }
+
+    pub fn take_action(&mut self, action: TraceViewAction) {
+        match action {
+            TraceViewAction::ToggleExpansion { trace_id } => todo!(),
+        }
     }
 }
