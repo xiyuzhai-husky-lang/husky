@@ -147,6 +147,7 @@ where
     }
 
     pub fn try_recv(&mut self) -> Option<Response> {
+        self.refresh();
         match self.communication_status.load(ORDERING) {
             CommunicationStatus::Creation
             | CommunicationStatus::AwaitingRequest
@@ -157,7 +158,7 @@ where
         }
     }
 
-    pub fn refresh(&mut self) -> StatusChanged {
+    fn refresh(&mut self) -> StatusChanged {
         let await_result = match self.creation_status {
             CreationStatus::Await(ref await_status) => match std::mem::replace(
                 &mut *await_status.lock().unwrap(),

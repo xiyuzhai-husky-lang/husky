@@ -35,7 +35,7 @@ where
         settings: &mut Settings,
         action_buffer: &mut UiActionBuffer,
     ) {
-        self.trace_client.refresh();
+        self.trace_client.update();
         ui.end_row();
         // ui.label(text)
         let trace_client = &self.trace_client;
