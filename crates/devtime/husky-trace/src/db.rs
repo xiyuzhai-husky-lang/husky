@@ -21,7 +21,7 @@ where
 pub struct TraceJar(
     submodule_view_tokens,
     submodule_contains_val_item,
-    submodule_subtraces,
+    submodule_trace_subtraces,
     ValItemTracePath,
     ValItemTrace,
     val_item_view_tokens,
