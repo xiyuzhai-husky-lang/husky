@@ -42,7 +42,7 @@ impl SubmoduleTrace {
     }
 
     pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
-        todo!()
+        submodule_trace_subtraces(db, self)
     }
 }
 
@@ -61,11 +61,17 @@ pub(crate) fn submodule_view_tokens(
 }
 
 #[salsa::tracked(jar = TraceJar, return_ref)]
-pub(crate) fn submodule_subtraces(
+pub(crate) fn submodule_trace_subtraces(
     db: &dyn TraceDb,
     submodule_trace: SubmoduleTrace,
-) -> Vec<SubmoduleSubtrace> {
-    todo!()
+) -> Vec<Trace> {
+    let Ok(item_paths) = module_item_paths(db, submodule_trace.submodule_path.inner()) else {
+        unreachable!("module path should be guaranteed to be valid")
+    };
+    item_paths
+        .iter()
+        .filter_map(|&item_path| Trace::from_item_path(item_path, db))
+        .collect()
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
