@@ -154,7 +154,12 @@ where
             | CommunicationStatus::DeserializingRequest
             | CommunicationStatus::AwaitingResponse
             | CommunicationStatus::SerializingResponse => None,
-            CommunicationStatus::ResponseReady => self.response_rx.blocking_recv(),
+            CommunicationStatus::ResponseReady => {
+                let response = self.response_rx.blocking_recv();
+                self.communication_status
+                    .store(CommunicationStatus::AwaitingRequest, ORDERING);
+                response
+            }
         }
     }
 

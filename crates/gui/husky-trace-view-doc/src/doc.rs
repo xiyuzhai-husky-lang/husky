@@ -112,10 +112,7 @@ fn render_trace_view<VisualComponent, Settings: HasTraceViewDocSettings>(
     let token_foreground_colors = settings.code_editor_settings().token_foreground_colors();
     ui.horizontal(|ui| {
         if ui.button("+").clicked() {
-            // std::process::exit(1);
-            // todo!();
-            // println!("ui button clicked");
-            // action_buffer.push(TraceViewAction::ToggleExpansion { trace_id })
+            action_buffer.push(TraceViewAction::ToggleExpansion { trace_id })
         };
         for token_data in trace_view_data.tokens_data() {
             ui.label(
