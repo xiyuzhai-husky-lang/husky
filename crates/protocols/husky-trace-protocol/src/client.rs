@@ -64,9 +64,10 @@ where
         self.cache.as_ref()
     }
 
-    pub fn take_action(&mut self, action: TraceViewAction) {
+    pub fn take_action(&mut self, action: TraceViewAction<VisualComponent>) {
         match action {
             TraceViewAction::ToggleExpansion { trace_id } => todo!(),
+            TraceViewAction::Marker { _marker } => todo!(),
         }
     }
 }
