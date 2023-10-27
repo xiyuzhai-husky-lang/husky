@@ -3,8 +3,9 @@ use super::*;
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[enum_class::from_variants]
 pub enum TraceCacheAction<VisualComponent> {
-    NewTrace(TraceCacheActionNewTrace),
-    ToggleExpansion(TraceCacheActionToggleExpansion),
+    NewTrace(TraceCacheNewTrace),
+    ToggleExpansion(TraceCacheToggleExpansion),
+    SetSubtraces(TraceCacheSetSubtraces),
     Phantom(TraceCacheActionVisualComponent<VisualComponent>),
 }
 
@@ -26,8 +27,9 @@ where
     fn act(&self, cache: &mut TraceCache<VisualComponent>) -> Self::Outcome {
         match self {
             TraceCacheAction::NewTrace(action) => action.act(cache),
-            TraceCacheAction::Phantom(action) => action.act(cache),
             TraceCacheAction::ToggleExpansion(action) => action.act(cache),
+            TraceCacheAction::SetSubtraces(action) => action.act(cache),
+            TraceCacheAction::Phantom(action) => action.act(cache),
         }
     }
 }
@@ -45,7 +47,10 @@ where
         outcome
     }
 
-    pub(crate) fn take_actions(&mut self, actions: Vec<TraceCacheAction<VisualComponent>>) {
+    pub(crate) fn take_actions(
+        &mut self,
+        actions: impl IntoIterator<Item = TraceCacheAction<VisualComponent>>,
+    ) {
         for action in actions {
             self.take_action(action)
         }
@@ -53,12 +58,21 @@ where
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub struct TraceCacheActionNewTrace {
+pub struct TraceCacheNewTrace {
     trace_id: TraceId,
     view_data: TraceViewData,
 }
 
-impl<VisualComponent> IsTraceCacheAction<VisualComponent> for TraceCacheActionNewTrace
+impl TraceCacheNewTrace {
+    pub fn new(trace_id: TraceId, view_data: TraceViewData) -> Self {
+        Self {
+            trace_id,
+            view_data,
+        }
+    }
+}
+
+impl<VisualComponent> IsTraceCacheAction<VisualComponent> for TraceCacheNewTrace
 where
     VisualComponent: IsVisualComponent,
 {
@@ -90,17 +104,17 @@ where
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub struct TraceCacheActionToggleExpansion {
+pub struct TraceCacheToggleExpansion {
     trace_id: TraceId,
 }
 
-impl TraceCacheActionToggleExpansion {
+impl TraceCacheToggleExpansion {
     pub fn new(trace_id: TraceId) -> Self {
         Self { trace_id }
     }
 }
 
-impl<VisualComponent> IsTraceCacheAction<VisualComponent> for TraceCacheActionToggleExpansion
+impl<VisualComponent> IsTraceCacheAction<VisualComponent> for TraceCacheToggleExpansion
 where
     VisualComponent: IsVisualComponent,
 {
@@ -108,5 +122,31 @@ where
 
     fn act(&self, cache: &mut TraceCache<VisualComponent>) -> Self::Outcome {
         cache[self.trace_id].toggle_expansion()
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct TraceCacheSetSubtraces {
+    trace_id: TraceId,
+    subtrace_ids: Vec<TraceId>,
+}
+
+impl TraceCacheSetSubtraces {
+    pub fn new(trace_id: TraceId, subtrace_ids: Vec<TraceId>) -> Self {
+        Self {
+            trace_id,
+            subtrace_ids,
+        }
+    }
+}
+
+impl<VisualComponent> IsTraceCacheAction<VisualComponent> for TraceCacheSetSubtraces
+where
+    VisualComponent: IsVisualComponent,
+{
+    type Outcome = ();
+
+    fn act(&self, cache: &mut TraceCache<VisualComponent>) -> Self::Outcome {
+        cache[self.trace_id].set_subtraces(self.subtrace_ids.clone())
     }
 }

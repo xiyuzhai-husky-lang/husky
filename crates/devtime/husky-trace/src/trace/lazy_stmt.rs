@@ -27,10 +27,7 @@ impl LazyStmtTrace {
         todo!()
     }
 
-    pub fn associated_expr_traces<'a>(
-        self,
-        db: &'a dyn TraceDb,
-    ) -> &'a [(SemaExprIdx, LazyExprTrace)] {
+    pub fn associated_expr_traces<'a>(self, db: &'a dyn TraceDb) -> &'a [(SemaExprIdx, Trace)] {
         lazy_stmt_associated_expr_traces(db, self)
     }
 }
@@ -39,6 +36,6 @@ impl LazyStmtTrace {
 fn lazy_stmt_associated_expr_traces(
     db: &dyn TraceDb,
     trace: LazyStmtTrace,
-) -> VecPairMap<SemaExprIdx, LazyExprTrace> {
+) -> VecPairMap<SemaExprIdx, Trace> {
     todo!()
 }

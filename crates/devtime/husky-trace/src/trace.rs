@@ -40,24 +40,6 @@ pub enum Trace {
     EagerStmt(EagerStmtTrace),
 }
 
-pub enum AssociatedExprTraces<'a> {
-    Eager(&'a [(SemaExprIdx, EagerExprTrace)]),
-    Lazy(&'a [(SemaExprIdx, LazyExprTrace)]),
-}
-
-pub enum Subtraces<'a> {
-    Submodule(&'a [SubmoduleSubtrace]),
-    LazyCall(&'a [LazyCallSubtrace]),
-}
-
-#[test]
-fn associated_expr_traces_size() {
-    assert_eq!(
-        std::mem::size_of::<Option<AssociatedExprTraces>>(),
-        std::mem::size_of::<AssociatedExprTraces>()
-    )
-}
-
 impl Trace {
     pub(crate) fn from_item_path(item_path: ItemPath, db: &dyn TraceDb) -> Option<Self> {
         match item_path {
@@ -83,14 +65,13 @@ impl Trace {
         }
     }
 
-    pub fn associated_expr_traces(self, db: &dyn TraceDb) -> Option<AssociatedExprTraces> {
+    pub fn associated_expr_traces<'a>(
+        self,
+        db: &'a dyn TraceDb,
+    ) -> Option<&'a [(SemaExprIdx, Trace)]> {
         match self {
-            Trace::LazyStmt(trace) => {
-                Some(AssociatedExprTraces::Lazy(trace.associated_expr_traces(db)))
-            }
-            Trace::EagerStmt(trace) => Some(AssociatedExprTraces::Eager(
-                trace.associated_expr_traces(db),
-            )),
+            Trace::LazyStmt(trace) => Some(trace.associated_expr_traces(db)),
+            Trace::EagerStmt(trace) => Some(trace.associated_expr_traces(db)),
             _ => None,
         }
     }
@@ -108,15 +89,11 @@ impl Trace {
         }
     }
 
-    pub fn subtraces<'a>(
-        self,
-        settings: &TraceSettings,
-        db: &'a dyn TraceDb,
-    ) -> Option<Subtraces<'a>> {
+    pub fn subtraces<'a>(self, db: &'a dyn TraceDb) -> &'a [Trace] {
         match self {
-            Trace::Submodule(slf) => slf.subtraces(db).map(Subtraces::Submodule),
+            Trace::Submodule(slf) => slf.subtraces(db),
             Trace::ValItem(_) => todo!(),
-            Trace::LazyCall(slf) => slf.subtraces(db).map(Subtraces::LazyCall),
+            Trace::LazyCall(slf) => slf.subtraces(db),
             Trace::LazyExpr(slf) => todo!(),
             Trace::LazyStmt(slf) => todo!(),
             Trace::EagerCall(slf) => todo!(),

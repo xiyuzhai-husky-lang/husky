@@ -41,7 +41,7 @@ impl SubmoduleTrace {
         TraceViewData::new(tokens.data().to_vec())
     }
 
-    pub fn subtraces(self, db: &dyn TraceDb) -> Option<&[SubmoduleSubtrace]> {
+    pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
         todo!()
     }
 }

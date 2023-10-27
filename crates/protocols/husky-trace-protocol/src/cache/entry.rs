@@ -4,7 +4,7 @@ use super::*;
 pub struct TraceCacheEntry {
     view_data: TraceViewData,
     /// None means not calculated
-    subtraces: Option<Vec<TraceId>>,
+    subtrace_ids: Option<Vec<TraceId>>,
     /// None means not calculated
     associated_traces: Option<Vec<TraceId>>,
     expanded: bool,
@@ -14,7 +14,7 @@ impl TraceCacheEntry {
     pub fn new(view_data: TraceViewData) -> Self {
         Self {
             view_data,
-            subtraces: None,
+            subtrace_ids: None,
             associated_traces: None,
             expanded: false,
         }
@@ -25,7 +25,7 @@ impl TraceCacheEntry {
     }
 
     pub fn subtraces(&self) -> Option<&[TraceId]> {
-        self.subtraces.as_ref().map(|ids| ids.as_ref())
+        self.subtrace_ids.as_ref().map(|ids| ids.as_ref())
     }
 
     pub fn expanded(&self) -> bool {
@@ -34,5 +34,10 @@ impl TraceCacheEntry {
 
     pub(super) fn toggle_expansion(&mut self) {
         self.expanded = !self.expanded
+    }
+
+    pub(crate) fn set_subtraces(&mut self, subtrace_ids: Vec<TraceId>) {
+        assert!(self.subtrace_ids.is_none());
+        self.subtrace_ids = Some(subtrace_ids)
     }
 }
