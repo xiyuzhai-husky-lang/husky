@@ -38,6 +38,7 @@ where
         self.trace_client.update();
         self.render(ui, settings);
         for action in self.action_buffer.take_actions() {
+            println!("take action {action:?} from buffer");
             self.trace_client.take_action(action)
         }
     }
@@ -111,7 +112,10 @@ fn render_trace_view<VisualComponent, Settings: HasTraceViewDocSettings>(
     let token_foreground_colors = settings.code_editor_settings().token_foreground_colors();
     ui.horizontal(|ui| {
         if ui.button("+").clicked() {
-            action_buffer.push(TraceViewAction::ToggleExpansion { trace_id })
+            // std::process::exit(1);
+            // todo!();
+            // println!("ui button clicked");
+            // action_buffer.push(TraceViewAction::ToggleExpansion { trace_id })
         };
         for token_data in trace_view_data.tokens_data() {
             ui.label(
