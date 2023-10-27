@@ -95,7 +95,7 @@ impl Trace {
         }
     }
 
-    pub fn view_data<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewData {
+    pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
         match self {
             Trace::Submodule(slf) => slf.view_data(db),
             Trace::ValItem(slf) => slf.view_data(db),

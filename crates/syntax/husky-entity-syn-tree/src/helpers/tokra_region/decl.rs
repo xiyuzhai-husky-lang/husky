@@ -1,6 +1,6 @@
 use super::*;
 use husky_decl_ast::DeclAst;
-use husky_token::{TokenGroupIdx, TokenSheetData};
+use husky_token::{TokenGroupIdx, TokenIdxRange, TokenSheetData};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct DeclTokraRegionSourceMap {
@@ -140,6 +140,21 @@ pub trait HasDeclTokraRegion:
     fn decl_regional_token_idx_base(self, db: &dyn EntitySynTreeDb) -> RegionalTokenIdxBase {
         self.decl_tokra_region_source_map(db)
             .regional_token_idx_base
+    }
+
+    fn decl_tokra_region_token_idx_range(self, db: &dyn EntitySynTreeDb) -> TokenIdxRange {
+        let decl_tokra_region = self.decl_tokra_region(db);
+        let decl_tokra_region_source_map = self.decl_tokra_region_source_map(db);
+        let start = decl_tokra_region_source_map
+            .regional_token_idx_base
+            .index_base();
+        let end = start + decl_tokra_region.tokens_data(db).len();
+        unsafe {
+            TokenIdxRange::new(
+                TokenIdx::from_usize_index_ext(start),
+                TokenIdx::from_usize_index_ext(end),
+            )
+        }
     }
 }
 

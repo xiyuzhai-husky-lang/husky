@@ -1,9 +1,43 @@
+use std::iter::Step;
+
 use crate::*;
 
 #[derive(Hash, PartialOrd, Ord, PartialEq, Eq, Clone, Copy)]
 pub struct TokenIdxRange {
     start: TokenIdxRangeStart,
     end: TokenIdxRangeEnd,
+}
+
+impl IntoIterator for TokenIdxRange {
+    type Item = TokenIdx;
+
+    type IntoIter = <core::ops::Range<TokenIdx> as IntoIterator>::IntoIter;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.to_range().clone().into_iter()
+    }
+}
+
+impl Step for TokenIdx {
+    fn steps_between(start: &Self, end: &Self) -> Option<usize> {
+        if start.index() <= end.index() {
+            Some(end.index() - start.index())
+        } else {
+            None
+        }
+    }
+
+    fn forward_checked(start: Self, count: usize) -> Option<Self> {
+        Some(start + count)
+    }
+
+    fn backward_checked(start: Self, count: usize) -> Option<Self> {
+        if start.index() >= count {
+            Some(start - count)
+        } else {
+            None
+        }
+    }
 }
 
 impl TokenIdxRange {
@@ -13,6 +47,10 @@ impl TokenIdxRange {
             start: TokenIdxRangeStart(start),
             end: TokenIdxRangeEnd(end),
         }
+    }
+
+    pub fn to_range(&self) -> std::ops::Range<TokenIdx> {
+        self.start.0..self.end.0
     }
 
     pub(crate) fn from_indices(start: usize, end: usize) -> Self {

@@ -29,10 +29,7 @@ where
 {
     fn module_path(self, db: &Db) -> ModulePath {
         let db = entity_syn_tree_db(db);
-        self.maybe_ambiguous_path(db)
-            .path
-            .parent(db)
-            .expect("non root")
+        self.maybe_ambiguous_path(db).path.parent(db)
     }
 }
 

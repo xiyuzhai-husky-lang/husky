@@ -1,5 +1,6 @@
 use crate::*;
 
+#[derive(Clone, Copy)]
 pub struct RegionalTokensData<'a> {
     tokens_data: &'a [TokenData],
 }
@@ -7,6 +8,10 @@ pub struct RegionalTokensData<'a> {
 impl<'a> RegionalTokensData<'a> {
     pub fn new(tokens_data: &'a [TokenData]) -> Self {
         Self { tokens_data }
+    }
+
+    pub fn len(self) -> usize {
+        self.tokens_data.len()
     }
 }
 

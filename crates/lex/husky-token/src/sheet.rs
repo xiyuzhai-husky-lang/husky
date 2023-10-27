@@ -120,14 +120,14 @@ impl RangedTokenSheet {
         (self.token_ranges[index].end > pos).then(|| TokenIdx::from_index(index))
     }
 
-    pub fn tokens_text_range(&self, token_idx_range: TokenIdxRange) -> TextRange {
-        let start = token_idx_range.start().index();
-        let end = token_idx_range.end().index();
-        if start >= end {
-            todo!()
-        }
-        self.token_ranges[start].join(self.token_ranges[end - 1])
-    }
+    // pub fn tokens_text_range(&self, token_idx_range: TokenIdxRange) -> TextRange {
+    //     let start = token_idx_range.start().index();
+    //     let end = token_idx_range.end().index();
+    //     if start >= end {
+    //         todo!()
+    //     }
+    //     self.token_ranges[start].join(self.token_ranges[end - 1])
+    // }
 
     pub fn token_sheet_data<'a>(&self, db: &'a dyn TokenDb) -> &'a TokenSheetData {
         self.token_sheet.data(db)
@@ -309,12 +309,12 @@ impl RangedTokenSheet {
         }
     }
 
-    pub fn token_idx_text_range(&self, token_idx: TokenIdx) -> TextRange {
+    pub fn token_text_range(&self, token_idx: TokenIdx) -> TextRange {
         debug_assert!(token_idx.index() < self.token_ranges.len());
         self.token_ranges[token_idx.index()]
     }
 
-    pub fn token_idx_range_text_range(&self, token_idx_range: TokenIdxRange) -> TextRange {
+    pub fn tokens_text_range(&self, token_idx_range: TokenIdxRange) -> TextRange {
         debug_assert!(token_idx_range.end().token_idx() > token_idx_range.start().token_idx());
         let text_range_start = self.token_ranges[token_idx_range.start().index()].start;
         let text_range_end = self.token_ranges[(token_idx_range.end().index() - 1) as usize].end;

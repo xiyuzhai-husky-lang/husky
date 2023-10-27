@@ -86,7 +86,7 @@ pub enum TokenInfoData {
 
 #[cfg(feature = "protocol_support")]
 impl TokenInfoData {
-    pub fn semantic_token_kind(&self, db: &dyn TokenInfoDb) -> TokenClass {
+    pub fn token_class(&self, db: &dyn TokenInfoDb) -> TokenClass {
         match self {
             TokenInfoData::Entity(path) => path.item_kind(db).class().into(),
             TokenInfoData::EntityNode(path, item_kind) => item_kind.class().into(),
