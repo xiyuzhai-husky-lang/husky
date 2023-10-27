@@ -29,13 +29,28 @@ where
     VisualComponent: IsVisualComponent,
     Settings: HasTraceViewDocSettings,
 {
-    fn render(
+    fn update(
         &mut self,
         ui: &mut egui::Ui,
         settings: &mut Settings,
         action_buffer: &mut UiActionBuffer,
     ) {
         self.trace_client.update();
+        self.render(ui, settings);
+        for action in self.action_buffer.take_actions() {
+            self.trace_client.take_action(action)
+        }
+    }
+}
+
+impl<VisualComponent> TraceViewDoc<VisualComponent>
+where
+    VisualComponent: IsVisualComponent,
+{
+    fn render<Settings>(&mut self, ui: &mut Ui, settings: &mut Settings)
+    where
+        Settings: HasTraceViewDocSettings,
+    {
         ui.end_row();
         // ui.label(text)
         let trace_client = &self.trace_client;
@@ -43,7 +58,14 @@ where
             ui.label(RichText::new(e.to_string()).color(Color32::RED));
         }
         if let Some(root_trace_ids) = trace_client.root_trace_ids() {
-            render_traces(trace_client, root_trace_ids, ui, settings)
+            let root_trace_ids = root_trace_ids.to_vec();
+            render_traces(
+                &self.trace_client,
+                &root_trace_ids,
+                settings,
+                &mut self.action_buffer,
+                ui,
+            )
         } else {
             // todo: render connecting status
         }
@@ -53,28 +75,44 @@ where
 fn render_traces<VisualComponent, Settings>(
     trace_client: &TraceClient<VisualComponent>,
     trace_ids: &[TraceId],
-    ui: &mut egui::Ui,
     settings: &Settings,
+    action_buffer: &mut TraceViewActionBuffer,
+    ui: &mut egui::Ui,
 ) where
     VisualComponent: IsVisualComponent,
     Settings: HasTraceViewDocSettings,
 {
     for &trace_id in trace_ids {
         let entry = &trace_client.cache().unwrap()[trace_id];
-        render_trace_view(entry.view_data(), ui, settings);
+        render_trace_view(
+            trace_client,
+            trace_id,
+            entry.view_data(),
+            settings,
+            action_buffer,
+            ui,
+        );
         if let Some(subtraces) = entry.subtraces() {
             todo!()
         }
     }
 }
 
-fn render_trace_view<Settings: HasTraceViewDocSettings>(
+fn render_trace_view<VisualComponent, Settings: HasTraceViewDocSettings>(
+    trace_client: &TraceClient<VisualComponent>,
+    trace_id: TraceId,
     trace_view_data: &TraceViewData,
-    ui: &mut egui::Ui,
     settings: &Settings,
-) {
+    action_buffer: &mut TraceViewActionBuffer,
+    ui: &mut egui::Ui,
+) where
+    VisualComponent: IsVisualComponent,
+{
     let token_foreground_colors = settings.code_editor_settings().token_foreground_colors();
     ui.horizontal(|ui| {
+        if ui.button("+").clicked() {
+            action_buffer.push(TraceViewAction::ToggleExpansion { trace_id })
+        };
         for token_data in trace_view_data.tokens_data() {
             ui.label(
                 RichText::new(token_data.text())
