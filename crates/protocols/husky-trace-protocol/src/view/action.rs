@@ -4,6 +4,7 @@ use smallvec::SmallVec;
 
 use crate::{cache::TraceCacheAction, id::TraceId};
 
+#[derive(Debug)]
 pub enum TraceViewAction<VisualComponent> {
     ToggleExpansion {
         trace_id: TraceId,
