@@ -121,6 +121,7 @@ fn render_trace_view<VisualComponent, Settings: HasTraceViewDocSettings>(
         for token_data in trace_view_data.tokens_data() {
             ui.label(
                 RichText::new(token_data.text())
+                    .family(FontFamily::Monospace)
                     .color(token_foreground_colors[token_data.token_class()]),
             );
         }
