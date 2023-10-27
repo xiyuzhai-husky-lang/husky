@@ -104,11 +104,22 @@ where
             });
         };
         self.cache_mut().take_action(cache_action.clone());
-        self.try_send_request(TraceRequest::NotifyViewAction {
+        match self.try_send_request(TraceRequest::NotifyViewAction {
             view_action,
             cache_action,
-        })
-        .expect("should be okay");
+        }) {
+            Ok(_) => (),
+            Err(e) => match e {
+                WebsocketClientConnectionError::SendRequestWhileCreation => todo!(),
+                WebsocketClientConnectionError::SendRequestWhileDeserializingRequest => todo!(),
+                WebsocketClientConnectionError::SendRequestWhileAwaitingResponse => todo!(),
+                WebsocketClientConnectionError::SendRequestWhileSerializingResponse => todo!(),
+                WebsocketClientConnectionError::SendRequestWhileResponseNotProcessed => {
+                    let response = self.connection.try_recv();
+                    todo!("SendRequestWhileResponseNotProcessed, response = {response:?}")
+                }
+            },
+        }
         return Ok(());
     }
 

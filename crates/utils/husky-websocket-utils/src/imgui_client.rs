@@ -57,9 +57,15 @@ pub enum CreationAwaitStatus<Request, Response> {
 
 #[derive(Debug, Error)]
 pub enum WebsocketClientConnectionError {
-    #[error("send request while creation")]
+    #[error("Send request while creation")]
     SendRequestWhileCreation,
-    #[error("send request while response not processed")]
+    #[error("Send request while deserializing request")]
+    SendRequestWhileDeserializingRequest,
+    #[error("Send request while awaiting response")]
+    SendRequestWhileAwaitingResponse,
+    #[error("Send request while serializing response")]
+    SendRequestWhileSerializingResponse,
+    #[error("Send request while response not processed")]
     SendRequestWhileResponseNotProcessed,
 }
 
@@ -137,10 +143,16 @@ where
             CommunicationStatus::AwaitingRequest => {
                 self.request_tx.blocking_send(request).map_err(|e| todo!())
             }
-            CommunicationStatus::DeserializingRequest
-            | CommunicationStatus::AwaitingResponse
-            | CommunicationStatus::SerializingResponse
-            | CommunicationStatus::ResponseReady => {
+            CommunicationStatus::DeserializingRequest => {
+                Err(WebsocketClientConnectionError::SendRequestWhileDeserializingRequest)
+            }
+            CommunicationStatus::AwaitingResponse => {
+                Err(WebsocketClientConnectionError::SendRequestWhileAwaitingResponse)
+            }
+            CommunicationStatus::SerializingResponse => {
+                Err(WebsocketClientConnectionError::SendRequestWhileSerializingResponse)
+            }
+            CommunicationStatus::ResponseReady => {
                 Err(WebsocketClientConnectionError::SendRequestWhileResponseNotProcessed)
             }
         }
@@ -237,7 +249,10 @@ where
                         },
                         None => todo!(),
                     }
+
                     communication_status.store(CommunicationStatus::ResponseReady, ORDERING);
+                } else {
+                    communication_status.store(CommunicationStatus::AwaitingRequest, ORDERING);
                 }
             }
         }));
