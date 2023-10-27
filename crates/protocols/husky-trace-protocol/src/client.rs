@@ -36,8 +36,16 @@ where
         }
     }
 
-    pub fn refresh(&mut self) {
-        self.connection.refresh();
+    pub fn update(&mut self) {
+        let Some(response) = self.connection.try_recv() else {
+            return;
+        };
+        match response {
+            TraceResponse::Init { cache } => {
+                debug_assert!(self.cache.is_none());
+                self.cache = Some(cache)
+            }
+        }
     }
 
     pub fn root_trace_ids(&self) -> Option<&[TraceId]> {
