@@ -38,7 +38,6 @@ where
         self.trace_client.update();
         self.render(ui, settings);
         for action in self.action_buffer.take_actions() {
-            println!("take action {action:?} from buffer");
             match self.trace_client.take_view_action(action) {
                 Ok(_) => (),
                 Err(e) => println!("e = {e} while take action"),
@@ -96,7 +95,9 @@ fn render_traces<VisualComponent, Settings>(
             action_buffer,
             ui,
         );
-        if let Some(subtrace_ids) = entry.subtrace_ids() {
+        if entry.expanded()
+            && let Some(subtrace_ids) = entry.subtrace_ids()
+        {
             render_traces(trace_client, subtrace_ids, settings, action_buffer, ui)
         }
     }

@@ -1,3 +1,4 @@
+#![feature(let_chains)]
 pub mod doc;
 pub mod helpers;
 pub mod settings;
