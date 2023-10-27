@@ -1,4 +1,4 @@
-mod action;
+pub(crate) mod action;
 mod entry;
 
 pub use self::action::TraceCacheAction;
@@ -44,6 +44,10 @@ impl<VisualComponent: IsVisualComponent> TraceCache<VisualComponent> {
     pub fn root_trace_ids(&self) -> &[TraceId] {
         self.root_trace_ids.as_ref()
     }
+
+    pub(crate) fn actions_len(&self) -> usize {
+        self.actions.len()
+    }
 }
 
 impl<VisualComponent: IsVisualComponent> std::ops::Index<TraceId> for TraceCache<VisualComponent> {
@@ -51,5 +55,13 @@ impl<VisualComponent: IsVisualComponent> std::ops::Index<TraceId> for TraceCache
 
     fn index(&self, id: TraceId) -> &Self::Output {
         &self.entries[id.index()]
+    }
+}
+
+impl<VisualComponent: IsVisualComponent> std::ops::IndexMut<TraceId>
+    for TraceCache<VisualComponent>
+{
+    fn index_mut(&mut self, id: TraceId) -> &mut Self::Output {
+        &mut self.entries[id.index()]
     }
 }

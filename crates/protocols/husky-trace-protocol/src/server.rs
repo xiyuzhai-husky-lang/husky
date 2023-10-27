@@ -60,7 +60,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
 impl<Tracetime: IsTracetime> IsEasyWebsocketServer for TraceServer<Tracetime> {
     type Response = TraceResponse<Tracetime::VisualComponent>;
 
-    type Request = TraceRequest;
+    type Request = TraceRequest<Tracetime::VisualComponent>;
 
     type SerdeImpl = Tracetime::SerdeImpl;
 
@@ -73,6 +73,17 @@ impl<Tracetime: IsTracetime> IsEasyWebsocketServer for TraceServer<Tracetime> {
                 };
                 Some(TraceResponse::Init { cache })
             }
+            TraceRequest::TakeViewAction {
+                view_action,
+                cache_actions_len,
+            } => {
+                view_action.resolve_at_server_side();
+                todo!()
+            }
+            TraceRequest::NotifyViewAction {
+                view_action,
+                cache_action,
+            } => todo!(),
         }
     }
 }

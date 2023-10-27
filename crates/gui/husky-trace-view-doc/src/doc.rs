@@ -39,7 +39,10 @@ where
         self.render(ui, settings);
         for action in self.action_buffer.take_actions() {
             println!("take action {action:?} from buffer");
-            self.trace_client.take_action(action)
+            match self.trace_client.take_view_action(action) {
+                Ok(_) => (),
+                Err(_) => (),
+            }
         }
     }
 }
