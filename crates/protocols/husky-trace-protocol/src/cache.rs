@@ -1,3 +1,9 @@
+mod action;
+mod entry;
+
+pub use self::action::TraceCacheAction;
+
+use self::entry::*;
 use crate::{
     view::{TraceViewData, TraceViewTokenData},
     *,
@@ -14,6 +20,7 @@ pub struct TraceCache<VisualComponent> {
     root_trace_ids: Vec<TraceId>,
     entries: Vec<TraceCacheEntry>,
     visual_components: Vec<VisualComponent>,
+    actions: Vec<TraceCacheAction<VisualComponent>>,
 }
 
 /// methods
@@ -24,81 +31,18 @@ impl<VisualComponent: IsVisualComponent> TraceCache<VisualComponent> {
         for (root_trace_id, view_data) in root_traces {
             debug_assert_eq!(root_trace_ids.len(), root_trace_id.index());
             root_trace_ids.push(root_trace_id);
-            entries.push(TraceCacheEntry {
-                view_data,
-                subtraces: None,
-                associated_traces: None,
-            })
+            entries.push(TraceCacheEntry::new(view_data))
         }
         Self {
             root_trace_ids,
             entries,
             visual_components: vec![],
+            actions: vec![],
         }
     }
 
     pub fn root_trace_ids(&self) -> &[TraceId] {
         self.root_trace_ids.as_ref()
-    }
-
-    pub(crate) fn take_actions(&mut self, actions: Vec<TraceAction>) {
-        todo!()
-    }
-
-    pub(crate) fn take_action(&mut self, action: TraceAction) {
-        todo!()
-    }
-}
-
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub struct TraceCacheEntry {
-    view_data: TraceViewData,
-    /// None means not calculated
-    subtraces: Option<Vec<TraceId>>,
-    /// None means not calculated
-    associated_traces: Option<Vec<TraceId>>,
-}
-
-impl TraceCacheEntry {
-    pub fn view_data(&self) -> &TraceViewData {
-        &self.view_data
-    }
-
-    pub fn subtraces(&self) -> Option<&[TraceId]> {
-        self.subtraces.as_ref().map(|ids| ids.as_ref())
-    }
-}
-
-#[cfg(feature = "mock")]
-impl TraceCache<()> {
-    pub fn new_mock() -> Self {
-        use TokenClass::*;
-        Self {
-            root_trace_ids: TraceId::new_mocks([0, 1]),
-            entries: vec![
-                TraceCacheEntry {
-                    view_data: TraceViewData::new_mock([
-                        ("let", OtherKeyword),
-                        ("a", Variable),
-                        ("=", Punctuation),
-                        ("x", Parameter),
-                    ]),
-                    subtraces: None,
-                    associated_traces: None,
-                },
-                TraceCacheEntry {
-                    view_data: TraceViewData::new_mock([
-                        ("let", OtherKeyword),
-                        ("b", Variable),
-                        ("=", Punctuation),
-                        ("y", Parameter),
-                    ]),
-                    subtraces: None,
-                    associated_traces: None,
-                },
-            ],
-            visual_components: vec![],
-        }
     }
 }
 

@@ -14,7 +14,7 @@ use husky_websocket_utils::easy_server::{easy_serve, IsEasyWebsocketServer};
 
 pub struct TraceServer<Tracetime: IsTracetime> {
     cache: Option<TraceCache<Tracetime::VisualComponent>>,
-    actions: Vec<TraceAction>,
+    actions: Vec<TraceCacheAction<Tracetime::VisualComponent>>,
     tracetime: Tracetime,
     trace_id_map: TraceIdMap<Tracetime::Trace>,
 }

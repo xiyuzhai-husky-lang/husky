@@ -19,7 +19,7 @@ where
     VisualComponent: IsVisualComponent,
 {
     trace_client: TraceClient<VisualComponent>,
-    action_buffer: TraceViewActionBuffer,
+    action_buffer: TraceViewActionBuffer<VisualComponent>,
 }
 
 #[cfg(feature = "egui")]
@@ -76,7 +76,7 @@ fn render_traces<VisualComponent, Settings>(
     trace_client: &TraceClient<VisualComponent>,
     trace_ids: &[TraceId],
     settings: &Settings,
-    action_buffer: &mut TraceViewActionBuffer,
+    action_buffer: &mut TraceViewActionBuffer<VisualComponent>,
     ui: &mut egui::Ui,
 ) where
     VisualComponent: IsVisualComponent,
@@ -103,7 +103,7 @@ fn render_trace_view<VisualComponent, Settings: HasTraceViewDocSettings>(
     trace_id: TraceId,
     trace_view_data: &TraceViewData,
     settings: &Settings,
-    action_buffer: &mut TraceViewActionBuffer,
+    action_buffer: &mut TraceViewActionBuffer<VisualComponent>,
     ui: &mut egui::Ui,
 ) where
     VisualComponent: IsVisualComponent,
