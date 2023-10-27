@@ -4,7 +4,9 @@ pub mod mock;
 use std::sync::Arc;
 
 use self::error::*;
-use crate::{message::*, view::action::TraceViewAction, *};
+use crate::{
+    cache::action::TraceCacheToggleExpansion, message::*, view::action::TraceViewAction, *,
+};
 #[cfg(feature = "mock")]
 use husky_visual_protocol::IsVisualProtocol;
 use husky_visual_protocol::{mock::MockVisualProtocol, IsVisualComponent};
@@ -15,7 +17,7 @@ use tokio::task::JoinHandle;
 use tokio_tungstenite::connect_async;
 
 pub struct TraceClient<VisualComponent: IsVisualComponent> {
-    cache: Option<TraceCache<VisualComponent>>,
+    opt_cache: Option<TraceCache<VisualComponent>>,
     connection: ImmediateWebsocketClientConnection<
         TraceRequest<VisualComponent>,
         TraceResponse<VisualComponent>,
@@ -31,7 +33,7 @@ where
         server_address: impl Into<String>,
     ) -> Self {
         Self {
-            cache: None,
+            opt_cache: None,
             connection: ImmediateWebsocketClientConnection::new(
                 tokio_runtime,
                 server_address.into(),
@@ -49,8 +51,14 @@ where
     fn process_response(&mut self, response: TraceResponse<VisualComponent>) {
         match response {
             TraceResponse::Init { cache } => {
-                debug_assert!(self.cache.is_none());
-                self.cache = Some(cache)
+                debug_assert!(self.opt_cache.is_none());
+                self.opt_cache = Some(cache)
+            }
+            TraceResponse::TakeCacheAction { cache_actions } => {
+                let Some(ref mut cache) = self.opt_cache else {
+                    unreachable!()
+                };
+                cache.take_actions(cache_actions)
             }
         }
     }
@@ -63,42 +71,60 @@ where
     }
 
     pub fn root_trace_ids(&self) -> Option<&[TraceId]> {
-        Some(self.cache.as_ref()?.root_trace_ids())
+        Some(self.opt_cache.as_ref()?.root_trace_ids())
     }
 
     pub fn connection_error(&self) -> Option<&WebsocketClientConnectionError> {
         self.connection.error()
     }
 
-    pub fn cache(&self) -> Option<&TraceCache<VisualComponent>> {
-        self.cache.as_ref()
+    pub fn opt_cache(&self) -> Option<&TraceCache<VisualComponent>> {
+        self.opt_cache.as_ref()
+    }
+
+    #[track_caller]
+    fn cache(&self) -> &TraceCache<VisualComponent> {
+        self.opt_cache.as_ref().unwrap()
+    }
+
+    #[track_caller]
+    fn cache_mut(&mut self) -> &mut TraceCache<VisualComponent> {
+        self.opt_cache.as_mut().unwrap()
     }
 
     pub fn take_view_action(
         &mut self,
         view_action: TraceViewAction<VisualComponent>,
     ) -> Result<(), WebsocketClientConnectionError> {
-        let Some(ref mut cache) = self.cache else {
-            unreachable!()
+        let Some(cache_action) = self.try_resolve_view_action(&view_action) else {
+            let cache_actions_len = self.cache().actions_len();
+            return self.try_send_request(TraceRequest::TakeViewAction {
+                view_action,
+                cache_actions_len,
+            });
         };
-        match view_action.try_resolve_at_client_side(cache) {
-            Some(cache_action) => {
-                cache.take_action(cache_action.clone());
+        self.cache_mut().take_action(cache_action.clone());
+        self.try_send_request(TraceRequest::NotifyViewAction {
+            view_action,
+            cache_action,
+        })
+        .expect("should be okay");
+        return Ok(());
+    }
 
-                self.try_send_request(TraceRequest::NotifyViewAction {
-                    view_action,
-                    cache_action,
-                })
-                .expect("should be okay");
-                Ok(())
+    fn try_resolve_view_action(
+        &self,
+        view_action: &TraceViewAction<VisualComponent>,
+    ) -> Option<TraceCacheAction<VisualComponent>> {
+        match view_action {
+            &TraceViewAction::ToggleExpansion { trace_id } => {
+                let trace_cache_entry = &self.cache()[trace_id];
+                if !trace_cache_entry.expanded() {
+                    trace_cache_entry.subtraces()?;
+                }
+                Some(TraceCacheToggleExpansion::new(trace_id).into())
             }
-            None => {
-                let cache_actions_len = cache.actions_len();
-                self.try_send_request(TraceRequest::TakeViewAction {
-                    view_action,
-                    cache_actions_len,
-                })
-            }
+            TraceViewAction::Marker { _marker } => todo!(),
         }
     }
 }

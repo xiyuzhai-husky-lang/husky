@@ -5,7 +5,7 @@ use serde::{Deserialize, Serialize};
 use smallvec::SmallVec;
 
 use crate::{
-    cache::{action::TraceCacheActionToggleExpansion, TraceCache, TraceCacheAction},
+    cache::{action::TraceCacheToggleExpansion, TraceCache, TraceCacheAction},
     id::TraceId,
 };
 
@@ -17,34 +17,6 @@ pub enum TraceViewAction<VisualComponent> {
     Marker {
         _marker: PhantomData<VisualComponent>,
     },
-}
-
-impl<VisualComponent> TraceViewAction<VisualComponent>
-where
-    VisualComponent: IsVisualComponent,
-{
-    pub fn try_resolve_at_client_side(
-        &self,
-        cache: &TraceCache<VisualComponent>,
-    ) -> Option<TraceCacheAction<VisualComponent>> {
-        match self {
-            &TraceViewAction::ToggleExpansion { trace_id } => {
-                let trace_cache_entry = &cache[trace_id];
-                if !trace_cache_entry.expanded() {
-                    trace_cache_entry.subtraces()?;
-                }
-                Some(TraceCacheActionToggleExpansion::new(trace_id).into())
-            }
-            TraceViewAction::Marker { _marker } => todo!(),
-        }
-    }
-
-    pub fn resolve_at_server_side(&self) -> SmallVec<[TraceCacheAction<VisualComponent>; 3]> {
-        match self {
-            TraceViewAction::ToggleExpansion { trace_id } => todo!(),
-            TraceViewAction::Marker { _marker } => todo!(),
-        }
-    }
 }
 
 #[derive(Default)]

@@ -79,7 +79,7 @@ where
     }
 
     fn get_subtraces(&self, trace: Self::Trace) -> &[Self::Trace] {
-        todo!()
+        trace.subtraces(self.db())
     }
 
     fn get_trace_view_data(&self, trace: Self::Trace) -> husky_trace_protocol::view::TraceViewData {

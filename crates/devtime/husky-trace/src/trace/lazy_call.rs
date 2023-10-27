@@ -20,7 +20,7 @@ impl LazyCallTrace {
         todo!()
     }
 
-    pub fn subtraces(self, db: &dyn TraceDb) -> Option<&[LazyCallSubtrace]> {
+    pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
         todo!()
     }
 }

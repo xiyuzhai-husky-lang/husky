@@ -27,10 +27,7 @@ impl EagerStmtTrace {
         todo!()
     }
 
-    pub fn associated_expr_traces<'a>(
-        self,
-        db: &'a dyn TraceDb,
-    ) -> &'a [(SemaExprIdx, EagerExprTrace)] {
+    pub fn associated_expr_traces<'a>(self, db: &'a dyn TraceDb) -> &'a [(SemaExprIdx, Trace)] {
         eager_stmt_associated_expr_traces(db, self)
     }
 }
@@ -39,6 +36,6 @@ impl EagerStmtTrace {
 fn eager_stmt_associated_expr_traces(
     db: &dyn TraceDb,
     trace: EagerStmtTrace,
-) -> VecPairMap<SemaExprIdx, EagerExprTrace> {
+) -> VecPairMap<SemaExprIdx, Trace> {
     todo!()
 }

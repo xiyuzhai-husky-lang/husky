@@ -87,7 +87,7 @@ fn render_traces<VisualComponent, Settings>(
     Settings: HasTraceViewDocSettings,
 {
     for &trace_id in trace_ids {
-        let entry = &trace_client.cache().unwrap()[trace_id];
+        let entry = &trace_client.opt_cache().unwrap()[trace_id];
         render_trace_view(
             trace_client,
             trace_id,

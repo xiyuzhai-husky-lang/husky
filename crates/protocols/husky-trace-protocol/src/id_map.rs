@@ -25,11 +25,21 @@ impl<Trace> TraceIdMap<Trace>
 where
     Trace: Eq + std::hash::Hash + Copy,
 {
-    pub fn id(&mut self, trace: Trace) -> TraceId {
+    pub fn trace_id_or_alloc_new(
+        &mut self,
+        trace: Trace,
+        alloc_effect: impl FnOnce(TraceId),
+    ) -> TraceId {
         if let Some(&id) = self.ids.get(&trace) {
             return id;
         }
-        self.alloc_new(trace)
+        let id = self.alloc_new(trace);
+        alloc_effect(id);
+        id
+    }
+
+    pub fn trace(&mut self, trace_id: TraceId) -> Trace {
+        self.traces[trace_id.index()]
     }
 
     fn alloc_new(&mut self, trace: Trace) -> TraceId {

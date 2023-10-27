@@ -44,10 +44,10 @@ impl NotebookApp {
             title: "mock trace view doc".to_string(),
             component: UiComponent::new(MockTraceViewDoc::new_mock(self.tokio_runtime.clone())),
         });
-        self.add_doc(Doc {
-            title: "Settings".to_string(),
-            component: UiComponent::new(NotebookSettingsView),
-        })
+        // self.add_doc(Doc {
+        //     title: "Settings".to_string(),
+        //     component: UiComponent::new(NotebookSettingsView),
+        // })
     }
 
     pub(crate) fn add_doc(&mut self, doc: Doc) {
