@@ -41,7 +41,7 @@ where
             println!("take action {action:?} from buffer");
             match self.trace_client.take_view_action(action) {
                 Ok(_) => (),
-                Err(_) => (),
+                Err(e) => println!("e = {e} while take action"),
             }
         }
     }
@@ -96,8 +96,8 @@ fn render_traces<VisualComponent, Settings>(
             action_buffer,
             ui,
         );
-        if let Some(subtraces) = entry.subtraces() {
-            todo!()
+        if let Some(subtrace_ids) = entry.subtrace_ids() {
+            render_traces(trace_client, subtrace_ids, settings, action_buffer, ui)
         }
     }
 }

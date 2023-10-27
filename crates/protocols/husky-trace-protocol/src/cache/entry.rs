@@ -24,7 +24,7 @@ impl TraceCacheEntry {
         &self.view_data
     }
 
-    pub fn subtraces(&self) -> Option<&[TraceId]> {
+    pub fn subtrace_ids(&self) -> Option<&[TraceId]> {
         self.subtrace_ids.as_ref().map(|ids| ids.as_ref())
     }
 

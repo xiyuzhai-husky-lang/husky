@@ -48,6 +48,17 @@ impl<VisualComponent: IsVisualComponent> TraceCache<VisualComponent> {
     pub(crate) fn actions_len(&self) -> usize {
         self.actions.len()
     }
+
+    pub(crate) fn reproduce_cache_actions(
+        &self,
+        previous_cache_actions_len: usize,
+    ) -> smallvec::SmallVec<[TraceCacheAction<VisualComponent>; 3]> {
+        assert!(previous_cache_actions_len < self.actions.len());
+        self.actions[previous_cache_actions_len..]
+            .iter()
+            .map(|action| action.clone())
+            .collect()
+    }
 }
 
 impl<VisualComponent: IsVisualComponent> std::ops::Index<TraceId> for TraceCache<VisualComponent> {
