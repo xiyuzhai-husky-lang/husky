@@ -16,7 +16,10 @@ use tokio_tungstenite::connect_async;
 
 pub struct TraceClient<VisualComponent: IsVisualComponent> {
     cache: Option<TraceCache<VisualComponent>>,
-    connection: ImmediateWebsocketClientConnection<TraceRequest, TraceResponse<VisualComponent>>,
+    connection: ImmediateWebsocketClientConnection<
+        TraceRequest<VisualComponent>,
+        TraceResponse<VisualComponent>,
+    >,
 }
 
 impl<VisualComponent: IsVisualComponent> TraceClient<VisualComponent>
@@ -40,16 +43,23 @@ where
         let Some(response) = self.connection.try_recv() else {
             return;
         };
-        self.accept_response(response);
+        self.process_response(response);
     }
 
-    fn accept_response(&mut self, response: TraceResponse<VisualComponent>) {
+    fn process_response(&mut self, response: TraceResponse<VisualComponent>) {
         match response {
             TraceResponse::Init { cache } => {
                 debug_assert!(self.cache.is_none());
                 self.cache = Some(cache)
             }
         }
+    }
+
+    fn try_send_request(
+        &mut self,
+        request: TraceRequest<VisualComponent>,
+    ) -> Result<(), WebsocketClientConnectionError> {
+        self.connection.try_send_request(request)
     }
 
     pub fn root_trace_ids(&self) -> Option<&[TraceId]> {
@@ -64,10 +74,31 @@ where
         self.cache.as_ref()
     }
 
-    pub fn take_action(&mut self, action: TraceViewAction<VisualComponent>) {
-        match action {
-            TraceViewAction::ToggleExpansion { trace_id } => todo!(),
-            TraceViewAction::Marker { _marker } => todo!(),
+    pub fn take_view_action(
+        &mut self,
+        view_action: TraceViewAction<VisualComponent>,
+    ) -> Result<(), WebsocketClientConnectionError> {
+        let Some(ref mut cache) = self.cache else {
+            unreachable!()
+        };
+        match view_action.try_resolve_at_client_side(cache) {
+            Some(cache_action) => {
+                cache.take_action(cache_action.clone());
+
+                self.try_send_request(TraceRequest::NotifyViewAction {
+                    view_action,
+                    cache_action,
+                })
+                .expect("should be okay");
+                Ok(())
+            }
+            None => {
+                let cache_actions_len = cache.actions_len();
+                self.try_send_request(TraceRequest::TakeViewAction {
+                    view_action,
+                    cache_actions_len,
+                })
+            }
         }
     }
 }

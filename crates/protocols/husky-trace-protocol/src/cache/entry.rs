@@ -7,6 +7,7 @@ pub struct TraceCacheEntry {
     subtraces: Option<Vec<TraceId>>,
     /// None means not calculated
     associated_traces: Option<Vec<TraceId>>,
+    expanded: bool,
 }
 
 impl TraceCacheEntry {
@@ -15,6 +16,7 @@ impl TraceCacheEntry {
             view_data,
             subtraces: None,
             associated_traces: None,
+            expanded: false,
         }
     }
 
@@ -24,5 +26,13 @@ impl TraceCacheEntry {
 
     pub fn subtraces(&self) -> Option<&[TraceId]> {
         self.subtraces.as_ref().map(|ids| ids.as_ref())
+    }
+
+    pub fn expanded(&self) -> bool {
+        self.expanded
+    }
+
+    pub(super) fn toggle_expansion(&mut self) {
+        self.expanded = !self.expanded
     }
 }

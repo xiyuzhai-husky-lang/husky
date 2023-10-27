@@ -1,10 +1,15 @@
 use std::marker::PhantomData;
 
+use husky_visual_protocol::IsVisualComponent;
+use serde::{Deserialize, Serialize};
 use smallvec::SmallVec;
 
-use crate::{cache::TraceCacheAction, id::TraceId};
+use crate::{
+    cache::{action::TraceCacheActionToggleExpansion, TraceCache, TraceCacheAction},
+    id::TraceId,
+};
 
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub enum TraceViewAction<VisualComponent> {
     ToggleExpansion {
         trace_id: TraceId,
@@ -14,13 +19,31 @@ pub enum TraceViewAction<VisualComponent> {
     },
 }
 
-impl<VisualComponent> TraceViewAction<VisualComponent> {
-    fn try_resolve_at_client_side(&self) -> Option<TraceCacheAction<VisualComponent>> {
-        todo!()
+impl<VisualComponent> TraceViewAction<VisualComponent>
+where
+    VisualComponent: IsVisualComponent,
+{
+    pub fn try_resolve_at_client_side(
+        &self,
+        cache: &TraceCache<VisualComponent>,
+    ) -> Option<TraceCacheAction<VisualComponent>> {
+        match self {
+            &TraceViewAction::ToggleExpansion { trace_id } => {
+                let trace_cache_entry = &cache[trace_id];
+                if !trace_cache_entry.expanded() {
+                    trace_cache_entry.subtraces()?;
+                }
+                Some(TraceCacheActionToggleExpansion::new(trace_id).into())
+            }
+            TraceViewAction::Marker { _marker } => todo!(),
+        }
     }
 
-    fn resolve_at_server_side(&self) -> SmallVec<[TraceCacheAction<VisualComponent>; 3]> {
-        todo!()
+    pub fn resolve_at_server_side(&self) -> SmallVec<[TraceCacheAction<VisualComponent>; 3]> {
+        match self {
+            TraceViewAction::ToggleExpansion { trace_id } => todo!(),
+            TraceViewAction::Marker { _marker } => todo!(),
+        }
     }
 }
 
