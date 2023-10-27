@@ -15,7 +15,6 @@ use husky_websocket_utils::easy_server::{easy_serve, IsEasyWebsocketServer};
 
 pub struct TraceServer<Tracetime: IsTracetime> {
     cache: Option<TraceCache<Tracetime::VisualComponent>>,
-    actions: Vec<TraceCacheAction<Tracetime::VisualComponent>>,
     tracetime: Tracetime,
     trace_id_map: TraceIdMap<Tracetime::Trace>,
 }
@@ -27,7 +26,6 @@ where
     fn default() -> Self {
         Self {
             cache: Default::default(),
-            actions: Default::default(),
             tracetime: Default::default(),
             trace_id_map: Default::default(),
         }
@@ -38,7 +36,6 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
     fn new(tracetime: Tracetime) -> Self {
         Self {
             cache: Default::default(),
-            actions: Default::default(),
             tracetime,
             trace_id_map: Default::default(),
         }
@@ -91,16 +88,19 @@ impl<Tracetime: IsTracetime> IsEasyWebsocketServer for TraceServer<Tracetime> {
                 let Some(ref mut cache) = self.cache else {
                     unreachable!()
                 };
-                assert_eq!(self.actions.len(), cache_actions_len);
+                assert_eq!(self.cache().actions_len(), cache_actions_len);
                 self.take_view_action(view_action);
                 Some(TraceResponse::TakeCacheAction {
-                    cache_actions: self.reproduce_cache_actions(cache_actions_len),
+                    cache_actions: self.cache().reproduce_cache_actions(cache_actions_len),
                 })
             }
             TraceRequest::NotifyViewAction {
                 view_action,
                 cache_action,
-            } => todo!(),
+            } => {
+                self.cache_mut().take_action(cache_action);
+                None
+            }
         }
     }
 }
@@ -111,7 +111,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
             TraceViewAction::ToggleExpansion { trace_id } => {
                 assert!(!self.cache()[trace_id].expanded());
                 // todo: handle more cases like subtraces with channels
-                if self.cache()[trace_id].subtraces().is_some() {
+                if self.cache()[trace_id].subtrace_ids().is_some() {
                     return;
                 }
                 let trace = self.trace_id_map.trace(trace_id);
@@ -120,12 +120,12 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
                     .iter()
                     .map(|&subtrace| {
                         self.trace_id_map
-                            .trace_id_or_alloc_new(subtrace, |trace_id| {
-                                let view_data = self.tracetime.get_trace_view_data(trace);
+                            .trace_id_or_alloc_new(subtrace, |subtrace_id| {
+                                let view_data = self.tracetime.get_trace_view_data(subtrace);
                                 self.cache
                                     .as_mut()
                                     .unwrap()
-                                    .take_action(TraceCacheNewTrace::new(trace_id, view_data))
+                                    .take_action(TraceCacheNewTrace::new(subtrace_id, view_data))
                             })
                     })
                     .collect();
@@ -136,16 +136,6 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
             }
             TraceViewAction::Marker { _marker } => todo!(),
         }
-    }
-
-    fn reproduce_cache_actions(
-        &self,
-        previous_cache_actions_len: usize,
-    ) -> smallvec::SmallVec<[TraceCacheAction<Tracetime::VisualComponent>; 3]> {
-        self.actions[previous_cache_actions_len..]
-            .iter()
-            .map(|action| action.clone())
-            .collect()
     }
 }
 

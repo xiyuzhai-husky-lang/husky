@@ -120,7 +120,7 @@ where
             &TraceViewAction::ToggleExpansion { trace_id } => {
                 let trace_cache_entry = &self.cache()[trace_id];
                 if !trace_cache_entry.expanded() {
-                    trace_cache_entry.subtraces()?;
+                    trace_cache_entry.subtrace_ids()?;
                 }
                 Some(TraceCacheToggleExpansion::new(trace_id).into())
             }

@@ -5,6 +5,7 @@ use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use husky_vfs::SubmodulePath;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::debug_with_db(db = TraceDb)]
 pub struct SubmoduleTrace {
     submodule_path: SubmodulePath,
 }

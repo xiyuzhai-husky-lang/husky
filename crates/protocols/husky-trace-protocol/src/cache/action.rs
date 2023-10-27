@@ -38,12 +38,12 @@ impl<VisualComponent> TraceCache<VisualComponent>
 where
     VisualComponent: IsVisualComponent,
 {
-    pub(crate) fn take_action<Action: IsTraceCacheAction<VisualComponent>>(
+    pub(crate) fn take_action<A: IsTraceCacheAction<VisualComponent>>(
         &mut self,
-        action: Action,
-    ) -> Action::Outcome {
-        let outcome = action.act(self);
-        self.actions.push(action.into());
+        cache_action: A,
+    ) -> A::Outcome {
+        let outcome = cache_action.act(self);
+        self.actions.push(cache_action.into());
         outcome
     }
 
