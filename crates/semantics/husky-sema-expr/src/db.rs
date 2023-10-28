@@ -13,3 +13,12 @@ where
         sema_expr_region(self, syn_expr_region)
     }
 }
+
+#[salsa::jar(db = SemaExprDb)]
+pub struct SemaExprJar(
+    ty_ontology_path_unveil_impl_block_signature_templates,
+    ty_ontology_application_unveil_impl_block_signature_templates,
+    SemaExprRegion,
+    sema_expr_region,
+    crate::helpers::syn_expr_region_contains_gn,
+);

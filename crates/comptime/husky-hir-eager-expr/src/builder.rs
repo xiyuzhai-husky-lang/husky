@@ -35,17 +35,17 @@ impl<'a> HirEagerExprBuilder<'a> {
     }
 
     pub fn sema_expr_arena_ref(&self) -> SemaExprArenaRef<'a> {
-        self.sema_expr_region.sema_expr_arena_ref()
+        self.sema_expr_region.sema_expr_arena_ref(self.db)
     }
 
     pub fn sema_stmt_arena_ref(&self) -> SemaStmtArenaRef<'a> {
-        self.sema_expr_region.sema_stmt_arena_ref()
+        self.sema_expr_region.sema_stmt_arena_ref(self.db)
     }
 
     pub fn build_hir_eager_expr(&mut self, syn_expr_root: SynExprIdx) -> HirEagerExprIdx {
         let sema_expr_idx = self
             .sema_expr_region
-            .syn_expr_root_sema_expr_idx(syn_expr_root);
+            .syn_expr_root_sema_expr_idx(self.db, syn_expr_root);
         sema_expr_idx.to_hir_eager(self)
     }
 
@@ -88,10 +88,10 @@ impl<'a> HirEagerExprBuilder<'a> {
         // ad hoc
         match self
             .sema_expr_region
-            .sema_expr_term(sema_expr_idx)
+            .sema_expr_term(self.db, sema_expr_idx)
             .expect("hir stage some")
             .expect("hir stage ok")
-            .base_resolved_inner(self.sema_expr_region.fluffy_term_region().terms())
+            .base_resolved_inner(self.sema_expr_region.fluffy_term_region(self.db).terms())
         {
             FluffyTermBase::Ethereal(term) => term,
             FluffyTermBase::Solid(_) => todo!(),

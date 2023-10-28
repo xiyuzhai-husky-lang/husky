@@ -129,7 +129,7 @@ impl<'a> RegionDiagnosticsContext<'a> {
     }
 
     pub(crate) fn fluffy_term_region(&self) -> &FluffyTermRegion {
-        self.sema_expr_region.fluffy_term_region()
+        self.sema_expr_region.fluffy_term_region(self.db)
     }
 
     pub(crate) fn expr_text_range(&self, expr_idx: SynExprIdx) -> TextRange {
