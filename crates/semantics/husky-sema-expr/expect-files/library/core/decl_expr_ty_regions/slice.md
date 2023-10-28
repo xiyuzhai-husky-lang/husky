@@ -1,5 +1,6 @@
 [
     SemaExprRegion {
+        [salsa id]: 138,
         path: RegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
@@ -12,67 +13,109 @@
                 ),
             ),
         ),
-        sema_expr_arena: SemaExprArena(
-            Arena {
-                data: [],
-            },
-        ),
-        sema_stmt_arena: SemaStmtArena(
-            Arena {
-                data: [],
-            },
-        ),
-        syn_expr_root_sema_expr_idx_table: [],
-        pattern_expr_ty_infos: [],
-        pattern_symbol_ty_infos: ArenaMap {
-            data: [],
-        },
-        sema_expr_terms: [],
-        symbol_tys: SymbolMap {
-            inherited_symbol_map: [],
-            current_symbol_map: [
-                SymbolType(
-                    FluffyTerm {
-                        place: None,
-                        base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`Type`),
+        data: SemaExprRegionData {
+            path: Decl(
+                MajorItem(
+                    Type(
+                        TypeSynNodePath(
+                            Id {
+                                value: 35,
+                            },
                         ),
-                    },
-                ),
-            ],
-        },
-        symbol_terms: SymbolMap {
-            inherited_symbol_map: [],
-            current_symbol_map: [
-                FluffyTerm {
-                    place: None,
-                    base: FluffyTermBase::Ethereal(
-                        EtherealTerm(`t`),
                     ),
-                },
-            ],
-        },
-        fluffy_term_region: FluffyTermRegion {
-            terms: FluffyTerms {
-                solid_terms: SolidTerms {
-                    entries: [],
-                },
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
-            },
-            expectations: Expectations {
-                arena: Arena {
+                ),
+            ),
+            sema_expr_arena: SemaExprArena(
+                Arena {
                     data: [],
                 },
-                first_unresolved_expectation: 0,
+            ),
+            sema_stmt_arena: SemaStmtArena(
+                Arena {
+                    data: [],
+                },
+            ),
+            syn_expr_root_sema_expr_idx_table: [],
+            pattern_expr_ty_infos: ArenaMap {
+                data: [],
             },
+            pattern_symbol_ty_infos: ArenaMap {
+                data: [],
+            },
+            sema_expr_terms: [],
+            symbol_tys: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            SymbolType(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ],
+                },
+            },
+            symbol_terms: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Symbol(
+                                        EtherealTermSymbol(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                    ],
+                },
+            },
+            fluffy_term_region: FluffyTermRegion {
+                terms: FluffyTerms {
+                    solid_terms: SolidTerms {
+                        entries: VecSet {
+                            data: [],
+                        },
+                    },
+                    hollow_terms: HollowTerms {
+                        entries: [],
+                        first_unresolved_term_idx: 0,
+                    },
+                },
+                expectations: Expectations {
+                    arena: Arena {
+                        data: [],
+                    },
+                    first_unresolved_expectation: 0,
+                },
+            },
+            return_ty: None,
+            self_ty: None,
         },
-        return_ty: None,
-        self_ty: None,
     },
     SemaExprRegion {
+        [salsa id]: 139,
         path: RegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
@@ -85,67 +128,109 @@
                 ),
             ),
         ),
-        sema_expr_arena: SemaExprArena(
-            Arena {
-                data: [],
-            },
-        ),
-        sema_stmt_arena: SemaStmtArena(
-            Arena {
-                data: [],
-            },
-        ),
-        syn_expr_root_sema_expr_idx_table: [],
-        pattern_expr_ty_infos: [],
-        pattern_symbol_ty_infos: ArenaMap {
-            data: [],
-        },
-        sema_expr_terms: [],
-        symbol_tys: SymbolMap {
-            inherited_symbol_map: [],
-            current_symbol_map: [
-                SymbolType(
-                    FluffyTerm {
-                        place: None,
-                        base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`Type`),
+        data: SemaExprRegionData {
+            path: Decl(
+                MajorItem(
+                    Type(
+                        TypeSynNodePath(
+                            Id {
+                                value: 36,
+                            },
                         ),
-                    },
-                ),
-            ],
-        },
-        symbol_terms: SymbolMap {
-            inherited_symbol_map: [],
-            current_symbol_map: [
-                FluffyTerm {
-                    place: None,
-                    base: FluffyTermBase::Ethereal(
-                        EtherealTerm(`t`),
                     ),
-                },
-            ],
-        },
-        fluffy_term_region: FluffyTermRegion {
-            terms: FluffyTerms {
-                solid_terms: SolidTerms {
-                    entries: [],
-                },
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
-            },
-            expectations: Expectations {
-                arena: Arena {
+                ),
+            ),
+            sema_expr_arena: SemaExprArena(
+                Arena {
                     data: [],
                 },
-                first_unresolved_expectation: 0,
+            ),
+            sema_stmt_arena: SemaStmtArena(
+                Arena {
+                    data: [],
+                },
+            ),
+            syn_expr_root_sema_expr_idx_table: [],
+            pattern_expr_ty_infos: ArenaMap {
+                data: [],
             },
+            pattern_symbol_ty_infos: ArenaMap {
+                data: [],
+            },
+            sema_expr_terms: [],
+            symbol_tys: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            SymbolType(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ],
+                },
+            },
+            symbol_terms: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Symbol(
+                                        EtherealTermSymbol(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                    ],
+                },
+            },
+            fluffy_term_region: FluffyTermRegion {
+                terms: FluffyTerms {
+                    solid_terms: SolidTerms {
+                        entries: VecSet {
+                            data: [],
+                        },
+                    },
+                    hollow_terms: HollowTerms {
+                        entries: [],
+                        first_unresolved_term_idx: 0,
+                    },
+                },
+                expectations: Expectations {
+                    arena: Arena {
+                        data: [],
+                    },
+                    first_unresolved_expectation: 0,
+                },
+            },
+            return_ty: None,
+            self_ty: None,
         },
-        return_ty: None,
-        self_ty: None,
     },
     SemaExprRegion {
+        [salsa id]: 140,
         path: RegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TypeImplBlock(
@@ -159,226 +244,312 @@
                 ),
             ),
         ),
-        sema_expr_arena: SemaExprArena(
-            Arena {
-                data: [
-                    SemaExprEntry {
-                        data_result: Ok(
-                            PrincipalEntityPath {
-                                path_expr_idx: 1,
-                                path: MajorItem(
-                                    Type(
-                                        TypePath(
+        data: SemaExprRegionData {
+            path: Decl(
+                ImplBlock(
+                    TypeImplBlock(
+                        TypeImplBlockSynNodePath {
+                            path: TypeImplBlockPath(
+                                Id {
+                                    value: 17,
+                                },
+                            ),
+                        },
+                    ),
+                ),
+            ),
+            sema_expr_arena: SemaExprArena(
+                Arena {
+                    data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: MajorItem(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 35,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Curry(
+                                            EtherealTermCurry(
+                                                Id {
+                                                    value: 2,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                CurrentSymbol {
+                                    ident: Ident(
+                                        Coword(
                                             Id {
-                                                value: 35,
+                                                value: 25,
                                             },
                                         ),
                                     ),
-                                ),
-                                ty_path_disambiguation: OntologyConstructor,
-                            },
-                        ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Curry(
-                                        EtherealTermCurry(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
+                                    regional_token_idx: RegionalTokenIdx(
+                                        6,
                                     ),
-                                ),
-                            },
-                        ),
-                    },
-                    SemaExprEntry {
-                        data_result: Ok(
-                            CurrentSymbol {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 25,
-                                        },
-                                    ),
-                                ),
-                                regional_token_idx: RegionalTokenIdx(
-                                    6,
-                                ),
-                                current_symbol_idx: 1,
-                                current_symbol_kind: ImplicitParameter {
-                                    template_parameter_kind: Type {
-                                        ident_token: IdentRegionalToken {
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 25,
-                                                    },
+                                    current_symbol_idx: 1,
+                                    current_symbol_kind: ImplicitParameter {
+                                        template_parameter_kind: Type {
+                                            ident_token: IdentRegionalToken {
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 25,
+                                                        },
+                                                    ),
                                                 ),
-                                            ),
-                                            regional_token_idx: RegionalTokenIdx(
-                                                3,
-                                            ),
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    3,
+                                                ),
+                                            },
                                         },
                                     },
                                 },
-                            },
-                        ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
                                     ),
-                                ),
-                            },
-                        ),
-                    },
-                    SemaExprEntry {
-                        data_result: Ok(
-                            Application {
-                                function_sema_expr_idx: SemaExprIdx(
-                                    1,
-                                ),
-                                argument_sema_expr_idx: SemaExprIdx(
-                                    2,
-                                ),
-                            },
-                        ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                ],
-            },
-        ),
-        sema_stmt_arena: SemaStmtArena(
-            Arena {
-                data: [],
-            },
-        ),
-        syn_expr_root_sema_expr_idx_table: [
-            (
-                3,
-                SemaExprIdx(
-                    3,
-                ),
-            ),
-        ],
-        pattern_expr_ty_infos: [],
-        pattern_symbol_ty_infos: ArenaMap {
-            data: [],
-        },
-        sema_expr_terms: [],
-        symbol_tys: SymbolMap {
-            inherited_symbol_map: [],
-            current_symbol_map: [
-                SymbolType(
-                    FluffyTerm {
-                        place: None,
-                        base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`Type`),
-                        ),
-                    },
-                ),
-            ],
-        },
-        symbol_terms: SymbolMap {
-            inherited_symbol_map: [],
-            current_symbol_map: [
-                FluffyTerm {
-                    place: None,
-                    base: FluffyTermBase::Ethereal(
-                        EtherealTerm(`t`),
-                    ),
-                },
-            ],
-        },
-        fluffy_term_region: FluffyTermRegion {
-            terms: FluffyTerms {
-                solid_terms: SolidTerms {
-                    entries: [],
-                },
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
-            },
-            expectations: Expectations {
-                arena: Arena {
-                    data: [
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::EqsFunctionType(
-                                ExpectEqsFunctionType {
-                                    final_destination: FinalDestination::Sort,
                                 },
                             ),
-                            meta: ExpectationState {
-                                idx: 1,
-                                src: ExpectationSource {
-                                    expr_idx: 1,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`covariant Type -> Type`),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                FunctionApplication {
+                                    function_sema_expr_idx: SemaExprIdx(
+                                        1,
+                                    ),
+                                    argument_sema_expr_idx: SemaExprIdx(
+                                        2,
                                     ),
                                 },
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::EqsFunctionCallType(
-                                            ExpectEqsFunctionTypeOutcome {
-                                                template_parameter_substitutions: [],
-                                                return_ty: FluffyTerm {
-                                                    place: None,
-                                                    base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Type`),
-                                                    ),
-                                                },
-                                                variant: ExpectEqsFunctionTypeOutcomeVariant::Curry {
-                                                    variance: Covariant,
-                                                    parameter_symbol: None,
-                                                    parameter_ty: FluffyTerm {
-                                                        place: None,
-                                                        base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`Type`),
-                                                        ),
-                                                    },
-                                                    return_ty: FluffyTerm {
-                                                        place: None,
-                                                        base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`Type`),
-                                                        ),
-                                                    },
-                                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                    ],
+                },
+            ),
+            sema_stmt_arena: SemaStmtArena(
+                Arena {
+                    data: [],
+                },
+            ),
+            syn_expr_root_sema_expr_idx_table: [
+                (
+                    3,
+                    SemaExprIdx(
+                        3,
+                    ),
+                ),
+            ],
+            pattern_expr_ty_infos: ArenaMap {
+                data: [],
+            },
+            pattern_symbol_ty_infos: ArenaMap {
+                data: [],
+            },
+            sema_expr_terms: [],
+            symbol_tys: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            SymbolType(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ],
+                },
+            },
+            symbol_terms: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Symbol(
+                                        EtherealTermSymbol(
+                                            Id {
+                                                value: 4,
                                             },
                                         ),
                                     ),
                                 ),
                             },
+                        ),
+                    ],
+                },
+            },
+            fluffy_term_region: FluffyTermRegion {
+                terms: FluffyTerms {
+                    solid_terms: SolidTerms {
+                        entries: VecSet {
+                            data: [],
                         },
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::CurryDestination(
-                                ExpectCurryDestination {
-                                    curry_destination: FluffyTerm {
+                    },
+                    hollow_terms: HollowTerms {
+                        entries: [],
+                        first_unresolved_term_idx: 0,
+                    },
+                },
+                expectations: Expectations {
+                    arena: Arena {
+                        data: [
+                            FluffyTermExpectationEntry {
+                                expectation: EqsFunctionType(
+                                    ExpectEqsFunctionType {
+                                        final_destination: Sort,
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 1,
+                                    src: ExpectationSource {
+                                        expr_idx: 1,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Curry(
+                                                EtherealTermCurry(
+                                                    Id {
+                                                        value: 2,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsFunctionCallType(
+                                                ExpectEqsFunctionTypeOutcome {
+                                                    template_parameter_substitutions: [],
+                                                    return_ty: FluffyTerm {
+                                                        place: None,
+                                                        base: Ethereal(
+                                                            Category(
+                                                                TermCategory {
+                                                                    universe: TermUniverse(
+                                                                        1,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    variant: Curry {
+                                                        variance: Covariant,
+                                                        parameter_symbol: None,
+                                                        parameter_ty: FluffyTerm {
+                                                            place: None,
+                                                            base: Ethereal(
+                                                                Category(
+                                                                    TermCategory {
+                                                                        universe: TermUniverse(
+                                                                            1,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        return_ty: FluffyTerm {
+                                                            place: None,
+                                                            base: Ethereal(
+                                                                Category(
+                                                                    TermCategory {
+                                                                        universe: TermUniverse(
+                                                                            1,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                            FluffyTermExpectationEntry {
+                                expectation: CurryDestination(
+                                    ExpectCurryDestination {
+                                        curry_destination: FluffyTerm {
+                                            place: None,
+                                            base: Ethereal(
+                                                Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 2,
+                                    src: ExpectationSource {
+                                        expr_idx: 2,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
                                             Category(
@@ -390,65 +561,65 @@
                                             ),
                                         ),
                                     },
+                                    resolve_progress: Intact,
                                 },
-                            ),
-                            meta: ExpectationState {
-                                idx: 2,
-                                src: ExpectationSource {
-                                    expr_idx: 2,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Intact,
                             },
-                        },
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 3,
-                                src: ExpectationSource {
-                                    expr_idx: 3,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::EqsSort(
-                                            TermUniverse(
-                                                1,
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 3,
+                                    src: ExpectationSource {
+                                        expr_idx: 3,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                     ),
-                                ),
+                                },
                             },
-                        },
-                    ],
+                        ],
+                    },
+                    first_unresolved_expectation: 0,
                 },
-                first_unresolved_expectation: 0,
             },
+            return_ty: None,
+            self_ty: Some(
+                Application(
+                    EtherealTermApplication(
+                        Id {
+                            value: 26,
+                        },
+                    ),
+                ),
+            ),
         },
-        return_ty: None,
-        self_ty: Some(
-            EtherealTerm(`Slice t`),
-        ),
     },
     SemaExprRegion {
+        [salsa id]: 141,
         path: RegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
@@ -469,140 +640,194 @@
                 ),
             ),
         ),
-        sema_expr_arena: SemaExprArena(
-            Arena {
-                data: [
-                    SemaExprEntry {
-                        data_result: Ok(
-                            PrincipalEntityPath {
-                                path_expr_idx: 1,
-                                path: MajorItem(
-                                    Type(
-                                        TypePath(
+        data: SemaExprRegionData {
+            path: Decl(
+                AssociatedItem(
+                    TypeItem(
+                        TypeItemSynNodePath(
+                            Id {
+                                value: 32,
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            sema_expr_arena: SemaExprArena(
+                Arena {
+                    data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: MajorItem(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 27,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                    ],
+                },
+            ),
+            sema_stmt_arena: SemaStmtArena(
+                Arena {
+                    data: [],
+                },
+            ),
+            syn_expr_root_sema_expr_idx_table: [
+                (
+                    1,
+                    SemaExprIdx(
+                        1,
+                    ),
+                ),
+            ],
+            pattern_expr_ty_infos: ArenaMap {
+                data: [],
+            },
+            pattern_symbol_ty_infos: ArenaMap {
+                data: [],
+            },
+            sema_expr_terms: [],
+            symbol_tys: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            SymbolType(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ],
+                },
+                current_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            symbol_terms: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Symbol(
+                                        EtherealTermSymbol(
                                             Id {
-                                                value: 27,
+                                                value: 4,
                                             },
                                         ),
                                     ),
                                 ),
-                                ty_path_disambiguation: OntologyConstructor,
                             },
                         ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
+                    ],
+                },
+                current_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            fluffy_term_region: FluffyTermRegion {
+                terms: FluffyTerms {
+                    solid_terms: SolidTerms {
+                        entries: VecSet {
+                            data: [],
+                        },
+                    },
+                    hollow_terms: HollowTerms {
+                        entries: [],
+                        first_unresolved_term_idx: 0,
+                    },
+                },
+                expectations: Expectations {
+                    arena: Arena {
+                        data: [
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
                                 ),
-                            },
-                        ),
-                    },
-                ],
-            },
-        ),
-        sema_stmt_arena: SemaStmtArena(
-            Arena {
-                data: [],
-            },
-        ),
-        syn_expr_root_sema_expr_idx_table: [
-            (
-                1,
-                SemaExprIdx(
-                    1,
-                ),
-            ),
-        ],
-        pattern_expr_ty_infos: [],
-        pattern_symbol_ty_infos: ArenaMap {
-            data: [],
-        },
-        sema_expr_terms: [],
-        symbol_tys: SymbolMap {
-            inherited_symbol_map: [
-                SymbolType(
-                    FluffyTerm {
-                        place: None,
-                        base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`Type`),
-                        ),
-                    },
-                ),
-            ],
-            current_symbol_map: [],
-        },
-        symbol_terms: SymbolMap {
-            inherited_symbol_map: [
-                FluffyTerm {
-                    place: None,
-                    base: FluffyTermBase::Ethereal(
-                        EtherealTerm(`t`),
-                    ),
-                },
-            ],
-            current_symbol_map: [],
-        },
-        fluffy_term_region: FluffyTermRegion {
-            terms: FluffyTerms {
-                solid_terms: SolidTerms {
-                    entries: [],
-                },
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
-            },
-            expectations: Expectations {
-                arena: Arena {
-                    data: [
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 1,
-                                src: ExpectationSource {
-                                    expr_idx: 1,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::EqsSort(
-                                            TermUniverse(
-                                                1,
+                                meta: ExpectationState {
+                                    idx: 1,
+                                    src: ExpectationSource {
+                                        expr_idx: 1,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                     ),
-                                ),
+                                },
                             },
-                        },
-                    ],
+                        ],
+                    },
+                    first_unresolved_expectation: 0,
                 },
-                first_unresolved_expectation: 0,
             },
+            return_ty: None,
+            self_ty: Some(
+                Application(
+                    EtherealTermApplication(
+                        Id {
+                            value: 26,
+                        },
+                    ),
+                ),
+            ),
         },
-        return_ty: None,
-        self_ty: Some(
-            EtherealTerm(`Slice t`),
-        ),
     },
     SemaExprRegion {
+        [salsa id]: 142,
         path: RegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
@@ -623,228 +848,314 @@
                 ),
             ),
         ),
-        sema_expr_arena: SemaExprArena(
-            Arena {
-                data: [
-                    SemaExprEntry {
-                        data_result: Ok(
-                            PrincipalEntityPath {
-                                path_expr_idx: 1,
-                                path: MajorItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 27,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                ty_path_disambiguation: OntologyConstructor,
+        data: SemaExprRegionData {
+            path: Decl(
+                AssociatedItem(
+                    TypeItem(
+                        TypeItemSynNodePath(
+                            Id {
+                                value: 33,
                             },
                         ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                    SemaExprEntry {
-                        data_result: Ok(
-                            PrincipalEntityPath {
-                                path_expr_idx: 2,
-                                path: MajorItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 27,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                ty_path_disambiguation: OntologyConstructor,
-                            },
-                        ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                ],
-            },
-        ),
-        sema_stmt_arena: SemaStmtArena(
-            Arena {
-                data: [],
-            },
-        ),
-        syn_expr_root_sema_expr_idx_table: [
-            (
-                1,
-                SemaExprIdx(
-                    1,
-                ),
-            ),
-            (
-                2,
-                SemaExprIdx(
-                    2,
-                ),
-            ),
-        ],
-        pattern_expr_ty_infos: [],
-        pattern_symbol_ty_infos: ArenaMap {
-            data: [
-                None,
-                None,
-            ],
-        },
-        sema_expr_terms: [],
-        symbol_tys: SymbolMap {
-            inherited_symbol_map: [
-                SymbolType(
-                    FluffyTerm {
-                        place: None,
-                        base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`Type`),
-                        ),
-                    },
-                ),
-            ],
-            current_symbol_map: [
-                SymbolType(
-                    FluffyTerm {
-                        place: None,
-                        base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`usize`),
-                        ),
-                    },
-                ),
-                SymbolType(
-                    FluffyTerm {
-                        place: None,
-                        base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`usize`),
-                        ),
-                    },
-                ),
-            ],
-        },
-        symbol_terms: SymbolMap {
-            inherited_symbol_map: [
-                FluffyTerm {
-                    place: None,
-                    base: FluffyTermBase::Ethereal(
-                        EtherealTerm(`t`),
                     ),
-                },
-            ],
-            current_symbol_map: [],
-        },
-        fluffy_term_region: FluffyTermRegion {
-            terms: FluffyTerms {
-                solid_terms: SolidTerms {
-                    entries: [],
-                },
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
-            },
-            expectations: Expectations {
-                arena: Arena {
+                ),
+            ),
+            sema_expr_arena: SemaExprArena(
+                Arena {
                     data: [
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 1,
-                                src: ExpectationSource {
-                                    expr_idx: 1,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::EqsSort(
-                                            TermUniverse(
-                                                1,
+                        SemaExprEntry {
+                            data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: MajorItem(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 27,
+                                                },
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
+                                    ty_path_disambiguation: OntologyConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         },
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 2,
-                                src: ExpectationSource {
-                                    expr_idx: 2,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::EqsSort(
-                                            TermUniverse(
-                                                1,
+                        SemaExprEntry {
+                            data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 2,
+                                    path: MajorItem(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 27,
+                                                },
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
+                                    ty_path_disambiguation: OntologyConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         },
                     ],
                 },
-                first_unresolved_expectation: 0,
+            ),
+            sema_stmt_arena: SemaStmtArena(
+                Arena {
+                    data: [],
+                },
+            ),
+            syn_expr_root_sema_expr_idx_table: [
+                (
+                    1,
+                    SemaExprIdx(
+                        1,
+                    ),
+                ),
+                (
+                    2,
+                    SemaExprIdx(
+                        2,
+                    ),
+                ),
+            ],
+            pattern_expr_ty_infos: ArenaMap {
+                data: [
+                    None,
+                    None,
+                ],
             },
+            pattern_symbol_ty_infos: ArenaMap {
+                data: [
+                    None,
+                    None,
+                ],
+            },
+            sema_expr_terms: [],
+            symbol_tys: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            SymbolType(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ],
+                },
+                current_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            SymbolType(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 27,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                        Some(
+                            SymbolType(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 27,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ],
+                },
+            },
+            symbol_terms: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Symbol(
+                                        EtherealTermSymbol(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                    ],
+                },
+                current_symbol_map: ArenaMap {
+                    data: [
+                        None,
+                        None,
+                    ],
+                },
+            },
+            fluffy_term_region: FluffyTermRegion {
+                terms: FluffyTerms {
+                    solid_terms: SolidTerms {
+                        entries: VecSet {
+                            data: [],
+                        },
+                    },
+                    hollow_terms: HollowTerms {
+                        entries: [],
+                        first_unresolved_term_idx: 0,
+                    },
+                },
+                expectations: Expectations {
+                    arena: Arena {
+                        data: [
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 1,
+                                    src: ExpectationSource {
+                                        expr_idx: 1,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 2,
+                                    src: ExpectationSource {
+                                        expr_idx: 2,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                        ],
+                    },
+                    first_unresolved_expectation: 0,
+                },
+            },
+            return_ty: None,
+            self_ty: Some(
+                Application(
+                    EtherealTermApplication(
+                        Id {
+                            value: 26,
+                        },
+                    ),
+                ),
+            ),
         },
-        return_ty: None,
-        self_ty: Some(
-            EtherealTerm(`Slice t`),
-        ),
     },
     SemaExprRegion {
+        [salsa id]: 143,
         path: RegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
@@ -861,284 +1172,378 @@
                 ),
             ),
         ),
-        sema_expr_arena: SemaExprArena(
-            Arena {
-                data: [
-                    SemaExprEntry {
-                        data_result: Ok(
-                            PrincipalEntityPath {
-                                path_expr_idx: 3,
-                                path: MajorItem(
-                                    Trait(
-                                        TraitPath(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                ty_path_disambiguation: InstanceConstructor,
-                            },
-                        ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
+        data: SemaExprRegionData {
+            path: Decl(
+                ImplBlock(
+                    TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNodePath {
+                            path: TraitForTypeImplBlockPath(
+                                Id {
+                                    value: 18,
+                                },
+                            ),
+                        },
+                    ),
+                ),
+            ),
+            sema_expr_arena: SemaExprArena(
+                Arena {
+                    data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 3,
+                                    path: MajorItem(
+                                        Trait(
+                                            TraitPath(
                                                 Id {
-                                                    value: 5,
+                                                    value: 19,
                                                 },
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
-                        ),
-                    },
-                    SemaExprEntry {
-                        data_result: Ok(
-                            PrincipalEntityPath {
-                                path_expr_idx: 4,
-                                path: MajorItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 36,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                ty_path_disambiguation: OntologyConstructor,
-                            },
-                        ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Curry(
-                                        EtherealTermCurry(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                    SemaExprEntry {
-                        data_result: Ok(
-                            CurrentSymbol {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 25,
-                                        },
-                                    ),
-                                ),
-                                regional_token_idx: RegionalTokenIdx(
-                                    12,
-                                ),
-                                current_symbol_idx: 1,
-                                current_symbol_kind: ImplicitParameter {
-                                    template_parameter_kind: Type {
-                                        ident_token: IdentRegionalToken {
-                                            ident: Ident(
-                                                Coword(
+                                    ty_path_disambiguation: InstanceConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
                                                     Id {
-                                                        value: 25,
+                                                        value: 5,
                                                     },
                                                 ),
                                             ),
-                                            regional_token_idx: RegionalTokenIdx(
-                                                3,
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 4,
+                                    path: MajorItem(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 36,
+                                                },
                                             ),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Curry(
+                                            EtherealTermCurry(
+                                                Id {
+                                                    value: 2,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                CurrentSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 25,
+                                            },
+                                        ),
+                                    ),
+                                    regional_token_idx: RegionalTokenIdx(
+                                        12,
+                                    ),
+                                    current_symbol_idx: 1,
+                                    current_symbol_kind: ImplicitParameter {
+                                        template_parameter_kind: Type {
+                                            ident_token: IdentRegionalToken {
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 25,
+                                                        },
+                                                    ),
+                                                ),
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    3,
+                                                ),
+                                            },
                                         },
                                     },
                                 },
-                            },
-                        ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
                                     ),
-                                ),
-                            },
-                        ),
-                    },
-                    SemaExprEntry {
-                        data_result: Ok(
-                            Application {
-                                function_sema_expr_idx: SemaExprIdx(
-                                    2,
-                                ),
-                                argument_sema_expr_idx: SemaExprIdx(
-                                    3,
-                                ),
-                            },
-                        ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
+                                },
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                FunctionApplication {
+                                    function_sema_expr_idx: SemaExprIdx(
+                                        2,
                                     ),
-                                ),
-                            },
-                        ),
-                    },
-                ],
-            },
-        ),
-        sema_stmt_arena: SemaStmtArena(
-            Arena {
+                                    argument_sema_expr_idx: SemaExprIdx(
+                                        3,
+                                    ),
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                    ],
+                },
+            ),
+            sema_stmt_arena: SemaStmtArena(
+                Arena {
+                    data: [],
+                },
+            ),
+            syn_expr_root_sema_expr_idx_table: [
+                (
+                    1,
+                    SemaExprIdx(
+                        1,
+                    ),
+                ),
+                (
+                    4,
+                    SemaExprIdx(
+                        4,
+                    ),
+                ),
+            ],
+            pattern_expr_ty_infos: ArenaMap {
                 data: [],
             },
-        ),
-        syn_expr_root_sema_expr_idx_table: [
-            (
-                1,
-                SemaExprIdx(
-                    1,
-                ),
-            ),
-            (
-                4,
-                SemaExprIdx(
-                    4,
-                ),
-            ),
-        ],
-        pattern_expr_ty_infos: [],
-        pattern_symbol_ty_infos: ArenaMap {
-            data: [],
-        },
-        sema_expr_terms: [],
-        symbol_tys: SymbolMap {
-            inherited_symbol_map: [],
-            current_symbol_map: [
-                SymbolType(
-                    FluffyTerm {
-                        place: None,
-                        base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`Type`),
+            pattern_symbol_ty_infos: ArenaMap {
+                data: [],
+            },
+            sema_expr_terms: [],
+            symbol_tys: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            SymbolType(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
-                    },
-                ),
-            ],
-        },
-        symbol_terms: SymbolMap {
-            inherited_symbol_map: [],
-            current_symbol_map: [
-                FluffyTerm {
-                    place: None,
-                    base: FluffyTermBase::Ethereal(
-                        EtherealTerm(`t`),
-                    ),
-                },
-            ],
-        },
-        fluffy_term_region: FluffyTermRegion {
-            terms: FluffyTerms {
-                solid_terms: SolidTerms {
-                    entries: [],
-                },
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
+                    ],
                 },
             },
-            expectations: Expectations {
-                arena: Arena {
+            symbol_terms: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_symbol_map: ArenaMap {
                     data: [
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::AnyOriginal(
-                                ExpectAnyOriginal,
-                            ),
-                            meta: ExpectationState {
-                                idx: 1,
-                                src: ExpectationSource {
-                                    expr_idx: 1,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Trait`),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Intact,
-                            },
-                        },
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::EqsFunctionType(
-                                ExpectEqsFunctionType {
-                                    final_destination: FinalDestination::Sort,
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 2,
-                                src: ExpectationSource {
-                                    expr_idx: 2,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`covariant Type -> Type`),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::EqsFunctionCallType(
-                                            ExpectEqsFunctionTypeOutcome {
-                                                template_parameter_substitutions: [],
-                                                return_ty: FluffyTerm {
-                                                    place: None,
-                                                    base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Type`),
-                                                    ),
-                                                },
-                                                variant: ExpectEqsFunctionTypeOutcomeVariant::Curry {
-                                                    variance: Covariant,
-                                                    parameter_symbol: None,
-                                                    parameter_ty: FluffyTerm {
-                                                        place: None,
-                                                        base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`Type`),
-                                                        ),
-                                                    },
-                                                    return_ty: FluffyTerm {
-                                                        place: None,
-                                                        base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`Type`),
-                                                        ),
-                                                    },
-                                                },
+                        Some(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Symbol(
+                                        EtherealTermSymbol(
+                                            Id {
+                                                value: 4,
                                             },
                                         ),
                                     ),
                                 ),
                             },
+                        ),
+                    ],
+                },
+            },
+            fluffy_term_region: FluffyTermRegion {
+                terms: FluffyTerms {
+                    solid_terms: SolidTerms {
+                        entries: VecSet {
+                            data: [],
                         },
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::CurryDestination(
-                                ExpectCurryDestination {
-                                    curry_destination: FluffyTerm {
+                    },
+                    hollow_terms: HollowTerms {
+                        entries: [],
+                        first_unresolved_term_idx: 0,
+                    },
+                },
+                expectations: Expectations {
+                    arena: Arena {
+                        data: [
+                            FluffyTermExpectationEntry {
+                                expectation: AnyOriginal(
+                                    ExpectAnyOriginal,
+                                ),
+                                meta: ExpectationState {
+                                    idx: 1,
+                                    src: ExpectationSource {
+                                        expr_idx: 1,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 5,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Intact,
+                                },
+                            },
+                            FluffyTermExpectationEntry {
+                                expectation: EqsFunctionType(
+                                    ExpectEqsFunctionType {
+                                        final_destination: Sort,
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 2,
+                                    src: ExpectationSource {
+                                        expr_idx: 2,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Curry(
+                                                EtherealTermCurry(
+                                                    Id {
+                                                        value: 2,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsFunctionCallType(
+                                                ExpectEqsFunctionTypeOutcome {
+                                                    template_parameter_substitutions: [],
+                                                    return_ty: FluffyTerm {
+                                                        place: None,
+                                                        base: Ethereal(
+                                                            Category(
+                                                                TermCategory {
+                                                                    universe: TermUniverse(
+                                                                        1,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    variant: Curry {
+                                                        variance: Covariant,
+                                                        parameter_symbol: None,
+                                                        parameter_ty: FluffyTerm {
+                                                            place: None,
+                                                            base: Ethereal(
+                                                                Category(
+                                                                    TermCategory {
+                                                                        universe: TermUniverse(
+                                                                            1,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        return_ty: FluffyTerm {
+                                                            place: None,
+                                                            base: Ethereal(
+                                                                Category(
+                                                                    TermCategory {
+                                                                        universe: TermUniverse(
+                                                                            1,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                            FluffyTermExpectationEntry {
+                                expectation: CurryDestination(
+                                    ExpectCurryDestination {
+                                        curry_destination: FluffyTerm {
+                                            place: None,
+                                            base: Ethereal(
+                                                Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 3,
+                                    src: ExpectationSource {
+                                        expr_idx: 3,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
                                             Category(
@@ -1150,65 +1555,65 @@
                                             ),
                                         ),
                                     },
+                                    resolve_progress: Intact,
                                 },
-                            ),
-                            meta: ExpectationState {
-                                idx: 3,
-                                src: ExpectationSource {
-                                    expr_idx: 3,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Intact,
                             },
-                        },
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 4,
-                                src: ExpectationSource {
-                                    expr_idx: 4,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::EqsSort(
-                                            TermUniverse(
-                                                1,
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 4,
+                                    src: ExpectationSource {
+                                        expr_idx: 4,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                     ),
-                                ),
+                                },
                             },
-                        },
-                    ],
+                        ],
+                    },
+                    first_unresolved_expectation: 0,
                 },
-                first_unresolved_expectation: 0,
             },
+            return_ty: None,
+            self_ty: Some(
+                Application(
+                    EtherealTermApplication(
+                        Id {
+                            value: 27,
+                        },
+                    ),
+                ),
+            ),
         },
-        return_ty: None,
-        self_ty: Some(
-            EtherealTerm(`CyclicSlice t`),
-        ),
     },
     SemaExprRegion {
+        [salsa id]: 144,
         path: RegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
@@ -1232,149 +1637,197 @@
                 ),
             ),
         ),
-        sema_expr_arena: SemaExprArena(
-            Arena {
-                data: [
-                    SemaExprEntry {
-                        data_result: Ok(
-                            InheritedSymbol {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 25,
+        data: SemaExprRegionData {
+            path: Decl(
+                AssociatedItem(
+                    TraitForTypeItem(
+                        TraitForTypeItemSynNodePath(
+                            Id {
+                                value: 18,
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            sema_expr_arena: SemaExprArena(
+                Arena {
+                    data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                InheritedSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 25,
+                                            },
+                                        ),
+                                    ),
+                                    regional_token_idx: RegionalTokenIdx(
+                                        4,
+                                    ),
+                                    inherited_symbol_idx: 1,
+                                    inherited_symbol_kind: TemplateParameter(
+                                        Type {
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 25,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                     ),
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                    ],
+                },
+            ),
+            sema_stmt_arena: SemaStmtArena(
+                Arena {
+                    data: [],
+                },
+            ),
+            syn_expr_root_sema_expr_idx_table: [
+                (
+                    1,
+                    SemaExprIdx(
+                        1,
+                    ),
+                ),
+            ],
+            pattern_expr_ty_infos: ArenaMap {
+                data: [],
+            },
+            pattern_symbol_ty_infos: ArenaMap {
+                data: [],
+            },
+            sema_expr_terms: [],
+            symbol_tys: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            SymbolType(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ],
+                },
+                current_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            symbol_terms: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Symbol(
+                                        EtherealTermSymbol(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
+                                    ),
                                 ),
-                                regional_token_idx: RegionalTokenIdx(
-                                    4,
+                            },
+                        ),
+                    ],
+                },
+                current_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            fluffy_term_region: FluffyTermRegion {
+                terms: FluffyTerms {
+                    solid_terms: SolidTerms {
+                        entries: VecSet {
+                            data: [],
+                        },
+                    },
+                    hollow_terms: HollowTerms {
+                        entries: [],
+                        first_unresolved_term_idx: 0,
+                    },
+                },
+                expectations: Expectations {
+                    arena: Arena {
+                        data: [
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
                                 ),
-                                inherited_symbol_idx: 1,
-                                inherited_symbol_kind: TemplateParameter(
-                                    Type {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 25,
+                                meta: ExpectationState {
+                                    idx: 1,
+                                    src: ExpectationSource {
+                                        expr_idx: 1,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
                                                 },
                                             ),
                                         ),
                                     },
-                                ),
-                            },
-                        ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                ],
-            },
-        ),
-        sema_stmt_arena: SemaStmtArena(
-            Arena {
-                data: [],
-            },
-        ),
-        syn_expr_root_sema_expr_idx_table: [
-            (
-                1,
-                SemaExprIdx(
-                    1,
-                ),
-            ),
-        ],
-        pattern_expr_ty_infos: [],
-        pattern_symbol_ty_infos: ArenaMap {
-            data: [],
-        },
-        sema_expr_terms: [],
-        symbol_tys: SymbolMap {
-            inherited_symbol_map: [
-                SymbolType(
-                    FluffyTerm {
-                        place: None,
-                        base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`Type`),
-                        ),
-                    },
-                ),
-            ],
-            current_symbol_map: [],
-        },
-        symbol_terms: SymbolMap {
-            inherited_symbol_map: [
-                FluffyTerm {
-                    place: None,
-                    base: FluffyTermBase::Ethereal(
-                        EtherealTerm(`t`),
-                    ),
-                },
-            ],
-            current_symbol_map: [],
-        },
-        fluffy_term_region: FluffyTermRegion {
-            terms: FluffyTerms {
-                solid_terms: SolidTerms {
-                    entries: [],
-                },
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
-            },
-            expectations: Expectations {
-                arena: Arena {
-                    data: [
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 1,
-                                src: ExpectationSource {
-                                    expr_idx: 1,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::EqsSort(
-                                            TermUniverse(
-                                                1,
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                     ),
-                                ),
+                                },
                             },
-                        },
-                    ],
+                        ],
+                    },
+                    first_unresolved_expectation: 0,
                 },
-                first_unresolved_expectation: 0,
             },
+            return_ty: None,
+            self_ty: None,
         },
-        return_ty: None,
-        self_ty: None,
     },
     SemaExprRegion {
+        [salsa id]: 145,
         path: RegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TypeImplBlock(
@@ -1388,226 +1841,312 @@
                 ),
             ),
         ),
-        sema_expr_arena: SemaExprArena(
-            Arena {
-                data: [
-                    SemaExprEntry {
-                        data_result: Ok(
-                            PrincipalEntityPath {
-                                path_expr_idx: 1,
-                                path: MajorItem(
-                                    Type(
-                                        TypePath(
+        data: SemaExprRegionData {
+            path: Decl(
+                ImplBlock(
+                    TypeImplBlock(
+                        TypeImplBlockSynNodePath {
+                            path: TypeImplBlockPath(
+                                Id {
+                                    value: 18,
+                                },
+                            ),
+                        },
+                    ),
+                ),
+            ),
+            sema_expr_arena: SemaExprArena(
+                Arena {
+                    data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: MajorItem(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 36,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Curry(
+                                            EtherealTermCurry(
+                                                Id {
+                                                    value: 2,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                CurrentSymbol {
+                                    ident: Ident(
+                                        Coword(
                                             Id {
-                                                value: 36,
+                                                value: 25,
                                             },
                                         ),
                                     ),
-                                ),
-                                ty_path_disambiguation: OntologyConstructor,
-                            },
-                        ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Curry(
-                                        EtherealTermCurry(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
+                                    regional_token_idx: RegionalTokenIdx(
+                                        6,
                                     ),
-                                ),
-                            },
-                        ),
-                    },
-                    SemaExprEntry {
-                        data_result: Ok(
-                            CurrentSymbol {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 25,
-                                        },
-                                    ),
-                                ),
-                                regional_token_idx: RegionalTokenIdx(
-                                    6,
-                                ),
-                                current_symbol_idx: 1,
-                                current_symbol_kind: ImplicitParameter {
-                                    template_parameter_kind: Type {
-                                        ident_token: IdentRegionalToken {
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 25,
-                                                    },
+                                    current_symbol_idx: 1,
+                                    current_symbol_kind: ImplicitParameter {
+                                        template_parameter_kind: Type {
+                                            ident_token: IdentRegionalToken {
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 25,
+                                                        },
+                                                    ),
                                                 ),
-                                            ),
-                                            regional_token_idx: RegionalTokenIdx(
-                                                3,
-                                            ),
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    3,
+                                                ),
+                                            },
                                         },
                                     },
                                 },
-                            },
-                        ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
                                     ),
-                                ),
-                            },
-                        ),
-                    },
-                    SemaExprEntry {
-                        data_result: Ok(
-                            Application {
-                                function_sema_expr_idx: SemaExprIdx(
-                                    1,
-                                ),
-                                argument_sema_expr_idx: SemaExprIdx(
-                                    2,
-                                ),
-                            },
-                        ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                ],
-            },
-        ),
-        sema_stmt_arena: SemaStmtArena(
-            Arena {
-                data: [],
-            },
-        ),
-        syn_expr_root_sema_expr_idx_table: [
-            (
-                3,
-                SemaExprIdx(
-                    3,
-                ),
-            ),
-        ],
-        pattern_expr_ty_infos: [],
-        pattern_symbol_ty_infos: ArenaMap {
-            data: [],
-        },
-        sema_expr_terms: [],
-        symbol_tys: SymbolMap {
-            inherited_symbol_map: [],
-            current_symbol_map: [
-                SymbolType(
-                    FluffyTerm {
-                        place: None,
-                        base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`Type`),
-                        ),
-                    },
-                ),
-            ],
-        },
-        symbol_terms: SymbolMap {
-            inherited_symbol_map: [],
-            current_symbol_map: [
-                FluffyTerm {
-                    place: None,
-                    base: FluffyTermBase::Ethereal(
-                        EtherealTerm(`t`),
-                    ),
-                },
-            ],
-        },
-        fluffy_term_region: FluffyTermRegion {
-            terms: FluffyTerms {
-                solid_terms: SolidTerms {
-                    entries: [],
-                },
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
-            },
-            expectations: Expectations {
-                arena: Arena {
-                    data: [
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::EqsFunctionType(
-                                ExpectEqsFunctionType {
-                                    final_destination: FinalDestination::Sort,
                                 },
                             ),
-                            meta: ExpectationState {
-                                idx: 1,
-                                src: ExpectationSource {
-                                    expr_idx: 1,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`covariant Type -> Type`),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                FunctionApplication {
+                                    function_sema_expr_idx: SemaExprIdx(
+                                        1,
+                                    ),
+                                    argument_sema_expr_idx: SemaExprIdx(
+                                        2,
                                     ),
                                 },
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::EqsFunctionCallType(
-                                            ExpectEqsFunctionTypeOutcome {
-                                                template_parameter_substitutions: [],
-                                                return_ty: FluffyTerm {
-                                                    place: None,
-                                                    base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Type`),
-                                                    ),
-                                                },
-                                                variant: ExpectEqsFunctionTypeOutcomeVariant::Curry {
-                                                    variance: Covariant,
-                                                    parameter_symbol: None,
-                                                    parameter_ty: FluffyTerm {
-                                                        place: None,
-                                                        base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`Type`),
-                                                        ),
-                                                    },
-                                                    return_ty: FluffyTerm {
-                                                        place: None,
-                                                        base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`Type`),
-                                                        ),
-                                                    },
-                                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                    ],
+                },
+            ),
+            sema_stmt_arena: SemaStmtArena(
+                Arena {
+                    data: [],
+                },
+            ),
+            syn_expr_root_sema_expr_idx_table: [
+                (
+                    3,
+                    SemaExprIdx(
+                        3,
+                    ),
+                ),
+            ],
+            pattern_expr_ty_infos: ArenaMap {
+                data: [],
+            },
+            pattern_symbol_ty_infos: ArenaMap {
+                data: [],
+            },
+            sema_expr_terms: [],
+            symbol_tys: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            SymbolType(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ],
+                },
+            },
+            symbol_terms: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Symbol(
+                                        EtherealTermSymbol(
+                                            Id {
+                                                value: 4,
                                             },
                                         ),
                                     ),
                                 ),
                             },
+                        ),
+                    ],
+                },
+            },
+            fluffy_term_region: FluffyTermRegion {
+                terms: FluffyTerms {
+                    solid_terms: SolidTerms {
+                        entries: VecSet {
+                            data: [],
                         },
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::CurryDestination(
-                                ExpectCurryDestination {
-                                    curry_destination: FluffyTerm {
+                    },
+                    hollow_terms: HollowTerms {
+                        entries: [],
+                        first_unresolved_term_idx: 0,
+                    },
+                },
+                expectations: Expectations {
+                    arena: Arena {
+                        data: [
+                            FluffyTermExpectationEntry {
+                                expectation: EqsFunctionType(
+                                    ExpectEqsFunctionType {
+                                        final_destination: Sort,
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 1,
+                                    src: ExpectationSource {
+                                        expr_idx: 1,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Curry(
+                                                EtherealTermCurry(
+                                                    Id {
+                                                        value: 2,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsFunctionCallType(
+                                                ExpectEqsFunctionTypeOutcome {
+                                                    template_parameter_substitutions: [],
+                                                    return_ty: FluffyTerm {
+                                                        place: None,
+                                                        base: Ethereal(
+                                                            Category(
+                                                                TermCategory {
+                                                                    universe: TermUniverse(
+                                                                        1,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    variant: Curry {
+                                                        variance: Covariant,
+                                                        parameter_symbol: None,
+                                                        parameter_ty: FluffyTerm {
+                                                            place: None,
+                                                            base: Ethereal(
+                                                                Category(
+                                                                    TermCategory {
+                                                                        universe: TermUniverse(
+                                                                            1,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        return_ty: FluffyTerm {
+                                                            place: None,
+                                                            base: Ethereal(
+                                                                Category(
+                                                                    TermCategory {
+                                                                        universe: TermUniverse(
+                                                                            1,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                            FluffyTermExpectationEntry {
+                                expectation: CurryDestination(
+                                    ExpectCurryDestination {
+                                        curry_destination: FluffyTerm {
+                                            place: None,
+                                            base: Ethereal(
+                                                Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 2,
+                                    src: ExpectationSource {
+                                        expr_idx: 2,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
                                             Category(
@@ -1619,65 +2158,65 @@
                                             ),
                                         ),
                                     },
+                                    resolve_progress: Intact,
                                 },
-                            ),
-                            meta: ExpectationState {
-                                idx: 2,
-                                src: ExpectationSource {
-                                    expr_idx: 2,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Intact,
                             },
-                        },
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 3,
-                                src: ExpectationSource {
-                                    expr_idx: 3,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::EqsSort(
-                                            TermUniverse(
-                                                1,
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 3,
+                                    src: ExpectationSource {
+                                        expr_idx: 3,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                     ),
-                                ),
+                                },
                             },
-                        },
-                    ],
+                        ],
+                    },
+                    first_unresolved_expectation: 0,
                 },
-                first_unresolved_expectation: 0,
             },
+            return_ty: None,
+            self_ty: Some(
+                Application(
+                    EtherealTermApplication(
+                        Id {
+                            value: 27,
+                        },
+                    ),
+                ),
+            ),
         },
-        return_ty: None,
-        self_ty: Some(
-            EtherealTerm(`CyclicSlice t`),
-        ),
     },
     SemaExprRegion {
+        [salsa id]: 146,
         path: RegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
@@ -1698,140 +2237,194 @@
                 ),
             ),
         ),
-        sema_expr_arena: SemaExprArena(
-            Arena {
-                data: [
-                    SemaExprEntry {
-                        data_result: Ok(
-                            PrincipalEntityPath {
-                                path_expr_idx: 1,
-                                path: MajorItem(
-                                    Type(
-                                        TypePath(
+        data: SemaExprRegionData {
+            path: Decl(
+                AssociatedItem(
+                    TypeItem(
+                        TypeItemSynNodePath(
+                            Id {
+                                value: 34,
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            sema_expr_arena: SemaExprArena(
+                Arena {
+                    data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: MajorItem(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 18,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                    ],
+                },
+            ),
+            sema_stmt_arena: SemaStmtArena(
+                Arena {
+                    data: [],
+                },
+            ),
+            syn_expr_root_sema_expr_idx_table: [
+                (
+                    1,
+                    SemaExprIdx(
+                        1,
+                    ),
+                ),
+            ],
+            pattern_expr_ty_infos: ArenaMap {
+                data: [],
+            },
+            pattern_symbol_ty_infos: ArenaMap {
+                data: [],
+            },
+            sema_expr_terms: [],
+            symbol_tys: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            SymbolType(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ],
+                },
+                current_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            symbol_terms: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Symbol(
+                                        EtherealTermSymbol(
                                             Id {
-                                                value: 18,
+                                                value: 4,
                                             },
                                         ),
                                     ),
                                 ),
-                                ty_path_disambiguation: OntologyConstructor,
                             },
                         ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
+                    ],
+                },
+                current_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            fluffy_term_region: FluffyTermRegion {
+                terms: FluffyTerms {
+                    solid_terms: SolidTerms {
+                        entries: VecSet {
+                            data: [],
+                        },
+                    },
+                    hollow_terms: HollowTerms {
+                        entries: [],
+                        first_unresolved_term_idx: 0,
+                    },
+                },
+                expectations: Expectations {
+                    arena: Arena {
+                        data: [
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
                                 ),
-                            },
-                        ),
-                    },
-                ],
-            },
-        ),
-        sema_stmt_arena: SemaStmtArena(
-            Arena {
-                data: [],
-            },
-        ),
-        syn_expr_root_sema_expr_idx_table: [
-            (
-                1,
-                SemaExprIdx(
-                    1,
-                ),
-            ),
-        ],
-        pattern_expr_ty_infos: [],
-        pattern_symbol_ty_infos: ArenaMap {
-            data: [],
-        },
-        sema_expr_terms: [],
-        symbol_tys: SymbolMap {
-            inherited_symbol_map: [
-                SymbolType(
-                    FluffyTerm {
-                        place: None,
-                        base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`Type`),
-                        ),
-                    },
-                ),
-            ],
-            current_symbol_map: [],
-        },
-        symbol_terms: SymbolMap {
-            inherited_symbol_map: [
-                FluffyTerm {
-                    place: None,
-                    base: FluffyTermBase::Ethereal(
-                        EtherealTerm(`t`),
-                    ),
-                },
-            ],
-            current_symbol_map: [],
-        },
-        fluffy_term_region: FluffyTermRegion {
-            terms: FluffyTerms {
-                solid_terms: SolidTerms {
-                    entries: [],
-                },
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
-            },
-            expectations: Expectations {
-                arena: Arena {
-                    data: [
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 1,
-                                src: ExpectationSource {
-                                    expr_idx: 1,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::EqsSort(
-                                            TermUniverse(
-                                                1,
+                                meta: ExpectationState {
+                                    idx: 1,
+                                    src: ExpectationSource {
+                                        expr_idx: 1,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                     ),
-                                ),
+                                },
                             },
-                        },
-                    ],
+                        ],
+                    },
+                    first_unresolved_expectation: 0,
                 },
-                first_unresolved_expectation: 0,
             },
+            return_ty: None,
+            self_ty: Some(
+                Application(
+                    EtherealTermApplication(
+                        Id {
+                            value: 27,
+                        },
+                    ),
+                ),
+            ),
         },
-        return_ty: None,
-        self_ty: Some(
-            EtherealTerm(`CyclicSlice t`),
-        ),
     },
     SemaExprRegion {
+        [salsa id]: 147,
         path: RegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
@@ -1852,140 +2445,194 @@
                 ),
             ),
         ),
-        sema_expr_arena: SemaExprArena(
-            Arena {
-                data: [
-                    SemaExprEntry {
-                        data_result: Ok(
-                            PrincipalEntityPath {
-                                path_expr_idx: 1,
-                                path: MajorItem(
-                                    Type(
-                                        TypePath(
+        data: SemaExprRegionData {
+            path: Decl(
+                AssociatedItem(
+                    TypeItem(
+                        TypeItemSynNodePath(
+                            Id {
+                                value: 35,
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            sema_expr_arena: SemaExprArena(
+                Arena {
+                    data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: MajorItem(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 18,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                    ],
+                },
+            ),
+            sema_stmt_arena: SemaStmtArena(
+                Arena {
+                    data: [],
+                },
+            ),
+            syn_expr_root_sema_expr_idx_table: [
+                (
+                    1,
+                    SemaExprIdx(
+                        1,
+                    ),
+                ),
+            ],
+            pattern_expr_ty_infos: ArenaMap {
+                data: [],
+            },
+            pattern_symbol_ty_infos: ArenaMap {
+                data: [],
+            },
+            sema_expr_terms: [],
+            symbol_tys: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            SymbolType(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ],
+                },
+                current_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            symbol_terms: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Symbol(
+                                        EtherealTermSymbol(
                                             Id {
-                                                value: 18,
+                                                value: 4,
                                             },
                                         ),
                                     ),
                                 ),
-                                ty_path_disambiguation: OntologyConstructor,
                             },
                         ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
+                    ],
+                },
+                current_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            fluffy_term_region: FluffyTermRegion {
+                terms: FluffyTerms {
+                    solid_terms: SolidTerms {
+                        entries: VecSet {
+                            data: [],
+                        },
+                    },
+                    hollow_terms: HollowTerms {
+                        entries: [],
+                        first_unresolved_term_idx: 0,
+                    },
+                },
+                expectations: Expectations {
+                    arena: Arena {
+                        data: [
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
                                 ),
-                            },
-                        ),
-                    },
-                ],
-            },
-        ),
-        sema_stmt_arena: SemaStmtArena(
-            Arena {
-                data: [],
-            },
-        ),
-        syn_expr_root_sema_expr_idx_table: [
-            (
-                1,
-                SemaExprIdx(
-                    1,
-                ),
-            ),
-        ],
-        pattern_expr_ty_infos: [],
-        pattern_symbol_ty_infos: ArenaMap {
-            data: [],
-        },
-        sema_expr_terms: [],
-        symbol_tys: SymbolMap {
-            inherited_symbol_map: [
-                SymbolType(
-                    FluffyTerm {
-                        place: None,
-                        base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`Type`),
-                        ),
-                    },
-                ),
-            ],
-            current_symbol_map: [],
-        },
-        symbol_terms: SymbolMap {
-            inherited_symbol_map: [
-                FluffyTerm {
-                    place: None,
-                    base: FluffyTermBase::Ethereal(
-                        EtherealTerm(`t`),
-                    ),
-                },
-            ],
-            current_symbol_map: [],
-        },
-        fluffy_term_region: FluffyTermRegion {
-            terms: FluffyTerms {
-                solid_terms: SolidTerms {
-                    entries: [],
-                },
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
-            },
-            expectations: Expectations {
-                arena: Arena {
-                    data: [
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 1,
-                                src: ExpectationSource {
-                                    expr_idx: 1,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::EqsSort(
-                                            TermUniverse(
-                                                1,
+                                meta: ExpectationState {
+                                    idx: 1,
+                                    src: ExpectationSource {
+                                        expr_idx: 1,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                     ),
-                                ),
+                                },
                             },
-                        },
-                    ],
+                        ],
+                    },
+                    first_unresolved_expectation: 0,
                 },
-                first_unresolved_expectation: 0,
             },
+            return_ty: None,
+            self_ty: Some(
+                Application(
+                    EtherealTermApplication(
+                        Id {
+                            value: 27,
+                        },
+                    ),
+                ),
+            ),
         },
-        return_ty: None,
-        self_ty: Some(
-            EtherealTerm(`CyclicSlice t`),
-        ),
     },
     SemaExprRegion {
+        [salsa id]: 148,
         path: RegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
@@ -2006,140 +2653,194 @@
                 ),
             ),
         ),
-        sema_expr_arena: SemaExprArena(
-            Arena {
-                data: [
-                    SemaExprEntry {
-                        data_result: Ok(
-                            PrincipalEntityPath {
-                                path_expr_idx: 1,
-                                path: MajorItem(
-                                    Type(
-                                        TypePath(
+        data: SemaExprRegionData {
+            path: Decl(
+                AssociatedItem(
+                    TypeItem(
+                        TypeItemSynNodePath(
+                            Id {
+                                value: 36,
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            sema_expr_arena: SemaExprArena(
+                Arena {
+                    data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: MajorItem(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 18,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                    ],
+                },
+            ),
+            sema_stmt_arena: SemaStmtArena(
+                Arena {
+                    data: [],
+                },
+            ),
+            syn_expr_root_sema_expr_idx_table: [
+                (
+                    1,
+                    SemaExprIdx(
+                        1,
+                    ),
+                ),
+            ],
+            pattern_expr_ty_infos: ArenaMap {
+                data: [],
+            },
+            pattern_symbol_ty_infos: ArenaMap {
+                data: [],
+            },
+            sema_expr_terms: [],
+            symbol_tys: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            SymbolType(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ],
+                },
+                current_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            symbol_terms: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Symbol(
+                                        EtherealTermSymbol(
                                             Id {
-                                                value: 18,
+                                                value: 4,
                                             },
                                         ),
                                     ),
                                 ),
-                                ty_path_disambiguation: OntologyConstructor,
                             },
                         ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
+                    ],
+                },
+                current_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            fluffy_term_region: FluffyTermRegion {
+                terms: FluffyTerms {
+                    solid_terms: SolidTerms {
+                        entries: VecSet {
+                            data: [],
+                        },
+                    },
+                    hollow_terms: HollowTerms {
+                        entries: [],
+                        first_unresolved_term_idx: 0,
+                    },
+                },
+                expectations: Expectations {
+                    arena: Arena {
+                        data: [
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
                                 ),
-                            },
-                        ),
-                    },
-                ],
-            },
-        ),
-        sema_stmt_arena: SemaStmtArena(
-            Arena {
-                data: [],
-            },
-        ),
-        syn_expr_root_sema_expr_idx_table: [
-            (
-                1,
-                SemaExprIdx(
-                    1,
-                ),
-            ),
-        ],
-        pattern_expr_ty_infos: [],
-        pattern_symbol_ty_infos: ArenaMap {
-            data: [],
-        },
-        sema_expr_terms: [],
-        symbol_tys: SymbolMap {
-            inherited_symbol_map: [
-                SymbolType(
-                    FluffyTerm {
-                        place: None,
-                        base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`Type`),
-                        ),
-                    },
-                ),
-            ],
-            current_symbol_map: [],
-        },
-        symbol_terms: SymbolMap {
-            inherited_symbol_map: [
-                FluffyTerm {
-                    place: None,
-                    base: FluffyTermBase::Ethereal(
-                        EtherealTerm(`t`),
-                    ),
-                },
-            ],
-            current_symbol_map: [],
-        },
-        fluffy_term_region: FluffyTermRegion {
-            terms: FluffyTerms {
-                solid_terms: SolidTerms {
-                    entries: [],
-                },
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
-            },
-            expectations: Expectations {
-                arena: Arena {
-                    data: [
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 1,
-                                src: ExpectationSource {
-                                    expr_idx: 1,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::EqsSort(
-                                            TermUniverse(
-                                                1,
+                                meta: ExpectationState {
+                                    idx: 1,
+                                    src: ExpectationSource {
+                                        expr_idx: 1,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                     ),
-                                ),
+                                },
                             },
-                        },
-                    ],
+                        ],
+                    },
+                    first_unresolved_expectation: 0,
                 },
-                first_unresolved_expectation: 0,
             },
+            return_ty: None,
+            self_ty: Some(
+                Application(
+                    EtherealTermApplication(
+                        Id {
+                            value: 27,
+                        },
+                    ),
+                ),
+            ),
         },
-        return_ty: None,
-        self_ty: Some(
-            EtherealTerm(`CyclicSlice t`),
-        ),
     },
     SemaExprRegion {
+        [salsa id]: 149,
         path: RegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
@@ -2160,275 +2861,341 @@
                 ),
             ),
         ),
-        sema_expr_arena: SemaExprArena(
-            Arena {
-                data: [
-                    SemaExprEntry {
-                        data_result: Ok(
-                            InheritedSymbol {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 25,
-                                        },
-                                    ),
-                                ),
-                                regional_token_idx: RegionalTokenIdx(
-                                    9,
-                                ),
-                                inherited_symbol_idx: 1,
-                                inherited_symbol_kind: TemplateParameter(
-                                    Type {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 25,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+        data: SemaExprRegionData {
+            path: Decl(
+                AssociatedItem(
+                    TypeItem(
+                        TypeItemSynNodePath(
+                            Id {
+                                value: 37,
                             },
                         ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                    SemaExprEntry {
-                        data_result: Ok(
-                            Prefix {
-                                opr: Leash,
-                                opr_regional_token_idx: RegionalTokenIdx(
-                                    8,
-                                ),
-                                opd_sema_expr_idx: SemaExprIdx(
-                                    1,
-                                ),
-                            },
-                        ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                    SemaExprEntry {
-                        data_result: Ok(
-                            Prefix {
-                                opr: Option,
-                                opr_regional_token_idx: RegionalTokenIdx(
-                                    7,
-                                ),
-                                opd_sema_expr_idx: SemaExprIdx(
-                                    2,
-                                ),
-                            },
-                        ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                ],
-            },
-        ),
-        sema_stmt_arena: SemaStmtArena(
-            Arena {
-                data: [],
-            },
-        ),
-        syn_expr_root_sema_expr_idx_table: [
-            (
-                3,
-                SemaExprIdx(
-                    3,
+                    ),
                 ),
             ),
-        ],
-        pattern_expr_ty_infos: [],
-        pattern_symbol_ty_infos: ArenaMap {
-            data: [],
-        },
-        sema_expr_terms: [],
-        symbol_tys: SymbolMap {
-            inherited_symbol_map: [
-                SymbolType(
-                    FluffyTerm {
-                        place: None,
-                        base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`Type`),
-                        ),
-                    },
-                ),
-            ],
-            current_symbol_map: [],
-        },
-        symbol_terms: SymbolMap {
-            inherited_symbol_map: [
-                FluffyTerm {
-                    place: None,
-                    base: FluffyTermBase::Ethereal(
-                        EtherealTerm(`t`),
-                    ),
-                },
-            ],
-            current_symbol_map: [],
-        },
-        fluffy_term_region: FluffyTermRegion {
-            terms: FluffyTerms {
-                solid_terms: SolidTerms {
-                    entries: [],
-                },
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
-            },
-            expectations: Expectations {
-                arena: Arena {
+            sema_expr_arena: SemaExprArena(
+                Arena {
                     data: [
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::CurryDestination(
-                                ExpectCurryDestination {
-                                    curry_destination: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                        SemaExprEntry {
+                            data_result: Ok(
+                                InheritedSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 25,
+                                            },
                                         ),
-                                    },
+                                    ),
+                                    regional_token_idx: RegionalTokenIdx(
+                                        9,
+                                    ),
+                                    inherited_symbol_idx: 1,
+                                    inherited_symbol_kind: TemplateParameter(
+                                        Type {
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 25,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                 },
                             ),
-                            meta: ExpectationState {
-                                idx: 1,
-                                src: ExpectationSource {
-                                    expr_idx: 1,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
+                            ty_result: Ok(
+                                FluffyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Intact,
-                            },
-                        },
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::EqsExactly(
-                                ExpectSubtype {
-                                    expected: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
-                            meta: ExpectationState {
-                                idx: 2,
-                                src: ExpectationSource {
-                                    expr_idx: 2,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::Subtype(
-                                            ExpectSubtypeOutcome,
-                                        ),
-                                    ),
-                                ),
-                            },
                         },
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
+                        SemaExprEntry {
+                            data_result: Ok(
+                                Prefix {
+                                    opr: Leash,
+                                    opr_regional_token_idx: RegionalTokenIdx(
+                                        8,
+                                    ),
+                                    opd_sema_expr_idx: SemaExprIdx(
                                         1,
                                     ),
                                 },
                             ),
-                            meta: ExpectationState {
-                                idx: 3,
-                                src: ExpectationSource {
-                                    expr_idx: 3,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
+                            ty_result: Ok(
+                                FluffyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
                                     ),
                                 },
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::EqsSort(
-                                            TermUniverse(
-                                                1,
-                                            ),
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                Prefix {
+                                    opr: Option,
+                                    opr_regional_token_idx: RegionalTokenIdx(
+                                        7,
+                                    ),
+                                    opd_sema_expr_idx: SemaExprIdx(
+                                        2,
+                                    ),
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                    ],
+                },
+            ),
+            sema_stmt_arena: SemaStmtArena(
+                Arena {
+                    data: [],
+                },
+            ),
+            syn_expr_root_sema_expr_idx_table: [
+                (
+                    3,
+                    SemaExprIdx(
+                        3,
+                    ),
+                ),
+            ],
+            pattern_expr_ty_infos: ArenaMap {
+                data: [],
+            },
+            pattern_symbol_ty_infos: ArenaMap {
+                data: [],
+            },
+            sema_expr_terms: [],
+            symbol_tys: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            SymbolType(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ],
+                },
+                current_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            symbol_terms: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Symbol(
+                                        EtherealTermSymbol(
+                                            Id {
+                                                value: 4,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
-                        },
+                        ),
                     ],
                 },
-                first_unresolved_expectation: 0,
+                current_symbol_map: ArenaMap {
+                    data: [],
+                },
             },
+            fluffy_term_region: FluffyTermRegion {
+                terms: FluffyTerms {
+                    solid_terms: SolidTerms {
+                        entries: VecSet {
+                            data: [],
+                        },
+                    },
+                    hollow_terms: HollowTerms {
+                        entries: [],
+                        first_unresolved_term_idx: 0,
+                    },
+                },
+                expectations: Expectations {
+                    arena: Arena {
+                        data: [
+                            FluffyTermExpectationEntry {
+                                expectation: CurryDestination(
+                                    ExpectCurryDestination {
+                                        curry_destination: FluffyTerm {
+                                            place: None,
+                                            base: Ethereal(
+                                                Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 1,
+                                    src: ExpectationSource {
+                                        expr_idx: 1,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Intact,
+                                },
+                            },
+                            FluffyTermExpectationEntry {
+                                expectation: EqsExactly(
+                                    ExpectSubtype {
+                                        expected: FluffyTerm {
+                                            place: None,
+                                            base: Ethereal(
+                                                Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 2,
+                                    src: ExpectationSource {
+                                        expr_idx: 2,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            Subtype(
+                                                ExpectSubtypeOutcome,
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 3,
+                                    src: ExpectationSource {
+                                        expr_idx: 3,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                        ],
+                    },
+                    first_unresolved_expectation: 0,
+                },
+            },
+            return_ty: None,
+            self_ty: Some(
+                Application(
+                    EtherealTermApplication(
+                        Id {
+                            value: 27,
+                        },
+                    ),
+                ),
+            ),
         },
-        return_ty: None,
-        self_ty: Some(
-            EtherealTerm(`CyclicSlice t`),
-        ),
     },
     SemaExprRegion {
+        [salsa id]: 150,
         path: RegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
@@ -2449,272 +3216,337 @@
                 ),
             ),
         ),
-        sema_expr_arena: SemaExprArena(
-            Arena {
-                data: [
-                    SemaExprEntry {
-                        data_result: Ok(
-                            InheritedSymbol {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 25,
-                                        },
-                                    ),
-                                ),
-                                regional_token_idx: RegionalTokenIdx(
-                                    9,
-                                ),
-                                inherited_symbol_idx: 1,
-                                inherited_symbol_kind: TemplateParameter(
-                                    Type {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 25,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+        data: SemaExprRegionData {
+            path: Decl(
+                AssociatedItem(
+                    TypeItem(
+                        TypeItemSynNodePath(
+                            Id {
+                                value: 38,
                             },
                         ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                    SemaExprEntry {
-                        data_result: Ok(
-                            Prefix {
-                                opr: Leash,
-                                opr_regional_token_idx: RegionalTokenIdx(
-                                    8,
-                                ),
-                                opd_sema_expr_idx: SemaExprIdx(
-                                    1,
-                                ),
-                            },
-                        ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                    SemaExprEntry {
-                        data_result: Ok(
-                            Prefix {
-                                opr: Option,
-                                opr_regional_token_idx: RegionalTokenIdx(
-                                    7,
-                                ),
-                                opd_sema_expr_idx: SemaExprIdx(
-                                    2,
-                                ),
-                            },
-                        ),
-                        ty_result: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                ],
-            },
-        ),
-        sema_stmt_arena: SemaStmtArena(
-            Arena {
-                data: [],
-            },
-        ),
-        syn_expr_root_sema_expr_idx_table: [
-            (
-                3,
-                SemaExprIdx(
-                    3,
+                    ),
                 ),
             ),
-        ],
-        pattern_expr_ty_infos: [],
-        pattern_symbol_ty_infos: ArenaMap {
-            data: [],
-        },
-        sema_expr_terms: [],
-        symbol_tys: SymbolMap {
-            inherited_symbol_map: [
-                SymbolType(
-                    FluffyTerm {
-                        place: None,
-                        base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`Type`),
-                        ),
-                    },
-                ),
-            ],
-            current_symbol_map: [],
-        },
-        symbol_terms: SymbolMap {
-            inherited_symbol_map: [
-                FluffyTerm {
-                    place: None,
-                    base: FluffyTermBase::Ethereal(
-                        EtherealTerm(`t`),
-                    ),
-                },
-            ],
-            current_symbol_map: [],
-        },
-        fluffy_term_region: FluffyTermRegion {
-            terms: FluffyTerms {
-                solid_terms: SolidTerms {
-                    entries: [],
-                },
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
-            },
-            expectations: Expectations {
-                arena: Arena {
+            sema_expr_arena: SemaExprArena(
+                Arena {
                     data: [
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::CurryDestination(
-                                ExpectCurryDestination {
-                                    curry_destination: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                        SemaExprEntry {
+                            data_result: Ok(
+                                InheritedSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 25,
+                                            },
                                         ),
-                                    },
+                                    ),
+                                    regional_token_idx: RegionalTokenIdx(
+                                        9,
+                                    ),
+                                    inherited_symbol_idx: 1,
+                                    inherited_symbol_kind: TemplateParameter(
+                                        Type {
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 25,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                 },
                             ),
-                            meta: ExpectationState {
-                                idx: 1,
-                                src: ExpectationSource {
-                                    expr_idx: 1,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
+                            ty_result: Ok(
+                                FluffyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Intact,
-                            },
-                        },
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::EqsExactly(
-                                ExpectSubtype {
-                                    expected: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
-                            meta: ExpectationState {
-                                idx: 2,
-                                src: ExpectationSource {
-                                    expr_idx: 2,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
-                                    place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
-                                    ),
-                                },
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::Subtype(
-                                            ExpectSubtypeOutcome,
-                                        ),
-                                    ),
-                                ),
-                            },
                         },
-                        FluffyTermExpectationEntry {
-                            expectation: Expectation::EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
+                        SemaExprEntry {
+                            data_result: Ok(
+                                Prefix {
+                                    opr: Leash,
+                                    opr_regional_token_idx: RegionalTokenIdx(
+                                        8,
+                                    ),
+                                    opd_sema_expr_idx: SemaExprIdx(
                                         1,
                                     ),
                                 },
                             ),
-                            meta: ExpectationState {
-                                idx: 3,
-                                src: ExpectationSource {
-                                    expr_idx: 3,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm {
+                            ty_result: Ok(
+                                FluffyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
                                     ),
                                 },
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::EqsSort(
-                                            TermUniverse(
-                                                1,
-                                            ),
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                Prefix {
+                                    opr: Option,
+                                    opr_regional_token_idx: RegionalTokenIdx(
+                                        7,
+                                    ),
+                                    opd_sema_expr_idx: SemaExprIdx(
+                                        2,
+                                    ),
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                    ],
+                },
+            ),
+            sema_stmt_arena: SemaStmtArena(
+                Arena {
+                    data: [],
+                },
+            ),
+            syn_expr_root_sema_expr_idx_table: [
+                (
+                    3,
+                    SemaExprIdx(
+                        3,
+                    ),
+                ),
+            ],
+            pattern_expr_ty_infos: ArenaMap {
+                data: [],
+            },
+            pattern_symbol_ty_infos: ArenaMap {
+                data: [],
+            },
+            sema_expr_terms: [],
+            symbol_tys: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            SymbolType(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ],
+                },
+                current_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            symbol_terms: SymbolMap {
+                inherited_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Symbol(
+                                        EtherealTermSymbol(
+                                            Id {
+                                                value: 4,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
-                        },
+                        ),
                     ],
                 },
-                first_unresolved_expectation: 0,
+                current_symbol_map: ArenaMap {
+                    data: [],
+                },
             },
+            fluffy_term_region: FluffyTermRegion {
+                terms: FluffyTerms {
+                    solid_terms: SolidTerms {
+                        entries: VecSet {
+                            data: [],
+                        },
+                    },
+                    hollow_terms: HollowTerms {
+                        entries: [],
+                        first_unresolved_term_idx: 0,
+                    },
+                },
+                expectations: Expectations {
+                    arena: Arena {
+                        data: [
+                            FluffyTermExpectationEntry {
+                                expectation: CurryDestination(
+                                    ExpectCurryDestination {
+                                        curry_destination: FluffyTerm {
+                                            place: None,
+                                            base: Ethereal(
+                                                Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 1,
+                                    src: ExpectationSource {
+                                        expr_idx: 1,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Intact,
+                                },
+                            },
+                            FluffyTermExpectationEntry {
+                                expectation: EqsExactly(
+                                    ExpectSubtype {
+                                        expected: FluffyTerm {
+                                            place: None,
+                                            base: Ethereal(
+                                                Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 2,
+                                    src: ExpectationSource {
+                                        expr_idx: 2,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            Subtype(
+                                                ExpectSubtypeOutcome,
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 3,
+                                    src: ExpectationSource {
+                                        expr_idx: 3,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                        ],
+                    },
+                    first_unresolved_expectation: 0,
+                },
+            },
+            return_ty: None,
+            self_ty: Some(
+                Application(
+                    EtherealTermApplication(
+                        Id {
+                            value: 27,
+                        },
+                    ),
+                ),
+            ),
         },
-        return_ty: None,
-        self_ty: Some(
-            EtherealTerm(`CyclicSlice t`),
-        ),
     },
 ]
