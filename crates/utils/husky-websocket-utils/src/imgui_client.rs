@@ -258,7 +258,10 @@ where
                                             todo!()
                                         }
                                     }
-                                    Err(_) => todo!(),
+                                    Err(e) => {
+                                        p!(e, response);
+                                        todo!()
+                                    }
                                 },
                                 Message::Binary(_) => todo!(),
                                 Message::Ping(_) => todo!(),

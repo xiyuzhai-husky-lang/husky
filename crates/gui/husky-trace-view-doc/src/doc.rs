@@ -129,7 +129,12 @@ fn render_traces_aux<VisualComponent, Settings>(
         if entry.expanded()
             && let Some(subtrace_ids) = entry.subtrace_ids()
         {
-            render_traces(trace_client, subtrace_ids, settings, action_buffer, ui)
+            egui::Frame::none()
+                .stroke(Stroke::new(2.0, Color32::WHITE))
+                .inner_margin(2.0)
+                .show(ui, |ui| {
+                    render_traces(trace_client, subtrace_ids, settings, action_buffer, ui)
+                });
         }
     }
 }
