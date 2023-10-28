@@ -149,17 +149,17 @@ impl<'a> SemaExprEngine<'a> {
             sema_stmt_arena: SemaStmtArena::default(),
             syn_expr_root_sema_expr_idx_table: Default::default(),
             fluffy_term_region: FluffyTermRegion::new(
-                parent_expr_ty_region.map(|r| r.fluffy_term_region()),
+                parent_expr_ty_region.map(|r| r.fluffy_term_region(db)),
             ),
             sema_expr_term_results: Default::default(),
             symbol_terms: SymbolMap::new(
                 parent_expr_ty_region
-                    .map(|parent_expr_ty_region| parent_expr_ty_region.symbol_terms()),
+                    .map(|parent_expr_ty_region| parent_expr_ty_region.symbol_terms(db)),
                 expr_region_data.symbol_region(),
             ),
             symbol_tys: SymbolMap::new(
                 parent_expr_ty_region
-                    .map(|parent_expr_ty_region| parent_expr_ty_region.symbol_tys()),
+                    .map(|parent_expr_ty_region| parent_expr_ty_region.symbol_tys(db)),
                 expr_region_data.symbol_region(),
             ),
             pattern_expr_ty_infos: SynPatternExprMap::new(pattern_expr_region.pattern_expr_arena()),
@@ -254,8 +254,8 @@ impl<'a> SemaExprEngine<'a> {
             self.pattern_expr_ty_infos,
             self.pattern_symbol_ty_infos,
             self.sema_expr_term_results,
-            self.symbol_terms,
             self.symbol_tys,
+            self.symbol_terms,
             self.fluffy_term_region,
             self.return_ty,
             self.self_ty_term,

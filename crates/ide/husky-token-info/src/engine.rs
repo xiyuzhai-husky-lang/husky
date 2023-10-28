@@ -305,7 +305,11 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
     }
 
     fn visit_all(mut self) {
-        for (expr_idx, expr) in self.sema_expr_region.sema_expr_arena_ref().indexed_iter() {
+        for (expr_idx, expr) in self
+            .sema_expr_region
+            .sema_expr_arena_ref(self.db)
+            .indexed_iter()
+        {
             self.visit_expr(expr_idx, expr.data())
         }
         for (item_path_expr_idx, item_path_expr) in self

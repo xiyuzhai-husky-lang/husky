@@ -129,6 +129,7 @@ impl SemaStmtArena {
     }
 }
 
+#[derive(Clone, Copy)]
 pub struct SemaStmtArenaRef<'a>(ArenaRef<'a, SemaStmtEntry>);
 
 impl<'a> std::ops::Index<SemaStmtIdx> for SemaStmtArenaRef<'a> {
