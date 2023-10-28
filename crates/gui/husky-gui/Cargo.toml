@@ -9,3 +9,4 @@ egui.workspace = true
 eframe.workspace = true
 # abstractions
 ui = { path = "../../abstractions/ui", features = ["egui"] }
+notify = { path = "../../abstractions/notify" }

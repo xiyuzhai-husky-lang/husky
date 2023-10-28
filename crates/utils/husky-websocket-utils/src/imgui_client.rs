@@ -1,6 +1,7 @@
 //! meant for immediate mode gui
 use futures_util::{SinkExt, StreamExt};
 use husky_print_utils::p;
+use notify::Notify;
 use std::{borrow::Cow, sync::Arc};
 use thiserror::Error;
 use tokio_tungstenite::tungstenite::{
@@ -14,11 +15,14 @@ const ORDERING: core::sync::atomic::Ordering = core::sync::atomic::Ordering::Seq
 /// non-blocking
 ///
 /// all apis are sync
-pub struct ImmediateWebsocketClientConnection<Request, Response> {
+pub struct ImmediateWebsocketClientConnection<Request, Response, Notifier>
+where
+    Notifier: Notify,
+{
     tokio_runtime: Arc<tokio::runtime::Runtime>,
     server_address: String,
     connect_join_handle: tokio::task::JoinHandle<()>,
-    creation_status: CreationStatus<Request, Response>,
+    creation_status: CreationStatus<Request, Response, Notifier>,
     request_tx: tokio::sync::mpsc::Sender<Request>,
     response_rx: tokio::sync::mpsc::Receiver<Response>,
     communication_status: Arc<AtomicCommunicationStatus>,
@@ -36,13 +40,19 @@ pub enum CommunicationStatus {
     ResponseReady,
 }
 
-pub enum CreationStatus<Request, Response> {
-    Await(Arc<std::sync::Mutex<CreationAwaitStatus<Request, Response>>>),
+pub enum CreationStatus<Request, Response, Notifier>
+where
+    Notifier: Notify,
+{
+    Await(Arc<std::sync::Mutex<CreationAwaitStatus<Request, Response, Notifier>>>),
     Ok,
     Err(WebsocketClientConnectionError),
 }
 
-pub enum CreationAwaitStatus<Request, Response> {
+pub enum CreationAwaitStatus<Request, Response, Notifier>
+where
+    Notifier: Notify,
+{
     Await,
     Ok {
         stream: tokio_tungstenite::WebSocketStream<
@@ -51,6 +61,7 @@ pub enum CreationAwaitStatus<Request, Response> {
         response: tungstenite::handshake::client::Response,
         request_rx: tokio::sync::mpsc::Receiver<Request>,
         response_tx: tokio::sync::mpsc::Sender<Response>,
+        notifier: Notifier,
     },
     Err(WebsocketClientConnectionError),
 }
@@ -69,12 +80,17 @@ pub enum WebsocketClientConnectionError {
     SendRequestWhileResponseNotProcessed,
 }
 
-impl<Request, Response> ImmediateWebsocketClientConnection<Request, Response>
+impl<Request, Response, Notifier> ImmediateWebsocketClientConnection<Request, Response, Notifier>
 where
     Request: Send + 'static,
     Response: Send + 'static,
+    Notifier: Notify + 'static,
 {
-    pub fn new(tokio_runtime: Arc<tokio::runtime::Runtime>, server_address: String) -> Self {
+    pub fn new(
+        tokio_runtime: Arc<tokio::runtime::Runtime>,
+        server_address: String,
+        notifier: Notifier,
+    ) -> Self {
         let await_status = Arc::new(std::sync::Mutex::new(CreationAwaitStatus::Await));
         let (request_tx, request_rx) = tokio::sync::mpsc::channel(1);
         let (response_tx, response_rx) = tokio::sync::mpsc::channel(1);
@@ -90,6 +106,7 @@ where
                             response,
                             request_rx,
                             response_tx,
+                            notifier,
                         }
                     }
                     Err(e) => {
@@ -126,10 +143,11 @@ pub trait NeedResponse {
 }
 
 #[cfg(feature = "serde_json")]
-impl<Request, Response> ImmediateWebsocketClientConnection<Request, Response>
+impl<Request, Response, Notifier> ImmediateWebsocketClientConnection<Request, Response, Notifier>
 where
     Request: serde::Serialize + Send + 'static + NeedResponse + Default,
     Response: for<'a> serde::Deserialize<'a> + Send + 'static,
+    Notifier: Notify + 'static,
 {
     pub fn try_send_request(
         &mut self,
@@ -187,17 +205,19 @@ where
                     response,
                     request_rx,
                     response_tx,
-                } => Ok((stream, response, request_rx, response_tx)),
+                    notifier,
+                } => Ok((stream, response, request_rx, response_tx, notifier)),
                 CreationAwaitStatus::Err(e) => Err(e),
             },
             CreationStatus::Ok { .. } | CreationStatus::Err(_) => return StatusChanged::False,
         };
         match await_result {
-            Ok((stream, response, request_rx, response_tx)) => self.launch(
+            Ok((stream, response, request_rx, response_tx, notifier)) => self.launch(
                 stream,
                 request_rx,
                 response_tx,
                 self.communication_status.clone(),
+                notifier,
             ),
             Err(e) => self.creation_status = CreationStatus::Err(e),
         }
@@ -212,6 +232,7 @@ where
         mut request_rx: tokio::sync::mpsc::Receiver<Request>,
         response_tx: tokio::sync::mpsc::Sender<Response>,
         communication_status: Arc<AtomicCommunicationStatus>,
+        notifier: Notifier,
     ) {
         debug_assert!(self.launch_join_handle.is_none());
         self.launch_join_handle = Some(self.tokio_runtime.spawn(async move {
@@ -249,8 +270,8 @@ where
                         },
                         None => todo!(),
                     }
-
                     communication_status.store(CommunicationStatus::ResponseReady, ORDERING);
+                    notifier.notify()
                 } else {
                     communication_status.store(CommunicationStatus::AwaitingRequest, ORDERING);
                 }

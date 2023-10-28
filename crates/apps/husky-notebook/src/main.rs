@@ -31,6 +31,7 @@ struct NotebookApp {
     docs: Docs,
     action_buffer: NotebookActionBuffer,
     tokio_runtime: Arc<tokio::runtime::Runtime>,
+    init_done: bool,
 }
 
 impl Default for NotebookApp {
@@ -39,21 +40,30 @@ impl Default for NotebookApp {
         let mut dock_state = egui_dock::DockState::new(vec![]);
         let docs = Docs::default();
         let settings = Default::default();
-        let mut slf = Self {
+        Self {
             settings,
             dock_state,
             docs,
             action_buffer,
             tokio_runtime: Arc::new(tokio::runtime::Runtime::new().unwrap()),
-        };
-        slf.add_default_docs();
-        slf
+            init_done: false,
+        }
     }
 }
 
 impl eframe::App for NotebookApp {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
+        if !self.init_done {
+            self.init(ctx);
+            self.init_done = true;
+        }
         self.render_panels(ctx)
         // egui::CentralPanel::default().show(ctx, |ui|);
+    }
+}
+
+impl NotebookApp {
+    fn init(&mut self, ctx: &egui::Context) {
+        self.add_default_docs(ctx);
     }
 }

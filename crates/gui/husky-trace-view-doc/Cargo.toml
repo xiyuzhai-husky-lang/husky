@@ -11,6 +11,9 @@ serde.workspace = true
 egui = { workspace = true, optional = true }
 # abstractions
 ui = { path = "../../abstractions/ui" }
+notify = { path = "../../abstractions/notify" }
+# gui
+husky-gui = { path = "../../gui/husky-gui" }
 # protocols
 husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features = [
