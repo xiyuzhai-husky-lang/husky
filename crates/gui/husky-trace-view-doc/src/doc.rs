@@ -3,6 +3,7 @@ use std::sync::Arc;
 use crate::*;
 #[cfg(feature = "egui")]
 use egui::*;
+use husky_gui::helpers::repaint_signal::EguiRepaintSignal;
 use husky_trace_protocol::{
     cache::TraceCache,
     client::{error::TraceClientResult, TraceClient},
@@ -12,19 +13,21 @@ use husky_trace_protocol::{
 #[cfg(feature = "mock")]
 use husky_visual_protocol::mock::MockVisualProtocol;
 use husky_visual_protocol::IsVisualComponent;
+use notify::Notify;
 use ui::IsUiComponent;
 
-pub struct TraceViewDoc<VisualComponent>
+pub struct TraceViewDoc<VisualComponent, RepaintSignal>
 where
     VisualComponent: IsVisualComponent,
+    RepaintSignal: Notify,
 {
-    trace_client: TraceClient<VisualComponent>,
+    trace_client: TraceClient<VisualComponent, RepaintSignal>,
     action_buffer: TraceViewActionBuffer<VisualComponent>,
 }
 
 #[cfg(feature = "egui")]
 impl<VisualComponent, Settings, UiActionBuffer> IsUiComponent<egui::Ui, Settings, UiActionBuffer>
-    for TraceViewDoc<VisualComponent>
+    for TraceViewDoc<VisualComponent, EguiRepaintSignal>
 where
     VisualComponent: IsVisualComponent,
     Settings: HasTraceViewDocSettings,
@@ -46,7 +49,8 @@ where
     }
 }
 
-impl<VisualComponent> TraceViewDoc<VisualComponent>
+#[cfg(feature = "egui")]
+impl<VisualComponent> TraceViewDoc<VisualComponent, EguiRepaintSignal>
 where
     VisualComponent: IsVisualComponent,
 {
@@ -75,8 +79,9 @@ where
     }
 }
 
+#[cfg(feature = "egui")]
 fn render_traces<VisualComponent, Settings>(
-    trace_client: &TraceClient<VisualComponent>,
+    trace_client: &TraceClient<VisualComponent, EguiRepaintSignal>,
     trace_ids: &[TraceId],
     settings: &Settings,
     action_buffer: &mut TraceViewActionBuffer<VisualComponent>,
@@ -104,7 +109,7 @@ fn render_traces<VisualComponent, Settings>(
 }
 
 fn render_trace_view<VisualComponent, Settings: HasTraceViewDocSettings>(
-    trace_client: &TraceClient<VisualComponent>,
+    trace_client: &TraceClient<VisualComponent, EguiRepaintSignal>,
     trace_id: TraceId,
     trace_view_data: &TraceViewData,
     settings: &Settings,
@@ -129,13 +134,16 @@ fn render_trace_view<VisualComponent, Settings: HasTraceViewDocSettings>(
 }
 
 #[cfg(feature = "mock")]
-pub type MockTraceViewDoc = TraceViewDoc<()>;
+pub type MockTraceViewDoc = TraceViewDoc<(), EguiRepaintSignal>;
 
 #[cfg(feature = "mock")]
-impl TraceViewDoc<()> {
-    pub fn new_mock(tokio_runtime: Arc<tokio::runtime::Runtime>) -> Self {
+impl TraceViewDoc<(), EguiRepaintSignal> {
+    pub fn new_mock(
+        tokio_runtime: Arc<tokio::runtime::Runtime>,
+        repaint_signal: EguiRepaintSignal,
+    ) -> Self {
         Self {
-            trace_client: TraceClient::new_mock(tokio_runtime),
+            trace_client: TraceClient::new_mock(tokio_runtime, repaint_signal),
             action_buffer: Default::default(),
         }
     }

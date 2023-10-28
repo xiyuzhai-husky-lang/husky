@@ -13,30 +13,38 @@ use husky_visual_protocol::{mock::MockVisualProtocol, IsVisualComponent};
 use husky_websocket_utils::imgui_client::{
     ImmediateWebsocketClientConnection, WebsocketClientConnectionError,
 };
+use notify::Notify;
 use tokio::task::JoinHandle;
 use tokio_tungstenite::connect_async;
 
-pub struct TraceClient<VisualComponent: IsVisualComponent> {
+pub struct TraceClient<VisualComponent: IsVisualComponent, Notifier>
+where
+    Notifier: Notify,
+{
     opt_cache: Option<TraceCache<VisualComponent>>,
     connection: ImmediateWebsocketClientConnection<
         TraceRequest<VisualComponent>,
         TraceResponse<VisualComponent>,
+        Notifier,
     >,
 }
 
-impl<VisualComponent: IsVisualComponent> TraceClient<VisualComponent>
+impl<VisualComponent: IsVisualComponent, Notifier> TraceClient<VisualComponent, Notifier>
 where
     VisualComponent: IsVisualComponent,
+    Notifier: Notify,
 {
     pub fn new(
         tokio_runtime: Arc<tokio::runtime::Runtime>,
         server_address: impl Into<String>,
+        notifier: Notifier,
     ) -> Self {
         Self {
             opt_cache: None,
             connection: ImmediateWebsocketClientConnection::new(
                 tokio_runtime,
                 server_address.into(),
+                notifier,
             ),
         }
     }

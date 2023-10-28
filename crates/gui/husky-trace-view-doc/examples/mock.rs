@@ -1,7 +1,9 @@
 use std::sync::Arc;
 
 use husky_code_editor::settings::HasCodeEditorSettings;
-use husky_gui::helpers::run_standalone_ui_component;
+use husky_gui::helpers::{
+    repaint_signal::EguiRepaintSignal, standalone::run_standalone_ui_component,
+};
 use husky_trace_protocol::{
     cache::TraceCache,
     settings::{HasTraceSettings, TraceSettings},
@@ -11,10 +13,11 @@ use husky_trace_view_doc::{doc::TraceViewDoc, settings::HasTraceViewDocSettings,
 use husky_visual_protocol::mock::MockVisualProtocol;
 
 fn main() {
-    let tokio_runtime = tokio::runtime::Runtime::new().unwrap();
-    let tokio_runtime = Arc::new(tokio_runtime);
-    let doc: TraceViewDoc<()> = TraceViewDoc::new_mock(tokio_runtime);
-    run_standalone_ui_component(doc, MockConfig, ());
+    todo!()
+    // let tokio_runtime = tokio::runtime::Runtime::new().unwrap();
+    // let tokio_runtime = Arc::new(tokio_runtime);
+    // let doc: TraceViewDoc<(), EguiRepaintSignal> = TraceViewDoc::new_mock(tokio_runtime);
+    // run_standalone_ui_component(doc, MockConfig, ());
 }
 
 struct MockConfig;
