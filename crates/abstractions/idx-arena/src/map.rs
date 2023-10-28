@@ -56,6 +56,13 @@ impl<T, V> ArenaMap<T, V> {
         }
     }
 
+    pub fn new2(arena: ArenaRef<T>) -> Self {
+        Self {
+            data: arena.data().iter().map(|_| None).collect(),
+            phantom: PhantomData,
+        }
+    }
+
     pub fn clone_for_extended(&self, extended_arena: &Arena<T>) -> Self
     where
         V: Clone,

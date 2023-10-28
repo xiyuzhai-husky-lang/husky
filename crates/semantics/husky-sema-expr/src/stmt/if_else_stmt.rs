@@ -22,6 +22,10 @@ impl SemaIfBranch {
     pub fn stmts(&self) -> SemaStmtIdxRange {
         self.stmts
     }
+
+    pub fn if_token(&self) -> IfRegionalToken {
+        self.if_token
+    }
 }
 
 impl<'a> SemaExprEngine<'a> {

@@ -83,7 +83,7 @@ pub(crate) struct RegionDiagnosticsContext<'a> {
     token_sheet_data: &'a TokenSheetData,
     ranged_token_sheet: &'a RangedTokenSheet,
     syn_expr_region_data: &'a SynExprRegionData,
-    sema_expr_region: &'a SemaExprRegion,
+    sema_expr_region_data: &'a SemaExprRegionData,
     expr_range_region: &'a SynExprRangeRegion,
     regional_token_idx_base: RegionalTokenIdxBase,
 }
@@ -94,7 +94,7 @@ impl<'a> RegionDiagnosticsContext<'a> {
         let module_path = syn_expr_region_data.path().module_path(db);
         let ranged_token_sheet = db.ranged_token_sheet(module_path).unwrap();
         let token_sheet_data = ranged_token_sheet.token_sheet_data(db);
-        let sema_expr_region = db.sema_expr_region(syn_expr_region);
+        let sema_expr_region_data = db.sema_expr_region(syn_expr_region).data(db);
         let expr_range_region = db.expr_range_region(syn_expr_region);
         let regional_token_idx_base = match syn_expr_region_data.path() {
             RegionPath::Snippet(_) => todo!(),
@@ -106,7 +106,7 @@ impl<'a> RegionDiagnosticsContext<'a> {
             token_sheet_data,
             ranged_token_sheet,
             syn_expr_region_data,
-            sema_expr_region,
+            sema_expr_region_data,
             expr_range_region,
             regional_token_idx_base,
         }
@@ -124,12 +124,12 @@ impl<'a> RegionDiagnosticsContext<'a> {
         self.ranged_token_sheet
     }
 
-    pub(crate) fn sema_expr_region(&self) -> &SemaExprRegion {
-        self.sema_expr_region
+    pub(crate) fn sema_expr_region_data(&self) -> &SemaExprRegionData {
+        self.sema_expr_region_data
     }
 
     pub(crate) fn fluffy_term_region(&self) -> &FluffyTermRegion {
-        self.sema_expr_region.fluffy_term_region(self.db)
+        self.sema_expr_region_data.fluffy_term_region()
     }
 
     pub(crate) fn expr_text_range(&self, expr_idx: SynExprIdx) -> TextRange {

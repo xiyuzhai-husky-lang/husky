@@ -19,7 +19,7 @@ impl<'a> SemaExprEngine<'a> {
             let argument_sema_expr_idx =
                 self.build_sema_expr(argument_syn_expr_idx, ExpectAnyDerived);
             return (
-                Ok(SemaExprData::Application {
+                Ok(SemaExprData::FunctionApplication {
                     function_sema_expr_idx,
                     argument_sema_expr_idx,
                 }),
@@ -43,7 +43,7 @@ impl<'a> SemaExprEngine<'a> {
                         argument_syn_expr_idx,
                     );
                 (
-                    Ok(SemaExprData::Application {
+                    Ok(SemaExprData::FunctionApplication {
                         function_sema_expr_idx,
                         argument_sema_expr_idx,
                     }),
@@ -54,7 +54,7 @@ impl<'a> SemaExprEngine<'a> {
                 let argument_sema_expr_idx =
                     self.build_sema_expr(argument_syn_expr_idx, ExpectAnyDerived);
                 (
-                    Ok(SemaExprData::Application {
+                    Ok(SemaExprData::FunctionApplication {
                         function_sema_expr_idx,
                         argument_sema_expr_idx,
                     }),

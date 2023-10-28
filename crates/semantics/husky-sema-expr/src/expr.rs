@@ -80,18 +80,18 @@ pub enum SemaExprData {
         opr_regional_token_idx: RegionalTokenIdx,
     },
     // todo: implicit arguments
-    Application {
+    FunctionApplication {
         function_sema_expr_idx: SemaExprIdx,
         argument_sema_expr_idx: SemaExprIdx,
     },
-    FnCall {
+    FunctionFnCall {
         function_sema_expr_idx: SemaExprIdx,
         template_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
         ritchie_parameter_argument_matches: RitchieParameterArgumentMatches,
         rpar_regional_token_idx: RegionalTokenIdx,
     },
-    GnCall {
+    FunctionGnCall {
         function: SemaExprIdx,
         template_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
@@ -312,6 +312,10 @@ impl std::ops::Index<SemaExprIdx> for SemaExprArena {
 pub struct SemaExprArenaRef<'a>(ArenaRef<'a, SemaExprEntry>);
 
 impl<'a> SemaExprArenaRef<'a> {
+    pub fn len(self) -> usize {
+        self.0.len()
+    }
+
     #[inline]
     pub fn indexed_iter(self) -> impl Iterator<Item = (SemaExprIdx, &'a SemaExprEntry)> {
         self.0
@@ -354,6 +358,10 @@ impl SemaExprIdx {
 
     pub(crate) fn ok_ty<'a>(self, arena: &'a SemaExprArena) -> Option<FluffyTerm> {
         arena[self].ok_ty()
+    }
+
+    pub(crate) fn index(self) -> usize {
+        self.0.index()
     }
 }
 

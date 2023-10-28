@@ -49,7 +49,7 @@ impl<'a> SemaExprEngine<'a> {
                     Err(_) => return todo!(),
                 };
                 (
-                    Ok(SemaExprData::FnCall {
+                    Ok(SemaExprData::FunctionFnCall {
                         function_sema_expr_idx,
                         template_arguments: template_arguments.map(|_| todo!()),
                         lpar_regional_token_idx,
@@ -76,7 +76,7 @@ impl<'a> SemaExprEngine<'a> {
                     _ => todo!(),
                 };
                 (
-                    Ok(SemaExprData::Application {
+                    Ok(SemaExprData::FunctionApplication {
                         function_sema_expr_idx,
                         argument_sema_expr_idx,
                     }),
@@ -125,7 +125,7 @@ impl<'a> SemaExprEngine<'a> {
             Err(e) => return todo!(),
         };
         let data = match outcome.ritchie_kind() {
-            RitchieKind::FnType => SemaExprData::FnCall {
+            RitchieKind::FnType => SemaExprData::FunctionFnCall {
                 function_sema_expr_idx,
                 template_arguments: template_arguments.map(|_| todo!()),
                 lpar_regional_token_idx,

@@ -13,7 +13,9 @@ use husky_entity_syn_tree::{
     },
     ParentUseExpr,
 };
-use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaExprRegion, SemaHtmlArgumentExpr};
+use husky_sema_expr::{
+    SemaExprData, SemaExprIdx, SemaExprRegion, SemaExprRegionData, SemaHtmlArgumentExpr,
+};
 use husky_syn_expr::*;
 
 pub(crate) struct TokenInfoEngine<'a> {
@@ -253,7 +255,7 @@ struct DeclTokenInfoEngine<'a, 'b> {
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     syn_expr_region_data: &'a SynExprRegionData,
-    sema_expr_region: &'a SemaExprRegion,
+    sema_expr_region_data: &'a SemaExprRegionData,
     sheet: &'b mut TokenInfoSheet,
     syn_expr_region: ExprRegionLeash,
     regional_token_idx_base: RegionalTokenIdxBase,
@@ -272,7 +274,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             ast_sheet: engine.ast_sheet,
             sheet: &mut engine.sheet,
             syn_expr_region_data,
-            sema_expr_region: db.sema_expr_region(syn_expr_region),
+            sema_expr_region_data: db.sema_expr_region(syn_expr_region).data(db),
             syn_expr_region: syn_expr_region.into(),
             regional_token_idx_base: match syn_expr_region_data.path() {
                 RegionPath::Snippet(_) => todo!(),
@@ -305,11 +307,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
     }
 
     fn visit_all(mut self) {
-        for (expr_idx, expr) in self
-            .sema_expr_region
-            .sema_expr_arena_ref(self.db)
-            .indexed_iter()
-        {
+        for (expr_idx, expr) in self.sema_expr_region_data.sema_expr_arena().indexed_iter() {
             self.visit_expr(expr_idx, expr.data())
         }
         for (item_path_expr_idx, item_path_expr) in self
@@ -427,7 +425,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             | SemaExprData::Bracketed { .. }
             | SemaExprData::Block { .. }
             | SemaExprData::Be { .. } => (),
-            SemaExprData::Application { .. } => (),
+            SemaExprData::FunctionApplication { .. } => (),
             SemaExprData::Index {
                 owner_sema_expr_idx,
                 lbox_regional_token_idx,
@@ -478,8 +476,8 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                     }
                 }
             }
-            SemaExprData::FnCall { .. } => (),
-            SemaExprData::GnCall { .. } => (),
+            SemaExprData::FunctionFnCall { .. } => (),
+            SemaExprData::FunctionGnCall { .. } => (),
             SemaExprData::Ritchie { .. } => (),
             SemaExprData::Sorry { regional_token_idx } => todo!(),
             SemaExprData::Todo { regional_token_idx } => {

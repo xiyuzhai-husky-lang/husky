@@ -154,12 +154,28 @@ impl SemaStmtIdx {
     }
 }
 
+impl std::ops::Sub<usize> for SemaStmtIdx {
+    type Output = SemaStmtIdx;
+
+    fn sub(self, rhs: usize) -> Self::Output {
+        SemaStmtIdx(self.0 - rhs)
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct SemaStmtIdxRange(ArenaIdxRange<SemaStmtEntry>);
 
 impl SemaStmtIdxRange {
-    pub fn iter(&self) -> impl Iterator<Item = SemaStmtIdx> {
+    pub fn iter(self) -> impl Iterator<Item = SemaStmtIdx> {
         self.0.into_iter().map(SemaStmtIdx)
+    }
+
+    pub fn start(self) -> SemaStmtIdx {
+        SemaStmtIdx(self.0.start())
+    }
+
+    pub fn end(self) -> SemaStmtIdx {
+        SemaStmtIdx(self.0.end())
     }
 }
 
@@ -189,4 +205,23 @@ impl IntoIterator for &SemaStmtIdxRange {
     }
 }
 
-pub type SemaStmtMap<V> = ArenaMap<SemaStmtEntry, V>;
+#[derive(Debug, PartialEq, Eq)]
+pub struct SemaStmtMap<V>(ArenaMap<SemaStmtEntry, V>);
+
+impl<V> SemaStmtMap<V> {
+    pub fn new(sema_stmt_arena: SemaStmtArenaRef<'_>) -> SemaStmtMap<V> {
+        Self(ArenaMap::new2(sema_stmt_arena.0))
+    }
+
+    pub fn insert_new(&mut self, stmt_idx: SemaStmtIdx, v: V) {
+        self.0.insert_new(stmt_idx.0, v)
+    }
+}
+
+impl<V> std::ops::Index<SemaStmtIdx> for SemaStmtMap<V> {
+    type Output = V;
+
+    fn index(&self, index: SemaStmtIdx) -> &Self::Output {
+        &self.0[index.0]
+    }
+}

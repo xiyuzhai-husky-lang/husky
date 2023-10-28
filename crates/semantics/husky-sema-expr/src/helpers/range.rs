@@ -5,7 +5,7 @@ use husky_vfs::ModulePath;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SemaExprDb, jar = SemaExprJar)]
-pub struct SemaExprRangeRegion {
+pub struct SemaExprRangeRegionData {
     item_path_expr_ranges: Vec<RegionalTokenIdxRange>,
     pattern_expr_ranges: Vec<RegionalTokenIdxRange>,
     expr_ranges: Vec<RegionalTokenIdxRange>,
@@ -13,11 +13,11 @@ pub struct SemaExprRangeRegion {
 }
 
 #[salsa::tracked(jar = SemaExprJar, return_ref)]
-pub(crate) fn sema_expr_range_region(
+pub(crate) fn sema_expr_range_region_data(
     db: &dyn SemaExprDb,
-    expr_region: SemaExprRegion,
-) -> SemaExprRangeRegion {
-    SemaExprRangeCalculator::new(db, expr_region).calc_all()
+    sema_expr_region: SemaExprRegion,
+) -> SemaExprRangeRegionData {
+    SemaExprRangeCalculator::new(db, sema_expr_region).calc_all()
 }
 
 // #[test]
@@ -26,7 +26,7 @@ pub(crate) fn sema_expr_range_region(
 //     DB::default().ast_expect_test_debug_with_db("expr_range_sheet", todo!());
 // }
 
-impl std::ops::Index<SynPrincipalEntityPathExprIdx> for SemaExprRangeRegion {
+impl std::ops::Index<SynPrincipalEntityPathExprIdx> for SemaExprRangeRegionData {
     type Output = RegionalTokenIdxRange;
 
     fn index(&self, index: SynPrincipalEntityPathExprIdx) -> &Self::Output {
@@ -34,7 +34,7 @@ impl std::ops::Index<SynPrincipalEntityPathExprIdx> for SemaExprRangeRegion {
     }
 }
 
-impl std::ops::Index<SynPatternExprIdx> for SemaExprRangeRegion {
+impl std::ops::Index<SynPatternExprIdx> for SemaExprRangeRegionData {
     type Output = RegionalTokenIdxRange;
 
     fn index(&self, index: SynPatternExprIdx) -> &Self::Output {
@@ -42,7 +42,7 @@ impl std::ops::Index<SynPatternExprIdx> for SemaExprRangeRegion {
     }
 }
 
-impl std::ops::Index<SemaExprIdx> for SemaExprRangeRegion {
+impl std::ops::Index<SemaExprIdx> for SemaExprRangeRegionData {
     type Output = RegionalTokenIdxRange;
 
     fn index(&self, index: SemaExprIdx) -> &Self::Output {
@@ -51,7 +51,7 @@ impl std::ops::Index<SemaExprIdx> for SemaExprRangeRegion {
 }
 
 struct SemaExprRangeCalculator<'a> {
-    expr_region_data: &'a SemaExprRegionData,
+    sema_expr_region_data: &'a SemaExprRegionData,
     principal_entity_path_expr_ranges: Vec<RegionalTokenIdxRange>,
     pattern_expr_ranges: Vec<RegionalTokenIdxRange>,
     expr_ranges: Vec<RegionalTokenIdxRange>,
@@ -111,27 +111,27 @@ impl<'a> SemaExprRangeCalculator<'a> {
         let expr_region_data = expr_region.data(db);
         let region_path = expr_region_data.path();
         SemaExprRangeCalculator {
-            expr_region_data,
+            sema_expr_region_data: expr_region_data,
             principal_entity_path_expr_ranges: Default::default(),
             pattern_expr_ranges: Default::default(),
             expr_ranges: Default::default(),
-            stmt_ranges: SemaStmtMap::new(expr_region_data.stmt_arena()),
+            stmt_ranges: SemaStmtMap::new(expr_region_data.sema_stmt_arena()),
         }
     }
 
-    fn calc_all(mut self) -> SemaExprRangeRegion {
+    fn calc_all(mut self) -> SemaExprRangeRegionData {
         // order matters
         self.expr_ranges
-            .reserve(self.expr_region_data.expr_arena().len());
-        for expr in self.expr_region_data.expr_arena().iter() {
-            let expr_range = self.calc_expr_range(expr);
+            .reserve(self.sema_expr_region_data.sema_expr_arena().len());
+        for sema_expr_entry in self.sema_expr_region_data.sema_expr_arena().iter() {
+            let expr_range = self.calc_expr_range(sema_expr_entry.data());
             self.expr_ranges.push(expr_range)
         }
         assert_eq!(
-            self.expr_region_data.expr_arena().len(),
+            self.sema_expr_region_data.sema_expr_arena().len(),
             self.expr_ranges.len()
         );
-        SemaExprRangeRegion {
+        SemaExprRangeRegionData {
             item_path_expr_ranges: self.principal_entity_path_expr_ranges,
             pattern_expr_ranges: self.pattern_expr_ranges,
             expr_ranges: self.expr_ranges,
@@ -198,11 +198,7 @@ impl<'a> SemaExprRangeCalculator<'a> {
                 target,
             } => {
                 let start = self[src].start().regional_token_idx();
-                let end = if let Ok(target) = target {
-                    self[target.sema_pattern_root().sema_pattern_expr_idx()].end()
-                } else {
-                    RegionalTokenIdxRangeEnd::new_after(*be_regional_token_idx)
-                };
+                let end = self[target.syn_pattern_root().syn_pattern_expr_idx()].end();
                 RegionalTokenIdxRange::new(start, end)
             }
             SemaExprData::Prefix {
@@ -216,23 +212,20 @@ impl<'a> SemaExprRangeCalculator<'a> {
                 opr_regional_token_idx,
             } => self[opd_sema_expr_idx]
                 .to(RegionalTokenIdxRangeEnd::new_after(*opr_regional_token_idx)),
-            SemaExprData::FunctionApplicationOrCall {
-                function: first_expr,
-                rpar_regional_token_idx,
-                ..
-            }
-            | SemaExprData::FunctionCall {
-                function: first_expr,
-                rpar_regional_token_idx,
-                ..
-            }
-            | SemaExprData::MethodApplicationOrCall {
+            SemaExprData::FunctionApplication { .. } => todo!(),
+            // SemaExprData::ExplicitApplication {
+            //     function_expr_idx: function,
+            //     argument_expr_idx: argument,
+            // } => self[function].join(self[argument]),
+            SemaExprData::FunctionFnCall { .. } => todo!(),
+            SemaExprData::FunctionGnCall { .. } => todo!(),
+            SemaExprData::MethodApplication {
                 self_argument: first_expr,
                 rpar_regional_token_idx,
                 ..
-            } => self[first_expr].to(RegionalTokenIdxRangeEnd::new_after(
-                *rpar_regional_token_idx,
-            )),
+            } => todo!(),
+            SemaExprData::MethodFnCall { .. } => todo!(),
+            SemaExprData::MethodGnCall { .. } => todo!(),
             SemaExprData::Field {
                 owner_sema_expr_idx,
                 ident_token,
@@ -240,11 +233,6 @@ impl<'a> SemaExprRangeCalculator<'a> {
             } => self[owner_sema_expr_idx].to(RegionalTokenIdxRangeEnd::new_after(
                 ident_token.regional_token_idx(),
             )),
-            SemaExprData::TemplateInstantiation { template, .. } => todo!(),
-            SemaExprData::ExplicitApplication {
-                function_expr_idx: function,
-                argument_expr_idx: argument,
-            } => self[function].join(self[argument]),
             SemaExprData::At {
                 at_regional_token_idx,
                 place_label_regional_token,
@@ -270,7 +258,15 @@ impl<'a> SemaExprRangeCalculator<'a> {
                 *lpar_regional_token_idx,
                 RegionalTokenIdxRangeEnd::new_after(*rpar_regional_token_idx),
             ),
-            SemaExprData::IndexOrCompositionWithList {
+            SemaExprData::Index {
+                owner_sema_expr_idx,
+                lbox_regional_token_idx,
+                rbox_regional_token_idx,
+                ..
+            } => self[owner_sema_expr_idx].to(RegionalTokenIdxRangeEnd::new_after(
+                *rbox_regional_token_idx,
+            )),
+            SemaExprData::CompositionWithList {
                 owner,
                 lbox_regional_token_idx,
                 rbox_regional_token_idx,
@@ -278,7 +274,7 @@ impl<'a> SemaExprRangeCalculator<'a> {
             } => self[owner].to(RegionalTokenIdxRangeEnd::new_after(
                 *rbox_regional_token_idx,
             )),
-            SemaExprData::List {
+            SemaExprData::NewList {
                 lbox_regional_token_idx,
                 rbox_regional_token_idx,
                 ..
@@ -323,10 +319,19 @@ impl<'a> SemaExprRangeCalculator<'a> {
             | SemaExprData::Unreachable { regional_token_idx } => {
                 RegionalTokenIdxRange::new_single(*regional_token_idx)
             }
-            SemaExprData::Err(error) => match error {
-                SemaExprDataError::Original(error) => error.regional_token_idx_range(),
-                SemaExprDataError::Derived(_) => todo!(),
-            },
+            SemaExprData::TemplateInstantiation {
+                template,
+                template_arguments,
+            } => todo!(),
+            SemaExprData::VecFunctor {
+                lbox_regional_token_idx,
+                rbox_regional_token_idx,
+            } => todo!(),
+            SemaExprData::ArrayFunctor {
+                lbox_regional_token_idx,
+                items,
+                rbox_regional_token_idx,
+            } => todo!(),
         }
     }
 
@@ -345,16 +350,14 @@ impl<'a> SemaExprRangeCalculator<'a> {
     }
 
     fn calc_stmt_range(&mut self, stmt_idx: SemaStmtIdx) -> RegionalTokenIdxRange {
-        match self.expr_region_data[stmt_idx] {
+        match stmt_idx.data(self.sema_expr_region_data.sema_stmt_arena()) {
             SemaStmtData::Let {
                 let_token,
-                ref let_variables_pattern,
-                ref assign_token,
-                ref initial_value, /* todo: other types of let initialization */
+                initial_value_sema_expr_idx,
                 ..
             } => {
                 let start = let_token.regional_token_idx();
-                let end = self[initial_value].end();
+                let end = self[initial_value_sema_expr_idx].end();
                 RegionalTokenIdxRange::new(start, end)
             }
             SemaStmtData::Return {
@@ -384,7 +387,7 @@ impl<'a> SemaExprRangeCalculator<'a> {
             SemaStmtData::Break { break_token } => {
                 RegionalTokenIdxRange::new_single(break_token.regional_token_idx())
             }
-            SemaStmtData::Eval { expr_idx, .. } => self[expr_idx],
+            SemaStmtData::Eval { sema_expr_idx, .. } => self[sema_expr_idx],
             SemaStmtData::ForBetween {
                 for_token,
                 ref particulars,
@@ -401,7 +404,7 @@ impl<'a> SemaExprRangeCalculator<'a> {
                 ref block,
                 ..
             } => todo!(),
-            SemaStmtData::ForExt {
+            SemaStmtData::Forext {
                 forext_token,
                 /* todo: particulars */
                 ref eol_colon,
@@ -435,15 +438,16 @@ impl<'a> SemaExprRangeCalculator<'a> {
                 RegionalTokenIdxRange::new(start, end)
             }
             SemaStmtData::IfElse {
-                ref if_branch,
-                ref elif_branches,
-                ref else_branch,
+                ref sema_if_branch,
+                ref sema_elif_branches,
+                ref sema_else_branch,
+                ..
             } => {
-                let start = if_branch.if_token.regional_token_idx();
+                let start = sema_if_branch.if_token().regional_token_idx();
                 // it's important that every branch is computed
                 let if_branch_end: RegionalTokenIdxRangeEnd =
-                    self.calc_block_range(if_branch.stmts()).end();
-                let mut elif_branch_rev_iter = elif_branches.iter().rev();
+                    self.calc_block_range(sema_if_branch.stmts()).end();
+                let mut elif_branch_rev_iter = sema_elif_branches.iter().rev();
                 let elif_branches_end: Option<RegionalTokenIdxRangeEnd> = {
                     if let Some(last_elif_branch) = elif_branch_rev_iter.next() {
                         Some(self.calc_block_range(last_elif_branch.stmts()).end())
@@ -455,7 +459,7 @@ impl<'a> SemaExprRangeCalculator<'a> {
                     self.calc_block_range(elif_branch.stmts());
                 }
                 let else_block_end: Option<RegionalTokenIdxRangeEnd> =
-                    if let Some(else_branch) = else_branch {
+                    if let Some(else_branch) = sema_else_branch {
                         Some(self.calc_block_range(else_branch.stmts()).end())
                     } else {
                         None
