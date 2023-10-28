@@ -82,6 +82,7 @@ pub enum TokenInfoData {
     UnitRightParenthesis,
     Todo,
     Unreachable,
+    SemaPrefixTypeOpr,
 }
 
 #[cfg(feature = "protocol_support")]
@@ -138,6 +139,7 @@ impl TokenInfoData {
             }
             TokenInfoData::Todo => TokenClass::Todo,
             TokenInfoData::Unreachable => TokenClass::Unreachable,
+            TokenInfoData::SemaPrefixTypeOpr => TokenClass::TypeEntity,
         }
     }
 }

@@ -1,6 +1,7 @@
 use crate::*;
 use husky_ast::{Ast, AstSheet};
 use husky_regional_token::{RegionalTokenIdx, RegionalTokenIdxBase};
+use husky_sema_opr::prefix::SemaPrefixOpr;
 use husky_syn_decl::HasSynNodeDecl;
 use husky_syn_defn::*;
 
@@ -395,11 +396,26 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 // ad hoc
                 // self.add(*at_regional_token_idx, TokenInfoData::Method)
             }
+            SemaExprData::Prefix {
+                opr,
+                opr_regional_token_idx,
+                ..
+            } => match opr {
+                SemaPrefixOpr::Minus => (),
+                SemaPrefixOpr::Not => (),
+                SemaPrefixOpr::BitNot => (),
+                SemaPrefixOpr::Leash | SemaPrefixOpr::Ref | SemaPrefixOpr::Option => {
+                    self.add(
+                        *opr_regional_token_idx,
+                        sema_expr_idx,
+                        TokenInfoData::SemaPrefixTypeOpr,
+                    );
+                }
+            },
             SemaExprData::Literal(_, _)
             | SemaExprData::PrincipalEntityPath { .. }
             | SemaExprData::AssociatedItem { .. }
             | SemaExprData::Binary { .. }
-            | SemaExprData::Prefix { .. }
             | SemaExprData::Suffix { .. }
             | SemaExprData::TemplateInstantiation { .. }
             | SemaExprData::NewTuple { .. }
