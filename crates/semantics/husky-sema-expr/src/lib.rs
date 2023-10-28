@@ -8,6 +8,7 @@ mod engine;
 mod error;
 mod expr;
 // mod info;
+pub mod helpers;
 mod obelisks;
 mod region;
 mod stmt;
@@ -44,4 +45,5 @@ pub struct SemaExprJar(
     ty_ontology_path_unveil_impl_block_signature_templates,
     ty_ontology_application_unveil_impl_block_signature_templates,
     sema_expr_region,
+    crate::helpers::syn_expr_region_contains_gn,
 );

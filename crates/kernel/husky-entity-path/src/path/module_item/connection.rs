@@ -20,11 +20,11 @@ impl MajorItemConnection {
 pub struct Disambiguator(u8);
 
 #[derive(Debug, Default)]
-pub struct DisambiguatorRegistry {
+pub struct DisconnectedConnectionRegistry {
     next_raws: IdentPairMap<u8>,
 }
 
-impl DisambiguatorRegistry {
+impl DisconnectedConnectionRegistry {
     pub fn issue_new(&mut self, ident: Ident) -> Disambiguator {
         let next_raw = self.next_raws.get_value_mut_or_insert_default(ident);
         let disambiguator = Disambiguator(*next_raw);

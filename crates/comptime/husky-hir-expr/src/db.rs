@@ -7,4 +7,4 @@ pub trait HirExprDb: salsa::DbWithJar<HirExprJar> + HirLazyExprDb + HirEagerExpr
 impl<Db> HirExprDb for Db where Db: salsa::DbWithJar<HirExprJar> + HirLazyExprDb + HirEagerExprDb {}
 
 #[salsa::jar(db = HirExprDb)]
-pub struct HirExprJar(crate::builder::expr_region_contains_gn);
+pub struct HirExprJar();

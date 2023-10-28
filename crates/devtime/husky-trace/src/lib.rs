@@ -1,6 +1,7 @@
 #![feature(trait_upcasting)]
 pub mod db;
 mod helpers;
+mod registry;
 #[cfg(test)]
 mod tests;
 mod token;

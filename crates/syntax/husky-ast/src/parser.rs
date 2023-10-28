@@ -6,7 +6,7 @@ mod utils;
 
 use self::indent::Indent;
 use crate::*;
-use husky_entity_path::DisambiguatorRegistry;
+use husky_entity_path::DisconnectedConnectionRegistry;
 use husky_print_utils::p;
 use husky_token::*;
 use parsec::{HasStreamState, IsStreamParser, TryParseOptionFromStream};
@@ -20,7 +20,7 @@ pub(crate) struct AstParser<'a> {
     token_groups: TokenGroupIter<'a>,
     indent: Indent,
     ast_arena: AstArena,
-    disambiguator_registry: DisambiguatorRegistry,
+    disambiguator_registry: DisconnectedConnectionRegistry,
     siblings: Vec<AstIdxRange>,
 }
 
