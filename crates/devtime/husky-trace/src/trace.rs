@@ -18,7 +18,7 @@ pub use self::loop_group::*;
 pub use self::submodule::*;
 pub use self::val_item::*;
 
-use crate::*;
+use crate::{registry::*, *};
 use husky_entity_kind::FugitiveKind;
 use husky_entity_path::MajorItemPath;
 use husky_entity_path::{FugitivePath, ItemPath};
@@ -92,7 +92,7 @@ impl Trace {
     pub fn subtraces<'a>(self, db: &'a dyn TraceDb) -> &'a [Trace] {
         match self {
             Trace::Submodule(slf) => slf.subtraces(db),
-            Trace::ValItem(_) => todo!(),
+            Trace::ValItem(slf) => slf.subtraces(db),
             Trace::LazyCall(slf) => slf.subtraces(db),
             Trace::LazyExpr(slf) => todo!(),
             Trace::LazyStmt(slf) => todo!(),

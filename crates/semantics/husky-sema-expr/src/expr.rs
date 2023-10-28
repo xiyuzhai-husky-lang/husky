@@ -325,6 +325,14 @@ impl<'a> SemaExprArenaRef<'a> {
     }
 }
 
+impl<'a> std::ops::Index<SemaExprIdx> for SemaExprArenaRef<'a> {
+    type Output = SemaExprEntry;
+
+    fn index(&self, idx: SemaExprIdx) -> &Self::Output {
+        &self.0[idx.0]
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct SemaExprIdx(ArenaIdx<SemaExprEntry>);
 

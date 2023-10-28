@@ -131,6 +131,14 @@ impl SemaStmtArena {
 
 pub struct SemaStmtArenaRef<'a>(ArenaRef<'a, SemaStmtEntry>);
 
+impl<'a> std::ops::Index<SemaStmtIdx> for SemaStmtArenaRef<'a> {
+    type Output = SemaStmtEntry;
+
+    fn index(&self, index: SemaStmtIdx) -> &Self::Output {
+        &self.0[index.0]
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct SemaStmtIdx(ArenaIdx<SemaStmtEntry>);
 
@@ -150,6 +158,19 @@ pub struct SemaStmtIdxRange(ArenaIdxRange<SemaStmtEntry>);
 
 impl SemaStmtIdxRange {
     pub fn iter(&self) -> impl Iterator<Item = SemaStmtIdx> {
+        self.0.into_iter().map(SemaStmtIdx)
+    }
+}
+
+impl IntoIterator for SemaStmtIdxRange {
+    type Item = SemaStmtIdx;
+
+    type IntoIter = std::iter::Map<
+        <ArenaIdxRange<stmt::SemaStmtEntry> as IntoIterator>::IntoIter,
+        fn(ArenaIdx<SemaStmtEntry>) -> SemaStmtIdx,
+    >;
+
+    fn into_iter(self) -> Self::IntoIter {
         self.0.into_iter().map(SemaStmtIdx)
     }
 }

@@ -355,7 +355,7 @@ impl<K, V> VecPairMap<K, V> {
 
     pub fn get_value_mut_or_insert_default(&mut self, key: K) -> &mut V
     where
-        K: Copy + Eq,
+        K: Eq,
         V: Default,
     {
         match self.entries.iter_mut().find(|(key1, _)| *key1 == key) {
@@ -369,7 +369,7 @@ impl<K, V> VecPairMap<K, V> {
 
     pub fn get_value_mut_or_insert(&mut self, key: K, v: V) -> &mut V
     where
-        K: Copy + Eq,
+        K: Eq,
     {
         match self.entries.iter_mut().find(|(key1, _)| *key1 == key) {
             Some(entry) => unsafe { wild_utils::arb_ref(&mut entry.1) },
