@@ -27,7 +27,24 @@ impl SemaExprRegion {
         self_ty: Option<EtherealTerm>,
         db: &dyn SemaExprDb,
     ) -> Self {
-        todo!()
+        SemaExprRegion::new_inner(
+            db,
+            path,
+            SemaExprRegionData {
+                path,
+                sema_expr_arena,
+                sema_stmt_arena,
+                syn_expr_root_sema_expr_idx_table,
+                pattern_expr_ty_infos,
+                pattern_symbol_ty_infos,
+                sema_expr_terms,
+                symbol_tys,
+                symbol_terms,
+                fluffy_term_region,
+                return_ty,
+                self_ty,
+            },
+        )
     }
 }
 

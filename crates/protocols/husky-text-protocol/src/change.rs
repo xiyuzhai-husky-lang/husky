@@ -15,6 +15,7 @@ impl From<lsp_types::TextDocumentContentChangeEvent> for DocumentChange {
     }
 }
 
+#[cfg(feature = "lsp_support")]
 pub fn apply_document_changes(
     old_text: &mut String,
     changes: Vec<lsp_types::TextDocumentContentChangeEvent>,
