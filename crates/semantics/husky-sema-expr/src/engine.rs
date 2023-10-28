@@ -1,6 +1,6 @@
 mod expect;
 mod expr_term;
-mod expr_ty;
+mod sema_expr;
 mod stmt;
 mod symbol;
 #[macro_use]
@@ -9,7 +9,7 @@ mod branch_ty_merger;
 mod pattern_ty;
 
 pub(crate) use self::branch_ty_merger::*;
-pub use self::expr_ty::*;
+pub use self::sema_expr::*;
 pub(crate) use self::utils::*;
 
 use self::symbol::*;
