@@ -266,7 +266,7 @@ impl<'a> SemaExprEngine<'a> {
                 opr,
                 opr_regional_token_idx,
             } => todo!(),
-            SemaExprData::Application {
+            SemaExprData::FunctionApplication {
                 function_sema_expr_idx,
                 argument_sema_expr_idx,
             } => {
@@ -276,8 +276,8 @@ impl<'a> SemaExprEngine<'a> {
                     *argument_sema_expr_idx,
                 )
             }
-            SemaExprData::FnCall { .. } => todo!(),
-            SemaExprData::GnCall { .. } => todo!(),
+            SemaExprData::FunctionFnCall { .. } => todo!(),
+            SemaExprData::FunctionGnCall { .. } => todo!(),
             SemaExprData::Field {
                 owner_sema_expr_idx,
                 dot_regional_token_idx,

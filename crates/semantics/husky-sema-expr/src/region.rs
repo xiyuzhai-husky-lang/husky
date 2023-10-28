@@ -3,64 +3,97 @@ use vec_like::VecPairMap;
 
 use crate::*;
 
-#[salsa::tracked(db = SemaExprDb, jar = SemaExprJar)]
+#[salsa::tracked(db = SemaExprDb, jar = SemaExprJar, constructor = new_inner)]
 pub struct SemaExprRegion {
     #[id]
     pub path: RegionPath,
     #[return_ref]
-    pub sema_expr_arena: SemaExprArena,
-    #[return_ref]
-    pub sema_stmt_arena: SemaStmtArena,
-    #[return_ref]
-    pub syn_expr_root_sema_expr_idx_table: VecPairMap<SynExprIdx, SemaExprIdx>,
-    #[return_ref]
-    pub pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
-    #[return_ref]
-    pub pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
-    #[return_ref]
-    pub sema_expr_terms: VecPairMap<SemaExprIdx, SemaExprTermResult<FluffyTerm>>,
-    #[return_ref]
-    pub symbol_tys: SymbolMap<SymbolType>,
-    #[return_ref]
-    pub symbol_terms: SymbolMap<FluffyTerm>,
-    #[return_ref]
-    pub fluffy_term_region: FluffyTermRegion,
-    pub return_ty: Option<EtherealTerm>,
-    pub self_ty: Option<EtherealTerm>,
+    pub data: SemaExprRegionData,
 }
 
 impl SemaExprRegion {
-    pub fn syn_expr_root_sema_expr_idx(
-        &self,
+    pub(crate) fn new(
+        path: RegionPath,
+        sema_expr_arena: SemaExprArena,
+        sema_stmt_arena: SemaStmtArena,
+        syn_expr_root_sema_expr_idx_table: VecPairMap<SynExprIdx, SemaExprIdx>,
+        pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
+        pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
+        sema_expr_terms: VecPairMap<SemaExprIdx, SemaExprTermResult<FluffyTerm>>,
+        symbol_tys: SymbolMap<SymbolType>,
+        symbol_terms: SymbolMap<FluffyTerm>,
+        fluffy_term_region: FluffyTermRegion,
+        return_ty: Option<EtherealTerm>,
+        self_ty: Option<EtherealTerm>,
         db: &dyn SemaExprDb,
-        syn_expr_root: SynExprIdx,
-    ) -> SemaExprIdx {
-        self.syn_expr_root_sema_expr_idx_table(db)[syn_expr_root].1
+    ) -> Self {
+        todo!()
+    }
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct SemaExprRegionData {
+    path: RegionPath,
+    sema_expr_arena: SemaExprArena,
+    sema_stmt_arena: SemaStmtArena,
+    syn_expr_root_sema_expr_idx_table: VecPairMap<SynExprIdx, SemaExprIdx>,
+    pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
+    pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
+    sema_expr_terms: VecPairMap<SemaExprIdx, SemaExprTermResult<FluffyTerm>>,
+    symbol_tys: SymbolMap<SymbolType>,
+    symbol_terms: SymbolMap<FluffyTerm>,
+    fluffy_term_region: FluffyTermRegion,
+    return_ty: Option<EtherealTerm>,
+    self_ty: Option<EtherealTerm>,
+}
+
+impl SemaExprRegionData {
+    pub fn syn_expr_root_sema_expr_idx(&self, syn_expr_root: SynExprIdx) -> SemaExprIdx {
+        self.syn_expr_root_sema_expr_idx_table[syn_expr_root].1
     }
 
-    pub fn sema_expr_arena_ref<'a>(&'a self, db: &'a dyn SemaExprDb) -> SemaExprArenaRef<'a> {
-        self.sema_expr_arena(db).arena_ref()
+    pub fn sema_expr_arena(&self) -> SemaExprArenaRef {
+        self.sema_expr_arena.arena_ref()
     }
 
-    pub fn sema_stmt_arena_ref<'a>(&'a self, db: &'a dyn SemaExprDb) -> SemaStmtArenaRef<'a> {
-        self.sema_stmt_arena(db).arena_ref()
+    pub fn sema_stmt_arena(&self) -> SemaStmtArenaRef {
+        self.sema_stmt_arena.arena_ref()
     }
 
-    pub fn sema_expr_term<'a>(
-        &'a self,
-        db: &'a dyn SemaExprDb,
+    pub fn sema_expr_term(
+        &self,
         sema_expr_idx: SemaExprIdx,
-    ) -> Option<SemaExprTermResultRef<'a, FluffyTerm>> {
+    ) -> Option<SemaExprTermResultRef<FluffyTerm>> {
         Some(
-            self.sema_expr_terms(db)
+            self.sema_expr_terms
                 .get_value(sema_expr_idx)?
                 .as_ref()
                 .copied(),
         )
     }
+
+    pub fn fluffy_term_region(&self) -> &FluffyTermRegion {
+        &self.fluffy_term_region
+    }
+
+    pub fn symbol_tys(&self) -> &SymbolMap<SymbolType> {
+        &self.symbol_tys
+    }
+
+    pub fn symbol_terms(&self) -> &SymbolMap<FluffyTerm> {
+        &self.symbol_terms
+    }
+
+    pub fn path(&self) -> RegionPath {
+        self.path
+    }
+
+    pub fn sema_expr_terms(&self) -> &VecPairMap<SemaExprIdx, SemaExprTermResult<FluffyTerm>> {
+        &self.sema_expr_terms
+    }
 }
 
-#[salsa::tracked(jar = SemaExprJar, return_ref)]
+#[salsa::tracked(jar = SemaExprJar)]
 pub(crate) fn sema_expr_region(
     db: &dyn SemaExprDb,
     syn_expr_region: SynExprRegion,

@@ -1,4 +1,6 @@
-use husky_sema_expr::{helpers::syn_expr_region_contains_gn, SemaExprData, SemaStmtData};
+use husky_sema_expr::{
+    helpers::analysis::sema_expr_region_contains_gn, SemaExprData, SemaStmtData,
+};
 use husky_syn_decl::{FugitiveSynDecl, HasSynDecl};
 use husky_syn_defn::{FugitiveSynDefn, HasSynDefn};
 
@@ -55,11 +57,12 @@ fn val_item_trace_subtraces(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> V
         return vec![];
     };
     let sema_expr_region = db.sema_expr_region(syn_expr_region);
-    let body = sema_expr_region.syn_expr_root_sema_expr_idx(db, body);
+    let sema_expr_region_data = sema_expr_region.data(db);
+    let body = sema_expr_region_data.syn_expr_root_sema_expr_idx(body);
     let mut registry = TracePathRegistry::<LazyStmtTracePathData>::default();
     let mut subtraces: Vec<Trace> = vec![];
-    let sema_expr_arena = sema_expr_region.sema_expr_arena_ref(db);
-    let sema_stmt_arena = sema_expr_region.sema_stmt_arena_ref(db);
+    let sema_expr_arena = sema_expr_region_data.sema_expr_arena();
+    let sema_stmt_arena = sema_expr_region_data.sema_stmt_arena();
     match body.data(sema_expr_arena) {
         &SemaExprData::Block { stmts } => {
             for stmt in stmts {

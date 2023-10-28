@@ -179,13 +179,13 @@ impl ToHirLazy for SemaExprIdx {
                 opr: *opr,
                 opd_hir_expr_idx: opd_sema_expr_idx.to_hir_lazy(builder),
             },
-            SemaExprData::Application {
+            SemaExprData::FunctionApplication {
                 function_sema_expr_idx,
                 argument_sema_expr_idx,
             } => {
                 todo!()
             }
-            SemaExprData::FnCall {
+            SemaExprData::FunctionFnCall {
                 function_sema_expr_idx,
                 template_arguments,
                 ritchie_parameter_argument_matches,
@@ -195,7 +195,7 @@ impl ToHirLazy for SemaExprIdx {
                 generic_arguments: template_arguments.as_ref().map(|_| todo!()),
                 item_groups: builder.new_call_list_item_groups(ritchie_parameter_argument_matches),
             },
-            SemaExprData::GnCall { .. } => unreachable!(),
+            SemaExprData::FunctionGnCall { .. } => unreachable!(),
             SemaExprData::Ritchie {
                 ritchie_kind_regional_token_idx,
                 ritchie_kind,

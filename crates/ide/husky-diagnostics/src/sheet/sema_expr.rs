@@ -44,14 +44,14 @@ fn collect_expr_ty_diagnostics(
     diagnostics: &mut Vec<Diagnostic>,
 ) {
     let ctx: RegionDiagnosticsContext = RegionDiagnosticsContext::new(db, syn_expr_region);
-    let sema_expr_region = ctx.sema_expr_region();
-    for (expr_idx, fluffy_term_result) in sema_expr_region.sema_expr_terms(db).iter() {
+    let sema_expr_region_data = ctx.sema_expr_region_data();
+    for (expr_idx, fluffy_term_result) in sema_expr_region_data.sema_expr_terms().iter() {
         match fluffy_term_result {
             Err(SemaExprTermError::Original(error)) => diagnostics.push(error.to_diagnostic(&ctx)),
             _ => (),
         }
     }
-    for sema_expr_entry in sema_expr_region.sema_expr_arena_ref(db).iter() {
+    for sema_expr_entry in sema_expr_region_data.sema_expr_arena().iter() {
         if let Some(e) = sema_expr_entry.original_data_error() {
             diagnostics.push(e.to_diagnostic(&ctx))
         }
@@ -59,7 +59,7 @@ fn collect_expr_ty_diagnostics(
             diagnostics.push(e.to_diagnostic(&ctx))
         }
     }
-    let fluffy_term_region = sema_expr_region.fluffy_term_region(db);
+    let fluffy_term_region = sema_expr_region_data.fluffy_term_region();
     for (src, error) in fluffy_term_region.hollow_terms().errors() {
         diagnostics.push((src, error).to_diagnostic(&ctx))
     }
