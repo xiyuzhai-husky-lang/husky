@@ -21,6 +21,8 @@ husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features
 ] }
 # gui
 husky-code-editor = { path = "../../gui/husky-code-editor" }
+# utils
+husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
 tokio.workspace = true

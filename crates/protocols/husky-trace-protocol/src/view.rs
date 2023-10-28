@@ -21,7 +21,12 @@ impl TraceViewData {
             tokens_data: tokens_data
                 .into_iter()
                 .map(|(text, token_class)| {
-                    TraceViewTokenData::new(text.to_string(), token_class, false)
+                    TraceViewTokenData::new(
+                        text.to_string(),
+                        token_class,
+                        SeparationAfter::SameLine { spaces: 1 },
+                        false,
+                    )
                 })
                 .collect(),
         }
@@ -36,20 +41,38 @@ impl TraceViewData {
 pub struct TraceViewTokenData {
     text: String,
     token_class: TokenClass,
+    separation_after: SeparationAfter,
     associated: bool,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub enum SeparationAfter {
+    SameLine { spaces: u32 },
+    NextLine { indent: u32 },
+    Eof,
+}
+
 impl TraceViewTokenData {
-    pub fn new(text: String, token_class: TokenClass, associated: bool) -> Self {
+    pub fn new(
+        text: String,
+        token_class: TokenClass,
+        separation_after: SeparationAfter,
+        associated: bool,
+    ) -> Self {
         Self {
             text,
             token_class,
+            separation_after,
             associated,
         }
     }
 
     pub fn text(&self) -> &str {
         self.text.as_ref()
+    }
+
+    pub fn separation_after(&self) -> SeparationAfter {
+        self.separation_after
     }
 
     pub fn token_class(&self) -> TokenClass {
