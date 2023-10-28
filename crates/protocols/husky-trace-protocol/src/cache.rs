@@ -2,6 +2,7 @@ pub(crate) mod action;
 mod entry;
 
 pub use self::action::TraceCacheAction;
+pub use self::entry::TraceCacheEntry;
 
 use self::entry::*;
 use crate::{

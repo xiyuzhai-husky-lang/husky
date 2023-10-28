@@ -3,7 +3,7 @@ use husky_regional_token::{RegionalTokenIdxBase, RegionalTokenIdxRange};
 use husky_text::{HasText, Text};
 use husky_token::{RangedTokenSheet, TokenIdx, TokenIdxRange};
 use husky_token_info::{TokenInfo, TokenInfoSheetRef, TokenInfoSource};
-use husky_trace_protocol::view::TraceViewTokenData;
+use husky_trace_protocol::view::{SeparationAfter, TraceViewTokenData};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TraceViewTokens {
@@ -66,9 +66,25 @@ impl<'a> TraceViewTokensBuilder<'a> {
                 None,
             ),
         };
+        // todo: handle inline comments
+        let spaces_after = if token_idx.index() < self.ranged_token_sheet.len() - 1 {
+            let next_text_range = self.ranged_token_sheet.token_text_range(token_idx + 1);
+            if next_text_range.start.line == text_range.end.line {
+                SeparationAfter::SameLine {
+                    spaces: next_text_range.start.col.0 - text_range.end.col.0,
+                }
+            } else {
+                SeparationAfter::NextLine {
+                    indent: next_text_range.start.col.0,
+                }
+            }
+        } else {
+            SeparationAfter::Eof
+        };
         self.tokens_data.push(TraceViewTokenData::new(
             text.to_string(),
             token_class,
+            spaces_after,
             /* ad hoc */ false,
         ));
         self.sources.push(src)
