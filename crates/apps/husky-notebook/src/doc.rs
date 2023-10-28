@@ -7,7 +7,7 @@ use self::arena::*;
 use super::*;
 use egui_dock::DockState;
 use husky_gui::helpers::repaint_signal::EguiRepaintSignal;
-use husky_trace_view_doc::doc::{MockTraceViewDoc, TraceViewDoc};
+use husky_trace_doc::doc::{MockTraceDoc, TraceDoc};
 use ui::{IsUiComponent, UiComponent};
 
 pub struct Doc {
@@ -43,7 +43,7 @@ impl NotebookApp {
     pub fn add_default_docs(&mut self, ctx: &egui::Context) {
         self.add_doc(Doc {
             title: "mock trace view doc".to_string(),
-            component: UiComponent::new(MockTraceViewDoc::new_mock(
+            component: UiComponent::new(MockTraceDoc::new_mock(
                 self.tokio_runtime.clone(),
                 EguiRepaintSignal::new(ctx.clone()),
             )),

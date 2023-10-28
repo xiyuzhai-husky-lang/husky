@@ -1,5 +1,5 @@
 [package]
-name = "husky-trace-view-doc"
+name = "husky-trace-doc"
 version = "0.1.0"
 edition = "2021"
 resolver = "2"
@@ -28,7 +28,7 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 tokio.workspace = true
 # gui
 husky-gui = { path = "../../gui/husky-gui" }
-husky-trace-view-doc = { path = ".", features = ["mock", "egui"] }
+husky-trace-doc = { path = ".", features = ["mock", "egui"] }
 # protocols
 husky-visual-protocol = { path = "../../protocols/husky-visual-protocol", features = [
     "mock"

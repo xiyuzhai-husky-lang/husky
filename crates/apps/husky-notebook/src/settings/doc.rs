@@ -1,6 +1,6 @@
 use husky_code_editor::settings::{CodeEditorSettings, HasCodeEditorSettings};
+use husky_trace_doc::settings::HasTraceViewDocSettings;
 use husky_trace_protocol::settings::{HasTraceSettings, TraceSettings};
-use husky_trace_view_doc::settings::HasTraceViewDocSettings;
 
 #[derive(Default, PartialEq, Eq)]
 pub struct HuskyNotebookDocSettings {

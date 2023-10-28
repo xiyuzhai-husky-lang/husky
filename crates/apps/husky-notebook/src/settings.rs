@@ -6,8 +6,8 @@ pub(crate) use self::layout::*;
 
 use egui::Color32;
 use husky_code_editor::settings::HasCodeEditorSettings;
+use husky_trace_doc::settings::HasTraceViewDocSettings;
 use husky_trace_protocol::settings::HasTraceSettings;
-use husky_trace_view_doc::settings::HasTraceViewDocSettings;
 use ui::IsUiComponent;
 
 #[derive(Default, PartialEq, Eq)]

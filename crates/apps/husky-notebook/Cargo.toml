@@ -16,7 +16,7 @@ enum-index = { path = "../../abstractions/enum-index" }
 # gui
 husky-gui = { path = "../../gui/husky-gui" }
 husky-code-editor = { path = "../../gui/husky-code-editor" }
-husky-trace-view-doc = { path = "../../gui/husky-trace-view-doc", features = [
+husky-trace-doc = { path = "../../gui/husky-trace-doc", features = [
     # ad hoc
     "mock",
     "egui"
