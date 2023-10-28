@@ -27,6 +27,8 @@ husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 # protocols
 husky-entity-protocol = { path = "../../protocols/husky-entity-protocol", optional = true }
 husky-token-protocol = { path = "../../protocols/husky-token-protocol", optional = true }
+# semantics
+husky-sema-opr = { path = "../../semantics/husky-sema-opr" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-decl-ast = { path = "../../syntax/husky-decl-ast" }
