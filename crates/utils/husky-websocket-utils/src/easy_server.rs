@@ -109,7 +109,9 @@ where
             Ok(request) => match request {
                 Message::Text(request) => match S::SerdeImpl::from_str(&request) {
                     Ok(request) => {
-                        let response = state.lock().await.handle(request);
+                        let Some(response) = state.lock().await.handle(request) else {
+                            continue;
+                        };
                         match S::SerdeImpl::to_string(&response) {
                             Ok(response) => {
                                 if let Err(e) = stream.send(Message::Text(response)).await {
