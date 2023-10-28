@@ -9,7 +9,7 @@ use husky_regional_token::{
     RegionalTokenIdx, RegionalTokenIdxBase, RegionalTokenIdxRange, RegionalTokenStreamState,
 };
 use husky_sema_expr::*;
-use husky_syn_expr::{ExprRangeRegion, SynExprIdx, SynExprRegion, SynExprRegionData};
+use husky_syn_expr::{SynExprIdx, SynExprRangeRegion, SynExprRegion, SynExprRegionData};
 use husky_token::{TokenGroupIdx, TokenIdx, TokenIdxRange, TokenStreamState};
 
 pub(crate) struct SheetDiagnosticsContext<'a> {
@@ -84,7 +84,7 @@ pub(crate) struct RegionDiagnosticsContext<'a> {
     ranged_token_sheet: &'a RangedTokenSheet,
     syn_expr_region_data: &'a SynExprRegionData,
     sema_expr_region: &'a SemaExprRegion,
-    expr_range_region: &'a ExprRangeRegion,
+    expr_range_region: &'a SynExprRangeRegion,
     regional_token_idx_base: RegionalTokenIdxBase,
 }
 

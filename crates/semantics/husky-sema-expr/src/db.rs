@@ -20,5 +20,5 @@ pub struct SemaExprJar(
     ty_ontology_application_unveil_impl_block_signature_templates,
     SemaExprRegion,
     sema_expr_region,
-    crate::helpers::syn_expr_region_contains_gn,
+    crate::helpers::analysis::syn_expr_region_contains_gn,
 );
