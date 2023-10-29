@@ -81,6 +81,7 @@ fn val_item_trace_subtraces(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> V
                             path_data,
                             &mut registry,
                             stmt,
+                            sema_expr_region,
                             db,
                         );
                         subtraces.push(lazy_stmt_trace.into())
@@ -96,6 +97,7 @@ fn val_item_trace_subtraces(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> V
                             path_data,
                             &mut registry,
                             stmt,
+                            sema_expr_region,
                             db,
                         );
                         subtraces.push(lazy_stmt_trace.into())
@@ -111,6 +113,7 @@ fn val_item_trace_subtraces(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> V
                             path_data,
                             &mut registry,
                             stmt,
+                            sema_expr_region,
                             db,
                         );
                         subtraces.push(lazy_stmt_trace.into())
@@ -126,6 +129,7 @@ fn val_item_trace_subtraces(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> V
                             path_data,
                             &mut registry,
                             stmt,
+                            sema_expr_region,
                             db,
                         );
                         subtraces.push(lazy_stmt_trace.into())
@@ -138,6 +142,7 @@ fn val_item_trace_subtraces(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> V
                             path_data,
                             &mut registry,
                             stmt,
+                            sema_expr_region,
                             db,
                         );
                         subtraces.push(lazy_stmt_trace.into())
@@ -153,6 +158,7 @@ fn val_item_trace_subtraces(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> V
                             path_data,
                             &mut registry,
                             stmt,
+                            sema_expr_region,
                             db,
                         );
                         subtraces.push(lazy_stmt_trace.into())

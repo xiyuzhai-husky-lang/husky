@@ -33,6 +33,16 @@ pub fn token_region_data(path: RegionPath, db: &dyn EntitySynTreeDb) -> Option<T
     todo!()
 }
 
+impl RegionPath {
+    pub fn regional_token_idx_base(self, db: &dyn EntitySynTreeDb) -> Option<RegionalTokenIdxBase> {
+        match self {
+            RegionPath::Snippet(slf) => todo!(),
+            RegionPath::Decl(slf) => Some(slf.decl_regional_token_idx_base(db)),
+            RegionPath::Defn(slf) => slf.defn_regional_token_idx_base(db),
+        }
+    }
+}
+
 pub struct TokraBase {
     // add this to get TokenIdx
     token_idx_base: u32,

@@ -16,19 +16,13 @@ pub struct HirLazyExprSourceMapData {
     sema_to_hir_lazy_stmt_idx_map: SemaStmtMap<HirLazyStmtIdx>,
 }
 impl HirLazyExprSourceMapData {
-    pub(crate) fn sema_to_hir_lazy_expr_idx(
-        &self,
-        sema_expr_idx: SemaExprIdx,
-    ) -> Option<HirLazyExprIdx> {
+    pub fn sema_to_hir_lazy_expr_idx(&self, sema_expr_idx: SemaExprIdx) -> Option<HirLazyExprIdx> {
         self.sema_to_hir_lazy_expr_idx_map
             .get(sema_expr_idx)
             .copied()
     }
 
-    pub(crate) fn sema_to_hir_lazy_stmt_idx(
-        &self,
-        sema_stmt_idx: SemaStmtIdx,
-    ) -> Option<HirLazyStmtIdx> {
+    pub fn sema_to_hir_lazy_stmt_idx(&self, sema_stmt_idx: SemaStmtIdx) -> Option<HirLazyStmtIdx> {
         self.sema_to_hir_lazy_stmt_idx_map
             .get(sema_stmt_idx)
             .copied()

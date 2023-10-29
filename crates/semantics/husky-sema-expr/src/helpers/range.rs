@@ -22,7 +22,7 @@ pub struct SemaExprRangeRegionData {
 }
 
 #[salsa::tracked(jar = SemaExprJar)]
-pub(crate) fn sema_expr_range_region(
+pub fn sema_expr_range_region(
     db: &dyn SemaExprDb,
     sema_expr_region: SemaExprRegion,
 ) -> SemaExprRangeRegion {
