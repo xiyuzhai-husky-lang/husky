@@ -18,7 +18,7 @@ impl TypeAssociatedFnHirDecl {
         path: TypeItemPath,
         ethereal_signature_template: TypeAssociatedFnEtherealSignatureTemplate,
         db: &dyn HirDeclDb,
-    ) -> Self {
+    ) -> (Self, HirEagerExprSourceMap) {
         let TypeItemSynDecl::AssociatedFn(syn_decl) = path.syn_decl(db).expect("ok") else {
             unreachable!()
         };
@@ -32,14 +32,17 @@ impl TypeAssociatedFnHirDecl {
             db,
         );
         let return_ty = HirType::from_ethereal(ethereal_signature_template.return_ty(db), db);
-        let hir_expr_region = builder.finish();
-        Self::new(
-            db,
-            path,
-            template_parameters,
-            parenate_parameters,
-            return_ty,
-            hir_expr_region,
+        let (hir_expr_region, hir_eager_expr_source_map) = builder.finish();
+        (
+            Self::new(
+                db,
+                path,
+                template_parameters,
+                parenate_parameters,
+                return_ty,
+                hir_expr_region,
+            ),
+            hir_eager_expr_source_map,
         )
     }
 }

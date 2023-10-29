@@ -1,8 +1,8 @@
-use crate::*;
+use crate::{source_map::HirLazyExprSourceMap, *};
 use husky_fluffy_term::FluffyTermBase;
 use husky_sema_expr::{
-    SemaExprArenaRef, SemaExprIdx, SemaExprRegion, SemaExprRegionData, SemaStmtArenaRef,
-    SemaStmtIdx,
+    SemaExprArenaRef, SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData,
+    SemaStmtArenaRef, SemaStmtIdx, SemaStmtMap,
 };
 use husky_syn_expr::{SynExprIdx, SynExprRegion, SynExprRegionData, SynStmtIdx};
 use salsa::DebugWithDb;
@@ -14,17 +14,26 @@ pub struct HirLazyExprBuilder<'a> {
     expr_arena: HirLazyExprArena,
     stmt_arena: HirLazyStmtArena,
     pattern_expr_arena: HirLazyPatternExprArena,
+    sema_to_hir_lazy_expr_idx_map: SemaExprMap<HirLazyExprIdx>,
+    sema_to_hir_lazy_stmt_idx_map: SemaStmtMap<HirLazyStmtIdx>,
 }
 
 impl<'a> HirLazyExprBuilder<'a> {
     pub fn new(db: &'a dyn HirLazyExprDb, syn_expr_region: SynExprRegion) -> Self {
+        let sema_expr_region_data = db.sema_expr_region(syn_expr_region).data(db);
         Self {
             db,
             syn_expr_region_data: syn_expr_region.data(db),
-            sema_expr_region_data: db.sema_expr_region(syn_expr_region).data(db),
+            sema_expr_region_data,
             expr_arena: Default::default(),
             stmt_arena: Default::default(),
             pattern_expr_arena: Default::default(),
+            sema_to_hir_lazy_expr_idx_map: SemaExprMap::new(
+                sema_expr_region_data.sema_expr_arena(),
+            ),
+            sema_to_hir_lazy_stmt_idx_map: SemaStmtMap::new(
+                sema_expr_region_data.sema_stmt_arena(),
+            ),
         }
     }
 
@@ -91,12 +100,19 @@ impl<'a> HirLazyExprBuilder<'a> {
         }
     }
 
-    pub fn finish(self) -> HirLazyExprRegion {
-        HirLazyExprRegion::new(
-            self.db,
-            self.expr_arena,
-            self.stmt_arena,
-            self.pattern_expr_arena,
+    pub fn finish(self) -> (HirLazyExprRegion, HirLazyExprSourceMap) {
+        (
+            HirLazyExprRegion::new(
+                self.db,
+                self.expr_arena,
+                self.stmt_arena,
+                self.pattern_expr_arena,
+            ),
+            HirLazyExprSourceMap::new(
+                self.db,
+                self.sema_to_hir_lazy_expr_idx_map,
+                self.sema_to_hir_lazy_stmt_idx_map,
+            ),
         )
     }
 

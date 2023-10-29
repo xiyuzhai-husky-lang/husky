@@ -9,7 +9,10 @@ pub struct SubmoduleHirDecl {
 impl HasHirDecl for ModulePath {
     type HirDecl = SubmoduleHirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+    fn hir_decl_with_source_map(
+        self,
+        db: &dyn HirDeclDb,
+    ) -> Option<(Self::HirDecl, Self::HirExprSourceMap)> {
         Some(submodule_hir_decl(db, self))
     }
 }

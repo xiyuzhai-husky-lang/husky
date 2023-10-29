@@ -4,8 +4,6 @@ mod associated_val;
 mod memoized_field;
 mod method_fn;
 
-use husky_print_utils::p;
-
 pub use self::associated_fn::*;
 pub use self::associated_ty::*;
 pub use self::associated_val::*;
@@ -13,6 +11,7 @@ pub use self::memoized_field::*;
 pub use self::method_fn::*;
 
 use super::*;
+use husky_print_utils::p;
 use husky_syn_decl::TypeItemSynDecl;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -60,18 +59,26 @@ impl TypeItemHirDecl {
 impl HasHirDecl for TypeItemPath {
     type HirDecl = TypeItemHirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
-        ty_item_hir_decl(db, self)
+    fn hir_decl_with_source_map(
+        self,
+        db: &dyn HirDeclDb,
+    ) -> Option<(Self::HirDecl, Self::HirExprSourceMap)> {
+        ty_item_hir_decl(db, self).map(|(decl, _)| decl)
     }
 }
 
 #[salsa::tracked(jar = HirDeclJar)]
-pub(crate) fn ty_item_hir_decl(db: &dyn HirDeclDb, path: TypeItemPath) -> Option<TypeItemHirDecl> {
+pub(crate) fn ty_item_hir_decl(
+    db: &dyn HirDeclDb,
+    path: TypeItemPath,
+) -> Option<(TypeItemHirDecl, HirExprSourceMap)> {
     use salsa::DebugWithDb;
     match path.ethereal_signature_template(db).expect("ok") {
-        TypeItemEtherealSignatureTemplate::AssociatedFn(ethereal_signature_template) => Some(
-            TypeAssociatedFnHirDecl::from_ethereal(path, ethereal_signature_template, db).into(),
-        ),
+        TypeItemEtherealSignatureTemplate::AssociatedFn(ethereal_signature_template) => {
+            let (decl, source_map) =
+                TypeAssociatedFnHirDecl::from_ethereal(path, ethereal_signature_template, db);
+            Some((decl.into(), source_map.into()))
+        }
         TypeItemEtherealSignatureTemplate::MethodFn(ethereal_signature_template) => {
             Some(TypeMethodFnHirDecl::from_ethereal(path, ethereal_signature_template, db).into())
         }

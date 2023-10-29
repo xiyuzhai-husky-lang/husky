@@ -1,4 +1,4 @@
-use crate::{db::HirExprDb, *};
+use crate::{db::HirExprDb, source_map::HirExprSourceMap, *};
 use husky_entity_kind::FugitiveKind;
 use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
 use husky_fluffy_term::{MethodFluffySignature, StaticDispatch};
@@ -27,10 +27,19 @@ impl<'a> HirExprBuilder<'a> {
         }
     }
 
-    pub fn finish(self) -> HirExprRegion {
+    pub fn finish(self) -> (HirExprRegion, HirExprSourceMap) {
         match self {
-            HirExprBuilder::Eager(builder) => builder.finish().into(),
-            HirExprBuilder::Lazy(builder) => builder.finish().into(),
+            HirExprBuilder::Eager(builder) => {
+                let (hir_eager_expr_region, hir_eager_expr_source_map) = builder.finish();
+                (
+                    hir_eager_expr_region.into(),
+                    hir_eager_expr_source_map.into(),
+                )
+            }
+            HirExprBuilder::Lazy(builder) => {
+                let (hir_lazy_expr_region, hir_lazy_expr_source_map) = builder.finish();
+                (hir_lazy_expr_region.into(), hir_lazy_expr_source_map.into())
+            }
         }
     }
 }

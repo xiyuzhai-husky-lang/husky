@@ -1,12 +1,13 @@
 use crate::*;
+use husky_sema_expr::SemaExprMap;
 
 /// this is interned on purpose
 #[salsa::interned(db = HirEagerExprDb, jar = HirEagerExprJar)]
 pub struct HirEagerExprRegion {
     #[return_ref]
-    pub expr_arena: HirEagerExprArena,
+    pub hir_eager_expr_arena: HirEagerExprArena,
     #[return_ref]
-    pub stmt_arena: HirEagerStmtArena,
+    pub hir_eager_stmt_arena: HirEagerStmtArena,
     #[return_ref]
-    pub pattern_expr_arena: HirEagerPatternExprArena,
+    pub hir_eager_pattern_expr_arena: HirEagerPatternExprArena,
 }

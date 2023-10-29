@@ -10,7 +10,10 @@ pub struct TraitHirDecl {
 impl HasHirDecl for TraitPath {
     type HirDecl = TraitHirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+    fn hir_decl_with_source_map(
+        self,
+        db: &dyn HirDeclDb,
+    ) -> Option<(Self::HirDecl, Self::HirExprSourceMap)> {
         Some(trai_hir_decl(db, self))
     }
 }

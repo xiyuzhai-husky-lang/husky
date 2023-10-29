@@ -2,8 +2,8 @@ use crate::*;
 use husky_ethereal_term::EtherealTerm;
 use husky_fluffy_term::{FluffyTerm, FluffyTermBase};
 use husky_sema_expr::{
-    SemaExprArenaRef, SemaExprIdx, SemaExprRegion, SemaExprRegionData, SemaStmtArenaRef,
-    SemaStmtIdx,
+    SemaExprArenaRef, SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData,
+    SemaStmtArenaRef, SemaStmtIdx, SemaStmtMap,
 };
 use husky_syn_expr::{
     SynExprData, SynExprIdx, SynExprRegion, SynExprRegionData, SynStmtData, SynStmtIdx,
@@ -17,17 +17,26 @@ pub struct HirEagerExprBuilder<'a> {
     expr_arena: HirEagerExprArena,
     stmt_arena: HirEagerStmtArena,
     pattern_expr_arena: HirEagerPatternExprArena,
+    sema_to_hir_eager_expr_idx_map: SemaExprMap<HirEagerExprIdx>,
+    sema_to_hir_eager_stmt_idx_map: SemaStmtMap<HirEagerStmtIdx>,
 }
 
 impl<'a> HirEagerExprBuilder<'a> {
     pub fn new(db: &'a dyn HirEagerExprDb, syn_expr_region: SynExprRegion) -> Self {
+        let sema_expr_region_data = db.sema_expr_region(syn_expr_region).data(db);
         Self {
             db,
             syn_expr_region_data: syn_expr_region.data(db),
-            sema_expr_region_data: db.sema_expr_region(syn_expr_region).data(db),
+            sema_expr_region_data,
             expr_arena: Default::default(),
             pattern_expr_arena: Default::default(),
             stmt_arena: Default::default(),
+            sema_to_hir_eager_expr_idx_map: SemaExprMap::new(
+                sema_expr_region_data.sema_expr_arena(),
+            ),
+            sema_to_hir_eager_stmt_idx_map: SemaStmtMap::new(
+                sema_expr_region_data.sema_stmt_arena(),
+            ),
         }
     }
 
@@ -101,12 +110,19 @@ impl<'a> HirEagerExprBuilder<'a> {
         }
     }
 
-    pub fn finish(self) -> HirEagerExprRegion {
-        HirEagerExprRegion::new(
-            self.db,
-            self.expr_arena,
-            self.stmt_arena,
-            self.pattern_expr_arena,
+    pub fn finish(self) -> (HirEagerExprRegion, HirEagerExprSourceMap) {
+        (
+            HirEagerExprRegion::new(
+                self.db,
+                self.expr_arena,
+                self.stmt_arena,
+                self.pattern_expr_arena,
+            ),
+            HirEagerExprSourceMap::new(
+                self.db,
+                self.sema_to_hir_eager_expr_idx_map,
+                self.sema_to_hir_eager_stmt_idx_map,
+            ),
         )
     }
 }
