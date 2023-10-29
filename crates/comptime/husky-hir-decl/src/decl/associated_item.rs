@@ -48,7 +48,10 @@ impl AssociatedItemHirDecl {
 impl HasHirDecl for AssociatedItemPath {
     type HirDecl = AssociatedItemHirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+    fn hir_decl_with_source_map(
+        self,
+        db: &dyn HirDeclDb,
+    ) -> Option<(Self::HirDecl, Self::HirExprSourceMap)> {
         match self {
             AssociatedItemPath::TypeItem(path) => path.hir_decl(db).map(Into::into),
             AssociatedItemPath::TraitItem(path) => path.hir_decl(db).map(Into::into),

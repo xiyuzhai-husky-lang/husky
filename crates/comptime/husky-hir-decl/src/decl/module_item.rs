@@ -46,7 +46,10 @@ impl MajorItemHirDecl {
 impl HasHirDecl for MajorItemPath {
     type HirDecl = MajorItemHirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+    fn hir_decl_with_source_map(
+        self,
+        db: &dyn HirDeclDb,
+    ) -> Option<(Self::HirDecl, Self::HirExprSourceMap)> {
         Some(match self {
             MajorItemPath::Type(path) => path.hir_decl(db)?.into(),
             MajorItemPath::Trait(path) => path.hir_decl(db)?.into(),

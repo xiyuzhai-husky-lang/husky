@@ -73,7 +73,10 @@ impl TypeHirDecl {
 impl HasHirDecl for TypePath {
     type HirDecl = TypeHirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+    fn hir_decl_with_source_map(
+        self,
+        db: &dyn HirDeclDb,
+    ) -> Option<(Self::HirDecl, Self::HirExprSourceMap)> {
         ty_hir_decl(db, self)
     }
 }

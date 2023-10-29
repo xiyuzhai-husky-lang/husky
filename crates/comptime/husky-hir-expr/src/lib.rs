@@ -3,6 +3,7 @@ pub mod builder;
 pub mod db;
 pub mod helpers;
 mod region;
+pub mod source_map;
 
 pub use self::region::*;
 

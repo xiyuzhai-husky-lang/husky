@@ -51,7 +51,10 @@ impl TraitForTypeItemHirDecl {
 impl HasHirDecl for TraitForTypeItemPath {
     type HirDecl = TraitForTypeItemHirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+    fn hir_decl_with_source_map(
+        self,
+        db: &dyn HirDeclDb,
+    ) -> Option<(Self::HirDecl, Self::HirExprSourceMap)> {
         trai_for_ty_item_hir_decl(db, self)
     }
 }

@@ -11,7 +11,7 @@ impl TypeAssociatedValHirDecl {
         path: TypeItemPath,
         ethereal_signature_template: TypeMemoizedFieldEtherealSignatureTemplate,
         db: &dyn HirDeclDb,
-    ) -> Self {
+    ) -> (Self, HirEagerExprSourceMap) {
         todo!()
         // let mut builder = HirEagerExprBuilder::new(db, syn_decl.expr_region(db));
         // let return_ty = HirType::from_ethereal(ethereal_signature_template.return_ty(db), db);

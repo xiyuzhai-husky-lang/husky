@@ -366,4 +366,24 @@ impl SemaExprIdx {
 }
 
 pub type SemaExprIdxRange = ArenaIdxRange<SemaExprEntry>;
-pub type SemaExprMap<V> = ArenaMap<SemaExprEntry, V>;
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct SemaExprMap<V>(ArenaMap<SemaExprEntry, V>);
+
+impl<V> SemaExprMap<V> {
+    pub fn new(sema_expr_arena: SemaExprArenaRef<'_>) -> SemaExprMap<V> {
+        Self(ArenaMap::new2(sema_expr_arena.0))
+    }
+
+    pub fn insert_new(&mut self, expr_idx: SemaExprIdx, v: V) {
+        self.0.insert_new(expr_idx.0, v)
+    }
+}
+
+impl<V> std::ops::Index<SemaExprIdx> for SemaExprMap<V> {
+    type Output = V;
+
+    fn index(&self, index: SemaExprIdx) -> &Self::Output {
+        &self.0[index.0]
+    }
+}

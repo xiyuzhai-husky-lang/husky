@@ -6,6 +6,7 @@ pub mod helpers;
 mod pattern;
 mod pattern_expr;
 mod region;
+pub mod source_map;
 mod stmt;
 
 pub use self::expr::*;
