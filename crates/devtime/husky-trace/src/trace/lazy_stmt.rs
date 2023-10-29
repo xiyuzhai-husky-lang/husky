@@ -1,6 +1,6 @@
-use husky_sema_expr::SemaStmtIdx;
-
 use super::*;
+use husky_hir_lazy_expr::HirLazyExprRegion;
+use husky_sema_expr::SemaStmtIdx;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum LazyStmtTracePathData {
@@ -57,6 +57,9 @@ pub struct LazyStmtTrace {
     #[id]
     pub path: LazyStmtTracePath,
     pub biological_parent: LazyStmtTraceBiologicalParent,
+    pub sema_stmt_idx: SemaStmtIdx,
+    #[skip_fmt]
+    pub hir_lazy_expr_region: HirLazyExprRegion,
 }
 
 impl LazyStmtTrace {
@@ -69,7 +72,7 @@ impl LazyStmtTrace {
         db: &dyn TraceDb,
     ) -> Self {
         let path = LazyStmtTracePath::new(biological_parent_path, path_data, registry, db);
-        LazyStmtTrace::new_inner(db, path, biological_parent.into())
+        LazyStmtTrace::new_inner(db, path, biological_parent.into(), sema_stmt_idx, todo!())
     }
 
     pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {

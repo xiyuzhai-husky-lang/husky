@@ -19,7 +19,7 @@ pub type HirLazyExprIdx = ArenaIdx<HirLazyExpr>;
 pub type HirLazyExprIdxRange = ArenaIdxRange<HirLazyExpr>;
 pub type HirLazyExprMap<V> = ArenaMap<HirLazyExpr, V>;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum HirLazyExpr {
     Literal(TermLiteral),
     PrincipalEntityPath(PrincipalEntityPath),
@@ -102,7 +102,7 @@ pub enum HirLazyExpr {
     AssociatedFn,
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirLazyGenericArgumentList {/*todo */}
 
 impl ToHirLazy for SemaExprIdx {

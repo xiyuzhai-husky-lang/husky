@@ -4,7 +4,7 @@ use husky_syn_expr::{BePatternSynObelisk, LetPatternSynObelisk};
 
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirLazyLetVariablesPattern {
     pattern_expr_idx: HirLazyPatternExprIdx,
     // variables: CurrentHirLazySymbolIdxRange,
@@ -27,7 +27,7 @@ impl<'a> HirLazyExprBuilder<'a> {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirLazyBeVariablesPattern {}
 
 impl ToHirLazy for BePatternSynObelisk {

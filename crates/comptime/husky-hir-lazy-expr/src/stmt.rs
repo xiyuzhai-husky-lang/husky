@@ -7,7 +7,7 @@ pub use self::branch_stmt::*;
 
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum HirLazyStmt {
     Let {
         pattern: HirLazyLetVariablesPattern,
