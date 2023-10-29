@@ -4,7 +4,7 @@ use husky_sema_expr::{
     SemaExprArenaRef, SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData,
     SemaStmtArenaRef, SemaStmtIdx, SemaStmtMap,
 };
-use husky_syn_expr::{SynExprIdx, SynExprRegion, SynExprRegionData, SynStmtIdx};
+use husky_syn_expr::{ExprRootKind, SynExprIdx, SynExprRegion, SynExprRegionData, SynStmtIdx};
 use salsa::DebugWithDb;
 
 pub(crate) struct HirLazyExprBuilder<'a> {
@@ -56,8 +56,14 @@ impl<'a> HirLazyExprBuilder<'a> {
         hir_eager_stmts: Vec<HirLazyStmt>,
     ) -> HirLazyStmtIdxRange {
         debug_assert_eq!(sema_stmt_indices.len(), hir_eager_stmts.len());
-        // todo: record syn_stmt_indices in source map
-        self.stmt_arena.alloc_batch(hir_eager_stmts)
+        let hir_stmt_idx_range = self.stmt_arena.alloc_batch(hir_eager_stmts);
+        for (sema_stmt_idx, hir_lazy_stmt_idx) in
+            std::iter::zip(sema_stmt_indices, hir_stmt_idx_range)
+        {
+            self.sema_to_hir_lazy_stmt_idx_map
+                .insert_new(sema_stmt_idx, hir_lazy_stmt_idx);
+        }
+        hir_stmt_idx_range
     }
 
     pub(crate) fn alloc_expr(
@@ -65,8 +71,10 @@ impl<'a> HirLazyExprBuilder<'a> {
         sema_expr_idx: SemaExprIdx,
         hir_lazy_expr: HirLazyExpr,
     ) -> HirLazyExprIdx {
-        // todo: record syn_expr_idx in source map
-        self.expr_arena.alloc_one(hir_lazy_expr)
+        let hir_lazy_expr_idx = self.expr_arena.alloc_one(hir_lazy_expr);
+        self.sema_to_hir_lazy_expr_idx_map
+            .insert_new(sema_expr_idx, hir_lazy_expr_idx);
+        hir_lazy_expr_idx
     }
 
     pub(crate) fn alloc_pattern_expr(
@@ -102,7 +110,23 @@ impl<'a> HirLazyExprBuilder<'a> {
     }
 
     pub fn build_all_then_finish(mut self) -> (HirLazyExprRegion, HirLazyExprSourceMap) {
-        todo!()
+        for (sema_expr_idx, expr_root_kind) in self.sema_expr_region_data.sema_expr_roots() {
+            match expr_root_kind {
+                ExprRootKind::BlockExpr | ExprRootKind::ReturnExpr => {
+                    sema_expr_idx.to_hir_lazy(&mut self);
+                }
+                // ad hoc
+                ExprRootKind::FieldBindInitialValue { .. } => (),
+                // ad hoc
+                ExprRootKind::ExplicitParameterDefaultValue { .. } => (),
+                // ad hoc
+                ExprRootKind::Snippet => (),
+                // ad hoc
+                ExprRootKind::ValExpr => (),
+                _ => continue,
+            }
+        }
+        self.finish()
     }
 
     pub fn finish(self) -> (HirLazyExprRegion, HirLazyExprSourceMap) {

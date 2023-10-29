@@ -90,7 +90,7 @@
                     data: [],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [],
+            sema_expr_roots: [],
             pattern_expr_ty_infos: ArenaMap {
                 data: [],
             },
@@ -228,7 +228,7 @@
                     data: [],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [],
+            sema_expr_roots: [],
             pattern_expr_ty_infos: ArenaMap {
                 data: [],
             },
@@ -366,7 +366,7 @@
                     data: [],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [],
+            sema_expr_roots: [],
             pattern_expr_ty_infos: ArenaMap {
                 data: [],
             },
@@ -504,7 +504,7 @@
                     data: [],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [],
+            sema_expr_roots: [],
             pattern_expr_ty_infos: ArenaMap {
                 data: [],
             },

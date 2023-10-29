@@ -347,11 +347,14 @@
                     data: [],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [
+            sema_expr_roots: [
                 (
                     4,
-                    SemaExprIdx(
-                        3,
+                    (
+                        SemaExprIdx(
+                            3,
+                        ),
+                        ExplicitParameterType,
                     ),
                 ),
             ],
@@ -1157,23 +1160,32 @@
                     data: [],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [
+            sema_expr_roots: [
                 (
                     4,
-                    SemaExprIdx(
-                        3,
+                    (
+                        SemaExprIdx(
+                            3,
+                        ),
+                        ExplicitParameterType,
                     ),
                 ),
                 (
                     5,
-                    SemaExprIdx(
-                        4,
+                    (
+                        SemaExprIdx(
+                            4,
+                        ),
+                        ExplicitParameterType,
                     ),
                 ),
                 (
                     6,
-                    SemaExprIdx(
-                        5,
+                    (
+                        SemaExprIdx(
+                            5,
+                        ),
+                        ExplicitParameterType,
                     ),
                 ),
             ],
@@ -2155,29 +2167,41 @@
                     data: [],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [
+            sema_expr_roots: [
                 (
                     4,
-                    SemaExprIdx(
-                        3,
+                    (
+                        SemaExprIdx(
+                            3,
+                        ),
+                        ExplicitParameterType,
                     ),
                 ),
                 (
                     5,
-                    SemaExprIdx(
-                        4,
+                    (
+                        SemaExprIdx(
+                            4,
+                        ),
+                        ExplicitParameterType,
                     ),
                 ),
                 (
                     6,
-                    SemaExprIdx(
-                        5,
+                    (
+                        SemaExprIdx(
+                            5,
+                        ),
+                        ExplicitParameterType,
                     ),
                 ),
                 (
                     7,
-                    SemaExprIdx(
-                        6,
+                    (
+                        SemaExprIdx(
+                            6,
+                        ),
+                        ReturnType,
                     ),
                 ),
             ],
@@ -2675,7 +2699,7 @@
                     data: [],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [],
+            sema_expr_roots: [],
             pattern_expr_ty_infos: ArenaMap {
                 data: [],
             },
@@ -2813,7 +2837,7 @@
                     data: [],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [],
+            sema_expr_roots: [],
             pattern_expr_ty_infos: ArenaMap {
                 data: [],
             },

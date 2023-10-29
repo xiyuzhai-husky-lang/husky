@@ -146,7 +146,7 @@
                     data: [],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [],
+            sema_expr_roots: [],
             pattern_expr_ty_infos: ArenaMap {
                 data: [],
             },
@@ -1095,17 +1095,23 @@
                     data: [],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [
+            sema_expr_roots: [
                 (
                     7,
-                    SemaExprIdx(
-                        7,
+                    (
+                        SemaExprIdx(
+                            7,
+                        ),
+                        Trait,
                     ),
                 ),
                 (
                     12,
-                    SemaExprIdx(
-                        12,
+                    (
+                        SemaExprIdx(
+                            12,
+                        ),
+                        SelfType,
                     ),
                 ),
             ],
@@ -2527,11 +2533,14 @@
                     data: [],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [
+            sema_expr_roots: [
                 (
                     1,
-                    SemaExprIdx(
-                        1,
+                    (
+                        SemaExprIdx(
+                            1,
+                        ),
+                        AssociatedTypeTerm,
                     ),
                 ),
             ],
@@ -3806,17 +3815,23 @@
                     data: [],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [
+            sema_expr_roots: [
                 (
                     5,
-                    SemaExprIdx(
-                        5,
+                    (
+                        SemaExprIdx(
+                            5,
+                        ),
+                        ExplicitParameterType,
                     ),
                 ),
                 (
                     10,
-                    SemaExprIdx(
-                        10,
+                    (
+                        SemaExprIdx(
+                            10,
+                        ),
+                        ReturnType,
                     ),
                 ),
             ],
