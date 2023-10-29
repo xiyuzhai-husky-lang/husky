@@ -65,6 +65,7 @@ impl RegionalTokenIdxRange {
         }
     }
 
+    /// returns a range that includes first and last
     pub fn new_closed(first: RegionalTokenIdx, last: RegionalTokenIdx) -> Self {
         Self {
             start: RegionalTokenIdxRangeStart(first),
