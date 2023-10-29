@@ -105,8 +105,6 @@ impl LazyStmtTrace {
 
 #[salsa::tracked(jar = TraceJar, return_ref)]
 fn lazy_stmt_trace_view_tokens(db: &dyn TraceDb, trace: LazyStmtTrace) -> TraceViewTokens {
-    use husky_entity_syn_tree::helpers::tokra_region::HasDeclTokraRegion;
-    use husky_entity_syn_tree::HasSynNodePath;
     let sema_stmt_idx = trace.sema_stmt_idx(db);
     let sema_expr_region = trace.sema_expr_region(db);
     let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
