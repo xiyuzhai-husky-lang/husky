@@ -11,10 +11,7 @@ pub struct TypeImplBlockHirDecl {
 impl HasHirDecl for TypeImplBlockPath {
     type HirDecl = TypeImplBlockHirDecl;
 
-    fn hir_decl_with_source_map(
-        self,
-        db: &dyn HirDeclDb,
-    ) -> Option<(Self::HirDecl, Self::HirExprSourceMap)> {
+    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
         Some(ty_impl_block_hir_decl(db, self))
     }
 }

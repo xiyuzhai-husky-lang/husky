@@ -25,7 +25,6 @@ impl TupleStructTypeHirDecl {
         let TypeSynDecl::TupleStruct(syn_decl) = path.syn_decl(db).expect("hir stage ok") else {
             unreachable!()
         };
-        let mut builder = HirEagerExprBuilder::new(db, syn_decl.syn_expr_region(db));
         let template_parameters = HirTemplateParameters::from_ethereal(
             ethereal_signature_template.template_parameters(db),
             db,
@@ -35,8 +34,13 @@ impl TupleStructTypeHirDecl {
             .iter()
             .map(|field| TupleFieldHirDecl::from_ethereal(field, db))
             .collect();
-        let hir_expr_region = builder.finish();
-        Self::new(db, path, template_parameters, fields, hir_expr_region)
+        Self::new(
+            db,
+            path,
+            template_parameters,
+            fields,
+            hir_eager_expr_region(syn_decl.syn_expr_region(db), db),
+        )
     }
 }
 

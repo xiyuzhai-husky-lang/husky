@@ -1,4 +1,5 @@
 use super::*;
+use husky_hir_expr::helpers::hir_expr_region;
 use husky_syn_decl::HasSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
@@ -13,9 +14,7 @@ impl ValFugitiveHirDecl {
         ethereal_signature_template: ValFugitiveEtherealSignatureTemplate,
         db: &dyn HirDeclDb,
     ) -> Self {
-        let decl = path.syn_decl(db).expect("ok");
-        let mut builder = HirExprBuilder::new(db, decl.syn_expr_region(db));
-        let hir_expr_region = builder.finish();
-        Self::new(db, path, hir_expr_region)
+        let syn_decl = path.syn_decl(db).expect("ok");
+        Self::new(db, path, hir_expr_region(syn_decl.syn_expr_region(db), db))
     }
 }

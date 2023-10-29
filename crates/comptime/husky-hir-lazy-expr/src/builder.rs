@@ -7,7 +7,7 @@ use husky_sema_expr::{
 use husky_syn_expr::{SynExprIdx, SynExprRegion, SynExprRegionData, SynStmtIdx};
 use salsa::DebugWithDb;
 
-pub struct HirLazyExprBuilder<'a> {
+pub(crate) struct HirLazyExprBuilder<'a> {
     db: &'a dyn HirLazyExprDb,
     syn_expr_region_data: &'a SynExprRegionData,
     sema_expr_region_data: &'a SemaExprRegionData,
@@ -19,11 +19,12 @@ pub struct HirLazyExprBuilder<'a> {
 }
 
 impl<'a> HirLazyExprBuilder<'a> {
-    pub fn new(db: &'a dyn HirLazyExprDb, syn_expr_region: SynExprRegion) -> Self {
-        let sema_expr_region_data = db.sema_expr_region(syn_expr_region).data(db);
+    fn new(db: &'a dyn HirLazyExprDb, sema_expr_region: SemaExprRegion) -> Self {
+        let syn_expr_region_data = sema_expr_region.syn_expr_region(db).data(db);
+        let sema_expr_region_data = sema_expr_region.data(db);
         Self {
             db,
-            syn_expr_region_data: syn_expr_region.data(db),
+            syn_expr_region_data,
             sema_expr_region_data,
             expr_arena: Default::default(),
             stmt_arena: Default::default(),
@@ -37,7 +38,7 @@ impl<'a> HirLazyExprBuilder<'a> {
         }
     }
 
-    pub fn syn_expr_region_data(&self) -> &'a SynExprRegionData {
+    pub(crate) fn syn_expr_region_data(&self) -> &'a SynExprRegionData {
         self.syn_expr_region_data
     }
 
@@ -100,6 +101,10 @@ impl<'a> HirLazyExprBuilder<'a> {
         }
     }
 
+    pub fn build_all_then_finish(mut self) -> (HirLazyExprRegion, HirLazyExprSourceMap) {
+        todo!()
+    }
+
     pub fn finish(self) -> (HirLazyExprRegion, HirLazyExprSourceMap) {
         (
             HirLazyExprRegion::new(
@@ -116,10 +121,17 @@ impl<'a> HirLazyExprBuilder<'a> {
         )
     }
 
-    pub fn build_hir_lazy_expr(&mut self, syn_expr_root: SynExprIdx) -> HirLazyExprIdx {
-        let sema_expr_idx = self
-            .sema_expr_region_data
-            .syn_expr_root_sema_expr_idx(syn_expr_root);
-        sema_expr_idx.to_hir_lazy(self)
-    }
+    // pub fn build_hir_lazy_expr(&mut self, syn_expr_root: SynExprIdx) -> HirLazyExprIdx {
+    //     let sema_expr_idx = self.sema_expr_region_data.sema_expr_roots(syn_expr_root);
+    //     sema_expr_idx.to_hir_lazy(self)
+    // }
+}
+
+#[salsa::tracked(jar = HirLazyExprJar)]
+pub fn hir_lazy_expr_region_with_source_map(
+    db: &dyn HirLazyExprDb,
+    sema_expr_region: SemaExprRegion,
+) -> (HirLazyExprRegion, HirLazyExprSourceMap) {
+    let mut builder = HirLazyExprBuilder::new(db, sema_expr_region);
+    builder.build_all_then_finish()
 }

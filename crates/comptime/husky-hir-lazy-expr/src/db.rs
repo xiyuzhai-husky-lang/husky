@@ -7,4 +7,8 @@ pub trait HirLazyExprDb: salsa::DbWithJar<HirLazyExprJar> + SemaExprDb + HirType
 impl<Db> HirLazyExprDb for Db where Db: salsa::DbWithJar<HirLazyExprJar> + SemaExprDb + HirTypeDb {}
 
 #[salsa::jar(db = HirLazyExprDb)]
-pub struct HirLazyExprJar(HirLazyExprRegion, HirLazyExprSourceMap);
+pub struct HirLazyExprJar(
+    HirLazyExprRegion,
+    HirLazyExprSourceMap,
+    hir_lazy_expr_region_with_source_map,
+);

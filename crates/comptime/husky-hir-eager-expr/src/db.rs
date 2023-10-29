@@ -7,4 +7,8 @@ pub trait HirEagerExprDb: salsa::DbWithJar<HirEagerExprJar> + SemaExprDb + HirTy
 impl<Db> HirEagerExprDb for Db where Db: salsa::DbWithJar<HirEagerExprJar> + SemaExprDb + HirTypeDb {}
 
 #[salsa::jar(db = HirEagerExprDb)]
-pub struct HirEagerExprJar(HirEagerExprRegion, HirEagerExprSourceMap);
+pub struct HirEagerExprJar(
+    HirEagerExprRegion,
+    HirEagerExprSourceMap,
+    hir_eager_expr_region_with_source_map,
+);

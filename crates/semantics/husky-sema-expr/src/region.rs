@@ -18,7 +18,7 @@ impl SemaExprRegion {
         syn_expr_region: SynExprRegion,
         sema_expr_arena: SemaExprArena,
         sema_stmt_arena: SemaStmtArena,
-        syn_expr_root_sema_expr_idx_table: VecPairMap<SynExprIdx, SemaExprIdx>,
+        sema_expr_roots: VecPairMap<SynExprIdx, (SemaExprIdx, ExprRootKind)>,
         pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
         pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
         sema_expr_terms: VecPairMap<SemaExprIdx, SemaExprTermResult<FluffyTerm>>,
@@ -37,7 +37,7 @@ impl SemaExprRegion {
                 path,
                 sema_expr_arena,
                 sema_stmt_arena,
-                syn_expr_root_sema_expr_idx_table,
+                sema_expr_roots,
                 pattern_expr_ty_infos,
                 pattern_symbol_ty_infos,
                 sema_expr_terms,
@@ -56,7 +56,7 @@ pub struct SemaExprRegionData {
     path: RegionPath,
     sema_expr_arena: SemaExprArena,
     sema_stmt_arena: SemaStmtArena,
-    syn_expr_root_sema_expr_idx_table: VecPairMap<SynExprIdx, SemaExprIdx>,
+    sema_expr_roots: VecPairMap<SynExprIdx, (SemaExprIdx, ExprRootKind)>,
     pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
     sema_expr_terms: VecPairMap<SemaExprIdx, SemaExprTermResult<FluffyTerm>>,
@@ -68,8 +68,12 @@ pub struct SemaExprRegionData {
 }
 
 impl SemaExprRegionData {
-    pub fn syn_expr_root_sema_expr_idx(&self, syn_expr_root: SynExprIdx) -> SemaExprIdx {
-        self.syn_expr_root_sema_expr_idx_table[syn_expr_root].1
+    pub fn syn_root_to_sema_expr_idx(&self, syn_expr_root: SynExprIdx) -> SemaExprIdx {
+        self.sema_expr_roots[syn_expr_root].1 .0
+    }
+
+    pub fn sema_expr_roots<'a>(&'a self) -> impl Iterator<Item = (SemaExprIdx, ExprRootKind)> + 'a {
+        self.sema_expr_roots.iter().map(|&(_, root)| root)
     }
 
     pub fn sema_expr_arena(&self) -> SemaExprArenaRef {

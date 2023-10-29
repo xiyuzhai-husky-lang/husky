@@ -20,7 +20,7 @@ impl TypeMemoizedFieldHirDefn {
             db,
             path,
             hir_decl,
-            build_eager_body(syn_defn.body_with_syn_expr_region(db), db),
+            hir_eager_body_with_expr_region(syn_defn.body_with_syn_expr_region(db), db),
         )
     }
 

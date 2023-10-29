@@ -13,36 +13,26 @@ pub use self::submodule::*;
 pub use self::ty_variant::*;
 
 use crate::{db::*, *};
-use husky_hir_eager_expr::builder::HirEagerExprBuilder;
-use husky_hir_expr::{builder::HirExprBuilder, source_map::HirExprSourceMap};
+use husky_hir_eager_expr::helpers::hir_eager_expr_region;
+use husky_hir_expr::source_map::HirExprSourceMap;
 use husky_syn_decl::HasSynDecl;
 
 pub trait HasHirDecl {
     type HirDecl;
 
-    type HirExprSourceMap;
-
-    fn hir_decl_with_source_map(
-        self,
-        db: &dyn HirDeclDb,
-    ) -> Option<(Self::HirDecl, Self::HirExprSourceMap)>;
+    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl>;
 }
 
 impl HasHirDecl for ItemPath {
     type HirDecl = HirDecl;
 
-    type HirExprSourceMap = HirExprSourceMap;
-
-    fn hir_decl_with_source_map(
-        self,
-        db: &dyn HirDeclDb,
-    ) -> Option<(Self::HirDecl, Self::HirExprSourceMap)> {
+    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
         Some(match self {
-            ItemPath::Submodule(path) => path.hir_decl_with_source_map(db)?.into(),
-            ItemPath::MajorItem(path) => path.hir_decl_with_source_map(db)?.into(),
-            ItemPath::AssociatedItem(path) => path.hir_decl_with_source_map(db)?.into(),
-            ItemPath::TypeVariant(path) => path.hir_decl_with_source_map(db)?.into(),
-            ItemPath::ImplBlock(path) => path.hir_decl_with_source_map(db)?.into(),
+            ItemPath::Submodule(path) => path.hir_decl(db)?.into(),
+            ItemPath::MajorItem(path) => path.hir_decl(db)?.into(),
+            ItemPath::AssociatedItem(path) => path.hir_decl(db)?.into(),
+            ItemPath::TypeVariant(path) => path.hir_decl(db)?.into(),
+            ItemPath::ImplBlock(path) => path.hir_decl(db)?.into(),
             ItemPath::Attr(_) => todo!(),
         })
     }

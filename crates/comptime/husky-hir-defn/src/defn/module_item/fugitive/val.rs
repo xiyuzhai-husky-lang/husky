@@ -1,5 +1,5 @@
 use super::*;
-use husky_hir_expr::helpers::build_body;
+use husky_hir_expr::helpers::hir_body_with_expr_region;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
 pub struct ValHirDefn {
@@ -21,7 +21,7 @@ impl ValHirDefn {
             db,
             path,
             hir_decl,
-            build_body(syn_defn.body_with_syn_expr_region(db), db),
+            hir_body_with_expr_region(syn_defn.body_with_syn_expr_region(db), db),
         )
     }
 

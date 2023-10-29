@@ -10,27 +10,28 @@ use husky_syn_expr::{
 };
 use salsa::DebugWithDb;
 
-pub struct HirEagerExprBuilder<'a> {
+pub(crate) struct HirEagerExprBuilder<'a> {
     db: &'a dyn HirEagerExprDb,
     syn_expr_region_data: &'a SynExprRegionData,
     sema_expr_region_data: &'a SemaExprRegionData,
-    expr_arena: HirEagerExprArena,
-    stmt_arena: HirEagerStmtArena,
-    pattern_expr_arena: HirEagerPatternExprArena,
+    hir_eager_expr_arena: HirEagerExprArena,
+    hir_eager_stmt_arena: HirEagerStmtArena,
+    hir_eager_pattern_expr_arena: HirEagerPatternExprArena,
     sema_to_hir_eager_expr_idx_map: SemaExprMap<HirEagerExprIdx>,
     sema_to_hir_eager_stmt_idx_map: SemaStmtMap<HirEagerStmtIdx>,
 }
 
 impl<'a> HirEagerExprBuilder<'a> {
-    pub fn new(db: &'a dyn HirEagerExprDb, syn_expr_region: SynExprRegion) -> Self {
-        let sema_expr_region_data = db.sema_expr_region(syn_expr_region).data(db);
+    fn new(db: &'a dyn HirEagerExprDb, sema_expr_region: SemaExprRegion) -> Self {
+        let syn_expr_region_data = sema_expr_region.syn_expr_region(db).data(db);
+        let sema_expr_region_data = sema_expr_region.data(db);
         Self {
             db,
-            syn_expr_region_data: syn_expr_region.data(db),
+            syn_expr_region_data,
             sema_expr_region_data,
-            expr_arena: Default::default(),
-            pattern_expr_arena: Default::default(),
-            stmt_arena: Default::default(),
+            hir_eager_expr_arena: Default::default(),
+            hir_eager_pattern_expr_arena: Default::default(),
+            hir_eager_stmt_arena: Default::default(),
             sema_to_hir_eager_expr_idx_map: SemaExprMap::new(
                 sema_expr_region_data.sema_expr_arena(),
             ),
@@ -40,23 +41,24 @@ impl<'a> HirEagerExprBuilder<'a> {
         }
     }
 
-    pub fn syn_expr_region_data(&self) -> &'a SynExprRegionData {
+    pub(crate) fn syn_expr_region_data(&self) -> &'a SynExprRegionData {
         self.syn_expr_region_data
     }
 
-    pub fn sema_expr_arena_ref(&self) -> SemaExprArenaRef<'a> {
+    pub(crate) fn sema_expr_arena_ref(&self) -> SemaExprArenaRef<'a> {
         self.sema_expr_region_data.sema_expr_arena()
     }
 
-    pub fn sema_stmt_arena_ref(&self) -> SemaStmtArenaRef<'a> {
+    pub(crate) fn sema_stmt_arena_ref(&self) -> SemaStmtArenaRef<'a> {
         self.sema_expr_region_data.sema_stmt_arena()
     }
 
-    pub fn build_hir_eager_expr(&mut self, syn_expr_root: SynExprIdx) -> HirEagerExprIdx {
-        let sema_expr_idx = self
-            .sema_expr_region_data
-            .syn_expr_root_sema_expr_idx(syn_expr_root);
-        sema_expr_idx.to_hir_eager(self)
+    pub fn build_all_then_finish(mut self) -> (HirEagerExprRegion, HirEagerExprSourceMap) {
+        for (sema_expr_idx, expr_root_kind) in self.sema_expr_region_data.sema_expr_roots() {
+            todo!();
+            sema_expr_idx.to_hir_eager(&mut self);
+        }
+        self.finish()
     }
 
     pub(crate) fn alloc_stmts(
@@ -66,7 +68,7 @@ impl<'a> HirEagerExprBuilder<'a> {
     ) -> HirEagerStmtIdxRange {
         debug_assert_eq!(sema_stmt_indices.len(), hir_eager_stmts.len());
         // todo: record syn_stmt_indices in source map
-        self.stmt_arena.alloc_batch(hir_eager_stmts)
+        self.hir_eager_stmt_arena.alloc_batch(hir_eager_stmts)
     }
 
     pub(crate) fn alloc_expr(
@@ -75,7 +77,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         hir_eager_expr: HirEagerExpr,
     ) -> HirEagerExprIdx {
         // todo: record syn_expr_idx in source map
-        self.expr_arena.alloc_one(hir_eager_expr)
+        self.hir_eager_expr_arena.alloc_one(hir_eager_expr)
     }
 
     pub(crate) fn alloc_pattern_expr(
@@ -83,7 +85,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         pattern_expr: HirEagerPatternExpr,
     ) -> HirEagerPatternExprIdx {
         // todo: record in source map
-        self.pattern_expr_arena.alloc_one(pattern_expr)
+        self.hir_eager_pattern_expr_arena.alloc_one(pattern_expr)
     }
 
     pub(crate) fn path(&self) -> String {
@@ -110,13 +112,13 @@ impl<'a> HirEagerExprBuilder<'a> {
         }
     }
 
-    pub fn finish(self) -> (HirEagerExprRegion, HirEagerExprSourceMap) {
+    fn finish(self) -> (HirEagerExprRegion, HirEagerExprSourceMap) {
         (
             HirEagerExprRegion::new(
                 self.db,
-                self.expr_arena,
-                self.stmt_arena,
-                self.pattern_expr_arena,
+                self.hir_eager_expr_arena,
+                self.hir_eager_stmt_arena,
+                self.hir_eager_pattern_expr_arena,
             ),
             HirEagerExprSourceMap::new(
                 self.db,
@@ -126,3 +128,20 @@ impl<'a> HirEagerExprBuilder<'a> {
         )
     }
 }
+
+#[salsa::tracked(jar = HirEagerExprJar)]
+pub fn hir_eager_expr_region_with_source_map(
+    db: &dyn HirEagerExprDb,
+    sema_expr_region: SemaExprRegion,
+) -> (HirEagerExprRegion, HirEagerExprSourceMap) {
+    let mut builder = HirEagerExprBuilder::new(db, sema_expr_region);
+    builder.build_all_then_finish()
+}
+
+// #[salsa::tracked(jar = HirEagerExprJar)]
+// pub fn hir_eager_expr_region(
+//     db: &dyn HirEagerExprDb,
+//     sema_expr_region: SemaExprRegion,
+// ) -> HirEagerExprRegion {
+//     hir_eager_expr_region_with_source_map(db, sema_expr_region).0
+// }

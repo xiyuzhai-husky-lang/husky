@@ -15,10 +15,7 @@ pub struct TraitForTypeImplBlockHirDecl {
 impl HasHirDecl for TraitForTypeImplBlockPath {
     type HirDecl = TraitForTypeImplBlockHirDecl;
 
-    fn hir_decl_with_source_map(
-        self,
-        db: &dyn HirDeclDb,
-    ) -> Option<(Self::HirDecl, Self::HirExprSourceMap)> {
+    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
         trai_for_ty_impl_block_hir_decl(db, self)
     }
 }
