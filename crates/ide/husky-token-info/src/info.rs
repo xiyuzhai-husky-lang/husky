@@ -8,7 +8,7 @@ use husky_entity_syn_tree::{OnceUseRuleIdx, OnceUseRuleState, UseExprIdx};
 use husky_sema_expr::SemaExprIdx;
 use husky_syn_expr::{
     SynCurrentSymbolIdx, SynCurrentSymbolKind, SynExprRegion, SynInheritedSymbolIdx,
-    SynInheritedSymbolKind, SynPrincipalEntityPathExprIdx,
+    SynInheritedSymbolKind, SynPatternExprIdx, SynPrincipalEntityPathExprIdx,
 };
 #[cfg(feature = "protocol_support")]
 use husky_token_protocol::*;
@@ -27,7 +27,9 @@ pub enum TokenInfoSource {
     UseExpr(UseExprIdx),
     SemaExpr(SemaExprIdx),
     SynPrincipalEntityPathExpr(SynPrincipalEntityPathExprIdx),
-    SynCurrentSymbol(SynCurrentSymbolIdx),
+    PatternExpr(SynPatternExprIdx),
+    // todo: add #[skip] attribute
+    TemplateParameter(SynCurrentSymbolIdx),
     AstIdentifiable,
 }
 
@@ -100,7 +102,7 @@ impl TokenInfoData {
                 | SynCurrentSymbolKind::CaseVariable { .. } => TokenClass::Variable,
                 SynCurrentSymbolKind::ExplicitRegularParameter { .. } => TokenClass::Parameter,
                 SynCurrentSymbolKind::FrameVariable(_) => TokenClass::FrameVariable,
-                SynCurrentSymbolKind::ImplicitParameter { .. } => TokenClass::ImplicitParameter,
+                SynCurrentSymbolKind::TemplateParameter { .. } => TokenClass::ImplicitParameter,
                 SynCurrentSymbolKind::ExplicitVariadicParameter { .. } => TokenClass::Parameter,
                 SynCurrentSymbolKind::FieldVariable { .. } => TokenClass::Variable,
             },

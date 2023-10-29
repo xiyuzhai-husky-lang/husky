@@ -152,7 +152,7 @@ impl SynCurrentSymbol {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum SynCurrentSymbolKind {
-    ImplicitParameter {
+    TemplateParameter {
         template_parameter_kind: CurrentImplicitParameterSynSymbolKind,
     },
     ExplicitRegularParameter {
@@ -353,7 +353,7 @@ impl SynCurrentSymbolVariant {
             SynCurrentSymbolVariant::TemplateParameter {
                 template_parameter_variant,
                 ..
-            } => SynCurrentSymbolKind::ImplicitParameter {
+            } => SynCurrentSymbolKind::TemplateParameter {
                 template_parameter_kind: template_parameter_variant.kind(),
             },
             SynCurrentSymbolVariant::ParenateRegularParameter {
