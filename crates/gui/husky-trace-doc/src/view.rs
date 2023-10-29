@@ -75,15 +75,17 @@ where
             .code_editor_settings()
             .token_foreground_colors();
         ui.horizontal(|ui| {
-            let button_text = match entry.expanded() {
-                true => "-",
-                false => "+",
-            };
-            let button_text = RichText::new(button_text).family(FontFamily::Monospace);
-            if ui.button(button_text).clicked() {
-                self.action_buffer
-                    .push(TraceViewAction::ToggleExpansion { trace_id })
-            };
+            if entry.view_data().have_subtraces() {
+                let button_text = match entry.expanded() {
+                    true => "-",
+                    false => "+",
+                };
+                let button_text = RichText::new(button_text).family(FontFamily::Monospace);
+                if ui.button(button_text).clicked() {
+                    self.action_buffer
+                        .push(TraceViewAction::ToggleExpansion { trace_id })
+                };
+            }
             let mut new_line = false;
             for token_data in entry.view_data().tokens_data() {
                 if new_line {
@@ -103,8 +105,10 @@ where
                         .color(token_foreground_colors[token_data.token_class()]),
                 )
                 .ui(ui);
-                if label_response.hovered() {
-                    label_response.highlight();
+                if let Some(associated_trace_id) = token_data.associated_trace_id() {
+                    if label_response.hovered() {
+                        label_response.highlight();
+                    }
                 }
             }
         });

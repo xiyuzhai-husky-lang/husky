@@ -8,11 +8,15 @@ use serde::{Deserialize, Serialize};
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TraceViewData {
     tokens_data: Vec<TraceViewTokenData>,
+    have_subtraces: bool,
 }
 
 impl TraceViewData {
-    pub fn new(tokens_data: Vec<TraceViewTokenData>) -> Self {
-        Self { tokens_data }
+    pub fn new(tokens_data: Vec<TraceViewTokenData>, have_subtraces: bool) -> Self {
+        Self {
+            tokens_data,
+            have_subtraces,
+        }
     }
 
     #[cfg(feature = "mock")]
@@ -29,11 +33,16 @@ impl TraceViewData {
                     )
                 })
                 .collect(),
+            have_subtraces: false,
         }
     }
 
     pub fn tokens_data(&self) -> &[TraceViewTokenData] {
         self.tokens_data.as_ref()
+    }
+
+    pub fn have_subtraces(&self) -> bool {
+        self.have_subtraces
     }
 }
 
@@ -77,5 +86,9 @@ impl TraceViewTokenData {
 
     pub fn token_class(&self) -> TokenClass {
         self.token_class
+    }
+
+    pub fn associated_trace_id(&self) -> Option<TraceId> {
+        self.associated_trace_id
     }
 }

@@ -109,11 +109,18 @@ impl LazyStmtTrace {
 
     pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
         let tokens = lazy_stmt_trace_view_tokens(db, self);
-        TraceViewData::new(tokens.data().to_vec())
+        let have_subtraces = match self.data(db) {
+            LazyStmtTraceData::BasicStmt => false,
+            LazyStmtTraceData::Branch => todo!(),
+        };
+        TraceViewData::new(tokens.data().to_vec(), have_subtraces)
     }
 
     pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
-        todo!()
+        match self.data(db) {
+            LazyStmtTraceData::BasicStmt => unreachable!("shouldn't be here"),
+            LazyStmtTraceData::Branch => todo!(),
+        }
     }
 
     pub fn associated_expr_traces<'a>(self, db: &'a dyn TraceDb) -> &'a [(SemaExprIdx, Trace)] {

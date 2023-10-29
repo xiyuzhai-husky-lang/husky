@@ -41,7 +41,7 @@ impl SubmoduleTrace {
 
     pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
         let tokens = submodule_view_tokens(db, self);
-        TraceViewData::new(tokens.data().to_vec())
+        TraceViewData::new(tokens.data().to_vec(), true)
     }
 
     pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
