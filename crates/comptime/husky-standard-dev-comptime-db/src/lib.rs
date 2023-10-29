@@ -18,6 +18,7 @@ use std::panic::RefUnwindSafe;
     husky_ethereal_term::EtherealTermJar,
     husky_ethereal_signature::EtherealSignatureJar,
     husky_fluffy_term::FluffyTermJar,
+    husky_hir_ty::db::HirTypeJar,
     // lex
     husky_token_data::db::TokenDataJar,
     husky_token::TokenJar,
@@ -37,6 +38,9 @@ use std::panic::RefUnwindSafe;
     husky_corgi_config::CorgiConfigJar,
     husky_manifest::ManifestJar,
     // comptime
+    husky_hir_eager_expr::db::HirEagerExprJar,
+    husky_hir_lazy_expr::db::HirLazyExprJar,
+    husky_hir_expr::db::HirExprJar,
     husky_hir_deps::db::HirDepsJar,
     // devtime
     husky_trace::db::TraceJar
