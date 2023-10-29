@@ -47,18 +47,15 @@ pub struct HirDeclJar(
     TypeAliasFugitiveHirDecl,
     ValFugitiveHirDecl,
     // ty variant
-    ty_variant_hir_decl_with_source_map,
     ty_variant_hir_decl,
     EnumTupleTypeVariantHirDecl,
     EnumPropsTypeVariantHirDecl,
     EnumUnitTypeVariantHirDecl,
     // impl block
     // - type
-    ty_impl_block_hir_decl_with_source_map,
     ty_impl_block_hir_decl,
     TypeImplBlockHirDecl,
     // - trait for type
-    trai_for_ty_impl_block_hir_decl_with_source_map,
     trai_for_ty_impl_block_hir_decl,
     TraitForTypeImplBlockHirDecl,
     // attr

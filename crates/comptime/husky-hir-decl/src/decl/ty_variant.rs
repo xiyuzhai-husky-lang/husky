@@ -38,21 +38,13 @@ impl TypeVariantHirDecl {
 impl HasHirDecl for TypeVariantPath {
     type HirDecl = TypeVariantHirDecl;
 
-    type HirExprSourceMap = HirEagerExprSourceMap;
-
-    fn hir_decl_with_source_map(
-        self,
-        db: &dyn HirDeclDb,
-    ) -> Option<(Self::HirDecl, Self::HirExprSourceMap)> {
+    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
         ty_variant_hir_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDeclJar)]
-fn ty_variant_hir_decl_with_source_map(
-    db: &dyn HirDeclDb,
-    path: TypeVariantPath,
-) -> Option<(TypeVariantHirDecl, HirEagerExprSourceMap)> {
+fn ty_variant_hir_decl(db: &dyn HirDeclDb, path: TypeVariantPath) -> Option<TypeVariantHirDecl> {
     todo!()
     // Ok(match path.declarative_signature_template(db)? {
     //     TypeVariantDeclarativeSignatureTemplate::Props(_) => todo!(),
@@ -65,9 +57,4 @@ fn ty_variant_hir_decl_with_source_map(
     //             .into()
     //     }
     // })
-}
-
-#[salsa::tracked(jar = HirDeclJar)]
-fn ty_variant_hir_decl(db: &dyn HirDeclDb, path: TypeVariantPath) -> Option<TypeVariantHirDecl> {
-    Some(ty_variant_hir_decl_with_source_map(db, path)?.0)
 }

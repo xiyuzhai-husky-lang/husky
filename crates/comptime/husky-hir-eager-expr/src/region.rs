@@ -1,5 +1,5 @@
 use crate::*;
-use husky_sema_expr::SemaExprMap;
+use husky_sema_expr::{SemaExprMap, SemaExprRegion};
 
 /// this is interned on purpose
 #[salsa::interned(db = HirEagerExprDb, jar = HirEagerExprJar)]

@@ -51,19 +51,13 @@ impl FugitiveHirDecl {
 impl HasHirDecl for FugitivePath {
     type HirDecl = FugitiveHirDecl;
 
-    fn hir_decl_with_source_map(
-        self,
-        db: &dyn HirDeclDb,
-    ) -> Option<(Self::HirDecl, Self::HirExprSourceMap)> {
+    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
         fugitive_hir_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDeclJar)]
-fn fugitive_hir_decl(
-    db: &dyn HirDeclDb,
-    path: FugitivePath,
-) -> Option<(FugitiveHirDecl, HirExprSourceMap)> {
+fn fugitive_hir_decl(db: &dyn HirDeclDb, path: FugitivePath) -> Option<FugitiveHirDecl> {
     match path
         .ethereal_signature_template(db)
         .expect("no errors for hir stage")

@@ -378,6 +378,10 @@ impl<V> SemaExprMap<V> {
     pub fn insert_new(&mut self, expr_idx: SemaExprIdx, v: V) {
         self.0.insert_new(expr_idx.0, v)
     }
+
+    pub fn get(&self, sema_expr_idx: SemaExprIdx) -> Option<&V> {
+        self.0.get(sema_expr_idx.0)
+    }
 }
 
 impl<V> std::ops::Index<SemaExprIdx> for SemaExprMap<V> {

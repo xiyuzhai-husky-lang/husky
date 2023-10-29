@@ -59,26 +59,18 @@ impl TypeItemHirDecl {
 impl HasHirDecl for TypeItemPath {
     type HirDecl = TypeItemHirDecl;
 
-    fn hir_decl_with_source_map(
-        self,
-        db: &dyn HirDeclDb,
-    ) -> Option<(Self::HirDecl, Self::HirExprSourceMap)> {
-        ty_item_hir_decl(db, self).map(|(decl, _)| decl)
+    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+        ty_item_hir_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDeclJar)]
-pub(crate) fn ty_item_hir_decl(
-    db: &dyn HirDeclDb,
-    path: TypeItemPath,
-) -> Option<(TypeItemHirDecl, HirExprSourceMap)> {
+pub(crate) fn ty_item_hir_decl(db: &dyn HirDeclDb, path: TypeItemPath) -> Option<TypeItemHirDecl> {
     use salsa::DebugWithDb;
     match path.ethereal_signature_template(db).expect("ok") {
-        TypeItemEtherealSignatureTemplate::AssociatedFn(ethereal_signature_template) => {
-            let (decl, source_map) =
-                TypeAssociatedFnHirDecl::from_ethereal(path, ethereal_signature_template, db);
-            Some((decl.into(), source_map.into()))
-        }
+        TypeItemEtherealSignatureTemplate::AssociatedFn(ethereal_signature_template) => Some(
+            TypeAssociatedFnHirDecl::from_ethereal(path, ethereal_signature_template, db).into(),
+        ),
         TypeItemEtherealSignatureTemplate::MethodFn(ethereal_signature_template) => {
             Some(TypeMethodFnHirDecl::from_ethereal(path, ethereal_signature_template, db).into())
         }

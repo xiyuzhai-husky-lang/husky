@@ -226,6 +226,10 @@ impl<V> SemaStmtMap<V> {
     pub fn insert_new(&mut self, stmt_idx: SemaStmtIdx, v: V) {
         self.0.insert_new(stmt_idx.0, v)
     }
+
+    pub fn get(&self, sema_stmt_idx: SemaStmtIdx) -> Option<&V> {
+        self.0.get(sema_stmt_idx.0)
+    }
 }
 
 impl<V> std::ops::Index<SemaStmtIdx> for SemaStmtMap<V> {

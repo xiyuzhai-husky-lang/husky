@@ -1,4 +1,4 @@
-use husky_hir_lazy_expr::helpers::build_lazy_body;
+use husky_hir_lazy_expr::helpers::hir_lazy_body_with_expr_region;
 
 use super::*;
 
@@ -18,7 +18,7 @@ impl GnHirDefn {
             db,
             path,
             hir_decl,
-            build_lazy_body(syn_defn.body_with_syn_expr_region(db), db),
+            hir_lazy_body_with_expr_region(syn_defn.body_with_syn_expr_region(db), db),
         )
     }
 

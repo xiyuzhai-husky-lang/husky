@@ -17,10 +17,7 @@ pub enum ImplBlockHirDecl {
 impl HasHirDecl for ImplBlockPath {
     type HirDecl = ImplBlockHirDecl;
 
-    fn hir_decl_with_source_map(
-        self,
-        db: &dyn HirDeclDb,
-    ) -> Option<(Self::HirDecl, Self::HirExprSourceMap)> {
+    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
         match self {
             ImplBlockPath::TypeImplBlock(path) => path.hir_decl(db).map(Into::into),
             ImplBlockPath::TraitForTypeImplBlock(path) => path.hir_decl(db).map(Into::into),

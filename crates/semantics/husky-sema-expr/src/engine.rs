@@ -38,7 +38,7 @@ pub(crate) struct SemaExprEngine<'a> {
     declarative_term_region: &'a DeclarativeTermRegion,
     sema_expr_arena: SemaExprArena,
     sema_stmt_arena: SemaStmtArena,
-    syn_expr_root_sema_expr_idx_table: VecPairMap<SynExprIdx, SemaExprIdx>,
+    sema_expr_roots: VecPairMap<SynExprIdx, (SemaExprIdx, ExprRootKind)>,
     fluffy_term_region: FluffyTermRegion,
     sema_expr_term_results: VecPairMap<SemaExprIdx, SemaExprTermResult<FluffyTerm>>,
     symbol_terms: SymbolMap<FluffyTerm>,
@@ -149,7 +149,7 @@ impl<'a> SemaExprEngine<'a> {
             declarative_term_region: db.declarative_term_region(syn_expr_region),
             sema_expr_arena: SemaExprArena::default(),
             sema_stmt_arena: SemaStmtArena::default(),
-            syn_expr_root_sema_expr_idx_table: Default::default(),
+            sema_expr_roots: Default::default(),
             fluffy_term_region: FluffyTermRegion::new(
                 parent_sema_expr_region.map(|r| r.data(db).fluffy_term_region()),
             ),
@@ -208,8 +208,7 @@ impl<'a> SemaExprEngine<'a> {
                 },
                 ExprRootKind::FieldBindInitialValue { ty_syn_expr_idx }
                 | ExprRootKind::ExplicitParameterDefaultValue { ty_syn_expr_idx } => {
-                    let ty_sema_expr_idx =
-                        self.syn_expr_root_sema_expr_idx_table[ty_syn_expr_idx].1;
+                    let (ty_sema_expr_idx, _) = self.sema_expr_roots[ty_syn_expr_idx].1;
                     match self.infer_expr_term(ty_sema_expr_idx) {
                         Some(ty) => {
                             self.build_sema_expr(root.syn_expr_idx(), ExpectCoersion::new_move(ty))
@@ -232,8 +231,8 @@ impl<'a> SemaExprEngine<'a> {
                 // todo!(),
                 ExprRootKind::ValExpr => todo!(),
             };
-            self.syn_expr_root_sema_expr_idx_table
-                .insert_new((root.syn_expr_idx(), sema_expr_idx))
+            self.sema_expr_roots
+                .insert_new((root.syn_expr_idx(), (sema_expr_idx, root.kind())))
                 .expect("impossible")
         }
     }
@@ -252,7 +251,7 @@ impl<'a> SemaExprEngine<'a> {
             self.syn_expr_region,
             self.sema_expr_arena,
             self.sema_stmt_arena,
-            self.syn_expr_root_sema_expr_idx_table,
+            self.sema_expr_roots,
             self.pattern_expr_ty_infos,
             self.pattern_symbol_ty_infos,
             self.sema_expr_term_results,
