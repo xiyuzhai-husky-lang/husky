@@ -21,7 +21,6 @@ pub use indicator::EvalIndicator;
 pub use sheet::*;
 
 use crate::*;
-use husky_trace_protocol_old::SampleId;
 use husky_val::Val;
 use husky_vm::{c_void, VMResult};
 use husky_vm::{EntityUid, RegularValue, VMConfig, __EvalContext};

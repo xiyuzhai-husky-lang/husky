@@ -36,6 +36,10 @@ impl Id {
     pub fn as_u32(self) -> u32 {
         self.value.get() - 1
     }
+
+    pub fn as_nonzero_u32(self) -> NonZeroU32 {
+        self.value
+    }
 }
 
 impl From<u32> for Id {

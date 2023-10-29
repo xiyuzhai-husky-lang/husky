@@ -18,6 +18,7 @@ shifted-unsigned-int = { path = "../../abstractions/shifted-unsigned-int" }
 serde-impl = { path = "../../abstractions/serde-impl" }
 enum-class = { path = "../../abstractions/enum-class" }
 notify = { path = "../../abstractions/notify" }
+vec-like = { path = "../../abstractions/vec-like" }
 # protocols
 husky-token-protocol = { path = "../../protocols/husky-token-protocol", features = [
     "serde"

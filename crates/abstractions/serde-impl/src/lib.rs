@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 
 pub trait IsSerdeImpl {
-    type Error: Send + 'static;
+    type Error: Send + std::fmt::Display + 'static;
 
     fn to_string<T: Serialize>(t: &T) -> Result<String, Self::Error>;
 

@@ -1,6 +1,5 @@
 use super::Evaluator;
 use husky_check_utils::should_eq;
-use husky_trace_protocol_old::VisualData;
 use husky_val_repr::*;
 use husky_vm::*;
 use std::sync::Arc;

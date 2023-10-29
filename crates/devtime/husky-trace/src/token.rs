@@ -1,4 +1,4 @@
-use crate::*;
+use crate::{registry::associated_trace::IsAssociatedTraceRegistry, *};
 use husky_regional_token::{RegionalTokenIdxBase, RegionalTokenIdxRange};
 use husky_text::{HasText, Text};
 use husky_token::{RangedTokenSheet, TokenIdx, TokenIdxRange};
@@ -16,27 +16,37 @@ impl TraceViewTokens {
         self.data.as_ref()
     }
 
-    pub(crate) fn new(
+    pub(crate) fn new<AssociatedTraceRegistry>(
         module_path: ModulePath,
         token_idx_range: TokenIdxRange,
         db: &dyn TraceDb,
-    ) -> Self {
-        let mut builder = TraceViewTokensBuilder::new(db, module_path);
+    ) -> Self
+    where
+        AssociatedTraceRegistry: IsAssociatedTraceRegistry,
+    {
+        let mut builder = TraceViewTokensBuilder::<AssociatedTraceRegistry>::new(db, module_path);
         builder.generate_tokens(token_idx_range);
         builder.finish()
     }
 }
 
-struct TraceViewTokensBuilder<'a> {
+struct TraceViewTokensBuilder<'a, AssociatedTraceRegistry>
+where
+    AssociatedTraceRegistry: IsAssociatedTraceRegistry,
+{
     db: &'a dyn TraceDb,
     text: Text<'a>,
     ranged_token_sheet: &'a RangedTokenSheet,
     token_info_sheet: TokenInfoSheetRef<'a>,
     tokens_data: Vec<TraceViewTokenData>,
     sources: Vec<Option<TokenInfoSource>>,
+    associated_trace_registry: AssociatedTraceRegistry,
 }
 
-impl<'a> TraceViewTokensBuilder<'a> {
+impl<'a, AssociatedTraceRegistry> TraceViewTokensBuilder<'a, AssociatedTraceRegistry>
+where
+    AssociatedTraceRegistry: IsAssociatedTraceRegistry,
+{
     fn new(db: &'a dyn TraceDb, module_path: ModulePath) -> Self {
         // db.text
         Self {
@@ -46,6 +56,7 @@ impl<'a> TraceViewTokensBuilder<'a> {
             text: module_path.text(db),
             tokens_data: vec![],
             sources: vec![],
+            associated_trace_registry: Default::default(),
         }
     }
 
@@ -66,6 +77,12 @@ impl<'a> TraceViewTokensBuilder<'a> {
                 None,
             ),
         };
+        let associated_trace_id = src
+            .map(|src| {
+                self.associated_trace_registry
+                    .get_or_issue_associated_trace_id(src)
+            })
+            .flatten();
         // todo: handle inline comments
         let spaces_after = if token_idx.index() < self.ranged_token_sheet.len() - 1 {
             let next_text_range = self.ranged_token_sheet.token_text_range(token_idx + 1);
@@ -85,7 +102,7 @@ impl<'a> TraceViewTokensBuilder<'a> {
             text.to_string(),
             token_class,
             spaces_after,
-            /* ad hoc */ false,
+            associated_trace_id,
         ));
         self.sources.push(src)
     }

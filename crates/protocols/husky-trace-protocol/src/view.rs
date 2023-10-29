@@ -25,7 +25,7 @@ impl TraceViewData {
                         text.to_string(),
                         token_class,
                         SeparationAfter::SameLine { spaces: 1 },
-                        false,
+                        None,
                     )
                 })
                 .collect(),
@@ -42,7 +42,7 @@ pub struct TraceViewTokenData {
     text: String,
     token_class: TokenClass,
     separation_after: SeparationAfter,
-    associated: bool,
+    associated_trace_id: Option<TraceId>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
@@ -57,13 +57,13 @@ impl TraceViewTokenData {
         text: String,
         token_class: TokenClass,
         separation_after: SeparationAfter,
-        associated: bool,
+        associated_trace: Option<TraceId>,
     ) -> Self {
         Self {
             text,
             token_class,
             separation_after,
-            associated,
+            associated_trace_id: associated_trace,
         }
     }
 

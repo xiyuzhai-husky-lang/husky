@@ -1,3 +1,5 @@
+use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
+
 use super::*;
 use husky_entity_kind::FugitiveKind;
 use husky_entity_path::{ItemPath, MajorItemPath};
@@ -58,7 +60,11 @@ pub(crate) fn submodule_view_tokens(
     let token_idx_range = submodule_path
         .syn_node_path(db)
         .decl_tokra_region_token_idx_range(db);
-    TraceViewTokens::new(submodule_path.parent(db), token_idx_range, db)
+    TraceViewTokens::new::<VoidAssociatedTraceRegistry>(
+        submodule_path.parent(db),
+        token_idx_range,
+        db,
+    )
 }
 
 #[salsa::tracked(jar = TraceJar, return_ref)]

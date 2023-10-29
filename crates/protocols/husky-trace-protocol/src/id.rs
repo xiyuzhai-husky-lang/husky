@@ -1,37 +1,38 @@
+use std::num::NonZeroU32;
+
 use crate::*;
 use shifted_unsigned_int::ShiftedU32;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
-#[serde(from = "usize", into = "usize")]
-pub struct TraceId(ShiftedU32);
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+pub struct TraceId {
+    kind: TraceKind,
+    value: NonZeroU32,
+}
 
 impl TraceId {
-    pub(crate) fn from_index(index: usize) -> Self {
-        Self(index.into())
+    pub fn new(kind: TraceKind, raw: NonZeroU32) -> Self {
+        Self { kind, value: raw }
     }
 
-    pub(crate) fn index(self) -> usize {
-        self.0.into()
+    pub fn kind(&self) -> TraceKind {
+        self.kind
     }
 
-    #[cfg(feature = "mock")]
-    pub fn new_mocks(iter: impl IntoIterator<Item = usize>) -> Vec<Self> {
-        iter.into_iter()
-            .map(|index| Self::from_index(index))
-            .collect()
+    pub fn value(&self) -> NonZeroU32 {
+        self.value
     }
 }
 
-impl From<usize> for TraceId {
-    fn from(value: usize) -> Self {
-        Self(value.into())
-    }
-}
-
-impl Into<usize> for TraceId {
-    fn into(self) -> usize {
-        self.0.into()
-    }
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+pub enum TraceKind {
+    Submodule,
+    ValItem,
+    LazyCall,
+    LazyExpr,
+    LazyStmt,
+    EagerCall,
+    EagerExpr,
+    EagerStmt,
 }
 
 // #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]

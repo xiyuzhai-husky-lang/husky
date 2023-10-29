@@ -4,6 +4,10 @@ use husky_sema_expr::{
 use husky_syn_decl::{FugitiveSynDecl, HasSynDecl};
 use husky_syn_defn::{FugitiveSynDefn, HasSynDefn};
 
+use crate::registry::{
+    associated_trace::VoidAssociatedTraceRegistry, trace_path::TracePathRegistry,
+};
+
 use super::*;
 
 #[salsa::interned(db = TraceDb, jar = TraceJar, constructor = new)]
@@ -43,7 +47,11 @@ fn val_item_trace_view_tokens(db: &dyn TraceDb, val_item_trace: ValItemTrace) ->
     let token_idx_range = val_item_path
         .syn_node_path(db)
         .decl_tokra_region_token_idx_range(db);
-    TraceViewTokens::new(val_item_path.module_path(db), token_idx_range, db)
+    TraceViewTokens::new::<VoidAssociatedTraceRegistry>(
+        val_item_path.module_path(db),
+        token_idx_range,
+        db,
+    )
 }
 
 #[salsa::tracked(jar = TraceJar, return_ref)]
@@ -81,6 +89,7 @@ fn val_item_trace_subtraces(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> V
                             path_data,
                             &mut registry,
                             stmt,
+                            LazyStmtTraceData::BasicStmt,
                             sema_expr_region,
                             db,
                         );
@@ -97,6 +106,7 @@ fn val_item_trace_subtraces(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> V
                             path_data,
                             &mut registry,
                             stmt,
+                            LazyStmtTraceData::BasicStmt,
                             sema_expr_region,
                             db,
                         );
@@ -113,6 +123,7 @@ fn val_item_trace_subtraces(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> V
                             path_data,
                             &mut registry,
                             stmt,
+                            LazyStmtTraceData::BasicStmt,
                             sema_expr_region,
                             db,
                         );
@@ -129,6 +140,7 @@ fn val_item_trace_subtraces(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> V
                             path_data,
                             &mut registry,
                             stmt,
+                            LazyStmtTraceData::BasicStmt,
                             sema_expr_region,
                             db,
                         );
@@ -142,6 +154,7 @@ fn val_item_trace_subtraces(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> V
                             path_data,
                             &mut registry,
                             stmt,
+                            LazyStmtTraceData::BasicStmt,
                             sema_expr_region,
                             db,
                         );
@@ -158,6 +171,7 @@ fn val_item_trace_subtraces(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> V
                             path_data,
                             &mut registry,
                             stmt,
+                            LazyStmtTraceData::BasicStmt,
                             sema_expr_region,
                             db,
                         );
