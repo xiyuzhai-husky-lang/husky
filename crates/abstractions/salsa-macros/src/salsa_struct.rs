@@ -332,7 +332,10 @@ impl<A: AllowedOptions> SalsaStruct<A> {
         let fields = self
             .all_fields()
             .into_iter()
-            .map(|field| -> TokenStream {
+            .filter_map(|field| -> Option<TokenStream> {
+                if field.has_skip_fmt_attr {
+                    return None;
+                }
                 let field_name_string = field.name().to_string();
                 let field_getter = field.get_name();
                 let field_ty = field.ty();
@@ -349,9 +352,9 @@ impl<A: AllowedOptions> SalsaStruct<A> {
                     );
                 };
 
-                quote_spanned! { field.field.span() =>
+                Some(quote_spanned! { field.field.span() =>
                     #field_debug
-                }
+                })
             })
             .collect::<TokenStream>();
 
@@ -399,6 +402,7 @@ pub(crate) const FIELD_OPTION_ATTRIBUTES: &[(&str, fn(&syn::Attribute, &mut Sals
     ("id", |_, ef| ef.has_id_attr = true),
     ("return_ref", |_, ef| ef.has_ref_attr = true),
     ("no_eq", |_, ef| ef.has_no_eq_attr = true),
+    ("skip_fmt", |_, ef| ef.has_skip_fmt_attr = true),
     ("get", |attr, ef| {
         ef.get_name = attr.parse_args().unwrap();
     }),
@@ -413,6 +417,7 @@ pub(crate) struct SalsaField {
     pub(crate) has_id_attr: bool,
     pub(crate) has_ref_attr: bool,
     pub(crate) has_no_eq_attr: bool,
+    pub(crate) has_skip_fmt_attr: bool,
     get_name: syn::Ident,
     set_name: syn::Ident,
 }
@@ -438,6 +443,7 @@ impl SalsaField {
             has_id_attr: false,
             has_ref_attr: false,
             has_no_eq_attr: false,
+            has_skip_fmt_attr: false,
             get_name,
             set_name,
         };

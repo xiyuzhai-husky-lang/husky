@@ -1,7 +1,7 @@
 use super::*;
 use husky_sema_expr::SemaRitchieParameterArgumentMatch;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
 pub enum HirLazyCallListItemGroup {
     Regular(HirLazyExprIdx),

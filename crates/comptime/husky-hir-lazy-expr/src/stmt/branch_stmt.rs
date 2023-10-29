@@ -3,7 +3,7 @@ use husky_syn_expr::{SynElifBranch, SynElseBranch, SynIfBranch};
 
 use super::*;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirLazyIfBranch {
     pub condition: HirLazyExprIdx,
     pub stmts: HirLazyStmtIdxRange,
@@ -30,7 +30,7 @@ impl ToHirLazy for SemaIfBranch {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirLazyElifBranch {
     pub condition: HirLazyExprIdx,
     pub stmts: HirLazyStmtIdxRange,
@@ -57,7 +57,7 @@ impl ToHirLazy for SemaElifBranch {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirLazyElseBranch {
     pub stmts: HirLazyStmtIdxRange,
 }

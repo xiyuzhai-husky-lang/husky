@@ -1,6 +1,7 @@
 use crate::{db::*, *};
 
-#[salsa::tracked(db = HirLazyExprDb, jar = HirLazyExprJar)]
+/// this is interned on purpose
+#[salsa::interned(db = HirLazyExprDb, jar = HirLazyExprJar)]
 pub struct HirLazyExprRegion {
     #[return_ref]
     pub expr_arena: HirLazyExprArena,

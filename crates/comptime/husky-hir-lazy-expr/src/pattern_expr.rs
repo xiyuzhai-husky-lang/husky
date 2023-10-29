@@ -3,7 +3,7 @@ use husky_entity_path::PatternPath;
 use husky_syn_expr::{SynPatternExpr, SynPatternExprIdx, SynPatternRoot};
 use husky_term_prelude::TermLiteral;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum HirLazyPatternExpr {
     /// example: `1`
     /// todo: change this to primitive value data
