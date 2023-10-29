@@ -598,7 +598,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                             symbol_modifier_tokens: _,
                         } => self.override_add(
                             ident_token.regional_token_idx(),
-                            syn_current_symbol_idx,
+                            pattern_expr_idx,
                             TokenInfoData::CurrentSymbol {
                                 current_symbol_idx: syn_current_symbol_idx,
                                 syn_expr_region: self.syn_expr_region,
@@ -610,12 +610,12 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 }
             },
             SynCurrentSymbolKind::FrameVariable(_) => (),
-            SynCurrentSymbolKind::ImplicitParameter {
+            SynCurrentSymbolKind::TemplateParameter {
                 template_parameter_kind,
             } => match template_parameter_kind {
                 CurrentImplicitParameterSynSymbolKind::Type { ident_token } => self.add(
                     ident_token.regional_token_idx(),
-                    syn_current_symbol_idx,
+                    TokenInfoSource::TemplateParameter(syn_current_symbol_idx),
                     TokenInfoData::CurrentSymbol {
                         current_symbol_idx: syn_current_symbol_idx,
                         syn_expr_region: self.syn_expr_region,
