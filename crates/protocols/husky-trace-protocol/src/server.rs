@@ -5,7 +5,6 @@ use std::{
 
 use crate::{
     cache::action::{TraceCacheNewTrace, TraceCacheSetSubtraces, TraceCacheToggleExpansion},
-    id_map::TraceIdMap,
     message::{TraceRequest, TraceResponse},
     view::{action::TraceViewAction, TraceViewData},
     *,
@@ -16,7 +15,6 @@ use husky_websocket_utils::easy_server::{easy_serve, IsEasyWebsocketServer};
 pub struct TraceServer<Tracetime: IsTracetime> {
     cache: Option<TraceCache<Tracetime::VisualComponent>>,
     tracetime: Tracetime,
-    trace_id_map: TraceIdMap<Tracetime::Trace>,
 }
 
 impl<Tracetime: IsTracetime> Default for TraceServer<Tracetime>
@@ -27,7 +25,6 @@ where
         Self {
             cache: Default::default(),
             tracetime: Default::default(),
-            trace_id_map: Default::default(),
         }
     }
 }
@@ -37,7 +34,6 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
         Self {
             cache: Default::default(),
             tracetime,
-            trace_id_map: Default::default(),
         }
     }
 
@@ -48,7 +44,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
         let traces = self.tracetime.get_root_traces();
         self.cache = Some(TraceCache::new(traces.iter().map(|&trace| {
             (
-                self.trace_id_map.trace_id_or_alloc_new(trace, |_| ()),
+                trace.into(),
                 self.tracetime.get_trace_view_data(trace).clone(),
             )
         })))
@@ -114,19 +110,19 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
                 if self.cache()[trace_id].subtrace_ids().is_some() {
                     return;
                 }
-                let trace = self.trace_id_map.trace(trace_id);
-                let subtraces = self.tracetime.get_subtraces(trace);
+                let subtraces = self.tracetime.get_subtraces(trace_id.into()).to_vec();
                 let subtrace_ids = subtraces
-                    .iter()
-                    .map(|&subtrace| {
-                        self.trace_id_map
-                            .trace_id_or_alloc_new(subtrace, |subtrace_id| {
-                                let view_data = self.tracetime.get_trace_view_data(subtrace);
-                                self.cache
-                                    .as_mut()
-                                    .unwrap()
-                                    .take_action(TraceCacheNewTrace::new(subtrace_id, view_data))
-                            })
+                    .into_iter()
+                    .map(|subtrace| {
+                        let subtrace_id: TraceId = subtrace.into();
+                        if self.cache().entries().get_value(subtrace_id).is_none() {
+                            let view_data = self.tracetime.get_trace_view_data(subtrace);
+                            self.cache
+                                .as_mut()
+                                .unwrap()
+                                .take_action(TraceCacheNewTrace::new(subtrace_id, view_data))
+                        }
+                        subtrace_id
                     })
                     .collect();
                 self.cache_mut()
@@ -140,7 +136,8 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
 }
 
 pub trait IsTracetime: Send + 'static + Sized {
-    type Trace: Send + Eq + std::hash::Hash + Copy;
+    type Trace: IsTrace;
+    //  Send + Eq + std::hash::Hash + Copy;
 
     type VisualComponent: IsVisualComponent;
 

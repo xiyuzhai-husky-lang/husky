@@ -27,6 +27,10 @@ impl EagerStmtTrace {
         todo!()
     }
 
+    pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
+        todo!()
+    }
+
     pub fn associated_expr_traces<'a>(self, db: &'a dyn TraceDb) -> &'a [(SemaExprIdx, Trace)] {
         eager_stmt_associated_expr_traces(db, self)
     }

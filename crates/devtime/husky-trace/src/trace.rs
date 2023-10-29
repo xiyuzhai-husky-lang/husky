@@ -23,7 +23,13 @@ use husky_entity_kind::FugitiveKind;
 use husky_entity_path::MajorItemPath;
 use husky_entity_path::{FugitivePath, ItemPath};
 use husky_sema_expr::SemaExprIdx;
-use husky_trace_protocol::{settings::TraceSettings, view::TraceViewData};
+use husky_trace_protocol::{
+    id::{TraceId, TraceKind},
+    settings::TraceSettings,
+    view::TraceViewData,
+    IsTrace,
+};
+use salsa::AsId;
 use vec_like::VecPairMap;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -39,6 +45,68 @@ pub enum Trace {
     EagerExpr(EagerExprTrace),
     EagerStmt(EagerStmtTrace),
 }
+
+impl From<TraceId> for Trace {
+    fn from(trace_id: TraceId) -> Self {
+        match trace_id.kind() {
+            TraceKind::Submodule => {
+                Trace::Submodule(unsafe { std::mem::transmute(trace_id.value()) })
+            }
+            TraceKind::ValItem => Trace::ValItem(unsafe { std::mem::transmute(trace_id.value()) }),
+            TraceKind::LazyCall => {
+                Trace::LazyCall(unsafe { std::mem::transmute(trace_id.value()) })
+            }
+            TraceKind::LazyExpr => {
+                Trace::LazyExpr(unsafe { std::mem::transmute(trace_id.value()) })
+            }
+            TraceKind::LazyStmt => {
+                Trace::LazyStmt(unsafe { std::mem::transmute(trace_id.value()) })
+            }
+            TraceKind::EagerCall => {
+                Trace::EagerCall(unsafe { std::mem::transmute(trace_id.value()) })
+            }
+            TraceKind::EagerExpr => {
+                Trace::EagerExpr(unsafe { std::mem::transmute(trace_id.value()) })
+            }
+            TraceKind::EagerStmt => {
+                Trace::EagerStmt(unsafe { std::mem::transmute(trace_id.value()) })
+            }
+        }
+    }
+}
+
+impl Into<TraceId> for Trace {
+    fn into(self) -> TraceId {
+        match self {
+            Trace::Submodule(trace) => {
+                TraceId::new(TraceKind::Submodule, trace.as_id().as_nonzero_u32())
+            }
+            Trace::ValItem(trace) => {
+                TraceId::new(TraceKind::ValItem, trace.as_id().as_nonzero_u32())
+            }
+            Trace::LazyCall(trace) => {
+                TraceId::new(TraceKind::LazyCall, trace.as_id().as_nonzero_u32())
+            }
+            Trace::LazyExpr(trace) => {
+                TraceId::new(TraceKind::LazyExpr, trace.as_id().as_nonzero_u32())
+            }
+            Trace::LazyStmt(trace) => {
+                TraceId::new(TraceKind::LazyStmt, trace.as_id().as_nonzero_u32())
+            }
+            Trace::EagerCall(trace) => {
+                TraceId::new(TraceKind::EagerCall, trace.as_id().as_nonzero_u32())
+            }
+            Trace::EagerExpr(trace) => {
+                TraceId::new(TraceKind::EagerExpr, trace.as_id().as_nonzero_u32())
+            }
+            Trace::EagerStmt(trace) => {
+                TraceId::new(TraceKind::EagerStmt, trace.as_id().as_nonzero_u32())
+            }
+        }
+    }
+}
+
+impl IsTrace for Trace {}
 
 impl Trace {
     pub(crate) fn from_item_path(item_path: ItemPath, db: &dyn TraceDb) -> Option<Self> {
@@ -94,11 +162,11 @@ impl Trace {
             Trace::Submodule(slf) => slf.subtraces(db),
             Trace::ValItem(slf) => slf.subtraces(db),
             Trace::LazyCall(slf) => slf.subtraces(db),
-            Trace::LazyExpr(slf) => todo!(),
-            Trace::LazyStmt(slf) => todo!(),
-            Trace::EagerCall(slf) => todo!(),
-            Trace::EagerExpr(slf) => todo!(),
-            Trace::EagerStmt(slf) => todo!(),
+            Trace::LazyExpr(slf) => slf.subtraces(db),
+            Trace::LazyStmt(slf) => slf.subtraces(db),
+            Trace::EagerCall(slf) => slf.subtraces(db),
+            Trace::EagerExpr(slf) => slf.subtraces(db),
+            Trace::EagerStmt(slf) => slf.subtraces(db),
         }
     }
 }

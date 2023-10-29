@@ -79,10 +79,10 @@ where
     type Outcome = ();
 
     fn act(&self, cache: &mut TraceCache<VisualComponent>) -> Self::Outcome {
-        debug_assert_eq!(self.trace_id.index(), cache.entries.len());
         cache
             .entries
-            .push(TraceCacheEntry::new(self.view_data.clone()))
+            .insert_new((self.trace_id, TraceCacheEntry::new(self.view_data.clone())))
+            .unwrap()
     }
 }
 

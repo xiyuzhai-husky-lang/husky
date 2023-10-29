@@ -393,6 +393,21 @@ impl<K, V> VecPairMap<K, V> {
         }
     }
 
+    pub fn get_value_copied_or_insert_with(&mut self, key: K, f: impl FnOnce() -> V) -> V
+    where
+        K: Copy + Eq,
+        V: Copy,
+    {
+        match self.entries.iter_mut().find(|(key1, _)| *key1 == key) {
+            Some(entry) => entry.1,
+            None => {
+                let v = f();
+                self.entries.push((key, v));
+                v
+            }
+        }
+    }
+
     #[inline(always)]
     pub fn update_value_or_insert(&mut self, key: K, update: impl FnOnce(&mut V), v: V)
     where

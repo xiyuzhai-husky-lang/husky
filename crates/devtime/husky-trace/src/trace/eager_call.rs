@@ -25,4 +25,8 @@ impl EagerCallTrace {
     pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
         todo!()
     }
+
+    pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
+        todo!()
+    }
 }
