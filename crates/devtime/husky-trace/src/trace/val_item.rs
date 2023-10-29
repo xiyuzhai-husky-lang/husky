@@ -30,7 +30,7 @@ impl ValItemTrace {
 
     pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
         let tokens = val_item_trace_view_tokens(db, self);
-        TraceViewData::new(tokens.data().to_vec())
+        TraceViewData::new(tokens.data().to_vec(), /* ad hoc */ true)
     }
 
     pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
