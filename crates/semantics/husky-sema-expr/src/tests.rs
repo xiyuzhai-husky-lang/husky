@@ -56,7 +56,7 @@ pub(crate) struct DB {
 
 impl salsa::Database for DB {}
 
-fn decl_expr_ty_regions(db: &DB, module_path: ModulePath) -> Vec<SemaExprRegion> {
+fn decl_sema_expr_regions(db: &DB, module_path: ModulePath) -> Vec<SemaExprRegion> {
     let Ok(syn_decl_sheet) = db.syn_decl_sheet(module_path) else {
         return vec![];
     };
@@ -69,11 +69,11 @@ fn decl_expr_ty_regions(db: &DB, module_path: ModulePath) -> Vec<SemaExprRegion>
 }
 
 #[test]
-fn decl_expr_ty_sheets_works() {
-    DB::default().ast_expect_test_debug_with_db("decl_expr_ty_regions", decl_expr_ty_regions)
+fn decl_sema_expr_sheets_works() {
+    DB::default().ast_expect_test_debug_with_db("decl_sema_expr_regions", decl_sema_expr_regions)
 }
 
-fn defn_expr_ty_regions(db: &DB, module_path: ModulePath) -> Vec<SemaExprRegion> {
+fn defn_sema_expr_regions(db: &DB, module_path: ModulePath) -> Vec<SemaExprRegion> {
     let Ok(defns) = module_path.defns(db) else {
         return vec![];
     };
@@ -85,6 +85,6 @@ fn defn_expr_ty_regions(db: &DB, module_path: ModulePath) -> Vec<SemaExprRegion>
 }
 
 #[test]
-fn defn_expr_ty_sheets_works() {
-    DB::default().ast_expect_test_debug_with_db("defn_expr_ty_regions", defn_expr_ty_regions)
+fn defn_sema_expr_regions_works() {
+    DB::default().ast_expect_test_debug_with_db("defn_sema_expr_regions", defn_sema_expr_regions)
 }

@@ -1,7 +1,7 @@
 use super::*;
 use husky_entity_path::MajorEntityPath;
 use husky_entity_syn_tree::EntitySynTreeError;
-use idx_arena::{Arena, ArenaIdx};
+use idx_arena::{map::ArenaMap, Arena, ArenaIdx};
 use parsec::IsStreamParser;
 use thiserror::Error;
 
@@ -22,3 +22,4 @@ pub enum SynPrincipalEntityPathExpr {
 
 pub type SynPrincipalEntityPathExprArena = Arena<SynPrincipalEntityPathExpr>;
 pub type SynPrincipalEntityPathExprIdx = ArenaIdx<SynPrincipalEntityPathExpr>;
+pub type SynPrincipalEntityPathExprMap<V> = ArenaMap<SynPrincipalEntityPathExpr, V>;
