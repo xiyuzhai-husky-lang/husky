@@ -1,5 +1,5 @@
 use crate::*;
-use egui::{FontFamily, InnerResponse, RichText, TextStyle};
+use egui::{Color32, FontFamily, InnerResponse, Label, RichText, Sense, Stroke, TextStyle, Widget};
 use husky_trace_protocol::{
     cache::{TraceCache, TraceCacheEntry},
     id::TraceId,
@@ -97,11 +97,15 @@ where
                     }
                     SeparationAfter::Eof => 0.,
                 };
-                ui.label(
+                let label_response = Label::new(
                     RichText::new(token_data.text())
                         .family(FontFamily::Monospace)
                         .color(token_foreground_colors[token_data.token_class()]),
-                );
+                )
+                .ui(ui);
+                if label_response.hovered() {
+                    label_response.highlight();
+                }
             }
         });
     }
