@@ -132,6 +132,12 @@ impl SemaStmtArena {
 #[derive(Clone, Copy)]
 pub struct SemaStmtArenaRef<'a>(ArenaRef<'a, SemaStmtEntry>);
 
+impl<'a> SemaStmtArenaRef<'a> {
+    pub fn len(self) -> usize {
+        self.0.len()
+    }
+}
+
 impl<'a> std::ops::Index<SemaStmtIdx> for SemaStmtArenaRef<'a> {
     type Output = SemaStmtEntry;
 
@@ -151,6 +157,10 @@ impl SemaStmtIdx {
             .data_result
             .as_ref()
             .expect("no error")
+    }
+
+    pub fn index(self) -> usize {
+        self.0.index()
     }
 }
 

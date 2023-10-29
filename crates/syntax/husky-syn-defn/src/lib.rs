@@ -2,6 +2,7 @@
 mod db;
 mod defn;
 mod error;
+pub mod helpers;
 #[cfg(test)]
 mod tests;
 mod utils;

@@ -32,6 +32,7 @@ pub(crate) struct SemaExprEngine<'a> {
     toolchain: Toolchain,
     item_path_menu: &'a ItemPathMenu,
     term_menu: &'a EtherealTermMenu,
+    syn_expr_region: SynExprRegion,
     syn_expr_region_data: &'a SynExprRegionData,
     regional_tokens_data: RegionalTokensData<'a>,
     declarative_term_region: &'a DeclarativeTermRegion,
@@ -90,10 +91,10 @@ impl<'a> std::ops::Index<SynExprIdx> for SemaExprEngine<'a> {
 
 impl<'a> SemaExprEngine<'a> {
     pub(crate) fn new(db: &'a dyn SemaExprDb, syn_expr_region: SynExprRegion) -> Self {
-        let expr_region_data = syn_expr_region.data(db);
+        let syn_expr_region_data = syn_expr_region.data(db);
         // todo: improve this
-        let parent_expr_region = expr_region_data.parent();
-        let module_path = expr_region_data.path().module_path(db);
+        let parent_expr_region = syn_expr_region_data.parent();
+        let module_path = syn_expr_region_data.path().module_path(db);
         let return_ty = parent_expr_region
             .map(|parent_expr_region| {
                 db.declarative_term_region(parent_expr_region)
@@ -103,7 +104,7 @@ impl<'a> SemaExprEngine<'a> {
             .flatten()
             .map(|term| EtherealTerm::ty_from_declarative(db, term).ok())
             .flatten();
-        let self_value_ty = match expr_region_data.path() {
+        let self_value_ty = match syn_expr_region_data.path() {
             RegionPath::Snippet(_) => None,
             RegionPath::Decl(node_path) | RegionPath::Defn(node_path) => {
                 let Some(item_path) = node_path.path(db) else {
@@ -125,12 +126,12 @@ impl<'a> SemaExprEngine<'a> {
         //     .flatten()
         //     .map(|term| EtherealTerm::ty_from_declarative(db, term).ok())
         //     .flatten();
-        let symbol_region = expr_region_data.symbol_region();
-        let pattern_expr_region = expr_region_data.pattern_expr_region();
+        let symbol_region = syn_expr_region_data.symbol_region();
+        let pattern_expr_region = syn_expr_region_data.pattern_expr_region();
         let toolchain = syn_expr_region.toolchain(db);
-        let parent_expr_ty_region =
+        let parent_sema_expr_region =
             parent_expr_region.map(|parent_expr_region| db.sema_expr_region(parent_expr_region));
-        let regional_tokens_data = match expr_region_data.path() {
+        let regional_tokens_data = match syn_expr_region_data.path() {
             RegionPath::Snippet(_) => todo!(),
             RegionPath::Decl(path) => path.decl_tokra_region(db).tokens_data(db),
             RegionPath::Defn(path) => path
@@ -143,24 +144,25 @@ impl<'a> SemaExprEngine<'a> {
             toolchain,
             item_path_menu: db.item_path_menu(toolchain),
             term_menu: db.ethereal_term_menu(toolchain),
-            syn_expr_region_data: expr_region_data,
+            syn_expr_region,
+            syn_expr_region_data,
             declarative_term_region: db.declarative_term_region(syn_expr_region),
             sema_expr_arena: SemaExprArena::default(),
             sema_stmt_arena: SemaStmtArena::default(),
             syn_expr_root_sema_expr_idx_table: Default::default(),
             fluffy_term_region: FluffyTermRegion::new(
-                parent_expr_ty_region.map(|r| r.data(db).fluffy_term_region()),
+                parent_sema_expr_region.map(|r| r.data(db).fluffy_term_region()),
             ),
             sema_expr_term_results: Default::default(),
             symbol_terms: SymbolMap::new(
-                parent_expr_ty_region
-                    .map(|parent_expr_ty_region| parent_expr_ty_region.data(db).symbol_terms()),
-                expr_region_data.symbol_region(),
+                parent_sema_expr_region
+                    .map(|parent_sema_expr_region| parent_sema_expr_region.data(db).symbol_terms()),
+                syn_expr_region_data.symbol_region(),
             ),
             symbol_tys: SymbolMap::new(
-                parent_expr_ty_region
-                    .map(|parent_expr_ty_region| parent_expr_ty_region.data(db).symbol_tys()),
-                expr_region_data.symbol_region(),
+                parent_sema_expr_region
+                    .map(|parent_sema_expr_region| parent_sema_expr_region.data(db).symbol_tys()),
+                syn_expr_region_data.symbol_region(),
             ),
             pattern_expr_ty_infos: SynPatternExprMap::new(pattern_expr_region.pattern_expr_arena()),
             pattern_symbol_ty_infos: SynPatternSymbolMap::new(
@@ -247,6 +249,7 @@ impl<'a> SemaExprEngine<'a> {
         self.infer_extra_expr_terms_in_preparation_for_hir();
         SemaExprRegion::new(
             self.syn_expr_region_data.path(),
+            self.syn_expr_region,
             self.sema_expr_arena,
             self.sema_stmt_arena,
             self.syn_expr_root_sema_expr_idx_table,

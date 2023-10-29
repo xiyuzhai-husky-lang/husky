@@ -7,6 +7,7 @@ use crate::*;
 pub struct SemaExprRegion {
     #[id]
     pub path: RegionPath,
+    pub syn_expr_region: SynExprRegion,
     #[return_ref]
     pub data: SemaExprRegionData,
 }
@@ -14,6 +15,7 @@ pub struct SemaExprRegion {
 impl SemaExprRegion {
     pub(crate) fn new(
         path: RegionPath,
+        syn_expr_region: SynExprRegion,
         sema_expr_arena: SemaExprArena,
         sema_stmt_arena: SemaStmtArena,
         syn_expr_root_sema_expr_idx_table: VecPairMap<SynExprIdx, SemaExprIdx>,
@@ -30,6 +32,7 @@ impl SemaExprRegion {
         SemaExprRegion::new_inner(
             db,
             path,
+            syn_expr_region,
             SemaExprRegionData {
                 path,
                 sema_expr_arena,
