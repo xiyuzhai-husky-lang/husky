@@ -371,7 +371,7 @@ pub type SemaExprIdxRange = ArenaIdxRange<SemaExprEntry>;
 pub struct SemaExprMap<V>(ArenaMap<SemaExprEntry, V>);
 
 impl<V> SemaExprMap<V> {
-    pub fn new(sema_expr_arena: SemaExprArenaRef<'_>) -> SemaExprMap<V> {
+    pub fn new(sema_expr_arena: SemaExprArenaRef) -> SemaExprMap<V> {
         Self(ArenaMap::new2(sema_expr_arena.0))
     }
 

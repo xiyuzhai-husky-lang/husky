@@ -21,5 +21,6 @@ pub struct SemaExprJar(
     SemaExprRegion,
     sema_expr_region,
     crate::helpers::analysis::sema_expr_region_contains_gn,
-    crate::helpers::range::sema_expr_range_region_data,
+    crate::helpers::range::SemaExprRangeRegion,
+    crate::helpers::range::sema_expr_range_region,
 );
