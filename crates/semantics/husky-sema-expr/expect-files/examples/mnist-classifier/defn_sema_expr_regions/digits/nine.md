@@ -582,11 +582,14 @@
                     ],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [
+            sema_expr_roots: [
                 (
                     6,
-                    SemaExprIdx(
-                        6,
+                    (
+                        SemaExprIdx(
+                            6,
+                        ),
+                        BlockExpr,
                     ),
                 ),
             ],
@@ -1561,11 +1564,14 @@
                     ],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [
+            sema_expr_roots: [
                 (
                     6,
-                    SemaExprIdx(
-                        6,
+                    (
+                        SemaExprIdx(
+                            6,
+                        ),
+                        BlockExpr,
                     ),
                 ),
             ],
@@ -9136,11 +9142,14 @@
                     ],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [
+            sema_expr_roots: [
                 (
                     87,
-                    SemaExprIdx(
-                        87,
+                    (
+                        SemaExprIdx(
+                            87,
+                        ),
+                        BlockExpr,
                     ),
                 ),
             ],
@@ -14513,11 +14522,14 @@
                     ],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [
+            sema_expr_roots: [
                 (
                     9,
-                    SemaExprIdx(
-                        9,
+                    (
+                        SemaExprIdx(
+                            9,
+                        ),
+                        BlockExpr,
                     ),
                 ),
             ],
@@ -16462,11 +16474,14 @@
                     ],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [
+            sema_expr_roots: [
                 (
                     15,
-                    SemaExprIdx(
-                        15,
+                    (
+                        SemaExprIdx(
+                            15,
+                        ),
+                        BlockExpr,
                     ),
                 ),
             ],

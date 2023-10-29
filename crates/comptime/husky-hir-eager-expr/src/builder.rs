@@ -6,7 +6,8 @@ use husky_sema_expr::{
     SemaStmtArenaRef, SemaStmtIdx, SemaStmtMap,
 };
 use husky_syn_expr::{
-    SynExprData, SynExprIdx, SynExprRegion, SynExprRegionData, SynStmtData, SynStmtIdx,
+    ExprRootKind, SynExprData, SynExprIdx, SynExprRegion, SynExprRegionData, SynStmtData,
+    SynStmtIdx,
 };
 use salsa::DebugWithDb;
 
@@ -55,8 +56,20 @@ impl<'a> HirEagerExprBuilder<'a> {
 
     pub fn build_all_then_finish(mut self) -> (HirEagerExprRegion, HirEagerExprSourceMap) {
         for (sema_expr_idx, expr_root_kind) in self.sema_expr_region_data.sema_expr_roots() {
-            todo!();
-            sema_expr_idx.to_hir_eager(&mut self);
+            match expr_root_kind {
+                ExprRootKind::BlockExpr | ExprRootKind::ReturnExpr => {
+                    sema_expr_idx.to_hir_eager(&mut self);
+                }
+                // ad hoc
+                ExprRootKind::FieldBindInitialValue { .. } => (),
+                // ad hoc
+                ExprRootKind::ExplicitParameterDefaultValue { .. } => (),
+                // ad hoc
+                ExprRootKind::Snippet => (),
+                // ad hoc
+                ExprRootKind::ValExpr => (),
+                _ => continue,
+            }
         }
         self.finish()
     }
@@ -67,8 +80,14 @@ impl<'a> HirEagerExprBuilder<'a> {
         hir_eager_stmts: Vec<HirEagerStmt>,
     ) -> HirEagerStmtIdxRange {
         debug_assert_eq!(sema_stmt_indices.len(), hir_eager_stmts.len());
-        // todo: record syn_stmt_indices in source map
-        self.hir_eager_stmt_arena.alloc_batch(hir_eager_stmts)
+        let hir_stmt_idx_range = self.hir_eager_stmt_arena.alloc_batch(hir_eager_stmts);
+        for (sema_stmt_idx, hir_eager_stmt_idx) in
+            std::iter::zip(sema_stmt_indices, hir_stmt_idx_range)
+        {
+            self.sema_to_hir_eager_stmt_idx_map
+                .insert_new(sema_stmt_idx, hir_eager_stmt_idx);
+        }
+        hir_stmt_idx_range
     }
 
     pub(crate) fn alloc_expr(
@@ -76,8 +95,10 @@ impl<'a> HirEagerExprBuilder<'a> {
         sema_expr_idx: SemaExprIdx,
         hir_eager_expr: HirEagerExpr,
     ) -> HirEagerExprIdx {
-        // todo: record syn_expr_idx in source map
-        self.hir_eager_expr_arena.alloc_one(hir_eager_expr)
+        let hir_eager_expr_idx = self.hir_eager_expr_arena.alloc_one(hir_eager_expr);
+        self.sema_to_hir_eager_expr_idx_map
+            .insert_new(sema_expr_idx, hir_eager_expr_idx);
+        hir_eager_expr_idx
     }
 
     pub(crate) fn alloc_pattern_expr(

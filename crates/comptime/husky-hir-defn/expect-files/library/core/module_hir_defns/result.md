@@ -31,13 +31,13 @@
                             ],
                         },
                         hir_expr_region: HirEagerExprRegion {
-                            expr_arena: Arena {
+                            hir_eager_expr_arena: Arena {
                                 data: [],
                             },
-                            stmt_arena: Arena {
+                            hir_eager_stmt_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_arena: Arena {
+                            hir_eager_pattern_expr_arena: Arena {
                                 data: [],
                             },
                         },
@@ -237,7 +237,7 @@
                         (
                             2,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         Todo,
                                         Block {
@@ -247,14 +247,14 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 1,
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
                             },

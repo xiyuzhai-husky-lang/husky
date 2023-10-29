@@ -613,11 +613,14 @@
                     ],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [
+            sema_expr_roots: [
                 (
                     4,
-                    SemaExprIdx(
-                        4,
+                    (
+                        SemaExprIdx(
+                            4,
+                        ),
+                        BlockExpr,
                     ),
                 ),
             ],

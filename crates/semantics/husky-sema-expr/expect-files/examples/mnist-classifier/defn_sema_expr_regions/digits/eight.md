@@ -582,11 +582,14 @@
                     ],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [
+            sema_expr_roots: [
                 (
                     6,
-                    SemaExprIdx(
-                        6,
+                    (
+                        SemaExprIdx(
+                            6,
+                        ),
+                        BlockExpr,
                     ),
                 ),
             ],
@@ -3704,11 +3707,14 @@
                     ],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [
+            sema_expr_roots: [
                 (
                     29,
-                    SemaExprIdx(
-                        29,
+                    (
+                        SemaExprIdx(
+                            29,
+                        ),
+                        BlockExpr,
                     ),
                 ),
             ],
@@ -7175,11 +7181,14 @@
                     ],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [
+            sema_expr_roots: [
                 (
                     22,
-                    SemaExprIdx(
-                        22,
+                    (
+                        SemaExprIdx(
+                            22,
+                        ),
+                        BlockExpr,
                     ),
                 ),
             ],

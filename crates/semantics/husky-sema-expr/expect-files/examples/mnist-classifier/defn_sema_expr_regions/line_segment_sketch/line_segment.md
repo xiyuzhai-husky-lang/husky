@@ -735,11 +735,14 @@
                     ],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [
+            sema_expr_roots: [
                 (
                     6,
-                    SemaExprIdx(
-                        6,
+                    (
+                        SemaExprIdx(
+                            6,
+                        ),
+                        BlockExpr,
                     ),
                 ),
             ],
@@ -4345,11 +4348,14 @@
                     ],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [
+            sema_expr_roots: [
                 (
                     32,
-                    SemaExprIdx(
-                        32,
+                    (
+                        SemaExprIdx(
+                            32,
+                        ),
+                        BlockExpr,
                     ),
                 ),
             ],

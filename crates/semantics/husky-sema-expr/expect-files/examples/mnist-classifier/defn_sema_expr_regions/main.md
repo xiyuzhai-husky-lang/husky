@@ -1532,11 +1532,14 @@
                     ],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [
+            sema_expr_roots: [
                 (
                     20,
-                    SemaExprIdx(
-                        20,
+                    (
+                        SemaExprIdx(
+                            20,
+                        ),
+                        BlockExpr,
                     ),
                 ),
             ],

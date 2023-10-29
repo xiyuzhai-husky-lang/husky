@@ -113,7 +113,7 @@
                         (
                             9,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         InheritedSymbol {
                                             ident: Ident(
@@ -195,7 +195,7 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -212,7 +212,7 @@
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [
                                         Ident {
                                             ident: Ident(
@@ -247,7 +247,7 @@
                         (
                             15,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         InheritedSymbol {
                                             ident: Ident(
@@ -386,7 +386,7 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -406,7 +406,7 @@
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [
                                         Ident {
                                             ident: Ident(

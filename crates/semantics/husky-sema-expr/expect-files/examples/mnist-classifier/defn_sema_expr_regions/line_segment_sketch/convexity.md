@@ -7815,11 +7815,14 @@
                     ],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [
+            sema_expr_roots: [
                 (
                     94,
-                    SemaExprIdx(
-                        90,
+                    (
+                        SemaExprIdx(
+                            90,
+                        ),
+                        BlockExpr,
                     ),
                 ),
             ],

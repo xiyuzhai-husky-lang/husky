@@ -32,13 +32,13 @@
                             },
                         ],
                         hir_expr_region: HirEagerExprRegion {
-                            expr_arena: Arena {
+                            hir_eager_expr_arena: Arena {
                                 data: [],
                             },
-                            stmt_arena: Arena {
+                            hir_eager_stmt_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_arena: Arena {
+                            hir_eager_pattern_expr_arena: Arena {
                                 data: [],
                             },
                         },
@@ -80,13 +80,13 @@
                             },
                         ],
                         hir_expr_region: HirEagerExprRegion {
-                            expr_arena: Arena {
+                            hir_eager_expr_arena: Arena {
                                 data: [],
                             },
-                            stmt_arena: Arena {
+                            hir_eager_stmt_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_arena: Arena {
+                            hir_eager_pattern_expr_arena: Arena {
                                 data: [],
                             },
                         },
@@ -128,13 +128,13 @@
                             },
                         ],
                         hir_expr_region: HirEagerExprRegion {
-                            expr_arena: Arena {
+                            hir_eager_expr_arena: Arena {
                                 data: [],
                             },
-                            stmt_arena: Arena {
+                            hir_eager_stmt_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_arena: Arena {
+                            hir_eager_pattern_expr_arena: Arena {
                                 data: [],
                             },
                         },
@@ -176,13 +176,13 @@
                             },
                         ],
                         hir_expr_region: HirEagerExprRegion {
-                            expr_arena: Arena {
+                            hir_eager_expr_arena: Arena {
                                 data: [],
                             },
-                            stmt_arena: Arena {
+                            hir_eager_stmt_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_arena: Arena {
+                            hir_eager_pattern_expr_arena: Arena {
                                 data: [],
                             },
                         },
@@ -224,13 +224,13 @@
                             },
                         ],
                         hir_expr_region: HirEagerExprRegion {
-                            expr_arena: Arena {
+                            hir_eager_expr_arena: Arena {
                                 data: [],
                             },
-                            stmt_arena: Arena {
+                            hir_eager_stmt_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_arena: Arena {
+                            hir_eager_pattern_expr_arena: Arena {
                                 data: [],
                             },
                         },
@@ -272,13 +272,13 @@
                             },
                         ],
                         hir_expr_region: HirEagerExprRegion {
-                            expr_arena: Arena {
+                            hir_eager_expr_arena: Arena {
                                 data: [],
                             },
-                            stmt_arena: Arena {
+                            hir_eager_stmt_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_arena: Arena {
+                            hir_eager_pattern_expr_arena: Arena {
                                 data: [],
                             },
                         },
@@ -366,13 +366,13 @@
                             ),
                         ),
                         hir_expr_region: HirEagerExprRegion {
-                            expr_arena: Arena {
+                            hir_eager_expr_arena: Arena {
                                 data: [],
                             },
-                            stmt_arena: Arena {
+                            hir_eager_stmt_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_arena: Arena {
+                            hir_eager_pattern_expr_arena: Arena {
                                 data: [],
                             },
                         },
@@ -381,7 +381,7 @@
                         (
                             13,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         PrincipalEntityPath(
                                             MajorItem(
@@ -487,14 +487,14 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 12,
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
                             },
@@ -562,7 +562,7 @@
                         (
                             7,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         PrincipalEntityPath(
                                             MajorItem(
@@ -616,14 +616,14 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 6,
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
                             },
@@ -702,7 +702,7 @@
                         (
                             13,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         PrincipalEntityPath(
                                             MajorItem(
@@ -808,14 +808,14 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 12,
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
                             },
@@ -883,7 +883,7 @@
                         (
                             13,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         SelfType,
                                         Field {
@@ -969,14 +969,14 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 12,
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
                             },
@@ -1055,7 +1055,7 @@
                         (
                             5,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         SelfType,
                                         InheritedSymbol {
@@ -1102,14 +1102,14 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 4,
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
                             },
@@ -1198,7 +1198,7 @@
                         (
                             7,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         PrincipalEntityPath(
                                             MajorItem(
@@ -1252,14 +1252,14 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 6,
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
                             },
@@ -1338,7 +1338,7 @@
                         (
                             13,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         PrincipalEntityPath(
                                             MajorItem(
@@ -1444,14 +1444,14 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 12,
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
                             },
@@ -1519,7 +1519,7 @@
                         (
                             13,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         SelfType,
                                         Field {
@@ -1605,14 +1605,14 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 12,
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
                             },
@@ -1691,7 +1691,7 @@
                         (
                             12,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         SelfType,
                                         Field {
@@ -1781,14 +1781,14 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 11,
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
                             },
@@ -1867,7 +1867,7 @@
                         (
                             12,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         SelfType,
                                         Field {
@@ -1957,14 +1957,14 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 11,
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
                             },
@@ -2043,7 +2043,7 @@
                         (
                             29,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         SelfType,
                                         Field {
@@ -2265,7 +2265,7 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 14,
@@ -2317,7 +2317,7 @@
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [
                                         Ident {
                                             ident: Ident(
@@ -2406,7 +2406,7 @@
                         (
                             5,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         SelfType,
                                         InheritedSymbol {
@@ -2453,14 +2453,14 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 4,
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
                             },
@@ -2549,7 +2549,7 @@
                         (
                             42,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         SelfType,
                                         MethodCall {
@@ -2890,7 +2890,7 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 26,
@@ -2969,7 +2969,7 @@
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [
                                         Ident {
                                             ident: Ident(
@@ -3106,7 +3106,7 @@
                         (
                             29,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         SelfType,
                                         Field {
@@ -3320,7 +3320,7 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Assert {
                                             condition: 5,
@@ -3351,7 +3351,7 @@
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [
                                         Ident {
                                             ident: Ident(
@@ -3458,7 +3458,7 @@
                         (
                             12,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         SelfType,
                                         Field {
@@ -3539,7 +3539,7 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -3553,7 +3553,7 @@
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [
                                         Ident {
                                             ident: Ident(
@@ -3663,7 +3663,7 @@
                         (
                             13,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         PrincipalEntityPath(
                                             MajorItem(
@@ -3787,14 +3787,14 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 12,
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
                             },
@@ -3873,7 +3873,7 @@
                         (
                             13,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         PrincipalEntityPath(
                                             MajorItem(
@@ -3997,14 +3997,14 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 12,
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
                             },
@@ -4072,7 +4072,7 @@
                         (
                             4,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         SelfType,
                                         Field {
@@ -4102,14 +4102,14 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 3,
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
                             },
@@ -4177,7 +4177,7 @@
                         (
                             4,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         SelfType,
                                         Field {
@@ -4207,14 +4207,14 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 3,
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
                             },
@@ -4282,7 +4282,7 @@
                         (
                             4,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         SelfType,
                                         Field {
@@ -4312,14 +4312,14 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 3,
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
                             },
@@ -4387,7 +4387,7 @@
                         (
                             4,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         SelfType,
                                         Field {
@@ -4417,14 +4417,14 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 3,
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
                             },
@@ -4513,7 +4513,7 @@
                         (
                             4,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         SelfType,
                                         Field {
@@ -4543,14 +4543,14 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 3,
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
                             },
@@ -4618,7 +4618,7 @@
                         (
                             4,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         SelfType,
                                         Field {
@@ -4648,14 +4648,14 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 3,
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
                             },
@@ -4723,7 +4723,7 @@
                         (
                             4,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         SelfType,
                                         Field {
@@ -4753,14 +4753,14 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 3,
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
                             },
@@ -4828,7 +4828,7 @@
                         (
                             4,
                             HirEagerExprRegion {
-                                expr_arena: Arena {
+                                hir_eager_expr_arena: Arena {
                                     data: [
                                         SelfType,
                                         Field {
@@ -4858,14 +4858,14 @@
                                         },
                                     ],
                                 },
-                                stmt_arena: Arena {
+                                hir_eager_stmt_arena: Arena {
                                     data: [
                                         Eval {
                                             expr_idx: 3,
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
                             },

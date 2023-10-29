@@ -312,17 +312,49 @@
                     data: [],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [
+            sema_expr_roots: [
                 (
                     1,
-                    SemaExprIdx(
-                        1,
+                    (
+                        SemaExprIdx(
+                            1,
+                        ),
+                        PropsStructFieldType {
+                            ident_token: IdentRegionalToken {
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 150,
+                                        },
+                                    ),
+                                ),
+                                regional_token_idx: RegionalTokenIdx(
+                                    5,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 (
                     2,
-                    SemaExprIdx(
-                        2,
+                    (
+                        SemaExprIdx(
+                            2,
+                        ),
+                        PropsStructFieldType {
+                            ident_token: IdentRegionalToken {
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 151,
+                                        },
+                                    ),
+                                ),
+                                regional_token_idx: RegionalTokenIdx(
+                                    9,
+                                ),
+                            },
+                        },
                     ),
                 ),
             ],
@@ -646,11 +678,14 @@
                     data: [],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [
+            sema_expr_roots: [
                 (
                     1,
-                    SemaExprIdx(
-                        1,
+                    (
+                        SemaExprIdx(
+                            1,
+                        ),
+                        SelfType,
                     ),
                 ),
             ],
@@ -1008,11 +1043,14 @@
                     data: [],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [
+            sema_expr_roots: [
                 (
                     1,
-                    SemaExprIdx(
-                        1,
+                    (
+                        SemaExprIdx(
+                            1,
+                        ),
+                        ReturnType,
                     ),
                 ),
             ],
@@ -1479,17 +1517,23 @@
                     data: [],
                 },
             ),
-            syn_expr_root_sema_expr_idx_table: [
+            sema_expr_roots: [
                 (
                     1,
-                    SemaExprIdx(
-                        1,
+                    (
+                        SemaExprIdx(
+                            1,
+                        ),
+                        ExplicitParameterType,
                     ),
                 ),
                 (
                     2,
-                    SemaExprIdx(
-                        2,
+                    (
+                        SemaExprIdx(
+                            2,
+                        ),
+                        ReturnType,
                     ),
                 ),
             ],
