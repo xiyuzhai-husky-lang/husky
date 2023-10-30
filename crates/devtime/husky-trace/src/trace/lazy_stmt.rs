@@ -6,7 +6,13 @@ use crate::registry::{
 use husky_entity_path::PrincipalEntityPath;
 use husky_hir_lazy_expr::HirLazyStmtIdx;
 use husky_hir_lazy_expr::{builder::hir_lazy_expr_region_with_source_map, HirLazyExprRegion};
-use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprRegion, SemaStmtIdx};
+use husky_regional_token::{
+    ElifRegionalToken, ElseRegionalToken, EolColonRegionalToken, IfRegionalToken,
+    RegionalTokenIdxRange,
+};
+use husky_sema_expr::{
+    helpers::range::sema_expr_range_region, SemaExprRegion, SemaStmtIdx, SemaStmtIdxRange,
+};
 use husky_token_info::TokenInfoSource;
 
 #[salsa::interned(db = TraceDb, jar = TraceJar, constructor = new_inner)]
@@ -71,9 +77,22 @@ pub struct LazyStmtTrace {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LazyStmtTraceData {
     BasicStmt,
-    IfBranch,
-    ElifBranch { elif_branch_idx: u8 },
-    ElseBranch,
+    IfBranch {
+        if_regional_token: IfRegionalToken,
+        eol_colon_regional_token: EolColonRegionalToken,
+        stmts: SemaStmtIdxRange,
+    },
+    ElifBranch {
+        elif_branch_idx: u8,
+        elif_regional_token: ElifRegionalToken,
+        eol_colon_regional_token: EolColonRegionalToken,
+        stmts: SemaStmtIdxRange,
+    },
+    ElseBranch {
+        else_regional_token: ElseRegionalToken,
+        eol_colon_regional_token: EolColonRegionalToken,
+        stmts: SemaStmtIdxRange,
+    },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -117,9 +136,9 @@ impl LazyStmtTrace {
         let tokens = lazy_stmt_trace_view_tokens(db, self);
         let have_subtraces = match self.data(db) {
             LazyStmtTraceData::BasicStmt => false,
-            LazyStmtTraceData::IfBranch => true,
-            LazyStmtTraceData::ElifBranch { elif_branch_idx } => true,
-            LazyStmtTraceData::ElseBranch => true,
+            LazyStmtTraceData::IfBranch { .. } => true,
+            LazyStmtTraceData::ElifBranch { .. } => true,
+            LazyStmtTraceData::ElseBranch { .. } => true,
         };
         TraceViewData::new(tokens.data().to_vec(), have_subtraces)
     }
@@ -127,9 +146,9 @@ impl LazyStmtTrace {
     pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
         match self.data(db) {
             LazyStmtTraceData::BasicStmt => unreachable!("shouldn't be here"),
-            LazyStmtTraceData::IfBranch => todo!(),
-            LazyStmtTraceData::ElifBranch { elif_branch_idx } => todo!(),
-            LazyStmtTraceData::ElseBranch => todo!(),
+            LazyStmtTraceData::IfBranch { .. } => todo!(),
+            LazyStmtTraceData::ElifBranch { .. } => todo!(),
+            LazyStmtTraceData::ElseBranch { .. } => todo!(),
         }
     }
 
@@ -144,8 +163,35 @@ fn lazy_stmt_trace_view_tokens(db: &dyn TraceDb, trace: LazyStmtTrace) -> TraceV
     let sema_expr_region = trace.sema_expr_region(db);
     let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
     let region_path = sema_expr_region.path(db);
-    let token_idx_range = sema_expr_range_region.data(db)[sema_stmt_idx]
-        .token_idx_range(region_path.regional_token_idx_base(db).unwrap());
+    let regional_token_idx_range = match trace.data(db) {
+        LazyStmtTraceData::BasicStmt => sema_expr_range_region.data(db)[sema_stmt_idx],
+        LazyStmtTraceData::IfBranch {
+            if_regional_token,
+            eol_colon_regional_token,
+            ..
+        } => RegionalTokenIdxRange::new_closed(
+            if_regional_token.regional_token_idx(),
+            eol_colon_regional_token.regional_token_idx(),
+        ),
+        LazyStmtTraceData::ElifBranch {
+            elif_regional_token,
+            eol_colon_regional_token,
+            ..
+        } => RegionalTokenIdxRange::new_closed(
+            elif_regional_token.regional_token_idx(),
+            eol_colon_regional_token.regional_token_idx(),
+        ),
+        LazyStmtTraceData::ElseBranch {
+            else_regional_token,
+            eol_colon_regional_token,
+            ..
+        } => RegionalTokenIdxRange::new_closed(
+            else_regional_token.regional_token_idx(),
+            eol_colon_regional_token.regional_token_idx(),
+        ),
+    };
+    let token_idx_range =
+        regional_token_idx_range.token_idx_range(region_path.regional_token_idx_base(db).unwrap());
     let registry = LazyStmtAssociatedTraceRegistry::new(trace, sema_expr_region);
     TraceViewTokens::new(region_path.module_path(db), token_idx_range, registry, db)
 }

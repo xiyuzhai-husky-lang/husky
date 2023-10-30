@@ -222,7 +222,11 @@ fn val_item_trace_subtraces(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> V
                                 LazyStmtTracePathData::IfBranch,
                                 &mut registry,
                                 stmt,
-                                LazyStmtTraceData::IfBranch,
+                                LazyStmtTraceData::IfBranch {
+                                    if_regional_token: sema_if_branch.if_token(),
+                                    eol_colon_regional_token: sema_if_branch.eol_colon_token(),
+                                    stmts: sema_if_branch.stmts(),
+                                },
                                 sema_expr_region,
                                 db,
                             )
@@ -239,7 +243,13 @@ fn val_item_trace_subtraces(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> V
                                     LazyStmtTracePathData::ElifBranch { elif_branch_idx },
                                     &mut registry,
                                     stmt,
-                                    LazyStmtTraceData::ElifBranch { elif_branch_idx },
+                                    LazyStmtTraceData::ElifBranch {
+                                        elif_branch_idx,
+                                        elif_regional_token: sema_elif_branch.elif_regional_token(),
+                                        eol_colon_regional_token: sema_elif_branch
+                                            .eol_colon_token(),
+                                        stmts: sema_elif_branch.stmts(),
+                                    },
                                     sema_expr_region,
                                     db,
                                 )
@@ -254,7 +264,12 @@ fn val_item_trace_subtraces(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> V
                                     LazyStmtTracePathData::ElseBranch,
                                     &mut registry,
                                     stmt,
-                                    LazyStmtTraceData::ElseBranch,
+                                    LazyStmtTraceData::ElseBranch {
+                                        else_regional_token: sema_else_branch.else_regional_token(),
+                                        eol_colon_regional_token: sema_else_branch
+                                            .eol_colon_regional_token(),
+                                        stmts: sema_else_branch.stmts(),
+                                    },
                                     sema_expr_region,
                                     db,
                                 )
