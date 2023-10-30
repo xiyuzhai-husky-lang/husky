@@ -1,7 +1,7 @@
 use crate::*;
 use smallvec::*;
 
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash, Serialize, Deserialize)]
 pub struct SmallVecSet<K, const N: usize>
 where
     [K; N]: Array<Item = K>,
