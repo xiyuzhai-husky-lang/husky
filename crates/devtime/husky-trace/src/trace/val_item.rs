@@ -67,227 +67,28 @@ fn val_item_trace_subtraces(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> V
     };
     let sema_expr_region = db.sema_expr_region(syn_expr_region);
     let sema_expr_region_data = sema_expr_region.data(db);
-    // let body = sema_expr_region_data.sema_expr_roots(body);
-    // todo: eager traces
     let body: SemaExprIdx = sema_expr_region_data.syn_root_to_sema_expr_idx(body);
-    let mut registry = TracePathRegistry::<LazyStmtTracePathData>::default();
-    let mut subtraces: Vec<Trace> = vec![];
     let sema_expr_arena = sema_expr_region_data.sema_expr_arena();
-    let sema_stmt_arena = sema_expr_region_data.sema_stmt_arena();
-    match body.data(sema_expr_arena) {
-        &SemaExprData::Block { stmts } => {
-            for stmt in stmts {
-                match stmt.data(sema_stmt_arena) {
-                    SemaStmtData::Let {
-                        let_token,
-                        let_pattern_sema_obelisk,
-                        eq_token,
-                        initial_value_sema_expr_idx,
-                    } => {
-                        let path_data = LazyStmtTracePathData::Let {};
-                        let lazy_stmt_trace = LazyStmtTrace::new(
-                            val_item_trace,
-                            val_item_trace_path,
-                            path_data,
-                            &mut registry,
-                            stmt,
-                            LazyStmtTraceData::BasicStmt,
-                            sema_expr_region,
-                            db,
-                        );
-                        subtraces.push(lazy_stmt_trace.into())
-                    }
-                    SemaStmtData::Return {
-                        return_token,
-                        result,
-                    } => {
-                        let path_data = LazyStmtTracePathData::Return {};
-                        let lazy_stmt_trace = LazyStmtTrace::new(
-                            val_item_trace,
-                            val_item_trace_path,
-                            path_data,
-                            &mut registry,
-                            stmt,
-                            LazyStmtTraceData::BasicStmt,
-                            sema_expr_region,
-                            db,
-                        );
-                        subtraces.push(lazy_stmt_trace.into())
-                    }
-                    SemaStmtData::Require {
-                        require_token,
-                        condition,
-                    } => {
-                        let path_data = LazyStmtTracePathData::Require {};
-                        let lazy_stmt_trace = LazyStmtTrace::new(
-                            val_item_trace,
-                            val_item_trace_path,
-                            path_data,
-                            &mut registry,
-                            stmt,
-                            LazyStmtTraceData::BasicStmt,
-                            sema_expr_region,
-                            db,
-                        );
-                        subtraces.push(lazy_stmt_trace.into())
-                    }
-                    SemaStmtData::Assert {
-                        assert_token,
-                        condition,
-                    } => {
-                        let path_data = LazyStmtTracePathData::Assert {};
-                        let lazy_stmt_trace = LazyStmtTrace::new(
-                            val_item_trace,
-                            val_item_trace_path,
-                            path_data,
-                            &mut registry,
-                            stmt,
-                            LazyStmtTraceData::BasicStmt,
-                            sema_expr_region,
-                            db,
-                        );
-                        subtraces.push(lazy_stmt_trace.into())
-                    }
-                    SemaStmtData::Break { break_token } => {
-                        let path_data = LazyStmtTracePathData::Break {};
-                        let lazy_stmt_trace = LazyStmtTrace::new(
-                            val_item_trace,
-                            val_item_trace_path,
-                            path_data,
-                            &mut registry,
-                            stmt,
-                            LazyStmtTraceData::BasicStmt,
-                            sema_expr_region,
-                            db,
-                        );
-                        subtraces.push(lazy_stmt_trace.into())
-                    }
-                    SemaStmtData::Eval {
-                        sema_expr_idx,
-                        eol_semicolon,
-                    } => {
-                        let path_data = LazyStmtTracePathData::Eval {};
-                        let lazy_stmt_trace = LazyStmtTrace::new(
-                            val_item_trace,
-                            val_item_trace_path,
-                            path_data,
-                            &mut registry,
-                            stmt,
-                            LazyStmtTraceData::BasicStmt,
-                            sema_expr_region,
-                            db,
-                        );
-                        subtraces.push(lazy_stmt_trace.into())
-                    }
-                    SemaStmtData::ForBetween {
-                        for_token,
-                        particulars,
-                        for_loop_var_symbol_idx,
-                        eol_colon,
-                        block,
-                    } => todo!(),
-                    SemaStmtData::ForIn {
-                        for_token,
-                        condition,
-                        eol_colon,
-                        block,
-                    } => todo!(),
-                    SemaStmtData::Forext {
-                        forext_token,
-                        particulars,
-                        eol_colon,
-                        block,
-                    } => todo!(),
-                    SemaStmtData::While {
-                        while_token,
-                        condition,
-                        eol_colon,
-                        block,
-                    } => todo!(),
-                    SemaStmtData::DoWhile {
-                        do_token,
-                        while_token,
-                        condition,
-                        eol_colon,
-                        block,
-                    } => todo!(),
-                    SemaStmtData::IfElse {
-                        sema_if_branch,
-                        sema_elif_branches,
-                        sema_else_branch,
-                    } => {
-                        subtraces.push(
-                            LazyStmtTrace::new(
-                                val_item_trace,
-                                val_item_trace_path,
-                                LazyStmtTracePathData::IfBranch,
-                                &mut registry,
-                                stmt,
-                                LazyStmtTraceData::IfBranch {
-                                    if_regional_token: sema_if_branch.if_token(),
-                                    eol_colon_regional_token: sema_if_branch.eol_colon_token(),
-                                    stmts: sema_if_branch.stmts(),
-                                },
-                                sema_expr_region,
-                                db,
-                            )
-                            .into(),
-                        );
-                        for (elif_branch_idx, sema_elif_branch) in
-                            sema_elif_branches.iter().enumerate()
-                        {
-                            let elif_branch_idx = elif_branch_idx.try_into().unwrap();
-                            subtraces.push(
-                                LazyStmtTrace::new(
-                                    val_item_trace,
-                                    val_item_trace_path,
-                                    LazyStmtTracePathData::ElifBranch { elif_branch_idx },
-                                    &mut registry,
-                                    stmt,
-                                    LazyStmtTraceData::ElifBranch {
-                                        elif_branch_idx,
-                                        elif_regional_token: sema_elif_branch.elif_regional_token(),
-                                        eol_colon_regional_token: sema_elif_branch
-                                            .eol_colon_token(),
-                                        stmts: sema_elif_branch.stmts(),
-                                    },
-                                    sema_expr_region,
-                                    db,
-                                )
-                                .into(),
-                            );
-                        }
-                        if let Some(sema_else_branch) = sema_else_branch {
-                            subtraces.push(
-                                LazyStmtTrace::new(
-                                    val_item_trace,
-                                    val_item_trace_path,
-                                    LazyStmtTracePathData::ElseBranch,
-                                    &mut registry,
-                                    stmt,
-                                    LazyStmtTraceData::ElseBranch {
-                                        else_regional_token: sema_else_branch.else_regional_token(),
-                                        eol_colon_regional_token: sema_else_branch
-                                            .eol_colon_regional_token(),
-                                        stmts: sema_else_branch.stmts(),
-                                    },
-                                    sema_expr_region,
-                                    db,
-                                )
-                                .into(),
-                            );
-                        }
-                    }
-                    SemaStmtData::Match {
-                        match_token,
-                        match_target_sema_expr_idx,
-                        eol_with_token,
-                        sema_case_branches,
-                    } => todo!(),
-                }
-            }
-        }
-        _ => todo!(),
+    match sema_expr_region_contains_gn(db, sema_expr_region) {
+        true => match body.data(sema_expr_arena) {
+            &SemaExprData::Block { stmts } => LazyStmtTrace::from_stmts(
+                val_item_trace_path,
+                val_item_trace,
+                stmts,
+                sema_expr_region,
+                db,
+            ),
+            _ => todo!(),
+        },
+        false => match body.data(sema_expr_arena) {
+            &SemaExprData::Block { stmts } => EagerStmtTrace::from_stmts(
+                val_item_trace_path,
+                val_item_trace,
+                stmts,
+                sema_expr_region,
+                db,
+            ),
+            _ => todo!(),
+        },
     }
-    subtraces
 }

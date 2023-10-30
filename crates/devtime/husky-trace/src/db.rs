@@ -34,7 +34,7 @@ pub struct TraceJar(
     LazyStmtTracePath,
     LazyStmtTrace,
     lazy_stmt_trace_view_tokens,
-    lazy_stmt_associated_expr_traces,
+    // lazy_stmt_associated_expr_traces,
     EagerCallTracePath,
     EagerCallTrace,
     EagerExprTracePath,
@@ -42,6 +42,7 @@ pub struct TraceJar(
     EagerStmtTracePath,
     EagerStmtTrace,
     eager_stmt_associated_expr_traces,
+    eager_stmt_trace_view_tokens,
     LoopGroupTracePath,
     LoopGroupTrace,
     // helpers
