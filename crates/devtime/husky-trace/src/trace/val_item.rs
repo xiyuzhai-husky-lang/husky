@@ -47,9 +47,10 @@ fn val_item_trace_view_tokens(db: &dyn TraceDb, val_item_trace: ValItemTrace) ->
     let token_idx_range = val_item_path
         .syn_node_path(db)
         .decl_tokra_region_token_idx_range(db);
-    TraceViewTokens::new::<VoidAssociatedTraceRegistry>(
+    TraceViewTokens::new(
         val_item_path.module_path(db),
         token_idx_range,
+        VoidAssociatedTraceRegistry,
         db,
     )
 }
@@ -213,7 +214,54 @@ fn val_item_trace_subtraces(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> V
                         sema_if_branch,
                         sema_elif_branches,
                         sema_else_branch,
-                    } => todo!(),
+                    } => {
+                        subtraces.push(
+                            LazyStmtTrace::new(
+                                val_item_trace,
+                                val_item_trace_path,
+                                LazyStmtTracePathData::IfBranch,
+                                &mut registry,
+                                stmt,
+                                LazyStmtTraceData::IfBranch,
+                                sema_expr_region,
+                                db,
+                            )
+                            .into(),
+                        );
+                        for (elif_branch_idx, sema_elif_branch) in
+                            sema_elif_branches.iter().enumerate()
+                        {
+                            let elif_branch_idx = elif_branch_idx.try_into().unwrap();
+                            subtraces.push(
+                                LazyStmtTrace::new(
+                                    val_item_trace,
+                                    val_item_trace_path,
+                                    LazyStmtTracePathData::ElifBranch { elif_branch_idx },
+                                    &mut registry,
+                                    stmt,
+                                    LazyStmtTraceData::ElifBranch { elif_branch_idx },
+                                    sema_expr_region,
+                                    db,
+                                )
+                                .into(),
+                            );
+                        }
+                        if let Some(sema_else_branch) = sema_else_branch {
+                            subtraces.push(
+                                LazyStmtTrace::new(
+                                    val_item_trace,
+                                    val_item_trace_path,
+                                    LazyStmtTracePathData::ElseBranch,
+                                    &mut registry,
+                                    stmt,
+                                    LazyStmtTraceData::ElseBranch,
+                                    sema_expr_region,
+                                    db,
+                                )
+                                .into(),
+                            );
+                        }
+                    }
                     SemaStmtData::Match {
                         match_token,
                         match_target_sema_expr_idx,

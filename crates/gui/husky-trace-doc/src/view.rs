@@ -89,7 +89,8 @@ where
             let mut new_line = false;
             for token_data in entry.view_data().tokens_data() {
                 if new_line {
-                    todo!()
+                    // todo: add proper indent
+                    ui.end_row();
                 }
                 ui.spacing_mut().item_spacing.x = match token_data.separation_after() {
                     SeparationAfter::SameLine { spaces } => (spaces as f32) * self.glyph_width,

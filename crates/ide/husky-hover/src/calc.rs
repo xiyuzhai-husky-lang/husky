@@ -130,6 +130,7 @@ impl<'a> HoverResultCalculator<'a> {
                 TokenInfoData::Todo => format!("todo"),
                 TokenInfoData::Unreachable => format!("unreachable"),
                 TokenInfoData::SemaPrefixTypeOpr => format!("SemaPrefixTypeOpr"),
+                TokenInfoData::CallPar => format!("call par"),
             },
             None => format!(""),
         };

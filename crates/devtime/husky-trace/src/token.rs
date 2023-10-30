@@ -19,12 +19,13 @@ impl TraceViewTokens {
     pub(crate) fn new<AssociatedTraceRegistry>(
         module_path: ModulePath,
         token_idx_range: TokenIdxRange,
+        registry: AssociatedTraceRegistry,
         db: &dyn TraceDb,
     ) -> Self
     where
         AssociatedTraceRegistry: IsAssociatedTraceRegistry,
     {
-        let mut builder = TraceViewTokensBuilder::<AssociatedTraceRegistry>::new(db, module_path);
+        let mut builder = TraceViewTokensBuilder::new(db, module_path, registry);
         builder.generate_tokens(token_idx_range);
         builder.finish()
     }
@@ -47,7 +48,11 @@ impl<'a, AssociatedTraceRegistry> TraceViewTokensBuilder<'a, AssociatedTraceRegi
 where
     AssociatedTraceRegistry: IsAssociatedTraceRegistry,
 {
-    fn new(db: &'a dyn TraceDb, module_path: ModulePath) -> Self {
+    fn new(
+        db: &'a dyn TraceDb,
+        module_path: ModulePath,
+        associated_trace_registry: AssociatedTraceRegistry,
+    ) -> Self {
         // db.text
         Self {
             db,
@@ -56,7 +61,7 @@ where
             text: module_path.text(db),
             tokens_data: vec![],
             sources: vec![],
-            associated_trace_registry: Default::default(),
+            associated_trace_registry,
         }
     }
 
@@ -80,7 +85,7 @@ where
         let associated_trace_id = src
             .map(|src| {
                 self.associated_trace_registry
-                    .get_or_issue_associated_trace_id(src)
+                    .get_or_issue_associated_trace_id(src, db)
             })
             .flatten();
         // todo: handle inline comments
