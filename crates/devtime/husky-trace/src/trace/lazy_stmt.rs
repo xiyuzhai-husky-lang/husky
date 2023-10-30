@@ -3,6 +3,7 @@ use crate::registry::{
     associated_trace::IsAssociatedTraceRegistry,
     trace_path::{TracePathDisambiguator, TracePathRegistry},
 };
+use husky_entity_path::PrincipalEntityPath;
 use husky_hir_lazy_expr::HirLazyStmtIdx;
 use husky_hir_lazy_expr::{builder::hir_lazy_expr_region_with_source_map, HirLazyExprRegion};
 use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprRegion, SemaStmtIdx};
@@ -17,6 +18,14 @@ pub struct LazyStmtTracePath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[enum_class::from_variants]
+pub enum LazyStmtTraceBiologicalParentPath {
+    ValItem(ValItemTracePath),
+    LazyCall(LazyCallTracePath),
+    LazyStmt(LazyStmtTracePath),
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum LazyStmtTracePathData {
     Let,
     Return,
@@ -24,14 +33,9 @@ pub enum LazyStmtTracePathData {
     Assert,
     Break,
     Eval,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[enum_class::from_variants]
-pub enum LazyStmtTraceBiologicalParentPath {
-    ValItem(ValItemTracePath),
-    LazyCall(LazyCallTracePath),
-    LazyStmt(LazyStmtTracePath),
+    IfBranch,
+    ElifBranch { elif_branch_idx: u8 },
+    ElseBranch,
 }
 
 impl LazyStmtTracePath {
@@ -67,7 +71,9 @@ pub struct LazyStmtTrace {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LazyStmtTraceData {
     BasicStmt,
-    Branch,
+    IfBranch,
+    ElifBranch { elif_branch_idx: u8 },
+    ElseBranch,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -111,7 +117,9 @@ impl LazyStmtTrace {
         let tokens = lazy_stmt_trace_view_tokens(db, self);
         let have_subtraces = match self.data(db) {
             LazyStmtTraceData::BasicStmt => false,
-            LazyStmtTraceData::Branch => todo!(),
+            LazyStmtTraceData::IfBranch => true,
+            LazyStmtTraceData::ElifBranch { elif_branch_idx } => true,
+            LazyStmtTraceData::ElseBranch => true,
         };
         TraceViewData::new(tokens.data().to_vec(), have_subtraces)
     }
@@ -119,7 +127,9 @@ impl LazyStmtTrace {
     pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
         match self.data(db) {
             LazyStmtTraceData::BasicStmt => unreachable!("shouldn't be here"),
-            LazyStmtTraceData::Branch => todo!(),
+            LazyStmtTraceData::IfBranch => todo!(),
+            LazyStmtTraceData::ElifBranch { elif_branch_idx } => todo!(),
+            LazyStmtTraceData::ElseBranch => todo!(),
         }
     }
 
@@ -136,33 +146,76 @@ fn lazy_stmt_trace_view_tokens(db: &dyn TraceDb, trace: LazyStmtTrace) -> TraceV
     let region_path = sema_expr_region.path(db);
     let token_idx_range = sema_expr_range_region.data(db)[sema_stmt_idx]
         .token_idx_range(region_path.regional_token_idx_base(db).unwrap());
-    TraceViewTokens::new::<LazyStmtAssociatedTraceRegistry>(
-        region_path.module_path(db),
-        token_idx_range,
-        db,
-    )
+    let registry = LazyStmtAssociatedTraceRegistry::new(trace, sema_expr_region);
+    TraceViewTokens::new(region_path.module_path(db), token_idx_range, registry, db)
 }
 
-#[derive(Default)]
 struct LazyStmtAssociatedTraceRegistry {
+    parent_trace: LazyStmtTrace,
+    sema_expr_region: SemaExprRegion,
     lazy_expr_trace_path_registry: TracePathRegistry<LazyExprTracePathData>,
-    lazy_expr_traces_issued: VecPairMap<SemaExprIdx, LazyExprTrace>,
+    sema_expr_traces_issued: VecPairMap<SemaExprIdx, LazyExprTrace>,
+    syn_pattern_expr_traces_issued: VecPairMap<SynPatternExprIdx, LazyExprTrace>,
+}
+
+impl LazyStmtAssociatedTraceRegistry {
+    fn new(parent_trace: LazyStmtTrace, sema_expr_region: SemaExprRegion) -> Self {
+        LazyStmtAssociatedTraceRegistry {
+            parent_trace,
+            sema_expr_region,
+            lazy_expr_trace_path_registry: Default::default(),
+            sema_expr_traces_issued: Default::default(),
+            syn_pattern_expr_traces_issued: Default::default(),
+        }
+    }
 }
 
 impl IsAssociatedTraceRegistry for LazyStmtAssociatedTraceRegistry {
-    fn get_or_issue_associated_trace(&mut self, source: TokenInfoSource) -> Option<Trace> {
+    fn get_or_issue_associated_trace(
+        &mut self,
+        source: TokenInfoSource,
+        db: &dyn TraceDb,
+    ) -> Option<Trace> {
         match source {
             TokenInfoSource::UseExpr(_) => None,
             TokenInfoSource::SemaExpr(sema_expr_idx) => Some(
-                self.lazy_expr_traces_issued
+                self.sema_expr_traces_issued
                     .get_value_copied_or_insert_with(sema_expr_idx, || {
-                        let _ = todo!();
-                        todo!()
+                        LazyExprTrace::new(
+                            self.parent_trace.path(db),
+                            self.parent_trace,
+                            sema_expr_idx,
+                            self.sema_expr_region,
+                            &mut self.lazy_expr_trace_path_registry,
+                            db,
+                        )
                     })
                     .into(),
             ),
-            TokenInfoSource::SynPrincipalEntityPathExpr(_) => None,
-            TokenInfoSource::PatternExpr(_) => todo!(),
+            TokenInfoSource::SynPrincipalEntityPathExpr(
+                syn_principal_entity_path_expr_idx,
+                syn_principal_entity_path,
+            ) => match syn_principal_entity_path {
+                PrincipalEntityPath::Module(_) => None,
+                PrincipalEntityPath::MajorItem(major_item_path) => {
+                    Trace::from_major_item_path(major_item_path, db)
+                }
+                PrincipalEntityPath::TypeVariant(_) => None,
+            },
+            TokenInfoSource::PatternExpr(syn_pattern_expr_idx) => Some(
+                self.syn_pattern_expr_traces_issued
+                    .get_value_copied_or_insert_with(syn_pattern_expr_idx, || {
+                        LazyExprTrace::new(
+                            self.parent_trace.path(db),
+                            self.parent_trace,
+                            syn_pattern_expr_idx,
+                            self.sema_expr_region,
+                            &mut self.lazy_expr_trace_path_registry,
+                            db,
+                        )
+                    })
+                    .into(),
+            ),
             TokenInfoSource::TemplateParameter(_) => None,
             TokenInfoSource::AstIdentifiable => None,
         }

@@ -13,19 +13,19 @@ pub enum EagerExprTracePathData {}
 pub struct EagerExprTrace {
     #[id]
     pub path: EagerExprTracePath,
-    pub data: EagerExprTraceData,
     pub biological_parent: EagerExprTraceBiologicalParent,
+    pub data: EagerExprTraceData,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum EagerExprTraceBiologicalParent {
+    EagerStmt(EagerStmtTrace),
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum EagerExprTraceData {
     Expr(SemaExprIdx),
     PatternExpr(SynPatternExprIdx),
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum EagerExprTraceBiologicalParent {
-    EagerStmt(EagerStmtTrace),
 }
 
 impl EagerExprTrace {

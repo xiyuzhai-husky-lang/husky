@@ -476,8 +476,23 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                     }
                 }
             }
-            SemaExprData::FunctionFnCall { .. } => (),
-            SemaExprData::FunctionGnCall { .. } => (),
+            &SemaExprData::FunctionFnCall {
+                lpar_regional_token_idx,
+                rpar_regional_token_idx,
+                ..
+            } => {
+                self.add(
+                    lpar_regional_token_idx,
+                    sema_expr_idx,
+                    TokenInfoData::CallPar,
+                );
+                self.add(
+                    rpar_regional_token_idx,
+                    sema_expr_idx,
+                    TokenInfoData::CallPar,
+                );
+            }
+            SemaExprData::FunctionGnCall { .. } => todo!(),
             SemaExprData::Ritchie { .. } => (),
             SemaExprData::Sorry { regional_token_idx } => todo!(),
             SemaExprData::Todo { regional_token_idx } => {
@@ -550,23 +565,29 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
         item_path_expr: &SynPrincipalEntityPathExpr,
     ) {
         match item_path_expr {
-            SynPrincipalEntityPathExpr::Root {
+            &SynPrincipalEntityPathExpr::Root {
                 principal_entity_path,
                 path_name_token,
                 ..
             } => self.add(
                 path_name_token.regional_token_idx(),
-                item_path_expr_idx,
-                TokenInfoData::Entity((*principal_entity_path).into()),
+                TokenInfoSource::SynPrincipalEntityPathExpr(
+                    item_path_expr_idx,
+                    principal_entity_path,
+                ),
+                TokenInfoData::Entity(principal_entity_path.into()),
             ),
-            SynPrincipalEntityPathExpr::Subitem {
-                path: Ok(path),
+            &SynPrincipalEntityPathExpr::Subitem {
+                path: Ok(principal_entity_path),
                 ident_token: Ok(ident_token),
                 ..
             } => self.add(
                 ident_token.regional_token_idx(),
-                item_path_expr_idx,
-                TokenInfoData::Entity((*path).into()),
+                TokenInfoSource::SynPrincipalEntityPathExpr(
+                    item_path_expr_idx,
+                    principal_entity_path,
+                ),
+                TokenInfoData::Entity((principal_entity_path).into()),
             ),
             SynPrincipalEntityPathExpr::Subitem { .. } => (),
         }

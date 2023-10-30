@@ -60,9 +60,10 @@ pub(crate) fn submodule_view_tokens(
     let token_idx_range = submodule_path
         .syn_node_path(db)
         .decl_tokra_region_token_idx_range(db);
-    TraceViewTokens::new::<VoidAssociatedTraceRegistry>(
+    TraceViewTokens::new(
         submodule_path.parent(db),
         token_idx_range,
+        VoidAssociatedTraceRegistry,
         db,
     )
 }

@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_kind::EntityKind;
 use husky_entity_kind::*;
-use husky_entity_path::{EntityPath, ItemPath};
+use husky_entity_path::{EntityPath, ItemPath, PrincipalEntityPath};
 #[cfg(feature = "protocol_support")]
 use husky_entity_protocol::*;
 use husky_entity_syn_tree::{OnceUseRuleIdx, OnceUseRuleState, UseExprIdx};
@@ -26,7 +26,7 @@ pub struct TokenInfo {
 pub enum TokenInfoSource {
     UseExpr(UseExprIdx),
     SemaExpr(SemaExprIdx),
-    SynPrincipalEntityPathExpr(SynPrincipalEntityPathExprIdx),
+    SynPrincipalEntityPathExpr(SynPrincipalEntityPathExprIdx, PrincipalEntityPath),
     PatternExpr(SynPatternExprIdx),
     // todo: add #[skip] attribute
     TemplateParameter(SynCurrentSymbolIdx),
@@ -85,6 +85,7 @@ pub enum TokenInfoData {
     Todo,
     Unreachable,
     SemaPrefixTypeOpr,
+    CallPar,
 }
 
 #[cfg(feature = "protocol_support")]
@@ -142,6 +143,7 @@ impl TokenInfoData {
             TokenInfoData::Todo => TokenClass::Todo,
             TokenInfoData::Unreachable => TokenClass::Unreachable,
             TokenInfoData::SemaPrefixTypeOpr => TokenClass::TypeEntity,
+            TokenInfoData::CallPar => TokenClass::Punctuation,
         }
     }
 }
