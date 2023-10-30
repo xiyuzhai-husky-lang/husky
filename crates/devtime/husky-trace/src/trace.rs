@@ -72,16 +72,16 @@ impl Trace {
         }
     }
 
-    pub fn associated_expr_traces<'a>(
-        self,
-        db: &'a dyn TraceDb,
-    ) -> Option<&'a [(SemaExprIdx, Trace)]> {
-        match self {
-            Trace::LazyStmt(trace) => Some(trace.associated_expr_traces(db)),
-            Trace::EagerStmt(trace) => Some(trace.associated_expr_traces(db)),
-            _ => None,
-        }
-    }
+    // pub fn associated_expr_traces<'a>(
+    //     self,
+    //     db: &'a dyn TraceDb,
+    // ) -> Option<&'a [(SemaExprIdx, Trace)]> {
+    //     match self {
+    //         Trace::LazyStmt(trace) => Some(trace.associated_expr_traces(db)),
+    //         Trace::EagerStmt(trace) => Some(trace.associated_expr_traces(db)),
+    //         _ => None,
+    //     }
+    // }
 
     pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
         match self {
