@@ -136,7 +136,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                         self.visit_syn_expr_result(&elif_branch.eol_colon);
                     }
                     if let Some(else_branch) = else_branch {
-                        self.visit_syn_expr_result(&else_branch.eol_colon);
+                        self.visit_syn_expr_result(&else_branch.eol_colon_token);
                     }
                 }
                 SynStmtData::Match {

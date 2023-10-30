@@ -5,7 +5,7 @@ use husky_defn_ast::DefnAst;
 pub struct SynIfBranch {
     pub if_token: IfRegionalToken,
     pub condition: SynExprResult<SynExprIdx>,
-    pub eol_colon: SynExprResult<EolRegionalToken>,
+    pub eol_colon: SynExprResult<EolColonRegionalToken>,
     pub stmts: SynStmtIdxRange,
 }
 
@@ -14,7 +14,7 @@ impl SynIfBranch {
         self.condition.as_ref().copied()
     }
 
-    pub fn eol_colon_token(&self) -> Result<EolRegionalToken, &SynExprError> {
+    pub fn eol_colon_token(&self) -> Result<EolColonRegionalToken, &SynExprError> {
         self.eol_colon.as_ref().copied()
     }
 
@@ -27,7 +27,7 @@ impl SynIfBranch {
 pub struct SynElifBranch {
     pub elif_token: ElifRegionalToken,
     pub condition: SynExprResult<SynExprIdx>,
-    pub eol_colon: SynExprResult<EolRegionalToken>,
+    pub eol_colon: SynExprResult<EolColonRegionalToken>,
     pub stmts: SynStmtIdxRange,
 }
 
@@ -36,7 +36,7 @@ impl SynElifBranch {
         self.condition.as_ref().copied()
     }
 
-    pub fn eol_colon(&self) -> Result<EolRegionalToken, &SynExprError> {
+    pub fn eol_colon(&self) -> Result<EolColonRegionalToken, &SynExprError> {
         self.eol_colon.as_ref().copied()
     }
 
@@ -48,11 +48,19 @@ impl SynElifBranch {
 #[derive(Debug, PartialEq, Eq)]
 pub struct SynElseBranch {
     pub else_token: ElseRegionalToken,
-    pub eol_colon: SynExprResult<EolRegionalToken>,
+    pub eol_colon_token: SynExprResult<EolColonRegionalToken>,
     pub stmts: SynStmtIdxRange,
 }
 
 impl SynElseBranch {
+    pub fn eol_colon_token(&self) -> Result<&EolColonRegionalToken, &SynExprError> {
+        self.eol_colon_token.as_ref()
+    }
+
+    pub fn else_token(&self) -> ElseRegionalToken {
+        self.else_token
+    }
+
     pub fn stmts(&self) -> SynStmtIdxRange {
         self.stmts
     }
@@ -127,7 +135,8 @@ impl<'a> SynStmtContext<'a> {
                 let mut parser = self.expr_parser(token_group_idx);
                 Some(SynElseBranch {
                     else_token: parser.try_parse_option().unwrap().unwrap(),
-                    eol_colon: parser.try_parse_expected(OriginalSynExprError::ExpectedEolColon),
+                    eol_colon_token: parser
+                        .try_parse_expected(OriginalSynExprError::ExpectedEolColon),
                     stmts: self.parse_stmts(body.expect("should be checked in `husky_ast`")),
                 })
             }

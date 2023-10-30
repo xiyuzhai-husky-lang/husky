@@ -1,4 +1,6 @@
-use husky_regional_token::{ElifRegionalToken, ElseRegionalToken, IfRegionalToken};
+use husky_regional_token::{
+    ElifRegionalToken, ElseRegionalToken, EolColonRegionalToken, IfRegionalToken,
+};
 
 use super::*;
 
@@ -6,7 +8,7 @@ use super::*;
 pub struct SemaIfBranch {
     if_token: IfRegionalToken,
     condition: SemaExprIdx,
-    eol_colon: EolRegionalToken,
+    eol_colon_token: EolColonRegionalToken,
     stmts: SemaStmtIdxRange,
 }
 
@@ -15,8 +17,8 @@ impl SemaIfBranch {
         self.condition
     }
 
-    pub fn eol_colon_token(&self) -> EolRegionalToken {
-        self.eol_colon
+    pub fn eol_colon_token(&self) -> EolColonRegionalToken {
+        self.eol_colon_token
     }
 
     pub fn stmts(&self) -> SemaStmtIdxRange {
@@ -38,7 +40,7 @@ impl<'a> SemaExprEngine<'a> {
             if_token: syn_if_branch.if_token,
             condition: self
                 .build_sema_expr(*syn_if_branch.condition.as_ref()?, ExpectConditionType),
-            eol_colon: *syn_if_branch.eol_colon.as_ref()?,
+            eol_colon_token: *syn_if_branch.eol_colon.as_ref()?,
             stmts: self.build_sema_branch(syn_if_branch.stmts, merger),
         })
     }
@@ -48,7 +50,7 @@ impl<'a> SemaExprEngine<'a> {
 pub struct SemaElifBranch {
     elif_token: ElifRegionalToken,
     condition: SemaExprIdx,
-    eol_colon: EolRegionalToken,
+    eol_colon_token: EolColonRegionalToken,
     stmts: SemaStmtIdxRange,
 }
 
@@ -57,12 +59,16 @@ impl SemaElifBranch {
         self.condition
     }
 
-    pub fn eol_colon(&self) -> EolRegionalToken {
-        self.eol_colon
+    pub fn eol_colon_token(&self) -> EolColonRegionalToken {
+        self.eol_colon_token
     }
 
     pub fn stmts(&self) -> SemaStmtIdxRange {
         self.stmts
+    }
+
+    pub fn elif_regional_token(&self) -> ElifRegionalToken {
+        self.elif_token
     }
 }
 
@@ -76,7 +82,7 @@ impl<'a> SemaExprEngine<'a> {
             elif_token: syn_elif_branch.elif_token,
             condition: self
                 .build_sema_expr(*syn_elif_branch.condition.as_ref()?, ExpectConditionType),
-            eol_colon: *syn_elif_branch.eol_colon.as_ref()?,
+            eol_colon_token: *syn_elif_branch.eol_colon.as_ref()?,
             stmts: self.build_sema_branch(syn_elif_branch.stmts, merger),
         })
     }
@@ -84,14 +90,22 @@ impl<'a> SemaExprEngine<'a> {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaElseBranch {
-    pub else_token: ElseRegionalToken,
-    pub eol_colon: EolRegionalToken,
+    pub else_regional_token: ElseRegionalToken,
+    pub eol_colon_regional_token: EolColonRegionalToken,
     pub stmts: SemaStmtIdxRange,
 }
 
 impl SemaElseBranch {
     pub fn stmts(&self) -> SemaStmtIdxRange {
         self.stmts
+    }
+
+    pub fn else_regional_token(&self) -> ElseRegionalToken {
+        self.else_regional_token
+    }
+
+    pub fn eol_colon_regional_token(&self) -> EolColonRegionalToken {
+        self.eol_colon_regional_token
     }
 }
 
@@ -146,8 +160,8 @@ impl<'a> SemaExprEngine<'a> {
         merger: &mut BranchTypeMerger<Expectation>,
     ) -> SynExprResultRef<'a, SemaElseBranch> {
         Ok(SemaElseBranch {
-            else_token: syn_else_branch.else_token,
-            eol_colon: *syn_else_branch.eol_colon.as_ref()?,
+            else_regional_token: syn_else_branch.else_token,
+            eol_colon_regional_token: *syn_else_branch.eol_colon_token.as_ref()?,
             stmts: self.build_sema_branch(syn_else_branch.stmts, merger),
         })
     }

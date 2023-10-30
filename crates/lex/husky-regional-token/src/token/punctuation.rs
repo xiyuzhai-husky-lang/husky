@@ -246,6 +246,42 @@ pub struct EolColonRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
 
+impl EolColonRegionalToken {
+    pub fn regional_token_idx(self) -> RegionalTokenIdx {
+        self.regional_token_idx
+    }
+}
+
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for EolColonRegionalToken
+where
+    Context: RegionalTokenStreamParser<'a>,
+{
+    type Error = TokenDataError;
+
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenDataResult<Option<Self>> {
+        let token_stream = ctx.token_stream_mut();
+        if let Some((regional_token_idx, token)) = token_stream.next_indexed() {
+            match token {
+                TokenData::Punctuation(Punctuation::COLON) => match token_stream.peek() {
+                    Some(_) => Ok(None),
+                    None => Ok(Some(EolColonRegionalToken { regional_token_idx })),
+                },
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
 pub struct EolSemicolonRegionalToken {
