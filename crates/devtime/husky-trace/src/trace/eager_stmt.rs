@@ -3,8 +3,8 @@ use husky_hir_eager_expr::{
     builder::hir_eager_expr_region_with_source_map, HirEagerExprRegion, HirEagerStmtIdx,
 };
 use husky_regional_token::{
-    ElifRegionalToken, ElseRegionalToken, EolColonRegionalToken, IfRegionalToken,
-    RegionalTokenIdxRange,
+    ElifRegionalToken, ElseRegionalToken, EolColonRegionalToken, EolRegionalToken, IfRegionalToken,
+    RegionalTokenIdxRange, StmtForRegionalToken,
 };
 use husky_sema_expr::{
     helpers::range::sema_expr_range_region, SemaExprRegion, SemaStmtData, SemaStmtIdx,
@@ -43,6 +43,8 @@ pub enum EagerStmtTracePathData {
     IfBranch,
     ElifBranch { elif_branch_idx: u8 },
     ElseBranch,
+    ForIn,
+    ForBetween,
 }
 
 impl EagerStmtTracePath {
@@ -102,6 +104,16 @@ pub enum EagerStmtTraceData {
         eol_colon_regional_token: EolColonRegionalToken,
         stmts: SemaStmtIdxRange,
     },
+    ForIn {
+        for_regional_token: StmtForRegionalToken,
+        eol_colon_regional_token: EolRegionalToken,
+        stmts: SemaStmtIdxRange,
+    },
+    ForBetween {
+        for_regional_token: StmtForRegionalToken,
+        eol_colon_regional_token: EolRegionalToken,
+        stmts: SemaStmtIdxRange,
+    },
 }
 
 impl EagerStmtTrace {
@@ -140,6 +152,8 @@ impl EagerStmtTrace {
             EagerStmtTraceData::IfBranch { .. } => true,
             EagerStmtTraceData::ElifBranch { .. } => true,
             EagerStmtTraceData::ElseBranch { .. } => true,
+            EagerStmtTraceData::ForBetween { .. } => true,
+            EagerStmtTraceData::ForIn { .. } => true,
         };
         TraceViewData::new(tokens.data().to_vec(), have_subtraces)
     }
@@ -191,6 +205,22 @@ fn eager_stmt_trace_view_tokens(db: &dyn TraceDb, trace: EagerStmtTrace) -> Trac
             ..
         } => RegionalTokenIdxRange::new_closed(
             else_regional_token.regional_token_idx(),
+            eol_colon_regional_token.regional_token_idx(),
+        ),
+        EagerStmtTraceData::ForBetween {
+            for_regional_token,
+            eol_colon_regional_token,
+            ..
+        } => RegionalTokenIdxRange::new_closed(
+            for_regional_token.regional_token_idx(),
+            eol_colon_regional_token.regional_token_idx(),
+        ),
+        EagerStmtTraceData::ForIn {
+            for_regional_token,
+            eol_colon_regional_token,
+            ..
+        } => RegionalTokenIdxRange::new_closed(
+            for_regional_token.regional_token_idx(),
             eol_colon_regional_token.regional_token_idx(),
         ),
     };
@@ -316,19 +346,50 @@ impl EagerStmtTrace {
                     );
                     subtraces.push(eager_stmt_trace.into())
                 }
-                SemaStmtData::ForBetween {
+                &SemaStmtData::ForBetween {
                     for_token,
-                    particulars,
-                    for_loop_var_symbol_idx,
                     eol_colon,
                     block,
-                } => todo!(),
-                SemaStmtData::ForIn {
+                    ..
+                } => subtraces.push(
+                    EagerStmtTrace::new(
+                        parent_trace,
+                        parent_trace_path,
+                        EagerStmtTracePathData::ForBetween,
+                        &mut registry,
+                        stmt,
+                        EagerStmtTraceData::ForBetween {
+                            for_regional_token: for_token,
+                            eol_colon_regional_token: eol_colon,
+                            stmts: block,
+                        },
+                        sema_expr_region,
+                        db,
+                    )
+                    .into(),
+                ),
+                &SemaStmtData::ForIn {
                     for_token,
                     condition,
                     eol_colon,
                     block,
-                } => todo!(),
+                } => subtraces.push(
+                    EagerStmtTrace::new(
+                        parent_trace,
+                        parent_trace_path,
+                        EagerStmtTracePathData::ForIn,
+                        &mut registry,
+                        stmt,
+                        EagerStmtTraceData::ForIn {
+                            for_regional_token: for_token,
+                            eol_colon_regional_token: eol_colon,
+                            stmts: block,
+                        },
+                        sema_expr_region,
+                        db,
+                    )
+                    .into(),
+                ),
                 SemaStmtData::Forext {
                     forext_token,
                     particulars,
