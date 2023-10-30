@@ -68,6 +68,7 @@ fn val_item_trace_subtraces(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> V
     let sema_expr_region = db.sema_expr_region(syn_expr_region);
     let sema_expr_region_data = sema_expr_region.data(db);
     // let body = sema_expr_region_data.sema_expr_roots(body);
+    // todo: eager traces
     let body: SemaExprIdx = sema_expr_region_data.syn_root_to_sema_expr_idx(body);
     let mut registry = TracePathRegistry::<LazyStmtTracePathData>::default();
     let mut subtraces: Vec<Trace> = vec![];
