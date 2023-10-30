@@ -159,78 +159,9 @@ impl EagerStmtTrace {
     }
 
     pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
-        todo!()
+        eager_stmt_trace_subtraces(db, self)
     }
 
-    pub fn associated_expr_traces<'a>(self, db: &'a dyn TraceDb) -> &'a [(SemaExprIdx, Trace)] {
-        eager_stmt_associated_expr_traces(db, self)
-    }
-}
-
-#[salsa::tracked(jar = TraceJar, return_ref)]
-fn eager_stmt_associated_expr_traces(
-    db: &dyn TraceDb,
-    trace: EagerStmtTrace,
-) -> VecPairMap<SemaExprIdx, Trace> {
-    todo!()
-}
-
-#[salsa::tracked(jar = TraceJar, return_ref)]
-fn eager_stmt_trace_view_tokens(db: &dyn TraceDb, trace: EagerStmtTrace) -> TraceViewTokens {
-    let sema_stmt_idx = trace.sema_stmt_idx(db);
-    let sema_expr_region = trace.sema_expr_region(db);
-    let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
-    let region_path = sema_expr_region.path(db);
-    let regional_token_idx_range = match trace.data(db) {
-        EagerStmtTraceData::BasicStmt => sema_expr_range_region.data(db)[sema_stmt_idx],
-        EagerStmtTraceData::IfBranch {
-            if_regional_token,
-            eol_colon_regional_token,
-            ..
-        } => RegionalTokenIdxRange::new_closed(
-            if_regional_token.regional_token_idx(),
-            eol_colon_regional_token.regional_token_idx(),
-        ),
-        EagerStmtTraceData::ElifBranch {
-            elif_regional_token,
-            eol_colon_regional_token,
-            ..
-        } => RegionalTokenIdxRange::new_closed(
-            elif_regional_token.regional_token_idx(),
-            eol_colon_regional_token.regional_token_idx(),
-        ),
-        EagerStmtTraceData::ElseBranch {
-            else_regional_token,
-            eol_colon_regional_token,
-            ..
-        } => RegionalTokenIdxRange::new_closed(
-            else_regional_token.regional_token_idx(),
-            eol_colon_regional_token.regional_token_idx(),
-        ),
-        EagerStmtTraceData::ForBetween {
-            for_regional_token,
-            eol_colon_regional_token,
-            ..
-        } => RegionalTokenIdxRange::new_closed(
-            for_regional_token.regional_token_idx(),
-            eol_colon_regional_token.regional_token_idx(),
-        ),
-        EagerStmtTraceData::ForIn {
-            for_regional_token,
-            eol_colon_regional_token,
-            ..
-        } => RegionalTokenIdxRange::new_closed(
-            for_regional_token.regional_token_idx(),
-            eol_colon_regional_token.regional_token_idx(),
-        ),
-    };
-    let token_idx_range =
-        regional_token_idx_range.token_idx_range(region_path.regional_token_idx_base(db).unwrap());
-    let registry = EagerStmtAssociatedTraceRegistry::new(trace, sema_expr_region);
-    TraceViewTokens::new(region_path.module_path(db), token_idx_range, registry, db)
-}
-
-impl EagerStmtTrace {
     pub(crate) fn from_stmts(
         parent_trace_path: impl Into<EagerStmtTraceBiologicalParentPath>,
         parent_trace: impl Into<EagerStmtTraceBiologicalParent>,
@@ -484,6 +415,75 @@ impl EagerStmtTrace {
         }
         subtraces
     }
+}
+
+#[salsa::tracked(jar = TraceJar, return_ref)]
+fn eager_stmt_trace_subtraces(db: &dyn TraceDb, trace: EagerStmtTrace) -> Vec<Trace> {
+    match trace.data(db) {
+        EagerStmtTraceData::BasicStmt => unreachable!(),
+        EagerStmtTraceData::IfBranch { stmts, .. }
+        | EagerStmtTraceData::ElifBranch { stmts, .. }
+        | EagerStmtTraceData::ElseBranch { stmts, .. }
+        | EagerStmtTraceData::ForIn { stmts, .. }
+        | EagerStmtTraceData::ForBetween { stmts, .. } => {
+            EagerStmtTrace::from_stmts(trace.path(db), trace, stmts, trace.sema_expr_region(db), db)
+        }
+    }
+}
+
+#[salsa::tracked(jar = TraceJar, return_ref)]
+fn eager_stmt_trace_view_tokens(db: &dyn TraceDb, trace: EagerStmtTrace) -> TraceViewTokens {
+    let sema_stmt_idx = trace.sema_stmt_idx(db);
+    let sema_expr_region = trace.sema_expr_region(db);
+    let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
+    let region_path = sema_expr_region.path(db);
+    let regional_token_idx_range = match trace.data(db) {
+        EagerStmtTraceData::BasicStmt => sema_expr_range_region.data(db)[sema_stmt_idx],
+        EagerStmtTraceData::IfBranch {
+            if_regional_token,
+            eol_colon_regional_token,
+            ..
+        } => RegionalTokenIdxRange::new_closed(
+            if_regional_token.regional_token_idx(),
+            eol_colon_regional_token.regional_token_idx(),
+        ),
+        EagerStmtTraceData::ElifBranch {
+            elif_regional_token,
+            eol_colon_regional_token,
+            ..
+        } => RegionalTokenIdxRange::new_closed(
+            elif_regional_token.regional_token_idx(),
+            eol_colon_regional_token.regional_token_idx(),
+        ),
+        EagerStmtTraceData::ElseBranch {
+            else_regional_token,
+            eol_colon_regional_token,
+            ..
+        } => RegionalTokenIdxRange::new_closed(
+            else_regional_token.regional_token_idx(),
+            eol_colon_regional_token.regional_token_idx(),
+        ),
+        EagerStmtTraceData::ForBetween {
+            for_regional_token,
+            eol_colon_regional_token,
+            ..
+        } => RegionalTokenIdxRange::new_closed(
+            for_regional_token.regional_token_idx(),
+            eol_colon_regional_token.regional_token_idx(),
+        ),
+        EagerStmtTraceData::ForIn {
+            for_regional_token,
+            eol_colon_regional_token,
+            ..
+        } => RegionalTokenIdxRange::new_closed(
+            for_regional_token.regional_token_idx(),
+            eol_colon_regional_token.regional_token_idx(),
+        ),
+    };
+    let token_idx_range =
+        regional_token_idx_range.token_idx_range(region_path.regional_token_idx_base(db).unwrap());
+    let registry = EagerStmtAssociatedTraceRegistry::new(trace, sema_expr_region);
+    TraceViewTokens::new(region_path.module_path(db), token_idx_range, registry, db)
 }
 
 struct EagerStmtAssociatedTraceRegistry {
