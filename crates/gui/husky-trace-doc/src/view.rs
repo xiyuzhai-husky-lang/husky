@@ -1,9 +1,11 @@
 use crate::*;
-use egui::{Color32, FontFamily, InnerResponse, Label, RichText, Sense, Stroke, TextStyle, Widget};
+use egui::{
+    Color32, FontFamily, InnerResponse, Label, Margin, RichText, Sense, Stroke, TextStyle, Widget,
+};
 use husky_trace_protocol::{
     cache::{TraceCache, TraceCacheEntry},
     id::TraceId,
-    view::action::TraceViewActionBuffer,
+    view::{action::TraceViewActionBuffer, TraceViewTokenData},
 };
 use husky_visual_protocol::IsVisualComponent;
 
@@ -46,34 +48,38 @@ where
         use egui::{InnerResponse, Margin};
         ui.vertical(|ui| {
             for &trace_id in trace_ids {
-                let entry = &self.trace_cache[trace_id];
-                self.render_trace(trace_id, entry, ui);
-                if entry.expanded()
-                    && let Some(subtrace_ids) = entry.subtrace_ids()
-                {
-                    egui::Frame::none()
-                        .inner_margin(Margin {
-                            left: 22.0,
-                            right: 0.,
-                            top: 0.,
-                            bottom: 0.,
-                        })
-                        .show(ui, |ui| self.render_traces(subtrace_ids, ui));
-                }
+                self.render_trace(trace_id, ui)
             }
         })
     }
 
-    fn render_trace(&mut self, trace_id: TraceId, entry: &TraceCacheEntry, ui: &mut egui::Ui)
+    fn render_trace(&mut self, trace_id: TraceId, ui: &mut egui::Ui)
     where
         VisualComponent: IsVisualComponent,
     {
-        use husky_trace_protocol::view::SeparationAfter;
+        let entry = &self.trace_cache[trace_id];
+        self.render_trace_aux(trace_id, entry, ui);
+        if entry.expanded()
+            && let Some(subtrace_ids) = entry.subtrace_ids()
+        {
+            egui::Frame::none()
+                .inner_margin(Margin {
+                    left: 22.0,
+                    right: 0.,
+                    top: 0.,
+                    bottom: 0.,
+                })
+                .show(ui, |ui| self.render_traces(subtrace_ids, ui));
+        }
+        for &associated_trace_id in entry.associated_trace_ids() {
+            self.render_trace(associated_trace_id, ui)
+        }
+    }
 
-        let token_foreground_colors = self
-            .settings
-            .code_editor_settings()
-            .token_foreground_colors();
+    fn render_trace_aux(&mut self, trace_id: TraceId, entry: &TraceCacheEntry, ui: &mut egui::Ui)
+    where
+        VisualComponent: IsVisualComponent,
+    {
         ui.horizontal(|ui| {
             if entry.view_data().have_subtraces() {
                 let button_text = match entry.expanded() {
@@ -88,31 +94,54 @@ where
             }
             let mut new_line = false;
             for token_data in entry.view_data().tokens_data() {
-                if new_line {
-                    // todo: add proper indent
-                    ui.end_row();
-                }
-                ui.spacing_mut().item_spacing.x = match token_data.separation_after() {
-                    SeparationAfter::SameLine { spaces } => (spaces as f32) * self.glyph_width,
-                    SeparationAfter::NextLine { indent } => {
-                        new_line = true;
-                        0.
-                    }
-                    SeparationAfter::Eof => 0.,
-                };
-                let label_response = Label::new(
-                    RichText::new(token_data.text())
-                        .family(FontFamily::Monospace)
-                        .color(token_foreground_colors[token_data.token_class()]),
-                )
-                .ui(ui);
-                if let Some(associated_trace_id) = token_data.associated_trace_id() {
-                    if label_response.hovered() {
-                        label_response.highlight();
-                    }
-                }
+                self.render_token(token_data, trace_id, entry, ui)
             }
         });
+    }
+
+    fn render_token(
+        &mut self,
+        token_data: &TraceViewTokenData,
+        trace_id: TraceId,
+        entry: &TraceCacheEntry,
+        ui: &mut egui::Ui,
+    ) {
+        use husky_trace_protocol::view::SeparationAfter;
+        let token_foreground_colors = self
+            .settings
+            .code_editor_settings()
+            .token_foreground_colors();
+        ui.spacing_mut().item_spacing.x = match token_data.separation_after() {
+            SeparationAfter::SameLine { spaces } => (spaces as f32) * self.glyph_width,
+            SeparationAfter::NextLine { indent } => {
+                // new_line = true;
+                0.
+            }
+            SeparationAfter::Eof => 0.,
+        };
+        let mut label = Label::new(
+            RichText::new(token_data.text())
+                .family(FontFamily::Monospace)
+                .color(token_foreground_colors[token_data.token_class()]),
+        );
+        if token_data.associated_trace_id().is_some() {
+            label = label.sense(Sense::click());
+        }
+        let label_response = label.ui(ui);
+        if let Some(associated_trace_id) = token_data.associated_trace_id() {
+            if label_response.clicked() {
+                self.action_buffer
+                    .push(TraceViewAction::ToggleAssociatedTrace {
+                        trace_id,
+                        associated_trace_id,
+                    })
+            }
+            if entry.associated_trace_ids().contains(&associated_trace_id) {
+                label_response.highlight();
+            } else if label_response.hovered() {
+                label_response.highlight();
+            }
+        }
     }
 }
 
