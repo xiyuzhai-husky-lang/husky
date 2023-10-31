@@ -7,13 +7,19 @@ impl<'a> SemaExprEngine<'a> {
         ropd: SynExprIdx,
         opr: BinaryClosedOpr,
         menu: &EtherealTermMenu,
-    ) -> (SemaExprIdx, SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
+    ) -> (
+        SemaExprIdx,
+        SemaExprIdx,
+        SemaExprDataResult<BinaryOprDynamicDispatch>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
         let (lopd, lopd_ty) = self.build_sema_expr_with_its_ty_returned(lopd, ExpectAnyOriginal);
         let Some(lopd_ty) = lopd_ty else {
             let ropd = self.build_sema_expr(ropd, ExpectAnyDerived);
             return (
                 lopd,
                 ropd,
+                todo!(),
                 Err(DerivedSemaExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into()),
             );
         };
@@ -55,6 +61,11 @@ impl<'a> SemaExprEngine<'a> {
             FluffyTermData::Variable { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         };
-        (lopd, ropd, ty_result)
+        (
+            lopd,
+            ropd,
+            Ok(BinaryOprDynamicDispatch::builtin()),
+            ty_result,
+        )
     }
 }

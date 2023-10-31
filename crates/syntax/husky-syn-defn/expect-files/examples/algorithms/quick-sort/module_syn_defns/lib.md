@@ -93,7 +93,7 @@ Ok(
                                                     16,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                                                current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `T`,
@@ -308,7 +308,7 @@ Ok(
                                                                     16,
                                                                 ),
                                                                 current_symbol_idx: 1,
-                                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                                                                current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentRegionalToken {
                                                                             ident: `T`,
@@ -950,7 +950,7 @@ Ok(
                                                     15,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                                                current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `T`,
@@ -1307,7 +1307,7 @@ Ok(
                                                                     15,
                                                                 ),
                                                                 current_symbol_idx: 1,
-                                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                                                                current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentRegionalToken {
                                                                             ident: `T`,
@@ -2023,13 +2023,11 @@ Ok(
                                                             3,
                                                         ),
                                                         eol_colon: Ok(
-                                                            Colon(
-                                                                EolColonRegionalToken {
-                                                                    regional_token_idx: RegionalTokenIdx(
-                                                                        5,
-                                                                    ),
-                                                                },
-                                                            ),
+                                                            EolColonRegionalToken {
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    5,
+                                                                ),
+                                                            },
                                                         ),
                                                         stmts: ArenaIdxRange(
                                                             1..4,
@@ -2301,7 +2299,7 @@ Ok(
                                                     15,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                                                current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `T`,
@@ -2687,7 +2685,7 @@ Ok(
                                                                     15,
                                                                 ),
                                                                 current_symbol_idx: 1,
-                                                                current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                                                                current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentRegionalToken {
                                                                             ident: `T`,
@@ -3916,13 +3914,11 @@ Ok(
                                                             45,
                                                         ),
                                                         eol_colon: Ok(
-                                                            Colon(
-                                                                EolColonRegionalToken {
-                                                                    regional_token_idx: RegionalTokenIdx(
-                                                                        68,
-                                                                    ),
-                                                                },
-                                                            ),
+                                                            EolColonRegionalToken {
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    68,
+                                                                ),
+                                                            },
                                                         ),
                                                         stmts: ArenaIdxRange(
                                                             3..4,
@@ -3936,14 +3932,12 @@ Ok(
                                                                     70,
                                                                 ),
                                                             },
-                                                            eol_colon: Ok(
-                                                                Colon(
-                                                                    EolColonRegionalToken {
-                                                                        regional_token_idx: RegionalTokenIdx(
-                                                                            71,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            eol_colon_token: Ok(
+                                                                EolColonRegionalToken {
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        71,
+                                                                    ),
+                                                                },
                                                             ),
                                                             stmts: ArenaIdxRange(
                                                                 4..5,

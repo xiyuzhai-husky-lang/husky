@@ -223,14 +223,15 @@ impl<'a> SemaExprEngine<'a> {
                 opr_regional_token_idx,
                 ropd,
             } => {
-                let (lopd, ropd, ty_result) = self.calc_binary_expr_ty(expr_idx, lopd, opr, ropd);
+                let (lopd, ropd, dispatch_result, ty_result) =
+                    self.calc_binary_expr_ty(expr_idx, lopd, opr, ropd);
                 (
-                    Ok(SemaExprData::Binary {
+                    dispatch_result.map(|dispatch| SemaExprData::Binary {
                         lopd,
                         opr,
                         opr_regional_token_idx,
                         ropd,
-                        dispatch: todo!(),
+                        dispatch,
                     }),
                     ty_result,
                 )

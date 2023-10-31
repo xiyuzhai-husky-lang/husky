@@ -58,7 +58,7 @@
                                 16,
                             ),
                             current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                            current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `T`,
@@ -280,7 +280,7 @@
                                         16,
                                     ),
                                     current_symbol_idx: 1,
-                                    current_symbol_kind: ImplicitParameter {
+                                    current_symbol_kind: TemplateParameter {
                                         template_parameter_kind: Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: Ident(
@@ -667,7 +667,7 @@
                                 15,
                             ),
                             current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                            current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `T`,
@@ -1031,7 +1031,7 @@
                                         15,
                                     ),
                                     current_symbol_idx: 1,
-                                    current_symbol_kind: ImplicitParameter {
+                                    current_symbol_kind: TemplateParameter {
                                         template_parameter_kind: Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: Ident(
@@ -1614,7 +1614,7 @@
                                 15,
                             ),
                             current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                            current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `T`,
@@ -2007,7 +2007,7 @@
                                         15,
                                     ),
                                     current_symbol_idx: 1,
-                                    current_symbol_kind: ImplicitParameter {
+                                    current_symbol_kind: TemplateParameter {
                                         template_parameter_kind: Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: Ident(

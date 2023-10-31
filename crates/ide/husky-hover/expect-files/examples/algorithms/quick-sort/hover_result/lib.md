@@ -130,7 +130,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 56;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Ident(\n    `low`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynCurrentSymbol(\n            3,\n        ),\n        data: TokenInfoData::CurrentSymbol {\n            current_symbol_idx: 3,\n            current_symbol_kind: SynCurrentSymbolKind::ExplicitRegularParameter {\n                pattern_symbol_idx: 2,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nSynCurrentSymbol {\n    modifier: None,\n    access_start: RegionalTokenIdx(\n        18,\n    ),\n    access_end: None,\n    variant: SynCurrentSymbolVariant::ParenateRegularParameter {\n        ident: `low`,\n        pattern_symbol_idx: 2,\n    },\n}\n",
+                                value: "\ntoken_idx = 56;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Ident(\n    `low`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::PatternExpr(\n            2,\n        ),\n        data: TokenInfoData::CurrentSymbol {\n            current_symbol_idx: 3,\n            current_symbol_kind: SynCurrentSymbolKind::ExplicitRegularParameter {\n                pattern_symbol_idx: 2,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nSynCurrentSymbol {\n    modifier: None,\n    access_start: RegionalTokenIdx(\n        18,\n    ),\n    access_end: None,\n    variant: SynCurrentSymbolVariant::ParenateRegularParameter {\n        ident: `low`,\n        pattern_symbol_idx: 2,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 126;\n\ntoken_line_group_idx = 8\n\ntoken = TokenData::Ident(\n    `isize`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            4,\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`core::num::isize`, `Extern`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
+                                value: "\ntoken_idx = 126;\n\ntoken_line_group_idx = 8\n\ntoken = TokenData::Ident(\n    `isize`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            4,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`core::num::isize`, `Extern`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`core::num::isize`, `Extern`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                             },
                         ),
                         range: Some(

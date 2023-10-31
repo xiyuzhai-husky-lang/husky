@@ -7,7 +7,12 @@ impl<'a> SemaExprEngine<'a> {
         lopd: SynExprIdx,
         opr: BinaryClosedOpr,
         ropd: SynExprIdx,
-    ) -> (SemaExprIdx, SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
+    ) -> (
+        SemaExprIdx,
+        SemaExprIdx,
+        SemaExprDataResult<BinaryOprDynamicDispatch>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
         // let expr_eval_lifetime = self
         //     .fluffy_term_region
         //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
@@ -69,6 +74,7 @@ impl<'a> SemaExprEngine<'a> {
         (
             lopd_sema_expr_idx,
             ropd_sema_expr_idx,
+            Ok(BinaryOprDynamicDispatch::builtin()),
             Ok(self.term_menu.unit_ty_ontology().into()),
         )
     }

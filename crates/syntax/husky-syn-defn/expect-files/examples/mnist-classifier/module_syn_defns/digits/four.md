@@ -3860,13 +3860,11 @@ Ok(
                                                             40,
                                                         ),
                                                         eol_colon: Ok(
-                                                            Colon(
-                                                                EolColonRegionalToken {
-                                                                    regional_token_idx: RegionalTokenIdx(
-                                                                        81,
-                                                                    ),
-                                                                },
-                                                            ),
+                                                            EolColonRegionalToken {
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    81,
+                                                                ),
+                                                            },
                                                         ),
                                                         stmts: ArenaIdxRange(
                                                             1..15,

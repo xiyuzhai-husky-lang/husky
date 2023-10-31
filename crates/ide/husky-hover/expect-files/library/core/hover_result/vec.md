@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 7;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `Debug`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            1,\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::fmt::Debug`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
+                                value: "\ntoken_idx = 7;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `Debug`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            1,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::fmt::Debug`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::fmt::Debug`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -460,7 +460,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 105;\n\ntoken_line_group_idx = 10\n\ntoken = TokenData::Ident(\n    `start`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynCurrentSymbol(\n            1,\n        ),\n        data: TokenInfoData::CurrentSymbol {\n            current_symbol_idx: 1,\n            current_symbol_kind: SynCurrentSymbolKind::ExplicitRegularParameter {\n                pattern_symbol_idx: 1,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nSynCurrentSymbol {\n    modifier: None,\n    access_start: RegionalTokenIdx(\n        9,\n    ),\n    access_end: None,\n    variant: SynCurrentSymbolVariant::ParenateRegularParameter {\n        ident: `start`,\n        pattern_symbol_idx: 1,\n    },\n}\n",
+                                value: "\ntoken_idx = 105;\n\ntoken_line_group_idx = 10\n\ntoken = TokenData::Ident(\n    `start`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::PatternExpr(\n            1,\n        ),\n        data: TokenInfoData::CurrentSymbol {\n            current_symbol_idx: 1,\n            current_symbol_kind: SynCurrentSymbolKind::ExplicitRegularParameter {\n                pattern_symbol_idx: 1,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nSynCurrentSymbol {\n    modifier: None,\n    access_start: RegionalTokenIdx(\n        9,\n    ),\n    access_end: None,\n    variant: SynCurrentSymbolVariant::ParenateRegularParameter {\n        ident: `start`,\n        pattern_symbol_idx: 1,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -550,7 +550,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 126;\n\ntoken_line_group_idx = 11\n\ntoken = TokenData::Ident(\n    `f`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynCurrentSymbol(\n            1,\n        ),\n        data: TokenInfoData::CurrentSymbol {\n            current_symbol_idx: 1,\n            current_symbol_kind: SynCurrentSymbolKind::ExplicitRegularParameter {\n                pattern_symbol_idx: 1,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nSynCurrentSymbol {\n    modifier: None,\n    access_start: RegionalTokenIdx(\n        10,\n    ),\n    access_end: None,\n    variant: SynCurrentSymbolVariant::ParenateRegularParameter {\n        ident: `f`,\n        pattern_symbol_idx: 1,\n    },\n}\n",
+                                value: "\ntoken_idx = 126;\n\ntoken_line_group_idx = 11\n\ntoken = TokenData::Ident(\n    `f`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::PatternExpr(\n            1,\n        ),\n        data: TokenInfoData::CurrentSymbol {\n            current_symbol_idx: 1,\n            current_symbol_kind: SynCurrentSymbolKind::ExplicitRegularParameter {\n                pattern_symbol_idx: 1,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nSynCurrentSymbol {\n    modifier: None,\n    access_start: RegionalTokenIdx(\n        10,\n    ),\n    access_end: None,\n    variant: SynCurrentSymbolVariant::ParenateRegularParameter {\n        ident: `f`,\n        pattern_symbol_idx: 1,\n    },\n}\n",
                             },
                         ),
                         range: Some(

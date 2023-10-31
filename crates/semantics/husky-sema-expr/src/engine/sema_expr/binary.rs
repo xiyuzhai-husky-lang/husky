@@ -5,6 +5,11 @@ mod comparison;
 mod pure_closed;
 mod shift;
 
+use husky_fluffy_term::{
+    dispatch::dynamic_dispatch::binary_opr::BinaryOprDynamicDispatch,
+    signature::binary_opr::BinaryOprFluffySignature,
+};
+
 use super::*;
 
 impl<'a> SemaExprEngine<'a> {
@@ -19,7 +24,12 @@ impl<'a> SemaExprEngine<'a> {
         lopd: SynExprIdx,
         opr: BinaryOpr,
         ropd: SynExprIdx,
-    ) -> (SemaExprIdx, SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
+    ) -> (
+        SemaExprIdx,
+        SemaExprIdx,
+        SemaExprDataResult<BinaryOprDynamicDispatch>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
         let menu = self.term_menu;
         match opr {
             BinaryOpr::Closed(opr) => self.calc_binary_closed_expr_ty(lopd, ropd, opr, menu),
@@ -50,12 +60,19 @@ impl<'a> SemaExprEngine<'a> {
         &mut self,
         lopd: SynExprIdx,
         ropd: SynExprIdx,
-    ) -> (SemaExprIdx, SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
+    ) -> (
+        SemaExprIdx,
+        SemaExprIdx,
+        SemaExprDataResult<BinaryOprDynamicDispatch>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
+        // todo: indirections
         let lopd_sema_expr_idx = self.build_sema_expr(lopd, self.expect_argument_ty_bool());
         let ropd_sema_expr_idx = self.build_sema_expr(ropd, self.expect_argument_ty_bool());
         (
             lopd_sema_expr_idx,
             ropd_sema_expr_idx,
+            Ok(BinaryOprDynamicDispatch::builtin()),
             Ok(self.term_menu.bool_ty_ontology().into()),
         )
     }
@@ -64,7 +81,12 @@ impl<'a> SemaExprEngine<'a> {
         &mut self,
         lopd: SynExprIdx,
         ropd: SynExprIdx,
-    ) -> (SemaExprIdx, SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
+    ) -> (
+        SemaExprIdx,
+        SemaExprIdx,
+        SemaExprDataResult<BinaryOprDynamicDispatch>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
         let (ropd_sema_expr_idx, ropd_ty) =
             self.build_sema_expr_with_its_ty_returned(ropd, ExpectAnyOriginal);
         let Some(ropd_ty) = ropd_ty else {
@@ -72,6 +94,7 @@ impl<'a> SemaExprEngine<'a> {
             return (
                 lopd_sema_expr_idx,
                 ropd_sema_expr_idx,
+                todo!(),
                 Err(DerivedSemaExprTypeError::BinaryOperationRightOperandTypeNotInferred.into()),
             );
         };
@@ -94,6 +117,7 @@ impl<'a> SemaExprEngine<'a> {
         (
             lopd_sema_expr_idx,
             ropd_sema_expr_idx,
+            todo!(),
             Ok(self.term_menu.prop().into()),
         )
     }
@@ -102,31 +126,48 @@ impl<'a> SemaExprEngine<'a> {
         &mut self,
         lopd: SynExprIdx,
         ropd: SynExprIdx,
-    ) -> (SemaExprIdx, SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
+    ) -> (
+        SemaExprIdx,
+        SemaExprIdx,
+        SemaExprDataResult<BinaryOprDynamicDispatch>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
         let ropd_sema_expr_idx = self.build_sema_expr(ropd, ExpectEqsCategory::new_any_sort());
         let Some(ropd_term) = self.infer_expr_term(ropd_sema_expr_idx) else {
             let lopd_sema_expr_idx = self.build_sema_expr(lopd, ExpectAnyDerived);
             return (
                 lopd_sema_expr_idx,
                 ropd_sema_expr_idx,
+                todo!(),
                 Err(DerivedSemaExprTypeError::AsOperationRightOperandTermNotInferred.into()),
             );
         };
         let lopd_sema_expr_idx = self.build_sema_expr(lopd, ExpectCasting::new(ropd_term));
-        (lopd_sema_expr_idx, ropd_sema_expr_idx, Ok(ropd_term))
+        (
+            lopd_sema_expr_idx,
+            ropd_sema_expr_idx,
+            Ok(BinaryOprDynamicDispatch::builtin()),
+            Ok(ropd_term),
+        )
     }
 
     fn calc_curry_expr_ty(
         &mut self,
         lopd: SynExprIdx,
         ropd: SynExprIdx,
-    ) -> (SemaExprIdx, SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
+    ) -> (
+        SemaExprIdx,
+        SemaExprIdx,
+        SemaExprDataResult<BinaryOprDynamicDispatch>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
         let expect_any_sort = ExpectEqsCategory::new_any_sort();
         let (lopd_sema_expr_idx, lopd_universe) =
             self.build_sema_expr_with_outcome(lopd, expect_any_sort);
         let Some(lopd_universe) = lopd_universe else {
             return (
                 lopd_sema_expr_idx,
+                todo!(),
                 todo!(),
                 Err(DerivedSemaExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into()),
             );
@@ -137,6 +178,7 @@ impl<'a> SemaExprEngine<'a> {
             return (
                 lopd_sema_expr_idx,
                 ropd_sema_expr_idx,
+                todo!(),
                 Err(DerivedSemaExprTypeError::BinaryOperationRightOperandTypeNotInferred.into()),
             );
         };
@@ -149,7 +191,12 @@ impl<'a> SemaExprEngine<'a> {
         expr_idx: SynExprIdx,
         lopd: SynExprIdx,
         ropd: SynExprIdx,
-    ) -> (SemaExprIdx, SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
+    ) -> (
+        SemaExprIdx,
+        SemaExprIdx,
+        SemaExprDataResult<BinaryOprDynamicDispatch>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
         // self
         //     .fluffy_term_region
         //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
@@ -162,6 +209,7 @@ impl<'a> SemaExprEngine<'a> {
         (
             lopd_sema_expr_idx,
             ropd_sema_expr_idx,
+            Ok(BinaryOprDynamicDispatch::builtin()),
             Ok(self.term_menu.unit_ty_ontology().into()),
         )
     }
@@ -172,7 +220,12 @@ impl<'a> SemaExprEngine<'a> {
         lopd: SynExprIdx,
         opr: BinaryShiftOpr,
         ropd: SynExprIdx,
-    ) -> (SemaExprIdx, SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
+    ) -> (
+        SemaExprIdx,
+        SemaExprIdx,
+        SemaExprDataResult<BinaryOprDynamicDispatch>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
         todo!()
         // let expr_eval_lifetime = self
         //     .fluffy_term_region

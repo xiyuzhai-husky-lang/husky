@@ -4663,13 +4663,11 @@ Ok(
                                                             26,
                                                         ),
                                                         eol_colon: Ok(
-                                                            Colon(
-                                                                EolColonRegionalToken {
-                                                                    regional_token_idx: RegionalTokenIdx(
-                                                                        49,
-                                                                    ),
-                                                                },
-                                                            ),
+                                                            EolColonRegionalToken {
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    49,
+                                                                ),
+                                                            },
                                                         ),
                                                         stmts: ArenaIdxRange(
                                                             1..4,
@@ -4795,13 +4793,11 @@ Ok(
                                                             13,
                                                         ),
                                                         eol_colon: Ok(
-                                                            Colon(
-                                                                EolColonRegionalToken {
-                                                                    regional_token_idx: RegionalTokenIdx(
-                                                                        25,
-                                                                    ),
-                                                                },
-                                                            ),
+                                                            EolColonRegionalToken {
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    25,
+                                                                ),
+                                                            },
                                                         ),
                                                         stmts: ArenaIdxRange(
                                                             4..8,
@@ -4821,13 +4817,11 @@ Ok(
                                                             42,
                                                         ),
                                                         eol_colon: Ok(
-                                                            Colon(
-                                                                EolColonRegionalToken {
-                                                                    regional_token_idx: RegionalTokenIdx(
-                                                                        83,
-                                                                    ),
-                                                                },
-                                                            ),
+                                                            EolColonRegionalToken {
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    83,
+                                                                ),
+                                                            },
                                                         ),
                                                         stmts: ArenaIdxRange(
                                                             8..11,

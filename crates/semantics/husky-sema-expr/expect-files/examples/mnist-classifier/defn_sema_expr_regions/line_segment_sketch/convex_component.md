@@ -494,7 +494,7 @@
                                             5,
                                         ),
                                     },
-                                    method_dynamic_dispatch: FluffyDynamicDispatch {
+                                    dispatch: FluffyDynamicDispatch {
                                         indirections: FluffyTermDynamicDispatchIndirections {
                                             initial_place: Transient,
                                             indirections: [

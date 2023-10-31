@@ -53,12 +53,12 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SynCurrentSymbol(
+                    src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Lifetime {
                                 label_token: LifetimeLabelRegionalToken {
                                     label: `'a`,
@@ -76,12 +76,12 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SynCurrentSymbol(
+                    src: TokenInfoSource::TemplateParameter(
                         2,
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 2,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
@@ -126,12 +126,12 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SynCurrentSymbol(
+                    src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Lifetime {
                                 label_token: LifetimeLabelRegionalToken {
                                     label: `'a`,
@@ -149,12 +149,12 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SynCurrentSymbol(
+                    src: TokenInfoSource::TemplateParameter(
                         2,
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 2,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
@@ -199,12 +199,12 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SynCurrentSymbol(
+                    src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
@@ -224,12 +224,12 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SynCurrentSymbol(
+                    src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
@@ -248,6 +248,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
@@ -263,6 +268,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::mem::Leash`, `Extern`),
+                            ),
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
@@ -282,7 +292,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
@@ -325,12 +335,12 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SynCurrentSymbol(
+                    src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Place {
                                 label_token: PlaceLabelRegionalToken {
                                     label: `'α`,
@@ -347,12 +357,12 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SynCurrentSymbol(
+                    src: TokenInfoSource::TemplateParameter(
                         2,
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 2,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,

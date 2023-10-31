@@ -7,7 +7,12 @@ impl<'a> SemaExprEngine<'a> {
         ropd: SynExprIdx,
         opr: BinaryShiftOpr,
         menu: &EtherealTermMenu,
-    ) -> (SemaExprIdx, SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
+    ) -> (
+        SemaExprIdx,
+        SemaExprIdx,
+        SemaExprDataResult<BinaryOprDynamicDispatch>,
+        SemaExprTypeResult<FluffyTerm>,
+    ) {
         // todo: don't use resolved
         let (lopd_sema_expr_idx, lopd_ty) =
             self.build_sema_expr_with_its_ty_returned(lopd, ExpectAnyOriginal);
@@ -31,6 +36,7 @@ impl<'a> SemaExprEngine<'a> {
             return (
                 lopd_sema_expr_idx,
                 ropd_sema_expr_idx,
+                todo!(),
                 Err(DerivedSemaExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into()),
             );
         };
@@ -41,7 +47,12 @@ impl<'a> SemaExprEngine<'a> {
             }
             | FluffyTermData::Hole(HoleKind::UnspecifiedIntegerType, _) => {
                 let ropd_sema_expr_idx = self.build_sema_expr(ropd, ExpectIntType);
-                (lopd_sema_expr_idx, ropd_sema_expr_idx, Ok(lopd_ty))
+                (
+                    lopd_sema_expr_idx,
+                    ropd_sema_expr_idx,
+                    Ok(BinaryOprDynamicDispatch::builtin()),
+                    Ok(lopd_ty),
+                )
             }
             FluffyTermData::Hole(HoleKind::UnspecifiedFloatType, _) => todo!(),
             // FluffyTermData::TypeOntologyAtPlace {
