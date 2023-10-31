@@ -1,5 +1,7 @@
 use husky_hir_lazy_expr::HirLazyExprRegion;
-use husky_sema_expr::SemaExprRegion;
+use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprRegion};
+
+use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
 
 use super::*;
 
@@ -87,10 +89,38 @@ impl LazyExprTrace {
     }
 
     pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
-        todo!()
+        let tokens = lazy_expr_trace_view_tokens(db, self);
+        TraceViewData::new(tokens.data().to_vec(), self.have_subtraces(db))
+    }
+
+    pub fn have_subtraces(self, db: &dyn TraceDb) -> bool {
+        match self.data(db) {
+            LazyExprTraceData::Expr(_) => todo!(),
+            LazyExprTraceData::PatternExpr(_) => todo!(),
+        }
     }
 
     pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
         todo!()
     }
+}
+
+#[salsa::tracked(jar = TraceJar, return_ref)]
+fn lazy_expr_trace_view_tokens(db: &dyn TraceDb, trace: LazyExprTrace) -> TraceViewTokens {
+    let sema_expr_region = trace.sema_expr_region(db);
+    let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
+    let sema_expr_range_region_data = sema_expr_range_region.data(db);
+    let region_path = sema_expr_region.path(db);
+    let regional_token_idx_range = match trace.data(db) {
+        LazyExprTraceData::Expr(sema_expr_idx) => sema_expr_range_region_data[sema_expr_idx],
+        LazyExprTraceData::PatternExpr(_) => todo!(),
+    };
+    let token_idx_range =
+        regional_token_idx_range.token_idx_range(region_path.regional_token_idx_base(db).unwrap());
+    TraceViewTokens::new(
+        region_path.module_path(db),
+        token_idx_range,
+        VoidAssociatedTraceRegistry,
+        db,
+    )
 }

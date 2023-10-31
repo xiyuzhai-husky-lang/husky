@@ -135,13 +135,16 @@ impl LazyStmtTrace {
 
     pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
         let tokens = lazy_stmt_trace_view_tokens(db, self);
-        let have_subtraces = match self.data(db) {
+        TraceViewData::new(tokens.data().to_vec(), self.have_subtraces(db))
+    }
+
+    pub fn have_subtraces(self, db: &dyn TraceDb) -> bool {
+        match self.data(db) {
             LazyStmtTraceData::BasicStmt => false,
             LazyStmtTraceData::IfBranch { .. } => true,
             LazyStmtTraceData::ElifBranch { .. } => true,
             LazyStmtTraceData::ElseBranch { .. } => true,
-        };
-        TraceViewData::new(tokens.data().to_vec(), have_subtraces)
+        }
     }
 
     pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
