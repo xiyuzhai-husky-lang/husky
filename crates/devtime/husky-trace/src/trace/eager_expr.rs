@@ -88,7 +88,7 @@ impl EagerExprTrace {
     }
 
     pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
-        let tokens = eager_expr_trace_view_tokens(db, self);
+        let tokens = eager_expr_trace_view_lines(db, self);
         TraceViewData::new(tokens.data().to_vec(), self.have_subtraces(db))
     }
 
@@ -102,7 +102,7 @@ impl EagerExprTrace {
 }
 
 #[salsa::tracked(jar = TraceJar, return_ref)]
-fn eager_expr_trace_view_tokens(db: &dyn TraceDb, trace: EagerExprTrace) -> TraceViewTokens {
+fn eager_expr_trace_view_lines(db: &dyn TraceDb, trace: EagerExprTrace) -> TraceViewLines {
     let sema_expr_region = trace.sema_expr_region(db);
     let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
     let sema_expr_range_region_data = sema_expr_range_region.data(db);
@@ -113,7 +113,7 @@ fn eager_expr_trace_view_tokens(db: &dyn TraceDb, trace: EagerExprTrace) -> Trac
     };
     let token_idx_range =
         regional_token_idx_range.token_idx_range(region_path.regional_token_idx_base(db).unwrap());
-    TraceViewTokens::new(
+    TraceViewLines::new(
         region_path.module_path(db),
         token_idx_range,
         VoidAssociatedTraceRegistry,

@@ -134,7 +134,7 @@ impl LazyStmtTrace {
     }
 
     pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
-        let tokens = lazy_stmt_trace_view_tokens(db, self);
+        let tokens = lazy_stmt_trace_view_lines(db, self);
         TraceViewData::new(tokens.data().to_vec(), self.have_subtraces(db))
     }
 
@@ -150,7 +150,7 @@ impl LazyStmtTrace {
     pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
         match self.data(db) {
             LazyStmtTraceData::BasicStmt => unreachable!("shouldn't be here"),
-            LazyStmtTraceData::IfBranch { .. } => todo!(),
+            LazyStmtTraceData::IfBranch { stmts, .. } => todo!(),
             LazyStmtTraceData::ElifBranch { .. } => todo!(),
             LazyStmtTraceData::ElseBranch { .. } => todo!(),
         }
@@ -162,7 +162,7 @@ impl LazyStmtTrace {
 }
 
 #[salsa::tracked(jar = TraceJar, return_ref)]
-fn lazy_stmt_trace_view_tokens(db: &dyn TraceDb, trace: LazyStmtTrace) -> TraceViewTokens {
+fn lazy_stmt_trace_view_lines(db: &dyn TraceDb, trace: LazyStmtTrace) -> TraceViewLines {
     let sema_stmt_idx = trace.sema_stmt_idx(db);
     let sema_expr_region = trace.sema_expr_region(db);
     let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
@@ -197,7 +197,19 @@ fn lazy_stmt_trace_view_tokens(db: &dyn TraceDb, trace: LazyStmtTrace) -> TraceV
     let token_idx_range =
         regional_token_idx_range.token_idx_range(region_path.regional_token_idx_base(db).unwrap());
     let registry = LazyStmtAssociatedTraceRegistry::new(trace, sema_expr_region);
-    TraceViewTokens::new(region_path.module_path(db), token_idx_range, registry, db)
+    TraceViewLines::new(region_path.module_path(db), token_idx_range, registry, db)
+}
+
+#[salsa::tracked(jar = TraceJar, return_ref)]
+fn lazy_stmt_trace_subtraces(db: &dyn TraceDb, trace: LazyStmtTrace) -> Vec<Trace> {
+    match trace.data(db) {
+        LazyStmtTraceData::BasicStmt => unreachable!(),
+        LazyStmtTraceData::IfBranch { stmts, .. }
+        | LazyStmtTraceData::ElifBranch { stmts, .. }
+        | LazyStmtTraceData::ElseBranch { stmts, .. } => {
+            LazyStmtTrace::from_stmts(trace.path(db), trace, stmts, trace.sema_expr_region(db), db)
+        }
+    }
 }
 
 struct LazyStmtAssociatedTraceRegistry {
