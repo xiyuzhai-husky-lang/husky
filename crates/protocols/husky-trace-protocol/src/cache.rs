@@ -65,8 +65,8 @@ impl<VisualComponent: IsVisualComponent> TraceCache<VisualComponent> {
             .collect()
     }
 
-    pub(crate) fn entries(&self) -> &VecPairMap<TraceId, TraceCacheEntry> {
-        &self.entries
+    pub(crate) fn is_trace_cached(&self, trace_id: TraceId) -> bool {
+        self.entries.has(trace_id)
     }
 }
 

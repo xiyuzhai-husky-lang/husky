@@ -7,6 +7,10 @@ pub enum TraceCacheAction<VisualComponent> {
     ToggleExpansion(TraceCacheToggleExpansion),
     SetSubtraces(TraceCacheSetSubtraces),
     Phantom(TraceCacheActionVisualComponent<VisualComponent>),
+    ToggleAssociatedTrace {
+        trace_id: TraceId,
+        associated_trace_id: TraceId,
+    },
 }
 
 pub trait IsTraceCacheAction<VisualComponent>: Into<TraceCacheAction<VisualComponent>>
@@ -30,6 +34,14 @@ where
             TraceCacheAction::ToggleExpansion(action) => action.act(cache),
             TraceCacheAction::SetSubtraces(action) => action.act(cache),
             TraceCacheAction::Phantom(action) => action.act(cache),
+            &TraceCacheAction::ToggleAssociatedTrace {
+                trace_id,
+                associated_trace_id,
+            } => {
+                cache.entries[associated_trace_id]
+                    .1
+                    .toggle_associated_traces(associated_trace_id);
+            }
         }
     }
 }

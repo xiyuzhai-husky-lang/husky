@@ -114,14 +114,8 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
                 let subtrace_ids = subtraces
                     .into_iter()
                     .map(|subtrace| {
-                        let subtrace_id: TraceId = subtrace.into();
-                        if self.cache().entries().get_value(subtrace_id).is_none() {
-                            let view_data = self.tracetime.get_trace_view_data(subtrace);
-                            self.cache
-                                .as_mut()
-                                .unwrap()
-                                .take_action(TraceCacheNewTrace::new(subtrace_id, view_data))
-                        }
+                        let subtrace_id = subtrace.into();
+                        self.cache_trace_if_new(subtrace_id);
                         subtrace_id
                     })
                     .collect();
@@ -131,6 +125,25 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
                     .take_action(TraceCacheToggleExpansion::new(trace_id))
             }
             TraceViewAction::Marker { _marker } => todo!(),
+            TraceViewAction::ToggleAssociatedTrace {
+                trace_id,
+                associated_trace_id,
+            } => {
+                self.cache_trace_if_new(associated_trace_id);
+                self.cache_mut()
+                    .take_action(TraceCacheAction::ToggleAssociatedTrace {
+                        trace_id,
+                        associated_trace_id,
+                    })
+            }
+        }
+    }
+
+    fn cache_trace_if_new(&mut self, trace_id: TraceId) {
+        if !self.cache().is_trace_cached(trace_id) {
+            let view_data = self.tracetime.get_trace_view_data(trace_id.into());
+            self.cache_mut()
+                .take_action(TraceCacheNewTrace::new(trace_id, view_data))
         }
     }
 }

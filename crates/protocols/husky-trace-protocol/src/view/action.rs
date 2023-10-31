@@ -17,6 +17,10 @@ pub enum TraceViewAction<VisualComponent> {
     Marker {
         _marker: PhantomData<VisualComponent>,
     },
+    ToggleAssociatedTrace {
+        trace_id: TraceId,
+        associated_trace_id: TraceId,
+    },
 }
 
 #[derive(Default)]

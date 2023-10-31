@@ -144,6 +144,19 @@ where
                 Some(TraceCacheToggleExpansion::new(trace_id).into())
             }
             TraceViewAction::Marker { _marker } => todo!(),
+            TraceViewAction::ToggleExpansion { trace_id } => todo!(),
+            &TraceViewAction::ToggleAssociatedTrace {
+                trace_id,
+                associated_trace_id,
+            } => {
+                if !self.cache().is_trace_cached(associated_trace_id) {
+                    return None;
+                }
+                Some(TraceCacheAction::ToggleAssociatedTrace {
+                    trace_id,
+                    associated_trace_id,
+                })
+            }
         }
     }
 }
