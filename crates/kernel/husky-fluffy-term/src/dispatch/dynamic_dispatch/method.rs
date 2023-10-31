@@ -11,12 +11,6 @@ use husky_coword::Ident;
 use husky_entity_syn_tree::helpers::{TraitInUseItemRecord, TraitInUseItemsWithGivenIdent};
 use husky_regional_token::IdentRegionalToken;
 
-impl MemberSignature for MethodFluffySignature {
-    fn expr_ty(&self) -> FluffyTermResult<FluffyTerm> {
-        todo!()
-    }
-}
-
 pub type FluffyTermMethodDynamicDispatch = FluffyDynamicDispatch<MethodFluffySignature>;
 
 pub trait HasFluffyTraitMethodDispatch: Copy {

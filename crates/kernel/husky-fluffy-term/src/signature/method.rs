@@ -11,6 +11,12 @@ pub enum MethodFluffySignature {
     MethodGn,
 }
 
+impl MemberSignature for MethodFluffySignature {
+    fn expr_ty(&self) -> FluffyTermResult<FluffyTerm> {
+        todo!()
+    }
+}
+
 impl From<&TraitForTypeMethodFnEtherealSignature> for MethodFluffySignature {
     fn from(sig: &TraitForTypeMethodFnEtherealSignature) -> Self {
         MethodFluffySignature::MethodFn(MethodFnFluffySignature {

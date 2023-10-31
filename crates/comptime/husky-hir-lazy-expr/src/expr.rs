@@ -229,7 +229,7 @@ impl ToHirLazy for SemaExprIdx {
                 ident_token,
                 template_arguments,
                 ritchie_parameter_argument_matches,
-                method_dynamic_dispatch,
+                dispatch: method_dynamic_dispatch,
                 ..
             } => HirLazyExpr::MethodFnCall {
                 self_argument: self_argument_sema_expr_idx.to_hir_lazy(builder),

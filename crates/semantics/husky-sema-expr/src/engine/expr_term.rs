@@ -2,6 +2,7 @@ mod explicit_application;
 mod list;
 mod prefix;
 
+use husky_fluffy_term::signature::binary_opr::BinaryOprFluffySignature;
 use husky_token_data::{BoolLiteralData, FloatLiteralData};
 
 use super::*;
@@ -249,12 +250,9 @@ impl<'a> SemaExprEngine<'a> {
             } => todo!(),
             SemaExprData::SelfType(_) => todo!(),
             SemaExprData::SelfValue(_) => todo!(),
-            SemaExprData::Binary {
-                lopd,
-                opr,
-                opr_regional_token_idx,
-                ropd,
-            } => todo!(),
+            SemaExprData::Binary { dispatch, .. } => match dispatch.signature() {
+                BinaryOprFluffySignature::Builtin => todo!(),
+            },
             SemaExprData::Be { .. } => todo!(),
             SemaExprData::Prefix {
                 opr,
