@@ -41,6 +41,8 @@ pub struct TraceJar(
     EagerExprTracePath,
     EagerExprTrace,
     eager_expr_trace_view_tokens,
+    eager_expr_trace_have_subtraces,
+    eager_expr_trace_subtraces,
     EagerStmtTracePath,
     EagerStmtTrace,
     eager_stmt_trace_subtraces,

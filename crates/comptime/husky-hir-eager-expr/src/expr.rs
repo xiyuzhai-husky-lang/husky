@@ -153,6 +153,7 @@ impl ToHirEager for SemaExprIdx {
                 lopd,
                 opr,
                 opr_regional_token_idx,
+                dispatch,
                 ropd,
             } => HirEagerExpr::Binary {
                 lopd: lopd.to_hir_eager(builder),

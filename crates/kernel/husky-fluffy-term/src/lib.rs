@@ -4,7 +4,7 @@
 #![feature(generic_arg_infer)]
 mod data;
 mod db;
-mod dispatch;
+pub mod dispatch;
 mod engine;
 mod error;
 mod expectation;
@@ -13,7 +13,7 @@ mod progress;
 mod region;
 mod resolve;
 mod rewite;
-mod signature;
+pub mod signature;
 mod term;
 #[cfg(test)]
 mod tests;

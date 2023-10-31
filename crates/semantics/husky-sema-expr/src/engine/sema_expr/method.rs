@@ -60,7 +60,7 @@ impl<'a> SemaExprEngine<'a> {
                         self_argument_sema_expr_idx,
                         dot_regional_token_idx,
                         ident_token,
-                        method_dynamic_dispatch,
+                        dispatch: method_dynamic_dispatch,
                         template_arguments: template_arguments.map(|_| todo!()),
                         lpar_regional_token_idx,
                         ritchie_parameter_argument_matches,

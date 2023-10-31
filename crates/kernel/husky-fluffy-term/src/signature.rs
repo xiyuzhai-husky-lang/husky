@@ -1,4 +1,5 @@
 mod associated_fn;
+pub mod binary_opr;
 mod error;
 mod field;
 mod index;

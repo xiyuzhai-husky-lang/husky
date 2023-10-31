@@ -9,6 +9,7 @@ pub use self::template_argument::*;
 use crate::*;
 use husky_coword::{Ident, IdentMap};
 use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
+use husky_fluffy_term::dispatch::dynamic_dispatch::binary_opr::BinaryOprDynamicDispatch;
 use husky_opr::{BinaryOpr, PrefixOpr, SuffixOpr};
 use husky_regional_token::{
     ColonColonRegionalToken, EmptyHtmlKetRegionalToken, IdentRegionalToken,
@@ -61,6 +62,7 @@ pub enum SemaExprData {
     Binary {
         lopd: SemaExprIdx,
         opr: BinaryOpr,
+        dispatch: BinaryOprDynamicDispatch,
         opr_regional_token_idx: RegionalTokenIdx,
         ropd: SemaExprIdx,
     },
@@ -129,7 +131,7 @@ pub enum SemaExprData {
         self_argument_sema_expr_idx: SemaExprIdx,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
-        method_dynamic_dispatch: FluffyTermMethodDynamicDispatch,
+        dispatch: FluffyTermMethodDynamicDispatch,
         template_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
         ritchie_parameter_argument_matches: RitchieParameterArgumentMatches,
