@@ -38,7 +38,7 @@ where
                 trace_id,
                 associated_trace_id,
             } => {
-                cache.entries[associated_trace_id]
+                cache.entries[trace_id]
                     .1
                     .toggle_associated_traces(associated_trace_id);
             }
