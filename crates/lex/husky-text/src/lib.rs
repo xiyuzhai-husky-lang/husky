@@ -59,7 +59,7 @@ impl<'a> Text<'a> {
     //     }
     // }
 
-    pub fn text_within(&self, range: TextRange) -> &str {
+    pub fn text_within(self, range: TextRange) -> &'a str {
         &self.raw_text[self.line_map.offset_range(range)]
     }
 }

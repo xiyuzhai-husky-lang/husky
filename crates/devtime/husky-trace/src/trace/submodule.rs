@@ -53,14 +53,14 @@ impl SubmoduleTrace {
 pub(crate) fn submodule_view_tokens(
     db: &dyn TraceDb,
     submodule_trace: SubmoduleTrace,
-) -> TraceViewTokens {
+) -> TraceViewLines {
     use husky_entity_syn_tree::helpers::tokra_region::HasDeclTokraRegion;
     use husky_entity_syn_tree::HasSynNodePath;
     let submodule_path = submodule_trace.submodule_path;
     let token_idx_range = submodule_path
         .syn_node_path(db)
         .decl_tokra_region_token_idx_range(db);
-    TraceViewTokens::new(
+    TraceViewLines::new(
         submodule_path.parent(db),
         token_idx_range,
         VoidAssociatedTraceRegistry,

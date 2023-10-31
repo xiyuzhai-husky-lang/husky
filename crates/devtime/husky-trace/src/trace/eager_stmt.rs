@@ -146,7 +146,7 @@ impl EagerStmtTrace {
     }
 
     pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
-        let tokens = eager_stmt_trace_view_tokens(db, self);
+        let tokens = eager_stmt_trace_view_lines(db, self);
         let have_subtraces = match self.data(db) {
             EagerStmtTraceData::BasicStmt => false,
             EagerStmtTraceData::IfBranch { .. } => true,
@@ -418,21 +418,7 @@ impl EagerStmtTrace {
 }
 
 #[salsa::tracked(jar = TraceJar, return_ref)]
-fn eager_stmt_trace_subtraces(db: &dyn TraceDb, trace: EagerStmtTrace) -> Vec<Trace> {
-    match trace.data(db) {
-        EagerStmtTraceData::BasicStmt => unreachable!(),
-        EagerStmtTraceData::IfBranch { stmts, .. }
-        | EagerStmtTraceData::ElifBranch { stmts, .. }
-        | EagerStmtTraceData::ElseBranch { stmts, .. }
-        | EagerStmtTraceData::ForIn { stmts, .. }
-        | EagerStmtTraceData::ForBetween { stmts, .. } => {
-            EagerStmtTrace::from_stmts(trace.path(db), trace, stmts, trace.sema_expr_region(db), db)
-        }
-    }
-}
-
-#[salsa::tracked(jar = TraceJar, return_ref)]
-fn eager_stmt_trace_view_tokens(db: &dyn TraceDb, trace: EagerStmtTrace) -> TraceViewTokens {
+fn eager_stmt_trace_view_lines(db: &dyn TraceDb, trace: EagerStmtTrace) -> TraceViewLines {
     let sema_stmt_idx = trace.sema_stmt_idx(db);
     let sema_expr_region = trace.sema_expr_region(db);
     let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
@@ -483,7 +469,21 @@ fn eager_stmt_trace_view_tokens(db: &dyn TraceDb, trace: EagerStmtTrace) -> Trac
     let token_idx_range =
         regional_token_idx_range.token_idx_range(region_path.regional_token_idx_base(db).unwrap());
     let registry = EagerStmtAssociatedTraceRegistry::new(trace, sema_expr_region);
-    TraceViewTokens::new(region_path.module_path(db), token_idx_range, registry, db)
+    TraceViewLines::new(region_path.module_path(db), token_idx_range, registry, db)
+}
+
+#[salsa::tracked(jar = TraceJar, return_ref)]
+fn eager_stmt_trace_subtraces(db: &dyn TraceDb, trace: EagerStmtTrace) -> Vec<Trace> {
+    match trace.data(db) {
+        EagerStmtTraceData::BasicStmt => unreachable!(),
+        EagerStmtTraceData::IfBranch { stmts, .. }
+        | EagerStmtTraceData::ElifBranch { stmts, .. }
+        | EagerStmtTraceData::ElseBranch { stmts, .. }
+        | EagerStmtTraceData::ForIn { stmts, .. }
+        | EagerStmtTraceData::ForBetween { stmts, .. } => {
+            EagerStmtTrace::from_stmts(trace.path(db), trace, stmts, trace.sema_expr_region(db), db)
+        }
+    }
 }
 
 struct EagerStmtAssociatedTraceRegistry {

@@ -3,16 +3,15 @@ use husky_regional_token::{RegionalTokenIdxBase, RegionalTokenIdxRange};
 use husky_text::{HasText, Text};
 use husky_token::{RangedTokenSheet, TokenIdx, TokenIdxRange};
 use husky_token_info::{TokenInfo, TokenInfoSheetRef, TokenInfoSource};
-use husky_trace_protocol::view::{SeparationAfter, TraceViewTokenData};
+use husky_trace_protocol::view::{SeparationAfter, TraceViewLineData, TraceViewTokenData};
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct TraceViewTokens {
-    data: Vec<TraceViewTokenData>,
-    sources: Vec<Option<TokenInfoSource>>,
+pub struct TraceViewLines {
+    data: Vec<TraceViewLineData>,
 }
 
-impl TraceViewTokens {
-    pub fn data(&self) -> &[TraceViewTokenData] {
+impl TraceViewLines {
+    pub fn data(&self) -> &[TraceViewLineData] {
         self.data.as_ref()
     }
 
@@ -39,8 +38,8 @@ where
     text: Text<'a>,
     ranged_token_sheet: &'a RangedTokenSheet,
     token_info_sheet: TokenInfoSheetRef<'a>,
+    lines_data: Vec<TraceViewLineData>,
     tokens_data: Vec<TraceViewTokenData>,
-    sources: Vec<Option<TokenInfoSource>>,
     associated_trace_registry: AssociatedTraceRegistry,
 }
 
@@ -59,8 +58,8 @@ where
             ranged_token_sheet: db.ranged_token_sheet(module_path).unwrap(),
             token_info_sheet: db.token_info_sheet_ref(module_path).unwrap(),
             text: module_path.text(db),
+            lines_data: vec![],
             tokens_data: vec![],
-            sources: vec![],
             associated_trace_registry,
         }
     }
@@ -89,33 +88,39 @@ where
             })
             .flatten();
         // todo: handle inline comments
-        let spaces_after = if token_idx.index() < self.ranged_token_sheet.len() - 1 {
-            let next_text_range = self.ranged_token_sheet.token_text_range(token_idx + 1);
-            if next_text_range.start.line == text_range.end.line {
-                SeparationAfter::SameLine {
-                    spaces: next_text_range.start.col.0 - text_range.end.col.0,
-                }
+        let spaces_before: u32 = if token_idx.index() > 0 {
+            let prev_text_range = self.ranged_token_sheet.token_text_range(token_idx - 1);
+            if prev_text_range.start.line == text_range.end.line {
+                text_range.start.col.0 - prev_text_range.end.col.0
             } else {
-                SeparationAfter::NextLine {
-                    indent: next_text_range.start.col.0,
-                }
+                self.new_line_if_tokens_data_is_empty();
+                text_range.start.col.0
             }
         } else {
-            SeparationAfter::Eof
+            text_range.start.col.0
         };
         self.tokens_data.push(TraceViewTokenData::new(
             text.to_string(),
             token_class,
-            spaces_after,
+            spaces_before,
             associated_trace_id,
         ));
-        self.sources.push(src)
     }
 
-    fn finish(self) -> TraceViewTokens {
-        TraceViewTokens {
-            data: self.tokens_data,
-            sources: self.sources,
+    fn new_line_if_tokens_data_is_empty(&mut self) {
+        if !self.tokens_data.is_empty() {
+            self.lines_data.push(TraceViewLineData::new(std::mem::take(
+                &mut self.tokens_data,
+            )))
+        }
+    }
+
+    fn finish(mut self) -> TraceViewLines {
+        assert!(self.tokens_data.len() > 0);
+        self.lines_data
+            .push(TraceViewLineData::new(self.tokens_data));
+        TraceViewLines {
+            data: self.lines_data,
         }
     }
 }

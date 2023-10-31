@@ -29,7 +29,7 @@ impl ValItemTrace {
     }
 
     pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
-        let tokens = val_item_trace_view_tokens(db, self);
+        let tokens = val_item_trace_view_lines(db, self);
         TraceViewData::new(tokens.data().to_vec(), /* ad hoc */ true)
     }
 
@@ -39,7 +39,7 @@ impl ValItemTrace {
 }
 
 #[salsa::tracked(jar = TraceJar, return_ref)]
-fn val_item_trace_view_tokens(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> TraceViewTokens {
+fn val_item_trace_view_lines(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> TraceViewLines {
     use husky_entity_syn_tree::helpers::tokra_region::HasDeclTokraRegion;
     use husky_entity_syn_tree::HasSynNodePath;
     let val_item_trace_path = val_item_trace.path(db);
@@ -47,7 +47,7 @@ fn val_item_trace_view_tokens(db: &dyn TraceDb, val_item_trace: ValItemTrace) ->
     let token_idx_range = val_item_path
         .syn_node_path(db)
         .decl_tokra_region_token_idx_range(db);
-    TraceViewTokens::new(
+    TraceViewLines::new(
         val_item_path.module_path(db),
         token_idx_range,
         VoidAssociatedTraceRegistry,

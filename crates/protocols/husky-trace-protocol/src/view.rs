@@ -7,38 +7,25 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TraceViewData {
-    tokens_data: Vec<TraceViewTokenData>,
+    lines_data: Vec<TraceViewLineData>,
     have_subtraces: bool,
 }
 
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct TraceViewLineData {
+    tokens_data: Vec<TraceViewTokenData>,
+}
+
 impl TraceViewData {
-    pub fn new(tokens_data: Vec<TraceViewTokenData>, have_subtraces: bool) -> Self {
+    pub fn new(lines: Vec<TraceViewLineData>, have_subtraces: bool) -> Self {
         Self {
-            tokens_data,
+            lines_data: lines,
             have_subtraces,
         }
     }
 
-    #[cfg(feature = "mock")]
-    pub fn new_mock(tokens_data: impl IntoIterator<Item = (&'static str, TokenClass)>) -> Self {
-        Self {
-            tokens_data: tokens_data
-                .into_iter()
-                .map(|(text, token_class)| {
-                    TraceViewTokenData::new(
-                        text.to_string(),
-                        token_class,
-                        SeparationAfter::SameLine { spaces: 1 },
-                        None,
-                    )
-                })
-                .collect(),
-            have_subtraces: false,
-        }
-    }
-
-    pub fn tokens_data(&self) -> &[TraceViewTokenData] {
-        self.tokens_data.as_ref()
+    pub fn lines_data(&self) -> &[TraceViewLineData] {
+        self.lines_data.as_ref()
     }
 
     pub fn have_subtraces(&self) -> bool {
@@ -46,11 +33,21 @@ impl TraceViewData {
     }
 }
 
+impl TraceViewLineData {
+    pub fn new(tokens_data: Vec<TraceViewTokenData>) -> Self {
+        Self { tokens_data }
+    }
+
+    pub fn tokens_data(&self) -> &[TraceViewTokenData] {
+        self.tokens_data.as_ref()
+    }
+}
+
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TraceViewTokenData {
     text: String,
     token_class: TokenClass,
-    separation_after: SeparationAfter,
+    spaces_before: u32,
     associated_trace_id: Option<TraceId>,
 }
 
@@ -65,13 +62,13 @@ impl TraceViewTokenData {
     pub fn new(
         text: String,
         token_class: TokenClass,
-        separation_after: SeparationAfter,
+        spaces_before: u32,
         associated_trace: Option<TraceId>,
     ) -> Self {
         Self {
             text,
             token_class,
-            separation_after,
+            spaces_before,
             associated_trace_id: associated_trace,
         }
     }
@@ -80,8 +77,8 @@ impl TraceViewTokenData {
         self.text.as_ref()
     }
 
-    pub fn separation_after(&self) -> SeparationAfter {
-        self.separation_after
+    pub fn spaces_before(&self) -> u32 {
+        self.spaces_before
     }
 
     pub fn token_class(&self) -> TokenClass {
