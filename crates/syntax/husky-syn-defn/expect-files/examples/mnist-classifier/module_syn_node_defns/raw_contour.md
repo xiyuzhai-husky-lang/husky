@@ -16276,13 +16276,11 @@ Ok(
                                                             154,
                                                         ),
                                                         eol_colon: Ok(
-                                                            Colon(
-                                                                EolColonRegionalToken {
-                                                                    regional_token_idx: RegionalTokenIdx(
-                                                                        288,
-                                                                    ),
-                                                                },
-                                                            ),
+                                                            EolColonRegionalToken {
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    288,
+                                                                ),
+                                                            },
                                                         ),
                                                         stmts: ArenaIdxRange(
                                                             6..10,
@@ -16299,13 +16297,11 @@ Ok(
                                                                 187,
                                                             ),
                                                             eol_colon: Ok(
-                                                                Colon(
-                                                                    EolColonRegionalToken {
-                                                                        regional_token_idx: RegionalTokenIdx(
-                                                                            334,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                                EolColonRegionalToken {
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        334,
+                                                                    ),
+                                                                },
                                                             ),
                                                             stmts: ArenaIdxRange(
                                                                 10..13,
@@ -16321,13 +16317,11 @@ Ok(
                                                                 217,
                                                             ),
                                                             eol_colon: Ok(
-                                                                Colon(
-                                                                    EolColonRegionalToken {
-                                                                        regional_token_idx: RegionalTokenIdx(
-                                                                            373,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                                EolColonRegionalToken {
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        373,
+                                                                    ),
+                                                                },
                                                             ),
                                                             stmts: ArenaIdxRange(
                                                                 13..16,
@@ -16341,14 +16335,12 @@ Ok(
                                                                     397,
                                                                 ),
                                                             },
-                                                            eol_colon: Ok(
-                                                                Colon(
-                                                                    EolColonRegionalToken {
-                                                                        regional_token_idx: RegionalTokenIdx(
-                                                                            398,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            eol_colon_token: Ok(
+                                                                EolColonRegionalToken {
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        398,
+                                                                    ),
+                                                                },
                                                             ),
                                                             stmts: ArenaIdxRange(
                                                                 16..19,
@@ -16503,13 +16495,11 @@ Ok(
                                                             132,
                                                         ),
                                                         eol_colon: Ok(
-                                                            Colon(
-                                                                EolColonRegionalToken {
-                                                                    regional_token_idx: RegionalTokenIdx(
-                                                                        264,
-                                                                    ),
-                                                                },
-                                                            ),
+                                                            EolColonRegionalToken {
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    264,
+                                                                ),
+                                                            },
                                                         ),
                                                         stmts: ArenaIdxRange(
                                                             19..23,
@@ -16670,13 +16660,11 @@ Ok(
                                                             302,
                                                         ),
                                                         eol_colon: Ok(
-                                                            Colon(
-                                                                EolColonRegionalToken {
-                                                                    regional_token_idx: RegionalTokenIdx(
-                                                                        502,
-                                                                    ),
-                                                                },
-                                                            ),
+                                                            EolColonRegionalToken {
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    502,
+                                                                ),
+                                                            },
                                                         ),
                                                         stmts: ArenaIdxRange(
                                                             31..32,
@@ -17178,13 +17166,11 @@ Ok(
                                                             316,
                                                         ),
                                                         eol_colon: Ok(
-                                                            Colon(
-                                                                EolColonRegionalToken {
-                                                                    regional_token_idx: RegionalTokenIdx(
-                                                                        518,
-                                                                    ),
-                                                                },
-                                                            ),
+                                                            EolColonRegionalToken {
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    518,
+                                                                ),
+                                                            },
                                                         ),
                                                         stmts: ArenaIdxRange(
                                                             39..40,

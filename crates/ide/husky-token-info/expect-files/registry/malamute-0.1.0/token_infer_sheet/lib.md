@@ -8,6 +8,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
@@ -23,6 +28,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
@@ -38,6 +48,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         3,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
@@ -77,12 +92,12 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SynCurrentSymbol(
+                    src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -111,6 +126,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
@@ -126,6 +146,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
@@ -141,6 +166,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         3,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
@@ -180,12 +210,12 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SynCurrentSymbol(
+                    src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -203,12 +233,12 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SynCurrentSymbol(
+                    src: TokenInfoSource::TemplateParameter(
                         2,
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 2,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
@@ -232,7 +262,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -255,12 +285,12 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SynCurrentSymbol(
+                    src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -278,12 +308,12 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SynCurrentSymbol(
+                    src: TokenInfoSource::TemplateParameter(
                         2,
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 2,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
@@ -307,7 +337,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -326,6 +356,9 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
+                        PrincipalEntityPath::Module(
+                            `core`,
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::Module(
@@ -339,6 +372,9 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
+                        PrincipalEntityPath::Module(
+                            `core::ops`,
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::Module(
@@ -352,6 +388,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         3,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::ops::Unveil`),
+                            ),
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
@@ -366,6 +407,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         4,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`malamute::OneVsAll`, `Enum`),
+                            ),
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
@@ -385,7 +431,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -408,7 +454,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 2,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
@@ -427,6 +473,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         5,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`malamute::Class`, `Enum`),
+                            ),
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
@@ -446,7 +497,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -523,6 +574,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
@@ -538,6 +594,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
@@ -553,6 +614,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         3,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
@@ -592,12 +658,12 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SynCurrentSymbol(
+                    src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -615,12 +681,12 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SynCurrentSymbol(
+                    src: TokenInfoSource::TemplateParameter(
                         2,
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 2,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
@@ -644,7 +710,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -669,12 +735,12 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SynCurrentSymbol(
+                    src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -692,12 +758,12 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SynCurrentSymbol(
+                    src: TokenInfoSource::TemplateParameter(
                         2,
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 2,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
@@ -721,7 +787,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -740,6 +806,9 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
+                        PrincipalEntityPath::Module(
+                            `core`,
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::Module(
@@ -753,6 +822,9 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
+                        PrincipalEntityPath::Module(
+                            `core::ops`,
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::Module(
@@ -766,6 +838,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         3,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::ops::Unveil`),
+                            ),
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
@@ -780,6 +857,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         4,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`malamute::OneVsAllResult`, `Enum`),
+                            ),
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
@@ -799,7 +881,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -822,7 +904,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 2,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
@@ -841,6 +923,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         5,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`malamute::OneVsAll`, `Enum`),
+                            ),
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
@@ -860,7 +947,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -883,7 +970,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 2,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
@@ -981,12 +1068,12 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SynCurrentSymbol(
+                    src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -1004,12 +1091,12 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SynCurrentSymbol(
+                    src: TokenInfoSource::TemplateParameter(
                         2,
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 2,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
@@ -1033,7 +1120,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -1054,7 +1141,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SynCurrentSymbol(
+                    src: TokenInfoSource::TemplateParameter(
                         3,
                     ),
                     data: TokenInfoData::CurrentSymbol {
@@ -1076,6 +1163,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::f32`, `Extern`),
+                            ),
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
@@ -1089,8 +1181,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SynCurrentSymbol(
-                        4,
+                    src: TokenInfoSource::PatternExpr(
+                        1,
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 4,
@@ -1106,6 +1198,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::i32`, `Extern`),
+                            ),
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
@@ -1125,6 +1222,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         3,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`malamute::OneVsAllResult`, `Enum`),
+                            ),
+                        ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
@@ -1144,7 +1246,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -1167,7 +1269,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSymbol {
                         current_symbol_idx: 2,
-                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,

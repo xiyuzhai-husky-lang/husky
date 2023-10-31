@@ -61,7 +61,7 @@
                                             16,
                                         ),
                                         current_symbol_idx: 1,
-                                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `T`,
@@ -652,7 +652,7 @@
                                             6,
                                         ),
                                     },
-                                    method_dynamic_dispatch: FluffyDynamicDispatch {
+                                    dispatch: FluffyDynamicDispatch {
                                         indirections: FluffyTermDynamicDispatchIndirections {
                                             initial_place: Transient,
                                             indirections: [],
@@ -912,6 +912,14 @@
                                     opr: Closed(
                                         Sub,
                                     ),
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                            initial_place: Transient,
+                                            indirections: [],
+                                            final_place: Transient,
+                                        },
+                                        signature: Builtin,
+                                    },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         17,
                                     ),
@@ -975,6 +983,14 @@
                                         10,
                                     ),
                                     opr: As,
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                            initial_place: Transient,
+                                            indirections: [],
+                                            final_place: Transient,
+                                        },
+                                        signature: Builtin,
+                                    },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         20,
                                     ),
@@ -2283,7 +2299,7 @@
                                             15,
                                         ),
                                         current_symbol_idx: 1,
-                                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `T`,
@@ -2999,13 +3015,11 @@
                                     3,
                                 ),
                                 eol_colon: Ok(
-                                    Colon(
-                                        EolColonRegionalToken {
-                                            regional_token_idx: RegionalTokenIdx(
-                                                5,
-                                            ),
-                                        },
-                                    ),
+                                    EolColonRegionalToken {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            5,
+                                        ),
+                                    },
                                 ),
                                 stmts: ArenaIdxRange(
                                     1..4,
@@ -3254,6 +3268,14 @@
                                     opr: Comparison(
                                         Less,
                                     ),
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                            initial_place: Transient,
+                                            indirections: [],
+                                            final_place: Transient,
+                                        },
+                                        signature: Builtin,
+                                    },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         3,
                                     ),
@@ -3733,6 +3755,14 @@
                                     opr: Closed(
                                         Sub,
                                     ),
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                            initial_place: Transient,
+                                            indirections: [],
+                                            final_place: Transient,
+                                        },
+                                        signature: Builtin,
+                                    },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         24,
                                     ),
@@ -4015,6 +4045,14 @@
                                     opr: Closed(
                                         Add,
                                     ),
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                            initial_place: Transient,
+                                            indirections: [],
+                                            final_place: Transient,
+                                        },
+                                        signature: Builtin,
+                                    },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         32,
                                     ),
@@ -4339,13 +4377,11 @@
                                         condition: SemaExprIdx(
                                             3,
                                         ),
-                                        eol_colon: Colon(
-                                            EolColonRegionalToken {
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    5,
-                                                ),
-                                            },
-                                        ),
+                                        eol_colon_token: EolColonRegionalToken {
+                                            regional_token_idx: RegionalTokenIdx(
+                                                5,
+                                            ),
+                                        },
                                         stmts: SemaStmtIdxRange(
                                             ArenaIdxRange(
                                                 1..4,
@@ -6472,7 +6508,7 @@
                                             15,
                                         ),
                                         current_symbol_idx: 1,
-                                        current_symbol_kind: SynCurrentSymbolKind::ImplicitParameter {
+                                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `T`,
@@ -7701,13 +7737,11 @@
                                     45,
                                 ),
                                 eol_colon: Ok(
-                                    Colon(
-                                        EolColonRegionalToken {
-                                            regional_token_idx: RegionalTokenIdx(
-                                                68,
-                                            ),
-                                        },
-                                    ),
+                                    EolColonRegionalToken {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            68,
+                                        ),
+                                    },
                                 ),
                                 stmts: ArenaIdxRange(
                                     3..4,
@@ -7721,14 +7755,12 @@
                                             70,
                                         ),
                                     },
-                                    eol_colon: Ok(
-                                        Colon(
-                                            EolColonRegionalToken {
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    71,
-                                                ),
-                                            },
-                                        ),
+                                    eol_colon_token: Ok(
+                                        EolColonRegionalToken {
+                                            regional_token_idx: RegionalTokenIdx(
+                                                71,
+                                            ),
+                                        },
                                     ),
                                     stmts: ArenaIdxRange(
                                         4..5,
@@ -8202,6 +8234,14 @@
                                         2,
                                     ),
                                     opr: As,
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                            initial_place: Transient,
+                                            indirections: [],
+                                            final_place: Transient,
+                                        },
+                                        signature: Builtin,
+                                    },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         5,
                                     ),
@@ -8308,6 +8348,14 @@
                                     opr: Closed(
                                         Sub,
                                     ),
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                            initial_place: Transient,
+                                            indirections: [],
+                                            final_place: Transient,
+                                        },
+                                        signature: Builtin,
+                                    },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         12,
                                     ),
@@ -8478,6 +8526,14 @@
                                     opr: AssignClosed(
                                         Add,
                                     ),
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                            initial_place: Transient,
+                                            indirections: [],
+                                            final_place: Transient,
+                                        },
+                                        signature: Builtin,
+                                    },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         23,
                                     ),
@@ -8617,6 +8673,14 @@
                                         14,
                                     ),
                                     opr: As,
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                            initial_place: Transient,
+                                            indirections: [],
+                                            final_place: Transient,
+                                        },
+                                        signature: Builtin,
+                                    },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         29,
                                     ),
@@ -8843,6 +8907,14 @@
                                     opr: Comparison(
                                         Less,
                                     ),
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                            initial_place: Transient,
+                                            indirections: [],
+                                            final_place: Transient,
+                                        },
+                                        signature: Builtin,
+                                    },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         32,
                                     ),
@@ -8943,6 +9015,14 @@
                                     opr: AssignClosed(
                                         Add,
                                     ),
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                            initial_place: Transient,
+                                            indirections: [],
+                                            final_place: Transient,
+                                        },
+                                        signature: Builtin,
+                                    },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         39,
                                     ),
@@ -9043,6 +9123,14 @@
                                     opr: AssignClosed(
                                         Sub,
                                     ),
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                            initial_place: Transient,
+                                            indirections: [],
+                                            final_place: Transient,
+                                        },
+                                        signature: Builtin,
+                                    },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         42,
                                     ),
@@ -9143,6 +9231,14 @@
                                     opr: Comparison(
                                         Geq,
                                     ),
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                            initial_place: Transient,
+                                            indirections: [],
+                                            final_place: Transient,
+                                        },
+                                        signature: Builtin,
+                                    },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         46,
                                     ),
@@ -9282,6 +9378,14 @@
                                         32,
                                     ),
                                     opr: As,
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                            initial_place: Transient,
+                                            indirections: [],
+                                            final_place: Transient,
+                                        },
+                                        signature: Builtin,
+                                    },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         52,
                                     ),
@@ -9508,6 +9612,14 @@
                                     opr: Comparison(
                                         Greater,
                                     ),
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                            initial_place: Transient,
+                                            indirections: [],
+                                            final_place: Transient,
+                                        },
+                                        signature: Builtin,
+                                    },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         55,
                                     ),
@@ -9542,6 +9654,14 @@
                                     opr: ShortCircuitLogic(
                                         And,
                                     ),
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                            initial_place: Transient,
+                                            indirections: [],
+                                            final_place: Transient,
+                                        },
+                                        signature: Builtin,
+                                    },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         48,
                                     ),
@@ -9642,6 +9762,14 @@
                                     opr: AssignClosed(
                                         Sub,
                                     ),
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                            initial_place: Transient,
+                                            indirections: [],
+                                            final_place: Transient,
+                                        },
+                                        signature: Builtin,
+                                    },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         62,
                                     ),
@@ -9748,6 +9876,14 @@
                                     opr: Comparison(
                                         Geq,
                                     ),
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                            initial_place: Transient,
+                                            indirections: [],
+                                            final_place: Transient,
+                                        },
+                                        signature: Builtin,
+                                    },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         66,
                                     ),
@@ -9887,6 +10023,14 @@
                                         48,
                                     ),
                                     opr: As,
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                            initial_place: Transient,
+                                            indirections: [],
+                                            final_place: Transient,
+                                        },
+                                        signature: Builtin,
+                                    },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         77,
                                     ),
@@ -9986,6 +10130,14 @@
                                         51,
                                     ),
                                     opr: As,
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                            initial_place: Transient,
+                                            indirections: [],
+                                            final_place: Transient,
+                                        },
+                                        signature: Builtin,
+                                    },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         81,
                                     ),
@@ -10032,7 +10184,7 @@
                                             74,
                                         ),
                                     },
-                                    method_dynamic_dispatch: FluffyDynamicDispatch {
+                                    dispatch: FluffyDynamicDispatch {
                                         indirections: FluffyTermDynamicDispatchIndirections {
                                             initial_place: Transient,
                                             indirections: [],
@@ -10293,6 +10445,14 @@
                                         56,
                                     ),
                                     opr: As,
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                            initial_place: Transient,
+                                            indirections: [],
+                                            final_place: Transient,
+                                        },
+                                        signature: Builtin,
+                                    },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         89,
                                     ),
@@ -10392,6 +10552,14 @@
                                         59,
                                     ),
                                     opr: As,
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                            initial_place: Transient,
+                                            indirections: [],
+                                            final_place: Transient,
+                                        },
+                                        signature: Builtin,
+                                    },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         93,
                                     ),
@@ -10438,7 +10606,7 @@
                                             86,
                                         ),
                                     },
-                                    method_dynamic_dispatch: FluffyDynamicDispatch {
+                                    dispatch: FluffyDynamicDispatch {
                                         indirections: FluffyTermDynamicDispatchIndirections {
                                             initial_place: Transient,
                                             indirections: [],
@@ -10917,13 +11085,11 @@
                                         condition: SemaExprIdx(
                                             45,
                                         ),
-                                        eol_colon: Colon(
-                                            EolColonRegionalToken {
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    68,
-                                                ),
-                                            },
-                                        ),
+                                        eol_colon_token: EolColonRegionalToken {
+                                            regional_token_idx: RegionalTokenIdx(
+                                                68,
+                                            ),
+                                        },
                                         stmts: SemaStmtIdxRange(
                                             ArenaIdxRange(
                                                 3..4,
@@ -10933,18 +11099,16 @@
                                     sema_elif_branches: [],
                                     sema_else_branch: Some(
                                         SemaElseBranch {
-                                            else_token: ElseRegionalToken {
+                                            else_regional_token: ElseRegionalToken {
                                                 regional_token_idx: RegionalTokenIdx(
                                                     70,
                                                 ),
                                             },
-                                            eol_colon: Colon(
-                                                EolColonRegionalToken {
-                                                    regional_token_idx: RegionalTokenIdx(
-                                                        71,
-                                                    ),
-                                                },
-                                            ),
+                                            eol_colon_regional_token: EolColonRegionalToken {
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    71,
+                                                ),
+                                            },
                                             stmts: SemaStmtIdxRange(
                                                 ArenaIdxRange(
                                                     4..5,
