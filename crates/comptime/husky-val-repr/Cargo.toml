@@ -39,7 +39,7 @@ husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
 husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
 husky-vm = { path = "../../vm/husky-vm" }
 # comptime
-husky-hir-defn = { path = "../../comptime/husky-hir-defn" }
+husky-hir-defn = { path = "../../hir/husky-hir-defn" }
 husky-instruction = { path = "../../comptime/husky-instruction" }
 # husky-dev-linkage-table = { path = "../../comptime/husky-dev-linkage-table" }
 # runtime

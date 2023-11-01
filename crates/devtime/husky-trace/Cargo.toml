@@ -11,9 +11,9 @@ salsa = { path = "../../abstractions/salsa" }
 vec-like = { path = "../../abstractions/vec-like" }
 enum-class = { path = "../../abstractions/enum-class" }
 # comptime
-husky-hir-eager-expr = { path = "../../comptime/husky-hir-eager-expr" }
-husky-hir-lazy-expr = { path = "../../comptime/husky-hir-lazy-expr" }
-husky-hir-expr = { path = "../../comptime/husky-hir-expr" }
+husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
+husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
+husky-hir-expr = { path = "../../hir/husky-hir-expr" }
 # devtime
 husky-trace-protocol-old = { path = "../../devtime/husky-trace-protocol-old" }
 # fs

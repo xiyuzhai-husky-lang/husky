@@ -21,5 +21,5 @@ husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 # semantics
 husky-sema-expr = { path = "../../semantics/husky-sema-expr" }
 # comptime
-husky-hir-eager-expr = { path = "../../comptime/husky-hir-eager-expr" }
-husky-hir-lazy-expr = { path = "../../comptime/husky-hir-lazy-expr" }
+husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
+husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
