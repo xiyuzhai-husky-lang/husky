@@ -9,6 +9,7 @@ use crate::*;
 use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use husky_hir_defn::*;
 use husky_hir_ty::{
+    ritchie::HirRitchieParameter,
     template_parameter::{HirTemplateParameter, HirTemplateParameters},
     HirTemplateSymbol, HirTypeSymbol,
 };
@@ -57,5 +58,11 @@ impl TranspileToRust for HirTemplateParameter {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         self.symbol().transpile_to_rust(builder)
         // todo: traits
+    }
+}
+
+impl TranspileToRust for HirRitchieParameter {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        todo!()
     }
 }

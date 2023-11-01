@@ -170,7 +170,7 @@ pub(crate) fn trai_item_syn_node(
 ) -> TraitItemSynNode {
     syn_node_path
         .parent_trai_syn_node_path(db)
-        .item_nodes(db)
+        .associated_items(db)
         .iter()
         .copied()
         .find_map(|(_, node_path1, node)| (node_path1 == syn_node_path).then_some(node))

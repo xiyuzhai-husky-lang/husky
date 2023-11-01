@@ -1,13 +1,21 @@
+pub(crate) mod keyword;
+
 use crate::*;
 use husky_coword::Ident;
+use husky_hir_eager_expr::HirEagerExprArena;
+use husky_hir_expr::HirExprRegion;
+use husky_hir_lazy_expr::HirLazyExprArena;
 use husky_hir_ty::{HirTemplateSymbol, HirTypeSymbol};
 use husky_syn_opr::Bracket;
-use husky_token_data::{Keyword, StmtKeyword};
+
+const INDENT_UNIT: u32 = 4;
 
 pub(crate) struct RustTranspilationBuilder<'a> {
     db: &'a dyn RustTranspilationDb,
     result: String,
     current_indent: u32,
+    is_list_start: Option<bool>,
+    hir_expr_region: Option<HirExprRegion>,
 }
 
 impl<'a> RustTranspilationBuilder<'a> {
@@ -16,6 +24,8 @@ impl<'a> RustTranspilationBuilder<'a> {
             db,
             result: Default::default(),
             current_indent: 0,
+            is_list_start: None,
+            hir_expr_region: None,
         }
     }
 
@@ -64,6 +74,74 @@ impl<'a> RustTranspilationBuilder<'a> {
         }
         self.write_str(bracket.ket_code());
     }
+
+    pub(crate) fn heterogeneous_bracketed_comma_list(
+        &mut self,
+        bracket: Bracket,
+        items: impl FnOnce(&mut Self),
+    ) {
+        self.write_str(bracket.bra_code());
+        items(self);
+        self.write_str(bracket.ket_code());
+    }
+
+    pub(crate) fn heterogeneous_comma_list_items<A: TranspileToRust>(
+        &mut self,
+        items: impl IntoIterator<Item = A>,
+    ) {
+        for item in items {
+            self.heterogeneous_comma_list_item(item)
+        }
+    }
+
+    pub(crate) fn heterogeneous_comma_list_item<A: TranspileToRust>(&mut self, item: A) {
+        let Some(ref mut is_list_start) = self.is_list_start else {
+            unreachable!()
+        };
+        if *is_list_start {
+            *is_list_start = false
+        } else {
+            self.write_str(", ")
+        }
+        item.transpile_to_rust(self)
+    }
+
+    pub(crate) fn curly_block(&mut self, f: impl FnOnce(&mut Self)) {
+        self.write_token_str("{");
+        self.current_indent += INDENT_UNIT;
+        f(self);
+        self.current_indent -= INDENT_UNIT;
+        if !self.result.ends_with("\n") {
+            self.result += "\n"
+        }
+        self.write_indent();
+        self.write_str("}\n");
+    }
+
+    pub(crate) fn with_hir_expr_region(
+        &mut self,
+        hir_expr_region: impl Into<HirExprRegion>,
+        f: impl FnOnce(&mut Self),
+    ) {
+        debug_assert!(self.hir_expr_region.is_none());
+        self.hir_expr_region = Some(hir_expr_region.into());
+        f(self);
+        self.hir_expr_region = None
+    }
+
+    pub(crate) fn hir_eager_expr_arena(&self) -> &HirEagerExprArena {
+        let Some(HirExprRegion::Eager(hir_eager_expr_region)) = self.hir_expr_region else {
+            unreachable!()
+        };
+        hir_eager_expr_region.hir_eager_expr_arena(self.db)
+    }
+
+    pub(crate) fn hir_lazy_expr_arena(&self) -> &HirLazyExprArena {
+        let Some(HirExprRegion::Lazy(hir_lazy_expr_region)) = self.hir_expr_region else {
+            unreachable!()
+        };
+        hir_lazy_expr_region.hir_lazy_expr_arena(self.db)
+    }
 }
 
 pub(crate) trait TranspileToRust {
@@ -76,19 +154,6 @@ where
 {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         <T as TranspileToRust>::transpile_to_rust(self, builder)
-    }
-}
-
-impl TranspileToRust for Keyword {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
-        match self {
-            Keyword::Stmt(StmtKeyword::Forext) => todo!(),
-            Keyword::End(_) => todo!(),
-            Keyword::Sorry => todo!(),
-            Keyword::Todo => todo!(),
-            Keyword::Unreachable => todo!(),
-            _ => builder.write_token_str(self.code()),
-        }
     }
 }
 
@@ -112,7 +177,7 @@ impl TranspileToRust for HirTemplateSymbol {
                     2 => builder.write_str("C"),
                     _ => todo!(),
                 },
-                HirTypeSymbol::SelfType => todo!(),
+                HirTypeSymbol::SelfType => builder.write_str("This"),
                 HirTypeSymbol::SelfLifetime => todo!(),
                 HirTypeSymbol::SelfPlace => todo!(),
             },

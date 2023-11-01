@@ -32,6 +32,10 @@ impl<T> ArenaIdx<T> {
     pub fn index(self) -> usize {
         self.raw.get() as usize - 1
     }
+
+    pub fn data(self, arena: &Arena<T>) -> &T {
+        &arena[self]
+    }
 }
 
 impl<T> PartialEq for ArenaIdx<T> {
