@@ -8,6 +8,11 @@ mod ty_variant;
 use crate::*;
 use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use husky_hir_defn::*;
+use husky_hir_ty::{
+    template_parameter::{HirTemplateParameter, HirTemplateParameters},
+    HirTemplateSymbol, HirTypeSymbol,
+};
+use husky_syn_opr::Bracket;
 
 #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
 pub fn module_defn_rust_transpilation(
@@ -36,5 +41,21 @@ impl TranspileToRust for HirDefn {
             HirDefn::AssociatedItem(hir_defn) => hir_defn.transpile_to_rust(builder),
             HirDefn::Attr(hir_defn) => hir_defn.transpile_to_rust(builder),
         }
+    }
+}
+
+impl TranspileToRust for HirTemplateParameters {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        if self.is_empty() {
+            return;
+        }
+        builder.bracketed_comma_list(Bracket::TemplateAngle, self.as_ref())
+    }
+}
+
+impl TranspileToRust for HirTemplateParameter {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        self.symbol().transpile_to_rust(builder)
+        // todo: traits
     }
 }

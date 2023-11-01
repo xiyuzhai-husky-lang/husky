@@ -12,7 +12,7 @@ pub enum StmtKeyword {
     /// `for` token not in an impl decl
     NonImplFor,
     /// `forext`
-    ForExt,
+    Forext,
     While,
     Do,
     Break,
@@ -30,7 +30,7 @@ impl StmtKeyword {
             StmtKeyword::Else => "else",
             StmtKeyword::Match => "match",
             StmtKeyword::NonImplFor => "for",
-            StmtKeyword::ForExt => "forext",
+            StmtKeyword::Forext => "forext",
             StmtKeyword::While => "while",
             StmtKeyword::Do => "do",
             StmtKeyword::Break => "break",

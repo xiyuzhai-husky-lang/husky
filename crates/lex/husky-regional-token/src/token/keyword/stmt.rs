@@ -181,7 +181,7 @@ where
                     StmtKeyword::NonImplFor => {
                         Ok(Some(StmtForRegionalToken { regional_token_idx }.into()))
                     }
-                    StmtKeyword::ForExt => {
+                    StmtKeyword::Forext => {
                         Ok(Some(ForextRegionalToken { regional_token_idx }.into()))
                     }
                     StmtKeyword::While => {

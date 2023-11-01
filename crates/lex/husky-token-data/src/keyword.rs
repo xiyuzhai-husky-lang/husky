@@ -63,7 +63,7 @@ impl Keyword {
                 | StmtKeyword::Else
                 | StmtKeyword::Match
                 | StmtKeyword::NonImplFor
-                | StmtKeyword::ForExt
+                | StmtKeyword::Forext
                 | StmtKeyword::While
                 | StmtKeyword::Do
                 | StmtKeyword::Break

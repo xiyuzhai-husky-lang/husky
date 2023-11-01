@@ -178,7 +178,7 @@ where
                     StmtKeyword::Assert => Ok(Some(AssertToken { token_idx }.into())),
                     StmtKeyword::Break => Ok(Some(BreakToken { token_idx }.into())),
                     StmtKeyword::NonImplFor => Ok(Some(StmtForToken { token_idx }.into())),
-                    StmtKeyword::ForExt => Ok(Some(ForextToken { token_idx }.into())),
+                    StmtKeyword::Forext => Ok(Some(ForextToken { token_idx }.into())),
                     StmtKeyword::While => Ok(Some(WhileToken { token_idx }.into())),
                     StmtKeyword::Do => Ok(Some(DoToken { token_idx }.into())),
                     StmtKeyword::If => todo!(),
