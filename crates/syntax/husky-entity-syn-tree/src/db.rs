@@ -117,6 +117,7 @@ pub struct EntitySynTreeJar(
     // ty_impl_blocks,
     ty_item_syn_node_paths,
     ty_item_paths_map,
+    ty_impl_block_item_paths,
     trai_for_ty_impl_block_items,
     trai_for_ty_impl_block_item_paths,
     // variants

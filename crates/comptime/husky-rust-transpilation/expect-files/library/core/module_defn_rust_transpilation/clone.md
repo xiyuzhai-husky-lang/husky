@@ -1,0 +1,1 @@
+"pubtraitClone::<This>{\n}\n"

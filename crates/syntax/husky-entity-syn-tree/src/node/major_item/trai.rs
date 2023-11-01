@@ -41,7 +41,7 @@ impl TraitSynNodePath {
     }
 
     // todo: make this a trait method
-    pub(crate) fn item_nodes<'a>(
+    pub(crate) fn associated_items<'a>(
         self,
         db: &'a dyn EntitySynTreeDb,
     ) -> &'a [(Ident, TraitItemSynNodePath, TraitItemSynNode)] {
@@ -52,7 +52,7 @@ impl TraitSynNodePath {
         self,
         db: &'a dyn EntitySynTreeDb,
     ) -> impl Iterator<Item = TraitItemSynNodePath> + 'a {
-        self.item_nodes(db)
+        self.associated_items(db)
             .iter()
             .copied()
             .map(|(_, syn_node_path, _)| syn_node_path)
@@ -96,7 +96,7 @@ fn trai_item_paths(
     db: &dyn EntitySynTreeDb,
     path: TraitPath,
 ) -> SmallVecPairMap<Ident, TraitItemPath, APPROXIMATE_UPPER_BOUND_ON_NUMBER_OF_TRAIT_ITEMS> {
-    let item_nodes = path.syn_node_path(db).item_nodes(db);
+    let item_nodes = path.syn_node_path(db).associated_items(db);
     item_nodes
         .iter()
         .filter_map(|(ident, syn_node_path, _)| Some((*ident, syn_node_path.path(db)?)))

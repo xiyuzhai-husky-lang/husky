@@ -1,5 +1,6 @@
 use super::*;
 use husky_entity_kind::AssociatedItemKind;
+use vec_like::SmallVecPairMap;
 
 // basically a wrapper type
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -33,7 +34,7 @@ impl TypeImplBlockSynNodePath {
     }
 
     #[inline(always)]
-    pub(crate) fn item_syn_nodes(
+    pub(crate) fn associated_items(
         self,
         db: &dyn EntitySynTreeDb,
     ) -> &[(Ident, TypeItemSynNodePath, TypeItemSynNode)] {
@@ -45,7 +46,7 @@ impl TypeImplBlockSynNodePath {
         self,
         db: &'a dyn EntitySynTreeDb,
     ) -> impl Iterator<Item = TypeItemSynNodePath> + 'a {
-        self.item_syn_nodes(db)
+        self.associated_items(db)
             .iter()
             .copied()
             .map(|(_, syn_node_path, _)| syn_node_path)
@@ -121,4 +122,27 @@ pub(crate) fn ty_impl_block_syn_node(
     let module_path = syn_node_path.module_path(db);
     let item_tree_sheet = db.item_syn_tree_sheet(module_path).expect("valid module");
     item_tree_sheet.ty_impl_block_syn_node(syn_node_path)
+}
+
+impl HasAssociatedItemPaths for TypeImplBlockPath {
+    type AssociatedItemPath = TypeItemPath;
+
+    fn associated_item_paths(
+        self,
+        db: &dyn EntitySynTreeDb,
+    ) -> &[(Ident, Self::AssociatedItemPath)] {
+        ty_impl_block_item_paths(db, self)
+    }
+}
+
+#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
+fn ty_impl_block_item_paths(
+    db: &dyn EntitySynTreeDb,
+    path: TypeImplBlockPath,
+) -> SmallVecPairMap<Ident, TypeItemPath, 2> {
+    path.syn_node_path(db)
+        .associated_items(db)
+        .iter()
+        .filter_map(|(ident, syn_node_path, _)| Some((*ident, syn_node_path.path(db)?)))
+        .collect()
 }

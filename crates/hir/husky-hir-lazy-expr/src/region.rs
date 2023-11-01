@@ -4,9 +4,9 @@ use crate::{db::*, *};
 #[salsa::interned(db = HirLazyExprDb, jar = HirLazyExprJar)]
 pub struct HirLazyExprRegion {
     #[return_ref]
-    pub expr_arena: HirLazyExprArena,
+    pub hir_lazy_expr_arena: HirLazyExprArena,
     #[return_ref]
-    pub stmt_arena: HirLazyStmtArena,
+    pub hir_lazy_stmt_arena: HirLazyStmtArena,
     #[return_ref]
-    pub pattern_expr_arena: HirLazyPatternExprArena,
+    pub hir_lazy_pattern_expr_arena: HirLazyPatternExprArena,
 }

@@ -12,12 +12,15 @@ enum-class = { path = "../../abstractions/enum-class" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 # hir
 husky-hir-ty = { path = "../../hir/husky-hir-ty" }
+husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
+husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
+husky-hir-expr = { path = "../../hir/husky-hir-expr" }
+husky-hir-decl = { path = "../../hir/husky-hir-decl" }
 husky-hir-defn = { path = "../../hir/husky-hir-defn" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # lex
-husky-token-data = { path = "../../lex/husky-token-data" }
 # syntax
 husky-syn-opr = { path = "../../syntax/husky-syn-opr" }
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
@@ -26,14 +29,11 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
 # hir
-husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
-husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
-husky-hir-expr = { path = "../../hir/husky-hir-expr" }
-husky-hir-decl = { path = "../../hir/husky-hir-decl" }
 # kernel
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 # lex
+husky-token-data = { path = "../../lex/husky-token-data" }
 husky-token = { path = "../../lex/husky-token" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # kernel
