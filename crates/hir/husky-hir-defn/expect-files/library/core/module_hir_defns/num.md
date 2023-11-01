@@ -364,25 +364,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::Type(
-            TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::i8`, `Extern`),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 3,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: Type(
+                TypeImplBlockHirDecl(
+                    Id {
+                        value: 1,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
@@ -514,42 +504,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::TraitForType(
-            TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::i8`, `Extern`),
-                    ),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 3,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 3,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: TraitForType(
+                TraitForTypeImplBlockHirDecl(
+                    Id {
+                        value: 2,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
@@ -621,25 +584,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::Type(
-            TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::i16`, `Extern`),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 4,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: Type(
+                TypeImplBlockHirDecl(
+                    Id {
+                        value: 2,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
@@ -771,42 +724,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::TraitForType(
-            TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::i16`, `Extern`),
-                    ),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 4,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: TraitForType(
+                TraitForTypeImplBlockHirDecl(
+                    Id {
+                        value: 3,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
@@ -878,25 +804,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::Type(
-            TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::i32`, `Extern`),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 5,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: Type(
+                TypeImplBlockHirDecl(
+                    Id {
+                        value: 3,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
@@ -1098,42 +1014,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::TraitForType(
-            TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::i32`, `Extern`),
-                    ),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 5,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: TraitForType(
+                TraitForTypeImplBlockHirDecl(
+                    Id {
+                        value: 4,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
@@ -1205,25 +1094,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::Type(
-            TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::i64`, `Extern`),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 6,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: Type(
+                TypeImplBlockHirDecl(
+                    Id {
+                        value: 4,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
@@ -1285,42 +1164,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::TraitForType(
-            TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::i64`, `Extern`),
-                    ),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 6,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 6,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: TraitForType(
+                TraitForTypeImplBlockHirDecl(
+                    Id {
+                        value: 5,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
@@ -1392,25 +1244,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::Type(
-            TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::i128`, `Extern`),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 7,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: Type(
+                TypeImplBlockHirDecl(
+                    Id {
+                        value: 5,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
@@ -1472,42 +1314,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::TraitForType(
-            TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::i128`, `Extern`),
-                    ),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 7,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 7,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: TraitForType(
+                TraitForTypeImplBlockHirDecl(
+                    Id {
+                        value: 6,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
@@ -1579,25 +1394,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::Type(
-            TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::isize`, `Extern`),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 8,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: Type(
+                TypeImplBlockHirDecl(
+                    Id {
+                        value: 6,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
@@ -1659,42 +1464,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::TraitForType(
-            TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::isize`, `Extern`),
-                    ),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 8,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: TraitForType(
+                TraitForTypeImplBlockHirDecl(
+                    Id {
+                        value: 7,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
@@ -1766,25 +1544,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::Type(
-            TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::u8`, `Extern`),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 9,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: Type(
+                TypeImplBlockHirDecl(
+                    Id {
+                        value: 7,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
@@ -1846,42 +1614,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::TraitForType(
-            TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::u8`, `Extern`),
-                    ),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 9,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 9,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: TraitForType(
+                TraitForTypeImplBlockHirDecl(
+                    Id {
+                        value: 8,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
@@ -1953,25 +1694,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::Type(
-            TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::u16`, `Extern`),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 10,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: Type(
+                TypeImplBlockHirDecl(
+                    Id {
+                        value: 8,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
@@ -2033,42 +1764,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::TraitForType(
-            TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::u16`, `Extern`),
-                    ),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 10,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 10,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: TraitForType(
+                TraitForTypeImplBlockHirDecl(
+                    Id {
+                        value: 9,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
@@ -2140,25 +1844,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::Type(
-            TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::u32`, `Extern`),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 11,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: Type(
+                TypeImplBlockHirDecl(
+                    Id {
+                        value: 9,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
@@ -2220,42 +1914,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::TraitForType(
-            TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::u32`, `Extern`),
-                    ),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 11,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 11,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: TraitForType(
+                TraitForTypeImplBlockHirDecl(
+                    Id {
+                        value: 10,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
@@ -2327,25 +1994,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::Type(
-            TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::u64`, `Extern`),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 12,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: Type(
+                TypeImplBlockHirDecl(
+                    Id {
+                        value: 10,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
@@ -2407,42 +2064,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::TraitForType(
-            TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::u64`, `Extern`),
-                    ),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 12,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 12,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: TraitForType(
+                TraitForTypeImplBlockHirDecl(
+                    Id {
+                        value: 11,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
@@ -2514,25 +2144,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::Type(
-            TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::u128`, `Extern`),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 13,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: Type(
+                TypeImplBlockHirDecl(
+                    Id {
+                        value: 11,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
@@ -2594,42 +2214,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::TraitForType(
-            TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::u128`, `Extern`),
-                    ),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 13,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 13,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: TraitForType(
+                TraitForTypeImplBlockHirDecl(
+                    Id {
+                        value: 12,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
@@ -2701,25 +2294,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::Type(
-            TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::usize`, `Extern`),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 1,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: Type(
+                TypeImplBlockHirDecl(
+                    Id {
+                        value: 12,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
@@ -2781,42 +2364,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::TraitForType(
-            TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::usize`, `Extern`),
-                    ),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 1,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: TraitForType(
+                TraitForTypeImplBlockHirDecl(
+                    Id {
+                        value: 13,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
@@ -2888,25 +2444,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::Type(
-            TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 14,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: Type(
+                TypeImplBlockHirDecl(
+                    Id {
+                        value: 13,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
@@ -3403,42 +2949,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::TraitForType(
-            TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::f32`, `Extern`),
-                    ),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 14,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: TraitForType(
+                TraitForTypeImplBlockHirDecl(
+                    Id {
+                        value: 14,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
@@ -3510,25 +3029,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::Type(
-            TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::f64`, `Extern`),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 15,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: Type(
+                TypeImplBlockHirDecl(
+                    Id {
+                        value: 14,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
@@ -3649,42 +3158,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::TraitForType(
-            TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::f64`, `Extern`),
-                    ),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 15,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 15,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: TraitForType(
+                TraitForTypeImplBlockHirDecl(
+                    Id {
+                        value: 15,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(

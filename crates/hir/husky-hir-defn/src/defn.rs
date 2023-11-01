@@ -26,7 +26,7 @@ pub enum HirDefn {
     Submodule(SubmoduleHirDefn),
     MajorItem(MajorItemHirDefn),
     TypeVariant(TypeVariantHirDefn),
-    ImplBlock(ImplBlockHirDecl),
+    ImplBlock(ImplBlockHirDefn),
     AssociatedItem(AssociatedItemHirDefn),
     Attr(AttrHirDefn),
 }
@@ -37,7 +37,7 @@ impl HirDefn {
             HirDefn::Submodule(hir_defn) => HirDecl::Submodule(hir_defn.hir_decl()),
             HirDefn::MajorItem(hir_defn) => hir_defn.hir_decl(db).into(),
             HirDefn::TypeVariant(hir_defn) => hir_defn.hir_decl(db).into(),
-            HirDefn::ImplBlock(hir_decl) => hir_decl.into(),
+            HirDefn::ImplBlock(hir_decl) => hir_decl.hir_decl().into(),
             HirDefn::AssociatedItem(hir_defn) => hir_defn.hir_decl(db).into(),
             HirDefn::Attr(hir_defn) => hir_defn.hir_decl().into(),
         }
