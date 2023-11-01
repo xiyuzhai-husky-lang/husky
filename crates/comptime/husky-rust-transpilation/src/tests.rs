@@ -1,6 +1,6 @@
 pub(crate) use husky_ast::test_utils::*;
 
-use crate::{db::*, transpilation::RustTranspilation, *};
+use crate::{db::*, *};
 use husky_ast::AstJar;
 use husky_corgi_config::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
@@ -65,17 +65,9 @@ pub(crate) struct DB {
 
 impl salsa::Database for DB {}
 
-fn module_rust_transpilations(db: &DB, module_path: ModulePath) -> Vec<RustTranspilation> {
-    module_item_paths(db, module_path)
-        .as_ref()
-        .expect("all modules should be guaranteed to be valid")
-        .iter()
-        .filter_map(|path| path.rust_transpilation(db))
-        .collect()
-}
-
 #[test]
-fn module_rust_transpilations_works() {
-    DB::default()
-        .ast_expect_test_debug_with_db("module_rust_transpilations", module_rust_transpilations);
+fn module_defn_rust_transpilation_works() {
+    DB::default().ast_expect_test_debug("module_defn_rust_transpilation", |db, module_path| {
+        crate::defn::module_defn_rust_transpilation(db, module_path).to_string()
+    });
 }

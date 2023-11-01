@@ -3775,32 +3775,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::TraitForType(
-            TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `mnist_classifier::raw_contour`,
-                    trai_path: TraitPath(`core::visual::Visualize`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                    ),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::visual::Visualize`),
-                    template_arguments: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 31,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: TraitForType(
+                TraitForTypeImplBlockHirDecl(
+                    Id {
+                        value: 23,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
@@ -3918,25 +3901,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::Type(
-            TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `mnist_classifier::raw_contour`,
-                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 31,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: Type(
+                TypeImplBlockHirDecl(
+                    Id {
+                        value: 30,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(

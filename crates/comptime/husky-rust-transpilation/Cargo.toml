@@ -5,11 +5,22 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-syn = "2.0.38"
+syn.workspace = true
+proc-macro2.workspace = true
 # abstractions
 salsa = { path = "../../abstractions/salsa" }
+enum-class = { path = "../../abstractions/enum-class" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
+# hir
+husky-hir-defn = { path = "../../hir/husky-hir-defn" }
 # kernel
+husky-coword = { path = "../../kernel/husky-coword" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
+# lex
+husky-token-data = { path = "../../lex/husky-token-data" }
+# syntax
+husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
@@ -20,15 +31,10 @@ husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
 husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
 husky-hir-expr = { path = "../../hir/husky-hir-expr" }
 husky-hir-decl = { path = "../../hir/husky-hir-decl" }
-husky-hir-defn = { path = "../../hir/husky-hir-defn" }
-# fs
-husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
-husky-coword = { path = "../../kernel/husky-coword" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 # lex
-husky-token-data = { path = "../../lex/husky-token-data" }
 husky-token = { path = "../../lex/husky-token" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # kernel

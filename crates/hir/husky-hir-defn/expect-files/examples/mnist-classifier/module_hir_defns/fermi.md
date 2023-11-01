@@ -347,25 +347,15 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDecl::Type(
-            TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `mnist_classifier::fermi`,
-                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 46,
-                        },
-                    ),
+        ImplBlockHirDefn {
+            hir_decl: Type(
+                TypeImplBlockHirDecl(
+                    Id {
+                        value: 20,
+                    },
                 ),
-            },
-        ),
+            ),
+        },
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
