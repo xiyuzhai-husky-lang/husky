@@ -51,4 +51,12 @@ impl HirTemplateParameter {
                 .collect(),
         })
     }
+
+    pub fn symbol(&self) -> HirTemplateSymbol {
+        self.symbol
+    }
+
+    pub fn traits(&self) -> &[HirTrait] {
+        &self.traits
+    }
 }

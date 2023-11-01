@@ -40,7 +40,7 @@ pub(crate) fn reserved_cowords(_db: &dyn TokenDb) -> VecPairMap<&'static str, Pr
             StmtKeyword::Else,
             StmtKeyword::If,
             StmtKeyword::Match,
-            StmtKeyword::ForExt,
+            StmtKeyword::Forext,
             StmtKeyword::While,
             StmtKeyword::Do,
             StmtKeyword::Break,

@@ -5,14 +5,13 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-syn.workspace = true
-proc-macro2.workspace = true
 # abstractions
 salsa = { path = "../../abstractions/salsa" }
 enum-class = { path = "../../abstractions/enum-class" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # hir
+husky-hir-ty = { path = "../../hir/husky-hir-ty" }
 husky-hir-defn = { path = "../../hir/husky-hir-defn" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
@@ -20,13 +19,13 @@ husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # lex
 husky-token-data = { path = "../../lex/husky-token-data" }
 # syntax
+husky-syn-opr = { path = "../../syntax/husky-syn-opr" }
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
 # hir
-husky-hir-ty = { path = "../../hir/husky-hir-ty" }
 husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
 husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
 husky-hir-expr = { path = "../../hir/husky-hir-expr" }

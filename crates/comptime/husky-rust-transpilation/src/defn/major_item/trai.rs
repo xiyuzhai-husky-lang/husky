@@ -9,7 +9,7 @@ impl TranspileToRust for TraitHirDefn {
         let hir_decl = self.hir_decl(db);
         Keyword::Trait.transpile_to_rust(builder);
         hir_decl.path(db).ident(db).transpile_to_rust(builder);
-        hir_decl.template_parameters(db);
+        hir_decl.template_parameters(db).transpile_to_rust(builder);
         todo!()
     }
 }

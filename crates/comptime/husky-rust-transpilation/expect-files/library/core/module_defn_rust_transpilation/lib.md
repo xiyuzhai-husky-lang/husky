@@ -1,1 +1,1 @@
-" mod array;\nmod basic;\nmod clone;\nmod cmp;\nmod default;\nmod fmt;\nmod logic;\nmod marker;\nmod mem;\nmod num;\nmod ops;\nmod option;\nmod prelude;\nmod raw_bits;\nmod result;\nmod vec;\nmod slice;\nmod str;\nmod visual;\n"
+"modarray;\nmodbasic;\nmodclone;\nmodcmp;\nmoddefault;\nmodfmt;\nmodlogic;\nmodmarker;\nmodmem;\nmodnum;\nmodops;\nmodoption;\nmodprelude;\nmodraw_bits;\nmodresult;\nmodvec;\nmodslice;\nmodstr;\nmodvisual;\n"

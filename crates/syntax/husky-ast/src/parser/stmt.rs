@@ -25,7 +25,7 @@ impl<'a> AstParser<'a> {
             StmtKeyword::While
             | StmtKeyword::Do
             | StmtKeyword::NonImplFor
-            | StmtKeyword::ForExt
+            | StmtKeyword::Forext
             | StmtKeyword::Let
             | StmtKeyword::Break
             | StmtKeyword::Return
