@@ -10,10 +10,10 @@ dashmap.workspace = true
 salsa = { path = "../../abstractions/salsa" }
 # comptime
 husky-val-repr = { path = "../../comptime/husky-val-repr" }
-husky-hir-eager-expr = { path = "../../comptime/husky-hir-eager-expr" }
-husky-hir-lazy-expr = { path = "../../comptime/husky-hir-lazy-expr" }
-husky-hir-expr = { path = "../../comptime/husky-hir-expr" }
-husky-hir-deps = { path = "../../comptime/husky-hir-deps" }
+husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
+husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
+husky-hir-expr = { path = "../../hir/husky-hir-expr" }
+husky-hir-deps = { path = "../../hir/husky-hir-deps" }
 # devtime
 husky-trace = { path = "../../devtime/husky-trace" }
 # fs
@@ -31,7 +31,7 @@ husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-task = { path = "../../kernel/husky-task" }
-husky-hir-ty = { path = "../../kernel/husky-hir-ty" }
+husky-hir-ty = { path = "../../hir/husky-hir-ty" }
 # lex
 husky-token-data = { path = "../../lex/husky-token-data" }
 husky-token = { path = "../../lex/husky-token" }

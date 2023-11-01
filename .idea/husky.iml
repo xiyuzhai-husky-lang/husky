@@ -43,7 +43,7 @@
       <sourceFolder url="file://$MODULE_DIR$/crates/benchmarks/simple-profile/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/comptime/husky-c-hir/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/comptime/husky-compile-dir/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/comptime/husky-hir/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/hir/husky-hir/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/comptime/husky-layout/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/comptime/husky-dev-linkage-table/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/comptime/husky-mir/src" isTestSource="false" />
