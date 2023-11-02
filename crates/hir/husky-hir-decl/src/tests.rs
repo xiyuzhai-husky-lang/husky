@@ -74,5 +74,6 @@ fn module_hir_decls(db: &DB, module_path: ModulePath) -> Vec<HirDecl> {
 
 #[test]
 fn module_hir_decls_works() {
-    DB::default().ast_expect_test_debug_with_db("module_hir_decls", module_hir_decls);
+    DB::default()
+        .ast_expect_test_debug_with_db(module_hir_decls, &AstTestConfig::new("module_hir_decls"));
 }

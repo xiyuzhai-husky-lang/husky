@@ -25,7 +25,7 @@ impl ParallelDatabase for DB {
 #[test]
 fn manifest_ast_works() {
     DB::default().vfs_expect_test_debug_with_db(
-        "package_manifest_ast_sheet_sheet",
         TomlAstDb::package_manifest_toml_ast_sheet,
+        &VfsTestConfig::new("package_manifest_ast_sheet_sheet"),
     )
 }

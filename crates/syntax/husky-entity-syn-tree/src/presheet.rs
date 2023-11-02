@@ -21,9 +21,10 @@ pub(crate) fn item_tree_presheet(
 
 #[test]
 fn item_tree_presheet_works() {
-    DB::default().ast_expect_test_debug_with_db("item_tree_presheet", |db, module_path| {
-        item_tree_presheet(db, module_path)
-    })
+    DB::default().ast_expect_test_debug_with_db(
+        |db, module_path| item_tree_presheet(db, module_path),
+        &AstTestConfig::new("item_tree_presheet"),
+    )
 }
 
 #[derive(Debug, PartialEq, Eq)]

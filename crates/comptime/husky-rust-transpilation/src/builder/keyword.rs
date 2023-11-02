@@ -12,12 +12,12 @@ pub enum RustKeyword {
 impl RustKeyword {
     fn code(self) -> &'static str {
         match self {
-            RustKeyword::Fn => todo!(),
-            RustKeyword::Impl => todo!(),
-            RustKeyword::Pub => todo!(),
-            RustKeyword::Type => todo!(),
-            RustKeyword::Mod => todo!(),
-            RustKeyword::Trait => todo!(),
+            RustKeyword::Fn => "fn",
+            RustKeyword::Impl => "impl",
+            RustKeyword::Pub => "pub",
+            RustKeyword::Type => "type",
+            RustKeyword::Mod => "mod",
+            RustKeyword::Trait => "trait",
         }
     }
 }

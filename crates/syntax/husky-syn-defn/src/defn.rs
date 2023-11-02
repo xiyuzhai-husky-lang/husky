@@ -112,10 +112,10 @@ pub(crate) fn module_syn_node_defns(
 fn module_node_defns_works() {
     use tests::*;
 
-    DB::default()
-        .ast_expect_test_debug_with_db("module_syn_node_defns", |db, module_path: ModulePath| {
-            module_path.node_defns(db)
-        });
+    DB::default().ast_expect_test_debug_with_db(
+        |db, module_path: ModulePath| module_path.node_defns(db),
+        &AstTestConfig::new("module_syn_node_defns"),
+    );
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -230,8 +230,8 @@ pub(crate) fn module_syn_defns(
 fn module_defns_works() {
     use tests::*;
 
-    DB::default()
-        .ast_expect_test_debug_with_db("module_syn_defns", |db, module_path: ModulePath| {
-            module_path.defns(db)
-        });
+    DB::default().ast_expect_test_debug_with_db(
+        |db, module_path: ModulePath| module_path.defns(db),
+        &AstTestConfig::new("module_syn_defns"),
+    );
 }

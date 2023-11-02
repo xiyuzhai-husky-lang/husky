@@ -353,7 +353,7 @@ where
                                     dot_regional_token_idx,
                                     ident_token,
                                 },
-                                bra: Bracket::TemplateAngle,
+                                bra: Bracket::TurboFish,
                                 bra_regional_token_idx: langle.regional_token_idx(),
                                 items: smallvec![],
                             }
@@ -545,7 +545,7 @@ where
                     items: smallvec![],
                 }
                 .into(),
-                Bracket::TemplateAngle => match finished_expr {
+                Bracket::TurboFish => match finished_expr {
                     Some(template) => IncompleteSynExpr::CommaList {
                         opr: IncompleteCommaListOpr::TemplateInstantiation { template },
                         bra,

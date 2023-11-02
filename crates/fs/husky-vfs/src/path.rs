@@ -71,52 +71,58 @@ pub(crate) fn resolve_module_path(
         let package_name = read_package_name_from_manifest(db, &manifest_path)
             .ok_or(VfsError::FailToReadPackageNameFromManifest)?;
         match file_stem {
-                "lib" =>  ModulePath::new_root(
+            "lib" => ModulePath::new_root(
+                db,
+                CratePath::new(
                     db,
-                    CratePath::new(
+                    PackagePath::new_local_or_toolchain_package(
                         db,
-                        PackagePath::new_local_or_toolchain_package(
-                            db,
-                            toolchain,
-                            package_name,
-                            parent.parent().ok_or(VfsError::ModulePathResolveFailure)?
-                        )?,
-                        CrateKind::Library,
-                    )
-                ) ,
-                "main" => ModulePath::new_root(
+                        toolchain,
+                        package_name,
+                        parent.parent().ok_or(VfsError::ModulePathResolveFailure)?,
+                    )?,
+                    CrateKind::Library,
+                ),
+            ),
+            "main" => ModulePath::new_root(
+                db,
+                CratePath::new(
                     db,
-                    CratePath::new(
+                    PackagePath::new_local_or_toolchain_package(
                         db,
-                        PackagePath::new_local_or_toolchain_package(
-                            db,
-                            toolchain,
-                            package_name,
-                            parent.parent().ok_or(VfsError::ModulePathResolveFailure)?
-                        )?,
-                        CrateKind::Main,
+                        toolchain,
+                        package_name,
+                        parent.parent().ok_or(VfsError::ModulePathResolveFailure)?,
+                    )?,
+                    CrateKind::Main,
+                ),
+            ),
+            _ => {
+                if let lib_path = parent.join("lib.hsy")
+                    && lib_path.exists()
+                {
+                    ModulePath::new_child(
+                        db,
+                        resolve_module_path(db, toolchain, lib_path)?,
+                        db.it_ident_borrowed(file_stem)
+                            .ok_or(VfsError::ModulePathResolveFailure)?,
                     )
-                 ),
-                _ => {
-                    if let lib_path = parent.join("lib.hsy") && lib_path.exists() {
-                        ModulePath::new_child(
-                            db,
-                            resolve_module_path(db,toolchain, lib_path)?,
-                            db.it_ident_borrowed(file_stem)
-                                .ok_or(VfsError::ModulePathResolveFailure)?,
-                        ).into()
-                    } else if let main_path = parent.join("main.hsy") && main_path.exists() {
-                        ModulePath::new_child(
-                            db,
-                            resolve_module_path(db, toolchain,main_path)?,
-                            db.it_ident_borrowed(file_stem)
-                                .ok_or(VfsError::ModulePathResolveFailure)?,
-                         ).into()
-                    } else {
-                        todo!()
-                    }
+                    .into()
+                } else if let main_path = parent.join("main.hsy")
+                    && main_path.exists()
+                {
+                    ModulePath::new_child(
+                        db,
+                        resolve_module_path(db, toolchain, main_path)?,
+                        db.it_ident_borrowed(file_stem)
+                            .ok_or(VfsError::ModulePathResolveFailure)?,
+                    )
+                    .into()
+                } else {
+                    todo!()
                 }
             }
+        }
     } else {
         let parent_module_path = parent.with_extension("hsy");
         if !parent_module_path.exists() {
@@ -134,12 +140,15 @@ pub(crate) fn resolve_module_path(
 
 #[test]
 fn resolve_module_path_works() {
-    DB::default().vfs_plain_test("resolve-module-path", |db, module_path| {
-        let abs_path = module_diff_path(db, module_path).unwrap();
-        let toolchain = module_path.toolchain(db);
-        let item_path_resolved = db
-            .resolve_module_path(toolchain, abs_path.path(db))
-            .unwrap();
-        assert_eq!(module_path, item_path_resolved)
-    })
+    DB::default().vfs_plain_test(
+        |db, module_path| {
+            let abs_path = module_diff_path(db, module_path).unwrap();
+            let toolchain = module_path.toolchain(db);
+            let item_path_resolved = db
+                .resolve_module_path(toolchain, abs_path.path(db))
+                .unwrap();
+            assert_eq!(module_path, item_path_resolved)
+        },
+        &VfsTestConfig::new("resolve-module-path"),
+    )
 }

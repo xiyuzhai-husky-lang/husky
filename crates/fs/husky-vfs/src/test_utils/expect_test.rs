@@ -1,15 +1,18 @@
 use super::*;
 
-pub(super) fn vfs_expect_test<Db, U>(db: &mut Db, task_name: &str, f: impl Fn(&Db, U) -> String)
-where
+pub(super) fn vfs_expect_test<Db, U>(
+    db: &mut Db,
+    f: impl Fn(&Db, U) -> String,
+    config: &VfsTestConfig,
+) where
     Db: VfsTestUtils + ?Sized,
     U: VfsTestUnit + salsa::DebugWithDb<Db>,
 {
     let toolchain = db.dev_toolchain().unwrap();
-    for domain in vfs_test_suites() {
+    for test_domain in config.test_domains() {
         for (path, package_name) in collect_package_relative_dirs(
             <Db as salsa::DbWithJar<CowordJar>>::as_jar_db(db),
-            &domain.src_base(),
+            &test_domain.src_base(),
         )
         .into_iter()
         {
@@ -18,15 +21,15 @@ where
                 vfs_db,
                 toolchain,
                 package_name,
-                &path.to_logical_path(&domain.src_base()),
+                &path.to_logical_path(&test_domain.src_base()),
             )
             .unwrap();
             for unit in <U as VfsTestUnit>::collect_from_package_path(vfs_db, package_path) {
                 let vfs_db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
                 let expect_file_path = unit.determine_expect_file_path(
                     vfs_db,
-                    task_name,
-                    &path.to_logical_path(&domain.expect_files_base()),
+                    &path.to_logical_path(&test_domain.expect_files_base()),
+                    config,
                 );
                 std::fs::create_dir_all(expect_file_path.parent().unwrap()).unwrap();
                 let output = f(db, unit);
@@ -42,13 +45,13 @@ where
                         }
                     },
                 }
-                if let Some(adversarials_base) = domain.adversarials_base() {
+                if let Some(adversarials_base) = test_domain.adversarials_base() {
                     vfs_adversarial_test(
                         db,
-                        task_name,
                         &path.to_logical_path(adversarials_base),
                         unit,
                         &f,
+                        config,
                     )
                 }
             }

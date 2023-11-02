@@ -75,5 +75,6 @@ fn module_hir_defns(db: &DB, module_path: ModulePath) -> Vec<HirDefn> {
 
 #[test]
 fn module_hir_defns_works() {
-    DB::default().ast_expect_test_debug_with_db("module_hir_defns", module_hir_defns);
+    DB::default()
+        .ast_expect_test_debug_with_db(module_hir_defns, &AstTestConfig::new("module_hir_defns"));
 }

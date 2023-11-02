@@ -26,5 +26,8 @@ impl salsa::Database for DB {}
 
 #[test]
 fn folding_ranges_works() {
-    DB::default().ast_expect_test_debug("folding_ranges", FoldingRangeDb::folding_ranges);
+    DB::default().ast_expect_test_debug(
+        FoldingRangeDb::folding_ranges,
+        &AstTestConfig::new("folding_ranges"),
+    );
 }

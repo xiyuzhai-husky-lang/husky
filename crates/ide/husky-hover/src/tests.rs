@@ -64,7 +64,6 @@ impl salsa::Database for DB {}
 fn hover_result_works() {
     const N: usize = 20;
     DB::default().ast_expect_test_debug(
-        "hover_result",
         |db, module_path| -> EntitySynTreeResult<Vec<(TokenIdx, Option<HoverResult>)>> {
             let ranged_token_sheet = db.ranged_token_sheet(module_path)?;
             let len = ranged_token_sheet.len();
@@ -79,5 +78,6 @@ fn hover_result_works() {
             }
             Ok(hover_results)
         },
+        &AstTestConfig::new("hover_result"),
     )
 }

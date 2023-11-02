@@ -61,6 +61,8 @@ impl DiagnosticSheet {
 
 #[test]
 fn diagnostic_sheet_works() {
-    DB::default()
-        .ast_expect_test_debug_with_db("diagnostic_sheet", DiagnosticsDb::diagnostic_sheet);
+    DB::default().ast_expect_test_debug_with_db(
+        DiagnosticsDb::diagnostic_sheet,
+        &AstTestConfig::new("diagnostic_sheet"),
+    );
 }

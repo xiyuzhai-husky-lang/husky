@@ -16,12 +16,12 @@ pub(crate) fn item_tree_crate_bundle(
 #[test]
 fn item_tree_crate_bundle_works() {
     DB::default().ast_expect_test_debug_with_db(
-        "item_tree_bundle",
         |db, crate_path| -> EntitySynTreeBundleResult<_> {
             Ok(item_tree_crate_bundle(db, crate_path)
                 .as_ref()
                 .map_err(|e| e.clone())?)
         },
+        &AstTestConfig::new("item_tree_bundle"),
     )
 }
 

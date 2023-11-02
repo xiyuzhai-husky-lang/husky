@@ -5,15 +5,16 @@ pub trait VfsTestUnit: Copy {
     fn determine_expect_file_path(
         &self,
         db: &dyn VfsDb,
-        task_name: &str,
         package_expect_files_dir: &Path,
+        config: &VfsTestConfig,
     ) -> PathBuf;
+
     fn determine_adversarial_path(
         self,
         db: &dyn VfsDb,
         adversarial_kind: AdversarialKind,
-        task_name: &str,
         package_adversarials_dir: &Path,
+        config: &VfsTestConfig,
     ) -> Option<PathBuf>;
     fn vfs_test_unit_downcast_as_module_path(self) -> Option<ModulePath>;
 }
@@ -26,11 +27,11 @@ impl VfsTestUnit for PackagePath {
     fn determine_expect_file_path(
         &self,
         _db: &dyn VfsDb,
-        task_name: &str,
         package_expect_files_dir: &Path,
+        config: &VfsTestConfig,
     ) -> PathBuf {
         package_expect_files_dir
-            .with_extension(task_name)
+            .with_extension(config.test_name)
             .with_extension(EXPECT_FILE_EXTENSION)
     }
 
@@ -38,8 +39,8 @@ impl VfsTestUnit for PackagePath {
         self,
         _db: &dyn VfsDb,
         _adversarial_kind: AdversarialKind,
-        _task_name: &str,
         _package_adversarials_dir: &Path,
+        config: &VfsTestConfig,
     ) -> Option<PathBuf> {
         None
     }
@@ -57,12 +58,12 @@ impl VfsTestUnit for CratePath {
     fn determine_expect_file_path(
         &self,
         db: &dyn VfsDb,
-        task_name: &str,
         package_expect_files_dir: &Path,
+        config: &VfsTestConfig,
     ) -> PathBuf {
         package_expect_files_dir.join(format!(
             "{}/{}.{EXPECT_FILE_EXTENSION}",
-            task_name,
+            config.test_name,
             match self.crate_kind(db) {
                 CrateKind::Library => format!("lib"),
                 CrateKind::Main => format!("main"),
@@ -76,8 +77,8 @@ impl VfsTestUnit for CratePath {
         self,
         _db: &dyn VfsDb,
         _adversarial_kind: AdversarialKind,
-        _task_name: &str,
         _package_adversarials_dir: &Path,
+        config: &VfsTestConfig,
     ) -> Option<PathBuf> {
         None
     }
@@ -95,25 +96,24 @@ impl VfsTestUnit for ModulePath {
     fn determine_expect_file_path(
         &self,
         db: &dyn VfsDb,
-        task_name: &str,
         package_expect_files_dir: &Path,
+        config: &VfsTestConfig,
     ) -> PathBuf {
         fn determine_expect_file_aux_path(
             db: &dyn VfsDb,
             module_path: ModulePath,
-            task_name: &str,
             package_expect_files_dir: &Path,
+            config: &VfsTestConfig,
         ) -> PathBuf {
             match module_path.data(db) {
-                ModulePathData::Root(_) => package_expect_files_dir.join(task_name),
+                ModulePathData::Root(_) => package_expect_files_dir.join(config.test_name),
                 ModulePathData::Child { parent, ident } => {
-                    determine_expect_file_aux_path(db, parent, task_name, package_expect_files_dir)
+                    determine_expect_file_aux_path(db, parent, package_expect_files_dir, config)
                         .join(db.dt_ident(ident))
                 }
             }
         }
-        let aux_path =
-            determine_expect_file_aux_path(db, *self, task_name, package_expect_files_dir);
+        let aux_path = determine_expect_file_aux_path(db, *self, package_expect_files_dir, config);
         match self.data(db) {
             ModulePathData::Root(crate_path) => aux_path.join(format!(
                 "{}.{EXPECT_FILE_EXTENSION}",
@@ -132,24 +132,24 @@ impl VfsTestUnit for ModulePath {
         self,
         db: &dyn VfsDb,
         adversarial_kind: AdversarialKind,
-        task_name: &str,
         package_adversarials_dir: &Path,
+        config: &VfsTestConfig,
     ) -> Option<PathBuf> {
         fn determine_adversarial_aux_path(
             db: &dyn VfsDb,
             adversarial_kind: AdversarialKind,
             module_path: ModulePath,
-            task_name: &str,
             package_adversarials_dir: &Path,
+            config: &VfsTestConfig,
         ) -> PathBuf {
             match module_path.data(db) {
-                ModulePathData::Root(_) => package_adversarials_dir.join(task_name),
+                ModulePathData::Root(_) => package_adversarials_dir.join(config.test_name),
                 ModulePathData::Child { parent, ident } => determine_adversarial_aux_path(
                     db,
                     adversarial_kind,
                     parent,
-                    task_name,
                     package_adversarials_dir,
+                    config,
                 )
                 .join(db.dt_ident(ident)),
             }
@@ -158,8 +158,8 @@ impl VfsTestUnit for ModulePath {
             db,
             adversarial_kind,
             self,
-            task_name,
             package_adversarials_dir,
+            config,
         );
         Some(match self.data(db) {
             ModulePathData::Root(crate_path) => aux_path.join(format!(

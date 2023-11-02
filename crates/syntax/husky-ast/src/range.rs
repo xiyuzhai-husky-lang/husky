@@ -28,8 +28,10 @@ pub(crate) fn ast_token_idx_range_sheet(
 #[test]
 fn ast_range_sheet_works() {
     use tests::*;
-    DB::default()
-        .token_expect_test_debug_with_db("ast_range_sheet", AstDb::ast_token_idx_range_sheet);
+    DB::default().token_expect_test_debug_with_db(
+        AstDb::ast_token_idx_range_sheet,
+        &TokenTestConfig::new("ast_range_sheet"),
+    );
 }
 
 impl std::ops::Index<AstIdx> for AstTokenIdxRangeSheet {
