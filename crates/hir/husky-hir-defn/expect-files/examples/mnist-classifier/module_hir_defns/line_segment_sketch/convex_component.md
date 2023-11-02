@@ -48,15 +48,34 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDefn {
-            hir_decl: TraitForType(
-                TraitForTypeImplBlockHirDecl(
-                    Id {
-                        value: 20,
+        ImplBlockHirDefn::TraitForType(
+            TraitForTypeImplBlockHirDefn {
+                hir_decl: TraitForTypeImplBlockHirDecl {
+                    path: TraitForTypeImplBlockPath {
+                        module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                        ),
+                        disambiguator: 0,
                     },
-                ),
-            ),
-        },
+                    template_parameters: HirTemplateParameters {
+                        data: [],
+                    },
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        template_arguments: [],
+                    },
+                    self_ty: PathLeading(
+                        HirTypePathLeading(
+                            Id {
+                                value: 61,
+                            },
+                        ),
+                    ),
+                },
+            },
+        ),
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(

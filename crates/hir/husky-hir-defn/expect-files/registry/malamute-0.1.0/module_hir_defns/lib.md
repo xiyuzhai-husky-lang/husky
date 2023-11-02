@@ -168,15 +168,65 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDefn {
-            hir_decl: TraitForType(
-                TraitForTypeImplBlockHirDecl(
-                    Id {
-                        value: 24,
+        ImplBlockHirDefn::TraitForType(
+            TraitForTypeImplBlockHirDefn {
+                hir_decl: TraitForTypeImplBlockHirDecl {
+                    path: TraitForTypeImplBlockPath {
+                        module_path: `malamute`,
+                        trai_path: TraitPath(`core::ops::Unveil`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`malamute::Class`, `Enum`),
+                        ),
+                        disambiguator: 0,
                     },
-                ),
-            ),
-        },
+                    template_parameters: HirTemplateParameters {
+                        data: [
+                            HirTemplateParameter {
+                                symbol: Type(
+                                    Type {
+                                        attrs: HirSymbolAttrs,
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                traits: [],
+                            },
+                            HirTemplateParameter {
+                                symbol: Const(
+                                    HirConstSymbol(
+                                        Id {
+                                            value: 2,
+                                        },
+                                    ),
+                                ),
+                                traits: [],
+                            },
+                        ],
+                    },
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::ops::Unveil`),
+                        template_arguments: [
+                            Type(
+                                PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 69,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ],
+                    },
+                    self_ty: PathLeading(
+                        HirTypePathLeading(
+                            Id {
+                                value: 68,
+                            },
+                        ),
+                    ),
+                },
+            },
+        ),
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
@@ -223,15 +273,65 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDefn {
-            hir_decl: TraitForType(
-                TraitForTypeImplBlockHirDecl(
-                    Id {
-                        value: 25,
+        ImplBlockHirDefn::TraitForType(
+            TraitForTypeImplBlockHirDefn {
+                hir_decl: TraitForTypeImplBlockHirDecl {
+                    path: TraitForTypeImplBlockPath {
+                        module_path: `malamute`,
+                        trai_path: TraitPath(`core::ops::Unveil`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`malamute::OneVsAll`, `Enum`),
+                        ),
+                        disambiguator: 0,
                     },
-                ),
-            ),
-        },
+                    template_parameters: HirTemplateParameters {
+                        data: [
+                            HirTemplateParameter {
+                                symbol: Type(
+                                    Type {
+                                        attrs: HirSymbolAttrs,
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                traits: [],
+                            },
+                            HirTemplateParameter {
+                                symbol: Const(
+                                    HirConstSymbol(
+                                        Id {
+                                            value: 2,
+                                        },
+                                    ),
+                                ),
+                                traits: [],
+                            },
+                        ],
+                    },
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::ops::Unveil`),
+                        template_arguments: [
+                            Type(
+                                PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 70,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ],
+                    },
+                    self_ty: PathLeading(
+                        HirTypePathLeading(
+                            Id {
+                                value: 69,
+                            },
+                        ),
+                    ),
+                },
+            },
+        ),
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(

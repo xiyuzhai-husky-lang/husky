@@ -1,14 +1,14 @@
 mod ad_hoc_package;
 mod adversarial_test;
+mod domain;
 mod expect_test;
-mod suite;
 mod unit;
 
 pub use self::adversarial_test::*;
+pub use self::domain::*;
 pub use self::expect_test::*;
 pub use self::unit::*;
 
-use self::suite::*;
 use crate::*;
 use husky_path_utils::*;
 use salsa::DebugWithDb;
@@ -35,15 +35,15 @@ pub trait VfsTestUtils: VfsDb {
 
     /// only run to see whether the program will panic
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
-    fn vfs_plain_test<U>(&mut self, task_name: &str, f: impl Fn(&Self, U))
+    fn vfs_plain_test<U>(&mut self, f: impl Fn(&Self, U), config: &VfsTestConfig)
     where
         U: VfsTestUnit,
     {
         let toolchain = self.dev_toolchain().unwrap();
-        for domain in vfs_test_suites() {
+        for test_suite in config.test_domains() {
             for (path, name) in collect_package_relative_dirs(
                 <Self as salsa::DbWithJar<CowordJar>>::as_jar_db(self),
-                &domain.src_base(),
+                &test_suite.src_base(),
             )
             .into_iter()
             {
@@ -52,18 +52,18 @@ pub trait VfsTestUtils: VfsDb {
                     vfs_db,
                     toolchain,
                     name,
-                    &path.to_logical_path(&domain.src_base()),
+                    &path.to_logical_path(&test_suite.src_base()),
                 )
                 .unwrap();
                 for unit in <U as VfsTestUnit>::collect_from_package_path(vfs_db, package_path) {
                     f(self, unit);
-                    if let Some(adversarials_base) = domain.adversarials_base() {
+                    if let Some(adversarials_base) = test_suite.adversarials_base() {
                         vfs_adversarial_test(
                             self,
-                            task_name,
                             &path.to_logical_path(adversarials_base),
                             unit,
                             &f,
+                            config,
                         )
                     }
                 }
@@ -75,27 +75,34 @@ pub trait VfsTestUtils: VfsDb {
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn vfs_expect_test_debug_with_db<'a, U, R>(
         &'a mut self,
-        name: &str,
         f: impl Fn(&'a Self, U) -> R,
+        config: &VfsTestConfig,
     ) where
         U: VfsTestUnit + salsa::DebugWithDb<Self>,
         R: salsa::DebugWithDb<Self>,
     {
-        vfs_expect_test(self, name, |db, u| {
-            format!("{:#?}", &f(unsafe { std::mem::transmute(db) }, u).debug(db))
-        })
+        vfs_expect_test(
+            self,
+            |db, u| format!("{:#?}", &f(unsafe { std::mem::transmute(db) }, u).debug(db)),
+            config,
+        )
     }
 
     /// run to see whether the output agrees with previous
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
-    fn vfs_expect_test_debug<'a, U, R>(&'a mut self, name: &str, f: impl Fn(&'a Self, U) -> R)
-    where
+    fn vfs_expect_test_debug<'a, U, R>(
+        &'a mut self,
+        f: impl Fn(&'a Self, U) -> R,
+        config: &VfsTestConfig,
+    ) where
         U: VfsTestUnit + salsa::DebugWithDb<Self>,
         R: std::fmt::Debug,
     {
-        vfs_expect_test(self, name, |db, u| {
-            format!("{:#?}", &f(unsafe { std::mem::transmute(db) }, u))
-        })
+        vfs_expect_test(
+            self,
+            |db, u| format!("{:#?}", &f(unsafe { std::mem::transmute(db) }, u)),
+            config,
+        )
     }
 }
 
@@ -103,3 +110,17 @@ const EXPECT_FILE_EXTENSION: &'static str = "md";
 const ADVERSARIAL_EXTENSION: &'static str = "json";
 
 impl<Db> VfsTestUtils for Db where Db: VfsDb + ?Sized {}
+
+pub struct VfsTestConfig<'a> {
+    test_name: &'a str,
+    test_domains_config: VfsTestDomainsConfig,
+}
+
+impl<'a> VfsTestConfig<'a> {
+    pub fn new(test_name: &'a str) -> Self {
+        Self {
+            test_name,
+            test_domains_config: Default::default(),
+        }
+    }
+}

@@ -70,6 +70,8 @@ fn major_item_declarative_tys(
 
 #[test]
 fn item_declarative_tys_works() {
-    DB::default()
-        .ast_expect_test_debug_with_db("major_item_declarative_tys", major_item_declarative_tys)
+    DB::default().ast_expect_test_debug_with_db(
+        major_item_declarative_tys,
+        &AstTestConfig::new("major_item_declarative_tys"),
+    )
 }

@@ -1,8 +1,9 @@
+// in husky, there is no <> bracket like in Rust or C++ by design
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub enum Bracket {
     Par,
     Box,
-    TemplateAngle,
+    TurboFish,
     Curl,
     Lambda,
     HtmlAngle,
@@ -13,7 +14,7 @@ impl Bracket {
         match self {
             Bracket::Par => "(",
             Bracket::Box => "[",
-            Bracket::TemplateAngle => "::<",
+            Bracket::TurboFish => "::<",
             Bracket::Curl => "{",
             Bracket::Lambda => "|",
             Bracket::HtmlAngle => "<",
@@ -24,7 +25,7 @@ impl Bracket {
         match self {
             Bracket::Par => ")",
             Bracket::Box => "]",
-            Bracket::TemplateAngle => ">",
+            Bracket::TurboFish => ">",
             Bracket::Curl => "}",
             Bracket::Lambda => "|",
             Bracket::HtmlAngle => "/>",

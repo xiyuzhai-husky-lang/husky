@@ -120,15 +120,34 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDefn {
-            hir_decl: TraitForType(
-                TraitForTypeImplBlockHirDecl(
-                    Id {
-                        value: 26,
+        ImplBlockHirDefn::TraitForType(
+            TraitForTypeImplBlockHirDefn {
+                hir_decl: TraitForTypeImplBlockHirDecl {
+                    path: TraitForTypeImplBlockPath {
+                        module_path: `mnist`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                        ),
+                        disambiguator: 0,
                     },
-                ),
-            ),
-        },
+                    template_parameters: HirTemplateParameters {
+                        data: [],
+                    },
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        template_arguments: [],
+                    },
+                    self_ty: PathLeading(
+                        HirTypePathLeading(
+                            Id {
+                                value: 72,
+                            },
+                        ),
+                    ),
+                },
+            },
+        ),
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
@@ -189,15 +208,27 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDefn {
-            hir_decl: Type(
-                TypeImplBlockHirDecl(
-                    Id {
-                        value: 32,
+        ImplBlockHirDefn::Type(
+            TypeImplBlockHirDefn {
+                hir_decl: TypeImplBlockHirDecl {
+                    path: TypeImplBlockPath {
+                        module_path: `mnist`,
+                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                        disambiguator: 0,
                     },
-                ),
-            ),
-        },
+                    template_parameters: HirTemplateParameters {
+                        data: [],
+                    },
+                    self_ty: PathLeading(
+                        HirTypePathLeading(
+                            Id {
+                                value: 72,
+                            },
+                        ),
+                    ),
+                },
+            },
+        ),
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
@@ -253,15 +284,34 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDefn {
-            hir_decl: TraitForType(
-                TraitForTypeImplBlockHirDecl(
-                    Id {
-                        value: 27,
+        ImplBlockHirDefn::TraitForType(
+            TraitForTypeImplBlockHirDefn {
+                hir_decl: TraitForTypeImplBlockHirDecl {
+                    path: TraitForTypeImplBlockPath {
+                        module_path: `mnist`,
+                        trai_path: TraitPath(`core::ops::IntIndex`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                        ),
+                        disambiguator: 0,
                     },
-                ),
-            ),
-        },
+                    template_parameters: HirTemplateParameters {
+                        data: [],
+                    },
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::ops::IntIndex`),
+                        template_arguments: [],
+                    },
+                    self_ty: PathLeading(
+                        HirTypePathLeading(
+                            Id {
+                                value: 72,
+                            },
+                        ),
+                    ),
+                },
+            },
+        ),
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
@@ -308,15 +358,34 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDefn {
-            hir_decl: TraitForType(
-                TraitForTypeImplBlockHirDecl(
-                    Id {
-                        value: 28,
+        ImplBlockHirDefn::TraitForType(
+            TraitForTypeImplBlockHirDefn {
+                hir_decl: TraitForTypeImplBlockHirDecl {
+                    path: TraitForTypeImplBlockPath {
+                        module_path: `mnist`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                        ),
+                        disambiguator: 0,
                     },
-                ),
-            ),
-        },
+                    template_parameters: HirTemplateParameters {
+                        data: [],
+                    },
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        template_arguments: [],
+                    },
+                    self_ty: PathLeading(
+                        HirTypePathLeading(
+                            Id {
+                                value: 73,
+                            },
+                        ),
+                    ),
+                },
+            },
+        ),
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
@@ -377,15 +446,27 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDefn {
-            hir_decl: Type(
-                TypeImplBlockHirDecl(
-                    Id {
-                        value: 33,
+        ImplBlockHirDefn::Type(
+            TypeImplBlockHirDefn {
+                hir_decl: TypeImplBlockHirDecl {
+                    path: TypeImplBlockPath {
+                        module_path: `mnist`,
+                        ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                        disambiguator: 0,
                     },
-                ),
-            ),
-        },
+                    template_parameters: HirTemplateParameters {
+                        data: [],
+                    },
+                    self_ty: PathLeading(
+                        HirTypePathLeading(
+                            Id {
+                                value: 73,
+                            },
+                        ),
+                    ),
+                },
+            },
+        ),
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
@@ -441,15 +522,34 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDefn {
-            hir_decl: TraitForType(
-                TraitForTypeImplBlockHirDecl(
-                    Id {
-                        value: 29,
+        ImplBlockHirDefn::TraitForType(
+            TraitForTypeImplBlockHirDefn {
+                hir_decl: TraitForTypeImplBlockHirDecl {
+                    path: TraitForTypeImplBlockPath {
+                        module_path: `mnist`,
+                        trai_path: TraitPath(`core::ops::IntIndex`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                        ),
+                        disambiguator: 0,
                     },
-                ),
-            ),
-        },
+                    template_parameters: HirTemplateParameters {
+                        data: [],
+                    },
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::ops::IntIndex`),
+                        template_arguments: [],
+                    },
+                    self_ty: PathLeading(
+                        HirTypePathLeading(
+                            Id {
+                                value: 73,
+                            },
+                        ),
+                    ),
+                },
+            },
+        ),
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(

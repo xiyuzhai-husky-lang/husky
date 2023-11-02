@@ -6148,15 +6148,34 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDefn {
-            hir_decl: TraitForType(
-                TraitForTypeImplBlockHirDecl(
-                    Id {
-                        value: 21,
+        ImplBlockHirDefn::TraitForType(
+            TraitForTypeImplBlockHirDefn {
+                hir_decl: TraitForTypeImplBlockHirDecl {
+                    path: TraitForTypeImplBlockPath {
+                        module_path: `mnist_classifier::line_segment_sketch`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                        ),
+                        disambiguator: 0,
                     },
-                ),
-            ),
-        },
+                    template_parameters: HirTemplateParameters {
+                        data: [],
+                    },
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        template_arguments: [],
+                    },
+                    self_ty: PathLeading(
+                        HirTypePathLeading(
+                            Id {
+                                value: 56,
+                            },
+                        ),
+                    ),
+                },
+            },
+        ),
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
@@ -6295,15 +6314,27 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDefn {
-            hir_decl: Type(
-                TypeImplBlockHirDecl(
-                    Id {
-                        value: 28,
+        ImplBlockHirDefn::Type(
+            TypeImplBlockHirDefn {
+                hir_decl: TypeImplBlockHirDecl {
+                    path: TypeImplBlockPath {
+                        module_path: `mnist_classifier::line_segment_sketch`,
+                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                        disambiguator: 0,
                     },
-                ),
-            ),
-        },
+                    template_parameters: HirTemplateParameters {
+                        data: [],
+                    },
+                    self_ty: PathLeading(
+                        HirTypePathLeading(
+                            Id {
+                                value: 56,
+                            },
+                        ),
+                    ),
+                },
+            },
+        ),
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
@@ -6653,15 +6684,34 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDefn {
-            hir_decl: TraitForType(
-                TraitForTypeImplBlockHirDecl(
-                    Id {
-                        value: 22,
+        ImplBlockHirDefn::TraitForType(
+            TraitForTypeImplBlockHirDefn {
+                hir_decl: TraitForTypeImplBlockHirDecl {
+                    path: TraitForTypeImplBlockPath {
+                        module_path: `mnist_classifier::line_segment_sketch`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                        ),
+                        disambiguator: 0,
                     },
-                ),
-            ),
-        },
+                    template_parameters: HirTemplateParameters {
+                        data: [],
+                    },
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        template_arguments: [],
+                    },
+                    self_ty: PathLeading(
+                        HirTypePathLeading(
+                            Id {
+                                value: 54,
+                            },
+                        ),
+                    ),
+                },
+            },
+        ),
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
@@ -6770,15 +6820,27 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDefn {
-            hir_decl: Type(
-                TypeImplBlockHirDecl(
-                    Id {
-                        value: 29,
+        ImplBlockHirDefn::Type(
+            TypeImplBlockHirDefn {
+                hir_decl: TypeImplBlockHirDecl {
+                    path: TypeImplBlockPath {
+                        module_path: `mnist_classifier::line_segment_sketch`,
+                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                        disambiguator: 0,
                     },
-                ),
-            ),
-        },
+                    template_parameters: HirTemplateParameters {
+                        data: [],
+                    },
+                    self_ty: PathLeading(
+                        HirTypePathLeading(
+                            Id {
+                                value: 54,
+                            },
+                        ),
+                    ),
+                },
+            },
+        ),
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(

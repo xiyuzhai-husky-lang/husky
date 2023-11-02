@@ -36,5 +36,5 @@ impl ParallelDatabase for DB {
 fn ast_sheet_works() {
     use tests::*;
     let mut db = DB::default();
-    db.token_expect_test_debug_with_db("ast_sheet", AstDb::ast_sheet);
+    db.token_expect_test_debug_with_db(AstDb::ast_sheet, &TokenTestConfig::new("ast_sheet"));
 }

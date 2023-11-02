@@ -234,7 +234,8 @@ pub(crate) fn item_tree_sheet(
 
 #[test]
 fn item_tree_sheet_works() {
-    DB::default().ast_expect_test_debug_with_db("item_tree_sheet", |db, module_path| {
-        item_tree_sheet(db, module_path)
-    })
+    DB::default().ast_expect_test_debug_with_db(
+        |db, module_path| item_tree_sheet(db, module_path),
+        &AstTestConfig::new("item_tree_sheet"),
+    )
 }

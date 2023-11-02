@@ -39,15 +39,38 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDefn {
-            hir_decl: Type(
-                TypeImplBlockHirDecl(
-                    Id {
-                        value: 18,
+        ImplBlockHirDefn::Type(
+            TypeImplBlockHirDefn {
+                hir_decl: TypeImplBlockHirDecl {
+                    path: TypeImplBlockPath {
+                        module_path: `core::vec`,
+                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                        disambiguator: 0,
                     },
-                ),
-            ),
-        },
+                    template_parameters: HirTemplateParameters {
+                        data: [
+                            HirTemplateParameter {
+                                symbol: Type(
+                                    Type {
+                                        attrs: HirSymbolAttrs,
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                traits: [],
+                            },
+                        ],
+                    },
+                    self_ty: PathLeading(
+                        HirTypePathLeading(
+                            Id {
+                                value: 23,
+                            },
+                        ),
+                    ),
+                },
+            },
+        ),
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(

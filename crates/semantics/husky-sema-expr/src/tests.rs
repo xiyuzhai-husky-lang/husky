@@ -70,7 +70,10 @@ fn decl_sema_expr_regions(db: &DB, module_path: ModulePath) -> Vec<SemaExprRegio
 
 #[test]
 fn decl_sema_expr_sheets_works() {
-    DB::default().ast_expect_test_debug_with_db("decl_sema_expr_regions", decl_sema_expr_regions)
+    DB::default().ast_expect_test_debug_with_db(
+        decl_sema_expr_regions,
+        &AstTestConfig::new("decl_sema_expr_regions"),
+    )
 }
 
 fn defn_sema_expr_regions(db: &DB, module_path: ModulePath) -> Vec<SemaExprRegion> {
@@ -86,5 +89,8 @@ fn defn_sema_expr_regions(db: &DB, module_path: ModulePath) -> Vec<SemaExprRegio
 
 #[test]
 fn defn_sema_expr_regions_works() {
-    DB::default().ast_expect_test_debug_with_db("defn_sema_expr_regions", defn_sema_expr_regions)
+    DB::default().ast_expect_test_debug_with_db(
+        defn_sema_expr_regions,
+        &AstTestConfig::new("defn_sema_expr_regions"),
+    )
 }

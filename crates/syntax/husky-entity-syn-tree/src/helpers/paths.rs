@@ -96,7 +96,8 @@ pub fn module_item_paths(
 #[test]
 fn module_item_paths_works() {
     let mut db = DB::default();
-    db.ast_expect_test_debug_with_db("module_item_paths", |db, module_path| {
-        module_item_paths(db, module_path)
-    })
+    db.ast_expect_test_debug_with_db(
+        |db, module_path| module_item_paths(db, module_path),
+        &AstTestConfig::new("module_item_paths"),
+    )
 }

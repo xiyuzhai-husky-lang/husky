@@ -72,8 +72,10 @@ pub fn syn_node_decl_sheet(
 fn syn_node_decl_sheet_works() {
     use tests::*;
 
-    DB::default()
-        .ast_expect_test_debug_with_db("syn_node_decl_sheet", SynDeclDb::syn_node_decl_sheet);
+    DB::default().ast_expect_test_debug_with_db(
+        SynDeclDb::syn_node_decl_sheet,
+        &AstTestConfig::new("syn_node_decl_sheet"),
+    );
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new)]
@@ -89,25 +91,33 @@ pub fn syn_decl_sheet(db: &dyn SynDeclDb, path: ModulePath) -> EntitySynTreeResu
     let item_tree_sheet = db.item_syn_tree_sheet(path)?;
     let mut decls: Vec<(ItemPath, SynDecl)> = Default::default();
     for syn_node_path in item_tree_sheet.major_item_syn_node_paths() {
-        if let Some(path) = syn_node_path.path(db) && let Ok(decl) = path.syn_decl(db) {
+        if let Some(path) = syn_node_path.path(db)
+            && let Ok(decl) = path.syn_decl(db)
+        {
             decls.push((path, decl))
         }
     }
     // todo: trait item
     for syn_node_path in item_tree_sheet.impl_block_syn_node_paths() {
-        if let Some(path) = syn_node_path.path(db) && let Ok(decl) = path.syn_decl(db) {
+        if let Some(path) = syn_node_path.path(db)
+            && let Ok(decl) = path.syn_decl(db)
+        {
             decls.push((path.into(), decl.into()));
             match path {
                 ImplBlockPath::TypeImplBlock(path) => {
                     for syn_node_path in path.syn_node_path(db).item_syn_node_paths(db) {
-                        if let Some(path) = syn_node_path.path(db) && let Ok(decl) = path.syn_decl(db) {
+                        if let Some(path) = syn_node_path.path(db)
+                            && let Ok(decl) = path.syn_decl(db)
+                        {
                             decls.push((path.into(), decl.into()))
                         }
                     }
                 }
                 ImplBlockPath::TraitForTypeImplBlock(path) => {
                     for syn_node_path in path.syn_node_path(db).item_syn_node_paths(db) {
-                        if let Some(path) = syn_node_path.path(db) && let Ok(decl) = path.syn_decl(db) {
+                        if let Some(path) = syn_node_path.path(db)
+                            && let Ok(decl) = path.syn_decl(db)
+                        {
                             decls.push((path.into(), decl.into()))
                         }
                     }
@@ -122,5 +132,8 @@ pub fn syn_decl_sheet(db: &dyn SynDeclDb, path: ModulePath) -> EntitySynTreeResu
 fn syn_decl_sheet_works() {
     use tests::*;
 
-    DB::default().ast_expect_test_debug_with_db("syn_decl_sheet", SynDeclDb::syn_decl_sheet);
+    DB::default().ast_expect_test_debug_with_db(
+        SynDeclDb::syn_decl_sheet,
+        &AstTestConfig::new("syn_decl_sheet"),
+    );
 }

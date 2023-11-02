@@ -50,13 +50,13 @@ fn collect_all_modules(
 
 #[test]
 fn submodules_works() {
-    DB::default().ast_expect_test_debug_with_db("submodules", DB::submodules)
+    DB::default().ast_expect_test_debug_with_db(DB::submodules, &AstTestConfig::new("submodules"))
 }
 
 #[test]
 fn all_modules_works() {
     DB::default().ast_expect_test_debug_with_db(
-        "all_modules_within_crate",
         EntitySynTreeDb::all_modules_within_crate,
+        &AstTestConfig::new("all_modules_within_crate"),
     )
 }

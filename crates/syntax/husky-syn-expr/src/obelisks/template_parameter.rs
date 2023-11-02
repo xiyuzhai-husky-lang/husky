@@ -82,7 +82,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
                             colon,
                             ctx.parse_expr_expected2(
                                 Some(ExprEnvironment::WithinBracketedParameterList(
-                                    Bracket::TemplateAngle,
+                                    Bracket::TurboFish,
                                 )),
                                 ExprRootKind::Traits,
                                 OriginalSynExprError::ExpectedTraits,
@@ -142,7 +142,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
             let colon_token = ctx.try_parse_expected(OriginalSynExprError::ExpectedColon)?;
             let ty_expr = ctx.parse_expr_expected2(
                 Some(ExprEnvironment::WithinBracketedParameterList(
-                    Bracket::TemplateAngle,
+                    Bracket::TurboFish,
                 )),
                 ExprRootKind::ConstantImplicitParameterType,
                 OriginalSynExprError::ExpectedConstantImplicitParameterType,

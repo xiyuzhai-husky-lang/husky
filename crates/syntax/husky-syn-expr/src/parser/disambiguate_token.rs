@@ -108,10 +108,9 @@ where
                         match expr.base_item_path(self.db(), &self.context().syn_expr_arena()) {
                             BaseEntityPath::Uncertain {
                                 inclination: BaseEntityPathInclination::TypeOrVariant,
-                            } => DisambiguatedTokenData::Bra(
-                                regional_token_idx,
-                                Bracket::TemplateAngle,
-                            ),
+                            } => {
+                                DisambiguatedTokenData::Bra(regional_token_idx, Bracket::TurboFish)
+                            }
                             BaseEntityPath::Some(item_path) => {
                                 match item_path.item_kind(self.db()) {
                                     EntityKind::Module => todo!(),
@@ -129,7 +128,7 @@ where
                                         | MajorItemKind::Fugitive(_)
                                         | MajorItemKind::Trait => DisambiguatedTokenData::Bra(
                                             regional_token_idx,
-                                            Bracket::TemplateAngle,
+                                            Bracket::TurboFish,
                                         ),
                                     },
                                     EntityKind::AssociatedItem {
@@ -152,12 +151,10 @@ where
                 },
                 PunctuationMapped::ColonColonLa => todo!(),
                 PunctuationMapped::RaOrGt => match (self.last_bra(), self.env_bra()) {
-                    (Some(Bracket::TemplateAngle), _) => {
-                        DisambiguatedTokenData::Ket(regional_token_idx, Bracket::TemplateAngle)
+                    (Some(Bracket::TurboFish), _) => {
+                        DisambiguatedTokenData::Ket(regional_token_idx, Bracket::TurboFish)
                     }
-                    (None, Some(Bracket::TemplateAngle)) => {
-                        return TokenDisambiguationResult::Break(())
-                    }
+                    (None, Some(Bracket::TurboFish)) => return TokenDisambiguationResult::Break(()),
                     _ => DisambiguatedTokenData::BinaryOpr(
                         regional_token_idx,
                         BinaryComparisonOpr::Greater.into(),

@@ -299,7 +299,7 @@ impl PunctuationMapped {
 
     pub fn opt_bra(self) -> Option<Bracket> {
         match self {
-            PunctuationMapped::LaOrLt => Some(Bracket::TemplateAngle),
+            PunctuationMapped::LaOrLt => Some(Bracket::TurboFish),
             PunctuationMapped::Bra(bracket) => Some(bracket),
             _ => None,
         }

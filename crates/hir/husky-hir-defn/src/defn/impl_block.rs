@@ -2,6 +2,7 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[enum_class::from_variants]
+#[salsa::debug_with_db(db = HirDefnDb)]
 pub enum ImplBlockHirDefn {
     Type(TypeImplBlockHirDefn),
     TraitForType(TraitForTypeImplBlockHirDefn),
@@ -30,6 +31,7 @@ impl HasHirDefn for ImplBlockPath {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::debug_with_db(db = HirDefnDb)]
 pub struct TypeImplBlockHirDefn {
     hir_decl: TypeImplBlockHirDecl,
 }
@@ -41,6 +43,7 @@ impl TypeImplBlockHirDefn {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::debug_with_db(db = HirDefnDb)]
 pub struct TraitForTypeImplBlockHirDefn {
     hir_decl: TraitForTypeImplBlockHirDecl,
 }

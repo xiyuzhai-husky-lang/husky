@@ -26,15 +26,27 @@
         ),
     ),
     HirDefn::ImplBlock(
-        ImplBlockHirDefn {
-            hir_decl: Type(
-                TypeImplBlockHirDecl(
-                    Id {
-                        value: 15,
+        ImplBlockHirDefn::Type(
+            TypeImplBlockHirDefn {
+                hir_decl: TypeImplBlockHirDecl {
+                    path: TypeImplBlockPath {
+                        module_path: `core::raw_bits`,
+                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                        disambiguator: 0,
                     },
-                ),
-            ),
-        },
+                    template_parameters: HirTemplateParameters {
+                        data: [],
+                    },
+                    self_ty: PathLeading(
+                        HirTypePathLeading(
+                            Id {
+                                value: 16,
+                            },
+                        ),
+                    ),
+                },
+            },
+        ),
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
